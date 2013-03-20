@@ -49,6 +49,19 @@ footer {
 <div id="content">
 <h1 id="section">関数・メソッド定義 / インデント / セミコロン</h1>
 
+<h2 id="php">PHP</h2>
+
+<pre><code>function f($arg1, $arg2){
+  ...;
+  return ...;
+}
+</code></pre>
+
+<ul>
+  <li>ブロックはC言語ライクに {} で表現</li>
+  <li>行末のセミコロンは省略不可</li>
+</ul>
+
 <h2 id="ruby">Ruby</h2>
 
 <pre><code>def f(arg1, arg2)
@@ -95,6 +108,11 @@ end
 
 <h1 id="section-1">配列</h1>
 
+<h2 id="php-1">PHP</h2>
+
+<p>arr = array(1, 2, 3)
+   arr = array(‘a’ =&gt; 1, ‘b’ =&gt; 2)</p>
+
 <h2 id="coffeescript-1">CoffeeScript</h2>
 
 <pre><code>arr = [1, 2, 3]
@@ -109,7 +127,7 @@ end
 
 <h1 id="substr">substr</h1>
 
-<h2 id="php">PHP</h2>
+<h2 id="php-2">PHP</h2>
 
 <pre><code>string substr(string $string, int $start [, int $length])
 </code></pre>
@@ -133,7 +151,7 @@ string.substr(from [, len])
 
 <h1 id="trim">trim</h1>
 
-<h2 id="php-1">PHP</h2>
+<h2 id="php-3">PHP</h2>
 
 <pre><code>string trim(string $str [, string $charlist])
 </code></pre>
@@ -150,14 +168,6 @@ string.substr(from [, len])
 “\x0B” (ASCII 11 (0x0B)), 垂直タブ  </p>
 </blockquote>
 
-<h2 id="javascript-1">Javascript</h2>
-
-<pre><code>jQuery.trim(str)
-</code></pre>
-
-<p>http://api.jquery.com/jQuery.trim/<br />
-<a href="http://semooh.jp/jquery/api/utilities/jQuery.trim/str/" target="_blank">http://semooh.jp/jquery/api/utilities/jQuery.trim/str/</a></p>
-
 <h2 id="ruby-2">Ruby</h2>
 
 <pre><code>String#strip
@@ -166,11 +176,31 @@ String#strip!
 
 <p><a href="http://www.namaraii.com/rubytips/?%CA%B8%BB%FA%CE%F3#l14" target="_blank">http://www.namaraii.com/rubytips/?%CA%B8%BB%FA%CE%F3#l14</a></p>
 
-<h1 id="join">join</h1>
+<h2 id="javascript-1">Javascript</h2>
+
+<pre><code>jQuery.trim(str)
+</code></pre>
+
+<p>http://api.jquery.com/jQuery.trim/<br />
+<a href="http://semooh.jp/jquery/api/utilities/jQuery.trim/str/" target="_blank">http://semooh.jp/jquery/api/utilities/jQuery.trim/str/</a></p>
+
+<h1 id="join--implode">join / implode</h1>
+
+<h2 id="php-4">PHP</h2>
+
+<pre><code>implode($separator, $arr)
+</code></pre>
+
+<p><a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
 
 <h2 id="ruby-3">Ruby</h2>
 
-<pre><code>Array#join(seperator)
+<pre><code>Array#join(separator)
+</code></pre>
+
+<h2 id="javascript-2">Javascript</h2>
+
+<pre><code>arr.join(separator)
 </code></pre>
 
 <h1 id="section-3">文字列を日付に変換</h1>
