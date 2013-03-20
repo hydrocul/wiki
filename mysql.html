@@ -47,7 +47,33 @@ footer {
 </head>
 <body>
 <div id="content">
-<p>test content</p>
+<h1 id="section">プロセス</h1>
+
+<p>実行中のプロセスの一覧を表示する</p>
+
+<pre><code>SHOW PROCESSLIST;
+SHOW FULL PROCESSLIST;
+</code></pre>
+
+<p>プロセスを強制終了する</p>
+
+<pre><code>KILL プロセスID
+</code></pre>
+
+<h1 id="explain">EXPLAIN</h1>
+
+<p>EXPLAINを使用して、クエリを最適化する | MySQL リファレンスマニュアル
+http://dev.mysql.com/doc/refman/5.1/ja/explain.html</p>
+
+<h1 id="section-1">その他</h1>
+
+<h2 id="mysql">mysqlコマンドで結果が縦に長い時にページャで見たい場合、または横に長くて崩れてしまうのをなんとかしたい場合</h2>
+
+<p>http://tm.root-n.com/database:mysql:etc:pager</p>
+
+<p>mysqlコマンドのオプションに
+    –pager=’less -S’
+をつける。</p>
 
 
 </div>
