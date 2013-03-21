@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>コマンドリファレンス</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="/common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+#content {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+#content h1 {
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+}
+#content h2 {
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+}
+#content ul {
+  margin: 0;
+  padding-left: 2em
+}
+#content pre {
+  margin: 1em 0 1em 20px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 1em 0 1em 20px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+<div id="content">
+<h1>コマンドリファレンス</h1>
+<h2 id="section">コマンドリファレンス</h2>
+
+<h3 id="section-1">カラフルにログを見るには</h3>
+
+<pre><code>git log --graph --date-order --branches --pretty=format:"%Cblue%h %d %Cgreen%ai %Cblue%ae %Creset%s"
+</code></pre>
+
+<h2 id="section-2">リンク集</h2>
+
+<p>gitでアレを元に戻す108の方法<br />
+<a href="http://labs.timedia.co.jp/2011/08/git-undo-999.html" target="_blank">http://labs.timedia.co.jp/2011/08/git-undo-999.html</a></p>
+
+<p>gitで共用リポジトリにpushした変更を取り消す<br />
+<a href="http://d.hatena.ne.jp/shunsuk/20101202/1291278345" target="_blank">http://d.hatena.ne.jp/shunsuk/20101202/1291278345</a></p>
+
+<p>リモートリポジトリのブランチをチェックアウトする方法<br />
+<a href="http://yoshimov.com/?page=Git%2F%A5%EA%A5%E2%A1%BC%A5%C8%A5%D6%A5%E9%A5%F3%A5%C1%A4%CE%CA%D1%B9%B9" target="_blank">http://yoshimov.com/?page=Git%2F%A5%EA%A5%E2%A1%BC%A5%C8%A5%D6%A5%E9%A5%F3%A5%C1%A4%CE%CA%D1%B9%B9</a></p>
+
+<p>リモートリポジトリのブランチを削除する方法<br />
+<a href="http://d.hatena.ne.jp/strkpy/20090719/1247970185" target="_blank">http://d.hatena.ne.jp/strkpy/20090719/1247970185</a></p>
+
+<p>間違ってコミットしてしまったときにやり直すための各種方法<br />
+<a href="http://d.hatena.ne.jp/idesaku/20091106/1257507849" target="_blank">http://d.hatena.ne.jp/idesaku/20091106/1257507849</a></p>
+
+<p>前回コミットした時の状態に戻す方法<br />
+<a href="http://d.hatena.ne.jp/mickey24/20081022/1224668137" target="_blank">http://d.hatena.ne.jp/mickey24/20081022/1224668137</a></p>
+
+<p>前回のコミットを取り消す方法<br />
+[http://es.sourceforge.jp/projects/setucocms/wiki/Git<em>%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28–soft.29.20HEAD.EF.BC.89](http://es.sourceforge.jp/projects/setucocms/wiki/Git</em>%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28–soft.29.20HEAD.EF.BC.89)</p>
+
+
+</div>
+<footer>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+</body>
+</html>

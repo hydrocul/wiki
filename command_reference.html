@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>コマンドリファレンス</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="/common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+#content {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+#content h1 {
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+}
+#content h2 {
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+}
+#content ul {
+  margin: 0;
+  padding-left: 2em
+}
+#content pre {
+  margin: 1em 0 1em 20px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 1em 0 1em 20px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+<div id="content">
+<h1>コマンドリファレンス</h1>
+<h2 id="date">date</h2>
+
+<h3 id="yyyymmdd-hhmmss-">YYYYMMDD-hhmmss の書式で日時を出力する方法</h3>
+
+<pre><code>date "+%Y%m%d-%H%M%S"
+</code></pre>
+
+<h2 id="touch">touch</h2>
+
+<h3 id="touch-">touch でファイルのタイムスタンプを変更する方法</h3>
+
+<pre><code>touch -t 日時 ファイル名
+</code></pre>
+
+<p>日時は <code>YYMMDDHHmm.ss</code> の書式。</p>
+
+<h2 id="find">find</h2>
+
+<p>ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法<br />
+<a href="http://hydrocul.seesaa.net/article/138935635.html" target="_blank">http://hydrocul.seesaa.net/article/138935635.html</a></p>
+
+<p>特定の日に更新したファイルの一覧を表示するコマンド<br />
+<a href="http://hydrocul.seesaa.net/article/134240824.html" target="_blank">http://hydrocul.seesaa.net/article/134240824.html</a></p>
+
+<p>最近更新したファイルの一覧を表示するコマンド<br />
+<a href="http://hydrocul.seesaa.net/article/119629133.html" target="_blank">http://hydrocul.seesaa.net/article/119629133.html</a></p>
+
+<p>ディレクトリの中にあるすべての .svn ディレクトリを消す方法<br />
+<a href="http://hydrocul.seesaa.net/article/126101968.html" target="_blank">http://hydrocul.seesaa.net/article/126101968.html</a></p>
+
+<p>ディレクトリの中にあるすべてのディレクトリ・ファイルのパーミッションを変更する方法<br />
+<a href="http://hydrocul.seesaa.net/article/124463048.html" target="_blank">http://hydrocul.seesaa.net/article/124463048.html</a></p>
+
+<h2 id="ssh">ssh</h2>
+
+<h3 id="tar-">サーバにある大量のファイルを tar しながら、ローカルにダウンロードする方法。</h3>
+
+<pre><code>ssh &lt;ID&gt;@&lt;IP&gt; tar cvzf - &lt;リモートのバックアップ対象ディレクトリ&gt; &gt; &lt;ローカルの保存先tarファイル名&gt;
+</code></pre>
+
+<p>リモートでtarを実行してファイルに書き出すのではなく標準出力に出して、それをsshでそのままローカルに転送し、ローカルでファイルに書き出している。</p>
+
+
+</div>
+<footer>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+</body>
+</html>

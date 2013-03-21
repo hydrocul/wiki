@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>MySQL</title>
+<title>Apacheのメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="/common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -62,32 +62,19 @@ footer {
 </head>
 <body>
 <div id="content">
-<h1>MySQL</h1>
-<h2 id="section">プロセス</h2>
+<h1>Apacheのメモ</h1>
+<h2 id="section">リバースプロキシ</h2>
 
-<p>実行中のプロセスの一覧を表示する</p>
+<p>RailsなどWEBrickを動かす場合で、80番ポートでWEBrickにアクセスできるようにするには、Apacheにリバースプロキシを設定すると簡単。passengerを入れるほどでもない場合に。</p>
 
-<pre><code>SHOW PROCESSLIST;
-SHOW FULL PROCESSLIST;
+<p><a href="https://github.com/gitlabhq/gitlab-recipes/blob/master/apache/gitlab" target="_blank">https://github.com/gitlabhq/gitlab-recipes/blob/master/apache/gitlab</a></p>
+
+<p>Apacheの VirtualHost の設定の中に以下のように書く。</p>
+
+<pre><code>ProxyPass / http://127.0.0.1:3000/
+ProxyPassReverse / http://127.0.0.1:3000/
+ProxyPreserveHost On
 </code></pre>
-
-<p>プロセスを強制終了する</p>
-
-<pre><code>KILL プロセスID
-</code></pre>
-
-<h2 id="explain">EXPLAIN</h2>
-
-<p>EXPLAINを使用して、クエリを最適化する | MySQL リファレンスマニュアル<br />
-<a href="http://dev.mysql.com/doc/refman/5.1/ja/explain.html" target="_blank">http://dev.mysql.com/doc/refman/5.1/ja/explain.html</a></p>
-
-<h2 id="section-1">その他</h2>
-
-<h3 id="mysql">mysqlコマンドで結果が縦に長い時にページャで見たい場合、または横に長くて崩れてしまうのをなんとかしたい場合</h3>
-
-<p><a href="http://tm.root-n.com/database:mysql:etc:pager" target="_blank">http://tm.root-n.com/database:mysql:etc:pager</a></p>
-
-<p>mysqlコマンドのオプションに <code>--pager='less -S'</code> をつける。</p>
 
 
 </div>

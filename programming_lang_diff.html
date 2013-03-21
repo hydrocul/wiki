@@ -3,12 +3,35 @@
 <head>
 <meta charset="UTF-8" />
 <title>プログラミング言語の比較</title>
-<link rel="stylesheet" href="/common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 #content {
   margin-left: 40px;
   margin-right: 40px;
+}
+#content h1 {
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+}
+#content h2 {
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+}
+#content ul {
+  margin: 0;
+  padding-left: 2em
+}
+#content pre {
+  margin: 1em 0 1em 20px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 1em 0 1em 20px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
 }
 footer {
   margin-left: 40px;
@@ -17,14 +40,6 @@ footer {
   padding-top: 10px;
   text-align: right;
   font-size: 80%;
-}
-.smalllinks {
-  padding-left: 0;
-  font-size: 80%;
-}
-.smalllinks li {
-  display: inline;
-  margin-right: 10px;
 }
 </style>
 <script type="text/javascript">
@@ -47,9 +62,10 @@ footer {
 </head>
 <body>
 <div id="content">
-<h1 id="section">関数・メソッド定義 / インデント / セミコロン</h1>
+<h1>プログラミング言語の比較</h1>
+<h2 id="section">関数・メソッド定義 / インデント / セミコロン</h2>
 
-<h2 id="php">PHP</h2>
+<h3 id="php">PHP</h3>
 
 <pre><code>function f($arg1, $arg2){
   ...;
@@ -62,7 +78,7 @@ footer {
   <li>行末のセミコロンは省略不可</li>
 </ul>
 
-<h2 id="ruby">Ruby</h2>
+<h3 id="ruby">Ruby</h3>
 
 <pre><code>def f(arg1, arg2)
   ...
@@ -75,7 +91,7 @@ end
   <li>行末のセミコロンは省略可</li>
 </ul>
 
-<h2 id="scala">Scala</h2>
+<h3 id="scala">Scala</h3>
 
 <pre><code>def f(arg1: String, arg2: Int): String = {
   ...
@@ -87,7 +103,7 @@ end
   <li>行末のセミコロンは省略可</li>
 </ul>
 
-<h2 id="coffeescript">CoffeeScript</h2>
+<h3 id="coffeescript">CoffeeScript</h3>
 
 <pre><code>(arg1, arg2) -&gt;
   ...
@@ -106,28 +122,37 @@ end
   <li>行末のセミコロンは省略可</li>
 </ul>
 
-<h1 id="section-1">配列</h1>
+<h2 id="section-1">データ型の判定</h2>
 
-<h2 id="php-1">PHP</h2>
+<h3 id="ruby-1">Ruby</h3>
+
+<pre><code>num.is_a?(Integer)
+num.is_a?(String)
+num.is_a?(Array)
+</code></pre>
+
+<h2 id="section-2">配列</h2>
+
+<h3 id="php-1">PHP</h3>
 
 <p>arr = array(1, 2, 3)
    arr = array(‘a’ =&gt; 1, ‘b’ =&gt; 2)</p>
 
-<h2 id="coffeescript-1">CoffeeScript</h2>
+<h3 id="coffeescript-1">CoffeeScript</h3>
 
 <pre><code>arr = [1, 2, 3]
 </code></pre>
 
-<h1 id="section-2">正規表現</h1>
+<h2 id="section-3">正規表現</h2>
 
-<h2 id="ruby-1">Ruby</h2>
+<h3 id="ruby-2">Ruby</h3>
 
 <pre><code>"abc abc".gsub(/ab/, "AB")
 </code></pre>
 
-<h1 id="substr">substr</h1>
+<h2 id="substr">substr</h2>
 
-<h2 id="php-2">PHP</h2>
+<h3 id="php-2">PHP</h3>
 
 <pre><code>string substr(string $string, int $start [, int $length])
 </code></pre>
@@ -143,15 +168,15 @@ length が指定され、かつ 0 である場合は、 空文字列なら NULL�
 length を省略した場合は、 start の位置から文字列の最後までの部分文字列を返します。  </p>
 </blockquote>
 
-<h2 id="javascript">JavaScript</h2>
+<h3 id="javascript">JavaScript</h3>
 
 <pre><code>string.substring(from [, to])
 string.substr(from [, len])
 </code></pre>
 
-<h1 id="trim">trim</h1>
+<h2 id="trim">trim</h2>
 
-<h2 id="php-3">PHP</h2>
+<h3 id="php-3">PHP</h3>
 
 <pre><code>string trim(string $str [, string $charlist])
 </code></pre>
@@ -168,7 +193,7 @@ string.substr(from [, len])
 “\x0B” (ASCII 11 (0x0B)), 垂直タブ  </p>
 </blockquote>
 
-<h2 id="ruby-2">Ruby</h2>
+<h3 id="ruby-3">Ruby</h3>
 
 <pre><code>String#strip
 String#strip!
@@ -176,7 +201,7 @@ String#strip!
 
 <p><a href="http://www.namaraii.com/rubytips/?%CA%B8%BB%FA%CE%F3#l14" target="_blank">http://www.namaraii.com/rubytips/?%CA%B8%BB%FA%CE%F3#l14</a></p>
 
-<h2 id="javascript-1">Javascript</h2>
+<h3 id="javascript-1">Javascript</h3>
 
 <pre><code>jQuery.trim(str)
 </code></pre>
@@ -184,35 +209,35 @@ String#strip!
 <p>http://api.jquery.com/jQuery.trim/<br />
 <a href="http://semooh.jp/jquery/api/utilities/jQuery.trim/str/" target="_blank">http://semooh.jp/jquery/api/utilities/jQuery.trim/str/</a></p>
 
-<h1 id="join--implode">join / implode</h1>
+<h2 id="join--implode">join / implode</h2>
 
-<h2 id="php-4">PHP</h2>
+<h3 id="php-4">PHP</h3>
 
 <pre><code>implode($separator, $arr)
 </code></pre>
 
 <p><a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
 
-<h2 id="ruby-3">Ruby</h2>
+<h3 id="ruby-4">Ruby</h3>
 
 <pre><code>Array#join(separator)
 </code></pre>
 
-<h2 id="javascript-2">Javascript</h2>
+<h3 id="javascript-2">Javascript</h3>
 
 <pre><code>arr.join(separator)
 </code></pre>
 
-<h1 id="section-3">文字列を日付に変換</h1>
+<h2 id="section-4">文字列を日付に変換</h2>
 
-<h2 id="ruby-4">Ruby</h2>
+<h3 id="ruby-5">Ruby</h3>
 
 <pre><code>require 'date'
 date = Date.strptime('2013/03/17', '%Y/%m/%d')
 p [date.year, date.month, date.day, date.wday]
 </code></pre>
 
-<p>date.wday で曜日を整数で取得でき。日曜日が0。</p>
+<p>date.wday で曜日を整数で取得でき、日曜日が0。</p>
 
 
 </div>
