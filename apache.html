@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <title>Apacheのメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="/common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 #content {
@@ -74,6 +74,105 @@ footer {
 <pre><code>ProxyPass / http://127.0.0.1:3000/
 ProxyPassReverse / http://127.0.0.1:3000/
 ProxyPreserveHost On
+</code></pre>
+
+<h2 id="phphtaccess">ファイルが存在しない場合に限り特定のPHPなどで処理する.htaccess</h2>
+
+<pre><code>RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule  (.*) index.php/$1 [L]
+</code></pre>
+
+<h2 id="urlbasichtaccess">特定のURLを除外してBASIC認証をかけるhtaccess</h2>
+
+<p>例</p>
+
+<pre><code>Satisfy Any
+
+AuthUserFile /var/www/.htpasswd
+AuthGroupFile /dev/null
+AuthName "secret area"
+AuthType Basic
+require valid-user
+
+SetEnvIf Request_URI /welcome.html excludeauth
+Order deny,allow
+Deny from all
+Allow from env=excludeauth
+</code></pre>
+
+<p>BASIC認証をかけつつ、 <code>SetEnfIf</code> で特定のURLのときに変数を設定して、 <code>Allow</code> でその変数が設定されているときのアクセスを許可する。 <code>Satisfy Any</code> の指定は <code>require</code> と <code>Allow</code> のいずれかが満たされれば、アクセスが許可される、という意味。</p>
+
+<h2 id="htaccess">メンテナンス画面に切り替えるための.htaccess</h2>
+
+<p>.htaccess の RewriteEngine On の直後に以下を書く</p>
+
+<pre><code>RewriteCond %{REQUEST_URI} !^.*\.(js|css|gif|png|jpg)$
+RewriteCond %{REQUEST_URI} !/maintenance\.html$
+RewriteRule ^(.*) /maintenance.html [R,L]
+</code></pre>
+
+<p>メンテナンスが終わった後は、上記3行を消して、代わりに以下を書く</p>
+
+<pre><code>RewriteRule ^maintenance.html$ / [R,L]
+</code></pre>
+
+<h2 id="csr">CSRの作成方法</h2>
+
+<pre><code>$ ps aux | openssl md5 &gt; rand.dat
+$ openssl genrsa -rand rand.dat -des3 2048 &gt; 2012key.pem
+33 semi-random bytes loaded
+Generating RSA private key, 1024 bit long modulus
+.............................++++++
+.......++++++
+e is 65537 (0x10001)
+Enter pass phrase:
+Verifying - Enter pass phrase:
+$ openssl req -new -key 2012key.pem -out 2012csr.pem
+Enter pass phrase for 2012key.pem:
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:JP
+State or Province Name (full name) [Some-State]:Tokyo
+Locality Name (eg, city) []:Shibuya-ku
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Example Inc.
+Organizational Unit Name (eg, section) []:
+Common Name (eg, YOUR name) []:www.example.com
+Email Address []:←入力しない
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:←入力しない
+An optional company name []:←入力しない
+$ openssl rsa -in 2012key.pem -out 2012key-nopass.pem
+Enter pass phrase for 2012key.pem:
+writing RSA key
+$ cat 2012key.pem
+-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: DES-EDE3-CBC,9B527A3154370DC3
+
+MfBHRtPNOcpsvS/v8iROQiKI0OxkG/BDjgms5UcK8lZ0bVbWh+4pPM5k+cIs16b1
+...
+S3JLM5rJYiDqD68w+v1nr02eQ29eL4o8wosJJvILs5uGfe9/IbGY0g==
+-----END RSA PRIVATE KEY-----
+$ cat 2012key-nopass.pem
+-----BEGIN RSA PRIVATE KEY-----
+MIICXQIBAAKBgQDHJclRL5NKhmu6A3trgZJY6ZoRQfrjWcnhbxTNDRjS0sQHib/O
+...
+WxeCZcn78PNkRhnzV18rmniW7ey3GZt3NfDoGSP+4Gml
+-----END RSA PRIVATE KEY-----
+$ cat 2012csr.pem
+-----BEGIN CERTIFICATE REQUEST-----
+MIIBpzCCARACAQAwZzELMAkGA1UEBhMCSlAxDjAMBgNVBAgTBVRva3lvMRMwEQYD
+...
+EAUvkvx4rxqGKbYSr1fyPGWrTU+JSjEAlqz1QU4HPgrL1639qMroMggf8A==
+-----END CERTIFICATE REQUEST-----
 </code></pre>
 
 

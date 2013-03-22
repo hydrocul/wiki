@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <title>コマンドリファレンス</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="/common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 #content {
@@ -96,14 +96,30 @@ footer {
 <p>ディレクトリの中にあるすべてのディレクトリ・ファイルのパーミッションを変更する方法<br />
 <a href="http://hydrocul.seesaa.net/article/124463048.html" target="_blank">http://hydrocul.seesaa.net/article/124463048.html</a></p>
 
+<h2 id="tr">tr</h2>
+
+<p>ファイルの特定の文字を改行に全置換するには</p>
+
+<pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
+</code></pre>
+
+<p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
+
 <h2 id="ssh">ssh</h2>
 
 <h3 id="tar-">サーバにある大量のファイルを tar しながら、ローカルにダウンロードする方法。</h3>
 
-<pre><code>ssh &lt;ID&gt;@&lt;IP&gt; tar cvzf - &lt;リモートのバックアップ対象ディレクトリ&gt; &gt; &lt;ローカルの保存先tarファイル名&gt;
+<pre><code>ssh &lt;ID&gt;@&lt;IP&gt; tar cvzf - リモートのバックアップ対象ディレクトリ &gt; ローカルの保存先tarファイル名
 </code></pre>
 
 <p>リモートでtarを実行してファイルに書き出すのではなく標準出力に出して、それをsshでそのままローカルに転送し、ローカルでファイルに書き出している。</p>
+
+<h2 id="section">その他</h2>
+
+<p>FTPサーバの中のファイルリストを作成</p>
+
+<pre><code>lftp -c "open ユーザ名@ホスト名またはIP; find" | tee filelist.txt
+</code></pre>
 
 
 </div>

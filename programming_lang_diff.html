@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <title>プログラミング言語の比較</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 #content {
@@ -152,6 +152,12 @@ num.is_a?(Array)
 
 <h2 id="substr">substr</h2>
 
+<h3 id="java">Java</h3>
+
+<pre><code>String String#substring(int from)
+String String#substring(int from, int to)
+</code></pre>
+
 <h3 id="php-2">PHP</h3>
 
 <pre><code>string substr(string $string, int $start [, int $length])
@@ -175,6 +181,11 @@ string.substr(from [, len])
 </code></pre>
 
 <h2 id="trim">trim</h2>
+
+<h3 id="java-1">Java</h3>
+
+<pre><code>String String#trim()
+</code></pre>
 
 <h3 id="php-3">PHP</h3>
 
@@ -209,16 +220,92 @@ String#strip!
 <p>http://api.jquery.com/jQuery.trim/<br />
 <a href="http://semooh.jp/jquery/api/utilities/jQuery.trim/str/" target="_blank">http://semooh.jp/jquery/api/utilities/jQuery.trim/str/</a></p>
 
-<h2 id="join--implode">join / implode</h2>
+<h2 id="startswith--endswith">startsWith / endsWith</h2>
+
+<h3 id="java-2">Java</h3>
+
+<pre><code>String String#startsWith(String prefix)
+String String#endsWith(String suffix)
+</code></pre>
+
+<h3 id="ruby-4">Ruby</h3>
+
+<pre><code>String#start_with?(prefix)
+String#end_with?(suffix)
+</code></pre>
+
+<h2 id="sprintf">sprintf</h2>
+
+<h3 id="java-3">Java</h3>
+
+<pre><code>static String String#format(String format, Object... args)
+</code></pre>
+
+<p>例：</p>
+
+<pre><code>String.format("%s %d", "abc", 1)
+</code></pre>
+
+<p>フォーマットの説明<br />
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax</a></p>
 
 <h3 id="php-4">PHP</h3>
+
+<pre><code>string sprintf(string $format [, $arg1 [, $arg2 ... ]])
+</code></pre>
+
+<p>フォーマットの説明<br />
+<a href="http://www.php.net/manual/ja/function.sprintf.php" target="_blank">http://www.php.net/manual/ja/function.sprintf.php</a></p>
+
+<h3 id="ruby-5">Ruby</h3>
+
+<p>例：</p>
+
+<pre><code>"%s %d" % ["abc", 1]
+</code></pre>
+
+<p>フォーマットの説明<br />
+<a href="http://www.ruby-lang.org/ja/old-man/html/sprintf_A5D5A5A9A1BCA5DEA5C3A5C8.html" target="_blank">http://www.ruby-lang.org/ja/old-man/html/sprintf_A5D5A5A9A1BCA5DEA5C3A5C8.html</a></p>
+
+<h2 id="indexof">indexOf</h2>
+
+<h3 id="java-4">Java</h3>
+
+<pre><code>int String#indexOf(int ch)
+int String#indexOf(String str)
+int List#indexOf(Object o)
+
+int String#lastIndexOf(int ch)
+int String#lastIndexOf(String str)
+int List#lastIndexOf(Object o)
+</code></pre>
+
+<h2 id="length">length</h2>
+
+<h3 id="java-5">Java</h3>
+
+<pre><code>int String#length()
+int List#size()
+</code></pre>
+
+<h2 id="isempty">isEmpty</h2>
+
+<h3 id="java-6">Java</h3>
+
+<pre><code>boolean String#isEmpty()
+boolean List#isEmpty()
+</code></pre>
+
+<h2 id="join">join</h2>
+
+<h3 id="php-5">PHP</h3>
 
 <pre><code>implode($separator, $arr)
 </code></pre>
 
 <p><a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
 
-<h3 id="ruby-4">Ruby</h3>
+<h3 id="ruby-6">Ruby</h3>
 
 <pre><code>Array#join(separator)
 </code></pre>
@@ -230,7 +317,7 @@ String#strip!
 
 <h2 id="section-4">文字列を日付に変換</h2>
 
-<h3 id="ruby-5">Ruby</h3>
+<h3 id="ruby-7">Ruby</h3>
 
 <pre><code>require 'date'
 date = Date.strptime('2013/03/17', '%Y/%m/%d')

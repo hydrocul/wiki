@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>CSSのメモ</title>
+<title>Ubuntu</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -62,14 +62,17 @@ footer {
 </head>
 <body>
 <div id="content">
-<h1>CSSのメモ</h1>
-<h2 id="section">右にはみ出した文字を点々(三点リーダ)で省略するには</h2>
+<h1>Ubuntu</h1>
+<h2 id="ufw">ufwの使い方</h2>
 
-<pre><code>text-overflow: ellipses;
+<p><a href="http://linuxsalad.blogspot.com/2009/02/ufw.html" target="_blank">http://linuxsalad.blogspot.com/2009/02/ufw.html</a></p>
+
+<h2 id="ip">固定IPにする方法</h2>
+
+<p>/etc/network/interfaces を設定する他に以下を実行する。</p>
+
+<pre><code>sudo update-rc.d -f NetworkManager remove
 </code></pre>
-
-<p>https://developer.mozilla.org/ja/docs/CSS/text-overflow<br />
-<a href="http://d.hatena.ne.jp/end0tknr/20120324/1332589506" target="_blank">http://d.hatena.ne.jp/end0tknr/20120324/1332589506</a></p>
 
 
 </div>

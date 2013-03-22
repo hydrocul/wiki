@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <title>コマンドリファレンス</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="/common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 #content {
@@ -70,7 +70,27 @@ footer {
 <pre><code>git log --graph --date-order --branches --pretty=format:"%Cblue%h %d %Cgreen%ai %Cblue%ae %Creset%s"
 </code></pre>
 
-<h2 id="section-2">リンク集</h2>
+<h3 id="diff">diffでリネームされたファイルは表示されないようにするには</h3>
+
+<pre><code>git diff --cached --find-renames
+</code></pre>
+
+<h3 id="section-2">リモートにあってローカルにはないブランチをチェックアウトするには</h3>
+
+<pre><code>git checkout -b &lt;branch-name&gt; origin/&lt;branch-name&gt;
+</code></pre>
+
+<h3 id="section-3">ローカルにはすでに存在せずリモートに残っているブランチを削除するには</h3>
+
+<pre><code>git push origin :&lt;branch-name&gt;
+</code></pre>
+
+<h3 id="section-4">ローカルに残っているリモート追跡用のブランチを削除するには</h3>
+
+<pre><code>git branch -d -r origin/&lt;branch-name&gt;
+</code></pre>
+
+<h2 id="section-5">リンク集</h2>
 
 <p>gitでアレを元に戻す108の方法<br />
 <a href="http://labs.timedia.co.jp/2011/08/git-undo-999.html" target="_blank">http://labs.timedia.co.jp/2011/08/git-undo-999.html</a></p>
@@ -90,8 +110,7 @@ footer {
 <p>前回コミットした時の状態に戻す方法<br />
 <a href="http://d.hatena.ne.jp/mickey24/20081022/1224668137" target="_blank">http://d.hatena.ne.jp/mickey24/20081022/1224668137</a></p>
 
-<p>前回のコミットを取り消す方法<br />
-[http://es.sourceforge.jp/projects/setucocms/wiki/Git<em>%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28–soft.29.20HEAD.EF.BC.89](http://es.sourceforge.jp/projects/setucocms/wiki/Git</em>%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28–soft.29.20HEAD.EF.BC.89)</p>
+<p><a href="http://es.sourceforge.jp/projects/setucocms/wiki/Git_%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28--soft.29.20HEAD.EF.BC.89" target="_blank">前回のコミットを取り消す方法</a></p>
 
 
 </div>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <title>MySQL</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="/common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 #content {
@@ -81,13 +81,24 @@ SHOW FULL PROCESSLIST;
 <p>EXPLAINを使用して、クエリを最適化する | MySQL リファレンスマニュアル<br />
 <a href="http://dev.mysql.com/doc/refman/5.1/ja/explain.html" target="_blank">http://dev.mysql.com/doc/refman/5.1/ja/explain.html</a></p>
 
-<h2 id="section-1">その他</h2>
+<h2 id="section-1">テーブルの文字コードを調べる</h2>
 
-<h3 id="mysql">mysqlコマンドで結果が縦に長い時にページャで見たい場合、または横に長くて崩れてしまうのをなんとかしたい場合</h3>
+<p><a href="http://www.softel.co.jp/blogs/tech/archives/1470" target="_blank">http://www.softel.co.jp/blogs/tech/archives/1470</a></p>
+
+<h2 id="mysql1">MySQLダンプファイルを1行ずつ見やすいフォーマットにする</h2>
+
+<pre><code>mysqldump -u ユーザ名 -p --skip-extended-insert --complete-insert --order-by-primary データベース名
+</code></pre>
+
+<p>オプション <code>--skip-extended-insert</code> は1レコードごとに1つのINSERT文を出力する。<br />
+オプション <code>--complete-insert</code> はカラム名もINSERT文ごとにいちいち出力する。<br />
+オプション <code>--order-by-primary</code> はプライマリキーの順にINSER文を出力する。  </p>
+
+<h2 id="mysql">mysqlコマンドで結果が縦に長い時にページャで見たい場合、または横に長くて崩れてしまうのをなんとかしたい場合</h2>
 
 <p><a href="http://tm.root-n.com/database:mysql:etc:pager" target="_blank">http://tm.root-n.com/database:mysql:etc:pager</a></p>
 
-<p>mysqlコマンドのオプションに <code>--pager='less -S'</code> をつける。</p>
+<p>mysqlコマンドのオプションに <code>--pager='less -S -X -F'</code> をつける。 <code>-X</code> を付けると、 less 終了時に画面をクリアしない。 <code>-F</code> を付けると、行数が短くて位置画面に収まる場合は less がすぐに終了する。</p>
 
 
 </div>
