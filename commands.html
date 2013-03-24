@@ -101,11 +101,56 @@ footer {
 
 <p>リモートでtarを実行してファイルに書き出すのではなく標準出力に出して、それをsshでそのままローカルに転送し、ローカルでファイルに書き出している。</p>
 
-<h2 id="section">その他</h2>
+<h3 id="ssh-1">SSHが勝手に切断されないようにするには</h3>
 
-<p>FTPサーバの中のファイルリストを作成</p>
+<p>クライアント側の ~/.ssh/config に以下を記述する。</p>
+
+<pre><code>Host *
+  ServerAliveInterval 60
+</code></pre>
+
+<h2 id="rsync">rsync</h2>
+
+<h3 id="section">リモートホストからローカルにダウンロードするには</h3>
+
+<pre><code>rsync -av リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+</code></pre>
+
+<h2 id="wget">wget</h2>
+
+<p>GNU Wget 1.12 Manual<br />
+<a href="http://www.gnu.org/software/wget/manual/wget.html" target="_blank">http://www.gnu.org/software/wget/manual/wget.html</a></p>
+
+<p>GNU Wget 1.9 Manual 日本語<br />
+<a href="http://www.bookshelf.jp/texi/wget/wget-ja.html" target="_blank">http://www.bookshelf.jp/texi/wget/wget-ja.html</a></p>
+
+<h3 id="section-1">ウェブサイトを丸ごとダウンロードするには</h3>
+
+<p>ウェブサイトを第3階層までリンクをたどりダウンロードする</p>
+
+<pre><code>wget -r -l3 URL
+</code></pre>
+
+<p>ウェブサイトを第5階層までリンクをたどりダウンロードする。かつローカルでサイトを閲覧できるように、パスを相対パスに書き換える。</p>
+
+<pre><code>wget -r -l5 --convert-links URL
+</code></pre>
+
+<h2 id="lftp">lftp</h2>
+
+<h3 id="ftp">FTPサーバの中のファイルリストを作成するには</h3>
 
 <pre><code>lftp -c "open ユーザ名@ホスト名またはIP; find" | tee filelist.txt
+</code></pre>
+
+<h2 id="jhead">jhead</h2>
+
+<p>Exif Jpeg header manipulation tool<br />
+<a href="http://www.sentex.net/~mwandel/jhead/" target="_blank">http://www.sentex.net/~mwandel/jhead/</a></p>
+
+<h3 id="jpegexif">jpegのExif情報にある撮影日情報をもとにファイル名を変更するには</h3>
+
+<pre><code>jhead -nf%Y-%m-%d-%H%M%S IMAG0000.jpg
 </code></pre>
 
 
