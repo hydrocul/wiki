@@ -70,27 +70,41 @@ footer {
 <pre><code>date "+%Y%m%d-%H%M%S"
 </code></pre>
 
-<h2 id="touch">touch</h2>
-
-<h3 id="touch-">touch でファイルのタイムスタンプを変更する方法</h3>
-
-<pre><code>touch -t 日時 ファイル名
-</code></pre>
-
-<p>日時は <code>YYMMDDHHmm.ss</code> の書式。</p>
-
 <h2 id="find">find</h2>
 
-<p>-&gt; find.md</p>
+<p><i>-&gt; <a href="find.html">find</a></i></p>
 
-<h2 id="tr">tr</h2>
+<h2 id="git">git</h2>
 
-<p>ファイルの特定の文字を改行に全置換するには</p>
+<p><i>-&gt; <a href="git.html">git</a></i></p>
 
-<pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
+<h2 id="jhead">jhead</h2>
+
+<p>Exif Jpeg header manipulation tool<br />
+<a href="http://www.sentex.net/~mwandel/jhead/" target="_blank">http://www.sentex.net/~mwandel/jhead/</a></p>
+
+<h3 id="jpegexif">jpegのExif情報にある撮影日情報をもとにファイル名を変更するには</h3>
+
+<pre><code>jhead -nf%Y-%m-%d-%H%M%S IMAG0000.jpg
 </code></pre>
 
-<p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
+<h2 id="lftp">lftp</h2>
+
+<h3 id="ftp">FTPサーバの中のファイルリストを作成するには</h3>
+
+<pre><code>lftp -c "open ユーザ名@ホスト名またはIP; find" | tee filelist.txt
+</code></pre>
+
+<h2 id="mysql">mysql</h2>
+
+<p><i>-&gt; <a href="mysql.html">MySQL</a></i></p>
+
+<h2 id="rsync">rsync</h2>
+
+<h3 id="section">リモートホストからローカルにダウンロードするには</h3>
+
+<pre><code>rsync -av リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+</code></pre>
 
 <h2 id="ssh">ssh</h2>
 
@@ -109,12 +123,23 @@ footer {
   ServerAliveInterval 60
 </code></pre>
 
-<h2 id="rsync">rsync</h2>
+<h2 id="touch">touch</h2>
 
-<h3 id="section">リモートホストからローカルにダウンロードするには</h3>
+<h3 id="touch-">touch でファイルのタイムスタンプを変更する方法</h3>
 
-<pre><code>rsync -av リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+<pre><code>touch -t 日時 ファイル名
 </code></pre>
+
+<p>日時は <code>YYMMDDHHmm.ss</code> の書式。</p>
+
+<h2 id="tr">tr</h2>
+
+<p>ファイルの特定の文字を改行に全置換するには</p>
+
+<pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
+</code></pre>
+
+<p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
 <h2 id="wget">wget</h2>
 
@@ -136,26 +161,10 @@ footer {
 <pre><code>wget -r -l5 --convert-links URL
 </code></pre>
 
-<h2 id="lftp">lftp</h2>
-
-<h3 id="ftp">FTPサーバの中のファイルリストを作成するには</h3>
-
-<pre><code>lftp -c "open ユーザ名@ホスト名またはIP; find" | tee filelist.txt
-</code></pre>
-
-<h2 id="jhead">jhead</h2>
-
-<p>Exif Jpeg header manipulation tool<br />
-<a href="http://www.sentex.net/~mwandel/jhead/" target="_blank">http://www.sentex.net/~mwandel/jhead/</a></p>
-
-<h3 id="jpegexif">jpegのExif情報にある撮影日情報をもとにファイル名を変更するには</h3>
-
-<pre><code>jhead -nf%Y-%m-%d-%H%M%S IMAG0000.jpg
-</code></pre>
-
 
 </div>
 <footer>
+  <a href="./">目次</a>
   Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 </body>
