@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>SSH | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+#content {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+#content h1 {
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+}
+#content h2 {
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+}
+#content ul {
+  margin: 0;
+  padding-left: 2em
+}
+#content pre {
+  margin: 1em 0 1em 20px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 1em 0 1em 20px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+<div id="content">
+<h1>SSH</h1>
+<h2 id="tar-">サーバにある大量のファイルを tar しながら、ローカルにダウンロードする方法。</h2>
+
+<pre><code>ssh &lt;ID&gt;@&lt;IP&gt; tar cvzf - リモートのバックアップ対象ディレクトリ &gt; ローカルの保存先tarファイル名
+</code></pre>
+
+<p>リモートでtarを実行してファイルに書き出すのではなく標準出力に出して、それをsshでそのままローカルに転送し、ローカルでファイルに書き出している。</p>
+
+<h2 id="ssh">SSHが勝手に切断されないようにするには</h2>
+
+<p>クライアント側の ~/.ssh/config に以下を記述する。</p>
+
+<pre><code>Host *
+  ServerAliveInterval 60
+</code></pre>
+
+<h2 id="section">秘密鍵・公開鍵のペアを作るには</h2>
+
+<p>以下のコマンドで <code>~/.ssh/id_rsa</code>, <code>~/.ssh/id_rsa.pub</code> にできる。</p>
+
+<pre><code>ssh-keygen -t rsa
+</code></pre>
+
+<h2 id="section-1">公開鍵をリモートのサーバに簡単に設置するには</h2>
+
+<pre><code>cat ~/.ssh/id_rsa.pub | ssh &lt;ID&gt;@&lt;IP&gt; "bash -c \"if [ ! -d ~/.ssh ] ; then mkdir ~/.ssh; fi; if [ -f ~/.ssh/authorized_keys ] ; then cat &gt;&gt; ~/.ssh/authorized_keys; else cat &gt;&gt; ~/.ssh/authorized_keys2; fi\""
+</code></pre>
+
+<p>このコマンドを実行すると、公開鍵がリモートのサーバに設置される。リモートのサーバにとって初めての公開鍵であれば、パーミッションとかを調整する必要があるかもしれない。ファイル名が <code>authorized_keys</code> だったり <code>authorized_keys2</code> だったりするのはよくわからない。</p>
+
+<p>sshのオプションの中で bash を起動しているのは、FreeBSDのサーバなどでデフォルトのシェルがcshの場合に、ifの構文が違っていて動かないので、bashを強制するため。</p>
+
+
+</div>
+<footer>
+  <a href="./">目次</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+</body>
+</html>

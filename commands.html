@@ -63,6 +63,34 @@ footer {
 <body>
 <div id="content">
 <h1>コマンドリファレンス</h1>
+<h2 id="ack-grep">ack-grep</h2>
+
+<h3 id="section">インストール</h3>
+
+<p>Ubuntuの場合</p>
+
+<pre><code>sudo apt-get install ack-grep
+</code></pre>
+
+<h3 id="section-1">対応しているファイルタイプの一覧を見るには</h3>
+
+<pre><code>ack-grep --help-type
+</code></pre>
+
+<p>ファイルタイプの一覧をいじるには <code>/usr/share/perl5/App/Ack.pm</code> をいじる(apt-get でインストールした場合)。以下はmarkdown形式に対応させる例。</p>
+
+<pre><code>--- Ack.pm
++++ Ack.pm
+@@ -93,6 +93,7 @@
+         lisp        =&gt; [qw( lisp lsp )],
+         lua         =&gt; [qw( lua )],
+         make        =&gt; q{Makefiles},
++        markdown    =&gt; [qw( md markdown )],
+         mason       =&gt; [qw( mas mhtml mpl mtxt )],
+         objc        =&gt; [qw( m h )],
+         objcpp      =&gt; [qw( mm h )],
+</code></pre>
+
 <h2 id="date">date</h2>
 
 <h3 id="yyyymmdd-hhmmss-">YYYYMMDD-hhmmss の書式で日時を出力する方法</h3>
@@ -88,6 +116,20 @@ footer {
 <pre><code>jhead -nf%Y-%m-%d-%H%M%S IMAG0000.jpg
 </code></pre>
 
+<h2 id="less">less</h2>
+
+<ul>
+  <li>オプション <code>-X</code> は、less 終了時に画面をクリアしない。</li>
+  <li>オプション <code>-F</code> は、行数が短くて位置画面に収まる場合は less がすぐに終了する。</li>
+  <li>オプション <code>-R</code> は、色などのエスケープシーケンスをそのとおりに解釈して色付きで表示する。 <code>ls</code> は <code>--color</code> を付け、 <code>grep</code> は <code>--color=always</code> を付けると色付きで出力される。</li>
+</ul>
+
+<p><code>-R</code> の例</p>
+
+<pre><code>ls -alF --color | less -X -R
+grep -rni --color=always abc | less -X -R
+</code></pre>
+
 <h2 id="lftp">lftp</h2>
 
 <h3 id="ftp">FTPサーバの中のファイルリストを作成するには</h3>
@@ -99,9 +141,18 @@ footer {
 
 <p><i>-&gt; <a href="mysql.html">MySQL</a></i></p>
 
+<h2 id="netstat">netstat</h2>
+
+<h3 id="listen">ポートをLISTENしているプロセスを調べるには</h3>
+
+<pre><code>netstat -anp
+</code></pre>
+
+<p>PIDの欄がプロセスIDである。</p>
+
 <h2 id="rsync">rsync</h2>
 
-<h3 id="section">リモートホストからローカルにダウンロードするには</h3>
+<h3 id="section-2">リモートホストからローカルにダウンロードするには</h3>
 
 <pre><code>rsync -av リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
@@ -131,20 +182,7 @@ footer {
 
 <h2 id="ssh">ssh</h2>
 
-<h3 id="tar-">サーバにある大量のファイルを tar しながら、ローカルにダウンロードする方法。</h3>
-
-<pre><code>ssh &lt;ID&gt;@&lt;IP&gt; tar cvzf - リモートのバックアップ対象ディレクトリ &gt; ローカルの保存先tarファイル名
-</code></pre>
-
-<p>リモートでtarを実行してファイルに書き出すのではなく標準出力に出して、それをsshでそのままローカルに転送し、ローカルでファイルに書き出している。</p>
-
-<h3 id="ssh-1">SSHが勝手に切断されないようにするには</h3>
-
-<p>クライアント側の ~/.ssh/config に以下を記述する。</p>
-
-<pre><code>Host *
-  ServerAliveInterval 60
-</code></pre>
+<p><i>-&gt; <a href="ssh.html">SSH</a></i></p>
 
 <h2 id="touch">touch</h2>
 
@@ -172,7 +210,7 @@ footer {
 <p>GNU Wget 1.9 Manual 日本語<br />
 <a href="http://www.bookshelf.jp/texi/wget/wget-ja.html" target="_blank">http://www.bookshelf.jp/texi/wget/wget-ja.html</a></p>
 
-<h3 id="section-1">ウェブサイトを丸ごとダウンロードするには</h3>
+<h3 id="section-3">ウェブサイトを丸ごとダウンロードするには</h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする</p>
 

@@ -90,15 +90,19 @@ SHOW FULL PROCESSLIST;
 <pre><code>mysqldump -u ユーザ名 -p --skip-extended-insert --complete-insert --order-by-primary データベース名
 </code></pre>
 
-<p>オプション <code>--skip-extended-insert</code> は1レコードごとに1つのINSERT文を出力する。<br />
-オプション <code>--complete-insert</code> はカラム名もINSERT文ごとにいちいち出力する。<br />
-オプション <code>--order-by-primary</code> はプライマリキーの順にINSER文を出力する。  </p>
+<ul>
+  <li>オプション <code>--skip-extended-insert</code> は1レコードごとに1つのINSERT文を出力する。</li>
+  <li>オプション <code>--complete-insert</code> はカラム名もINSERT文ごとにいちいち出力する。</li>
+  <li>オプション <code>--order-by-primary</code> はプライマリキーの順にINSER文を出力する。</li>
+</ul>
 
 <h2 id="mysql">mysqlコマンドで結果が縦に長い時にページャで見たい場合、または横に長くて崩れてしまうのをなんとかしたい場合</h2>
 
 <p><a href="http://tm.root-n.com/database:mysql:etc:pager" target="_blank">http://tm.root-n.com/database:mysql:etc:pager</a></p>
 
 <p>mysqlコマンドのオプションに <code>--pager='less -S -X -F'</code> をつける。 <code>-X</code> を付けると、 less 終了時に画面をクリアしない。 <code>-F</code> を付けると、行数が短くて位置画面に収まる場合は less がすぐに終了する。</p>
+
+<p><i>-&gt; <a href="commands.html">コマンドリファレンス</a></i></p>
 
 
 </div>

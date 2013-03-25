@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Passenger (Ruby on Rails) | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+#content {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+#content h1 {
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+}
+#content h2 {
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+}
+#content ul {
+  margin: 0;
+  padding-left: 2em
+}
+#content pre {
+  margin: 1em 0 1em 20px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 1em 0 1em 20px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+<div id="content">
+<h1>Passenger (Ruby on Rails)</h1>
+<h2 id="section">環境の切替</h2>
+
+<p>Passenger のデフォルトだと production 環境での動作となる。development または test に切り替えたい場合は、Apacheの設定に以下を書き足す。(VirtualHostごとに設定できるのかは未検証)</p>
+
+<pre><code>RailsEnv development
+</code></pre>
+
+<h2 id="section-1">環境変数</h2>
+
+<p>環境変数を設定したい場合は、Apacheの設定に以下のように書き足す。</p>
+
+<pre><code>SetEnv GEM_HOME /home/hogehoge/.gems
+</code></pre>
+
+<h2 id="rails">特定のrailsアプリケーションのみ再起動するには</h2>
+
+<p>Passenger で動いているrailsアプリケーションを再起動するには tmp ディレクトリに restart.txt というファイルを設置する。ファイル設置後最初のアクセスで、再起動が実行される。</p>
+
+<pre><code>touch tmp/restart.txt
+</code></pre>
+
+<p>古いバージョンだと再起動完了後にこのファイルは削除されるらしいが、少なくとも passenger 3.0.19 では再起動してもファイルは削除されない。 <code>tmp/restart.txt</code> のタイムスタンプを見ている様子。</p>
+
+<p>このファイルをgit管理下に入れて、バージョンが変わるごとにこのファイルの内容を書き換えて、サーバサイドで <code>git pull</code> するごとにこのファイルのタイムスタンプが変わるようにすれば、自動で再起動がかかって便利そう。</p>
+
+<p>Apacheを再起動するとすべてのアプリケーションで数秒のダウンタイムが発生してしまうが、この方法なら影響するのはこのアプリケーションのみで、ダウンタイムも発生しない。</p>
+
+
+</div>
+<footer>
+  <a href="./">目次</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+</body>
+</html>
