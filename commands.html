@@ -130,6 +130,20 @@ footer {
 grep -rni --color=always abc | less -X -R
 </code></pre>
 
+<h2 id="ls">ls</h2>
+
+<h3 id="yyyy-mm-dd-hhmmss-">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには</h3>
+
+<pre><code>ls -alF --time-style="+%Y-%m-%d %H:%M:%S"
+</code></pre>
+
+<p>find の場合</p>
+
+<pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n"
+</code></pre>
+
+<p><i>-&gt; <a href="find.html">find</a></i></p>
+
 <h2 id="lftp">lftp</h2>
 
 <h3 id="ftp">FTPサーバの中のファイルリストを作成するには</h3>
@@ -152,10 +166,31 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="rsync">rsync</h2>
 
+<ul>
+  <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
+</ul>
+
 <h3 id="section-2">リモートホストからローカルにダウンロードするには</h3>
 
-<pre><code>rsync -av リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+<pre><code>rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
+
+<h3 id="section-3">ポート番号が22以外の場合</h3>
+
+<pre><code>rsync -e "ssh -p ポート番号" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+</code></pre>
+
+<h3 id="section-4">秘密鍵のファイルを指定する場合</h3>
+
+<pre><code>rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+</code></pre>
+
+<h3 id="section-5">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには</h3>
+
+<pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
+</code></pre>
+
+<p>この場合、リモートには <code>/home/who/ghi.dat</code> ではなく <code>/home/who/abc/def/ghi.dat</code> という名前でアップロードされる。リモートにディレクトリが存在しない場合は自動で作成される。</p>
 
 <h2 id="scala">scala</h2>
 
@@ -210,7 +245,7 @@ grep -rni --color=always abc | less -X -R
 <p>GNU Wget 1.9 Manual 日本語<br />
 <a href="http://www.bookshelf.jp/texi/wget/wget-ja.html" target="_blank">http://www.bookshelf.jp/texi/wget/wget-ja.html</a></p>
 
-<h3 id="section-3">ウェブサイトを丸ごとダウンロードするには</h3>
+<h3 id="section-6">ウェブサイトを丸ごとダウンロードするには</h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする</p>
 
