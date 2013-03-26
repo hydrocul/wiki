@@ -63,6 +63,25 @@ footer {
 <body>
 <div id="content">
 <h1>コマンドリファレンス</h1>
+<p><a href="#ack-grep">ack-grep</a>
+<a href="#date">date</a>
+<a href="#find">find</a>
+<a href="#git">git</a>
+<a href="#jhead">jhead</a>
+<a href="#less">less</a>
+<a href="#ls">ls</a>
+<a href="#lftp">lftp</a>
+<a href="#mysql">mysql</a>
+<a href="#netstat">netstat</a>
+<a href="#rsync">rsync</a>
+<a href="#scala">scala</a>
+<a href="#scaladoc">scaladoc</a>
+<a href="#ssh">ssh</a>
+<a href="#touch">touch</a>
+<a href="#tr">tr</a>
+<a href="#wget">wget</a>
+<a href="#zip">zip</a></p>
+
 <h2 id="ack-grep">ack-grep</h2>
 
 <h3 id="section">インストール</h3>
@@ -121,7 +140,9 @@ footer {
 <ul>
   <li>オプション <code>-X</code> は、less 終了時に画面をクリアしない。</li>
   <li>オプション <code>-F</code> は、行数が短くて位置画面に収まる場合は less がすぐに終了する。</li>
-  <li>オプション <code>-R</code> は、色などのエスケープシーケンスをそのとおりに解釈して色付きで表示する。 <code>ls</code> は <code>--color</code> を付け、 <code>grep</code> は <code>--color=always</code> を付けると色付きで出力される。</li>
+  <li>オプション <code>-R</code> は、色などのエスケープシーケンスをそのとおりに解釈して
+色付きで表示する。 <code>ls</code> は <code>--color</code> を付け、 <code>grep</code> は <code>--color=always</code> を
+付けると色付きで出力される。</li>
 </ul>
 
 <p><code>-R</code> の例</p>
@@ -244,6 +265,28 @@ grep -rni --color=always abc | less -X -R
 
 <p>GNU Wget 1.9 Manual 日本語<br />
 <a href="http://www.bookshelf.jp/texi/wget/wget-ja.html" target="_blank">http://www.bookshelf.jp/texi/wget/wget-ja.html</a></p>
+
+<h2 id="zip">zip</h2>
+
+<h3 id="zip">ディレクトリまるごとzip圧縮するには</h3>
+
+<pre><code>zip -r ZIPファイル名 対象ディレクトリ
+</code></pre>
+
+<p>tarでの以下に相当する。</p>
+
+<pre><code>tar cvzf TARGZファイル名 対象ディレクトリ
+</code></pre>
+
+<h3 id="zip-1">zipファイルを解凍するには</h3>
+
+<pre><code>unzip ZIPファイル名
+</code></pre>
+
+<p>tarでの以下に相当する。</p>
+
+<pre><code>tar xvzf TARGZファイル名
+</code></pre>
 
 <h3 id="section-6">ウェブサイトを丸ごとダウンロードするには</h3>
 
