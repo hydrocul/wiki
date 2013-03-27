@@ -165,6 +165,12 @@ grep -rni --color=always abc | less -X -R
 
 <p><i>-&gt; <a href="find.html">find</a></i></p>
 
+<h2 id="lsof">lsof</h2>
+
+<p>lsofの使い方 - プロセスが使用中のファイルを調べる<br />
+<a href="http://d.hatena.ne.jp/hogem/20070223/1172221315" target="_blank">http://d.hatena.ne.jp/hogem/20070223/1172221315</a><br />
+ポートをLISTENしているプロセスを調べられる。</p>
+
 <h2 id="lftp">lftp</h2>
 
 <h3 id="ftp">FTPサーバの中のファイルリストを作成するには</h3>
@@ -183,7 +189,7 @@ grep -rni --color=always abc | less -X -R
 <pre><code>netstat -anp
 </code></pre>
 
-<p>PIDの欄がプロセスIDである。</p>
+<p>PIDの欄がプロセスIDである。root権限でないとプロセスIDが表示されないものがあるよう。</p>
 
 <h2 id="rsync">rsync</h2>
 
