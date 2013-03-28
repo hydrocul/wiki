@@ -110,6 +110,22 @@ footer {
          objcpp      =&gt; [qw( mm h )],
 </code></pre>
 
+<h2 id="base64">base64</h2>
+
+<p>標準入力のデータをBASE64でエンコードまたはデコードして標準出力する。</p>
+
+<pre><code>base64 -e # エンコード
+base64 -d # デコード
+</code></pre>
+
+<p>変なところに改行があったりしてうまくデコードできない場合は</p>
+
+<pre><code>cat src.txt | tr -d '\n' | base64 -d | dst.txt
+</code></pre>
+
+<p>ワンライナーでBASE64を扱ういろいろな方法<br />
+<a href="http://dharry.hatenablog.com/entry/20120701/1341113739" target="_blank">http://dharry.hatenablog.com/entry/20120701/1341113739</a></p>
+
 <h2 id="date">date</h2>
 
 <h3 id="yyyymmdd-hhmmss-">YYYYMMDD-hhmmss の書式で日時を出力する方法</h3>
@@ -257,12 +273,19 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="tr">tr</h2>
 
-<p>ファイルの特定の文字を改行に全置換するには</p>
+<h3 id="section-6">ファイルの特定の文字を改行に全置換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
+
+<h3 id="section-7">ファイルの特定の文字を削除するには</h3>
+
+<pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
+</code></pre>
+
+<p>この例だと、改行をすべて削除する。</p>
 
 <h2 id="wget">wget</h2>
 
@@ -294,7 +317,7 @@ grep -rni --color=always abc | less -X -R
 <pre><code>tar xvzf TARGZファイル名
 </code></pre>
 
-<h3 id="section-6">ウェブサイトを丸ごとダウンロードするには</h3>
+<h3 id="section-8">ウェブサイトを丸ごとダウンロードするには</h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする</p>
 

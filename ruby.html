@@ -77,6 +77,28 @@ footer {
 str.gsub(/#{Moji.zen}/, "")
 </code></pre>
 
+<h2 id="section-1">ワンライナー</h2>
+
+<p><code>-ne</code> をつけると、行ごとに処理するコードをコマンドラインで指定できる。コードの中で <code>$_</code> は行の文字列が最後の改行付きで入る。以下はなにもせずに、データを聞き流すコード。</p>
+
+<pre><code>cat src.txt | ruby -ne 'print $_'
+</code></pre>
+
+<p>以下は、改行を削除するコード。</p>
+
+<pre><code>cat src.txt | ruby -ne 'print $_.chomp'
+</code></pre>
+
+<p>だけど、改行を消すには以下のほうが簡単。</p>
+
+<pre><code>cat src.txt | tr -d '\n'
+</code></pre>
+
+<p><code>-pe</code> をつけると、行ごとに処理し結果を標準出力に出力する。</p>
+
+<pre><code>cat src.txt | ruby -pe '$_'
+</code></pre>
+
 
 </div>
 <footer>
