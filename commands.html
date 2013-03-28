@@ -63,6 +63,8 @@ footer {
 <body>
 <div id="content">
 <h1>コマンドリファレンス</h1>
+<h1 id="section">コマンドリファレンス</h1>
+
 <p><a href="#ack-grep">ack-grep</a>
 <a href="#date">date</a>
 <a href="#find">find</a>
@@ -84,14 +86,14 @@ footer {
 
 <h2 id="ack-grep">ack-grep</h2>
 
-<h3 id="section">インストール</h3>
+<h3 id="section-1">インストール</h3>
 
 <p>Ubuntuの場合</p>
 
 <pre><code>sudo apt-get install ack-grep
 </code></pre>
 
-<h3 id="section-1">対応しているファイルタイプの一覧を見るには</h3>
+<h3 id="section-2">対応しているファイルタイプの一覧を見るには</h3>
 
 <pre><code>ack-grep --help-type
 </code></pre>
@@ -213,22 +215,22 @@ grep -rni --color=always abc | less -X -R
   <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
 </ul>
 
-<h3 id="section-2">リモートホストからローカルにダウンロードするには</h3>
+<h3 id="section-3">リモートホストからローカルにダウンロードするには</h3>
 
 <pre><code>rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<h3 id="section-3">ポート番号が22以外の場合</h3>
+<h3 id="section-4">ポート番号が22以外の場合</h3>
 
 <pre><code>rsync -e "ssh -p ポート番号" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<h3 id="section-4">秘密鍵のファイルを指定する場合</h3>
+<h3 id="section-5">秘密鍵のファイルを指定する場合</h3>
 
 <pre><code>rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<h3 id="section-5">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには</h3>
+<h3 id="section-6">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには</h3>
 
 <pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
 </code></pre>
@@ -273,14 +275,14 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-6">ファイルの特定の文字を改行に全置換するには</h3>
+<h3 id="section-7">ファイルの特定の文字を改行に全置換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-7">ファイルの特定の文字を削除するには</h3>
+<h3 id="section-8">ファイルの特定の文字を削除するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
@@ -317,7 +319,7 @@ grep -rni --color=always abc | less -X -R
 <pre><code>tar xvzf TARGZファイル名
 </code></pre>
 
-<h3 id="section-8">ウェブサイトを丸ごとダウンロードするには</h3>
+<h3 id="section-9">ウェブサイトを丸ごとダウンロードするには</h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする</p>
 
