@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>JavaScript | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+#content {
+  margin-left: 40px;
+  margin-right: 40px;
+  word-wrap: break-word;
+}
+#content h1 {
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+}
+#content h2 {
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+}
+#content ul {
+  margin: 0;
+  padding-left: 2em
+}
+#content pre {
+  margin: 1em 0 1em 20px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 1em 0 1em 20px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+<div id="content">
+<h1 id="javascript">JavaScript</h1>
+
+<p>とほほのJavaScriptリファレンス<br />
+<a href="http://www.tohoho-web.com/js/index.htm" target="_blank">http://www.tohoho-web.com/js/index.htm</a></p>
+
+<h1 id="jquery">jQuery</h1>
+
+<h2 id="datepicker-20130327">datepicker [2013/03/27]</h2>
+
+<p>datepicker<br />
+<a href="http://api.jqueryui.com/datepicker/" target="_blank">http://api.jqueryui.com/datepicker/</a></p>
+
+<h3 id="section">日付ごとに選択可能かどうかをカスタマイズするには</h3>
+
+<pre><code>$('.calendar input[type=text]').datepicker({minDate: 1, beforeShowDay: function(date){
+  return [(date.getDay() == 1), ""]; # 月曜日のみ選択可能
+}});
+</code></pre>
+
+<h2 id="powertip-20130329">ツールチップ PowerTip [2013/03/29]</h2>
+
+<p>[JS]後発だけに高性能で、実装はシンプルで超軽量のツールチップのスクリプト -jQuery PowerTip<br />
+<a href="http://coliss.com/articles/build-websites/operation/javascript/jquery-plugin-powertip.html" target="_blank">http://coliss.com/articles/build-websites/operation/javascript/jquery-plugin-powertip.html</a></p>
+
+<h3 id="data-powertip-">ツールチップを出したい要素に <code>data-powertip</code> 属性を指定するだけ</h3>
+
+<pre><code>$(function(){
+  $('*[data-powertip]').each(function(){
+    var option_str = $(this).attr('data-powertip-opt');
+    var option = {};
+    if(option_str != undefined){
+      option = eval('option = {' + option_str + '};');
+    }
+    if(option['smartPlacement'] == undefined){
+      option['smartPlacement'] = true;
+    }
+    $(this).powerTip(option);
+  });
+});
+
+&lt;div data-powertip="ツールチップの内容" data-powertip-opt="placement:'w'"&gt;
+</code></pre>
+
+<p><code>data-power-opt</code> には要素個別にオプションを指定できる。</p>
+
+
+</div>
+<footer>
+  <a href="./">目次</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+</body>
+</html>

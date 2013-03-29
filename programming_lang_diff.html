@@ -10,6 +10,7 @@
 #content {
   margin-left: 40px;
   margin-right: 40px;
+  word-wrap: break-word;
 }
 #content h1 {
   border-bottom: 2px #CCC solid;
@@ -144,22 +145,91 @@ num.is_a?(Array)
 <pre><code>arr = [1, 2, 3]
 </code></pre>
 
-<h2 id="section-4">正規表現</h2>
+<h2 id="section-4">インクリメント・デクリメント演算子</h2>
+
+<h3 id="c-c">C言語, C++</h3>
+
+<p>ある。</p>
+
+<pre><code>i++;
+i--;
+</code></pre>
+
+<h3 id="java">Java</h3>
+
+<p>ある。</p>
+
+<pre><code>++i;
+--i;
+i++;
+i--;
+i += 1;
+i -= 1;
+</code></pre>
+
+<h3 id="scala-1">Scala</h3>
+
+<p>ない。</p>
+
+<pre><code>i += 1;
+i -= 1;
+</code></pre>
+
+<p><code>+=</code> などは <code>i = i + 1</code> などのシンタックスシュガー。</p>
+
+<p>scalaでは、なぜインクリメントやデクリメントができないのか？<br />
+<a href="http://d.hatena.ne.jp/xuwei/20110130/1296360331" target="_blank">http://d.hatena.ne.jp/xuwei/20110130/1296360331</a></p>
+
+<h3 id="javascript">JavaScript</h3>
+
+<p>ある。</p>
+
+<pre><code>++i;
+--i;
+i++;
+i--;
+i += 1;
+i -= 1;
+</code></pre>
+
+<h3 id="php-2">PHP</h3>
+
+<p>ある。</p>
+
+<pre><code>++$i;
+--$i;
+$i++;
+$i--;
+$i += 1;
+$i -= 1;
+</code></pre>
 
 <h3 id="ruby-2">Ruby</h3>
+
+<p>ない。</p>
+
+<pre><code>i += 1
+i -= 1
+</code></pre>
+
+<p>オブジェクトだから、というのはわかるが、 <code>i = i + 1</code> のシンタックスシュガーだ、ということにはできないのかな?</p>
+
+<h2 id="section-5">正規表現</h2>
+
+<h3 id="ruby-3">Ruby</h3>
 
 <pre><code>"abc abc".gsub(/ab/, "AB")
 </code></pre>
 
 <h2 id="substr">substr</h2>
 
-<h3 id="java">Java</h3>
+<h3 id="java-1">Java</h3>
 
 <pre><code>String String#substring(int from)
 String String#substring(int from, int to)
 </code></pre>
 
-<h3 id="php-2">PHP</h3>
+<h3 id="php-3">PHP</h3>
 
 <pre><code>string substr(string $string, int $start [, int $length])
 </code></pre>
@@ -175,7 +245,7 @@ length が指定され、かつ 0 である場合は、 空文字列なら NULL�
 length を省略した場合は、 start の位置から文字列の最後までの部分文字列を返します。  </p>
 </blockquote>
 
-<h3 id="javascript">JavaScript</h3>
+<h3 id="javascript-1">JavaScript</h3>
 
 <pre><code>string.substring(from [, to])
 string.substr(from [, len])
@@ -183,12 +253,12 @@ string.substr(from [, len])
 
 <h2 id="trim">trim</h2>
 
-<h3 id="java-1">Java</h3>
+<h3 id="java-2">Java</h3>
 
 <pre><code>String String#trim()
 </code></pre>
 
-<h3 id="php-3">PHP</h3>
+<h3 id="php-4">PHP</h3>
 
 <pre><code>string trim(string $str [, string $charlist])
 </code></pre>
@@ -211,7 +281,7 @@ string.substr(from [, len])
 String#chomp!(str)
 </code></pre>
 
-<h3 id="ruby-3">Ruby</h3>
+<h3 id="ruby-4">Ruby</h3>
 
 <pre><code>String#strip
 String#strip!
@@ -219,7 +289,7 @@ String#strip!
 
 <p><a href="http://www.namaraii.com/rubytips/?%CA%B8%BB%FA%CE%F3#l14" target="_blank">http://www.namaraii.com/rubytips/?%CA%B8%BB%FA%CE%F3#l14</a></p>
 
-<h3 id="javascript-1">Javascript</h3>
+<h3 id="javascript-2">Javascript</h3>
 
 <pre><code>jQuery.trim(str)
 </code></pre>
@@ -229,13 +299,13 @@ String#strip!
 
 <h2 id="startswith--endswith">startsWith / endsWith</h2>
 
-<h3 id="java-2">Java</h3>
+<h3 id="java-3">Java</h3>
 
 <pre><code>String String#startsWith(String prefix)
 String String#endsWith(String suffix)
 </code></pre>
 
-<h3 id="ruby-4">Ruby</h3>
+<h3 id="ruby-5">Ruby</h3>
 
 <pre><code>String#start_with?(prefix)
 String#end_with?(suffix)
@@ -243,7 +313,7 @@ String#end_with?(suffix)
 
 <h2 id="sprintf">sprintf</h2>
 
-<h3 id="java-3">Java</h3>
+<h3 id="java-4">Java</h3>
 
 <pre><code>static String String#format(String format, Object... args)
 </code></pre>
@@ -256,7 +326,7 @@ String#end_with?(suffix)
 <p>フォーマットの説明<br />
 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax</a></p>
 
-<h3 id="php-4">PHP</h3>
+<h3 id="php-5">PHP</h3>
 
 <pre><code>string sprintf(string $format [, $arg1 [, $arg2 ... ]])
 </code></pre>
@@ -264,7 +334,7 @@ String#end_with?(suffix)
 <p>フォーマットの説明<br />
 <a href="http://www.php.net/manual/ja/function.sprintf.php" target="_blank">http://www.php.net/manual/ja/function.sprintf.php</a></p>
 
-<h3 id="ruby-5">Ruby</h3>
+<h3 id="ruby-6">Ruby</h3>
 
 <p>例：</p>
 
@@ -276,7 +346,7 @@ String#end_with?(suffix)
 
 <h2 id="indexof">indexOf</h2>
 
-<h3 id="java-4">Java</h3>
+<h3 id="java-5">Java</h3>
 
 <pre><code>int String#indexOf(int ch)
 int String#indexOf(String str)
@@ -287,7 +357,7 @@ int String#lastIndexOf(String str)
 int List#lastIndexOf(Object o)
 </code></pre>
 
-<h3 id="ruby-6">Ruby</h3>
+<h3 id="ruby-7">Ruby</h3>
 
 <pre><code>String#index(str)
 
@@ -298,7 +368,7 @@ String#rindex(str)
 
 <h2 id="length">length</h2>
 
-<h3 id="java-5">Java</h3>
+<h3 id="java-6">Java</h3>
 
 <pre><code>int String#length()
 int List#size()
@@ -306,7 +376,7 @@ int List#size()
 
 <h2 id="isempty">isEmpty</h2>
 
-<h3 id="java-6">Java</h3>
+<h3 id="java-7">Java</h3>
 
 <pre><code>boolean String#isEmpty()
 boolean List#isEmpty()
@@ -314,26 +384,26 @@ boolean List#isEmpty()
 
 <h2 id="join">join</h2>
 
-<h3 id="php-5">PHP</h3>
+<h3 id="php-6">PHP</h3>
 
 <pre><code>implode($separator, $arr)
 </code></pre>
 
 <p><a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
 
-<h3 id="ruby-7">Ruby</h3>
+<h3 id="ruby-8">Ruby</h3>
 
 <pre><code>Array#join(separator)
 </code></pre>
 
-<h3 id="javascript-2">Javascript</h3>
+<h3 id="javascript-3">Javascript</h3>
 
 <pre><code>arr.join(separator)
 </code></pre>
 
-<h2 id="section-5">文字列を日付に変換</h2>
+<h2 id="section-6">文字列を日付に変換</h2>
 
-<h3 id="ruby-8">Ruby</h3>
+<h3 id="ruby-9">Ruby</h3>
 
 <pre><code>require 'date'
 date = Date.strptime('2013/03/17', '%Y/%m/%d')
