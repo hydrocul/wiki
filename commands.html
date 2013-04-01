@@ -13,10 +13,12 @@
   word-wrap: break-word;
 }
 #content h1 {
+  margin-top: 40px;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
 }
 #content h2 {
+  margin-top: 40px;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
 }
@@ -83,6 +85,7 @@ footer {
   <li><a href="#scala">scala</a></li>
   <li><a href="#scaladoc">scaladoc</a></li>
   <li><a href="#ssh">ssh</a></li>
+  <li><a href="#tar">tar</a></li>
   <li><a href="#touch">touch</a></li>
   <li><a href="#tr">tr</a></li>
   <li><a href="#wget">wget</a></li>
@@ -293,6 +296,23 @@ grep -rni --color=always abc | less -X -R
 
 <p><i>-&gt; <a href="ssh.html">SSH</a></i></p>
 
+<h2 id="tar">tar</h2>
+
+<h3 id="section-8">圧縮するには</h3>
+
+<pre><code>tar cvzf tarファイル名 圧縮対象ディレクトリ
+</code></pre>
+
+<h3 id="section-9">解凍するには</h3>
+
+<pre><code>tar xvzf tarファイル名
+</code></pre>
+
+<h3 id="tar">tarファイルの中にあるファイルの一覧を見るには</h3>
+
+<pre><code>tar tzf tarファイル名
+</code></pre>
+
 <h2 id="touch">touch</h2>
 
 <h3 id="touch-">touch でファイルのタイムスタンプを変更する方法</h3>
@@ -304,14 +324,14 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-8">ファイルの特定の文字を改行に全置換するには</h3>
+<h3 id="section-10">ファイルの特定の文字を改行に全置換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-9">ファイルの特定の文字を削除するには</h3>
+<h3 id="section-11">ファイルの特定の文字を削除するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
@@ -348,7 +368,7 @@ grep -rni --color=always abc | less -X -R
 <pre><code>tar xvzf TARGZファイル名
 </code></pre>
 
-<h3 id="section-10">ウェブサイトを丸ごとダウンロードするには</h3>
+<h3 id="section-12">ウェブサイトを丸ごとダウンロードするには</h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする</p>
 
@@ -364,7 +384,7 @@ grep -rni --color=always abc | less -X -R
 </div>
 <footer>
   <a href="./">目次</a>
-  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
 </footer>
 </body>
 </html>

@@ -13,10 +13,12 @@
   word-wrap: break-word;
 }
 #content h1 {
+  margin-top: 40px;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
 }
 #content h2 {
+  margin-top: 40px;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
 }
@@ -65,31 +67,63 @@ footer {
 <div id="content">
 <h1 id="git">git</h1>
 
-<h2 id="section">コマンドリファレンス</h2>
-
-<h3 id="section-1">カラフルにログを見るには</h3>
+<h2 id="section">カラフルにログを見るには</h2>
 
 <pre><code>git log --graph --date-order --branches --pretty=format:"%Cblue%h %d %Cgreen%ai %Cblue%ae %Creset%s"
 </code></pre>
 
-<h3 id="diff">diffでリネームされたファイルを表示されないようにするには</h3>
+<h2 id="diff">diffでリネームされたファイルを表示されないようにするには</h2>
 
 <pre><code>git diff --cached --find-renames
 </code></pre>
 
-<h3 id="section-2">リモートにあってローカルにはないブランチをチェックアウトするには</h3>
+<h2 id="section-1">リモートにあってローカルにはないブランチをチェックアウトするには</h2>
 
 <pre><code>git checkout -b &lt;branch-name&gt; origin/&lt;branch-name&gt;
 </code></pre>
 
-<h3 id="section-3">ローカルにはすでに存在せずリモートに残っているブランチを削除するには</h3>
+<h2 id="section-2">ローカルにはすでに存在せずリモートに残っているブランチを削除するには</h2>
 
 <pre><code>git push origin :&lt;branch-name&gt;
 </code></pre>
 
-<h3 id="section-4">ローカルに残っているリモート追跡用のブランチを削除するには</h3>
+<h2 id="section-3">ローカルに残っているリモート追跡用のブランチを削除するには</h2>
 
 <pre><code>git branch -d -r origin/&lt;branch-name&gt;
+</code></pre>
+
+<h2 id="section-4">まだコミットしていない修正を一時保存しておいて、最後のコミットの状態に戻すには</h2>
+
+<pre><code>git stash save 名前
+</code></pre>
+
+<p>これで、最後にコミットした状態に戻る。この状態で他のブランチをチェックアウトしたり、別の修正をしてコミットしたりできる。<code>git stash save</code> する前の状態に戻すには、</p>
+
+<pre><code>git stash pop
+</code></pre>
+
+<p>または</p>
+
+<pre><code>git stash pop stash@{0}
+</code></pre>
+
+<p><code>git stash save</code> で1つしか保存していない場合は、<code>git stash pop</code> の後になにもつけなくてもよい。2つ以上ある場合は名前で識別する必要があり、 <code>git stash pop</code> の後につける名前は、以下の一時保存した修正のリストで確認できる。</p>
+
+<pre><code>git stash list
+</code></pre>
+
+<p><code>git stash save</code> したときの名前が <code>pop</code> で使えない理由がわからない。</p>
+
+<p><code>git stash save</code> では差分を保存するので、別のブランチに移動してから <code>git stash pop</code> すると、そのブランチに対して差分を適用するので、まったく同じ状態に戻るわけではない。</p>
+
+<p>stashに保存されている修正の差分を見るには、</p>
+
+<pre><code>git stash show -p
+</code></pre>
+
+<p>または</p>
+
+<pre><code>git stash show -p stash@{0}
 </code></pre>
 
 <h2 id="section-5">いろいろと元に戻す方法</h2>
@@ -136,7 +170,7 @@ footer {
 </div>
 <footer>
   <a href="./">目次</a>
-  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
 </footer>
 </body>
 </html>

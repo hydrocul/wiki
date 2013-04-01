@@ -13,10 +13,12 @@
   word-wrap: break-word;
 }
 #content h1 {
+  margin-top: 40px;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
 }
 #content h2 {
+  margin-top: 40px;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
 }
@@ -79,6 +81,19 @@ footer {
 str.gsub(/#{Moji.zen}/, "")
 </code></pre>
 
+<h2 id="encodingundefinedconversionerror"><code>Encoding::UndefinedConversionError</code></h2>
+
+<p><code>String#encode</code> で文字コードを変換したときに、変換できない文字があって
+<code>Encoding::UndefinedConversionError</code> が発生した場合は、以下のようにオプションを付ける。</p>
+
+<pre><code>str.encode(Encoding::SJIS, :undef =&gt; :replace, :replace =&gt; "?")
+</code></pre>
+
+<p>SJISに存在しないUnicode文字があった場合に、これでとりえあずは例外がスローされずに ‘?’ に置き換えられる。</p>
+
+<p>instance method String#encode<br />
+<a href="http://doc.ruby-lang.org/ja/1.9.3/method/String/i/encode.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/method/String/i/encode.html</a></p>
+
 <h2 id="section-1">ワンライナー</h2>
 
 <p><code>-ne</code> をつけると、行ごとに処理するコードをコマンドラインで指定できる。コードの中で <code>$_</code> は行の文字列が最後の改行付きで入る。以下はなにもせずに、データを聞き流すコード。</p>
@@ -96,16 +111,11 @@ str.gsub(/#{Moji.zen}/, "")
 <pre><code>cat src.txt | tr -d '\n'
 </code></pre>
 
-<p><code>-pe</code> をつけると、行ごとに処理し結果を標準出力に出力する。</p>
-
-<pre><code>cat src.txt | ruby -pe '$_'
-</code></pre>
-
 
 </div>
 <footer>
   <a href="./">目次</a>
-  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
 </footer>
 </body>
 </html>
