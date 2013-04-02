@@ -4,35 +4,40 @@
 <meta charset="UTF-8" />
 <title>プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 #content {
-  margin-left: 40px;
-  margin-right: 40px;
+  margin: 0 40px 0 40px;
   word-wrap: break-word;
 }
 #content h1 {
-  margin-top: 40px;
+  margin: 20px 0 20px 0;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
 }
 #content h2 {
-  margin-top: 40px;
+  margin: 20px 0 20px 0;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
 }
+#content h3 {
+  margin: 20px 0 20px 40px;
+}
+#content p {
+  margin: 10px 0 10px 40px;
+}
 #content ul {
-  margin: 0;
+  margin: 10px 0 10px 40px;
   padding-left: 2em
 }
 #content pre {
-  margin: 1em 0 1em 20px;
+  margin: 10px 0 10px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 1em 0 1em 20px;
+  margin: 10px 0 10px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -159,6 +164,10 @@ num.is_a?(Array)
 
 <p><code>boolean</code>型以外が暗黙のうちに <code>boolean</code> に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。</p>
 
+<h3 id="scala-1">Scala</h3>
+
+<p><code>Boolean</code>型以外が暗黙のうちに <code>Boolean</code> に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。</p>
+
 <h3 id="php-1">PHP</h3>
 
 <p><code>false</code>, <code>null</code>, <code>0</code>, <code>0.0</code>, <code>''</code>, <code>'0'</code>, <code>array()</code> が <code>false</code> になり、それ以外は <code>true</code> になる。文字列 <code>'0'</code> は <code>false</code> だが、文字列 <code>'false'</code> は <code>true</code> になる。</p>
@@ -167,7 +176,7 @@ num.is_a?(Array)
 
 <h3 id="ruby-2">Ruby</h3>
 
-<p><code>false</code>, <code>nil</code> が <code>false</code> になり、それ以外は <code>true</code> になる。<code>0</code> も <code>true</code>。</p>
+<p><code>false</code>, <code>nil</code> が <code>false</code> になり、それ以外は <code>true</code> になる。<code>0</code> も <code>''</code> も <code>true</code>。</p>
 
 <h3 id="javascript">JavaScript</h3>
 
@@ -175,16 +184,43 @@ num.is_a?(Array)
 
 <h2 id="array">配列</h2>
 
+<h3 id="java-1">Java</h3>
+
+<pre><code>arr = {1, 2, 3};
+arr = new int[]{1, 2, 3};
+</code></pre>
+
+<p>連想配列は一発では作れない。</p>
+
+<pre><code>import java.util.HashMap;
+map = new HashMap();
+map.put("a", 1);
+map.put("b", 2);
+</code></pre>
+
+<h3 id="scala-2">Scala</h3>
+
+<pre><code>arr = Array(1, 2, 3);
+map = Map('a' -&gt; 1, 'b' -&gt; 2);
+</code></pre>
+
+<p>これは以下のシンタックスシュガー。</p>
+
+<pre><code>arr = scala.Array.apply(1, 2, 3);
+map = scala.collection.immutable.Map.apply(scala.Predef.any2ArrowAssoc('a').-&gt;(1),
+                                           scala.Predef.any2ArrowAssoc('a').-&gt;(2));
+</code></pre>
+
 <h3 id="php-2">PHP</h3>
 
-<pre><code>arr = array(1, 2, 3)
-arr = array('a' =&gt; 1, 'b' =&gt; 2)
+<pre><code>arr = array(1, 2, 3);
+map = array('a' =&gt; 1, 'b' =&gt; 2);
 </code></pre>
 
 <h3 id="ruby-3">Ruby</h3>
 
 <pre><code>arr = [1, 2, 3]
-arr = {'a' =&gt; 1, 'b' =&gt; 2}
+map = {'a' =&gt; 1, 'b' =&gt; 2}
 </code></pre>
 
 <h3 id="coffeescript-1">CoffeeScript</h3>
@@ -206,7 +242,7 @@ i += 1;
 i -= 1;
 </code></pre>
 
-<h3 id="java-1">Java</h3>
+<h3 id="java-2">Java</h3>
 
 <p>ある。</p>
 
@@ -218,7 +254,7 @@ i += 1;
 i -= 1;
 </code></pre>
 
-<h3 id="scala-1">Scala</h3>
+<h3 id="scala-3">Scala</h3>
 
 <p>ない。</p>
 
@@ -226,7 +262,7 @@ i -= 1;
 i -= 1;
 </code></pre>
 
-<p><code>+=</code> などは <code>i = i + 1</code> などのシンタックスシュガー。</p>
+<p><code>i += 1</code> などは <code>i = i + 1</code> などのシンタックスシュガー。</p>
 
 <p>scalaでは、なぜインクリメントやデクリメントができないのか？<br />
 <a href="http://d.hatena.ne.jp/xuwei/20110130/1296360331" target="_blank">http://d.hatena.ne.jp/xuwei/20110130/1296360331</a></p>
@@ -272,6 +308,9 @@ i -= 1
 <pre><code>"abc\nabc\n".gsub(/\n/, "&lt;br /&gt;")
 </code></pre>
 
+<p>Ruby 1.9.3 リファレンスマニュアル &gt; spec/regexp<br />
+<a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html</a></p>
+
 <h3 id="javascript-2">JavaScript</h3>
 
 <pre><code>"abc\nabc\n".replace(/\n/, '&lt;br /&gt;');
@@ -279,7 +318,7 @@ i -= 1
 
 <h2 id="substr">substr</h2>
 
-<h3 id="java-2">Java</h3>
+<h3 id="java-3">Java</h3>
 
 <pre><code>String String#substring(int from)
 String String#substring(int from, int to)
@@ -301,6 +340,11 @@ length が指定され、かつ 0 である場合は、 空文字列なら NULL�
 length を省略した場合は、 start の位置から文字列の最後までの部分文字列を返します。  </p>
 </blockquote>
 
+<h3 id="ruby-6">Ruby</h3>
+
+<pre><code>String#slice(from, length)
+</code></pre>
+
 <h3 id="javascript-3">JavaScript</h3>
 
 <pre><code>string.substring(from [, to])
@@ -309,7 +353,7 @@ string.substr(from [, len])
 
 <h2 id="trim">trim</h2>
 
-<h3 id="java-3">Java</h3>
+<h3 id="java-4">Java</h3>
 
 <pre><code>String String#trim()
 </code></pre>
@@ -331,19 +375,25 @@ string.substr(from [, len])
 “\x0B” (ASCII 11 (0x0B)), 垂直タブ  </p>
 </blockquote>
 
+<h3 id="ruby-7">Ruby</h3>
+
+<pre><code>String#strip
+String#strip!
+</code></pre>
+
+<p><a href="http://doc.ruby-lang.org/ja/2.0.0/method/String/i/strip.html" target="_blank">http://doc.ruby-lang.org/ja/2.0.0/method/String/i/strip.html</a></p>
+
+<blockquote>
+  <p>空白文字の定義は <code>" \t\r\n\f\v"</code> です。 また、文字列右側からは <code>"\0"</code> も取り除きますが、 左側の <code>"\0"</code> は取り除きません。</p>
+</blockquote>
+
 <p>最後の改行のみを削除するのは <code>chomp</code>。</p>
 
 <pre><code>String#chomp(str)
 String#chomp!(str)
 </code></pre>
 
-<h3 id="ruby-6">Ruby</h3>
-
-<pre><code>String#strip
-String#strip!
-</code></pre>
-
-<p><a href="http://www.namaraii.com/rubytips/?%CA%B8%BB%FA%CE%F3#l14" target="_blank">http://www.namaraii.com/rubytips/?%CA%B8%BB%FA%CE%F3#l14</a></p>
+<p><a href="http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html" target="_blank">http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html</a></p>
 
 <h3 id="javascript-4">Javascript</h3>
 
@@ -355,13 +405,13 @@ String#strip!
 
 <h2 id="starts-with">startsWith / endsWith</h2>
 
-<h3 id="java-4">Java</h3>
+<h3 id="java-5">Java</h3>
 
 <pre><code>String String#startsWith(String prefix)
 String String#endsWith(String suffix)
 </code></pre>
 
-<h3 id="ruby-7">Ruby</h3>
+<h3 id="ruby-8">Ruby</h3>
 
 <pre><code>String#start_with?(prefix)
 String#end_with?(suffix)
@@ -369,7 +419,7 @@ String#end_with?(suffix)
 
 <h2 id="sprintf">sprintf</h2>
 
-<h3 id="java-5">Java</h3>
+<h3 id="java-6">Java</h3>
 
 <pre><code>static String String#format(String format, Object... args)
 </code></pre>
@@ -390,7 +440,7 @@ String#end_with?(suffix)
 <p>フォーマットの説明<br />
 <a href="http://www.php.net/manual/ja/function.sprintf.php" target="_blank">http://www.php.net/manual/ja/function.sprintf.php</a></p>
 
-<h3 id="ruby-8">Ruby</h3>
+<h3 id="ruby-9">Ruby</h3>
 
 <p>例：</p>
 
@@ -402,7 +452,7 @@ String#end_with?(suffix)
 
 <h2 id="index-of">indexOf</h2>
 
-<h3 id="java-6">Java</h3>
+<h3 id="java-7">Java</h3>
 
 <pre><code>int String#indexOf(int ch)
 int String#indexOf(String str)
@@ -413,7 +463,7 @@ int String#lastIndexOf(String str)
 int List#lastIndexOf(Object o)
 </code></pre>
 
-<h3 id="ruby-9">Ruby</h3>
+<h3 id="ruby-10">Ruby</h3>
 
 <pre><code>String#index(str)
 
@@ -424,7 +474,7 @@ String#rindex(str)
 
 <h2 id="length">length</h2>
 
-<h3 id="java-7">Java</h3>
+<h3 id="java-8">Java</h3>
 
 <pre><code>int String#length()
 int List#size()
@@ -432,7 +482,7 @@ int List#size()
 
 <h2 id="is-empty">isEmpty</h2>
 
-<h3 id="java-8">Java</h3>
+<h3 id="java-9">Java</h3>
 
 <pre><code>boolean String#isEmpty()
 boolean List#isEmpty()
@@ -447,7 +497,7 @@ boolean List#isEmpty()
 
 <p><a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
 
-<h3 id="ruby-10">Ruby</h3>
+<h3 id="ruby-11">Ruby</h3>
 
 <pre><code>Array#join(separator)
 </code></pre>
@@ -459,7 +509,7 @@ boolean List#isEmpty()
 
 <h2 id="str-to-date">文字列を日付に変換</h2>
 
-<h3 id="ruby-11">Ruby</h3>
+<h3 id="ruby-12">Ruby</h3>
 
 <pre><code>require 'date'
 date = Date.strptime('2013/03/17', '%Y/%m/%d')
@@ -468,10 +518,17 @@ p [date.year, date.month, date.day, date.wday]
 
 <p>date.wday で曜日を整数で取得でき、日曜日が0。</p>
 
+<h2 id="section-1">ディレクトリの一覧を取得</h2>
+
+<h3 id="ruby-13">Ruby</h3>
+
+<pre><code>Dir::entries('/home/foo')
+</code></pre>
+
 
 </div>
 <footer>
-  <a href="./">目次</a>
+  <a href="../">目次</a>
   <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
 </footer>
 </body>
