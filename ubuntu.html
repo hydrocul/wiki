@@ -24,11 +24,12 @@
 #content h3 {
   margin: 20px 0 20px 40px;
 }
-#content p {
+#content p,
+#content ul,
+#content dl {
   margin: 10px 0 10px 40px;
 }
 #content ul {
-  margin: 10px 0 10px 40px;
   padding-left: 2em
 }
 #content pre {
@@ -88,6 +89,16 @@ footer {
 <p>/etc/network/interfaces を設定する他に以下を実行する。</p>
 
 <pre><code>sudo update-rc.d -f NetworkManager remove
+</code></pre>
+
+<h2 id="apt-get-">apt-get でインストールされたファイルの一覧を見るには</h2>
+
+<pre><code>dpkg -L パッケージ名
+</code></pre>
+
+<p>yum の場合は</p>
+
+<pre><code>rpm -ql パッケージ名
 </code></pre>
 
 

@@ -24,11 +24,12 @@
 #content h3 {
   margin: 20px 0 20px 40px;
 }
-#content p {
+#content p,
+#content ul,
+#content dl {
   margin: 10px 0 10px 40px;
 }
 #content ul {
-  margin: 10px 0 10px 40px;
   padding-left: 2em
 }
 #content pre {
@@ -78,9 +79,9 @@ footer {
 SCRIPT_HOME=$0
 
 if [ -n "`readlink $SCRIPT_HOME`" ] ; then
-  # そのパスがシンボリックリンクの場合
-  # シンボリックリンクのリンク先を取得
-  SCRIPT_HOME="`readlink $SCRIPT_HOME`"
+    # そのパスがシンボリックリンクの場合
+    # シンボリックリンクのリンク先を取得
+    SCRIPT_HOME="`readlink $SCRIPT_HOME`"
 fi
 
 # 取得したパスのディレクトリを取得
@@ -91,18 +92,34 @@ SCRIPT_HOME="`dirname $SCRIPT_HOME`"
 
 <p>以下のようにする。</p>
 
-<pre><code>foobar()
-{
-  cat "$1"
-}
+<pre><code>for f in "$@"; do
+    echo "$i"
+done
+</code></pre>
 
-while [ -n "$1" ]; do
-  foobar "$1"
-  shift
+<p>以下は <code>shift</code> を使った例。</p>
+
+<pre><code>while [ -n "$1" ]; do
+    echo "$1"
+    shift
 done
 </code></pre>
 
 <p><code>shift</code> で、<code>$2</code> にあったものが <code>$1</code> に入るなど、引数が1つずつずれる。<code>shift</code> でも <code>$0</code> は変わらない。</p>
+
+<h2 id="section-3">シェルスクリプトに与えられた引数をすべて特定のコマンドに渡すには</h2>
+
+<p>例えば <code>ls</code> に渡すには</p>
+
+<pre><code>ls "$@"
+</code></pre>
+
+<p>これでシェルスクリプトに <code>a b "c d"</code> と引数を渡すと <code>ls "a" "b" "c d"</code> が実行される。</p>
+
+<pre><code>ls "$*"
+</code></pre>
+
+<p>とすると、<code>ls "a b c d"</code> が実行されてしまう。</p>
 
 
 </div>

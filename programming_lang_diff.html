@@ -24,11 +24,12 @@
 #content h3 {
   margin: 20px 0 20px 40px;
 }
-#content p {
+#content p,
+#content ul,
+#content dl {
   margin: 10px 0 10px 40px;
 }
 #content ul {
-  margin: 10px 0 10px 40px;
   padding-left: 2em
 }
 #content pre {
@@ -74,6 +75,7 @@ footer {
 
 <ul>
   <li><a href="#method">関数・メソッド定義 / インデント / セミコロン</a></li>
+  <li><a href="#if">if文</a></li>
   <li><a href="#is-a">データ型の判定</a></li>
   <li><a href="#to-boolean">論理値への変換</a></li>
   <li><a href="#array">配列</a></li>
@@ -149,6 +151,19 @@ end
   <li>行末のセミコロンは省略可</li>
 </ul>
 
+<h2 id="if">if文</h2>
+
+<h3 id="bash">bash</h3>
+
+<pre><code>if [ ... ]; then
+    ...
+elif [ ... ]; then
+    ...
+else
+    ...
+fi
+</code></pre>
+
 <h2 id="is-a">データ型の判定</h2>
 
 <h3 id="ruby-1">Ruby</h3>
@@ -157,6 +172,16 @@ end
 num.is_a?(String)
 num.is_a?(Array)
 </code></pre>
+
+<h3 id="javascript">JavaScript</h3>
+
+<p>undefined かどうかを判定するには</p>
+
+<pre><code>typeof a === 'undefined'
+</code></pre>
+
+<p>undefined値のさまざまな判定方法<br />
+<a href="http://blog.tojiru.net/article/205007468.html" target="_blank">http://blog.tojiru.net/article/205007468.html</a></p>
 
 <h2 id="to-boolean">論理値への変換</h2>
 
@@ -178,7 +203,7 @@ num.is_a?(Array)
 
 <p><code>false</code>, <code>nil</code> が <code>false</code> になり、それ以外は <code>true</code> になる。<code>0</code> も <code>''</code> も <code>true</code>。</p>
 
-<h3 id="javascript">JavaScript</h3>
+<h3 id="javascript-1">JavaScript</h3>
 
 <p><code>false</code>, <code>0</code>, <code>''</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code> が <code>false</code> になり、それ以外は <code>true</code> になる。</p>
 
@@ -222,6 +247,24 @@ map = array('a' =&gt; 1, 'b' =&gt; 2);
 <pre><code>arr = [1, 2, 3]
 map = {'a' =&gt; 1, 'b' =&gt; 2}
 </code></pre>
+
+<h3 id="javascript-2">JavaScript</h3>
+
+<p>下の3つは全部同じ配列を生成する。</p>
+
+<pre><code>arr = [1, 2, 3];
+arr = {0: 1, 1: 2, 2: 3}; arr.__proto__ = Array.prototype;
+arr = {'0': 1, '1': 2, '2': 3}; arr.__proto__ = Array.prototype;
+</code></pre>
+
+<p>下の2つは全部同じ連想配列を生成する。</p>
+
+<pre><code>map = {a: 1, b: 2}
+map = {'a': 1, 'b': 2}
+</code></pre>
+
+<p>JavaScript の配列と連想配列の違い<br />
+<a href="http://d.hatena.ne.jp/amachang/20070202/1170386546" target="_blank">http://d.hatena.ne.jp/amachang/20070202/1170386546</a></p>
 
 <h3 id="coffeescript-1">CoffeeScript</h3>
 
@@ -267,7 +310,7 @@ i -= 1;
 <p>scalaでは、なぜインクリメントやデクリメントができないのか？<br />
 <a href="http://d.hatena.ne.jp/xuwei/20110130/1296360331" target="_blank">http://d.hatena.ne.jp/xuwei/20110130/1296360331</a></p>
 
-<h3 id="javascript-1">JavaScript</h3>
+<h3 id="javascript-3">JavaScript</h3>
 
 <p>ある。</p>
 
@@ -311,7 +354,7 @@ i -= 1
 <p>Ruby 1.9.3 リファレンスマニュアル &gt; spec/regexp<br />
 <a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html</a></p>
 
-<h3 id="javascript-2">JavaScript</h3>
+<h3 id="javascript-4">JavaScript</h3>
 
 <pre><code>"abc\nabc\n".replace(/\n/, '&lt;br /&gt;');
 </code></pre>
@@ -345,7 +388,7 @@ length を省略した場合は、 start の位置から文字列の最後まで
 <pre><code>String#slice(from, length)
 </code></pre>
 
-<h3 id="javascript-3">JavaScript</h3>
+<h3 id="javascript-5">JavaScript</h3>
 
 <pre><code>string.substring(from [, to])
 string.substr(from [, len])
@@ -395,7 +438,7 @@ String#chomp!(str)
 
 <p><a href="http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html" target="_blank">http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html</a></p>
 
-<h3 id="javascript-4">Javascript</h3>
+<h3 id="javascript-6">Javascript</h3>
 
 <pre><code>jQuery.trim(str)
 </code></pre>
@@ -502,7 +545,7 @@ boolean List#isEmpty()
 <pre><code>Array#join(separator)
 </code></pre>
 
-<h3 id="javascript-5">Javascript</h3>
+<h3 id="javascript-7">Javascript</h3>
 
 <pre><code>arr.join(separator)
 </code></pre>
