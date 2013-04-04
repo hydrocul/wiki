@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Ubuntu | hydrocul のメモ</title>
+<title>Linuxでのパッケージ管理 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -71,29 +71,42 @@ footer {
 </head>
 <body>
 <div id="content">
-<h1 id="ubuntu">Ubuntu</h1>
+<h1 id="linux">Linuxでのパッケージ管理</h1>
 
-<h2 id="ubuntu-1">Ubuntuのバージョンを確認するには</h2>
+<p><code>yum</code> または <code>apt-get</code>。</p>
 
-<pre><code>lsb_release -a
+<h2 id="section">基本操作</h2>
+
+<p><code>apt-get</code> の場合</p>
+
+<pre><code># パッケージを検索
+apt-cache search キーワード
+
+# インストール
+sudo apt-get install パッケージ名
+
+# アンインストール
+sudo apt-get remove パッケージ名
 </code></pre>
 
-<p>CentOSでも同様。</p>
+<h2 id="section-1">パッケージでインストールされるファイルの一覧を見るには</h2>
 
-<h2 id="ufw">ufwの使い方</h2>
+<p><code>apt-get</code> の場合</p>
 
-<p><a href="http://linuxsalad.blogspot.com/2009/02/ufw.html" target="_blank">http://linuxsalad.blogspot.com/2009/02/ufw.html</a></p>
-
-<h2 id="ip">固定IPにする方法</h2>
-
-<p>/etc/network/interfaces を設定する他に以下を実行する。</p>
-
-<pre><code>sudo update-rc.d -f NetworkManager remove
+<pre><code>dpkg -L パッケージ名
 </code></pre>
 
-<h2 id="apt-get-">apt-get について</h2>
+<p><code>yum</code> の場合</p>
 
-<p><i>-&gt; <a href="linux-pkg-manager.html">Linuxでのパッケージ管理</a></i></p>
+<pre><code>rpm -ql パッケージ名
+</code></pre>
+
+<h2 id="section-2">インストール済みのパッケージ一覧を見るには</h2>
+
+<p><code>apt-get</code> の場合</p>
+
+<pre><code>dpkg -l
+</code></pre>
 
 
 </div>

@@ -304,14 +304,13 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="tar">tar</h2>
 
-<h3 id="section-8">圧縮するには</h3>
+<h3 id="section-8">基本操作</h3>
 
-<pre><code>tar cvzf tarファイル名 圧縮対象ディレクトリ
-</code></pre>
+<pre><code># 圧縮
+tar cvzf tarファイル名 圧縮対象ディレクトリ
 
-<h3 id="section-9">解凍するには</h3>
-
-<pre><code>tar xvzf tarファイル名
+# 解凍
+tar xvzf tarファイル名
 </code></pre>
 
 <h3 id="tar">tarファイルの中にあるファイルの一覧を見るには</h3>
@@ -330,14 +329,14 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-10">ファイルの特定の文字を改行に全置換するには</h3>
+<h3 id="section-9">ファイルの特定の文字を改行に全置換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-11">ファイルの特定の文字を削除するには</h3>
+<h3 id="section-10">ファイルの特定の文字を削除するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
@@ -374,7 +373,7 @@ grep -rni --color=always abc | less -X -R
 <pre><code>tar xvzf TARGZファイル名
 </code></pre>
 
-<h3 id="section-12">ウェブサイトを丸ごとダウンロードするには</h3>
+<h3 id="section-11">ウェブサイトを丸ごとダウンロードするには</h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする</p>
 
