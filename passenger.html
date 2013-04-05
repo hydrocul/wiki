@@ -75,7 +75,9 @@ footer {
 
 <h2 id="section">環境の切替</h2>
 
-<p>Passenger のデフォルトだと production 環境での動作となる。development または test に切り替えたい場合は、Apacheの設定に以下を書き足す。(VirtualHostごとに設定できるのかは未検証)</p>
+<p>Passenger のデフォルトだと production 環境での動作となる。
+development または test に切り替えたい場合は、Apacheの設定に以下を書き足す。
+VirtualHostの中に書けばそのバーチャルホストにだけ適用できる。</p>
 
 <pre><code>RailsEnv development
 </code></pre>
@@ -89,12 +91,14 @@ footer {
 
 <h2 id="rails">特定のrailsアプリケーションのみ再起動するには</h2>
 
-<p>Passenger で動いているrailsアプリケーションを再起動するには tmp ディレクトリに restart.txt というファイルを設置する。ファイル設置後最初のアクセスで、再起動が実行される。</p>
+<p>Passenger で動いているrailsアプリケーションを再起動するには tmp ディレクトリに
+restart.txt というファイルを設置する。ファイル設置後最初のアクセスで、再起動が実行される。</p>
 
 <pre><code>touch tmp/restart.txt
 </code></pre>
 
-<p>古いバージョンだと再起動完了後にこのファイルは削除されるらしいが、少なくとも passenger 3.0.19 では再起動してもファイルは削除されない。 <code>tmp/restart.txt</code> のタイムスタンプを見ている様子。</p>
+<p>古いバージョンだと再起動完了後にこのファイルは削除されるらしいが、少なくとも passenger 3.0.19 では再起動してもファイルは削除されない。
+<code>tmp/restart.txt</code> のタイムスタンプを見ている様子。</p>
 
 <p>このファイルをgit管理下に入れて、バージョンが変わるごとにこのファイルの内容を書き換えて、サーバサイドで <code>git pull</code> するごとにこのファイルのタイムスタンプが変わるようにすれば、自動で再起動がかかって便利そう。</p>
 

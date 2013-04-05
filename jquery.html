@@ -113,7 +113,7 @@ footer {
 
 <pre><code>$(function(){
   $('*[data-powertip]').each(function(){
-    var option_str = $(this).attr('data-powertip-opt');
+    var option_str = $(this).data('powertip-opt');
     var option = {};
     if(option_str != undefined){
       option = eval('option = {' + option_str + '};');
@@ -129,6 +129,36 @@ footer {
 </code></pre>
 
 <p><code>data-power-opt</code> には要素個別にオプションを指定できる。</p>
+
+<h2 id="cssjquery-20130405">CSSの半透明をjQueryで簡単に実現するには [2013/04/05]</h2>
+
+<pre><code>/*
+  $('...').opacity(0.5)
+  で半透明にする。
+  $('...').opacity(1)
+  で不透過にする。
+  $('...').opacity(0)
+  で完全に透明にする。
+*/
+$.fn.opacity = function(value){
+  var ie_value = Math.floor(value * 100);
+  $(this).
+    css('filter', 'alpha(opacity=' + ie_value + ')'). // for IE
+    css('opacity', value);
+}
+</code></pre>
+
+<h2 id="section-1">複数の要素を同時にアニメーションさせるには</h2>
+
+<p><a href="http://www.srv-shinra.com/wordpress/?p=13" target="_blank">http://www.srv-shinra.com/wordpress/?p=13</a></p>
+
+<p>オプションに <code>queue: false</code> を付けて、アニメーションさせたいコードを並べる。</p>
+
+<pre><code>  $('...1').animate({scrollTop: 0},
+                    {duration: 600, queue: false});
+  $('...2').animate({scrollTop: 0},
+                    {duration: 600, queue: false});
+</code></pre>
 
 
 </div>

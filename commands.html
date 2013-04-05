@@ -90,6 +90,8 @@ footer {
   <li><a href="#rsync">rsync</a></li>
   <li><a href="#scala">scala</a></li>
   <li><a href="#scaladoc">scaladoc</a></li>
+  <li><a href="#sed">sed</a></li>
+  <li><a href="#source-highlight">source-highlight</a></li>
   <li><a href="#ssh">ssh</a></li>
   <li><a href="#tar">tar</a></li>
   <li><a href="#touch">touch</a></li>
@@ -298,13 +300,41 @@ grep -rni --color=always abc | less -X -R
 <p>man page<br />
 <a href="http://www.scala-lang.org/docu/files/tools/scaladoc.html" target="_blank">http://www.scala-lang.org/docu/files/tools/scaladoc.html</a></p>
 
+<h2 id="sed">sed</h2>
+
+<h3 id="section-8">ファイルの中のテキストを全置換するには</h3>
+
+<pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
+</code></pre>
+
+<p><code>-i</code> を取ると、全置換後の結果を標準出力に吐き出して、ファイルは書き換えない。</p>
+
+<h2 id="source-highlight">source-highlight</h2>
+
+<p>基本的な使い方</p>
+
+<pre><code>source-highlight --falesafe --infer-lang -f esc --line-number -i ファイル名
+</code></pre>
+
+<p><code>--infer-lang</code> を付けると、拡張子やコマンドラインオプションからの指定よりも、ファイルの中身からファイルの種類を推定するほうを優先してくれる。中身と行っても、バージョン2.5の段階ではshebangからの推定のみのよう。詳しくは<br />
+<a href="http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_36.html#How-the-input-language-is-discovered" target="_blank">http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_36.html#How-the-input-language-is-discovered</a></p>
+
+<p><code>-f esc</code> はエスケープシーケンスを使って色付きで出力してくれるので、端末で直接見るのに便利。<code>-f html</code> とすると、HTMLフォーマットで出力される。</p>
+
+<p><code>--line-number</code> は行番号をつけてくれる。</p>
+
+<p><code>-i ファイル名</code> を付けないと、標準入力からソースを読もうとする。その場合、拡張子からのファイル種類の推定ができない。</p>
+
+<p>GNU Source-highlight のマニュアルの和訳<br />
+<a href="http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_toc.html" target="_blank">http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_toc.html</a></p>
+
 <h2 id="ssh">ssh</h2>
 
 <p><i>-&gt; <a href="ssh.html">SSH</a></i></p>
 
 <h2 id="tar">tar</h2>
 
-<h3 id="section-8">基本操作</h3>
+<h3 id="section-9">基本操作</h3>
 
 <pre><code># 圧縮
 tar cvzf tarファイル名 圧縮対象ディレクトリ
@@ -329,14 +359,14 @@ tar xvzf tarファイル名
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-9">ファイルの特定の文字を改行に全置換するには</h3>
+<h3 id="section-10">ファイルの特定の文字を改行に全置換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-10">ファイルの特定の文字を削除するには</h3>
+<h3 id="section-11">ファイルの特定の文字を削除するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
@@ -373,7 +403,7 @@ tar xvzf tarファイル名
 <pre><code>tar xvzf TARGZファイル名
 </code></pre>
 
-<h3 id="section-11">ウェブサイトを丸ごとダウンロードするには</h3>
+<h3 id="section-12">ウェブサイトを丸ごとダウンロードするには</h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする</p>
 

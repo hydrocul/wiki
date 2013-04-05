@@ -83,6 +83,7 @@ footer {
   <li><a href="#undo">いろいろと元に戻す方法</a></li>
   <li><a href="#assume-unchanged">既に git で管理しているファイルの変更を git に無視させるには</a></li>
   <li><a href="#add-ignore-space-change">gitで空白の違いだけの行を除いてaddするには</a></li>
+  <li><a href="#diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには</a></li>
   <li><a href="#gitignore-recursive">へぇ〜</a></li>
   <li><a href="#introductory-book">入門</a></li>
 </ul>
@@ -194,6 +195,13 @@ skip-worktree : 作業ツリー上の更新は保持されて、リポジトリ�
 <h2 id="add-ignore-space-change">gitで空白の違いだけの行を除いてaddするには</h2>
 
 <p><a href="http://qiita.com/items/b75de424038d616868db" target="_blank">http://qiita.com/items/b75de424038d616868db</a></p>
+
+<h2 id="diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには</h2>
+
+<pre><code>git diff コミットハッシュ~..コミットハッシュ &gt; patch.patch
+patch -p1 &lt; patch.patch
+rm patch.patch
+</code></pre>
 
 <h2 id="gitignore-recursive">へぇ〜</h2>
 
