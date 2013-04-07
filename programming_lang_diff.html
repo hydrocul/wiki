@@ -81,6 +81,7 @@ footer {
   <li><a href="#to-boolean">論理値への変換</a></li>
   <li><a href="#array">配列</a></li>
   <li><a href="#increment">インクリメント・デクリメント演算子</a></li>
+  <li><a href="#heredoc">ヒアドキュメント</a></li>
   <li><a href="#regexp">正規表現</a></li>
   <li><a href="#str-to-date">文字列を日付に変換</a></li>
 </ul>
@@ -416,9 +417,16 @@ i -= 1
 
 <p>オブジェクトだから、というのはわかるが、 <code>i = i + 1</code> のシンタックスシュガーだ、ということにはできないのかな?</p>
 
-<h2 id="regexp">正規表現</h2>
+<h2 id="heredoc">ヒアドキュメント</h2>
 
 <h3 id="ruby-6">Ruby</h3>
+
+<p>Ruby 1.9.3 リファレンスマニュアル &gt; ヒアドキュメント<br />
+<a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
+
+<h2 id="regexp">正規表現</h2>
+
+<h3 id="ruby-7">Ruby</h3>
 
 <pre><code>"abc\nabc\n".gsub(/\n/, "&lt;br /&gt;")
 </code></pre>
@@ -433,7 +441,7 @@ i -= 1
 
 <h2 id="str-to-date">文字列を日付に変換</h2>
 
-<h3 id="ruby-7">Ruby</h3>
+<h3 id="ruby-8">Ruby</h3>
 
 <pre><code>require 'date'
 date = Date.strptime('2013/03/17', '%Y/%m/%d')
@@ -444,7 +452,7 @@ p [date.year, date.month, date.day, date.wday]
 
 <h2 id="section-1">ディレクトリの一覧を取得</h2>
 
-<h3 id="ruby-8">Ruby</h3>
+<h3 id="ruby-9">Ruby</h3>
 
 <pre><code>Dir::entries('/home/foo')
 </code></pre>
