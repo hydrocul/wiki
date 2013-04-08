@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>CSS | hydrocul のメモ</title>
+<title>misc | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -71,35 +71,28 @@ footer {
 </head>
 <body>
 <div id="content">
-<h1 id="css">CSS</h1>
+<h1 id="misc">misc</h1>
 
-<h2 id="overflow"><code>overflow</code></h2>
+<h2 id="ie">IEの検証環境</h2>
 
-<p><a href="https://developer.mozilla.org/ja/docs/CSS/overflow" target="_blank">https://developer.mozilla.org/ja/docs/CSS/overflow</a></p>
+<p>クロス ブラウザー テストが簡単に | Microsoft<br />
+<a href="http://www.modern.ie/ja/virtualization-tools" target="_blank">http://www.modern.ie/ja/virtualization-tools</a><br />
+IE6, IE7, IE8, IE9, IE10の検証用の無償ライセンス</p>
 
-<dl>
-  <dt><code>visible</code></dt>
-  <dd>デフォルト。内容が大きい場合は、クリップされずにはみ出して表示される。ただし、IE6では、<code>width</code> や <code>height</code> を指定しても勝手にボックスを拡張してしまうバグがある。</dd>
-  <dt><code>hidden</code></dt>
-  <dd>クリップされ、はみ出した部分は表示されず、スクロールバーも表示されない。</dd>
-  <dt><code>scroll</code></dt>
-  <dd>クリップされるが、スクロールバーが表示される。</dd>
-  <dt><code>auto</code></dt>
-  <dd>ブラウザに依るが、多くのブラウザは、内容が入りきらない場合にスクロールバーが表示される。</dd>
-</dl>
+<p>modern IE のAdministratorのパスワードは <code>Passw0rd!</code><br />
+<a href="http://blog.reybango.com/2013/02/04/making-internet-explorer-testing-easier-with-new-ie-vms/comment-page-1/#comment-127177" target="_blank">http://blog.reybango.com/2013/02/04/making-internet-explorer-testing-easier-with-new-ie-vms/comment-page-1/#comment-127177</a></p>
 
-<h2 id="section">右にはみ出した文字を点々(三点リーダ)で省略するには</h2>
+<p>XPのイメージだと日本語表示ができないが、7や8であれば日本語表示が可能<br />
+<a href="http://blog.fkoji.com/2013/04050126.html" target="_blank">http://blog.fkoji.com/2013/04050126.html</a></p>
 
-<pre><code>text-overflow: ellipses;
-</code></pre>
+<h3 id="section">リンク集</h3>
 
-<p><a href="https://developer.mozilla.org/ja/docs/CSS/text-overflow" target="_blank">https://developer.mozilla.org/ja/docs/CSS/text-overflow</a><br />
-<a href="http://d.hatena.ne.jp/end0tknr/20120324/1332589506" target="_blank">http://d.hatena.ne.jp/end0tknr/20120324/1332589506</a></p>
+<p>MacでWindows8の仮想マシンが使えるievmsがすごい<br />
+<a href="http://d.hatena.ne.jp/replication/20130313/1363102502" target="_blank">http://d.hatena.ne.jp/replication/20130313/1363102502</a><br />
+IE7, IE8, IE9の検証用の無償ライセンス(90日間限定)</p>
 
-<h2 id="url">長いURLが折り返されずにはみ出してしまうのを折り返しさせるには</h2>
-
-<pre><code>word-wrap: break-word;
-</code></pre>
+<p>modern.IEにのっかってみる（ievmsから乗り換え計画）<br />
+<a href="http://sugilog.hatenablog.com/entry/2013/03/19/230104" target="_blank">http://sugilog.hatenablog.com/entry/2013/03/19/230104</a></p>
 
 
 </div>

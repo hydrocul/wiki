@@ -160,6 +160,62 @@ $.fn.opacity = function(value){
                     {duration: 600, queue: false});
 </code></pre>
 
+<h2 id="live--delegate-">live と delegate の違い</h2>
+
+<p>jQueryの <code>.bind()</code>, <code>.live()</code>, <code>.delegate()</code> の違い<br />
+<a href="http://jser.info/post/3307464125" target="_blank">http://jser.info/post/3307464125</a></p>
+
+<pre><code>// live の場合
+$('a').live('click', function(){ ... });
+
+// delegate の場合
+$('#container').delegate('a', 'click', function(){ ... });
+</code></pre>
+
+<p><code>live</code> の場合はいったん <code>$('a')</code> を実行してしまうため、最初の設定が重い。</p>
+
+<p>jQueryのbind/live/delegateの違いまとめ、と新API .on()の使い方<br />
+<a href="http://d.hatena.ne.jp/y-kawaz/20111002/1317489435" target="_blank">http://d.hatena.ne.jp/y-kawaz/20111002/1317489435</a></p>
+
+<h2 id="jquery-1">jQueryプラグインのまとめ</h2>
+
+<p><a href="http://www.skuare.net/test/jQuery.html" target="_blank">http://www.skuare.net/test/jQuery.html</a></p>
+
+<h2 id="jquery-splitter">jQuery Splitter</h2>
+
+<p><a href="http://archive.plugins.jquery.com/project/splitter" target="_blank">http://archive.plugins.jquery.com/project/splitter</a></p>
+
+<p>以下は、横に2つ並べたブロックの間にスプリッターを配置して横幅を可変にする。</p>
+
+<p><code>orientation</code> を <code>'horizontal'</code> にすると、2つのブロックを縦に並べる。</p>
+
+<p><code>limit</code> は左右のブロックの最低の幅。</p>
+
+<p><code>position</code> はデフォルトの分割の割合で、<code>'70%'</code> の場合は、左が70%を占める。
+<code>'300px'</code> とすると、左のブロックの幅がデフォルトで <code>300px</code> になる。右のブロックの幅を指定することができないので、<code>width = $('#wrapper').width() - 300;</code> などとして、
+<code>position: '' + width,</code> などとする。
+<code>position</code> に数字を指定するとエラーになるが、数字を文字列に変換した場合は、単位 <code>px</code> が仮定される。</p>
+
+<p><code>onDragEnd</code> はマウスで境界を移動させ終わったときに呼び出される関数。</p>
+
+<pre><code>&lt;div id="wrapper"&gt;
+  &lt;div id="left"&gt;...&lt;/div&gt;
+  &lt;div id="right"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  $(function(){
+    $('#wrapper').split({
+      orientation: 'vertical',
+      limit: 100,
+      position: '70%',
+      onDragEnd: function(){
+        ...
+      }
+    });
+  });
+&lt;/script&gt;
+</code></pre>
+
 
 </div>
 <footer>
