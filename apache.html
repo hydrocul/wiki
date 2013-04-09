@@ -113,6 +113,23 @@ Allow from env=excludeauth
 
 <p>BASIC認証をかけつつ、 <code>SetEnfIf</code> で特定のURLのときに変数を設定して、 <code>Allow</code> でその変数が設定されているときのアクセスを許可する。 <code>Satisfy Any</code> の指定は <code>require</code> と <code>Allow</code> のいずれかが満たされれば、アクセスが許可される、という意味。</p>
 
+<h2 id="ipbasichtaccess-20130409">特定のIPからのアクセスは無条件に許可して、それ以外のアクセスにはBASIC認証をかけるhtaccess [2013/04/09]</h2>
+
+<p>例</p>
+
+<pre><code>Satisfy Any
+
+AuthUserFile /path/to/.htpasswd
+AuthGroupFile /dev/null
+AuthName "hoge"
+AuthType Basic
+require valid-user
+
+Order deny,allow
+Allow from 99.99.99.99
+Deny from all
+</code></pre>
+
 <h2 id="htaccess">メンテナンス画面に切り替えるための.htaccess</h2>
 
 <p>.htaccess の RewriteEngine On の直後に以下を書く</p>

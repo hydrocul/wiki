@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Ruby on Rails | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+#content {
+  margin: 0 40px 0 40px;
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 20px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+}
+#content h2 {
+  margin: 20px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+}
+#content h3 {
+  margin: 20px 0 20px 40px;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 10px 0 10px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 10px 0 10px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 10px 0 10px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+<div id="content">
+<h1 id="ruby-on-rails">Ruby on Rails</h1>
+
+<h2 id="rails">railsでアプリを作るときに最初にやること</h2>
+
+<pre><code>echo "/.sass-cache/*" &gt;&gt; .gitignore
+</code></pre>
+
+<h2 id="render">renderのオプション</h2>
+
+<dl>
+  <dt>file</dt>
+  <dd>ファイルのパスを指定して、そのファイルの内容を直接出力する</dd>
+  <dt>text</dt>
+  <dd>テキストを指定して、そのテキストをそのまま出力する</dd>
+</dl>
+
+<h2 id="rails-1">Railsのアプリケーションが置いてあるディレクトリのパスを取得するには</h2>
+
+<pre><code>Rails.root.to_s
+</code></pre>
+
+<h2 id="section">少なくとも1つのチェックボックスにチェックが入っているかどうかをチェックするカスタムバリデータ</h2>
+
+<p>チェックボックスが複数あって複数選択可の質問に対して1つもチェックがなかった場合にエラーにする方法。</p>
+
+<p>モデルのファイルに以下を記入する。</p>
+
+<pre><code>validates_with AtLeastOneValidator, fields_pattern: /^q5_.*/, fields: @@fields,
+    message_field: :q5_other_text, message: "少なくとも1つを選択してください"
+</code></pre>
+
+<p><code>/config/application.rb</code> に以下を記入する。デフォルトでは <code>config.autoload_paths</code> がコメントアウトされている。</p>
+
+<pre><code>config.autoload_paths += %W(#{config.root}/lib/validators)
+</code></pre>
+
+<p><code>/lib/validators/at_least_one_selected_validator.rb</code></p>
+
+<pre><code>class AtLeastOneSelectedValidator &lt; ActiveModel::Validator
+  def validate(record)
+    regexp = options[:fields_pattern]
+    fields = options[:fields].select {|m| regexp =~ m.to_s}
+    fields.each do |m|
+      v = record.send(m)
+      return unless v == false || v == ''
+    end
+    record.errors[options[:message_field]] &lt;&lt; options[:message]
+  end
+end
+</code></pre>
+
+<h2 id="section-1">お問い合わせフォームの作り方</h2>
+
+<p><a href="http://d.hatena.ne.jp/d4-1977/20120414/1334384900" target="_blank">http://d.hatena.ne.jp/d4-1977/20120414/1334384900</a></p>
+
+<h2 id="section-2">任意のパスの階層を特定のアクションに割り当てるルーティング</h2>
+
+<pre><code>match 'hoge/:path' =&gt; 'hoge#view'
+</code></pre>
+
+<p>とすると、<code>hoge/foo</code> にはマッチするが、<code>hoge/foo/bar</code> にはマッチしない。</p>
+
+<pre><code>match 'hoge/*path' =&gt; 'hoge#view'
+</code></pre>
+
+<p>とすると、<code>hoge/foo</code> にも <code>hoge/foo/bar</code> にもマッチし、<code>param[:path]</code> で <code>'foo'</code> や <code>'foo/bar'</code> を受け取れる。</p>
+
+<h2 id="ruby-on-rails-">Ruby on Rails が簡単というのはウソ</h2>
+
+<p><a href="http://subtech.g.hatena.ne.jp/secondlife/20120309/1331279496" target="_blank">http://subtech.g.hatena.ne.jp/secondlife/20120309/1331279496</a></p>
+
+<h2 id="rake-dbmigrate--production-">rake db:migrate を production 環境で実行</h2>
+
+<pre><code>rake db:migrate RAILS_ENV=production
+</code></pre>
+
+<h2 id="asset-pipelinein-ruby-on-rails">アセットパイプライン（Asset Pipeline）in Ruby on Rails</h2>
+
+<p><a href="http://it.sifr.me/ruby-on-rails-asset-pipeline/" target="_blank">http://it.sifr.me/ruby-on-rails-asset-pipeline/</a><br />
+Ruby on Rails で用いられるアセットパイプライン解説の翻訳文</p>
+
+<h2 id="passenger">Passenger</h2>
+
+<p><i>-&gt; <a href="passenger.html">Passenger (Ruby on Rails)</a></i></p>
+
+
+</div>
+<footer>
+  <a href="./">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+</body>
+</html>

@@ -91,14 +91,16 @@ SHOW FULL PROCESSLIST;
 <p>EXPLAINを使用して、クエリを最適化する | MySQL リファレンスマニュアル<br />
 <a href="http://dev.mysql.com/doc/refman/5.1/ja/explain.html" target="_blank">http://dev.mysql.com/doc/refman/5.1/ja/explain.html</a></p>
 
-<h2 id="section-1">テーブルの文字コードを調べる</h2>
+<h2 id="section-1">テーブルの文字コードを調べるには</h2>
 
 <p><a href="http://www.softel.co.jp/blogs/tech/archives/1470" target="_blank">http://www.softel.co.jp/blogs/tech/archives/1470</a></p>
 
-<h2 id="mysql1">MySQLダンプファイルを1行ずつ見やすいフォーマットにする</h2>
+<h2 id="mysql1">MySQLダンプファイルを1行ずつ見やすいフォーマットにするには</h2>
 
 <pre><code>mysqldump -u ユーザ名 -p --skip-extended-insert --complete-insert --order-by-primary データベース名
 </code></pre>
+
+<p>これで1レコードが1行に完結し、ファイルの一部を見ただけでもわかりやすいし、<code>diff</code> もしやすい。</p>
 
 <ul>
   <li>オプション <code>--skip-extended-insert</code> は1レコードごとに1つのINSERT文を出力する。</li>
@@ -106,7 +108,12 @@ SHOW FULL PROCESSLIST;
   <li>オプション <code>--order-by-primary</code> はプライマリキーの順にINSER文を出力する。</li>
 </ul>
 
-<h2 id="mysql-1">mysqlコマンドで結果が縦に長い時にページャで見たい場合、または横に長くて崩れてしまうのをなんとかしたい場合</h2>
+<h2 id="mysql-1">MySQLダンプでデータ自体ではなく、テーブル定義のみをエクスポートするには</h2>
+
+<pre><code>mysqldump -u ユーザ名 -p --no-data データベース名
+</code></pre>
+
+<h2 id="mysql-2">mysqlコマンドで結果が縦に長い時にページャで見るには、または横に長くて崩れてしまうのをなんとかするには</h2>
 
 <p><a href="http://tm.root-n.com/database:mysql:etc:pager" target="_blank">http://tm.root-n.com/database:mysql:etc:pager</a></p>
 

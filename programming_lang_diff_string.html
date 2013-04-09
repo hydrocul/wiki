@@ -189,6 +189,22 @@ String String#endsWith(String suffix)
 String#end_with?(suffix)
 </code></pre>
 
+<h3 id="javascript-2">JavaScript</h3>
+
+<p>startsWithに相当するよく使う方法。</p>
+
+<pre><code>str.indexOf(prefix) == 0
+</code></pre>
+
+<p>ただ、これだと、strが長い文字列の時にいちいちstrの最後までなめるのが効率よくなさそう。</p>
+
+<p>endsWithに相当するよく使う方法。</p>
+
+<pre><code>str.substr(str.length - prefix.length) == prefix
+</code></pre>
+
+<p>ただ、これだと、prefixがstrより長い場合にどうなることやら。</p>
+
 <h2 id="sprintf">sprintf</h2>
 
 <h3 id="java-3">Java</h3>
@@ -235,6 +251,8 @@ int String#lastIndexOf(String str)
 int List#lastIndexOf(Object o)
 </code></pre>
 
+<p>見つからなかった場合は <code>-1</code> を返す。</p>
+
 <h3 id="ruby-4">Ruby</h3>
 
 <pre><code>String#index(str)
@@ -254,6 +272,13 @@ String#rindex(str, index)
 'abcabc'.rindex('abc', 3) # =&gt; 3
 'abcabc'.rindex('abc', 2) # =&gt; 0
 </code></pre>
+
+<h3 id="javascript-3">JavaScript</h3>
+
+<pre><code>string.indexOf(str)
+</code></pre>
+
+<p>見つからなかった場合は <code>-1</code> を返す。</p>
 
 <h2 id="length">length</h2>
 
@@ -285,7 +310,7 @@ boolean List#isEmpty()
 <pre><code>Array#join(separator)
 </code></pre>
 
-<h3 id="javascript-2">Javascript</h3>
+<h3 id="javascript-4">Javascript</h3>
 
 <pre><code>arr.join(separator)
 </code></pre>

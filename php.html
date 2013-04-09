@@ -73,12 +73,40 @@ footer {
 <div id="content">
 <h1 id="php">PHP</h1>
 
+<p><i>-&gt; <a href="codeigniter.html">CodeIgniter</a></i></p>
+
 <h2 id="mail">mail関数でメールを送るときに、長い日本語のサブジェクトが途中から文字化けする件</h2>
 
 <p>mb_encode_mimeheader を呼び出す際には内部エンコードがJISである必要がある。  </p>
 
 <p>参考：<br />
 <a href="http://www.onecreation.jp/blog/?p=1132" target="_blank">http://www.onecreation.jp/blog/?p=1132</a></p>
+
+<h2 id="mpdf-htmlpdf-20130409">mPDF: HTMLをPDFに変換するライブラリ [2013/04/09]</h2>
+
+<p>例：</p>
+
+<pre><code>require_once 'mpdf.php';
+$mpdf = new mPDF('ja', 'A4', '', '', 15, 15, 26);
+$mpdf-&gt;showImageErrors = TRUE;
+$mpdf-&gt;keep_table_proportions = TRUE;
+$mpdf-&gt;WriteHTML($content_html);
+$mpdf-&gt;Output(date('YmdHis').'.pdf', 'I');
+</code></pre>
+
+<p>画像がリンク切れの状態でキャプチャが撮れてしまう場合に以下のオプションを指定しておくと、エラーメッセージが表示される。</p>
+
+<pre><code>$mpdf-&gt;showImageErrors = TRUE;
+</code></pre>
+
+<p>オプションの一覧<br />
+<a href="http://mpdf1.com/manual/index.php?tid=273" target="_blank">http://mpdf1.com/manual/index.php?tid=273</a></p>
+
+<h3 id="error-parsing-image-file---image-type-not-recognised-and-not-supported-by-gd-imagecreate--20130409">Error parsing image file - image type not recognised, and not supported by GD imagecreate というエラー [2013/04/09]</h3>
+
+<p>このエラーが表示されて原因がわからなくなったときに調べる方法</p>
+
+<p><a href="http://stackoverflow.com/questions/6730076/mdpf-library-generate-blank-page-no-error-even-i-set-debug-mode#answer-6768688" target="_blank">http://stackoverflow.com/questions/6730076/mdpf-library-generate-blank-page-no-error-even-i-set-debug-mode#answer-6768688</a></p>
 
 
 </div>

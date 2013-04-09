@@ -94,6 +94,19 @@ IE7, IE8, IE9の検証用の無償ライセンス(90日間限定)</p>
 <p>modern.IEにのっかってみる（ievmsから乗り換え計画）<br />
 <a href="http://sugilog.hatenablog.com/entry/2013/03/19/230104" target="_blank">http://sugilog.hatenablog.com/entry/2013/03/19/230104</a></p>
 
+<h2 id="wkhtmltoimage">wkhtmltoimage</h2>
+
+<p><a href="https://code.google.com/p/wkhtmltopdf/" target="_blank">https://code.google.com/p/wkhtmltopdf/</a></p>
+
+<p>HTMLページをキャプチャして画像に変換するコマンド。webkitで実装されている。同じシリーズでPDFに変換するコマンドもある。</p>
+
+<h3 id="basic">BASIC認証のかかったページを画像化するには</h3>
+
+<p>以下のようにオプションでID/PWを指定する。</p>
+
+<pre><code>wkhtmltoimage --username ユーザ名 --password パスワード 対象ページURL 書き出し先画像パス
+</code></pre>
+
 
 </div>
 <footer>
