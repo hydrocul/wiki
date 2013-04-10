@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>正規表現 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+#content {
+  margin: 0 40px 0 40px;
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 20px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+}
+#content h2 {
+  margin: 20px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+}
+#content h3 {
+  margin: 20px 0 20px 40px;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 10px 0 10px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 10px 0 10px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 10px 0 10px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+<div id="content">
+<h1 id="section">正規表現</h1>
+
+<ul>
+  <li><a href="#replace">全置換</a></li>
+</ul>
+
+<h2 id="replace">全置換</h2>
+
+<h3 id="php">PHP</h3>
+
+<pre><code>preg_replace($pattern, $replacement, $str);
+</code></pre>
+
+<p>例：</p>
+
+<pre><code>preg_replace('/a(.)/', '$1$1', 'abac'); // =&gt; 'bbcc'
+</code></pre>
+
+<p><a href="http://www.php.net/manual/ja/function.preg-replace.php" target="_blank">http://www.php.net/manual/ja/function.preg-replace.php</a></p>
+
+<blockquote>
+  <p>replacement では、 \n 形式または $n 形式（PHP 4.0.4 以降）で参照を
+指定することができます。 後者の形式の方が好ましい形式です。各参照は、n 番目の
+キャプチャ用サブパターンにマッチしたテキストにより置換されます。 n は 0 から
+99 までとすることができ、 \0 または $0 は パターン全体にマッチするテキストを
+参照します。キャプチャ用サブパターンの番号 については、その左括弧が左から右に
+（1から）カウントされます。 置換文字でバックスラッシュを使用する場合は、
+二重化する必要があります (PHP の文字列 “\\” となります)。</p>
+
+  <p>後方参照の直後に他の数字が続くような置換 (replacement) パターンを 使用する場合
+（すなわち、マッチしたパターンの直後に数字リテラルを置く 場合）、
+後方参照を行うために通常の \1 表記を 使用することができません。例えば、\11 は、
+後方参照 \1 の後にリテラル 1 が続くのか、後方参照 \11 で その後には
+何も続かないのかが不明のため、 preg_replace() を混乱させる可能性があります。
+この場合、解決策は、${1}1 を使用することです。 こうすることで、
+1 はリテラルとなり、後方参照 $1 を明確に作成できます。</p>
+</blockquote>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code>"abc\nabc\n".gsub(/\n/, "&lt;br /&gt;")
+</code></pre>
+
+<p>2つ目の引数には、かっこでマッチした部分の参照として <code>\1</code>, <code>\2</code> などが使える。2つ目の引数がダブルクオーテーションで囲まれている場合は <code>\\1</code>, <code>\\2</code> のようにする必要がある。</p>
+
+<pre><code>"abac".gsub(/a(.)/, "\\1\\1") # =&gt; "bbcc"
+</code></pre>
+
+<p>正規表現のみを与えて、代わりにブロックを与えると、ブロックを評価した結果に置換される。ブロックの中ではかっこでマッチした部分を <code>$1</code>, <code>$2</code> などで参照できる。</p>
+
+<pre><code>"abac".gsub(/a(.)/) { $1 * 2 } # =&gt; "bbcc"
+</code></pre>
+
+<p>Ruby 1.9.3 リファレンスマニュアル &gt; spec/regexp<br />
+<a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html</a></p>
+
+<h3 id="javascript">JavaScript</h3>
+
+<pre><code>"abc\nabc\n".replace(/\n/, '&lt;br /&gt;');
+</code></pre>
+
+
+</div>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+</body>
+</html>

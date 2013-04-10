@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>文字列処理 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+#content {
+  margin: 0 40px 0 40px;
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 20px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+}
+#content h2 {
+  margin: 20px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+}
+#content h3 {
+  margin: 20px 0 20px 40px;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 10px 0 10px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 10px 0 10px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 10px 0 10px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+<div id="content">
+<h1 id="section">文字列処理</h1>
+
+<ul>
+  <li><a href="#substr">substr</a></li>
+  <li><a href="#trim">trim</a></li>
+  <li><a href="#starts-with">startsWith / endsWith</a></li>
+  <li><a href="#sprintf">sprintf</a></li>
+  <li><a href="#index-of">indexOf</a></li>
+  <li><a href="#length">length</a></li>
+  <li><a href="#is-empty">isEmpty</a></li>
+  <li><a href="#join">join</a></li>
+</ul>
+
+<h2 id="substr">substr</h2>
+
+<h3 id="java">Java</h3>
+
+<pre><code>String String#substring(int from)
+String String#substring(int from, int to)
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code>string substr(string $string, int $start [, int $length])
+</code></pre>
+
+<p><a href="http://www.php.net/manual/ja/function.substr.php" target="_blank">http://www.php.net/manual/ja/function.substr.php</a></p>
+
+<blockquote>
+  <p>start が負の場合、返される文字列は、 stringの後ろから数えて start番目から始まる文字列となります。<br />
+string の長さが start 文字以下の場合は FALSE が返されます。<br />
+length が指定され、かつ負である場合、 string の終端から多くの文字が省略されます
+(start が負の場合は、開始位置を算出したあとで)。 もし start が切り出し位置を超える場合、 false が返されます。<br />
+length が指定され、かつ 0 である場合は、 空文字列なら NULL、そうでなければ FALSE を返します。<br />
+length を省略した場合は、 start の位置から文字列の最後までの部分文字列を返します。  </p>
+</blockquote>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code>String#slice(from, length)
+</code></pre>
+
+<p>配列に対しても同じように <code>slice</code> が使える。</p>
+
+<h3 id="javascript">JavaScript</h3>
+
+<pre><code>string.substring(from [, to])
+string.substr(from [, len])
+</code></pre>
+
+<h2 id="trim">trim</h2>
+
+<h3 id="java-1">Java</h3>
+
+<pre><code>String String#trim()
+</code></pre>
+
+<h3 id="php-1">PHP</h3>
+
+<pre><code>string trim(string $str [, string $charlist])
+</code></pre>
+
+<p><a href="http://php.net/manual/ja/function.trim.php" target="_blank">http://php.net/manual/ja/function.trim.php</a></p>
+
+<blockquote>
+  <p>2番目のパラメータを指定しない場合、 trim()は以下の文字を削除します。<br />
+“ “ (ASCII 32 (0x20)), 通常の空白。<br />
+“\t” (ASCII 9 (0x09)), タブ。<br />
+“\n” (ASCII 10 (0x0A)), リターン。<br />
+“\r” (ASCII 13 (0x0D)), 改行。<br />
+“\0” (ASCII 0 (0x00)), NULバイト<br />
+“\x0B” (ASCII 11 (0x0B)), 垂直タブ  </p>
+</blockquote>
+
+<h3 id="ruby-1">Ruby</h3>
+
+<pre><code>String#strip
+String#strip!
+</code></pre>
+
+<p><a href="http://doc.ruby-lang.org/ja/2.0.0/method/String/i/strip.html" target="_blank">http://doc.ruby-lang.org/ja/2.0.0/method/String/i/strip.html</a></p>
+
+<blockquote>
+  <p>空白文字の定義は <code>" \t\r\n\f\v"</code> です。 また、文字列右側からは <code>"\0"</code> も取り除きますが、 左側の <code>"\0"</code> は取り除きません。</p>
+</blockquote>
+
+<p>最後の改行のみを削除するのは <code>chomp</code>。</p>
+
+<pre><code>String#chomp(str)
+String#chomp!(str)
+</code></pre>
+
+<p><a href="http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html" target="_blank">http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html</a></p>
+
+<h3 id="javascript-1">Javascript</h3>
+
+<pre><code>jQuery.trim(str)
+</code></pre>
+
+<p><a href="http://api.jquery.com/jQuery.trim/" target="_blank">http://api.jquery.com/jQuery.trim/</a><br />
+<a href="http://semooh.jp/jquery/api/utilities/jQuery.trim/str/" target="_blank">http://semooh.jp/jquery/api/utilities/jQuery.trim/str/</a></p>
+
+<h2 id="starts-with">startsWith / endsWith</h2>
+
+<h3 id="java-2">Java</h3>
+
+<pre><code>String String#startsWith(String prefix)
+String String#endsWith(String suffix)
+</code></pre>
+
+<h3 id="ruby-2">Ruby</h3>
+
+<pre><code>String#start_with?(prefix)
+String#end_with?(suffix)
+</code></pre>
+
+<h3 id="javascript-2">JavaScript</h3>
+
+<p>startsWithに相当するよく使う方法。</p>
+
+<pre><code>str.indexOf(prefix) == 0
+</code></pre>
+
+<p>ただ、これだと、strが長い文字列の時にいちいちstrの最後までなめるのが効率よくなさそう。</p>
+
+<p>endsWithに相当するよく使う方法。</p>
+
+<pre><code>str.substr(str.length - prefix.length) == prefix
+</code></pre>
+
+<p>ただ、これだと、prefixがstrより長い場合にどうなることやら。</p>
+
+<h2 id="sprintf">sprintf</h2>
+
+<h3 id="java-3">Java</h3>
+
+<pre><code>static String String#format(String format, Object... args)
+</code></pre>
+
+<p>例：</p>
+
+<pre><code>String.format("%s %d", "abc", 1)
+</code></pre>
+
+<p>フォーマットの説明<br />
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax</a></p>
+
+<h3 id="php-2">PHP</h3>
+
+<pre><code>string sprintf(string $format [, $arg1 [, $arg2 ... ]])
+</code></pre>
+
+<p>フォーマットの説明<br />
+<a href="http://www.php.net/manual/ja/function.sprintf.php" target="_blank">http://www.php.net/manual/ja/function.sprintf.php</a></p>
+
+<h3 id="ruby-3">Ruby</h3>
+
+<p>例：</p>
+
+<pre><code>"%s %d" % ["abc", 1]
+</code></pre>
+
+<p>フォーマットの説明<br />
+<a href="http://www.ruby-lang.org/ja/old-man/html/sprintf_A5D5A5A9A1BCA5DEA5C3A5C8.html" target="_blank">http://www.ruby-lang.org/ja/old-man/html/sprintf_A5D5A5A9A1BCA5DEA5C3A5C8.html</a></p>
+
+<h2 id="index-of">indexOf</h2>
+
+<h3 id="java-4">Java</h3>
+
+<pre><code>int String#indexOf(int ch)
+int String#indexOf(String str)
+
+int String#lastIndexOf(int ch)
+int String#lastIndexOf(String str)
+</code></pre>
+
+<p>見つからなかった場合は <code>-1</code> を返す。</p>
+
+<h3 id="ruby-4">Ruby</h3>
+
+<pre><code>String#index(str)
+String#index(str, index)
+
+String#rindex(str)
+String#rindex(str, index)
+</code></pre>
+
+<p>見つからない場合は <code>nil</code> を返す。2つ目の引数を与えると <code>index</code> はその位置以降を探し、<code>rindex</code> はその位置以前を探す。</p>
+
+<pre><code>'abcabc'.index('abc')     # =&gt; 0
+'abcabc'.index('abc', 1)  # =&gt; 3
+'abcabc'.index('abc', 3)  # =&gt; 3
+'abcabc'.index('abc', 4)  # =&gt; nil
+'abcabc'.rindex('abc')    # =&gt; 3
+'abcabc'.rindex('abc', 3) # =&gt; 3
+'abcabc'.rindex('abc', 2) # =&gt; 0
+</code></pre>
+
+<h3 id="javascript-3">JavaScript</h3>
+
+<pre><code>string.indexOf(str)
+</code></pre>
+
+<p>見つからなかった場合は <code>-1</code> を返す。</p>
+
+<h2 id="length">length</h2>
+
+<h3 id="java-5">Java</h3>
+
+<pre><code>int String#length()
+</code></pre>
+
+<h2 id="is-empty">isEmpty</h2>
+
+<h3 id="java-6">Java</h3>
+
+<pre><code>boolean String#isEmpty()
+</code></pre>
+
+<h2 id="join">join</h2>
+
+<h3 id="php-3">PHP</h3>
+
+<pre><code>implode($separator, $arr)
+</code></pre>
+
+<p><a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
+
+<h3 id="ruby-5">Ruby</h3>
+
+<pre><code>Array#join(separator)
+</code></pre>
+
+<h3 id="javascript-4">Javascript</h3>
+
+<pre><code>arr.join(separator)
+</code></pre>
+
+
+</div>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+</body>
+</html>

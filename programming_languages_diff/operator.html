@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>演算子 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+#content {
+  margin: 0 40px 0 40px;
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 20px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+}
+#content h2 {
+  margin: 20px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+}
+#content h3 {
+  margin: 20px 0 20px 40px;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 10px 0 10px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 10px 0 10px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 10px 0 10px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+<div id="content">
+<h1 id="section">演算子</h1>
+
+<ul>
+  <li><a href="#increment">インクリメント・デクリメント演算子</a></li>
+  <li><a href="#compare">比較演算子</a></li>
+</ul>
+
+<h2 id="increment">インクリメント・デクリメント演算子</h2>
+
+<h3 id="c-c">C言語, C++</h3>
+
+<p>ある。</p>
+
+<pre><code>++i;
+--i;
+i++;
+i--;
+i += 1;
+i -= 1;
+</code></pre>
+
+<h3 id="java">Java</h3>
+
+<p>ある。</p>
+
+<pre><code>++i;
+--i;
+i++;
+i--;
+i += 1;
+i -= 1;
+</code></pre>
+
+<h3 id="scala">Scala</h3>
+
+<p>ない。</p>
+
+<pre><code>i += 1;
+i -= 1;
+</code></pre>
+
+<p><code>i += 1</code> などは <code>i = i + 1</code> などのシンタックスシュガー。</p>
+
+<p>scalaでは、なぜインクリメントやデクリメントができないのか？<br />
+<a href="http://d.hatena.ne.jp/xuwei/20110130/1296360331" target="_blank">http://d.hatena.ne.jp/xuwei/20110130/1296360331</a></p>
+
+<h3 id="javascript">JavaScript</h3>
+
+<p>ある。</p>
+
+<pre><code>++i;
+--i;
+i++;
+i--;
+i += 1;
+i -= 1;
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<p>ある。</p>
+
+<pre><code>++$i;
+--$i;
+$i++;
+$i--;
+$i += 1;
+$i -= 1;
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<p>ない。</p>
+
+<pre><code>i += 1
+i -= 1
+</code></pre>
+
+<p>オブジェクトだから、というのはわかるが、 <code>i = i + 1</code> のシンタックスシュガーだ、ということにはできないのかな?</p>
+
+<h2 id="compare">比較演算子</h2>
+
+<h3 id="ruby-1">Ruby</h3>
+
+<p>ソートに便利な比較の演算子</p>
+
+<pre><code>a &lt;=&gt; b
+</code></pre>
+
+<p><code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。</p>
+
+
+</div>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+</body>
+</html>

@@ -394,6 +394,18 @@ tar xvzf tarファイル名
 <p>GNU Wget 1.9 Manual 日本語<br />
 <a href="http://www.bookshelf.jp/texi/wget/wget-ja.html" target="_blank">http://www.bookshelf.jp/texi/wget/wget-ja.html</a></p>
 
+<h3 id="section-12">ウェブサイトを丸ごとダウンロードするには</h3>
+
+<p>ウェブサイトを第3階層までリンクをたどりダウンロードする。</p>
+
+<pre><code>wget -r -l3 URL
+</code></pre>
+
+<p>ウェブサイトを第5階層までリンクをたどりダウンロードする。かつローカルでサイトを閲覧できるように、パスを相対パスに書き換える。</p>
+
+<pre><code>wget -r -l5 --convert-links URL
+</code></pre>
+
 <h2 id="zip">zip</h2>
 
 <h3 id="zip">ディレクトリまるごとzip圧縮するには</h3>
@@ -416,7 +428,7 @@ tar xvzf tarファイル名
 <pre><code>tar xvzf TARGZファイル名
 </code></pre>
 
-<h3 id="section-12">ウェブサイトを丸ごとダウンロードするには</h3>
+<h3 id="section-13">ウェブサイトを丸ごとダウンロードするには</h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする</p>
 

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>配列 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+#content {
+  margin: 0 40px 0 40px;
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 20px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+}
+#content h2 {
+  margin: 20px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+}
+#content h3 {
+  margin: 20px 0 20px 40px;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 10px 0 10px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 10px 0 10px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 10px 0 10px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+<div id="content">
+<h1 id="section">配列</h1>
+
+<ul>
+  <li><a href="#literal">配列の書き方</a></li>
+  <li><a href="#index-of">indexOf</a></li>
+  <li><a href="#length">length</a></li>
+  <li><a href="#is-empty">isEmpty</a></li>
+  <li><a href="#contains">contains</a></li>
+</ul>
+
+<h2 id="literal">配列の書き方</h2>
+
+<h3 id="java">Java</h3>
+
+<pre><code>arr = {1, 2, 3};
+arr = new int[]{1, 2, 3};
+</code></pre>
+
+<p>連想配列は一発では作れない。</p>
+
+<pre><code>import java.util.HashMap;
+map = new HashMap();
+map.put("a", 1);
+map.put("b", 2);
+</code></pre>
+
+<h3 id="scala">Scala</h3>
+
+<pre><code>arr = Array(1, 2, 3);
+map = Map('a' -&gt; 1, 'b' -&gt; 2);
+</code></pre>
+
+<p>これは以下のシンタックスシュガー。</p>
+
+<pre><code>arr = scala.Array.apply(1, 2, 3);
+map = scala.collection.immutable.Map.apply(scala.Predef.any2ArrowAssoc('a').-&gt;(1),
+                                           scala.Predef.any2ArrowAssoc('a').-&gt;(2));
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code>arr = array(1, 2, 3);
+map = array('a' =&gt; 1, 'b' =&gt; 2);
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code>arr = [1, 2, 3]
+map = {'a' =&gt; 1, 'b' =&gt; 2}
+</code></pre>
+
+<h3 id="javascript">JavaScript</h3>
+
+<p>下の3つは全部同じ配列を生成する。</p>
+
+<pre><code>arr = [1, 2, 3];
+arr = {0: 1, 1: 2, 2: 3}; arr.__proto__ = Array.prototype;
+arr = {'0': 1, '1': 2, '2': 3}; arr.__proto__ = Array.prototype;
+</code></pre>
+
+<p>下の2つは全部同じ連想配列を生成する。</p>
+
+<pre><code>map = {a: 1, b: 2}
+map = {'a': 1, 'b': 2}
+</code></pre>
+
+<p>JavaScript の配列と連想配列の違い<br />
+<a href="http://d.hatena.ne.jp/amachang/20070202/1170386546" target="_blank">http://d.hatena.ne.jp/amachang/20070202/1170386546</a></p>
+
+<h3 id="coffeescript">CoffeeScript</h3>
+
+<pre><code>arr = [1, 2, 3]
+arr = [1, 2, 3, ]
+arr = [
+    1
+    2
+    3
+]
+
+map = {a: 1, b: 2}
+map = a: 1, b: 2
+map =
+    a: 1
+    b: 2
+</code></pre>
+
+<h2 id="index-of">indexOf</h2>
+
+<h3 id="java-1">Java</h3>
+
+<pre><code>int List#indexOf(Object o)
+int List#lastIndexOf(Object o)
+</code></pre>
+
+<p>見つからなかった場合は <code>-1</code> を返す。</p>
+
+<h2 id="length">length</h2>
+
+<h3 id="java-2">Java</h3>
+
+<pre><code>int List#size()
+</code></pre>
+
+<h2 id="is-empty">isEmpty</h2>
+
+<h3 id="java-3">Java</h3>
+
+<pre><code>boolean List#isEmpty()
+</code></pre>
+
+<h2 id="contains">contains</h2>
+
+<h3 id="java-4">Java</h3>
+
+<pre><code>boolean List#contains(Object obj)
+</code></pre>
+
+<h3 id="ruby-1">Ruby</h3>
+
+<pre><code>arr.include?(obj)
+</code></pre>
+
+
+</div>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+</body>
+</html>

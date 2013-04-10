@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>データ型 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+#content {
+  margin: 0 40px 0 40px;
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 20px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+}
+#content h2 {
+  margin: 20px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+}
+#content h3 {
+  margin: 20px 0 20px 40px;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 10px 0 10px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 10px 0 10px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 10px 0 10px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+<div id="content">
+<h1 id="section">データ型</h1>
+
+<ul>
+  <li><a href="#is-a">データ型の判定</a></li>
+  <li><a href="#to-boolean">論理値への変換</a></li>
+  <li><a href="#str-to-date">文字列を日付に変換</a></li>
+</ul>
+
+<h2 id="is-a">データ型の判定</h2>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code>num.is_a?(Integer)
+num.is_a?(String)
+num.is_a?(Array)
+</code></pre>
+
+<h3 id="javascript">JavaScript</h3>
+
+<p>undefined かどうかを判定するには</p>
+
+<pre><code>typeof a === 'undefined'
+</code></pre>
+
+<p>undefined値のさまざまな判定方法<br />
+<a href="http://blog.tojiru.net/article/205007468.html" target="_blank">http://blog.tojiru.net/article/205007468.html</a></p>
+
+<p>配列かどうかを判定するには</p>
+
+<pre><code> a instanceof Array
+</code></pre>
+
+<h2 id="to-boolean">論理値への変換</h2>
+
+<h3 id="java">Java</h3>
+
+<p><code>boolean</code>型以外が暗黙のうちに <code>boolean</code> に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。</p>
+
+<h3 id="scala">Scala</h3>
+
+<p><code>Boolean</code>型以外が暗黙のうちに <code>Boolean</code> に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。</p>
+
+<h3 id="php">PHP</h3>
+
+<p><code>false</code>, <code>null</code>, <code>0</code>, <code>0.0</code>, <code>''</code>, <code>'0'</code>, <code>array()</code> が <code>false</code> になり、それ以外は <code>true</code> になる。文字列 <code>'0'</code> は <code>false</code> だが、文字列 <code>'false'</code> は <code>true</code> になる。</p>
+
+<p><a href="http://php.net/manual/ja/types.comparisons.php" target="_blank">http://php.net/manual/ja/types.comparisons.php</a></p>
+
+<h3 id="ruby-1">Ruby</h3>
+
+<p><code>false</code>, <code>nil</code> が <code>false</code> になり、それ以外は <code>true</code> になる。<code>0</code> も <code>''</code> も <code>true</code>。</p>
+
+<h3 id="javascript-1">JavaScript</h3>
+
+<p><code>false</code>, <code>0</code>, <code>''</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code> が <code>false</code> になり、それ以外は <code>true</code> になる。</p>
+
+<h2 id="str-to-date">文字列を日付に変換</h2>
+
+<h3 id="ruby-2">Ruby</h3>
+
+<pre><code>require 'date'
+date = Date.strptime('2013/03/17', '%Y/%m/%d')
+p [date.year, date.month, date.day, date.wday]
+</code></pre>
+
+<p>date.wday で曜日を整数で取得でき、日曜日が0。</p>
+
+
+</div>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+</body>
+</html>
