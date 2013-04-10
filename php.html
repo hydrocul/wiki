@@ -102,6 +102,10 @@ $mpdf-&gt;Output(date('YmdHis').'.pdf', 'I');
 <p>オプションの一覧<br />
 <a href="http://mpdf1.com/manual/index.php?tid=273" target="_blank">http://mpdf1.com/manual/index.php?tid=273</a></p>
 
+<p>HTMLの中に <code>/</code> で始まるパスの画像があった場合は、
+HTTPスキーマとポート番号なしを決め打ちしてしまって、
+SSLや独自ポート番号には対応していない模様。ホスト名はたぶん <code>$_SERVER['SERVER_NAME']</code> を参照している。</p>
+
 <h3 id="error-parsing-image-file---image-type-not-recognised-and-not-supported-by-gd-imagecreate--20130409">Error parsing image file - image type not recognised, and not supported by GD imagecreate というエラー [2013/04/09]</h3>
 
 <p>このエラーが表示されて原因がわからなくなったときに調べる方法</p>

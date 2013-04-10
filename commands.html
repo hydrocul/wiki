@@ -96,6 +96,7 @@ footer {
   <li><a href="#tar">tar</a></li>
   <li><a href="#touch">touch</a></li>
   <li><a href="#tr">tr</a></li>
+  <li><a href="#watch">watch</a></li>
   <li><a href="#wget">wget</a></li>
   <li><a href="#zip">zip</a></li>
 </ul>
@@ -372,6 +373,18 @@ tar xvzf tarファイル名
 </code></pre>
 
 <p>この例だと、改行をすべて削除する。</p>
+
+<h2 id="watch">watch</h2>
+
+<p><code>ls</code> を1秒ごとに実行</p>
+
+<pre><code>watch -n 1 ls -al
+</code></pre>
+
+<p>ファイルの数を1秒ごとに監視</p>
+
+<pre><code>watch -n 1 "ls | wc -l"
+</code></pre>
 
 <h2 id="wget">wget</h2>
 

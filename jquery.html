@@ -73,6 +73,9 @@ footer {
 <div id="content">
 <h1 id="jquery">jQuery</h1>
 
+<p>jQuery API Documentation<br />
+<a href="http://api.jquery.com/" target="_blank">http://api.jquery.com/</a></p>
+
 <h2 id="jqueryhtml-20130403">jQueryオブジェクトからHTMLソースを取得するには [2013/04/03]</h2>
 
 <p><code>$(...).html()</code> だとその要素の内側のHTMLを取得できる。
@@ -182,7 +185,7 @@ $('#container').delegate('a', 'click', function(){ ... });
 <p><a href="http://www.skuare.net/test/jQuery.html" target="_blank">http://www.skuare.net/test/jQuery.html</a><br />
 jQueryのライブラリ</p>
 
-<h2 id="jquery-splitter-20130408">jQuery Splitter [2013/04/08]</h2>
+<h2 id="jquery-splitter-20130410">jQuery Splitter [2013/04/10]</h2>
 
 <p><a href="http://archive.plugins.jquery.com/project/splitter" target="_blank">http://archive.plugins.jquery.com/project/splitter</a></p>
 
@@ -197,6 +200,8 @@ jQueryのライブラリ</p>
 <code>position: '' + width,</code> などとする。
 <code>position</code> に数字を指定するとエラーになるが、数字を文字列に変換した場合は、単位 <code>px</code> が仮定される。</p>
 
+<p><code>onDragStart</code> はマウスで境界を移動させ始めるときに呼び出される関数。</p>
+
 <p><code>onDragEnd</code> はマウスで境界を移動させ終わったときに呼び出される関数。</p>
 
 <pre><code>&lt;div id="wrapper"&gt;
@@ -209,6 +214,9 @@ jQueryのライブラリ</p>
       orientation: 'vertical',
       limit: 100,
       position: '70%',
+      onDragStart: function(){
+        ...
+      }
       onDragEnd: function(){
         ...
       }

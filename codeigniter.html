@@ -95,6 +95,24 @@ footer {
 <pre><code>tail -f application/logs/log-yyyy-mm-dd.php | grep 'DEBUG xxx'
 </code></pre>
 
+<h2 id="configphp--20130409">config.php の中の値を取得するには [2013/04/09]</h2>
+
+<p>コントローラの中からの場合</p>
+
+<pre><code>$config_value = $this-&gt;config-&gt;item('item_name');
+</code></pre>
+
+<p>ヘルパーなどからの場合</p>
+
+<pre><code>$CI =&amp; get_instance();
+$config_value = $CI-&gt;config-&gt;item('item_name');
+</code></pre>
+
+<p>config.php の中に <code>'item_name'</code> が設定されていない場合は <code>false</code> を返す。</p>
+
+<p>設定クラス | CodeIgniter ユーザガイド 日本語版<br />
+<a href="http://codeigniter.jp/user_guide_ja/libraries/config.html" target="_blank">http://codeigniter.jp/user_guide_ja/libraries/config.html</a></p>
+
 
 </div>
 <footer>
