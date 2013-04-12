@@ -73,8 +73,37 @@ footer {
 <div id="content">
 <h1 id="linux">Linux</h1>
 
-<p>プロセスとかスレッドとかプロセス間通信とかについて<br />
-<a href="https://github.com/Shinpeim/process-book" target="_blank">https://github.com/Shinpeim/process-book</a></p>
+<h2 id="section">プロセスとかスレッドとかプロセス間通信とかについて</h2>
+
+<p><a href="https://github.com/Shinpeim/process-book" target="_blank">https://github.com/Shinpeim/process-book</a></p>
+
+<h2 id="centos">デーモンの管理 (CentOSの場合)</h2>
+
+<h3 id="section-1">起動時にデーモンを自動起動させるには</h3>
+
+<p>例えば、mysqlの場合</p>
+
+<pre><code># root
+chkconfig mysqld on
+</code></pre>
+
+<p><code>chkconfig</code> の設定状況は <code>chkconfig --list</code> で確認できる。</p>
+
+<h3 id="section-2">手動でデーモンを起動させるには</h3>
+
+<p>例えば、mysqlの場合</p>
+
+<pre><code># root
+service mysqld start
+</code></pre>
+
+<h3 id="chkconfig-">手動で作った起動スクリプトを <code>chkconfig</code> に管理させるには</h3>
+
+<p><code>/etc/init.d/mydaemon</code> というのがあるとすると</p>
+
+<pre><code># root
+chkconfig --add mydaemon
+</code></pre>
 
 
 </div>

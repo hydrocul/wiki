@@ -151,6 +151,45 @@ CGI.escape はURLとしての意味を持たせたくない文字をエスケー
 <p>Rubyのcgiライブラリについて<br />
 <a href="http://www.ruby-doc.org/stdlib-1.9.3/libdoc/cgi/rdoc/CGI.html" target="_blank">http://www.ruby-doc.org/stdlib-1.9.3/libdoc/cgi/rdoc/CGI.html</a></p>
 
+<h2 id="ruby-1">Rubyソースコード完全解説</h2>
+
+<p><a href="http://loveruby.net/ja/rhg/book/" target="_blank">http://loveruby.net/ja/rhg/book/</a></p>
+
+<blockquote>
+  <p>本書のテーマはいくつかある。  </p>
+
+  <p>rubyの構造を知ること<br />
+言語処理系一般についての知識を身に付けること<br />
+ソースコードを読む技術を身に付けること  </p>
+</blockquote>
+
+<h2 id="rbenv">rbenv [2013/04/11]</h2>
+
+<h3 id="rbenvruby">rbenvを使ってシステムワイドにrubyをインストールする方法</h3>
+
+<p><a href="http://qiita.com/items/8e973a544b592376a07e" target="_blank">http://qiita.com/items/8e973a544b592376a07e</a></p>
+
+<h3 id="rbenvruby-1">rbenvで複数のバージョンのrubyを使用する環境を整える</h3>
+
+<p><a href="http://memo.yomukaku.net/entries/ApoFwmf" target="_blank">http://memo.yomukaku.net/entries/ApoFwmf</a></p>
+
+<h2 id="gem">gem [2013/04/11]</h2>
+
+<h3 id="gem">gemインストールする際にドキュメントはインストールしないようにするには</h3>
+
+<pre><code>gem install パッケージ名 --no-ri --no-rdoc
+</code></pre>
+
+<p>ドキュメントの除外をデフォルトの動作にするには<br />
+<a href="http://blog.ruedap.com/entry/20110514/ruby_gem_install_no_ri_no_rdoc_gemrc" target="_blank">http://blog.ruedap.com/entry/20110514/ruby_gem_install_no_ri_no_rdoc_gemrc</a></p>
+
+<h2 id="check-version-from-ruby">RubyのバージョンをRubyのソースコード中で参照するには</h2>
+
+<p><code>RUBY_VERSION</code> という定数に保存されている。</p>
+
+<pre><code>p RUBY_VERSION
+</code></pre>
+
 
 </div>
 <footer>

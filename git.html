@@ -84,8 +84,10 @@ footer {
   <li><a href="#assume-unchanged">既に git で管理しているファイルの変更を git に無視させるには</a></li>
   <li><a href="#add-ignore-space-change">gitで空白の違いだけの行を除いてaddするには</a></li>
   <li><a href="#diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには</a></li>
+  <li><a href="#git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには</a></li>
   <li><a href="#gitignore-recursive">へぇ〜</a></li>
   <li><a href="#introductory-book">入門</a></li>
+  <li><a href="#gitlab">gitlab</a></li>
 </ul>
 
 <h2 id="color">カラフルにログを見るには</h2>
@@ -203,6 +205,13 @@ patch -p1 &lt; patch.patch
 rm patch.patch
 </code></pre>
 
+<h2 id="git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには</h2>
+
+<pre><code>git clone git://github.com/foo/bar.git hoge
+</code></pre>
+
+<p>これで hoge というディレクトリが作られる。</p>
+
 <h2 id="gitignore-recursive">へぇ〜</h2>
 
 <p><code>.gitignore</code> はトップのディレクトリにだけでなく、任意のディレクトリに置いて、そのディレクトリ以下にのみ追加の設定をすることができる。</p>
@@ -211,6 +220,22 @@ rm patch.patch
 
 <p>デザイナーでもgithubを覚えたい！コマンドの練習ができる『Learn Git Branching』<br />
 <a href="http://arisa.biz/%E3%81%8A%E5%BD%B9%E7%AB%8B%E3%81%A1/2013-03-19/%E3%83%87%E3%82%B6%E3%82%A4%E3%83%8A%E3%83%BC%E3%81%A7%E3%82%82github%E3%82%92%E8%A6%9A%E3%81%88%E3%81%9F%E3%81%84%EF%BC%81%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AE%E7%B7%B4%E7%BF%92%E3%81%8C" target="_blank">http://arisa.biz/%E3%81%8A%E5%BD%B9%E7%AB%8B%E3%81%A1/2013-03-19/%E3%83%87%E3%82%B6%E3%82%A4%E3%83%8A%E3%83%BC%E3%81%A7%E3%82%82github%E3%82%92%E8%A6%9A%E3%81%88%E3%81%9F%E3%81%84%EF%BC%81%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AE%E7%B7%B4%E7%BF%92%E3%81%8C</a></p>
+
+<h2 id="gitlab">gitlab</h2>
+
+<h3 id="gitlab-50--centos-64-">GitLab 5.0 を CentOS 6.4 にインストールした</h3>
+
+<p><a href="http://ngyuki.hatenablog.com/entry/2013/04/02/234129" target="_blank">http://ngyuki.hatenablog.com/entry/2013/04/02/234129</a><br />
+2013/04/11時点で実際にインストールしたときに参考にした記事</p>
+
+<h3 id="debianubuntu-">Debian/Ubuntu へのインストール方法</h3>
+
+<p><a href="https://github.com/gitlabhq/gitlabhq/blob/5-0-stable/doc/install/installation.md" target="_blank">https://github.com/gitlabhq/gitlabhq/blob/5-0-stable/doc/install/installation.md</a></p>
+
+<h3 id="centos-">CentOS へのインストール方法</h3>
+
+<p><a href="https://github.com/gitlabhq/gitlab-recipes/blob/master/install/CentOS_6.md" target="_blank">https://github.com/gitlabhq/gitlab-recipes/blob/master/install/CentOS_6.md</a><br />
+ただし、gitlab 4.0 での方法で、最新バージョンとは違う可能性がある。</p>
 
 
 </div>

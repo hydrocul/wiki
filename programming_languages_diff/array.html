@@ -79,6 +79,7 @@ footer {
   <li><a href="#length">length</a></li>
   <li><a href="#is-empty">isEmpty</a></li>
   <li><a href="#contains">contains</a></li>
+  <li><a href="#subList">subList</a></li>
 </ul>
 
 <h2 id="literal">配列の書き方</h2>
@@ -192,6 +193,23 @@ int List#lastIndexOf(Object o)
 
 <pre><code>arr.include?(obj)
 </code></pre>
+
+<h2 id="subList">subList</h2>
+
+<h3 id="java-5">Java</h3>
+
+<pre><code>List&lt;E&gt; List#subList(int from, int to)
+</code></pre>
+
+<p><code>subList</code> で返されたリストを変更すると、元のリストにも反映される。</p>
+
+<h3 id="ruby-2">Ruby</h3>
+
+<pre><code>Array#slice(index)
+Array#slice(from, length)
+</code></pre>
+
+<p>lengthを省略したら、from以降の部分配列ではなく、その場所の要素を返す(<code>[]</code> と同じ)。</p>
 
 
 </div>

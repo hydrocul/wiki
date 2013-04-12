@@ -110,8 +110,11 @@ length を省略した場合は、 start の位置から文字列の最後まで
 
 <h3 id="ruby">Ruby</h3>
 
-<pre><code>String#slice(from, length)
+<pre><code>String#slice(index)
+String#slice(from, length)
 </code></pre>
+
+<p>lengthを省略したら、from以降の文字列ではなく、その場所の1文字を返す。</p>
 
 <p>配列に対しても同じように <code>slice</code> が使える。</p>
 
