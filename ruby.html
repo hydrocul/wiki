@@ -190,6 +190,23 @@ CGI.escape はURLとしての意味を持たせたくない文字をエスケー
 <pre><code>p RUBY_VERSION
 </code></pre>
 
+<h2 id="require--requirerelative"><code>require</code> と <code>require_relative</code></h2>
+
+<p>Ruby 1.9.2 より前は require で相対パスを指定すれば、カレントディレクトリからたどってファイルを require できたが、
+1.9.2 以降はそれができなくなった。require のサーチパスに以前は
+<code>'.'</code> が入っていたのだが、セキュリティの都合で1.9.2以降は
+<code>'.'</code> が外されたため。</p>
+
+<p>ただし、1.9.2以降でも <code>require './hoge'</code> というようにパスを <code>'./'</code> から書けば、カレントディレクトリからたどってくれる。</p>
+
+<p>さらにただし、 <code>'.'</code> というのは実行時のカレントディレクトリであって、
+requireの呼び出し元のファイルの場所ではない。</p>
+
+<p>呼び出し元のファイルの場所からの相対で指定するには、新たに追加されたメソッドである <code>require_relative './hoge'</code> を使う。これは呼び出し元のファイルがあってこそなので、<code>eval</code> の中などでは使えない。</p>
+
+<p><code>Kernel.#require_relative(relative_feature)</code><br />
+<a href="http://rurema.clear-code.com/version:1.9.3/query:Kernel.%23require_relative/" target="_blank">http://rurema.clear-code.com/version:1.9.3/query:Kernel.%23require_relative/</a></p>
+
 
 </div>
 <footer>
