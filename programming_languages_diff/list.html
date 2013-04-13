@@ -80,6 +80,7 @@ footer {
   <li><a href="#is-empty">isEmpty</a></li>
   <li><a href="#contains">contains</a></li>
   <li><a href="#subList">subList</a></li>
+  <li><a href="#reverse">reverse</a></li>
 </ul>
 
 <h2 id="literal">配列の書き方</h2>
@@ -162,11 +163,20 @@ map =
 
 <h3 id="java-1">Java</h3>
 
-<pre><code>int List#indexOf(Object o)
-int List#lastIndexOf(Object o)
+<pre><code>int List#indexOf(Object obj)
+int List#lastIndexOf(Object obj)
 </code></pre>
 
 <p>見つからなかった場合は <code>-1</code> を返す。</p>
+
+<h3 id="scala-1">Scala</h3>
+
+<pre><code># List[+A]
+def indexOf(obj: A): Int
+def indexOf(obj: A, from: Int): Int
+def indexWhere(p: A -&gt; Boolean): Int
+def indexWhere(p: A -&gt; Boolean, from: Int): Int
+</code></pre>
 
 <h2 id="length">length</h2>
 
@@ -175,6 +185,15 @@ int List#lastIndexOf(Object o)
 <pre><code>int List#size()
 </code></pre>
 
+<h3 id="scala-2">Scala</h3>
+
+<pre><code># List[+A]
+def length: Int
+def size: Int
+</code></pre>
+
+<p>2つのメソッドは全く同じ。</p>
+
 <h2 id="is-empty">isEmpty</h2>
 
 <h3 id="java-3">Java</h3>
@@ -182,11 +201,23 @@ int List#lastIndexOf(Object o)
 <pre><code>boolean List#isEmpty()
 </code></pre>
 
+<h3 id="scala-3">Scala</h3>
+
+<pre><code># List[+A]
+def isEmpty: Boolean
+</code></pre>
+
 <h2 id="contains">contains</h2>
 
 <h3 id="java-4">Java</h3>
 
 <pre><code>boolean List#contains(Object obj)
+</code></pre>
+
+<h3 id="scala-4">Scala</h3>
+
+<pre><code># List[+A]
+def contains(obj: Any): Boolean
 </code></pre>
 
 <h3 id="ruby-1">Ruby</h3>
@@ -198,10 +229,16 @@ int List#lastIndexOf(Object o)
 
 <h3 id="java-5">Java</h3>
 
-<pre><code>List&lt;E&gt; List#subList(int from, int to)
+<pre><code>List&lt;E&gt; List#subList(int from, int until)
 </code></pre>
 
 <p><code>subList</code> で返されたリストを変更すると、元のリストにも反映される。</p>
+
+<h3 id="scala-5">Scala</h3>
+
+<pre><code># List[+A]
+def slice(from: Int, until: Int): List[A]
+</code></pre>
 
 <h3 id="ruby-2">Ruby</h3>
 
@@ -210,6 +247,14 @@ Array#slice(from, length)
 </code></pre>
 
 <p>lengthを省略したら、from以降の部分配列ではなく、その場所の要素を返す(<code>[]</code> と同じ)。</p>
+
+<h2 id="reverse">reverse</h2>
+
+<h3 id="scala-6">Scala</h3>
+
+<pre><code># List[+A]
+def reverse: List[A]
+</code></pre>
 
 
 </div>
