@@ -73,6 +73,60 @@ footer {
 <div id="content">
 <h1 id="section">マップ(連想配列)</h1>
 
+<ul>
+  <li><a href="#literal">マップ(連想配列)の書き方</a></li>
+</ul>
+
+<h2 id="literal">マップ(連想配列)の書き方</h2>
+
+<h3 id="java">Java</h3>
+
+<p>連想配列は一発では作れない。</p>
+
+<pre><code>import java.util.HashMap;
+map = new HashMap();
+map.put("a", 1);
+map.put("b", 2);
+</code></pre>
+
+<h3 id="scala">Scala</h3>
+
+<pre><code>map = Map('a' -&gt; 1, 'b' -&gt; 2);
+</code></pre>
+
+<p>これは以下のシンタックスシュガー。</p>
+
+<pre><code>map = scala.collection.immutable.Map.apply(scala.Predef.any2ArrowAssoc('a').-&gt;(1),
+                                           scala.Predef.any2ArrowAssoc('a').-&gt;(2));
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code>map = array('a' =&gt; 1, 'b' =&gt; 2);
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code>map = {'a' =&gt; 1, 'b' =&gt; 2}
+</code></pre>
+
+<h3 id="javascript">JavaScript</h3>
+
+<p>下の2つは全部同じ連想配列を生成する。</p>
+
+<pre><code>map = {a: 1, b: 2}
+map = {'a': 1, 'b': 2}
+</code></pre>
+
+<h3 id="coffeescript">CoffeeScript</h3>
+
+<pre><code>map = {a: 1, b: 2}
+map = a: 1, b: 2
+map =
+    a: 1
+    b: 2
+</code></pre>
+
 
 </div>
 <footer>

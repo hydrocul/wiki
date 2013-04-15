@@ -74,7 +74,7 @@ footer {
 <h1 id="section">リスト(配列)</h1>
 
 <ul>
-  <li><a href="#literal">配列の書き方</a></li>
+  <li><a href="#literal">リスト(配列)の書き方</a></li>
   <li><a href="#index-of">indexOf</a></li>
   <li><a href="#length">length</a></li>
   <li><a href="#is-empty">isEmpty</a></li>
@@ -83,45 +83,35 @@ footer {
   <li><a href="#reverse">reverse</a></li>
 </ul>
 
-<h2 id="literal">配列の書き方</h2>
+<h2 id="literal">リスト(配列)の書き方</h2>
 
 <h3 id="java">Java</h3>
+
+<p>配列</p>
 
 <pre><code>arr = {1, 2, 3};
 arr = new int[]{1, 2, 3};
 </code></pre>
 
-<p>連想配列は一発では作れない。</p>
-
-<pre><code>import java.util.HashMap;
-map = new HashMap();
-map.put("a", 1);
-map.put("b", 2);
-</code></pre>
-
 <h3 id="scala">Scala</h3>
 
 <pre><code>arr = Array(1, 2, 3);
-map = Map('a' -&gt; 1, 'b' -&gt; 2);
+list = List(1, 2, 3);
 </code></pre>
 
 <p>これは以下のシンタックスシュガー。</p>
 
 <pre><code>arr = scala.Array.apply(1, 2, 3);
-map = scala.collection.immutable.Map.apply(scala.Predef.any2ArrowAssoc('a').-&gt;(1),
-                                           scala.Predef.any2ArrowAssoc('a').-&gt;(2));
 </code></pre>
 
 <h3 id="php">PHP</h3>
 
 <pre><code>arr = array(1, 2, 3);
-map = array('a' =&gt; 1, 'b' =&gt; 2);
 </code></pre>
 
 <h3 id="ruby">Ruby</h3>
 
 <pre><code>arr = [1, 2, 3]
-map = {'a' =&gt; 1, 'b' =&gt; 2}
 </code></pre>
 
 <h3 id="javascript">JavaScript</h3>
@@ -131,12 +121,6 @@ map = {'a' =&gt; 1, 'b' =&gt; 2}
 <pre><code>arr = [1, 2, 3];
 arr = {0: 1, 1: 2, 2: 3}; arr.__proto__ = Array.prototype;
 arr = {'0': 1, '1': 2, '2': 3}; arr.__proto__ = Array.prototype;
-</code></pre>
-
-<p>下の2つは全部同じ連想配列を生成する。</p>
-
-<pre><code>map = {a: 1, b: 2}
-map = {'a': 1, 'b': 2}
 </code></pre>
 
 <p>JavaScript の配列と連想配列の違い<br />
@@ -151,12 +135,6 @@ arr = [
     2
     3
 ]
-
-map = {a: 1, b: 2}
-map = a: 1, b: 2
-map =
-    a: 1
-    b: 2
 </code></pre>
 
 <h2 id="index-of">indexOf</h2>

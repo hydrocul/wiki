@@ -120,22 +120,38 @@ footer {
 <pre><code>git stash save 名前
 </code></pre>
 
-<p>これで、最後にコミットした状態に戻る。この状態で他のブランチをチェックアウトしたり、別の修正をしてコミットしたりできる。<code>git stash save</code> する前の状態に戻すには、</p>
+<p>これで、最後にコミットした状態に戻る。この状態で他のブランチをチェックアウトしたり、別の修正をしてコミットしたりできる。</p>
+
+<p><code>git stash save</code> する前の状態に戻すには、</p>
 
 <pre><code>git stash pop
 </code></pre>
 
-<p>または</p>
+<p>または、後ろに名前をつけて、</p>
 
 <pre><code>git stash pop stash@{0}
 </code></pre>
 
-<p><code>git stash save</code> で1つしか保存していない場合は、<code>git stash pop</code> の後になにもつけなくてもよい。2つ以上ある場合は名前で識別する必要があり、 <code>git stash pop</code> の後につける名前は、以下の一時保存した修正のリストで確認できる。</p>
+<p>のようにする。<code>git stash save</code> で1つしか保存していない場合は、<code>git stash pop</code> の後になにもつけなくてもよい。</p>
+
+<p><code>pop</code> すると、保存してあった状態は削除される。削除せずに適用だけしたい場合は、</p>
+
+<pre><code>git stash apply
+</code></pre>
+
+<p>または、後ろに名前をつけて、</p>
+
+<pre><code>git stash apply stash@{0}
+</code></pre>
+
+<p>のようにする。</p>
+
+<p>2つ以上ある場合は、<code>pop</code> も <code>apply</code> も名前で識別する必要があるり、以下の一時保存した修正のリストで確認できる。</p>
 
 <pre><code>git stash list
 </code></pre>
 
-<p><code>git stash save</code> したときの名前が <code>pop</code> で使えない理由がわからない。</p>
+<p><code>git stash save</code> したときの名前が <code>pop</code> や <code>apply</code> で使えない理由がわからない。</p>
 
 <p><code>git stash save</code> では差分を保存するので、別のブランチに移動してから <code>git stash pop</code> すると、そのブランチに対して差分を適用するので、まったく同じ状態に戻るわけではない。</p>
 
@@ -144,9 +160,19 @@ footer {
 <pre><code>git stash show -p
 </code></pre>
 
-<p>または</p>
+<p>または、後ろに名前をつけて、</p>
 
 <pre><code>git stash show -p stash@{0}
+</code></pre>
+
+<p>stashに保存されている修正を削除するには、</p>
+
+<pre><code>git stash drop
+</code></pre>
+
+<p>または、後ろに名前をつけて、</p>
+
+<pre><code>git stash drop stash@{0}
 </code></pre>
 
 <h2 id="undo">いろいろと元に戻す方法</h2>

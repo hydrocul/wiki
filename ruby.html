@@ -73,6 +73,11 @@ footer {
 <div id="content">
 <h1 id="ruby">Ruby</h1>
 
+<h2 id="api">るりまサーチ (APIレファレンス)</h2>
+
+<p><a href="http://doc.ruby-lang.org/ja/search/" target="_blank">http://doc.ruby-lang.org/ja/search/</a><br />
+Rubyリファレンスマニュアル検索！</p>
+
 <h2 id="section">正規表現で全角文字をマッチさせるには</h2>
 
 <p>以下のgemを入れると簡単。</p>
@@ -131,7 +136,30 @@ str.gsub(/#{Moji.zen}/, "")
 <p>RubyのMechanizeを解説 for 1.0.0 | きたももんががきたん。<br />
 <a href="http://d.hatena.ne.jp/kitamomonga/20081209/kaisetsu_for_ver_0_9_ruby_www_mechanize" target="_blank">http://d.hatena.ne.jp/kitamomonga/20081209/kaisetsu_for_ver_0_9_ruby_www_mechanize</a></p>
 
-<h2 id="api">かな漢字変換のAPI</h2>
+<p>コードの例</p>
+
+<pre><code>require 'mechanize'
+
+agent = Mechanize.new
+agent.user_agent = 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31' # User-Agentを設定
+p agent.get('http://www.yahoo.co.jp/')
+p agent.page.uri.to_s # 現在のURLwを取得
+p agent.page.title # titleを取得
+p agent.page.body # HTMLを取得
+p agent.page.at('div#topicsfb li') # CSSセレクタでマッチする要素の配列を取得
+link = agent.page.link_with(:text =&gt; 'ヘルプ'.toutf8) # リンクを探す
+link.click if link != nil リンクをクリック
+</code></pre>
+
+<p>フォームに関するコードの例</p>
+
+<pre><code>form = agent.page.forms[0] # フォームを取得
+form['login'] = email # input要素に値を設定
+form['password'] = pw # input要素に値を設定
+form.click_button # submitを実行
+</code></pre>
+
+<h2 id="api-1">かな漢字変換のAPI</h2>
 
 <p>ローマ字と平仮名や片仮名に相互に変換するライブラリ<br />
 <a href="https://rubygems.org/search?utf8=%E2%9C%93&amp;query=romaji" target="_blank">https://rubygems.org/search?utf8=%E2%9C%93&amp;query=romaji</a></p>

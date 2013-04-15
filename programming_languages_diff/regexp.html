@@ -129,8 +129,13 @@ footer {
 
 <h3 id="javascript">JavaScript</h3>
 
-<pre><code>"abc\nabc\n".replace(/\n/, '&lt;br /&gt;');
+<pre><code>"abc\nabc\n".replace(/\n/g, '&lt;br /&gt;');
 </code></pre>
+
+<p>正規表現にフラグ <code>g</code> を付けないと、最初にマッチしたものだけを置換する。</p>
+
+<p>String.replace | MDN<br />
+<a href="https://developer.mozilla.org/ja/docs/JavaScript/Reference/Global_Objects/String/replace" target="_blank">https://developer.mozilla.org/ja/docs/JavaScript/Reference/Global_Objects/String/replace</a></p>
 
 
 </div>

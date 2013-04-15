@@ -243,6 +243,65 @@ jQueryのライブラリ</p>
 
 <p><a href="https://github.com/OscarGodson/jKey" target="_blank">https://github.com/OscarGodson/jKey</a></p>
 
+<h2 id="jquery-source-viewer">jQuery source viewer</h2>
+
+<p><a href="http://james.padolsey.com/jquery/" target="_blank">http://james.padolsey.com/jquery/</a></p>
+
+<h2 id="text--html--20130415">改行と <code>text()</code> と <code>html()</code> の関係 [2013/04/15]</h2>
+
+<pre><code>&lt;!DOCTYPE&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;!-- このときの jQuery は 1.9.1 --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="test1"&gt;abc&lt;br /&gt;def&lt;/div&gt;
+
+&lt;div id="test2"&gt;abc
+def&lt;/div&gt;
+
+&lt;script&gt;
+  $(function(){
+    // コメントはブラウザごとの出力結果。
+    console.log($('#test1').html().replace(/\n/, '****BR****'));
+      // Chrome 28  =&gt; abc&lt;br&gt;def
+      // Firefox 19 =&gt; abc&lt;br&gt;def
+      // IE9        =&gt; abc&lt;br&gt;def
+      // IE8        =&gt; abc&lt;BR&gt;def
+    console.log($('#test1').text().replace(/\n/, '****BR****'));
+      // Chrome 28  =&gt; abcdef
+      // Firefox 19 =&gt; abcdef
+      // IE9        =&gt; abcdef
+      // IE8        =&gt; abcdef
+    console.log($('#test2').html().replace(/\n/, '****BR****'));
+      // Chrome 28  =&gt; abc****BR****def
+      // Firefox 19 =&gt; abc****BR****def
+      // IE9        =&gt; abc****BR****def
+      // IE8        =&gt; abc def
+    console.log($('#test2').text().replace(/\n/, '****BR****'));
+      // Chrome 28  =&gt; abc****BR****def
+      // Firefox 19 =&gt; abc****BR****def
+      // IE9        =&gt; abc****BR****def
+      // IE8        =&gt; abc def
+  });
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>jQueryでのhtml()とtext()<br />
+<a href="http://tamajio.hatenablog.com/entry/20110219/1298075526" target="_blank">http://tamajio.hatenablog.com/entry/20110219/1298075526</a></p>
+
+<blockquote>
+  <p>jQueryでのhtml()とtext()の挙動、生のJavaScriptならinnerHTML()とtext()の
+挙動がIEだと違う事が分かりました。前者は改行コードが取り払われ、後者は
+改行コードがそのまま付いてます。コーユーのが影響するのは、PREタグを
+使ったり、CSSでwhite-spaceを利用して箇所です。</p>
+</blockquote>
+
 
 </div>
 <footer>
