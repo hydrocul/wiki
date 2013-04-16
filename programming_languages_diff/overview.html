@@ -77,6 +77,7 @@ footer {
   <li><a href="#comment">コメント</a></li>
   <li><a href="#method">関数・メソッド定義 / インデント / セミコロン</a></li>
   <li><a href="#heredoc">ヒアドキュメント</a></li>
+  <li><a href="#exception">例外処理</a></li>
 </ul>
 
 <h2 id="comment">コメント</h2>
@@ -96,6 +97,13 @@ footer {
   コメント
 =end
 </code></pre>
+
+<h3 id="python">Python</h3>
+
+<pre><code># コメント
+</code></pre>
+
+<p>複数行のコメントはない。</p>
 
 <h3 id="javascript">JavaScript</h3>
 
@@ -182,6 +190,61 @@ end
 
 <p>Ruby 1.9.3 リファレンスマニュアル &gt; ヒアドキュメント<br />
 <a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
+
+<h2 id="exception">例外処理</h2>
+
+<h3 id="ruby-3">Ruby</h3>
+
+<pre><code>begin
+  ...
+  raise ...
+  ...
+rescue
+  ...
+else
+  ...
+ensure
+  ...
+end
+</code></pre>
+
+<p><code>rescue</code> で特定のクラスの例外を補足したい場合は、以下のように書く。</p>
+
+<pre><code>rescue ZeroDivisionError =&gt; ex
+</code></pre>
+
+<p><code>rescue</code> 節は複数書くことができる。</p>
+
+<p>例外をスローするには、以下のような書き方がある。</p>
+
+<pre><code>raise "exception message ..."
+raise ZeroDivisionError, "message ..."
+</code></pre>
+
+<h3 id="javascript-1">JavaScript</h3>
+
+<pre><code>try {
+  ...
+  throw "message ...";
+  ...
+} catch(ex){
+  ...
+} finally {
+  ...
+}
+</code></pre>
+
+<h3 id="coffeescript-2">CoffeeScript</h3>
+
+<pre><code>try
+  ...
+  throw("message")
+  ...
+catch ex
+  ...
+finally
+  ...
+</code></pre>
 
 
 </div>

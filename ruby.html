@@ -122,6 +122,13 @@ str.gsub(/#{Moji.zen}/, "")
 <pre><code>cat src.txt | tr -d '\n'
 </code></pre>
 
+<h3 id="unicode">Unicodeエスケープをデコードするには</h3>
+
+<p>Unicodeエスケープは、<code>\u5c71</code> のようなもの。</p>
+
+<pre><code>cat ファイル名 | ruby -ne 'print $_.gsub(/\\u([0-9a-f]{4})/){[$1.hex].pack("U")}'
+</code></pre>
+
 <h2 id="rake">Rake</h2>
 
 <h3 id="rubyrake">RubyによるビルドツールRakeの覚え書き。興に乗ったので詳しく書いてみた</h3>
@@ -135,6 +142,10 @@ str.gsub(/#{Moji.zen}/, "")
 
 <p>RubyのMechanizeを解説 for 1.0.0 | きたももんががきたん。<br />
 <a href="http://d.hatena.ne.jp/kitamomonga/20081209/kaisetsu_for_ver_0_9_ruby_www_mechanize" target="_blank">http://d.hatena.ne.jp/kitamomonga/20081209/kaisetsu_for_ver_0_9_ruby_www_mechanize</a></p>
+
+<p>Nokogiri<br />
+<a href="http://nokogiri.org/" target="_blank">http://nokogiri.org/</a><br />
+Mechanizeが利用しているHTMLを解析するライブラリ</p>
 
 <p>コードの例</p>
 

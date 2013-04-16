@@ -78,6 +78,7 @@ footer {
   <li><a href="#base64">base64</a></li>
   <li><a href="#cp">cp</a></li>
   <li><a href="#date">date</a></li>
+  <li><a href="#du">du</a></li>
   <li><a href="#find">find</a></li>
   <li><a href="#git">git</a></li>
   <li><a href="#jhead">jhead</a></li>
@@ -173,6 +174,15 @@ base64 -d # デコード
 
 <pre><code>date "+%Y%m%d-%H%M%S"
 </code></pre>
+
+<h2 id="du">du</h2>
+
+<p>カレントディレクトリの中のファイル・ディレクトリの容量一覧を表示させる例</p>
+
+<pre><code>du -sh *
+</code></pre>
+
+<p>ディレクトリはサブディレクトリも含めて再帰的に容量を計算して合計が表示される。</p>
 
 <h2 id="find">find</h2>
 

@@ -83,6 +83,11 @@ footer {
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n" | sort -r -k6,7
 </code></pre>
 
+<h2 id="ht--htexample-">カレントディレクトリ以下にある <code>.ht</code> で始まるファイルをそれぞれ <code>.ht*.example</code> というファイルにコピーするには</h2>
+
+<pre><code>find . -name ".ht*" | awk '{print "cp " $1 " " $1 ".example"}' | sh
+</code></pre>
+
 <h2 id="section-1">リンク集</h2>
 
 <p>ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法<br />

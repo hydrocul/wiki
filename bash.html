@@ -121,6 +121,17 @@ done
 
 <p>とすると、<code>ls "a b c d"</code> が実行されてしまう。</p>
 
+<h2 id="section-4">一定の確率でなにかをするには</h2>
+
+<p>シェルスクリプト実行時に、10分の1の確率でなにもしないようにするには、シェルスクリプトの先頭に以下のように書く。</p>
+
+<pre><code>if [ `expr $RANDOM % 10` -ne 0 ] ; then
+    exit
+fi
+</code></pre>
+
+<p><code>$RANDOM</code> は参照するごとに乱数を返す変数のようなもの。<code>expr</code> で、10の剰余を計算している。</p>
+
 
 </div>
 <footer>

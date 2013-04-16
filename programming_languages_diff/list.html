@@ -76,11 +76,26 @@ footer {
 <ul>
   <li><a href="#literal">リスト(配列)の書き方</a></li>
   <li><a href="#index-of">indexOf</a></li>
+  <li><a href="#find">find</a></li>
   <li><a href="#length">length</a></li>
-  <li><a href="#is-empty">isEmpty</a></li>
+  <li><a href="#isempty">isEmpty</a></li>
   <li><a href="#contains">contains</a></li>
   <li><a href="#subList">subList</a></li>
+  <li><a href="#head">head</a></li>
+  <li><a href="#last">last</a></li>
+  <li><a href="#tail">tail</a></li>
+  <li><a href="#take">take</a></li>
+  <li><a href="#drop">drop</a></li>
   <li><a href="#reverse">reverse</a></li>
+  <li><a href="#foreach">foreach</a></li>
+  <li><a href="#map">map</a></li>
+  <li><a href="#flatmap">flatMap</a></li>
+  <li><a href="#filter">filter</a></li>
+  <li><a href="#flatten">flatten</a></li>
+  <li><a href="#foldleft">foldLeft</a></li>
+  <li><a href="#sort">sort</a></li>
+  <li><a href="#add">add</a></li>
+  <li><a href="#remove">remove</a></li>
 </ul>
 
 <h2 id="literal">リスト(配列)の書き方</h2>
@@ -149,11 +164,28 @@ int List#lastIndexOf(Object obj)
 
 <h3 id="scala-1">Scala</h3>
 
-<pre><code># List[+A]
+<pre><code># Seq[+A]
 def indexOf(obj: A): Int
 def indexOf(obj: A, from: Int): Int
-def indexWhere(p: A -&gt; Boolean): Int
-def indexWhere(p: A -&gt; Boolean, from: Int): Int
+def indexWhere(p: A =&gt; Boolean): Int
+def indexWhere(p: A =&gt; Boolean, from: Int): Int
+</code></pre>
+
+<p>見つからなかった場合は <code>-1</code> を返す。</p>
+
+<h3 id="ruby-1">Ruby</h3>
+
+<pre><code>Array#index(obj)
+</code></pre>
+
+<p>見つからなかった場合は <code>nil</code> を返す。</p>
+
+<h2 id="find">find</h2>
+
+<h3 id="scala-2">Scala</h3>
+
+<pre><code># Seq[+A]
+def find(p: A =&gt; Boolean): Option[A]
 </code></pre>
 
 <h2 id="length">length</h2>
@@ -163,25 +195,33 @@ def indexWhere(p: A -&gt; Boolean, from: Int): Int
 <pre><code>int List#size()
 </code></pre>
 
-<h3 id="scala-2">Scala</h3>
+<h3 id="scala-3">Scala</h3>
 
-<pre><code># List[+A]
+<pre><code># Seq[+A]
 def length: Int
 def size: Int
 </code></pre>
 
 <p>2つのメソッドは全く同じ。</p>
 
-<h2 id="is-empty">isEmpty</h2>
+<h3 id="ruby-2">Ruby</h3>
+
+<pre><code>Array#length
+Array#size
+</code></pre>
+
+<p>2つのメソッドは全く同じ。</p>
+
+<h2 id="isempty">isEmpty</h2>
 
 <h3 id="java-3">Java</h3>
 
 <pre><code>boolean List#isEmpty()
 </code></pre>
 
-<h3 id="scala-3">Scala</h3>
+<h3 id="scala-4">Scala</h3>
 
-<pre><code># List[+A]
+<pre><code># Seq[+A]
 def isEmpty: Boolean
 </code></pre>
 
@@ -192,13 +232,13 @@ def isEmpty: Boolean
 <pre><code>boolean List#contains(Object obj)
 </code></pre>
 
-<h3 id="scala-4">Scala</h3>
+<h3 id="scala-5">Scala</h3>
 
-<pre><code># List[+A]
+<pre><code># Seq[+A]
 def contains(obj: Any): Boolean
 </code></pre>
 
-<h3 id="ruby-1">Ruby</h3>
+<h3 id="ruby-3">Ruby</h3>
 
 <pre><code>arr.include?(obj)
 </code></pre>
@@ -212,13 +252,13 @@ def contains(obj: Any): Boolean
 
 <p><code>subList</code> で返されたリストを変更すると、元のリストにも反映される。</p>
 
-<h3 id="scala-5">Scala</h3>
+<h3 id="scala-6">Scala</h3>
 
-<pre><code># List[+A]
-def slice(from: Int, until: Int): List[A]
+<pre><code># Seq[+A]
+def slice(from: Int, until: Int): Seq[A]
 </code></pre>
 
-<h3 id="ruby-2">Ruby</h3>
+<h3 id="ruby-4">Ruby</h3>
 
 <pre><code>Array#slice(index)
 Array#slice(from, length)
@@ -226,12 +266,166 @@ Array#slice(from, length)
 
 <p>lengthを省略したら、from以降の部分配列ではなく、その場所の要素を返す(<code>[]</code> と同じ)。</p>
 
+<h2 id="head">head</h2>
+
+<h3 id="scala-7">Scala</h3>
+
+<pre><code># Seq[+A]
+def head: A
+</code></pre>
+
+<h2 id="last">last</h2>
+
+<h3 id="scala-8">Scala</h3>
+
+<pre><code># Seq[+A]
+def last: A
+</code></pre>
+
+<h2 id="tail">tail</h2>
+
+<h3 id="scala-9">Scala</h3>
+
+<pre><code># Seq[+A]
+def tail: Seq[A]
+</code></pre>
+
+<h2 id="take">take</h2>
+
+<h3 id="scala-10">Scala</h3>
+
+<pre><code># Seq[+A]
+def take(n: Int): Seq[A]
+</code></pre>
+
+<h2 id="drop">drop</h2>
+
+<h3 id="scala-11">Scala</h3>
+
+<pre><code># Seq[+A]
+def drop(n: Int): Seq[A]
+</code></pre>
+
 <h2 id="reverse">reverse</h2>
 
-<h3 id="scala-6">Scala</h3>
+<h3 id="scala-12">Scala</h3>
 
-<pre><code># List[+A]
-def reverse: List[A]
+<pre><code># Seq[+A]
+def reverse: Seq[A]
+</code></pre>
+
+<h3 id="ruby-5">Ruby</h3>
+
+<pre><code>Array#reverse
+</code></pre>
+
+<h2 id="foreach">foreach</h2>
+
+<h3 id="scala-13">Scala</h3>
+
+<pre><code># Seq[+A]
+def foreach(f: A =&gt; Unit): Unit
+</code></pre>
+
+<h2 id="map">map</h2>
+
+<h3 id="scala-14">Scala</h3>
+
+<pre><code># Seq[+A]
+def map[B](f: A =&gt; B): Seq[B]
+</code></pre>
+
+<h2 id="flatmap">flatMap</h2>
+
+<h3 id="scala-15">Scala</h3>
+
+<pre><code># Seq[+A]
+def flatMap[B](f: A =&gt; Seq[B]): Seq[B]
+</code></pre>
+
+<h2 id="filter">filter</h2>
+
+<h3 id="scala-16">Scala</h3>
+
+<pre><code># Seq[+A]
+def filter(p: A =&gt; Boolean): Seq[A]
+</code></pre>
+
+<h3 id="ruby-6">Ruby</h3>
+
+<pre><code>Array#select
+</code></pre>
+
+<p>例</p>
+
+<pre><code>arr.select {|item| item &gt; 0}
+</code></pre>
+
+<h2 id="flatten">flatten</h2>
+
+<h3 id="scala-17">Scala</h3>
+
+<pre><code># Seq[+A]
+def flatten[B]: Seq[B]
+</code></pre>
+
+<h2 id="foldleft">foldLeft</h2>
+
+<h3 id="scala-18">Scala</h3>
+
+<pre><code># Seq[+A]
+def foldLeft[B](initial: B)(f: (B, A) =&gt; B): B
+</code></pre>
+
+<h2 id="sort">sort</h2>
+
+<h3 id="scala-19">Scala</h3>
+
+<pre><code># Seq[+A]
+def sorted: Seq[A]
+def sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
+</code></pre>
+
+<h3 id="ruby-7">Ruby</h3>
+
+<pre><code>Array#sort
+
+# ソートする
+arr.sort
+
+# 破壊的メソッド
+arr.sort!
+
+# ソート条件をブロックで指定
+arr.sort {|a, b| a.num &lt;=&gt; b.num}
+</code></pre>
+
+<h2 id="add">add</h2>
+
+<h3 id="ruby-8">Ruby</h3>
+
+<p>配列の最後に要素を追加する。</p>
+
+<pre><code>Array#push(obj)
+</code></pre>
+
+<p>配列の先頭に要素を挿入する。</p>
+
+<pre><code>Array#unshift(obj)
+</code></pre>
+
+<h2 id="remove">remove</h2>
+
+<h3 id="ruby-9">Ruby</h3>
+
+<p>配列の最後の要素を取得し、削除する。</p>
+
+<pre><code>Array#pop(obj)
+</code></pre>
+
+<p>配列の先頭の要素を取得し、削除する。</p>
+
+<pre><code>Array#shift(obj)
 </code></pre>
 
 
