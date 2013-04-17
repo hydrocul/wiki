@@ -108,15 +108,33 @@ footer {
 arr = new int[]{1, 2, 3};
 </code></pre>
 
+<p>インデックスで参照するには</p>
+
+<pre><code>arr[index];
+</code></pre>
+
 <h3 id="scala">Scala</h3>
 
 <pre><code>arr = Array(1, 2, 3);
 list = List(1, 2, 3);
 </code></pre>
 
-<p>これは以下のシンタックスシュガー。</p>
+<p>これは以下と同じ意味。</p>
 
 <pre><code>arr = scala.Array.apply(1, 2, 3);
+list = scala.collection.immutable.List.apply(1, 2, 3);
+</code></pre>
+
+<p>インデックスで参照するには</p>
+
+<pre><code>arr(index);
+list(index);
+</code></pre>
+
+<p>これは以下と同じ意味。</p>
+
+<pre><code>arr.apply(index);
+list.apply(index);
 </code></pre>
 
 <h3 id="php">PHP</h3>
@@ -124,9 +142,34 @@ list = List(1, 2, 3);
 <pre><code>arr = array(1, 2, 3);
 </code></pre>
 
+<p>PHP 5.4からは以下のようにも書ける。</p>
+
+<pre><code>arr = [1, 2, 3];
+</code></pre>
+
+<p>インデックスで参照するには</p>
+
+<pre><code>arr[index];
+</code></pre>
+
 <h3 id="ruby">Ruby</h3>
 
 <pre><code>arr = [1, 2, 3]
+</code></pre>
+
+<p>インデックスで参照するには</p>
+
+<pre><code>arr[index];
+</code></pre>
+
+<h3 id="python">Python</h3>
+
+<pre><code>arr = [1, 2, 3]
+</code></pre>
+
+<p>インデックスで参照するには</p>
+
+<pre><code>arr.index(idx)
 </code></pre>
 
 <h3 id="javascript">JavaScript</h3>
@@ -414,18 +457,42 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <pre><code>Array#unshift(obj)
 </code></pre>
 
+<h3 id="python-1">Python</h3>
+
+<p>リストの最後に要素を追加する。</p>
+
+<pre><code>arr.append(obj)
+</code></pre>
+
+<p>リストの指定のインデックスの前に要素を挿入する。</p>
+
+<pre><code>arr.insert(index, obj)
+</code></pre>
+
 <h2 id="remove">remove</h2>
 
 <h3 id="ruby-9">Ruby</h3>
 
 <p>配列の最後の要素を取得し、削除する。</p>
 
-<pre><code>Array#pop(obj)
+<pre><code>Array#pop
 </code></pre>
 
 <p>配列の先頭の要素を取得し、削除する。</p>
 
-<pre><code>Array#shift(obj)
+<pre><code>Array#shift
+</code></pre>
+
+<h3 id="python-2">Python</h3>
+
+<p>リストの最後の要素を取得し、削除する。</p>
+
+<pre><code>arr.pop()
+</code></pre>
+
+<p>リストの指定のインデックスの要素を取得し、削除して詰める。</p>
+
+<pre><code>arr.pop(index)
 </code></pre>
 
 

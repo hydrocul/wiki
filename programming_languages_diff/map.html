@@ -81,12 +81,17 @@ footer {
 
 <h3 id="java">Java</h3>
 
-<p>連想配列は一発では作れない。</p>
+<p>マップは一発では作れない。</p>
 
 <pre><code>import java.util.HashMap;
 map = new HashMap();
 map.put("a", 1);
 map.put("b", 2);
+</code></pre>
+
+<p>キーで参照するには</p>
+
+<pre><code>map.get("a");
 </code></pre>
 
 <h3 id="scala">Scala</h3>
@@ -105,9 +110,19 @@ map.put("b", 2);
 <pre><code>map = array('a' =&gt; 1, 'b' =&gt; 2);
 </code></pre>
 
+<p>PHP 5.4からは以下のようにも書ける。</p>
+
+<pre><code>map = ['a' =&gt; 1, 'b' =&gt; 2];
+</code></pre>
+
 <h3 id="ruby">Ruby</h3>
 
 <pre><code>map = {'a' =&gt; 1, 'b' =&gt; 2}
+</code></pre>
+
+<h3 id="python">Python</h3>
+
+<pre><code>map = {'a': 1, 'b': 2}
 </code></pre>
 
 <h3 id="javascript">JavaScript</h3>

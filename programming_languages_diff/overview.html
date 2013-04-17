@@ -103,7 +103,13 @@ footer {
 <pre><code># コメント
 </code></pre>
 
-<p>複数行のコメントはない。</p>
+<p>複数行のコメントはない。そのかわり、文字列を置いてもプログラムの意味が変わらない箇所で、複数行の文字列リテラルを置くことで、複数行コメントの代わりにすることができる。</p>
+
+<pre><code>'''
+コメント
+コメント
+'''
+</code></pre>
 
 <h3 id="javascript">JavaScript</h3>
 
@@ -220,6 +226,26 @@ end
 <pre><code>raise "exception message ..."
 raise ZeroDivisionError, "message ..."
 </code></pre>
+
+<h3 id="python-1">Python</h3>
+
+<pre><code>try:
+  ...
+  raise "message ..."
+  raise HogeException()
+  ...
+except:
+  ...
+finally:
+  ...
+</code></pre>
+
+<p><code>except</code> で例外オブジェクトを扱う場合は、 <code>except ex:</code> のように書く。</p>
+
+<p>特定の例外クラスだけ <code>except</code> で扱う場合は、 <code>except HogeException:</code>
+または <code>except HogeException, ex:</code> のように書く。</p>
+
+<p><code>except</code> の中で同じ例外を再スローするには <code>raise</code> とだけ書く。</p>
 
 <h3 id="javascript-1">JavaScript</h3>
 
