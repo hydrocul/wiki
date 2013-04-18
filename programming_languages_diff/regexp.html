@@ -109,6 +109,21 @@ footer {
 1 はリテラルとなり、後方参照 $1 を明確に作成できます。</p>
 </blockquote>
 
+<p>正規表現の最後にフラグを付けられる。例</p>
+
+<pre><code>preg_replace('/a(.)/i', '$1$1', 'Abac'); // =&gt; 'bbcc'
+</code></pre>
+
+<dl>
+  <dt><code>/.../i</code></dt>
+  <dd>大文字小文字の区別をしない</dd>
+  <dt><code>/.../m</code></dt>
+  <dd>これがないと、途中に改行があっても <code>^</code> や <code>$</code> が改行の前後ではなく、検索対象の文字列の先頭と最後にしかマッチしない。このフラグを付けると、改行コードが行の境目として <code>^</code> や <code>$</code> がマッチするようになる。</dd>
+</dl>
+
+<p>パターン修飾子 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/reference.pcre.pattern.modifiers.php" target="_blank">http://www.php.net/manual/ja/reference.pcre.pattern.modifiers.php</a></p>
+
 <h3 id="ruby">Ruby</h3>
 
 <pre><code>"abc\nabc\n".gsub(/\n/, "&lt;br /&gt;")
@@ -136,6 +151,9 @@ footer {
 
 <p>String.replace | MDN<br />
 <a href="https://developer.mozilla.org/ja/docs/JavaScript/Reference/Global_Objects/String/replace" target="_blank">https://developer.mozilla.org/ja/docs/JavaScript/Reference/Global_Objects/String/replace</a></p>
+
+<p>正規表現をビジュアルで見せるツール<br />
+<a href="http://www.regexper.com/" target="_blank">http://www.regexper.com/</a></p>
 
 
 </div>

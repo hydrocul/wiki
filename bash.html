@@ -121,7 +121,7 @@ done
 
 <p>とすると、<code>ls "a b c d"</code> が実行されてしまう。</p>
 
-<h2 id="section-4">一定の確率でなにかをするには</h2>
+<h2 id="section-4">一定の確率でなにかをするには [2013/04/18]</h2>
 
 <p>シェルスクリプト実行時に、10分の1の確率でなにもしないようにするには、シェルスクリプトの先頭に以下のように書く。</p>
 
@@ -131,6 +131,43 @@ fi
 </code></pre>
 
 <p><code>$RANDOM</code> は参照するごとに乱数を返す変数のようなもの。<code>expr</code> で、10の剰余を計算している。</p>
+
+<p>Ubuntu 12.04 でのデフォルトの /bin/sh が dash になっていて、<code>$RANDOM</code> が動かないので、これを使う場合はshebangを <code>#!/bin/bash</code> にする。</p>
+
+<h2 id="bash-dash--20130418">bash, dash の比較 [2013/04/18]</h2>
+
+<p><a href="http://www.01.246.ne.jp/~hatch/sh.html" target="_blank">http://www.01.246.ne.jp/~hatch/sh.html</a></p>
+
+<p>dash は Ubuntu 12.04 でのデフォルトの /bin/sh になっている。</p>
+
+<h2 id="section-5">変数の内容を比較して分岐させるには</h2>
+
+<pre><code>a=...
+if [ "$a" = "abc" ]; then
+    ...
+fi
+</code></pre>
+
+<h3 id="section-6">演算子</h3>
+
+<dl>
+  <dt>=</dt>
+  <dd>文字列が等しい場合</dd>
+  <dt>!=</dt>
+  <dd>文字列が等しくない場合</dd>
+  <dt>-eq</dt>
+  <dd>数値が等しい場合</dd>
+  <dt>-ne</dt>
+  <dd>数値が等しくない場合</dd>
+  <dt>-lt</dt>
+  <dd>数値が <code>&lt;</code> の関係</dd>
+  <dt>-le</dt>
+  <dd>数値が <code>&lt;=</code> の関係</dd>
+  <dt>-ge</dt>
+  <dd>数値が <code>&gt;=</code> の関係</dd>
+  <dt>-gt</dt>
+  <dd>数値が <code>&gt;</code> の関係</dd>
+</dl>
 
 
 </div>

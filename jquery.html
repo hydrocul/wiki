@@ -73,8 +73,6 @@ footer {
 <div id="content">
 <h1 id="jquery">jQuery</h1>
 
-<h2 id="jquery-api-documentation">jQuery API Documentation</h2>
-
 <p><a href="http://api.jquery.com/" target="_blank">http://api.jquery.com/</a></p>
 
 <h2 id="jqueryhtml-20130403">jQueryオブジェクトからHTMLソースを取得するには [2013/04/03]</h2>
@@ -188,7 +186,7 @@ $('#container').delegate('a', 'click', function(){ ... });
 <p><a href="http://www.skuare.net/test/jQuery.html" target="_blank">http://www.skuare.net/test/jQuery.html</a><br />
 jQueryのライブラリ</p>
 
-<h2 id="jquery-splitter-20130410">jQuery Splitter [2013/04/10]</h2>
+<h2 id="jquery-splitter-20130418">jQuery Splitter [2013/04/18]</h2>
 
 <p><a href="http://archive.plugins.jquery.com/project/splitter" target="_blank">http://archive.plugins.jquery.com/project/splitter</a></p>
 
@@ -220,6 +218,9 @@ jQueryのライブラリ</p>
       onDragStart: function(){
         ...
       }
+      onDrag: function(){
+        ...
+      }
       onDragEnd: function(){
         ...
       }
@@ -227,6 +228,9 @@ jQueryのライブラリ</p>
   });
 &lt;/script&gt;
 </code></pre>
+
+<p><code>onDrag</code> はマウスで境界を移動させている途中に呼び出されると、思ったら、呼び出されないので、以下で修正。<br />
+<a href="https://github.com/hydrocul/jquery.splitter/commit/340ab031b328c61360c80db8a7cf61f8214e5c19" target="_blank">https://github.com/hydrocul/jquery.splitter/commit/340ab031b328c61360c80db8a7cf61f8214e5c19</a></p>
 
 <h2 id="twitter-20130409">Twitter風の通知ができるプラグイン [2013/04/09]</h2>
 
@@ -301,6 +305,25 @@ def&lt;/div&gt;
 改行コードがそのまま付いてます。コーユーのが影響するのは、PREタグを
 使ったり、CSSでwhite-spaceを利用して箇所です。</p>
 </blockquote>
+
+<h2 id="section-3">セレクタの中で表示しているものだけを抽出するには [2013/04/18]</h2>
+
+<p>以下のセレクタで表示されているdivのみを選択できる。</p>
+
+<pre><code>$('div:visible')
+</code></pre>
+
+<h2 id="dom-20130418">DOM要素が表示されているかどうかを判定するには [2013/04/18]</h2>
+
+<p>以下の式でtrueかfalseが返ってくる。</p>
+
+<pre><code>$('#hoge').is(':visible')
+</code></pre>
+
+<p>以下は、単に上記と逆。</p>
+
+<pre><code>$('#hoge').is(':hidden)
+</code></pre>
 
 
 </div>

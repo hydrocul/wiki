@@ -88,6 +88,7 @@ footer {
   <li><a href="#lftp">lftp</a></li>
   <li><a href="#mysql">mysql</a></li>
   <li><a href="#netstat">netstat</a></li>
+  <li><a href="#ps">ps</a></li>
   <li><a href="#rsync">rsync</a></li>
   <li><a href="#scala">scala</a></li>
   <li><a href="#scaladoc">scaladoc</a></li>
@@ -258,28 +259,59 @@ grep -rni --color=always abc | less -X -R
 
 <p>PIDの欄がプロセスIDである。root権限でないとプロセスIDが表示されないものがあるよう。</p>
 
+<h2 id="ps">ps</h2>
+
+<h3 id="section-4">プロセスの一覧を見るには</h3>
+
+<pre><code>ps aux
+</code></pre>
+
+<h3 id="section-5">プロセスの親子関係をツリーで表示するには</h3>
+
+<pre><code>ps auxf
+</code></pre>
+
+<h3 id="kill">特定の名前のプロセスをすべてkillするには</h3>
+
+<p>たとえば <code>"ruby"</code> が名前に含まれるプロセスの場合、</p>
+
+<p>まず一覧を表示してkill対象を確認する</p>
+
+<pre><code>ps aux | grep ruby | grep -v grep
+</code></pre>
+
+<p>次にプロセスIDの一覧だけにする</p>
+
+<pre><code>ps aux | grep ruby | grep -v grep | tr -s ' ' | cut -d ' ' -f2
+</code></pre>
+
+<p>それをkillする</p>
+
+<pre><code>kill `ps aux | grep ruby | grep -v grep | tr -s ' ' | cut -d ' ' -f2`
+</code></pre>
+
 <h2 id="rsync">rsync</h2>
 
 <ul>
   <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
 </ul>
 
-<h3 id="section-4">リモートホストからローカルにダウンロードするには</h3>
+<h3 id="section-6">リモートホストからローカルにダウンロードするには</h3>
 
 <pre><code>rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<h3 id="section-5">ポート番号が22以外の場合</h3>
+<h3 id="section-7">ポート番号が22以外の場合</h3>
 
 <pre><code>rsync -e "ssh -p ポート番号" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<h3 id="section-6">秘密鍵のファイルを指定する場合</h3>
+<h3 id="section-8">秘密鍵のファイルを指定する場合</h3>
 
 <pre><code>rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<h3 id="section-7">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには</h3>
+<h3 id="section-9">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには</h3>
 
 <pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
 </code></pre>
@@ -313,7 +345,7 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="sed">sed</h2>
 
-<h3 id="section-8">ファイルの中のテキストを全置換するには</h3>
+<h3 id="section-10">ファイルの中のテキストを全置換するには</h3>
 
 <pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
 </code></pre>
@@ -345,7 +377,7 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="tar">tar</h2>
 
-<h3 id="section-9">基本操作</h3>
+<h3 id="section-11">基本操作</h3>
 
 <pre><code># 圧縮
 tar cvzf tarファイル名 圧縮対象ディレクトリ
@@ -370,19 +402,24 @@ tar xvzf tarファイル名
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-10">ファイルの特定の文字を改行に全置換するには</h3>
+<h3 id="section-12">ファイルの特定の文字を改行に全置換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-11">ファイルの特定の文字を削除するには</h3>
+<h3 id="section-13">ファイルの特定の文字を削除するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、改行をすべて削除する。</p>
+
+<h3 id="section-14">連続したスペースを単一のスペースに変換するには</h3>
+
+<pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名
+</code></pre>
 
 <h2 id="watch">watch</h2>
 
@@ -409,7 +446,7 @@ tar xvzf tarファイル名
 <pre><code>wget --http-user=user --http-passwd=password URL
 </code></pre>
 
-<h3 id="section-12">ウェブサイトを丸ごとダウンロードするには</h3>
+<h3 id="section-15">ウェブサイトを丸ごとダウンロードするには</h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする。</p>
 
@@ -443,7 +480,7 @@ tar xvzf tarファイル名
 <pre><code>tar xvzf TARGZファイル名
 </code></pre>
 
-<h3 id="section-13">ウェブサイトを丸ごとダウンロードするには</h3>
+<h3 id="section-16">ウェブサイトを丸ごとダウンロードするには</h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする</p>
 
