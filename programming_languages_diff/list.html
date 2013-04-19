@@ -77,7 +77,7 @@ footer {
   <li><a href="#literal">リスト(配列)の書き方</a></li>
   <li><a href="#index-of">indexOf</a></li>
   <li><a href="#find">find</a></li>
-  <li><a href="#length">length</a></li>
+  <li><a href="#size">size</a></li>
   <li><a href="#isempty">isEmpty</a></li>
   <li><a href="#contains">contains</a></li>
   <li><a href="#subList">subList</a></li>
@@ -231,7 +231,7 @@ def indexWhere(p: A =&gt; Boolean, from: Int): Int
 def find(p: A =&gt; Boolean): Option[A]
 </code></pre>
 
-<h2 id="length">length</h2>
+<h2 id="size">size</h2>
 
 <h3 id="java-2">Java</h3>
 
@@ -254,6 +254,26 @@ Array#size
 </code></pre>
 
 <p>2つのメソッドは全く同じ。</p>
+
+<h3 id="javascript-1">JavaScript</h3>
+
+<pre><code>arr.length
+</code></pre>
+
+<p>カッコはいらない。</p>
+
+<p>厳密にはサイズではなくインデックスの最大値+1(でも負にはならない)を表すので、以下のようになる。</p>
+
+<pre><code>arr = [];
+console.log(arr.length); // =&gt; 0
+arr[100] = 1;
+console.log(arr.length); // =&gt; 101
+
+arr = [];
+console.log(arr.length); // =&gt; 0
+arr[-2] = 1;
+console.log(arr.length); // =&gt; 0
+</code></pre>
 
 <h2 id="isempty">isEmpty</h2>
 
@@ -370,12 +390,25 @@ def reverse: Seq[A]
 def foreach(f: A =&gt; Unit): Unit
 </code></pre>
 
+<h3 id="coffeescript-1">CoffeeScript</h3>
+
+<pre><code>for elem in arr
+  ....
+</code></pre>
+
 <h2 id="map">map</h2>
 
 <h3 id="scala-14">Scala</h3>
 
 <pre><code># Seq[+A]
 def map[B](f: A =&gt; B): Seq[B]
+</code></pre>
+
+<h3 id="coffeescript-2">CoffeeScript</h3>
+
+<p>配列の内包表記</p>
+
+<pre><code>(elemを使った式 for elem in arr)
 </code></pre>
 
 <h2 id="flatmap">flatMap</h2>
@@ -402,6 +435,13 @@ def filter(p: A =&gt; Boolean): Seq[A]
 <p>例</p>
 
 <pre><code>arr.select {|item| item &gt; 0}
+</code></pre>
+
+<h3 id="coffeescript-3">CoffeeScript</h3>
+
+<p>配列の内包表記</p>
+
+<pre><code>(elem for elem in arr when elemを使った条件式)
 </code></pre>
 
 <h2 id="flatten">flatten</h2>
@@ -457,6 +497,8 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <pre><code>Array#unshift(obj)
 </code></pre>
 
+<p>JavaScriptと同じメソッド名。</p>
+
 <h3 id="python-1">Python</h3>
 
 <p>リストの最後に要素を追加する。</p>
@@ -468,6 +510,20 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 
 <pre><code>arr.insert(index, obj)
 </code></pre>
+
+<h3 id="javascript-2">JavaScript</h3>
+
+<p>配列の最後に要素を追加する。</p>
+
+<pre><code>Array#push(obj)
+</code></pre>
+
+<p>配列の先頭に要素を挿入する。</p>
+
+<pre><code>Array#unshift(obj)
+</code></pre>
+
+<p>Rubyと同じメソッド名。</p>
 
 <h2 id="remove">remove</h2>
 
@@ -483,6 +539,8 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <pre><code>Array#shift
 </code></pre>
 
+<p>JavaScriptと同じメソッド名。</p>
+
 <h3 id="python-2">Python</h3>
 
 <p>リストの最後の要素を取得し、削除する。</p>
@@ -493,6 +551,39 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>リストの指定のインデックスの要素を取得し、削除して詰める。</p>
 
 <pre><code>arr.pop(index)
+</code></pre>
+
+<h3 id="javascript-3">JavaScript</h3>
+
+<p>配列の最後の要素を取得し、削除する。</p>
+
+<pre><code>Array#pop
+</code></pre>
+
+<p>配列の先頭の要素を取得し、削除する。</p>
+
+<pre><code>Array#shift
+</code></pre>
+
+<p>Rubyと同じメソッド名。</p>
+
+<h3 id="coffeescript-4">CoffeeScript</h3>
+
+<p>配列の最後の要素を取得し、削除する。</p>
+
+<pre><code>Array#pop
+</code></pre>
+
+<p>配列の先頭の要素を取得し、削除する。</p>
+
+<pre><code>Array#shift
+</code></pre>
+
+<p><code>pop</code>, <code>shift</code> はJavaScriptと同じ。</p>
+
+<p>特定の値をすべて削除するには</p>
+
+<pre><code>arr = (o for o in arr when o != remove_target)
 </code></pre>
 
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>目次 | hydrocul のメモ</title>
+<title>GitLab | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -71,9 +71,31 @@ footer {
 </head>
 <body>
 <div id="content">
-<h1 id="section">目次</h1>
+<h1 id="gitlab">GitLab</h1>
 
-<p><a href="./algorithm.html">アルゴリズム</a> <a href="./apache.html">Apache</a> <a href="./bash.html">シェルスクリプト</a> <a href="./codeigniter.html">CodeIgniter</a> <a href="./color.html">色</a> <a href="./commands.html">コマンドリファレンス</a> <a href="./css.html">CSS</a> <a href="./emacs.html">Emacs</a> <a href="./find.html">find</a> <a href="./git.html">git</a> <a href="./gitlab.html">GitLab</a> <a href="./html.html">HTML</a> <a href="./jquery.html">jQuery</a> <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a> <a href="./linux.html">Linux</a> <a href="./materials.html">素材集</a> <a href="./misc.html">misc</a> <a href="./mylisp.html">オレオレLisp</a> <a href="./mysql.html">MySQL</a> <a href="./passenger.html">Passenger (Ruby on Rails)</a> <a href="./php.html">PHP</a> <a href="./physics.html">物理学</a> <a href="./programming_languages_diff/">プログラミング言語の比較</a> <a href="./python.html">Python</a> <a href="./rails.html">Ruby on Rails</a> <a href="./ruby.html">Ruby</a> <a href="./ssh.html">SSH</a> <a href="./ubuntu.html">Ubuntu</a> </p>
+<h2 id="gitlab-50--centos-64-">GitLab 5.0 を CentOS 6.4 にインストールした</h2>
+
+<p><a href="http://ngyuki.hatenablog.com/entry/2013/04/02/234129" target="_blank">http://ngyuki.hatenablog.com/entry/2013/04/02/234129</a><br />
+2013/04/11時点で実際にインストールしたときに参考にした記事</p>
+
+<h2 id="debianubuntu-">Debian/Ubuntu へのインストール方法</h2>
+
+<p><a href="https://github.com/gitlabhq/gitlabhq/blob/5-0-stable/doc/install/installation.md" target="_blank">https://github.com/gitlabhq/gitlabhq/blob/5-0-stable/doc/install/installation.md</a></p>
+
+<h2 id="centos-">CentOS へのインストール方法</h2>
+
+<p><a href="https://github.com/gitlabhq/gitlab-recipes/blob/master/install/CentOS_6.md" target="_blank">https://github.com/gitlabhq/gitlab-recipes/blob/master/install/CentOS_6.md</a><br />
+ただし、gitlab 4.0 での方法で、最新バージョンとは違う可能性がある。</p>
+
+<h2 id="ssh">SSH接続の認証の仕組み</h2>
+
+<p>GitLabにユーザを作成してプロジェクトへの権限を設定すると、
+gitのレポジトリのあるホームディレクトリの <code>~/.ssh/authorized_keys</code> に以下のようなエントリが自動で生成される。</p>
+
+<pre><code>command="/home/git/gitlab-shell/bin/gitlab-shell key-1",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa ....
+</code></pre>
+
+<p>たぶん、このエントリでLinuxのgit権限での無制限のSSH接続を防いで、許可されたレポジトリアクセスのみができるようになっている。</p>
 
 
 </div>

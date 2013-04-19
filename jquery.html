@@ -325,6 +325,23 @@ def&lt;/div&gt;
 <pre><code>$('#hoge').is(':hidden)
 </code></pre>
 
+<h2 id="section-4">属性によるセレクタ [2013/04/19]</h2>
+
+<dl>
+  <dt><code>input[name]</code></dt>
+  <dd><code>name</code> 属性が存在する <code>input</code></dd>
+  <dt><code>input[name=q]</code></dt>
+  <dd><code>name</code> 属性の値が <code>"q"</code> の <code>input</code></dd>
+  <dt><code>input[name!=q]</code></dt>
+  <dd><code>name</code> 属性の値が <code>"q"</code> でない <code>input</code></dd>
+  <dt><code>input[name^=q]</code></dt>
+  <dd><code>name</code> 属性の値が <code>"q"</code> で始まる <code>input</code></dd>
+  <dt><code>input[name$=q]</code></dt>
+  <dd><code>name</code> 属性の値が <code>"q"</code> で終わる <code>input</code></dd>
+  <dt><code>input[name^=q][value]</code></dt>
+  <dd><code>name</code> 属性の値が <code>"q"</code> で始まり、かつ <code>value</code> 属性が存在する <code>input</code></dd>
+</dl>
+
 
 </div>
 <footer>

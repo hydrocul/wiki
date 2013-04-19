@@ -74,8 +74,19 @@ footer {
 <h1 id="section">正規表現</h1>
 
 <ul>
+  <li><a href="#match">パターンマッチング</a></li>
   <li><a href="#replace">全置換</a></li>
 </ul>
+
+<h2 id="match">パターンマッチング</h2>
+
+<h3 id="javascript">JavaScript</h3>
+
+<pre><code>"abc\nabc\n".match(/a./); // =&gt; ["ab"]
+"abc\nabc\n".match(/a(.)(.*)/); // =&gt; ["abc", "b", "c"]
+</code></pre>
+
+<p>マッチしない場合は <code>null</code> を返す。マッチした場合は最初にマッチした部分の文字列を配列で返す。パターンにカッコを使った部分があれば配列の2つ目以降としてそれらの部分を返す。</p>
 
 <h2 id="replace">全置換</h2>
 
@@ -142,7 +153,7 @@ footer {
 <p>Ruby 1.9.3 リファレンスマニュアル &gt; spec/regexp<br />
 <a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html</a></p>
 
-<h3 id="javascript">JavaScript</h3>
+<h3 id="javascript-1">JavaScript</h3>
 
 <pre><code>"abc\nabc\n".replace(/\n/g, '&lt;br /&gt;');
 </code></pre>
