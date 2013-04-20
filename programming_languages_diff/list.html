@@ -96,6 +96,7 @@ footer {
   <li><a href="#sort">sort</a></li>
   <li><a href="#add">add</a></li>
   <li><a href="#remove">remove</a></li>
+  <li><a href="#clone">clone</a></li>
 </ul>
 
 <h2 id="literal">リスト(配列)の書き方</h2>
@@ -329,6 +330,11 @@ Array#slice(from, length)
 
 <p>lengthを省略したら、from以降の部分配列ではなく、その場所の要素を返す(<code>[]</code> と同じ)。</p>
 
+<h3 id="javascript-2">JavaScript</h3>
+
+<pre><code>Array#slice(start[, end])
+</code></pre>
+
 <h2 id="head">head</h2>
 
 <h3 id="scala-7">Scala</h3>
@@ -380,7 +386,15 @@ def reverse: Seq[A]
 <h3 id="ruby-5">Ruby</h3>
 
 <pre><code>Array#reverse
+Array#reverse!
 </code></pre>
+
+<h3 id="javascript-3">JavaScript</h3>
+
+<pre><code>Array#reverse
+</code></pre>
+
+<p>配列を逆順にしてそれ自身を返す破壊的メソッド。</p>
 
 <h2 id="foreach">foreach</h2>
 
@@ -511,7 +525,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <pre><code>arr.insert(index, obj)
 </code></pre>
 
-<h3 id="javascript-2">JavaScript</h3>
+<h3 id="javascript-4">JavaScript</h3>
 
 <p>配列の最後に要素を追加する。</p>
 
@@ -553,7 +567,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <pre><code>arr.pop(index)
 </code></pre>
 
-<h3 id="javascript-3">JavaScript</h3>
+<h3 id="javascript-5">JavaScript</h3>
 
 <p>配列の最後の要素を取得し、削除する。</p>
 
@@ -584,6 +598,23 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>特定の値をすべて削除するには</p>
 
 <pre><code>arr = (o for o in arr when o != remove_target)
+</code></pre>
+
+<h2 id="clone">clone</h2>
+
+<h3 id="javascript-6">JavaScript</h3>
+
+<p>shallow copy</p>
+
+<pre><code>arr_copy = arr.concat();
+</code></pre>
+
+<p>または</p>
+
+<pre><code>Array.prototype.clone = function(){
+    return Array.apply(null, this)
+}
+arr_copy = arr.clone();
 </code></pre>
 
 

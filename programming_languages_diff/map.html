@@ -75,6 +75,7 @@ footer {
 
 <ul>
   <li><a href="#literal">マップ(連想配列)の書き方</a></li>
+  <li><a href="#clone">clone</a></li>
 </ul>
 
 <h2 id="literal">マップ(連想配列)の書き方</h2>
@@ -140,6 +141,22 @@ map = a: 1, b: 2
 map =
     a: 1
     b: 2
+</code></pre>
+
+<h2 id="clone">clone</h2>
+
+<h3 id="javascript-1">JavaScript</h3>
+
+<p>shallow copy</p>
+
+<pre><code>function clone(src){
+    var dst = {}
+    for(var k in src){
+        dst[k] = src[k];
+    }
+    return dst;
+}
+map_copy = map.clone();
 </code></pre>
 
 
