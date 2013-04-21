@@ -7,8 +7,12 @@
 <link rel="stylesheet" href="../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+#side-menu {
+  float: left;
+  width: 150px;
+}
 #content {
-  margin: 0 40px 0 40px;
+  margin: 0 40px 0px 150px;
   word-wrap: break-word;
 }
 #content h1 {
@@ -70,8 +74,14 @@ footer {
 </script>
 </head>
 <body>
+<div id="breadcrumb">
+  <a href="../">ホーム</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; 制御構文
+</div>
+<div id="side-menu">
+  side menu
+</div>
 <div id="content">
-<h1 id="section">制御構文</h1>
+  <h1 id="section">制御構文</h1>
 
 <ul>
   <li><a href="#if">if文</a></li>
@@ -124,74 +134,8 @@ else ...
 
 <h2 id="for">for文(繰り返し)</h2>
 
-<h3 id="java">Java</h3>
-
-<p>配列をループ。</p>
-
-<pre><code>for(int i = 0; i &lt; arr.length; i++){
-  ...
-}
-</code></pre>
-
-<p>Java5からは、拡張for文の利用が可能。</p>
-
-<pre><code>for(String str: str_arr){
-  ...
-}
-</code></pre>
-
-<h3 id="php">PHP</h3>
-
-<p>配列をループ。</p>
-
-<pre><code>for(int $i = 0; $i &lt; $arr.length; $i++){
-  ...
-}
-
-foreach($arr as $value){
-  ...
-}
-</code></pre>
-
-<p>連想配列をループ。</p>
-
-<pre><code>foreach($arr as $key =&gt; $value){
-  ...
-}
-</code></pre>
-
-<h3 id="ruby">Ruby</h3>
-
-<pre><code>for value in arr do
-  ...
-end
-</code></pre>
-
-<p><code>value</code> の部分には複数の値が入る場合に複数の変数が使える。例：</p>
-
-<pre><code>for i, str in [[1, 'abc'], [2, 'def'], [3, 'ghi']]
-  ...
-end
-</code></pre>
-
-<p>配列の <code>each</code> メソッドも使える。
-<code>break</code> でのループの中断は、上記の <code>for</code> 文以外にこの <code>each</code> メソッドでも使える。例：</p>
-
-<pre><code>[1, 2, 3].each do |i|
-  p i
-  break if i == 2
-end
-# =&gt; 1 2
-</code></pre>
-
-<h3 id="coffeescript-1">CoffeeScript</h3>
-
-<pre><code>for value in arr
-  ...
-
-for key, value of map
-  ...
-</code></pre>
+<p><i>-&gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/list.html">リスト(配列)</a> &gt; <a href="../programming_languages_diff/list.html#foreach">foreach</a></i><br />
+<i>-&gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/map.html">マップ(連想配列)</a> &gt; <a href="../programming_languages_diff/map.html#foreach">foreach</a></i>  </p>
 
 
 </div>

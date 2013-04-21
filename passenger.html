@@ -7,8 +7,12 @@
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+#side-menu {
+  float: left;
+  width: 150px;
+}
 #content {
-  margin: 0 40px 0 40px;
+  margin: 0 40px 0px 150px;
   word-wrap: break-word;
 }
 #content h1 {
@@ -70,8 +74,14 @@ footer {
 </script>
 </head>
 <body>
+<div id="breadcrumb">
+  <a href="./">ホーム</a> &gt; Passenger (Ruby on Rails)
+</div>
+<div id="side-menu">
+  side menu
+</div>
 <div id="content">
-<h1 id="passenger-ruby-on-rails">Passenger (Ruby on Rails)</h1>
+  <h1 id="passenger-ruby-on-rails">Passenger (Ruby on Rails)</h1>
 
 <p>Ruby on Rails のアプリをApacheで動かすためのモジュール。GitLabやRedmineでも使われている。</p>
 

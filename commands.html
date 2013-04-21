@@ -7,8 +7,12 @@
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+#side-menu {
+  float: left;
+  width: 150px;
+}
 #content {
-  margin: 0 40px 0 40px;
+  margin: 0 40px 0px 150px;
   word-wrap: break-word;
 }
 #content h1 {
@@ -70,8 +74,14 @@ footer {
 </script>
 </head>
 <body>
+<div id="breadcrumb">
+  <a href="./">ホーム</a> &gt; コマンドリファレンス
+</div>
+<div id="side-menu">
+  side menu
+</div>
 <div id="content">
-<h1 id="section">コマンドリファレンス</h1>
+  <h1 id="section">コマンドリファレンス</h1>
 
 <ul>
   <li><a href="#ack-grep">ack-grep</a></li>
@@ -197,11 +207,11 @@ base64 -d # デコード
 
 <h2 id="find">find</h2>
 
-<p><i>-&gt; <a href="find.html">find</a></i></p>
+<p><i>-&gt; <a href="./find.html">find</a></i></p>
 
 <h2 id="git">git</h2>
 
-<p><i>-&gt; <a href="git.html">git</a></i></p>
+<p><i>-&gt; <a href="./git.html">git</a></i></p>
 
 <h2 id="jhead">jhead</h2>
 
@@ -241,7 +251,7 @@ grep -rni --color=always abc | less -X -R
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n"
 </code></pre>
 
-<p><i>-&gt; <a href="find.html">find</a></i></p>
+<p><i>-&gt; <a href="./find.html">find</a></i></p>
 
 <h2 id="lsof">lsof</h2>
 
@@ -258,7 +268,7 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="mysql">mysql</h2>
 
-<p><i>-&gt; <a href="mysql.html">MySQL</a></i></p>
+<p><i>-&gt; <a href="./mysql.html">MySQL</a></i></p>
 
 <h2 id="netstat">netstat</h2>
 
@@ -383,7 +393,7 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="ssh">ssh</h2>
 
-<p><i>-&gt; <a href="ssh.html">SSH</a></i></p>
+<p><i>-&gt; <a href="./ssh.html">SSH</a></i></p>
 
 <h2 id="tar">tar</h2>
 

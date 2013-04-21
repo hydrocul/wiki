@@ -7,8 +7,12 @@
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+#side-menu {
+  float: left;
+  width: 150px;
+}
 #content {
-  margin: 0 40px 0 40px;
+  margin: 0 40px 0px 150px;
   word-wrap: break-word;
 }
 #content h1 {
@@ -70,8 +74,14 @@ footer {
 </script>
 </head>
 <body>
+<div id="breadcrumb">
+  <a href="./">ホーム</a> &gt; MySQL
+</div>
+<div id="side-menu">
+  side menu
+</div>
 <div id="content">
-<h1 id="mysql">MySQL</h1>
+  <h1 id="mysql">MySQL</h1>
 
 <h2 id="section">プロセス</h2>
 
@@ -119,7 +129,7 @@ SHOW FULL PROCESSLIST;
 
 <p>mysqlコマンドのオプションに <code>--pager='less -S -X -F'</code> をつける。 <code>-X</code> を付けると、 less 終了時に画面をクリアしない。 <code>-F</code> を付けると、行数が短くて位置画面に収まる場合は less がすぐに終了する。</p>
 
-<p><i>-&gt; <a href="commands.html">コマンドリファレンス</a></i></p>
+<p><i>-&gt; <a href="./commands.html">コマンドリファレンス</a></i></p>
 
 
 </div>
