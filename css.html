@@ -19,14 +19,26 @@
   margin: 20px 0 20px 0;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
+  font-size: 32px;
 }
 #content h2 {
   margin: 20px 0 20px 0;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
+  font-size: 24px;
 }
 #content h3 {
   margin: 20px 0 20px 40px;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 10px 0 10px 40px;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
 }
 #content p,
 #content ul,
@@ -86,7 +98,7 @@ footer {
 <p>CSS仕様書の日本語訳<br />
 <a href="http://momdo.s35.xrea.com/web-html-test/index.html" target="_blank">http://momdo.s35.xrea.com/web-html-test/index.html</a></p>
 
-<h2 id="overflow-20130408"><code>overflow</code> [2013/04/08]</h2>
+<h2 id="overflow-20130408"><code>overflow</code> <span class="article-date">2013/04/08</span></h2>
 
 <p><a href="https://developer.mozilla.org/ja/docs/CSS/overflow" target="_blank">https://developer.mozilla.org/ja/docs/CSS/overflow</a></p>
 
@@ -101,7 +113,7 @@ footer {
   <dd>ブラウザに依るが、多くのブラウザは、内容が入りきらない場合にスクロールバーが表示される。</dd>
 </dl>
 
-<h2 id="section">右にはみ出した文字を点々(三点リーダ)で省略するには [2013/04/03]</h2>
+<h2 id="section">右にはみ出した文字を点々(三点リーダ)で省略するには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>text-overflow: ellipses;
 </code></pre>
@@ -114,7 +126,7 @@ footer {
 <pre><code>word-wrap: break-word;
 </code></pre>
 
-<h2 id="textarea--width-100--20130410"><code>textarea</code> に <code>width: 100%;</code> を指定すると横にはみ出してしまう場合 [2013/04/10]</h2>
+<h2 id="textarea--width-100--20130410"><code>textarea</code> に <code>width: 100%;</code> を指定すると横にはみ出してしまう場合 <span class="article-date">2013/04/10</span></h2>
 
 <p><code>margin</code> や <code>padding</code> が指定してあると、その分はみ出してしまう。指定してなくてもデフォルトの <code>border</code> でやっぱり少し幅がはみ出してしまうので、
 <code>box-sizing</code> を使用する。</p>
@@ -135,7 +147,7 @@ footer {
 <p>‘box-sizing’ プロパティ | CSS Basic User Interface Module Level 3 (CSS3 UI) 日本語訳<br />
 <a href="http://momdo.s35.xrea.com/web-html-test/spec/WD-css3-ui-20120117.html#box-sizing0" target="_blank">http://momdo.s35.xrea.com/web-html-test/spec/WD-css3-ui-20120117.html#box-sizing0</a></p>
 
-<h2 id="ie6-20130410">ボックスの最低の高さを指定して、IE6でも対応させるには [2013/04/10]</h2>
+<h2 id="ie6-20130410">ボックスの最低の高さを指定して、IE6でも対応させるには <span class="article-date">2013/04/10</span></h2>
 
 <p>CSSの <code>min-height</code> はIE6に対応していないので、以下の例のように2行を付け足す。<code>height</code> を2つ指定するのは、IE6のバグを利用したものらしい。IE7以降は <code>min-height</code> だけでも大丈夫。</p>
 
@@ -147,6 +159,10 @@ footer {
   height: 120px; /* for IE6 */
 }
 </code></pre>
+
+<h2 id="section-1">スタイルシートによる崩れない2カラム / 3カラム・レイアウト</h2>
+
+<p><a href="http://desperadoes.biz/style/dan/" target="_blank">http://desperadoes.biz/style/dan/</a></p>
 
 
 </div>

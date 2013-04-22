@@ -19,14 +19,26 @@
   margin: 20px 0 20px 0;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
+  font-size: 32px;
 }
 #content h2 {
   margin: 20px 0 20px 0;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
+  font-size: 24px;
 }
 #content h3 {
   margin: 20px 0 20px 40px;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 10px 0 10px 40px;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
 }
 #content p,
 #content ul,
@@ -131,7 +143,7 @@ done
 
 <p>とすると、<code>ls "a b c d"</code> が実行されてしまう。</p>
 
-<h2 id="section-4">一定の確率でなにかをするには [2013/04/18]</h2>
+<h2 id="section-4">一定の確率でなにかをするには <span class="article-date">2013/04/18</span></h2>
 
 <p>シェルスクリプト実行時に、10分の1の確率でなにもしないようにするには、シェルスクリプトの先頭に以下のように書く。</p>
 
@@ -144,7 +156,7 @@ fi
 
 <p>Ubuntu 12.04 でのデフォルトの /bin/sh が dash になっていて、<code>$RANDOM</code> が動かないので、これを使う場合はshebangを <code>#!/bin/bash</code> にする。</p>
 
-<h2 id="bash-dash--20130418">bash, dash の比較 [2013/04/18]</h2>
+<h2 id="bash-dash--20130418">bash, dash の比較 <span class="article-date">2013/04/18</span></h2>
 
 <p><a href="http://www.01.246.ne.jp/~hatch/sh.html" target="_blank">http://www.01.246.ne.jp/~hatch/sh.html</a></p>
 

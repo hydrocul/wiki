@@ -19,14 +19,26 @@
   margin: 20px 0 20px 0;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
+  font-size: 32px;
 }
 #content h2 {
   margin: 20px 0 20px 0;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
+  font-size: 24px;
 }
 #content h3 {
   margin: 20px 0 20px 40px;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 10px 0 10px 40px;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
 }
 #content p,
 #content ul,
@@ -212,7 +224,7 @@ CGI.escape はURLとしての意味を持たせたくない文字をエスケー
 ソースコードを読む技術を身に付けること  </p>
 </blockquote>
 
-<h2 id="rbenv">rbenv [2013/04/11]</h2>
+<h2 id="rbenv">rbenv <span class="article-date">2013/04/11</span></h2>
 
 <h3 id="rbenvruby">rbenvを使ってシステムワイドにrubyをインストールする方法</h3>
 
@@ -222,11 +234,11 @@ CGI.escape はURLとしての意味を持たせたくない文字をエスケー
 
 <p><a href="http://memo.yomukaku.net/entries/ApoFwmf" target="_blank">http://memo.yomukaku.net/entries/ApoFwmf</a></p>
 
-<h2 id="gem">gem [2013/04/11]</h2>
+<h2 id="gem">gem <span class="article-date">2013/04/11</span></h2>
 
 <p><a href="https://rubygems.org/" target="_blank">https://rubygems.org/</a></p>
 
-<h3 id="gem-rubygem-20130412">gemの作り方 Rubyのオブジェクトをグンマー県が制圧するgem書いた [2013/04/12]</h3>
+<h3 id="gem-rubygem-20130412">gemの作り方 Rubyのオブジェクトをグンマー県が制圧するgem書いた <span class="article-date">2013/04/12</span></h3>
 
 <p><a href="http://soplana.hateblo.jp/entry/2012/06/01/234259" target="_blank">http://soplana.hateblo.jp/entry/2012/06/01/234259</a></p>
 
@@ -261,6 +273,13 @@ requireの呼び出し元のファイルの場所ではない。</p>
 
 <p><code>Kernel.#require_relative(relative_feature)</code><br />
 <a href="http://rurema.clear-code.com/version:1.9.3/query:Kernel.%23require_relative/" target="_blank">http://rurema.clear-code.com/version:1.9.3/query:Kernel.%23require_relative/</a></p>
+
+<h2 id="shebang">シェルスクリプトとして利用するときの shebang</h2>
+
+<p>以下のようにすると、rubyのパスに依存せずに済むらしい。</p>
+
+<pre><code>#!/usr/bin/env ruby
+</code></pre>
 
 
 </div>

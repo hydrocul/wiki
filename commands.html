@@ -19,14 +19,26 @@
   margin: 20px 0 20px 0;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
+  font-size: 32px;
 }
 #content h2 {
   margin: 20px 0 20px 0;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
+  font-size: 24px;
 }
 #content h3 {
   margin: 20px 0 20px 40px;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 10px 0 10px 40px;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
 }
 #content p,
 #content ul,
@@ -87,6 +99,7 @@ footer {
   <li><a href="#ack-grep">ack-grep</a></li>
   <li><a href="#base64">base64</a></li>
   <li><a href="#cp">cp</a></li>
+  <li><a href="#crontab">crontab</a></li>
   <li><a href="#date">date</a></li>
   <li><a href="#du">du</a></li>
   <li><a href="#echo">echo</a></li>
@@ -179,6 +192,10 @@ base64 -d # デコード
 <p>この場合、コピー先には <code>/home/who/ghi.dat</code> ではなく <code>/home/who/abc/def/ghi.dat</code> という名前でコピーされる。コピー先にディレクトリが存在しない場合は自動で作成される。</p>
 
 <p><code>rsync</code> での同じ役割をはたすのは <code>-R</code>。</p>
+
+<h2 id="crontab">crontab</h2>
+
+<p><code>-r</code> は設定をすべて削除してしまうので要注意。<code>r</code> は <code>e</code> の隣。</p>
 
 <h2 id="date">date</h2>
 

@@ -19,14 +19,26 @@
   margin: 20px 0 20px 0;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
+  font-size: 32px;
 }
 #content h2 {
   margin: 20px 0 20px 0;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
+  font-size: 24px;
 }
 #content h3 {
   margin: 20px 0 20px 40px;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 10px 0 10px 40px;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
 }
 #content p,
 #content ul,
@@ -85,6 +97,8 @@ footer {
 
 <ul>
   <li><a href="#literal">マップ(連想配列)の書き方</a></li>
+  <li><a href="#size">size</a></li>
+  <li><a href="#contains">contains</a></li>
   <li><a href="#clone">clone</a></li>
   <li><a href="#foreach">foreach</a></li>
 </ul>
@@ -127,6 +141,12 @@ map.put("b", 2);
 <pre><code>map = ['a' =&gt; 1, 'b' =&gt; 2];
 </code></pre>
 
+<p>配列 | PHP Manual<br />
+<a href="http://jp2.php.net/manual/ja/language.types.array.php" target="_blank">http://jp2.php.net/manual/ja/language.types.array.php</a></p>
+
+<p>配列関係の関数 | PHP Manual<br />
+<a href="http://jp2.php.net/manual/ja/book.array.php" target="_blank">http://jp2.php.net/manual/ja/book.array.php</a></p>
+
 <h3 id="ruby">Ruby</h3>
 
 <pre><code>map = {'a' =&gt; 1, 'b' =&gt; 2}
@@ -153,6 +173,34 @@ map =
     a: 1
     b: 2
 </code></pre>
+
+<h2 id="size">size</h2>
+
+<h3 id="php-1">PHP</h3>
+
+<pre><code>count($map)
+</code></pre>
+
+<h2 id="contains">contains</h2>
+
+<h3 id="scala-1">Scala</h3>
+
+<pre><code>// Map[A, +B]
+def contains(key: A): Boolean
+</code></pre>
+
+<h3 id="php-2">PHP</h3>
+
+<pre><code>array_key_exists($key, $map)
+</code></pre>
+
+<p>array_key_exists | PHP Manual<br />
+<a href="http://jp2.php.net/manual/ja/function.array-key-exists.php" target="_blank">http://jp2.php.net/manual/ja/function.array-key-exists.php</a></p>
+
+<blockquote>
+  <p>isset() は NULL 値を持つ配列キーに対して TRUE を返しません。
+一方、 array_key_exists() は TRUE を返します。</p>
+</blockquote>
 
 <h2 id="clone">clone</h2>
 

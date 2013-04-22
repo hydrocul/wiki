@@ -19,14 +19,26 @@
   margin: 20px 0 20px 0;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
+  font-size: 32px;
 }
 #content h2 {
   margin: 20px 0 20px 0;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
+  font-size: 24px;
 }
 #content h3 {
   margin: 20px 0 20px 40px;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 10px 0 10px 40px;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
 }
 #content p,
 #content ul,
@@ -85,61 +97,120 @@ footer {
 
 <ul>
   <li><a href="#comment">コメント</a></li>
-  <li><a href="#method">関数・メソッド定義 / インデント / セミコロン</a></li>
+  <li><a href="#semicolon">インデント / セミコロン</a></li>
+  <li><a href="#method">関数・メソッド定義</a></li>
   <li><a href="#heredoc">ヒアドキュメント</a></li>
   <li><a href="#exception">例外処理</a></li>
 </ul>
 
 <h2 id="comment">コメント</h2>
 
-<h3 id="c">C++</h3>
+<h3 id="c-c">C言語, C++</h3>
 
-<pre><code>// コメント
+<pre><code>// 単一行コメント
 /*
-  コメント
+  複数行コメント
+  複数行コメント
 */
 </code></pre>
 
+<p>複数行コメントはネスト不可。</p>
+
+<p>C言語では、単一行コメントは正式にはC99以降の規格。</p>
+
+<h3 id="php">PHP</h3>
+
+<pre><code>// 単一行コメント
+/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<p>複数行コメントはネスト不可。</p>
+
+<p><a href="http://php.net/manual/ja/language.basic-syntax.comments.php" target="_blank">http://php.net/manual/ja/language.basic-syntax.comments.php</a></p>
+
 <h3 id="ruby">Ruby</h3>
 
-<pre><code># コメント
+<pre><code># 単一行コメント
 =begin
-  コメント
+  複数行コメント
+  複数行コメント
 =end
 </code></pre>
 
 <h3 id="python">Python</h3>
 
-<pre><code># コメント
+<pre><code># 単一行コメント
 </code></pre>
 
 <p>複数行のコメントはない。そのかわり、文字列を置いてもプログラムの意味が変わらない箇所で、複数行の文字列リテラルを置くことで、複数行コメントの代わりにすることができる。</p>
 
 <pre><code>'''
-コメント
-コメント
+複数行コメント
+複数行コメント
 '''
 </code></pre>
 
 <h3 id="javascript">JavaScript</h3>
 
-<pre><code>// コメント
+<pre><code>// 単一行コメント
 /*
-  コメント
+  複数行コメント
+  複数行コメント
 */
 </code></pre>
 
 <h3 id="coffeescript">CoffeeScript</h3>
 
-<pre><code># コメント
+<pre><code># 単一行コメント
 ###
-  コメント
+  複数行コメント
+  複数行コメント
 ###
 </code></pre>
 
-<h2 id="method">関数・メソッド定義 / インデント / セミコロン</h2>
+<h2 id="semicolon">インデント / セミコロン</h2>
 
-<h3 id="php">PHP</h3>
+<h3 id="c-c-1">C言語, C++</h3>
+
+<ul>
+  <li>ブロックは {} で表現</li>
+  <li>行末のセミコロンは省略不可</li>
+</ul>
+
+<h3 id="php-1">PHP</h3>
+
+<ul>
+  <li>ブロックはC言語ライクに {} で表現</li>
+  <li>行末のセミコロンは省略不可</li>
+</ul>
+
+<h3 id="ruby-1">Ruby</h3>
+
+<ul>
+  <li>ブロックはブロック開始のキーワード(def, do などの開始キーワードと end)で表現</li>
+  <li>行末のセミコロンは省略可</li>
+</ul>
+
+<h3 id="scala">Scala</h3>
+
+<ul>
+  <li>ブロックはC言語ライクに {} で表現</li>
+  <li>行末のセミコロンは省略可</li>
+</ul>
+
+<h3 id="coffeescript-1">CoffeeScript</h3>
+
+<ul>
+  <li>ブロックをインデントで表現</li>
+  <li>行末のセミコロンは省略可</li>
+</ul>
+
+<h2 id="method">関数・メソッド定義</h2>
+
+<h3 id="php-2">PHP</h3>
 
 <pre><code>function f($arg1, $arg2){
   ...;
@@ -148,12 +219,10 @@ footer {
 </code></pre>
 
 <ul>
-  <li>ブロックはC言語ライクに {} で表現</li>
-  <li>行末のセミコロンは省略不可</li>
   <li>関数呼び出しはカッコを省略不可</li>
 </ul>
 
-<h3 id="ruby-1">Ruby</h3>
+<h3 id="ruby-2">Ruby</h3>
 
 <pre><code>def f(arg1, arg2)
   ...
@@ -162,12 +231,10 @@ end
 </code></pre>
 
 <ul>
-  <li>ブロックはブロック開始のキーワード(def, do などの開始キーワードと end)で表現</li>
-  <li>行末のセミコロンは省略可</li>
   <li>メソッド呼び出しはカッコを省略可</li>
 </ul>
 
-<h3 id="scala">Scala</h3>
+<h3 id="scala-1">Scala</h3>
 
 <pre><code>def f(arg1: String, arg2: Int): String = {
   ...
@@ -175,12 +242,10 @@ end
 </code></pre>
 
 <ul>
-  <li>ブロックはC言語ライクに {} で表現</li>
-  <li>行末のセミコロンは省略可</li>
-  <li>メソッド呼び出しは引数のカッコ省略不可だが、引数がない場合の呼び出しはカッコを省略できる</li>
+  <li>メソッド呼び出しは、引数がない場合に限り、カッコを省略できる</li>
 </ul>
 
-<h3 id="coffeescript-1">CoffeeScript</h3>
+<h3 id="coffeescript-2">CoffeeScript</h3>
 
 <pre><code>(arg1, arg2) -&gt;
   ...
@@ -195,21 +260,19 @@ end
 </code></pre>
 
 <ul>
-  <li>ブロックをインデントで表現</li>
-  <li>行末のセミコロンは省略可</li>
   <li>関数呼び出しはカッコを省略可</li>
 </ul>
 
 <h2 id="heredoc">ヒアドキュメント</h2>
 
-<h3 id="ruby-2">Ruby</h3>
+<h3 id="ruby-3">Ruby</h3>
 
 <p>Ruby 1.9.3 リファレンスマニュアル &gt; ヒアドキュメント<br />
 <a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
 
 <h2 id="exception">例外処理</h2>
 
-<h3 id="ruby-3">Ruby</h3>
+<h3 id="ruby-4">Ruby</h3>
 
 <pre><code>begin
   ...
@@ -270,7 +333,7 @@ finally:
 }
 </code></pre>
 
-<h3 id="coffeescript-2">CoffeeScript</h3>
+<h3 id="coffeescript-3">CoffeeScript</h3>
 
 <pre><code>try
   ...
@@ -280,6 +343,28 @@ catch ex
   ...
 finally
   ...
+</code></pre>
+
+<h2 id="section">複数の返り値</h2>
+
+<h3 id="php-3">PHP</h3>
+
+<p>配列を使って無理やりやろうと思えばできなくもない。</p>
+
+<pre><code>function f(){
+  return array(1, "abc");
+}
+list($num, $str) = f();
+</code></pre>
+
+<h3 id="ruby-5">Ruby</h3>
+
+<p><code>return</code> にカンマ区切りで複数の値を書けば、配列を返すことができ、受け取り側は配列の多重代入を使う。</p>
+
+<pre><code>def f
+  return 1, "abc"
+end
+num, str = f
 </code></pre>
 
 

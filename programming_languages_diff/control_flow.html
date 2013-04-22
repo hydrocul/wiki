@@ -19,14 +19,26 @@
   margin: 20px 0 20px 0;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
+  font-size: 32px;
 }
 #content h2 {
   margin: 20px 0 20px 0;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
+  font-size: 24px;
 }
 #content h3 {
   margin: 20px 0 20px 40px;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 10px 0 10px 40px;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
 }
 #content p,
 #content ul,
@@ -136,6 +148,26 @@ else ...
 
 <p><i>-&gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/list.html">リスト(配列)</a> &gt; <a href="../programming_languages_diff/list.html#foreach">foreach</a></i><br />
 <i>-&gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/map.html">マップ(連想配列)</a> &gt; <a href="../programming_languages_diff/map.html#foreach">foreach</a></i>  </p>
+
+<h3 id="c-c">C言語, C++</h3>
+
+<pre><code>for(int i = 0; i &lt; 10; i++){
+    ...
+}
+</code></pre>
+
+<p>以下の2つは同じ意味になる。</p>
+
+<pre><code>for(式1; 式2; 式3){
+    ...
+}
+
+式1;
+while(式2){
+    ...
+    式3;
+}
+</code></pre>
 
 
 </div>

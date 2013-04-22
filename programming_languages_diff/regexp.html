@@ -19,14 +19,26 @@
   margin: 20px 0 20px 0;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
+  font-size: 32px;
 }
 #content h2 {
   margin: 20px 0 20px 0;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
+  font-size: 24px;
 }
 #content h3 {
   margin: 20px 0 20px 40px;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 10px 0 10px 40px;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
 }
 #content p,
 #content ul,
@@ -88,6 +100,14 @@ footer {
   <li><a href="#replace">全置換</a></li>
 </ul>
 
+<h2 id="section-1">正規表現で使える記法</h2>
+
+<h3 id="ruby">Ruby</h3>
+
+<h4 id="ruby-193---specregexp">Ruby 1.9.3 リファレンスマニュアル &gt; spec/regexp</h4>
+
+<p><a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html</a></p>
+
 <h2 id="match">パターンマッチング</h2>
 
 <h3 id="javascript">JavaScript</h3>
@@ -145,7 +165,7 @@ footer {
 <p>パターン修飾子 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/reference.pcre.pattern.modifiers.php" target="_blank">http://www.php.net/manual/ja/reference.pcre.pattern.modifiers.php</a></p>
 
-<h3 id="ruby">Ruby</h3>
+<h3 id="ruby-1">Ruby</h3>
 
 <pre><code>"abc\nabc\n".gsub(/\n/, "&lt;br /&gt;")
 </code></pre>
@@ -159,9 +179,6 @@ footer {
 
 <pre><code>"abac".gsub(/a(.)/) { $1 * 2 } # =&gt; "bbcc"
 </code></pre>
-
-<p>Ruby 1.9.3 リファレンスマニュアル &gt; spec/regexp<br />
-<a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html</a></p>
 
 <h3 id="javascript-1">JavaScript</h3>
 

@@ -19,14 +19,26 @@
   margin: 20px 0 20px 0;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
+  font-size: 32px;
 }
 #content h2 {
   margin: 20px 0 20px 0;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
+  font-size: 24px;
 }
 #content h3 {
   margin: 20px 0 20px 40px;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 10px 0 10px 40px;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
 }
 #content p,
 #content ul,
@@ -143,6 +155,12 @@ footer {
 <p>このコマンドを実行すると、公開鍵がリモートのサーバに設置される。リモートのサーバにとって初めての公開鍵であれば、パーミッションとかを調整する必要があるかもしれない。ファイル名が <code>authorized_keys</code> だったり <code>authorized_keys2</code> だったりするのはよくわからない。</p>
 
 <p>sshのオプションの中で bash を起動しているのは、FreeBSDのサーバなどでデフォルトのシェルがcshの場合に、ifの構文が違っていて動かないので、bashを強制するため。</p>
+
+<h2 id="autossh-20130422">autossh <span class="article-date">2013/04/22</span></h2>
+
+<p>sshセッションが切れたときに自動で再接続してくれるツール。
+moshを使っていれば問題ないが、SSH port forwarding を使っている場合は、
+moshが対応していないので、このツールが便利かもしれない。</p>
 
 
 </div>

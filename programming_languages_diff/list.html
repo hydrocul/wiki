@@ -19,14 +19,26 @@
   margin: 20px 0 20px 0;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
+  font-size: 32px;
 }
 #content h2 {
   margin: 20px 0 20px 0;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
+  font-size: 24px;
 }
 #content h3 {
   margin: 20px 0 20px 40px;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 10px 0 10px 40px;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
 }
 #content p,
 #content ul,
@@ -104,7 +116,10 @@ footer {
   <li><a href="#foldleft">foldLeft</a></li>
   <li><a href="#find">find</a></li>
   <li><a href="#sort">sort</a></li>
-  <li><a href="#add">add</a></li>
+  <li><a href="#push">push</a></li>
+  <li><a href="#unshift">unshift</a></li>
+  <li><a href="#pop">pop</a></li>
+  <li><a href="#shift">shift</a></li>
   <li><a href="#remove">remove</a></li>
   <li><a href="#clone">clone</a></li>
 </ul>
@@ -163,6 +178,12 @@ list.apply(index);
 <pre><code>arr[index];
 </code></pre>
 
+<p>配列 | PHP Manual<br />
+<a href="http://jp2.php.net/manual/ja/language.types.array.php" target="_blank">http://jp2.php.net/manual/ja/language.types.array.php</a></p>
+
+<p>配列関係の関数 | PHP Manual<br />
+<a href="http://jp2.php.net/manual/ja/book.array.php" target="_blank">http://jp2.php.net/manual/ja/book.array.php</a></p>
+
 <h3 id="ruby">Ruby</h3>
 
 <pre><code>arr = [1, 2, 3]
@@ -220,7 +241,7 @@ int List#lastIndexOf(Object obj)
 
 <h3 id="scala-1">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def indexOf(obj: A): Int
 def indexOf(obj: A, from: Int): Int
 def indexWhere(p: A =&gt; Boolean): Int
@@ -245,12 +266,17 @@ def indexWhere(p: A =&gt; Boolean, from: Int): Int
 
 <h3 id="scala-2">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def length: Int
 def size: Int
 </code></pre>
 
 <p>2つのメソッドは全く同じ。</p>
+
+<h3 id="php-1">PHP</h3>
+
+<pre><code>count($arr)
+</code></pre>
 
 <h3 id="ruby-2">Ruby</h3>
 
@@ -289,7 +315,7 @@ console.log(arr.length); // =&gt; 0
 
 <h3 id="scala-3">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def isEmpty: Boolean
 </code></pre>
 
@@ -302,7 +328,7 @@ def isEmpty: Boolean
 
 <h3 id="scala-4">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def contains(obj: Any): Boolean
 </code></pre>
 
@@ -322,7 +348,7 @@ def contains(obj: Any): Boolean
 
 <h3 id="scala-5">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def slice(from: Int, until: Int): Seq[A]
 </code></pre>
 
@@ -343,7 +369,7 @@ Array#slice(from, length)
 
 <h3 id="scala-6">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def head: A
 </code></pre>
 
@@ -351,7 +377,7 @@ def head: A
 
 <h3 id="scala-7">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def last: A
 </code></pre>
 
@@ -359,7 +385,7 @@ def last: A
 
 <h3 id="scala-8">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def tail: Seq[A]
 </code></pre>
 
@@ -367,7 +393,7 @@ def tail: Seq[A]
 
 <h3 id="scala-9">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def take(n: Int): Seq[A]
 </code></pre>
 
@@ -375,7 +401,7 @@ def take(n: Int): Seq[A]
 
 <h3 id="scala-10">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def drop(n: Int): Seq[A]
 </code></pre>
 
@@ -383,7 +409,7 @@ def drop(n: Int): Seq[A]
 
 <h3 id="scala-11">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def reverse: Seq[A]
 </code></pre>
 
@@ -420,11 +446,11 @@ Array#reverse!
 
 <h3 id="scala-12">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def foreach(f: A =&gt; Unit): Unit
 </code></pre>
 
-<h3 id="php-1">PHP</h3>
+<h3 id="php-2">PHP</h3>
 
 <p>配列をループ。</p>
 
@@ -478,7 +504,7 @@ end
 
 <h3 id="scala-13">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def map[B](f: A =&gt; B): Seq[B]
 </code></pre>
 
@@ -493,7 +519,7 @@ def map[B](f: A =&gt; B): Seq[B]
 
 <h3 id="scala-14">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def flatMap[B](f: A =&gt; Seq[B]): Seq[B]
 </code></pre>
 
@@ -501,7 +527,7 @@ def flatMap[B](f: A =&gt; Seq[B]): Seq[B]
 
 <h3 id="scala-15">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def filter(p: A =&gt; Boolean): Seq[A]
 </code></pre>
 
@@ -526,7 +552,7 @@ def filter(p: A =&gt; Boolean): Seq[A]
 
 <h3 id="scala-16">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def flatten[B]: Seq[B]
 </code></pre>
 
@@ -534,7 +560,7 @@ def flatten[B]: Seq[B]
 
 <h3 id="scala-17">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def foldLeft[B](initial: B)(f: (B, A) =&gt; B): B
 </code></pre>
 
@@ -542,7 +568,7 @@ def foldLeft[B](initial: B)(f: (B, A) =&gt; B): B
 
 <h3 id="scala-18">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def find(p: A =&gt; Boolean): Option[A]
 </code></pre>
 
@@ -550,7 +576,7 @@ def find(p: A =&gt; Boolean): Option[A]
 
 <h3 id="scala-19">Scala</h3>
 
-<pre><code># Seq[+A]
+<pre><code>// Seq[+A]
 def sorted: Seq[A]
 def sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 </code></pre>
@@ -569,27 +595,61 @@ arr.sort!
 arr.sort {|a, b| a.num &lt;=&gt; b.num}
 </code></pre>
 
-<h2 id="add">add</h2>
+<h2 id="push">push</h2>
+
+<p>リストの最後に要素を追加する。</p>
+
+<h3 id="php-3">PHP</h3>
+
+<pre><code>$arr[] = $obj;
+</code></pre>
+
+<p><code>array_push</code> でも同じ。</p>
+
+<p>array_push | PHP Manual<br />
+<a href="http://jp2.php.net/manual/ja/function.array-push.php" target="_blank">http://jp2.php.net/manual/ja/function.array-push.php</a></p>
 
 <h3 id="ruby-9">Ruby</h3>
 
-<p>配列の最後に要素を追加する。</p>
-
 <pre><code>Array#push(obj)
-</code></pre>
-
-<p>配列の先頭に要素を挿入する。</p>
-
-<pre><code>Array#unshift(obj)
 </code></pre>
 
 <p>JavaScriptと同じメソッド名。</p>
 
 <h3 id="python-1">Python</h3>
 
-<p>リストの最後に要素を追加する。</p>
-
 <pre><code>arr.append(obj)
+</code></pre>
+
+<h3 id="javascript-4">JavaScript</h3>
+
+<pre><code>Array#push(obj)
+</code></pre>
+
+<p>Rubyと同じメソッド名。</p>
+
+<h2 id="unshift">unshift</h2>
+
+<p>配列の先頭に要素を挿入する。</p>
+
+<h3 id="php-4">PHP</h3>
+
+<pre><code>array_unshift($arr, $obj);
+</code></pre>
+
+<p>array_unshift | PHP Manual<br />
+<a href="http://jp2.php.net/manual/ja/function.array-unshift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-unshift.php</a></p>
+
+<h3 id="ruby-10">Ruby</h3>
+
+<pre><code>Array#unshift(obj)
+</code></pre>
+
+<p>JavaScriptと同じメソッド名。</p>
+
+<h3 id="python-2">Python</h3>
+
+<pre><code>arr.insert(0, obj)
 </code></pre>
 
 <p>リストの指定のインデックスの前に要素を挿入する。</p>
@@ -597,41 +657,75 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <pre><code>arr.insert(index, obj)
 </code></pre>
 
-<h3 id="javascript-4">JavaScript</h3>
-
-<p>配列の最後に要素を追加する。</p>
-
-<pre><code>Array#push(obj)
-</code></pre>
-
-<p>配列の先頭に要素を挿入する。</p>
+<h3 id="javascript-5">JavaScript</h3>
 
 <pre><code>Array#unshift(obj)
 </code></pre>
 
 <p>Rubyと同じメソッド名。</p>
 
-<h2 id="remove">remove</h2>
+<h2 id="pop">pop</h2>
 
-<h3 id="ruby-10">Ruby</h3>
+<p>リストの最後の要素を取得し、削除する。</p>
 
-<p>配列の最後の要素を取得し、削除する。</p>
+<h3 id="php-5">PHP</h3>
+
+<pre><code>array_pop($arr);
+</code></pre>
+
+<p>array_pop | PHP Manual<br />
+<a href="http://jp2.php.net/manual/ja/function.array-pop.php" target="_blank">http://jp2.php.net/manual/ja/function.array-pop.php</a></p>
+
+<h3 id="ruby-11">Ruby</h3>
 
 <pre><code>Array#pop
 </code></pre>
 
-<p>配列の先頭の要素を取得し、削除する。</p>
+<p>Python, JavaScriptと同じメソッド名。</p>
+
+<h3 id="python-3">Python</h3>
+
+<pre><code>arr.pop()
+</code></pre>
+
+<p>Ruby, JavaScriptと同じメソッド名。</p>
+
+<h3 id="javascript-6">JavaScript</h3>
+
+<pre><code>Array#pop
+</code></pre>
+
+<p>Ruby, Pythonと同じメソッド名。</p>
+
+<h3 id="coffeescript-4">CoffeeScript</h3>
+
+<pre><code>Array#pop
+</code></pre>
+
+<p>これはJavaScriptと同じ。</p>
+
+<h2 id="shift">shift</h2>
+
+<p>リストの先頭の要素を取得し、削除する。</p>
+
+<h3 id="php-6">PHP</h3>
+
+<pre><code>array_shift($arr);
+</code></pre>
+
+<p>array_shift | PHP Manual<br />
+<a href="http://jp2.php.net/manual/ja/function.array-shift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-shift.php</a></p>
+
+<h3 id="ruby-12">Ruby</h3>
 
 <pre><code>Array#shift
 </code></pre>
 
 <p>JavaScriptと同じメソッド名。</p>
 
-<h3 id="python-2">Python</h3>
+<h3 id="python-4">Python</h3>
 
-<p>リストの最後の要素を取得し、削除する。</p>
-
-<pre><code>arr.pop()
+<pre><code>arr.pop(0)
 </code></pre>
 
 <p>リストの指定のインデックスの要素を取得し、削除して詰める。</p>
@@ -639,33 +733,23 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <pre><code>arr.pop(index)
 </code></pre>
 
-<h3 id="javascript-5">JavaScript</h3>
-
-<p>配列の最後の要素を取得し、削除する。</p>
-
-<pre><code>Array#pop
-</code></pre>
-
-<p>配列の先頭の要素を取得し、削除する。</p>
+<h3 id="javascript-7">JavaScript</h3>
 
 <pre><code>Array#shift
 </code></pre>
 
 <p>Rubyと同じメソッド名。</p>
 
-<h3 id="coffeescript-4">CoffeeScript</h3>
-
-<p>配列の最後の要素を取得し、削除する。</p>
-
-<pre><code>Array#pop
-</code></pre>
-
-<p>配列の先頭の要素を取得し、削除する。</p>
+<h3 id="coffeescript-5">CoffeeScript</h3>
 
 <pre><code>Array#shift
 </code></pre>
 
-<p><code>pop</code>, <code>shift</code> はJavaScriptと同じ。</p>
+<p>これはJavaScriptと同じ。</p>
+
+<h2 id="remove">remove</h2>
+
+<h3 id="coffeescript-6">CoffeeScript</h3>
 
 <p>特定の値をすべて削除するには</p>
 
@@ -674,7 +758,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 
 <h2 id="clone">clone</h2>
 
-<h3 id="javascript-6">JavaScript</h3>
+<h3 id="javascript-8">JavaScript</h3>
 
 <p>shallow copy</p>
 
