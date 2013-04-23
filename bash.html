@@ -69,7 +69,7 @@ footer {
 </style>
 <script type="text/javascript">
 
-  if(location.host == 'hydrocul.github.com'){
+  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-5853773-6']);
@@ -170,26 +170,50 @@ if [ "$a" = "abc" ]; then
 fi
 </code></pre>
 
-<h3 id="section-6">演算子</h3>
+<h3 id="section-6">演算子 <span class="article-date">2013/04/23</span></h3>
 
 <dl>
-  <dt>=</dt>
+  <dt>文字列1 <code>=</code> 文字列2</dt>
   <dd>文字列が等しい場合</dd>
-  <dt>!=</dt>
+  <dt>文字列1 <code>!=</code> 文字列2</dt>
   <dd>文字列が等しくない場合</dd>
-  <dt>-eq</dt>
+  <dt>数値1 <code>-eq</code> 数値2</dt>
   <dd>数値が等しい場合</dd>
-  <dt>-ne</dt>
+  <dt>数値1 <code>-ne</code> 数値2</dt>
   <dd>数値が等しくない場合</dd>
-  <dt>-lt</dt>
+  <dt>数値1 <code>-lt</code> 数値2</dt>
   <dd>数値が <code>&lt;</code> の関係</dd>
-  <dt>-le</dt>
+  <dt>数値1 <code>-le</code> 数値2</dt>
   <dd>数値が <code>&lt;=</code> の関係</dd>
-  <dt>-ge</dt>
+  <dt>数値1 <code>-ge</code> 数値2</dt>
   <dd>数値が <code>&gt;=</code> の関係</dd>
-  <dt>-gt</dt>
+  <dt>数値1 <code>-gt</code> 数値2</dt>
   <dd>数値が <code>&gt;</code> の関係</dd>
+  <dt><code>-e</code> ファイル名</dt>
+  <dd>ファイルが存在する場合</dd>
+  <dt><code>-f</code> ファイル名</dt>
+  <dd>ファイルが通常のファイルとして存在する場合</dd>
+  <dt><code>-d</code> ファイル名</dt>
+  <dd>ファイルがディレクトリとして存在する場合</dd>
+  <dt><code>-s</code> ファイル名</dt>
+  <dd>ファイルサイズが0より大きい場合</dd>
+  <dt>ファイル名1 <code>-nt</code> ファイル名2</dt>
+  <dd>ファイル1のほうが新しい場合</dd>
+  <dt>ファイル名1 <code>-ot</code> ファイル名2</dt>
+  <dd>ファイル1のほうが古い場合</dd>
 </dl>
+
+<h2 id="section-7">特殊な変数</h2>
+
+<dl>
+  <dt><code>$?</code></dt>
+  <dd>最後に実行したコマンドの終了コード</dd>
+</dl>
+
+<h2 id="section-8">シェルスクリプトでシンボリックリンクからリンク先を取得するには <span class="article-date">2013/04/22</span></h2>
+
+<pre><code>ls -l シンボリックリンク名 | perl -anle '$_ =~ /-&gt; (.+)$/; print $1'
+</code></pre>
 
 
 </div>

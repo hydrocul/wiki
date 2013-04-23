@@ -69,7 +69,7 @@ footer {
 </style>
 <script type="text/javascript">
 
-  if(location.host == 'hydrocul.github.com'){
+  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-5853773-6']);
@@ -110,7 +110,12 @@ footer {
 <pre><code>find . -name ".ht*" | awk '{print "cp " $1 " " $1 ".example"}' | sh
 </code></pre>
 
-<h2 id="section-1">リンク集</h2>
+<h2 id="section-1">カレントディレクトリ以下にあるすべてのシンボリックリンクを探すには <span class="article-date">2013/04/23</span></h2>
+
+<pre><code>find . -type l -exec ls -l {} \;
+</code></pre>
+
+<h2 id="section-2">リンク集</h2>
 
 <p>ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法<br />
 <a href="http://hydrocul.seesaa.net/article/138935635.html" target="_blank">http://hydrocul.seesaa.net/article/138935635.html</a></p>

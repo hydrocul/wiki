@@ -69,7 +69,7 @@ footer {
 </style>
 <script type="text/javascript">
 
-  if(location.host == 'hydrocul.github.com'){
+  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-5853773-6']);
@@ -287,6 +287,29 @@ rm patch.patch
 <h2 id="gitignore-only-me">無視するファイルをみんなで共有せずに自分のディレクトリにだけ設定するには</h2>
 
 <p><code>.git/info/exclude</code> に <code>.gitignore</code> と同じフォーマットで書けば、自分のワーキングディレクトリにだけ無視ファイルを設定できる。自分のディレクトリにだけ一時的に何かファイルを置きたい場合などに使える。</p>
+
+<h2 id="gituri-20130423">GitのURI <span class="article-date">2013/04/23</span></h2>
+
+<p>プロトコルを省略した以下の記法はSSHプロトコルとみなされる。pathの先頭に <code>/</code> がつかない。</p>
+
+<pre><code>username@hostname:path/foo/bar.git
+</code></pre>
+
+<p>よって、以下と同じ。</p>
+
+<pre><code>ssh://username@hostname/path/foo/bar.git
+</code></pre>
+
+<p>ポート番号を指定したい場合はプロトコルを省略できない。</p>
+
+<pre><code>ssh://username@hostname:port/path/foo/bar.git
+</code></pre>
+
+<h2 id="sshconfig-git"><code>~/.ssh/config</code> をgit専用に設定するには</h2>
+
+<p>環境変数 <code>GIT_SSH</code> を使用する。</p>
+
+<p><a href="http://qiita.com/items/c397370862095c305cbe" target="_blank">http://qiita.com/items/c397370862095c305cbe</a></p>
 
 
 </div>
