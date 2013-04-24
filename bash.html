@@ -210,9 +210,9 @@ fi
   <dd>最後に実行したコマンドの終了コード</dd>
 </dl>
 
-<h2 id="section-8">シェルスクリプトでシンボリックリンクからリンク先を取得するには <span class="article-date">2013/04/22</span></h2>
+<h2 id="section-8">永久ループを書くには <span class="article-date">2013/04/24</span></h2>
 
-<pre><code>ls -l シンボリックリンク名 | perl -anle '$_ =~ /-&gt; (.+)$/; print $1'
+<pre><code>while : ; do date; sleep 1; done
 </code></pre>
 
 

@@ -125,7 +125,16 @@ sudo yum remove パッケージ名
 
 <p><code>sudo yum -y install パッケージ名</code> で質問には全部Yesと答えることにして自動で実行する。</p>
 
-<h2 id="section-1">パッケージでインストールされるファイルの一覧を見るには</h2>
+<h2 id="section-1">パッケージ一覧を更新するには</h2>
+
+<p><code>apt-get</code> の場合</p>
+
+<p>これをしばらくしていないと、インストールしようとしても Not Found になってしまうことがある。</p>
+
+<pre><code>sudo apt-get update
+</code></pre>
+
+<h2 id="section-2">パッケージでインストールされるファイルの一覧を見るには</h2>
 
 <p><code>apt-get</code> の場合</p>
 
@@ -137,7 +146,7 @@ sudo yum remove パッケージ名
 <pre><code>rpm -ql パッケージ名
 </code></pre>
 
-<h2 id="section-2">インストール済みのパッケージ一覧を見るには</h2>
+<h2 id="section-3">インストール済みのパッケージ一覧を見るには</h2>
 
 <p><code>apt-get</code> の場合</p>
 

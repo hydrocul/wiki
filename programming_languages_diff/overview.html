@@ -118,9 +118,19 @@ footer {
 
 <p>C言語では、単一行コメントは正式にはC99以降の規格。</p>
 
+<h3 id="perl">Perl</h3>
+
+<pre><code># 単一行コメント
+=comment
+  複数行コメント
+  複数行コメント
+=cut
+</code></pre>
+
 <h3 id="php">PHP</h3>
 
 <pre><code>// 単一行コメント
+# 単一行コメント
 /*
   複数行コメント
   複数行コメント
@@ -130,6 +140,27 @@ footer {
 <p>複数行コメントはネスト不可。</p>
 
 <p><a href="http://php.net/manual/ja/language.basic-syntax.comments.php" target="_blank">http://php.net/manual/ja/language.basic-syntax.comments.php</a></p>
+
+<h4 id="section">コメントアウトを一時的に簡単に解除するようにしておくには <span class="article-date">2013/04/24</span></h4>
+
+<p>以下のようにすると、1行目を <code>// /*</code> にすることで、コメントアウトの一時的な解除を簡単にできる。</p>
+
+<pre><code>/*
+  コメントアウトされたコード
+  コメントアウトされたコード
+// */
+</code></pre>
+
+<p>以下のようにすると、1行目を <code>// /*</code> にすることで、コメントアウトのコードと生きているコードを簡単に入れ替えできる。</p>
+
+<pre><code>/*
+  コメントアウトされたコード
+  コメントアウトされたコード
+/*/
+  生きているコード
+  生きているコード
+// */
+</code></pre>
 
 <h3 id="ruby">Ruby</h3>
 
@@ -345,7 +376,7 @@ finally
   ...
 </code></pre>
 
-<h2 id="section">複数の返り値</h2>
+<h2 id="section-1">複数の返り値</h2>
 
 <h3 id="php-3">PHP</h3>
 

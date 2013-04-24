@@ -108,14 +108,15 @@ ProxyPassReverse / http://127.0.0.1:3000/
 ProxyPreserveHost On
 </code></pre>
 
-<h2 id="phphtaccess">ファイルが存在しない場合に限り特定のPHPなどで処理する.htaccess</h2>
+<h2 id="php-htaccess">ファイルが存在しない場合に限り特定のPHPなどで処理する <code>.htaccess</code></h2>
 
-<pre><code>RewriteCond %{REQUEST_FILENAME} !-f
+<pre><code>RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule  (.*) index.php/$1 [L]
 </code></pre>
 
-<h2 id="urlbasichtaccess">特定のURLを除外してBASIC認証をかけるhtaccess</h2>
+<h2 id="urlbasic-htaccess">特定のURLを除外してBASIC認証をかける <code>.htaccess</code></h2>
 
 <p>例</p>
 
@@ -135,7 +136,7 @@ Allow from env=excludeauth
 
 <p>BASIC認証をかけつつ、 <code>SetEnfIf</code> で特定のURLのときに変数を設定して、 <code>Allow</code> でその変数が設定されているときのアクセスを許可する。 <code>Satisfy Any</code> の指定は <code>require</code> と <code>Allow</code> のいずれかが満たされれば、アクセスが許可される、という意味。</p>
 
-<h2 id="ipbasichtaccess-20130409">特定のIPからのアクセスは無条件に許可して、それ以外のアクセスにはBASIC認証をかけるhtaccess <span class="article-date">2013/04/09</span></h2>
+<h2 id="ipbasic-htaccess-20130409">特定のIPからのアクセスは無条件に許可して、それ以外のアクセスにはBASIC認証をかける <code>.htaccess</code> <span class="article-date">2013/04/09</span></h2>
 
 <p>例</p>
 
@@ -152,11 +153,12 @@ Allow from 99.99.99.99
 Deny from all
 </code></pre>
 
-<h2 id="htaccess">メンテナンス画面に切り替えるための.htaccess</h2>
+<h2 id="htaccess">メンテナンス画面に切り替えるための <code>.htaccess</code></h2>
 
 <p>.htaccess の RewriteEngine On の直後に以下を書く</p>
 
-<pre><code>RewriteCond %{REQUEST_URI} !^.*\.(js|css|gif|png|jpg)$
+<pre><code>RewriteEngine on
+RewriteCond %{REQUEST_URI} !^.*\.(js|css|gif|png|jpg)$
 RewriteCond %{REQUEST_URI} !/maintenance\.html$
 RewriteRule ^(.*) /maintenance.html [R,L]
 </code></pre>
@@ -222,6 +224,14 @@ MIIBpzCCARACAQAwZzELMAkGA1UEBhMCSlAxDjAMBgNVBAgTBVRva3lvMRMwEQYD
 ...
 EAUvkvx4rxqGKbYSr1fyPGWrTU+JSjEAlqz1QU4HPgrL1639qMroMggf8A==
 -----END CERTIFICATE REQUEST-----
+</code></pre>
+
+<h2 id="url-html--php--htaccess-20130423">URLの拡張子を .html としたまま、 .php で動かす <code>.htaccess</code> <span class="article-date">2013/04/23</span></h2>
+
+<pre><code>RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)\.html /$1.php
 </code></pre>
 
 
