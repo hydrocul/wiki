@@ -95,6 +95,44 @@ footer {
 <div id="content">
   <h1 id="apache">Apache</h1>
 
+<h2 id="os">OS別のディレクトリ構成</h2>
+
+<h3 id="ubuntu">Ubuntu</h3>
+
+<p>設定ファイルは以下にある。</p>
+
+<pre><code>/etc/apache2/apache2.conf
+</code></pre>
+
+<p>以下を <code>Include</code> している。</p>
+
+<pre><code>/etc/apache2/mods-enabled/*.load
+/etc/apache2/mods-enabled/*.conf
+/etc/apache2/conf.d/*
+/etc/apache2/site-enabled/*
+</code></pre>
+
+<p>(Ubuntu 12.04 Server で確認)</p>
+
+<h3 id="mac-os-x">Mac OS X</h3>
+
+<p>設定ファイルは以下にある。</p>
+
+<pre><code>/etc/apache2/httpd.conf
+</code></pre>
+
+<p>※このファイルの実体は以下にある。</p>
+
+<pre><code>/private/etc/apache2/httpd.conf
+</code></pre>
+
+<p>以下を <code>Include</code> している。</p>
+
+<pre><code>/etc/apache2/other/*.conf
+</code></pre>
+
+<p>(OS X 10.6 で確認)</p>
+
 <h2 id="section">リバースプロキシ</h2>
 
 <p>RailsなどWEBrickを動かす場合で、80番ポートでWEBrickにアクセスできるようにするには、Apacheにリバースプロキシを設定すると簡単。passengerを入れるほどでもない場合に。</p>

@@ -95,7 +95,7 @@ footer {
 <div id="content">
   <h1 id="section">シェルスクリプト</h1>
 
-<h2 id="section-1">シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには</h2>
+<h2 id="section-1">シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code># シェルスクリプトの絶対パスを取得
 SCRIPT_HOME=$0
@@ -110,7 +110,7 @@ fi
 SCRIPT_HOME="`dirname $SCRIPT_HOME`"
 </code></pre>
 
-<h2 id="section-2">シェルスクリプトに与えられた任意の数の引数を繰り返し処理するには</h2>
+<h2 id="section-2">シェルスクリプトに与えられた任意の数の引数を繰り返し処理するには <span class="article-date">2013/04/03</span></h2>
 
 <p>以下のようにする。</p>
 
@@ -129,7 +129,7 @@ done
 
 <p><code>shift</code> で、<code>$2</code> にあったものが <code>$1</code> に入るなど、引数が1つずつずれる。<code>shift</code> でも <code>$0</code> は変わらない。</p>
 
-<h2 id="section-3">シェルスクリプトに与えられた引数をすべて特定のコマンドに渡すには</h2>
+<h2 id="section-3">シェルスクリプトに与えられた引数をすべて特定のコマンドに渡すには <span class="article-date">2013/04/03</span></h2>
 
 <p>例えば <code>ls</code> に渡すには</p>
 
@@ -162,7 +162,7 @@ fi
 
 <p>dash は Ubuntu 12.04 でのデフォルトの /bin/sh になっている。</p>
 
-<h2 id="section-5">変数の内容を比較して分岐させるには</h2>
+<h2 id="section-5">変数の内容を比較して分岐させるには <span class="article-date">2013/04/18</span></h2>
 
 <pre><code>a=...
 if [ "$a" = "abc" ]; then
@@ -170,7 +170,7 @@ if [ "$a" = "abc" ]; then
 fi
 </code></pre>
 
-<h3 id="section-6">演算子 <span class="article-date">2013/04/23</span></h3>
+<h2 id="section-6">演算子 <span class="article-date">2013/04/23</span></h2>
 
 <dl>
   <dt>文字列1 <code>=</code> 文字列2</dt>
@@ -203,11 +203,23 @@ fi
   <dd>ファイル1のほうが古い場合</dd>
 </dl>
 
-<h2 id="section-7">特殊な変数</h2>
+<h2 id="section-7">特殊な変数 <span class="article-date">2013/04/25</span></h2>
 
 <dl>
+  <dt><code>$*</code></dt>
+  <dd>シェルスクリプトに渡された引数。<code>"$*"</code> と書くと、引数が複数ある場合に、<code>"param1 param2 param3"</code> のように、全部をスペースでつなげた1つの文字列になる。</dd>
+  <dt><code>$@</code></dt>
+  <dd>シェルスクリプトに渡された引数。<code>"$@"</code> と書くと、引数が複数ある場合に、<code>"param1" "param2" "param3"</code> のようになる。</dd>
+  <dt><code>$1</code>, <code>$2</code>, <code>$3</code>, …</dt>
+  <dd>シェルスクリプトに渡された引数</dd>
+  <dt><code>$0</code></dt>
+  <dd>シェルスクリプトのファイル名</dd>
   <dt><code>$?</code></dt>
   <dd>最後に実行したコマンドの終了コード</dd>
+  <dt><code>$!</code></dt>
+  <dd>直前に起動したバックグラウンドプロセスのプロセスID。バックグラウンドプロセスは、最後に <code>&amp;</code> を付けて起動させる。</dd>
+  <dt><code>$$</code></dt>
+  <dd>シェルスクリプト自身のプロセスID</dd>
 </dl>
 
 <h2 id="section-8">永久ループを書くには <span class="article-date">2013/04/24</span></h2>
