@@ -276,6 +276,7 @@ def size: Int
 <h3 id="php-1">PHP</h3>
 
 <pre><code>count($arr)
+sizeof($arr)
 </code></pre>
 
 <h3 id="ruby-2">Ruby</h3>
@@ -332,6 +333,11 @@ def isEmpty: Boolean
 def contains(obj: Any): Boolean
 </code></pre>
 
+<h3 id="php-2">PHP</h3>
+
+<pre><code>bool in_array($obj, $arr)
+</code></pre>
+
 <h3 id="ruby-3">Ruby</h3>
 
 <pre><code>arr.include?(obj)
@@ -350,6 +356,11 @@ def contains(obj: Any): Boolean
 
 <pre><code>// Seq[+A]
 def slice(from: Int, until: Int): Seq[A]
+</code></pre>
+
+<h3 id="php-3">PHP</h3>
+
+<pre><code>array array_slice($arr, $from [, $length])
 </code></pre>
 
 <h3 id="ruby-4">Ruby</h3>
@@ -413,6 +424,11 @@ def drop(n: Int): Seq[A]
 def reverse: Seq[A]
 </code></pre>
 
+<h3 id="php-4">PHP</h3>
+
+<pre><code>array array_reverse($arr)
+</code></pre>
+
 <h3 id="ruby-5">Ruby</h3>
 
 <pre><code>Array#reverse
@@ -450,22 +466,13 @@ Array#reverse!
 def foreach(f: A =&gt; Unit): Unit
 </code></pre>
 
-<h3 id="php-2">PHP</h3>
-
-<p>配列をループ。</p>
+<h3 id="php-5">PHP</h3>
 
 <pre><code>for(int $i = 0; $i &lt; $arr.length; $i++){
   ...
 }
 
 foreach($arr as $value){
-  ...
-}
-</code></pre>
-
-<p>連想配列をループ。</p>
-
-<pre><code>foreach($arr as $key =&gt; $value){
   ...
 }
 </code></pre>
@@ -506,6 +513,14 @@ end
 
 <pre><code>// Seq[+A]
 def map[B](f: A =&gt; B): Seq[B]
+</code></pre>
+
+<h3 id="php-6">PHP</h3>
+
+<pre><code>array_map(function($elem){
+  ...
+  return ...
+}, $arr);
 </code></pre>
 
 <h3 id="coffeescript-2">CoffeeScript</h3>
@@ -599,7 +614,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 
 <p>リストの最後に要素を追加する。</p>
 
-<h3 id="php-3">PHP</h3>
+<h3 id="php-7">PHP</h3>
 
 <pre><code>$arr[] = $obj;
 </code></pre>
@@ -632,7 +647,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 
 <p>配列の先頭に要素を挿入する。</p>
 
-<h3 id="php-4">PHP</h3>
+<h3 id="php-8">PHP</h3>
 
 <pre><code>array_unshift($arr, $obj);
 </code></pre>
@@ -668,7 +683,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 
 <p>リストの最後の要素を取得し、削除する。</p>
 
-<h3 id="php-5">PHP</h3>
+<h3 id="php-9">PHP</h3>
 
 <pre><code>array_pop($arr);
 </code></pre>
@@ -708,7 +723,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 
 <p>リストの先頭の要素を取得し、削除する。</p>
 
-<h3 id="php-6">PHP</h3>
+<h3 id="php-10">PHP</h3>
 
 <pre><code>array_shift($arr);
 </code></pre>

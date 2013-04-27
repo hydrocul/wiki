@@ -297,7 +297,19 @@ int String#lastIndexOf(int ch)
 int String#lastIndexOf(String str)
 </code></pre>
 
-<p>見つからなかった場合は <code>-1</code> を返す。</p>
+<p>見つからない場合は <code>-1</code> を返す。</p>
+
+<h3 id="php-4">PHP</h3>
+
+<pre><code>int strpos($mystring, $str)
+</code></pre>
+
+<p>例：</p>
+
+<pre><code>strpos('abcabc', 'bc') // =&gt; 1
+</code></pre>
+
+<p>見つからない場合は <code>FALSE</code> を返す。</p>
 
 <h3 id="ruby-4">Ruby</h3>
 
@@ -333,6 +345,11 @@ String#rindex(str, index)
 <pre><code>int String#length()
 </code></pre>
 
+<h3 id="php-5">PHP</h3>
+
+<pre><code>int strlen($string)
+</code></pre>
+
 <h2 id="is-empty">isEmpty</h2>
 
 <h3 id="java-7">Java</h3>
@@ -340,9 +357,14 @@ String#rindex(str, index)
 <pre><code>boolean String#isEmpty()
 </code></pre>
 
+<h3 id="php-6">PHP</h3>
+
+<pre><code>strlen($string) == 0
+</code></pre>
+
 <h2 id="join">join</h2>
 
-<h3 id="php-4">PHP</h3>
+<h3 id="php-7">PHP</h3>
 
 <pre><code>implode($separator, $arr)
 </code></pre>
@@ -360,6 +382,12 @@ String#rindex(str, index)
 </code></pre>
 
 <h2 id="upper-lower">大文字小文字変換</h2>
+
+<h3 id="php-8">PHP</h3>
+
+<pre><code>string strtoupper($string)
+string strtolower($string)
+</code></pre>
 
 <h3 id="javascript-5">JavaScript</h3>
 
