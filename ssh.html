@@ -162,6 +162,35 @@ footer {
 moshを使っていれば問題ないが、SSH port forwarding を使っている場合は、
 moshが対応していないので、このツールが便利かもしれない。</p>
 
+<h2 id="section-3">ポートフォワードの待ち受けポートに外部から接続できるようにするには <span class="article-date">2013/04/27</span></h2>
+
+<p>ポートを待ち受ける方のホストの <code>/etc/ssh/sshd_config</code> に以下を書いておく。</p>
+
+<pre><code>GatewayPorts yes
+</code></pre>
+
+<p>外部からファイアウォールの内側にあるローカルホストの22番に接続できるようにしようと思って、以下のコマンドを実行しても、上記の設定がリモートホスト
+(remoteA)にないと、8022番ポートに接続できるのは、リモートホスト(remoteA)の中からのみで、第三のホスト(remoteB)からはremoteAの8022番ポートに接続できない。</p>
+
+<pre><code>ssh -R 8022:localhost:22 remoteA
+</code></pre>
+
+<p>イメージ図</p>
+
+<pre><code>/------------\  /-----------\
+|  remoteA   |  |  remoteB  |
+|            |  |           |
+|  port:8022 |  |           |
+\-----||-----/  \-----------/
+      ||
+      ||
+/-----||-----\
+|  port:22   |
+|            |
+|  Local     |
+\------------/
+</code></pre>
+
 
 </div>
 <footer>

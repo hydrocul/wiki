@@ -408,12 +408,22 @@ def tail: Seq[A]
 def take(n: Int): Seq[A]
 </code></pre>
 
+<h3 id="ruby-5">Ruby</h3>
+
+<pre><code>arr.slice(0, n)
+</code></pre>
+
 <h2 id="drop">drop</h2>
 
 <h3 id="scala-10">Scala</h3>
 
 <pre><code>// Seq[+A]
 def drop(n: Int): Seq[A]
+</code></pre>
+
+<h3 id="ruby-6">Ruby</h3>
+
+<pre><code>arr.slice(n, arr.size - n)
 </code></pre>
 
 <h2 id="reverse">reverse</h2>
@@ -429,7 +439,7 @@ def reverse: Seq[A]
 <pre><code>array array_reverse($arr)
 </code></pre>
 
-<h3 id="ruby-5">Ruby</h3>
+<h3 id="ruby-7">Ruby</h3>
 
 <pre><code>Array#reverse
 Array#reverse!
@@ -477,7 +487,7 @@ foreach($arr as $value){
 }
 </code></pre>
 
-<h3 id="ruby-6">Ruby</h3>
+<h3 id="ruby-8">Ruby</h3>
 
 <pre><code>for value in arr do
   ...
@@ -546,7 +556,7 @@ def flatMap[B](f: A =&gt; Seq[B]): Seq[B]
 def filter(p: A =&gt; Boolean): Seq[A]
 </code></pre>
 
-<h3 id="ruby-7">Ruby</h3>
+<h3 id="ruby-9">Ruby</h3>
 
 <pre><code>Array#select
 </code></pre>
@@ -596,7 +606,7 @@ def sorted: Seq[A]
 def sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 </code></pre>
 
-<h3 id="ruby-8">Ruby</h3>
+<h3 id="ruby-10">Ruby</h3>
 
 <pre><code>Array#sort
 
@@ -624,7 +634,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_push | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-push.php" target="_blank">http://jp2.php.net/manual/ja/function.array-push.php</a></p>
 
-<h3 id="ruby-9">Ruby</h3>
+<h3 id="ruby-11">Ruby</h3>
 
 <pre><code>Array#push(obj)
 </code></pre>
@@ -655,7 +665,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_unshift | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-unshift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-unshift.php</a></p>
 
-<h3 id="ruby-10">Ruby</h3>
+<h3 id="ruby-12">Ruby</h3>
 
 <pre><code>Array#unshift(obj)
 </code></pre>
@@ -691,7 +701,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_pop | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-pop.php" target="_blank">http://jp2.php.net/manual/ja/function.array-pop.php</a></p>
 
-<h3 id="ruby-11">Ruby</h3>
+<h3 id="ruby-13">Ruby</h3>
 
 <pre><code>Array#pop
 </code></pre>
@@ -731,7 +741,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_shift | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-shift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-shift.php</a></p>
 
-<h3 id="ruby-12">Ruby</h3>
+<h3 id="ruby-14">Ruby</h3>
 
 <pre><code>Array#shift
 </code></pre>
