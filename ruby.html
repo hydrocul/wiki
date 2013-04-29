@@ -157,7 +157,7 @@ str.gsub(/#{Moji.zen}/, "")
 
 <p><a href="http://www2s.biglobe.ne.jp/~idesaku/sss/tech/rake/" target="_blank">http://www2s.biglobe.ne.jp/~idesaku/sss/tech/rake/</a></p>
 
-<h2 id="mechanize">mechanize</h2>
+<h2 id="mechanize-20130416">mechanize <span class="article-date">2013/04/16</span></h2>
 
 <p>Mechanize 公式サイト<br />
 <a href="http://mechanize.rubyforge.org/" target="_blank">http://mechanize.rubyforge.org/</a></p>
@@ -169,7 +169,7 @@ str.gsub(/#{Moji.zen}/, "")
 <a href="http://nokogiri.org/" target="_blank">http://nokogiri.org/</a><br />
 Mechanizeが利用しているHTMLを解析するライブラリ</p>
 
-<p>コードの例</p>
+<h2 id="section-2">コードの例 <span class="article-date">2013/04/15</span></h2>
 
 <pre><code>require 'mechanize'
 
@@ -179,14 +179,18 @@ p agent.get('http://www.yahoo.co.jp/')
 p agent.page.uri.to_s # 現在のURLwを取得
 p agent.page.title # titleを取得
 p agent.page.body # HTMLを取得
-p agent.page.at('div#topicsfb li') # CSSセレクタでマッチする要素の配列を取得
+p agent.page.search('div#topicsfb li') # CSSセレクタでマッチする要素の配列を取得
+p agent.page.at('div#topicsfb li') # CSSセレクタでマッチする最初の要素を取得
 link = agent.page.link_with(:text =&gt; 'ヘルプ'.toutf8) # リンクを探す
 link.click if link != nil リンクをクリック
 </code></pre>
 
-<p>フォームに関するコードの例</p>
+<h2 id="section-3">フォームに関するコードの例 <span class="article-date">2013/04/29</span></h2>
 
 <pre><code>form = agent.page.forms[0] # フォームを取得
+# または
+form = agent.page.form_with(:id =&gt; 'login_form') # フォームを取得
+
 form['login'] = email # input要素に値を設定
 form['password'] = pw # input要素に値を設定
 form.click_button # submitを実行
@@ -279,6 +283,15 @@ requireの呼び出し元のファイルの場所ではない。</p>
 <p>以下のようにすると、rubyのパスに依存せずに済むらしい。</p>
 
 <pre><code>#!/usr/bin/env ruby
+</code></pre>
+
+<h2 id="require--20130429"><code>require</code> されたのではなく、そのファイルが直接実行されたときにだけ特定の処理をさせるには <span class="article-date">2013/04/29</span></h2>
+
+<p>以下のように書く。</p>
+
+<pre><code>if __FILE__ == $PROGRAM_NAME then
+  このファイルが直接実行されたときの処理
+end
 </code></pre>
 
 
