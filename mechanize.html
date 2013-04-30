@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Linux | hydrocul のメモ</title>
+<title>mechanize [2013/04/29] | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -87,82 +87,52 @@ footer {
 </head>
 <body>
 <div id="breadcrumb">
-  <a href="./">ホーム</a> &gt; Linux
+  <a href="./">ホーム</a> &gt; mechanize [2013/04/29]
 </div>
 <div id="side-menu">
   side menu
 </div>
 <div id="content">
-  <h1 id="linux">Linux</h1>
+  <h1 id="mechanize-20130429">mechanize <span class="article-date">2013/04/29</span></h1>
 
-<h2 id="section">プロセスとかスレッドとかプロセス間通信とかについて</h2>
+<p>ウェブサイトのスクレイピングを楽にするRubyのライブラリ。同じ名前の同様のライブラリがPerlやPythonにもあるらしい。</p>
 
-<p><a href="https://github.com/Shinpeim/process-book" target="_blank">https://github.com/Shinpeim/process-book</a></p>
+<p>Mechanize 公式サイト<br />
+<a href="http://mechanize.rubyforge.org/" target="_blank">http://mechanize.rubyforge.org/</a></p>
 
-<h2 id="centos">デーモンの管理 (CentOSの場合)</h2>
+<p>RubyのMechanizeを解説 for 1.0.0 | きたももんががきたん。<br />
+<a href="http://d.hatena.ne.jp/kitamomonga/20081209/kaisetsu_for_ver_0_9_ruby_www_mechanize" target="_blank">http://d.hatena.ne.jp/kitamomonga/20081209/kaisetsu_for_ver_0_9_ruby_www_mechanize</a></p>
 
-<h3 id="section-1">起動時にデーモンを自動起動させるには</h3>
+<p>Nokogiri<br />
+<a href="http://nokogiri.org/" target="_blank">http://nokogiri.org/</a><br />
+Mechanizeが利用しているHTMLを解析するライブラリ</p>
 
-<p>例えば、mysqlの場合</p>
+<h2 id="section">コードの例 <span class="article-date">2013/04/15</span></h2>
 
-<pre><code># root
-chkconfig mysqld on
+<pre><code>require 'mechanize'
+
+agent = Mechanize.new
+agent.user_agent = 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31' # User-Agentを設定
+p agent.get('http://www.yahoo.co.jp/')
+p agent.page.uri.to_s # 現在のURLwを取得
+p agent.page.title # titleを取得
+p agent.page.body # HTMLを取得
+p agent.page.search('div#topicsfb li') # CSSセレクタでマッチする要素の配列を取得
+p agent.page.at('div#topicsfb li') # CSSセレクタでマッチする最初の要素を取得
+link = agent.page.link_with(:text =&gt; 'ヘルプ'.toutf8) # リンクを探す
+link.click if link != nil リンクをクリック
 </code></pre>
 
-<p><code>chkconfig</code> の設定状況は <code>chkconfig --list</code> で確認できる。</p>
+<h2 id="section-1">フォームに関するコードの例 <span class="article-date">2013/04/29</span></h2>
 
-<h3 id="section-2">手動でデーモンを起動させるには</h3>
+<pre><code>form = agent.page.forms[0] # フォームを取得
+# または
+form = agent.page.form_with(:id =&gt; 'login_form') # フォームを取得
 
-<p>例えば、mysqlの場合</p>
-
-<pre><code># root
-service mysqld start
+form['login'] = email # input要素に値を設定
+form['password'] = pw # input要素に値を設定
+form.click_button # submitを実行
 </code></pre>
-
-<h3 id="chkconfig-">手動で作った起動スクリプトを <code>chkconfig</code> に管理させるには</h3>
-
-<p><code>/etc/init.d/mydaemon</code> というのがあるとすると</p>
-
-<pre><code># root
-chkconfig --add mydaemon
-</code></pre>
-
-<h2 id="view-distribution-version">Linuxのディストリビューションの確認方法</h2>
-
-<p>例</p>
-
-<pre><code>$ lsb_release -a
-No LSB modules are available.
-Distributor ID: Ubuntu
-Description:    Ubuntu 12.04 LTS
-Release:        12.04
-Codename:       precise
-</code></pre>
-
-<p>このコマンドはパッケージのインストールが必要。</p>
-
-<p>Ubuntuの場合</p>
-
-<pre><code>sudo apt-get install lsb-release
-</code></pre>
-
-<h3 id="etc-"><code>/etc/</code> に入っているファイルで確認するには</h3>
-
-<p>RedHat, CentOS などの場合</p>
-
-<pre><code>$ cat /etc/redhat-release
-CentOS release 5.2 (Final)
-</code></pre>
-
-<p>Debian, Ubuntu などの場合</p>
-
-<pre><code>$ cat /etc/debian_version
-wheezy/sid
-</code></pre>
-
-<h2 id="linux-1">原因調査用Linuxコマンド</h2>
-
-<p><a href="http://blog.father.gedow.net/2012/10/23/linux-command-for-trouble/" target="_blank">http://blog.father.gedow.net/2012/10/23/linux-command-for-trouble/</a></p>
 
 
 </div>

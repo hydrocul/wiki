@@ -113,6 +113,41 @@ footer {
 <pre><code>File.exists?('/home/foo/testfile')
 </code></pre>
 
+<h2 id="section-2">ファイルかどうかを調べる</h2>
+
+<p>ディレクトリでなくてファイルかどうかを調べるには</p>
+
+<h3 id="ruby-2">Ruby</h3>
+
+<pre><code>File.ftype('/home/foo/testfile') == 'file'
+</code></pre>
+
+<h2 id="section-3">ディレクトリかどうかを調べる</h2>
+
+<h3 id="ruby-3">Ruby</h3>
+
+<pre><code>File.ftype('/home/foo/testfile') == 'directory'
+</code></pre>
+
+<h2 id="section-4">シンボリックリンクかどうかを調べる</h2>
+
+<h3 id="ruby-4">Ruby</h3>
+
+<pre><code>File.ftype('/home/foo/testfile') == 'link'
+</code></pre>
+
+<h2 id="section-5">シンボリックリンクのリンク先を取得する</h2>
+
+<h3 id="ruby-5">Ruby</h3>
+
+<p><code>path</code> がシンボリックリンクの場合に、<code>path</code> をリンク先に書き換える。</p>
+
+<pre><code>if File.exists?(path) &amp;&amp; File.ftype(path) == 'link' then
+  link = File.readlink(path)
+  path = File.expand_path(link, File.dirname(path))
+end
+</code></pre>
+
 
 </div>
 <footer>

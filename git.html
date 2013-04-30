@@ -96,49 +96,49 @@ footer {
   <h1 id="git">git</h1>
 
 <ul>
-  <li><a href="#color">カラフルにログを見るには</a></li>
-  <li><a href="#diff-not-display-rename">diffでリネームされたファイルを表示されないようにするには</a></li>
-  <li><a href="#checkout-remote">リモートにあってローカルにはないブランチをチェックアウトするには</a></li>
-  <li><a href="#remove-remote-branch">ローカルにはすでに存在せずリモートに残っているブランチを削除するには</a></li>
-  <li><a href="#remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには</a></li>
-  <li><a href="#stash">まだコミットしていない修正を一時保存しておいて、最後のコミットの状態に戻すには</a></li>
-  <li><a href="#undo">いろいろと元に戻す方法</a></li>
-  <li><a href="#assume-unchanged">既に git で管理しているファイルの変更を git に無視させるには</a></li>
-  <li><a href="#add-ignore-space-change">gitで空白の違いだけの行を除いてaddするには</a></li>
-  <li><a href="#diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには</a></li>
-  <li><a href="#git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには</a></li>
-  <li><a href="#gitignore-recursive"><code>.gitignore</code> のへぇ〜</a></li>
-  <li><a href="#introductory-book">入門</a></li>
+  <li><a href="#color">カラフルにログを見るには [2013/04/03]</a></li>
+  <li><a href="#diff-not-display-rename">diffでリネームされたファイルを表示されないようにするには [2013/04/03]</a></li>
+  <li><a href="#checkout-remote">リモートにあってローカルにはないブランチをチェックアウトするには [2013/04/03]</a></li>
+  <li><a href="#remove-remote-branch">ローカルにはすでに存在せずリモートに残っているブランチを削除するには [2013/04/03]</a></li>
+  <li><a href="#remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには [2013/04/03]</a></li>
+  <li><a href="#stash">まだコミットしていない修正を一時保存しておいて、最後のコミットの状態に戻すには [2013/04/15]</a></li>
+  <li><a href="#undo">いろいろと元に戻す方法 [2013/04/03]</a></li>
+  <li><a href="#assume-unchanged">既に git で管理しているファイルの変更を git に無視させるには [2013/04/03]</a></li>
+  <li><a href="#add-ignore-space-change">gitで空白の違いだけの行を除いてaddするには [2013/04/03]</a></li>
+  <li><a href="#diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには [2013/04/05]</a></li>
+  <li><a href="#git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには [2013/04/12]</a></li>
+  <li><a href="#gitignore-recursive"><code>.gitignore</code> のへぇ〜 [2013/04/03]</a></li>
+  <li><a href="#introductory-book">入門 [2013/04/03]</a></li>
   <li><a href="#gitlab">GitLab</a></li>
-  <li><a href="#gitignore-only-me">無視するファイルをみんなで共有せずに自分のディレクトリにだけ設定するには</a></li>
+  <li><a href="#gitignore-only-me">無視するファイルをみんなで共有せずに自分のディレクトリにだけ設定するには [2013/04/19]</a></li>
 </ul>
 
-<h2 id="color">カラフルにログを見るには</h2>
+<h2 id="color">カラフルにログを見るには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>git log --graph --date-order --branches --pretty=format:"%Cblue%h %d %Cgreen%ai %Cblue%ae %Creset%s"
 </code></pre>
 
-<h2 id="diff-not-display-rename">diffでリネームされたファイルを表示されないようにするには</h2>
+<h2 id="diff-not-display-rename">diffでリネームされたファイルを表示されないようにするには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>git diff --cached --find-renames
 </code></pre>
 
-<h2 id="checkout-remote">リモートにあってローカルにはないブランチをチェックアウトするには</h2>
+<h2 id="checkout-remote">リモートにあってローカルにはないブランチをチェックアウトするには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>git checkout -b &lt;branch-name&gt; origin/&lt;branch-name&gt;
 </code></pre>
 
-<h2 id="remove-remote-branch">ローカルにはすでに存在せずリモートに残っているブランチを削除するには</h2>
+<h2 id="remove-remote-branch">ローカルにはすでに存在せずリモートに残っているブランチを削除するには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>git push origin :&lt;branch-name&gt;
 </code></pre>
 
-<h2 id="remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには</h2>
+<h2 id="remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>git branch -d -r origin/&lt;branch-name&gt;
 </code></pre>
 
-<h2 id="stash">まだコミットしていない修正を一時保存しておいて、最後のコミットの状態に戻すには</h2>
+<h2 id="stash">まだコミットしていない修正を一時保存しておいて、最後のコミットの状態に戻すには <span class="article-date">2013/04/15</span></h2>
 
 <pre><code>git stash save 名前
 </code></pre>
@@ -198,7 +198,7 @@ footer {
 <pre><code>git stash drop stash@{0}
 </code></pre>
 
-<h2 id="undo">いろいろと元に戻す方法</h2>
+<h2 id="undo">いろいろと元に戻す方法 <span class="article-date">2013/04/03</span></h2>
 
 <p>gitでアレを元に戻す108の方法<br />
 <a href="http://labs.timedia.co.jp/2011/08/git-undo-999.html" target="_blank">http://labs.timedia.co.jp/2011/08/git-undo-999.html</a></p>
@@ -224,7 +224,7 @@ footer {
 <a href="http://git-scm.com/book/ja/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E6%AD%B4%E5%8F%B2%E3%81%AE%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88" target="_blank">http://git-scm.com/book/ja/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E6%AD%B4%E5%8F%B2%E3%81%AE%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88</a><br />
 <code>git rebase</code>, <code>git filter-branch</code> について</p>
 
-<h2 id="assume-unchanged">既に git で管理しているファイルの変更を git に無視させるには</h2>
+<h2 id="assume-unchanged">既に git で管理しているファイルの変更を git に無視させるには <span class="article-date">2013/04/03</span></h2>
 
 <p><a href="http://qiita.com/items/56d0d3ba7a1300625f92" target="_blank">http://qiita.com/items/56d0d3ba7a1300625f92</a></p>
 
@@ -243,25 +243,25 @@ footer {
 skip-worktree : 作業ツリー上の更新は保持されて、リポジトリの内容は取り込まれません。  </p>
 </blockquote>
 
-<h2 id="add-ignore-space-change">gitで空白の違いだけの行を除いてaddするには</h2>
+<h2 id="add-ignore-space-change">gitで空白の違いだけの行を除いてaddするには <span class="article-date">2013/04/03</span></h2>
 
 <p><a href="http://qiita.com/items/b75de424038d616868db" target="_blank">http://qiita.com/items/b75de424038d616868db</a></p>
 
-<h2 id="diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには</h2>
+<h2 id="diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには <span class="article-date">2013/04/05</span></h2>
 
 <pre><code>git diff コミットハッシュ~..コミットハッシュ &gt; patch.patch
 patch -p1 &lt; patch.patch
 rm patch.patch
 </code></pre>
 
-<h2 id="git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには</h2>
+<h2 id="git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには <span class="article-date">2013/04/12</span></h2>
 
 <pre><code>git clone git://github.com/foo/bar.git hoge
 </code></pre>
 
 <p>これで hoge というディレクトリが作られる。</p>
 
-<h2 id="gitignore-"><code>.gitignore</code> のサンプルファイル</h2>
+<h2 id="gitignore--20130416"><code>.gitignore</code> のサンプルファイル <span class="article-date">2013/04/16</span></h2>
 
 <p><a href="https://github.com/github/gitignore" target="_blank">https://github.com/github/gitignore</a></p>
 
@@ -271,11 +271,11 @@ rm patch.patch
 .DS_Store
 </code></pre>
 
-<h2 id="gitignore-recursive"><code>.gitignore</code> のへぇ〜</h2>
+<h2 id="gitignore-recursive"><code>.gitignore</code> のへぇ〜 <span class="article-date">2013/04/03</span></h2>
 
 <p><code>.gitignore</code> はトップのディレクトリにだけでなく、任意のディレクトリに置いて、そのディレクトリ以下にのみ追加の設定をすることができる。</p>
 
-<h2 id="introductory-book">入門</h2>
+<h2 id="introductory-book">入門 <span class="article-date">2013/04/03</span></h2>
 
 <p>デザイナーでもgithubを覚えたい！コマンドの練習ができる『Learn Git Branching』<br />
 <a href="http://arisa.biz/%E3%81%8A%E5%BD%B9%E7%AB%8B%E3%81%A1/2013-03-19/%E3%83%87%E3%82%B6%E3%82%A4%E3%83%8A%E3%83%BC%E3%81%A7%E3%82%82github%E3%82%92%E8%A6%9A%E3%81%88%E3%81%9F%E3%81%84%EF%BC%81%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AE%E7%B7%B4%E7%BF%92%E3%81%8C" target="_blank">http://arisa.biz/%E3%81%8A%E5%BD%B9%E7%AB%8B%E3%81%A1/2013-03-19/%E3%83%87%E3%82%B6%E3%82%A4%E3%83%8A%E3%83%BC%E3%81%A7%E3%82%82github%E3%82%92%E8%A6%9A%E3%81%88%E3%81%9F%E3%81%84%EF%BC%81%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AE%E7%B7%B4%E7%BF%92%E3%81%8C</a></p>
@@ -284,7 +284,7 @@ rm patch.patch
 
 <p><i>-&gt; <a href="./gitlab.html">GitLab</a></i></p>
 
-<h2 id="gitignore-only-me">無視するファイルをみんなで共有せずに自分のディレクトリにだけ設定するには</h2>
+<h2 id="gitignore-only-me">無視するファイルをみんなで共有せずに自分のディレクトリにだけ設定するには <span class="article-date">2013/04/19</span></h2>
 
 <p><code>.git/info/exclude</code> に <code>.gitignore</code> と同じフォーマットで書けば、自分のワーキングディレクトリにだけ無視ファイルを設定できる。自分のディレクトリにだけ一時的に何かファイルを置きたい場合などに使える。</p>
 
@@ -305,11 +305,23 @@ rm patch.patch
 <pre><code>ssh://username@hostname:port/path/foo/bar.git
 </code></pre>
 
-<h2 id="sshconfig-git"><code>~/.ssh/config</code> をgit専用に設定するには</h2>
+<h2 id="sshconfig-git-20130423"><code>~/.ssh/config</code> をgit専用に設定するには <span class="article-date">2013/04/23</span></h2>
 
 <p>環境変数 <code>GIT_SSH</code> を使用する。</p>
 
 <p><a href="http://qiita.com/items/c397370862095c305cbe" target="_blank">http://qiita.com/items/c397370862095c305cbe</a></p>
+
+<h2 id="git-20130429">gitの過去のログから特定の名前のファイルを削除するには <span class="article-date">2013/04/29</span></h2>
+
+<p>拡張子が <code>.pw</code> のファイルをすべて削除する例</p>
+
+<pre><code>git filter-branch --tree-filter 'rm -f *.pw' HEAD
+</code></pre>
+
+<p>この例の場合は、ディレクトリの中までは削除してくれない。サブディレクトリも含めて全て削除するには</p>
+
+<pre><code>git filter-branch --tree-filter 'find . -name "*.pw" -exec rm -f {} \;' HEAD
+</code></pre>
 
 
 </div>

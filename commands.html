@@ -467,7 +467,7 @@ tar xvzf tarファイル名
 
 <h2 id="watch">watch</h2>
 
-<p><code>ls</code> を1秒ごとに実行</p>
+<p><code>ls -al</code> を1秒ごとに実行</p>
 
 <pre><code>watch -n 1 ls -al
 </code></pre>
@@ -503,6 +503,18 @@ tar xvzf tarファイル名
 </code></pre>
 
 <h2 id="zip">zip</h2>
+
+<h3 id="zip-20110227">パスワード付きのZIPの作成・解凍 <span class="article-date">2011/02/27</span></h3>
+
+<p>パスワード付きのZIPの作成(圧縮)または解凍をコマンドで行うには <code>-P</code> オプションを使う。</p>
+
+<pre><code>zip -P パスワード ZIPファイル名 圧縮対象ファイル
+unzip -P パスワード ZIPファイル名
+</code></pre>
+
+<p>ただし、コマンドラインにパスワードを与えると、履歴やpsコマンドでわかってしまうので、セキュリティ上はよくない。</p>
+
+<p><a href="http://d.hatena.ne.jp/hydrocul/20110227/1298798530" target="_blank">http://d.hatena.ne.jp/hydrocul/20110227/1298798530</a></p>
 
 <h3 id="zip">ディレクトリまるごとzip圧縮するには</h3>
 

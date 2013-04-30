@@ -152,6 +152,25 @@ IE7, IE8, IE9の検証用の無償ライセンス(90日間限定)</p>
 
 <p>ワンライナーを共有するサイト</p>
 
+<h2 id="postfix-20130430">postfix <span class="article-date">2013/04/30</span></h2>
+
+<p><code>/etc/postfix/</code> あたりに設定ファイルがいろいろ入っている。</p>
+
+<p>メールをプログラムが受信するには、 <code>/etc/alias</code> に以下のように書いておく。</p>
+
+<pre><code>hoge: "|/usr/bin/php /home/foo/bin/receive_mail.php"
+</code></pre>
+
+<p>メールを無条件に別ホストに転送したい場合は、 <code>/etc/alias</code> に以下のように書いておく。</p>
+
+<pre><code>hoge: foo@example.com
+</code></pre>
+
+<p>メールを無条件に同じホストに転送したい場合は、 <code>/etc/alias</code> に以下のように書いておく。</p>
+
+<pre><code>hoge: foo
+</code></pre>
+
 
 </div>
 <footer>
