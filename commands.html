@@ -16,23 +16,23 @@
   word-wrap: break-word;
 }
 #content h1 {
-  margin: 20px 0 20px 0;
+  margin: 30px 0 20px 0;
   border-bottom: 2px #CCC solid;
   padding-bottom: 4px
   font-size: 32px;
 }
 #content h2 {
-  margin: 20px 0 20px 0;
+  margin: 30px 0 20px 0;
   border-bottom: 1px #CCC solid;
   padding-bottom: 2px
   font-size: 24px;
 }
 #content h3 {
-  margin: 20px 0 20px 40px;
+  margin: 30px 0 20px 40px;
   font-size: 20px;
 }
 #content h4 {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 10px 40px;
   font-size: 16px;
 }
 #content .article-date {
@@ -112,6 +112,7 @@ footer {
   <li><a href="#lftp">lftp</a></li>
   <li><a href="#mysql">mysql</a></li>
   <li><a href="#netstat">netstat</a></li>
+  <li><a href="#nkf">nkf</a></li>
   <li><a href="#ps">ps</a></li>
   <li><a href="#rsync">rsync</a></li>
   <li><a href="#scala">scala</a></li>
@@ -302,6 +303,33 @@ grep -rni --color=always abc | less -X -R
 </code></pre>
 
 <p>PIDの欄がプロセスIDである。root権限でないとプロセスIDが表示されないものがあるよう。</p>
+
+<h2 id="nkf">nkf</h2>
+
+<p>標準入力を文字コードを変換しながらそのまま標準出力に吐き出す。ファイルをもとにする場合は引数に指定しても可能。</p>
+
+<p>EUC-JP を UTF-8 に変換するには</p>
+
+<pre><code>cat ファイル名 | nkf -Ew
+</code></pre>
+
+<p>または</p>
+
+<pre><code>nkf -Ew ファイル名
+</code></pre>
+
+<p>以下のオプションで、大文字が入力の文字コード、小文字が出力の文字コードを表す。</p>
+
+<dl>
+  <dt><code>-J</code>, <code>-j</code></dt>
+  <dd>ISO-2022-JP</dd>
+  <dt><code>-S</code>, <code>-s</code></dt>
+  <dd>Shift-JIS</dd>
+  <dt><code>-E</code>, <code>-e</code></dt>
+  <dd>EUC-JP</dd>
+  <dt><code>-W</code>, <code>-w</code></dt>
+  <dd>UTF-8</dd>
+</dl>
 
 <h2 id="ps">ps</h2>
 

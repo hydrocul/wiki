@@ -323,6 +323,23 @@ rm patch.patch
 <pre><code>git filter-branch --tree-filter 'find . -name "*.pw" -exec rm -f {} \;' HEAD
 </code></pre>
 
+<h2 id="git-add--git-reset--20130430">初めてコミットする前に間違って <code>git add</code> してしまったファイルをもとに戻そうと <code>git reset</code> しようとしてもエラーになってしまう場合 <span class="article-date">2013/04/30</span></h2>
+
+<pre><code>fatal: Failed to resolve 'HEAD' as a valid ref.
+</code></pre>
+
+<p><code>git reset</code> しようとすると、上記のエラーが出てしまう。<code>reset</code> してもとに戻すべきコミットが見つからないためと思われる。その場合は</p>
+
+<pre><code>git rm --cached -r directory_name
+</code></pre>
+
+<p>またはファイル1つの場合は</p>
+
+<pre><code>git rm --cached file_name
+</code></pre>
+
+<p>とする。</p>
+
 
 </div>
 <footer>
