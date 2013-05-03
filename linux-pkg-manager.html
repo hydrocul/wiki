@@ -95,11 +95,11 @@ footer {
 <div id="content">
   <h1 id="linux">Linuxでのパッケージ管理</h1>
 
-<p><code>yum</code> または <code>apt-get</code>。</p>
+<p><code>yum</code> または <code>apt-get</code>。Macでは Macports や Homebrew など。</p>
 
-<h2 id="section">基本操作</h2>
+<h2 id="section">パッケージマネージャ別の基本操作</h2>
 
-<p><code>apt-get</code> の場合</p>
+<h3 id="apt-get"><code>apt-get</code></h3>
 
 <pre><code># パッケージを検索
 apt-cache search キーワード
@@ -109,9 +109,23 @@ sudo apt-get install パッケージ名
 
 # アンインストール
 sudo apt-get remove パッケージ名
+
+# パッケージ一覧を更新するには
+sudo apt-get update
+# これをしばらくしていないと、インストールしようとしても
+# Not Found になってしまうことがある。
+
+# 現在インストールされているパッケージ全てをバージョンアップ
+sudo apt-get upgrade
+
+# インストール済みのパッケージ一覧を見るには
+dpkg -l
+
+# パッケージでインストールされるファイルの一覧を見るには
+dpkg -L パッケージ名
 </code></pre>
 
-<p><code>yum</code> の場合</p>
+<h3 id="yum"><code>yum</code></h3>
 
 <pre><code># パッケージを検索
 yum search キーワード
@@ -119,38 +133,66 @@ yum search キーワード
 # インストール
 sudo yum install パッケージ名
 
+# 質問には全部Yesと答えることにして自動でインストールする
+sudo yum -y install パッケージ名
+
 # アンインストール
 sudo yum remove パッケージ名
+
+# インストール済みのパッケージ一覧を見るには
+rpm -qa
+
+# パッケージでインストールされるファイルの一覧を見るには
+rpm -ql パッケージ名
 </code></pre>
 
-<p><code>sudo yum -y install パッケージ名</code> で質問には全部Yesと答えることにして自動で実行する。</p>
+<h3 id="macports">Macports</h3>
 
-<h2 id="section-1">パッケージ一覧を更新するには</h2>
+<pre><code># パッケージを検索
+port search キーワード
 
-<p><code>apt-get</code> の場合</p>
+# インストール
+sudo port install パッケージ名
 
-<p>これをしばらくしていないと、インストールしようとしても Not Found になってしまうことがある。</p>
+# アンインストール
+sudo port uninstall パッケージ名
 
-<pre><code>sudo apt-get update
+# パッケージ一覧を更新するには
+sudo port selfupdate
+
+# 特定のパッケージをバージョンアップ
+sudo port upgrade パッケージ名
+
+# 現在インストールされているパッケージ全てをバージョンアップ
+sudo port upgrade installed
+
+# インストール済みのパッケージ一覧を見るには
+port installed
+
+# パッケージでインストールされるファイルの一覧を見るには
+port contents パッケージ名
 </code></pre>
 
-<h2 id="section-2">パッケージでインストールされるファイルの一覧を見るには</h2>
+<h3 id="homebrew">Homebrew</h3>
 
-<p><code>apt-get</code> の場合</p>
+<pre><code># パッケージを検索
+brew search キーワード
 
-<pre><code>dpkg -L パッケージ名
-</code></pre>
+# インストール
+brew install パッケージ名
 
-<p><code>yum</code> の場合</p>
+# アンインストール
+brew uninstall パッケージ名
 
-<pre><code>rpm -ql パッケージ名
-</code></pre>
+# パッケージ一覧を更新するには
+brew update
+# このコマンドの実行には git がインストールされていることが必要
 
-<h2 id="section-3">インストール済みのパッケージ一覧を見るには</h2>
+# 現在インストールされているパッケージ全てをバージョンアップ
+brew upgrade
 
-<p><code>apt-get</code> の場合</p>
-
-<pre><code>dpkg -l
+# パッケージでインストールされるファイルの一覧を見るには
+brew list パッケージ名
 </code></pre>
 
 
