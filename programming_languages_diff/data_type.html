@@ -98,6 +98,7 @@ footer {
 <ul>
   <li><a href="#is-a">データ型の判定</a></li>
   <li><a href="#to-boolean">論理値への変換</a></li>
+  <li><a href="#str-to-int">文字列を整数に変換</a></li>
   <li><a href="#str-to-date">文字列を日付に変換</a></li>
 </ul>
 
@@ -149,9 +150,16 @@ num.is_a?(Array)
 
 <p><code>false</code>, <code>0</code>, <code>''</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code> が <code>false</code> になり、それ以外は <code>true</code> になる。</p>
 
-<h2 id="str-to-date">文字列を日付に変換</h2>
+<h2 id="str-to-int">文字列を整数に変換</h2>
 
 <h3 id="ruby-2">Ruby</h3>
+
+<pre><code>String#to_i
+</code></pre>
+
+<h2 id="str-to-date">文字列を日付に変換</h2>
+
+<h3 id="ruby-3">Ruby</h3>
 
 <pre><code>require 'date'
 date = Date.strptime('2013/03/17', '%Y/%m/%d')

@@ -104,6 +104,7 @@ footer {
   <li><a href="#index-of">indexOf</a></li>
   <li><a href="#length">length</a></li>
   <li><a href="#is-empty">isEmpty</a></li>
+  <li><a href="#split">split</a></li>
   <li><a href="#join">join</a></li>
   <li><a href="#upper-lower">大文字小文字変換</a></li>
 </ul>
@@ -350,6 +351,14 @@ String#rindex(str, index)
 <pre><code>int strlen($string)
 </code></pre>
 
+<h3 id="ruby-5">Ruby</h3>
+
+<pre><code>String#length
+String#size
+</code></pre>
+
+<p>2つのメソッドは全く同じ。配列のサイズも同じ名前の2つのメソッドがある。</p>
+
 <h2 id="is-empty">isEmpty</h2>
 
 <h3 id="java-7">Java</h3>
@@ -362,6 +371,16 @@ String#rindex(str, index)
 <pre><code>strlen($string) == 0
 </code></pre>
 
+<h2 id="split">split</h2>
+
+<h3 id="ruby-6">Ruby</h3>
+
+<pre><code>String#split(pattern [, limit]))
+</code></pre>
+
+<p><code>pattern</code> には文字列または正規表現を使える。
+<code>pattern</code> に空文字列 <code>''</code> を指定すると、1文字ずつに分割した配列を返す。</p>
+
 <h2 id="join">join</h2>
 
 <h3 id="php-7">PHP</h3>
@@ -371,7 +390,7 @@ String#rindex(str, index)
 
 <p><a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
 
-<h3 id="ruby-5">Ruby</h3>
+<h3 id="ruby-7">Ruby</h3>
 
 <pre><code>Array#join(separator)
 </code></pre>
@@ -387,6 +406,12 @@ String#rindex(str, index)
 
 <pre><code>string strtoupper($string)
 string strtolower($string)
+</code></pre>
+
+<h3 id="ruby-8">Ruby</h3>
+
+<pre><code>String#upcase
+String#downcase
 </code></pre>
 
 <h3 id="javascript-5">JavaScript</h3>

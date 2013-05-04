@@ -187,6 +187,15 @@ list.apply(index);
 <h3 id="ruby">Ruby</h3>
 
 <pre><code>arr = [1, 2, 3]
+arr = %w(abc def ghi) # =&gt; ['abc', 'def', 'ghi'] と同じ
+</code></pre>
+
+<p>%w の記法は、カッコは比較的なんでもよくて、以下はすべて同じ意味になる。</p>
+
+<pre><code>['abc', 'def', 'ghi']
+%w(abc def ghi)
+%w[abc def ghi]
+%w!abc def ghi!
 </code></pre>
 
 <p>インデックスで参照するには</p>
@@ -285,7 +294,7 @@ sizeof($arr)
 Array#size
 </code></pre>
 
-<p>2つのメソッドは全く同じ。</p>
+<p>2つのメソッドは全く同じ。文字列の長さも同じ名前の2つのメソッドがある。</p>
 
 <h3 id="javascript-1">JavaScript</h3>
 
@@ -548,6 +557,11 @@ def map[B](f: A =&gt; B): Seq[B]
 def flatMap[B](f: A =&gt; Seq[B]): Seq[B]
 </code></pre>
 
+<h3 id="ruby-9">Ruby</h3>
+
+<pre><code>arr.map{|elem| ...}.flatten(1)
+</code></pre>
+
 <h2 id="filter">filter</h2>
 
 <h3 id="scala-15">Scala</h3>
@@ -556,7 +570,7 @@ def flatMap[B](f: A =&gt; Seq[B]): Seq[B]
 def filter(p: A =&gt; Boolean): Seq[A]
 </code></pre>
 
-<h3 id="ruby-9">Ruby</h3>
+<h3 id="ruby-10">Ruby</h3>
 
 <pre><code>Array#select
 </code></pre>
@@ -606,7 +620,7 @@ def sorted: Seq[A]
 def sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 </code></pre>
 
-<h3 id="ruby-10">Ruby</h3>
+<h3 id="ruby-11">Ruby</h3>
 
 <pre><code>Array#sort
 
@@ -634,7 +648,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_push | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-push.php" target="_blank">http://jp2.php.net/manual/ja/function.array-push.php</a></p>
 
-<h3 id="ruby-11">Ruby</h3>
+<h3 id="ruby-12">Ruby</h3>
 
 <pre><code>Array#push(obj)
 </code></pre>
@@ -665,7 +679,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_unshift | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-unshift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-unshift.php</a></p>
 
-<h3 id="ruby-12">Ruby</h3>
+<h3 id="ruby-13">Ruby</h3>
 
 <pre><code>Array#unshift(obj)
 </code></pre>
@@ -701,7 +715,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_pop | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-pop.php" target="_blank">http://jp2.php.net/manual/ja/function.array-pop.php</a></p>
 
-<h3 id="ruby-13">Ruby</h3>
+<h3 id="ruby-14">Ruby</h3>
 
 <pre><code>Array#pop
 </code></pre>
@@ -741,7 +755,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_shift | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-shift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-shift.php</a></p>
 
-<h3 id="ruby-14">Ruby</h3>
+<h3 id="ruby-15">Ruby</h3>
 
 <pre><code>Array#shift
 </code></pre>
@@ -782,6 +796,14 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 </code></pre>
 
 <h2 id="clone">clone</h2>
+
+<h3 id="ruby-16">Ruby</h3>
+
+<p>shallow copy</p>
+
+<pre><code>Array#clone
+Array#dup
+</code></pre>
 
 <h3 id="javascript-8">JavaScript</h3>
 

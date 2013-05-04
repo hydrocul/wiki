@@ -99,46 +99,69 @@ footer {
   <li><a href="#ls">ディレクトリの一覧を取得</a></li>
 </ul>
 
-<h2 id="ls">ディレクトリの一覧を取得</h2>
+<h2 id="section-1">ファイルの中身を1つの文字列として取得するには</h2>
 
 <h3 id="ruby">Ruby</h3>
+
+<pre><code>str = File.open('./hoge.txt').read
+</code></pre>
+
+<h2 id="section-2">ファイルの中身を1行ずつテキスト処理するには</h2>
+
+<h3 id="ruby-1">Ruby</h3>
+
+<pre><code>IO.foreach('./hoge.txt') do |line|
+  ...
+end
+</code></pre>
+
+<h2 id="section-3">ファイルを削除するには</h2>
+
+<h3 id="ruby-2">Ruby</h3>
+
+<pre><code>File.unlink('./hoge.txt')
+</code></pre>
+
+<h2 id="ls">ディレクトリの一覧を取得</h2>
+
+<h3 id="ruby-3">Ruby</h3>
 
 <pre><code>Dir::entries('/home/foo')
 </code></pre>
 
-<h2 id="section-1">ファイルが存在するかどうかを取得</h2>
+<h2 id="section-4">ファイルが存在するかどうかを取得</h2>
 
-<h3 id="ruby-1">Ruby</h3>
+<h3 id="ruby-4">Ruby</h3>
 
 <pre><code>File.exists?('/home/foo/testfile')
 </code></pre>
 
-<h2 id="section-2">ファイルかどうかを調べる</h2>
+<h2 id="section-5">ファイルかどうかを調べる</h2>
 
 <p>ディレクトリでなくてファイルかどうかを調べるには</p>
 
-<h3 id="ruby-2">Ruby</h3>
+<h3 id="ruby-5">Ruby</h3>
 
 <pre><code>File.ftype('/home/foo/testfile') == 'file'
 </code></pre>
 
-<h2 id="section-3">ディレクトリかどうかを調べる</h2>
+<h2 id="section-6">ディレクトリかどうかを調べる</h2>
 
-<h3 id="ruby-3">Ruby</h3>
+<h3 id="ruby-6">Ruby</h3>
 
 <pre><code>File.ftype('/home/foo/testfile') == 'directory'
 </code></pre>
 
-<h2 id="section-4">シンボリックリンクかどうかを調べる</h2>
+<h2 id="section-7">シンボリックリンクかどうかを調べる</h2>
 
-<h3 id="ruby-4">Ruby</h3>
+<h3 id="ruby-7">Ruby</h3>
 
 <pre><code>File.ftype('/home/foo/testfile') == 'link'
 </code></pre>
 
-<h2 id="section-5">シンボリックリンクのリンク先を取得する</h2>
+<h2 id="section-8">シンボリックリンクのリンク先を取得する</h2>
 
-<h3 id="ruby-5">Ruby</h3>
+<h3 id="ruby-8">Ruby</h3>
 
 <p><code>path</code> がシンボリックリンクの場合に、<code>path</code> をリンク先に書き換える。</p>
 
