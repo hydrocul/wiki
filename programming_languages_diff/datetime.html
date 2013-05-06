@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Home | hydrocul のメモ</title>
+<title>日付と時刻 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 #side-menu {
@@ -87,22 +87,55 @@ footer {
 </head>
 <body>
 <div id="breadcrumb">
-  <a href="./">ホーム</a> &gt; Home
+  <a href="../">ホーム</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; 日付と時刻
 </div>
 <div id="side-menu">
   side menu
 </div>
 <div id="content">
-  <h1 id="home">Home</h1>
+  <h1 id="section">日付と時刻</h1>
 
-<p>このサイトは筆者(hydrocul)の個人メモの集合です。</p>
+<h2 id="section-1">今日の日付を取得するには</h2>
 
-<p><a href="./algorithm.html">アルゴリズム</a> <a href="./apache.html">Apache</a> <a href="./bash.html">シェルスクリプト</a> <a href="./codeigniter.html">CodeIgniter</a> <a href="./color.html">色</a> <a href="./commands.html">コマンドリファレンス</a> <a href="./css.html">CSS</a> <a href="./emacs.html">Emacs</a> <a href="./find.html">find</a> <a href="./git.html">git</a> <a href="./gitlab.html">GitLab</a> <a href="./html.html">HTML</a> <a href="./java.html">Java</a> <a href="./jquery.html">jQuery</a> <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a> <a href="./linux.html">Linux</a> <a href="./markdown.html">Markdown</a> <a href="./materials.html">素材集</a> <a href="./mechanize.html">mechanize [2013/04/29]</a> <a href="./misc.html">misc</a> <a href="./mylisp.html">オレオレLisp</a> <a href="./mysql.html">MySQL</a> <a href="./passenger.html">Passenger (Ruby on Rails)</a> <a href="./php.html">PHP</a> <a href="./physics.html">物理学</a> <a href="./programming_languages_diff/">プログラミング言語の比較</a> <a href="./python.html">Python</a> <a href="./rails.html">Ruby on Rails</a> <a href="./ruby.html">Ruby</a> <a href="./ssh.html">SSH</a> <a href="./ubuntu.html">Ubuntu</a> </p>
+<h3 id="ruby">Ruby</h3>
+
+<pre><code>rquire 'date'
+Date.today
+</code></pre>
+
+<h2 id="section-2">日付オブジェクトの各フィールドを取得するには</h2>
+
+<h3 id="ruby-1">Ruby</h3>
+
+<pre><code>date.year
+date.month
+date.day    # その月の中での日付(1-31)
+date.wday   # 曜日(0-6)。日曜日が0
+</code></pre>
+
+<h2 id="section-3">日付単位の計算</h2>
+
+<h3 id="ruby-2">Ruby</h3>
+
+<pre><code>date + 3       # 3日後の日付
+date1 - date2  # 日付の差
+</code></pre>
+
+<h2 id="str-to-date">文字列を日付に変換</h2>
+
+<h3 id="ruby-3">Ruby</h3>
+
+<pre><code>require 'date'
+date = Date.strptime('2013/03/17', '%Y/%m/%d')
+p [date.year, date.month, date.day, date.wday]
+</code></pre>
+
+<p>date.wday で曜日を整数で取得でき、日曜日が0。</p>
 
 
 </div>
 <footer>
-  <a href="./">目次</a>
+  <a href="../">目次</a>
   <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
 </footer>
 </body>

@@ -113,7 +113,7 @@ footer {
   <li><a href="#flatmap">flatMap</a></li>
   <li><a href="#filter">filter</a></li>
   <li><a href="#flatten">flatten</a></li>
-  <li><a href="#foldleft">foldLeft</a></li>
+  <li><a href="#fold-left">foldLeft</a></li>
   <li><a href="#find">find</a></li>
   <li><a href="#sort">sort</a></li>
   <li><a href="#push">push</a></li>
@@ -122,6 +122,10 @@ footer {
   <li><a href="#shift">shift</a></li>
   <li><a href="#remove">remove</a></li>
   <li><a href="#clone">clone</a></li>
+  <li><a href="#to-map">toMap</a></li>
+  <li><a href="#grouped">grouped</a></li>
+  <li><a href="#group-by">groupBy</a></li>
+  <li><a href="#zip">zip</a></li>
 </ul>
 
 <h2 id="literal">リスト(配列)の書き方</h2>
@@ -242,19 +246,18 @@ arr = [
 
 <h3 id="java-1">Java</h3>
 
-<pre><code>int List#indexOf(Object obj)
-int List#lastIndexOf(Object obj)
+<pre><code>int List&lt;E&gt;#indexOf(Object obj)
+int List&lt;E&gt;#lastIndexOf(Object obj)
 </code></pre>
 
 <p>見つからなかった場合は <code>-1</code> を返す。</p>
 
 <h3 id="scala-1">Scala</h3>
 
-<pre><code>// Seq[+A]
-def indexOf(obj: A): Int
-def indexOf(obj: A, from: Int): Int
-def indexWhere(p: A =&gt; Boolean): Int
-def indexWhere(p: A =&gt; Boolean, from: Int): Int
+<pre><code>def Seq[A]#indexOf(obj: A): Int
+def Seq[A]#indexOf(obj: A, from: Int): Int
+def Seq[A]#indexWhere(p: A =&gt; Boolean): Int
+def Seq[A]#indexWhere(p: A =&gt; Boolean, from: Int): Int
 </code></pre>
 
 <p>見つからなかった場合は <code>-1</code> を返す。</p>
@@ -270,14 +273,13 @@ def indexWhere(p: A =&gt; Boolean, from: Int): Int
 
 <h3 id="java-2">Java</h3>
 
-<pre><code>int List#size()
+<pre><code>int List&lt;E&gt;#size()
 </code></pre>
 
 <h3 id="scala-2">Scala</h3>
 
-<pre><code>// Seq[+A]
-def length: Int
-def size: Int
+<pre><code>def Seq[A]#length: Int
+def Seq[A]#size: Int
 </code></pre>
 
 <p>2つのメソッドは全く同じ。</p>
@@ -320,26 +322,24 @@ console.log(arr.length); // =&gt; 0
 
 <h3 id="java-3">Java</h3>
 
-<pre><code>boolean List#isEmpty()
+<pre><code>boolean List&lt;E&gt;#isEmpty()
 </code></pre>
 
 <h3 id="scala-3">Scala</h3>
 
-<pre><code>// Seq[+A]
-def isEmpty: Boolean
+<pre><code>def Seq[A]#isEmpty: Boolean
 </code></pre>
 
 <h2 id="contains">contains</h2>
 
 <h3 id="java-4">Java</h3>
 
-<pre><code>boolean List#contains(Object obj)
+<pre><code>boolean List&lt;E&gt;#contains(Object obj)
 </code></pre>
 
 <h3 id="scala-4">Scala</h3>
 
-<pre><code>// Seq[+A]
-def contains(obj: Any): Boolean
+<pre><code>def Seq[A]#contains(obj: Any): Boolean
 </code></pre>
 
 <h3 id="php-2">PHP</h3>
@@ -356,15 +356,14 @@ def contains(obj: Any): Boolean
 
 <h3 id="java-5">Java</h3>
 
-<pre><code>List&lt;E&gt; List#subList(int from, int until)
+<pre><code>List&lt;E&gt; List&lt;E&gt;#subList(int from, int until)
 </code></pre>
 
 <p><code>subList</code> で返されたリストを変更すると、元のリストにも反映される。</p>
 
 <h3 id="scala-5">Scala</h3>
 
-<pre><code>// Seq[+A]
-def slice(from: Int, until: Int): Seq[A]
+<pre><code>def Seq[A]#slice(from: Int, until: Int): Seq[A]
 </code></pre>
 
 <h3 id="php-3">PHP</h3>
@@ -389,32 +388,28 @@ Array#slice(from, length)
 
 <h3 id="scala-6">Scala</h3>
 
-<pre><code>// Seq[+A]
-def head: A
+<pre><code>def Seq[A]#head: A
 </code></pre>
 
 <h2 id="last">last</h2>
 
 <h3 id="scala-7">Scala</h3>
 
-<pre><code>// Seq[+A]
-def last: A
+<pre><code>def Seq[A]#last: A
 </code></pre>
 
 <h2 id="tail">tail</h2>
 
 <h3 id="scala-8">Scala</h3>
 
-<pre><code>// Seq[+A]
-def tail: Seq[A]
+<pre><code>def Seq[A]#tail: Seq[A]
 </code></pre>
 
 <h2 id="take">take</h2>
 
 <h3 id="scala-9">Scala</h3>
 
-<pre><code>// Seq[+A]
-def take(n: Int): Seq[A]
+<pre><code>def Seq[A]#take(n: Int): Seq[A]
 </code></pre>
 
 <h3 id="ruby-5">Ruby</h3>
@@ -426,8 +421,7 @@ def take(n: Int): Seq[A]
 
 <h3 id="scala-10">Scala</h3>
 
-<pre><code>// Seq[+A]
-def drop(n: Int): Seq[A]
+<pre><code>def Seq[A]#drop(n: Int): Seq[A]
 </code></pre>
 
 <h3 id="ruby-6">Ruby</h3>
@@ -439,8 +433,7 @@ def drop(n: Int): Seq[A]
 
 <h3 id="scala-11">Scala</h3>
 
-<pre><code>// Seq[+A]
-def reverse: Seq[A]
+<pre><code>def Seq[A]#reverse: Seq[A]
 </code></pre>
 
 <h3 id="php-4">PHP</h3>
@@ -481,8 +474,7 @@ Array#reverse!
 
 <h3 id="scala-12">Scala</h3>
 
-<pre><code>// Seq[+A]
-def foreach(f: A =&gt; Unit): Unit
+<pre><code>def Seq[A]#foreach(f: A =&gt; Unit): Unit
 </code></pre>
 
 <h3 id="php-5">PHP</h3>
@@ -530,8 +522,7 @@ end
 
 <h3 id="scala-13">Scala</h3>
 
-<pre><code>// Seq[+A]
-def map[B](f: A =&gt; B): Seq[B]
+<pre><code>def Seq[A]#map[B](f: A =&gt; B): Seq[B]
 </code></pre>
 
 <h3 id="php-6">PHP</h3>
@@ -553,8 +544,7 @@ def map[B](f: A =&gt; B): Seq[B]
 
 <h3 id="scala-14">Scala</h3>
 
-<pre><code>// Seq[+A]
-def flatMap[B](f: A =&gt; Seq[B]): Seq[B]
+<pre><code>def Seq[A]#flatMap[B](f: A =&gt; Seq[B]): Seq[B]
 </code></pre>
 
 <h3 id="ruby-9">Ruby</h3>
@@ -566,8 +556,7 @@ def flatMap[B](f: A =&gt; Seq[B]): Seq[B]
 
 <h3 id="scala-15">Scala</h3>
 
-<pre><code>// Seq[+A]
-def filter(p: A =&gt; Boolean): Seq[A]
+<pre><code>def Seq[A]#filter(p: A =&gt; Boolean): Seq[A]
 </code></pre>
 
 <h3 id="ruby-10">Ruby</h3>
@@ -591,36 +580,48 @@ def filter(p: A =&gt; Boolean): Seq[A]
 
 <h3 id="scala-16">Scala</h3>
 
-<pre><code>// Seq[+A]
-def flatten[B]: Seq[B]
+<pre><code>def Seq[A]#flatten[B]: Seq[B]
 </code></pre>
 
-<h2 id="foldleft">foldLeft</h2>
+<h3 id="ruby-11">Ruby</h3>
+
+<pre><code>Array#flatten
+Array#flatten(level)
+</code></pre>
+
+<p><code>level</code> を指定すると、その数のレベルだけ平坦にする。</p>
+
+<p>例</p>
+
+<pre><code>arr = [1, [2, [3, 4]]]
+arr.flatten(1) #=&gt; [1, 2, [3, 4]]
+arr.flatten(2) # =&gt; [1, 2, 3, 4]
+arr.flatten    # =&gt; [1, 2, 3, 4]
+</code></pre>
+
+<h2 id="fold-left">foldLeft</h2>
 
 <h3 id="scala-17">Scala</h3>
 
-<pre><code>// Seq[+A]
-def foldLeft[B](initial: B)(f: (B, A) =&gt; B): B
+<pre><code>def Seq[A]#foldLeft[B](initial: B)(f: (B, A) =&gt; B): B
 </code></pre>
 
 <h2 id="find">find</h2>
 
 <h3 id="scala-18">Scala</h3>
 
-<pre><code>// Seq[+A]
-def find(p: A =&gt; Boolean): Option[A]
+<pre><code>def Seq[A]#find(p: A =&gt; Boolean): Option[A]
 </code></pre>
 
 <h2 id="sort">sort</h2>
 
 <h3 id="scala-19">Scala</h3>
 
-<pre><code>// Seq[+A]
-def sorted: Seq[A]
-def sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
+<pre><code>def Seq[A]#sorted: Seq[A]
+def Seq[A]#sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 </code></pre>
 
-<h3 id="ruby-11">Ruby</h3>
+<h3 id="ruby-12">Ruby</h3>
 
 <pre><code>Array#sort
 
@@ -648,12 +649,19 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_push | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-push.php" target="_blank">http://jp2.php.net/manual/ja/function.array-push.php</a></p>
 
-<h3 id="ruby-12">Ruby</h3>
+<h3 id="ruby-13">Ruby</h3>
 
 <pre><code>Array#push(obj)
 </code></pre>
 
 <p>JavaScriptと同じメソッド名。</p>
+
+<p>複数の要素を最後に追加したい、つまり配列を連結させるには、</p>
+
+<pre><code>Array#concat(other_array)
+</code></pre>
+
+<p>これは、破壊的メソッド。</p>
 
 <h3 id="python-1">Python</h3>
 
@@ -679,7 +687,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_unshift | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-unshift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-unshift.php</a></p>
 
-<h3 id="ruby-13">Ruby</h3>
+<h3 id="ruby-14">Ruby</h3>
 
 <pre><code>Array#unshift(obj)
 </code></pre>
@@ -715,7 +723,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_pop | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-pop.php" target="_blank">http://jp2.php.net/manual/ja/function.array-pop.php</a></p>
 
-<h3 id="ruby-14">Ruby</h3>
+<h3 id="ruby-15">Ruby</h3>
 
 <pre><code>Array#pop
 </code></pre>
@@ -755,7 +763,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_shift | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-shift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-shift.php</a></p>
 
-<h3 id="ruby-15">Ruby</h3>
+<h3 id="ruby-16">Ruby</h3>
 
 <pre><code>Array#shift
 </code></pre>
@@ -797,7 +805,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 
 <h2 id="clone">clone</h2>
 
-<h3 id="ruby-16">Ruby</h3>
+<h3 id="ruby-17">Ruby</h3>
 
 <p>shallow copy</p>
 
@@ -818,6 +826,82 @@ Array#dup
     return Array.apply(null, this)
 }
 arr_copy = arr.clone();
+</code></pre>
+
+<h2 id="to-map">toMap</h2>
+
+<p>リストからマップに変換する方法。</p>
+
+<h3 id="scala-20">Scala</h3>
+
+<p>タプルのリストをマップに変換する方法。</p>
+
+<pre><code>def Seq[A]#toMap[T, U]: Map[T, U]
+</code></pre>
+
+<p>例</p>
+
+<pre><code>val list = List(("a", 1), ("b", 2));
+list.toMap; // =&gt; Map("a" -&gt; 1, "b" -&gt; 2)
+</code></pre>
+
+<h3 id="ruby-18">Ruby</h3>
+
+<p>偶数個の要素を持つ配列をハッシュに変換する方法。</p>
+
+<pre><code>arr = ['a', 1, 'b', 2]
+Hash[*arr] # =&gt; {'a' =&gt; 1, 'b' =&gt; 2}
+</code></pre>
+
+<h2 id="grouped">grouped</h2>
+
+<h3 id="scala-21">Scala</h3>
+
+<pre><code>def Seq[A]#grouped(size: Int): Iterator[Seq[A]]
+</code></pre>
+
+<h3 id="ruby-19">Ruby</h3>
+
+<p>以下のような関数で同様のことができる。</p>
+
+<pre><code>def grouped(src, size)
+  dst = []
+  index = 0
+  len = dst.size
+  while index &lt; len do
+    group_data = (0 .. (size - 1)).map do |i|
+      src[index + i]
+    end
+    dst.push(group_data)
+    index = index + size
+  end
+  return dst
+end
+</code></pre>
+
+<h2 id="group-by">groupBy</h2>
+
+<h3 id="scala-22">Scala</h3>
+
+<pre><code>def Seq[A]#groupBy(f: A =&gt; K): Map[K, Seq[A]]
+</code></pre>
+
+<h2 id="zip">zip</h2>
+
+<h3 id="scala-23">Scala</h3>
+
+<pre><code>def Seq[A]#zip(that: Iterable[B]): Seq[(A, B)]
+</code></pre>
+
+<h3 id="ruby-20">Ruby</h3>
+
+<pre><code>Array#zip(a1, a2, ...)
+</code></pre>
+
+<p>例</p>
+
+<pre><code>['a', 'b'].zip([1, 2])         # =&gt; [["a", 1], ["b", 2]]
+['a', 'b'].zip([1, 2], [3, 4]) # =&gt; [["a", 1, 3], ["b", 2, 4]]
 </code></pre>
 
 
