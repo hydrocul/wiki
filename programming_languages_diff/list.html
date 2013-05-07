@@ -126,6 +126,9 @@ footer {
   <li><a href="#grouped">grouped</a></li>
   <li><a href="#group-by">groupBy</a></li>
   <li><a href="#zip">zip</a></li>
+  <li><a href="#fill">fill</a></li>
+  <li><a href="#product">product</a></li>
+  <li><a href="#sum">sum</a></li>
 </ul>
 
 <h2 id="literal">リスト(配列)の書き方</h2>
@@ -606,6 +609,16 @@ arr.flatten    # =&gt; [1, 2, 3, 4]
 <pre><code>def Seq[A]#foldLeft[B](initial: B)(f: (B, A) =&gt; B): B
 </code></pre>
 
+<h3 id="ruby-12">Ruby</h3>
+
+<pre><code>arr = [1, 2, 3]
+arr.inject(:+)               # =&gt; 6
+arr.inject {|i, x| i + x}    # =&gt; 6
+arr.inject(0) {|i, x| i + x} # =&gt; 6
+</code></pre>
+
+<p><code>inject</code> に初期値を与えないと、1つ目の要素が初期値であるかのような動作をする。配列の要素が1つもなくて初期値も与えないと、<code>nil</code> が返される。</p>
+
 <h2 id="find">find</h2>
 
 <h3 id="scala-18">Scala</h3>
@@ -621,7 +634,7 @@ arr.flatten    # =&gt; [1, 2, 3, 4]
 def Seq[A]#sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 </code></pre>
 
-<h3 id="ruby-12">Ruby</h3>
+<h3 id="ruby-13">Ruby</h3>
 
 <pre><code>Array#sort
 
@@ -649,7 +662,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_push | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-push.php" target="_blank">http://jp2.php.net/manual/ja/function.array-push.php</a></p>
 
-<h3 id="ruby-13">Ruby</h3>
+<h3 id="ruby-14">Ruby</h3>
 
 <pre><code>Array#push(obj)
 </code></pre>
@@ -661,7 +674,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <pre><code>Array#concat(other_array)
 </code></pre>
 
-<p>これは、破壊的メソッド。</p>
+<p><code>concat</code> は、破壊的メソッド。非破壊的メソッドは <code>Array#+</code> 。</p>
 
 <h3 id="python-1">Python</h3>
 
@@ -687,7 +700,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_unshift | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-unshift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-unshift.php</a></p>
 
-<h3 id="ruby-14">Ruby</h3>
+<h3 id="ruby-15">Ruby</h3>
 
 <pre><code>Array#unshift(obj)
 </code></pre>
@@ -723,7 +736,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_pop | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-pop.php" target="_blank">http://jp2.php.net/manual/ja/function.array-pop.php</a></p>
 
-<h3 id="ruby-15">Ruby</h3>
+<h3 id="ruby-16">Ruby</h3>
 
 <pre><code>Array#pop
 </code></pre>
@@ -763,7 +776,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 <p>array_shift | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-shift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-shift.php</a></p>
 
-<h3 id="ruby-16">Ruby</h3>
+<h3 id="ruby-17">Ruby</h3>
 
 <pre><code>Array#shift
 </code></pre>
@@ -805,7 +818,7 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}
 
 <h2 id="clone">clone</h2>
 
-<h3 id="ruby-17">Ruby</h3>
+<h3 id="ruby-18">Ruby</h3>
 
 <p>shallow copy</p>
 
@@ -845,7 +858,7 @@ arr_copy = arr.clone();
 list.toMap; // =&gt; Map("a" -&gt; 1, "b" -&gt; 2)
 </code></pre>
 
-<h3 id="ruby-18">Ruby</h3>
+<h3 id="ruby-19">Ruby</h3>
 
 <p>偶数個の要素を持つ配列をハッシュに変換する方法。</p>
 
@@ -860,7 +873,7 @@ Hash[*arr] # =&gt; {'a' =&gt; 1, 'b' =&gt; 2}
 <pre><code>def Seq[A]#grouped(size: Int): Iterator[Seq[A]]
 </code></pre>
 
-<h3 id="ruby-19">Ruby</h3>
+<h3 id="ruby-20">Ruby</h3>
 
 <p>以下のような関数で同様のことができる。</p>
 
@@ -893,7 +906,7 @@ end
 <pre><code>def Seq[A]#zip(that: Iterable[B]): Seq[(A, B)]
 </code></pre>
 
-<h3 id="ruby-20">Ruby</h3>
+<h3 id="ruby-21">Ruby</h3>
 
 <pre><code>Array#zip(a1, a2, ...)
 </code></pre>
@@ -902,6 +915,49 @@ end
 
 <pre><code>['a', 'b'].zip([1, 2])         # =&gt; [["a", 1], ["b", 2]]
 ['a', 'b'].zip([1, 2], [3, 4]) # =&gt; [["a", 1, 3], ["b", 2, 4]]
+</code></pre>
+
+<h2 id="fill">fill</h2>
+
+<h3 id="scala-24">Scala</h3>
+
+<pre><code>Seq.fill[A](n: Int)(elem: =&gt; A): Seq[A]
+Seq.fill[A](n1: Int, n2: Int)(elem: =&gt; A): Seq[Seq[A]]
+Seq.fill[A](n1: Int, n2: Int, n3: Int)(elem: =&gt; A): Seq[Seq[Seq[A]]]
+</code></pre>
+
+<h3 id="ruby-22">Ruby</h3>
+
+<p>同じ値を指定の数だけ含む配列を作るには</p>
+
+<pre><code>[].fill(value, 0, size)
+</code></pre>
+
+<h2 id="product">product</h2>
+
+<h3 id="ruby-23">Ruby</h3>
+
+<p>例</p>
+
+<pre><code>[1, 2, 3].product(['a', 'b']) # =&gt; [[1, "a"], [1, "b"], [2, "a"], [2, "b"], [3, "a"], [3, "b"]]
+</code></pre>
+
+<h2 id="sum">sum</h2>
+
+<p>数のリストの合計を計算するには</p>
+
+<h3 id="scala-25">Scala</h3>
+
+<pre><code>def Seq[A]#sum: A
+</code></pre>
+
+<p>要素が <code>Int</code> や <code>Double</code> などの場合に限る。</p>
+
+<h3 id="ruby-24">Ruby</h3>
+
+<pre><code>def sum(arr)
+  arr.inject(0, :+)
+end
 </code></pre>
 
 
