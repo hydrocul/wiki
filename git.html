@@ -256,6 +256,8 @@ rm patch.patch
 
 <h2 id="git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには <span class="article-date">2013/04/12</span></h2>
 
+<p><code>clone</code> の2つ目の引数にディレクトリを指定する。</p>
+
 <pre><code>git clone git://github.com/foo/bar.git hoge
 </code></pre>
 
@@ -343,6 +345,46 @@ rm patch.patch
 <h2 id="gitblit-20130505">Gitblit <span class="article-date">2013/05/05</span></h2>
 
 <p>Javaで実装されたGitレポジトリ管理ツール。リポジトリの pull request をWeb上ですることはできない。コミットログをグラフィカルに表示することはできない。WikiやIssueの機能がない。Hookのスクリプトを Groovy で書ける。</p>
+
+<h2 id="section">過去のログが不要な場合 <span class="article-date">2013/05/08</span></h2>
+
+<pre><code>git clone --depth 1 リポジトリURL
+</code></pre>
+
+<p>とすると、過去のログを除いて最新のソースのみをcloneできる(shallow repository)。
+cloneしたワーキングディレクトリでファイルを修正して、commit, push もできる。</p>
+
+<p>しかし、これでcloneしたディレクトリをオリジナルとしてさらにcloneすることはできないみたい。cloneしようとすると、以下のエラーメッセージが出る。</p>
+
+<pre><code>fatal: attempt to fetch/clone from a shallow repository
+fatal: The remote end hung up unexpectedly
+</code></pre>
+
+<p>shallow repository には <code>.git/shallow</code> というファイルがあり、省略された過去のコミットが参照されていて、このファイルにより shallow repository であることを示している。このファイルを削除すると、ローカルではcloneすることができるが、リモートへのcloneでは過去のコミットが見つからない、というエラーが出て、やっぱりcloneできない。</p>
+
+<h2 id="section-1">エンバグしたコミットを探すには <span class="article-date">2013/05/08</span></h2>
+
+<p><code>git-bisect</code> は、エンバグしたコミットを二分探索して探す支援をするコマンド。</p>
+
+<pre><code>git bisect start バグのあるコミット バグのないコミット
+</code></pre>
+
+<p>とすると、中間のコミットがチェックアウトされるので、ここでバグが再現するかどうかをテストして、</p>
+
+<pre><code>git bisect good
+</code></pre>
+
+<p>または</p>
+
+<pre><code>git bisect bad
+</code></pre>
+
+<p>とすると、また適当なコミットをチェックアウトされるので、また再現テストをする。これを繰り返すと、最終的にバグを組み込んだコミットが表示される。最後に</p>
+
+<pre><code>git bisect reset
+</code></pre>
+
+<p>として、<code>bisect</code> を終了させる。</p>
 
 
 </div>
