@@ -645,7 +645,8 @@ arr.sort
 arr.sort!
 
 # ソート条件をブロックで指定
-arr.sort {|a, b| a.num &lt;=&gt; b.num}
+arr.sort {|a, b| a.num &lt;=&gt; b.num}  # 非破壊的
+arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 </code></pre>
 
 <h2 id="push">push</h2>
