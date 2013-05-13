@@ -99,13 +99,9 @@ footer {
 <div id="content">
   <h1 id="linux">Linux</h1>
 
-<h2 id="section">プロセスとかスレッドとかプロセス間通信とかについて</h2>
-
-<p><a href="https://github.com/Shinpeim/process-book" target="_blank">https://github.com/Shinpeim/process-book</a></p>
-
 <h2 id="centos">デーモンの管理 (CentOSの場合)</h2>
 
-<h3 id="section-1">起動時にデーモンを自動起動させるには</h3>
+<h3 id="section">起動時にデーモンを自動起動させるには <span class="article-date">2013/04/12</span></h3>
 
 <p>例えば、mysqlの場合</p>
 
@@ -115,7 +111,7 @@ chkconfig mysqld on
 
 <p><code>chkconfig</code> の設定状況は <code>chkconfig --list</code> で確認できる。</p>
 
-<h3 id="section-2">手動でデーモンを起動させるには</h3>
+<h3 id="section-1">手動でデーモンを起動させるには <span class="article-date">2013/04/12</span></h3>
 
 <p>例えば、mysqlの場合</p>
 
@@ -123,7 +119,7 @@ chkconfig mysqld on
 service mysqld start
 </code></pre>
 
-<h3 id="chkconfig-">手動で作った起動スクリプトを <code>chkconfig</code> に管理させるには</h3>
+<h3 id="chkconfig--20130412">手動で作った起動スクリプトを <code>chkconfig</code> に管理させるには <span class="article-date">2013/04/12</span></h3>
 
 <p><code>/etc/init.d/mydaemon</code> というのがあるとすると</p>
 
@@ -131,7 +127,7 @@ service mysqld start
 chkconfig --add mydaemon
 </code></pre>
 
-<h2 id="view-distribution-version">Linuxのディストリビューションの確認方法</h2>
+<h2 id="view-distribution-version">Linuxのディストリビューションの確認方法 <span class="article-date">2013/04/30</span></h2>
 
 <p>例</p>
 
@@ -150,7 +146,7 @@ Codename:       precise
 <pre><code>sudo apt-get install lsb-release
 </code></pre>
 
-<h3 id="etc-"><code>/etc/</code> に入っているファイルで確認するには</h3>
+<h3 id="etc--20130430"><code>/etc/</code> に入っているファイルで確認するには <span class="article-date">2013/04/30</span></h3>
 
 <p>RedHat, CentOS などの場合</p>
 
@@ -164,7 +160,26 @@ CentOS release 5.2 (Final)
 wheezy/sid
 </code></pre>
 
-<h2 id="linux-1">原因調査用Linuxコマンド</h2>
+<h2 id="adduser--useradd-20130513"><code>adduser</code> と <code>useradd</code> <span class="article-date">2013/05/13</span></h2>
+
+<h3 id="ubuntu">Ubuntu</h3>
+
+<dl>
+  <dt><code>adduser</code></dt>
+  <dd>対話形式でユーザを新規作成する</dd>
+  <dt><code>useradd</code></dt>
+  <dd>オプションでいろいろ指定して、非対話形式でユーザを新規作成する。オプション無しでユーザ名だけで新規作成してしまうと、ホームディレクトリがなかったりする。</dd>
+</dl>
+
+<h3 id="centos-1">CentOS</h3>
+
+<p><code>adduser</code> と <code>useradd</code> は全く同じ。一方が他方にシンボリックリンクになっている。非対話形式だがホームディレクゴリはデフォルトで作成される。ユーザ作成後に <code>passwd</code> でパスワードの設定が必要。</p>
+
+<h2 id="section-2">プロセスとかスレッドとかプロセス間通信とかについて <span class="article-date">2013/04/03</span></h2>
+
+<p><a href="https://github.com/Shinpeim/process-book" target="_blank">https://github.com/Shinpeim/process-book</a></p>
+
+<h2 id="linux-20130412">原因調査用Linuxコマンド <span class="article-date">2013/04/12</span></h2>
 
 <p><a href="http://blog.father.gedow.net/2012/10/23/linux-command-for-trouble/" target="_blank">http://blog.father.gedow.net/2012/10/23/linux-command-for-trouble/</a></p>
 
