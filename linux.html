@@ -175,6 +175,38 @@ wheezy/sid
 
 <p><code>adduser</code> と <code>useradd</code> は全く同じ。一方が他方にシンボリックリンクになっている。非対話形式だがホームディレクゴリはデフォルトで作成される。ユーザ作成後に <code>passwd</code> でパスワードの設定が必要。</p>
 
+<h2 id="visudo">sudoの設定方法 <span class="article-date">2013/05/13</span></h2>
+
+<p><code>visudo</code> というコマンドをroot権限で実行すると、設定ファイルがviなどで開ける。設定ファイルは <code>/etc/sudoers</code> だが、これを直接開いて編集すると、万が一書き方が間違っていたりしてsudoできなくなってしまうと大変。それを防ぐために <code>visudo</code> というコマンドは、設定ファイルをエディタで編集した後に構文チェックをして問題ない場合に限りそれを適用する仕組みになっている。</p>
+
+<h3 id="centos-20130513">CentOS <span class="article-date">2013/05/13</span></h3>
+
+<p>sudoを使うには、最初にroot権限で <code>visudo</code> を実行して設定変更が必要。以下のような行があるので、この行のコメントを解除して有効にする。</p>
+
+<pre><code># %wheel ALL=(ALL) ALL
+</code></pre>
+
+<p>次に <code>vi /etc/group</code> を編集してwheelグループにsudo可能にしたいユーザを追加する。これで設定完了だが、設定変更前からwheelに追加したそのユーザでログインしたままの場合は、ログインしなおさないと変更が反映されないもよう。</p>
+
+<p>(CentOS6.4で確認)</p>
+
+<h4 id="wheel">なぜwheelという名前のグループなのか？</h4>
+
+<p><a href="http://codaholic.org/?p=1757" target="_blank">http://codaholic.org/?p=1757</a></p>
+
+<h3 id="ubuntu-20130513">Ubuntu <span class="article-date">2013/05/13</span></h3>
+
+<p>OSセットアップ時に作成したユーザはデフォルトでsudoという名前のグループに入っていて、そのグループに入っているユーザには任意のコマンドをsudoで実行できるようになっている。</p>
+
+<p>特定のコマンドをパスワードなしでsudoできるようにするには、</p>
+
+<pre><code>sudo ALL=(ALL) NOPASSWD: /etc/init.d/apache2
+</code></pre>
+
+<p>などと書く。この例ではApacheの起動・終了・リロードなどがsudoグループであればパスワードなしで実行できる。パスワードなしということは、スクリプトの中にこのコマンドを書いて自動実行させることもできる。</p>
+
+<p>(Ubuntu12.04で確認)</p>
+
 <h2 id="section-2">プロセスとかスレッドとかプロセス間通信とかについて <span class="article-date">2013/04/03</span></h2>
 
 <p><a href="https://github.com/Shinpeim/process-book" target="_blank">https://github.com/Shinpeim/process-book</a></p>

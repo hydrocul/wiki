@@ -102,6 +102,7 @@ footer {
 <ul>
   <li><a href="#increment">インクリメント・デクリメント演算子</a></li>
   <li><a href="#compare">比較演算子</a></li>
+  <li><a href="#elvis">エルビス演算子</a></li>
 </ul>
 
 <h2 id="increment">インクリメント・デクリメント演算子</h2>
@@ -190,6 +191,46 @@ i -= 1
 
 <p>文字列に関してはこちら<br />
 <i>-&gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/string.html">文字列処理</a> &gt; <a href="../programming_languages_diff/string.html#compare">比較</a></i></p>
+
+<h2 id="section-1">三項演算子</h2>
+
+<h2 id="elvis">エルビス演算子</h2>
+
+<p>三項演算子の2項目が省略されたもので、 <code>?:</code> を顔文字として見たときに「エルビス演算子」という名前の由来がわかる。デフォルト値を設定する場合などに便利。</p>
+
+<h3 id="groovy">Groovy</h3>
+
+<pre><code>a ?: b
+</code></pre>
+
+<p>という表現で</p>
+
+<pre><code>a ? a : b
+</code></pre>
+
+<p>という意味になる。<code>a</code> が <code>null</code> だったらデフォルトの値にする、という使い方などに便利。</p>
+
+<h3 id="php-1">PHP</h3>
+
+<p>PHP5.3以降でエルビス演算子を使える。</p>
+
+<pre><code>$a ?: $b
+</code></pre>
+
+<p>は</p>
+
+<pre><code>$a ? $a : $b
+</code></pre>
+
+<p>と同じ意味になる。<code>$a</code> が <code>null</code> や空文字列だった場合などにデフォルトの値にする、という使い方などに便利。</p>
+
+<p>PHPの三項演算子<br />
+<a href="http://www.php.net/manual/ja/language.operators.comparison.php#language.operators.comparison.ternary" target="_blank">http://www.php.net/manual/ja/language.operators.comparison.php#language.operators.comparison.ternary</a></p>
+
+<p><code>$a</code> が <code>false</code>, <code>null</code>, <code>0</code>, <code>0.0</code>, <code>''</code>, <code>'0'</code>, <code>array()</code>
+の場合に <code>$b</code> になり、それ以外の場合は、<code>$a</code> になる。</p>
+
+<p><a href="http://php.net/manual/ja/types.comparisons.php" target="_blank">http://php.net/manual/ja/types.comparisons.php</a></p>
 
 
 </div>
