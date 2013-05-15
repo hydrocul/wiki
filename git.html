@@ -11,6 +11,10 @@
   float: left;
   width: 150px;
 }
+#side-menu-attention {
+  margin: 10px;
+  font-size: 80%;
+}
 #content {
 
   margin: 0 40px 0px 150px;
@@ -93,28 +97,30 @@ footer {
     <a href="./">ホーム</a> &gt; git
   </div>
   <div id="side-menu">
-    side menu
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
   </div>
 
 <div id="content">
   <h1 id="git">git</h1>
 
 <ul>
-  <li><a href="#color">カラフルにログを見るには [2013/04/03]</a></li>
-  <li><a href="#diff-not-display-rename">diffでリネームされたファイルを表示されないようにするには [2013/04/03]</a></li>
-  <li><a href="#checkout-remote">リモートにあってローカルにはないブランチをチェックアウトするには [2013/04/03]</a></li>
-  <li><a href="#remove-remote-branch">ローカルにはすでに存在せずリモートに残っているブランチを削除するには [2013/04/03]</a></li>
-  <li><a href="#remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには [2013/04/03]</a></li>
-  <li><a href="#stash">まだコミットしていない修正を一時保存しておいて、最後のコミットの状態に戻すには [2013/04/15]</a></li>
-  <li><a href="#undo">いろいろと元に戻す方法 [2013/04/03]</a></li>
-  <li><a href="#assume-unchanged">既に git で管理しているファイルの変更を git に無視させるには [2013/04/03]</a></li>
-  <li><a href="#add-ignore-space-change">gitで空白の違いだけの行を除いてaddするには [2013/04/03]</a></li>
-  <li><a href="#diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには [2013/04/05]</a></li>
-  <li><a href="#git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには [2013/04/12]</a></li>
-  <li><a href="#gitignore-recursive"><code>.gitignore</code> のへぇ〜 [2013/04/03]</a></li>
-  <li><a href="#introductory-book">入門 [2013/04/03]</a></li>
+  <li><a href="#color">カラフルにログを見るには</a></li>
+  <li><a href="#diff-not-display-rename">diffでリネームされたファイルを表示されないようにするには</a></li>
+  <li><a href="#checkout-remote">リモートにあってローカルにはないブランチをチェックアウトするには</a></li>
+  <li><a href="#remove-remote-branch">ローカルにはすでに存在せずリモートに残っているブランチを削除するには</a></li>
+  <li><a href="#remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには</a></li>
+  <li><a href="#stash">まだコミットしていない修正を一時保存しておいて、最後のコミットの状態に戻すには</a></li>
+  <li><a href="#undo">いろいろと元に戻す方法</a></li>
+  <li><a href="#assume-unchanged">既に git で管理しているファイルの変更を git に無視させるには</a></li>
+  <li><a href="#add-ignore-space-change">gitで空白の違いだけの行を除いてaddするには</a></li>
+  <li><a href="#diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには</a></li>
+  <li><a href="#git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには</a></li>
+  <li><a href="#gitignore-recursive"><code>.gitignore</code> のへぇ〜</a></li>
+  <li><a href="#introductory-book">入門</a></li>
   <li><a href="#gitlab">GitLab</a></li>
-  <li><a href="#gitignore-only-me">無視するファイルをみんなで共有せずに自分のディレクトリにだけ設定するには [2013/04/19]</a></li>
+  <li><a href="#gitignore-only-me">無視するファイルをみんなで共有せずに自分のディレクトリにだけ設定するには</a></li>
 </ul>
 
 <h2 id="color">カラフルにログを見るには <span class="article-date">2013/04/03</span></h2>

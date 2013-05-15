@@ -11,6 +11,10 @@
   float: left;
   width: 150px;
 }
+#side-menu-attention {
+  margin: 10px;
+  font-size: 80%;
+}
 #content {
 
   margin: 0 40px 0px 150px;
@@ -93,18 +97,22 @@ footer {
     <a href="../">ホーム</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; 正規表現
   </div>
   <div id="side-menu">
-    side menu
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
   </div>
 
 <div id="content">
   <h1 id="section">正規表現</h1>
 
 <ul>
+  <li><a href="#regexp-format">正規表現で使える記法</a></li>
+  <li><a href="#special-chars">マッチング後に使える特殊な記号</a></li>
   <li><a href="#match">パターンマッチング</a></li>
   <li><a href="#replace">全置換</a></li>
 </ul>
 
-<h2 id="section-1">正規表現で使える記法</h2>
+<h2 id="regexp-format">正規表現で使える記法</h2>
 
 <h3 id="ruby">Ruby</h3>
 
@@ -112,9 +120,19 @@ footer {
 
 <p><a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fregexp.html</a></p>
 
-<h2 id="match">パターンマッチング</h2>
+<h2 id="special-chars">マッチング後に使える特殊な記号</h2>
 
 <h3 id="ruby-1">Ruby</h3>
+
+<dl>
+  <dt><code>$&amp;</code></dt>
+  <dd>現在のスコープで最後に成功したマッチングでマッチした文字列。
+最後のマッチングでマッチしなかった場合は <code>nil</code> になる。</dd>
+</dl>
+
+<h2 id="match">パターンマッチング</h2>
+
+<h3 id="ruby-2">Ruby</h3>
 
 <p><code>=~</code> という演算子で、正規表現にマッチしていたら、そのインデックスを返し、マッチしなければ <code>nil</code> を返す。</p>
 
@@ -187,7 +205,7 @@ footer {
 <p>パターン修飾子 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/reference.pcre.pattern.modifiers.php" target="_blank">http://www.php.net/manual/ja/reference.pcre.pattern.modifiers.php</a></p>
 
-<h3 id="ruby-2">Ruby</h3>
+<h3 id="ruby-3">Ruby</h3>
 
 <pre><code>"abc\nabc\n".gsub(/\n/, "&lt;br /&gt;")
 </code></pre>

@@ -11,6 +11,10 @@
   float: left;
   width: 150px;
 }
+#side-menu-attention {
+  margin: 10px;
+  font-size: 80%;
+}
 #content {
 
   margin: 0 40px 0px 150px;
@@ -93,7 +97,9 @@ footer {
     <a href="./">ホーム</a> &gt; コマンドリファレンス
   </div>
   <div id="side-menu">
-    side menu
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
   </div>
 
 <div id="content">
@@ -133,20 +139,20 @@ footer {
   <li><a href="#zip">zip</a></li>
 </ul>
 
-<h2 id="ack-grep">ack-grep</h2>
+<h2 id="ack-grep">ack-grep <span class="article-date">2013/05/13</span></h2>
 
 <p>grepよりもスマートに検索できるコマンド。</p>
 
 <p>(もっと高速に検索できる The Silver Searcher というのがあるらしい。)</p>
 
-<h3 id="section-1">インストール</h3>
+<h3 id="section-1">インストール <span class="article-date">2013/04/03</span></h3>
 
 <p>Ubuntuの場合</p>
 
 <pre><code>sudo apt-get install ack-grep
 </code></pre>
 
-<h3 id="section-2">対応しているファイルタイプの一覧を見るには</h3>
+<h3 id="section-2">対応しているファイルタイプの一覧を見るには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>ack-grep --help-type
 </code></pre>
@@ -165,7 +171,7 @@ footer {
          objcpp      =&gt; [qw( mm h )],
 </code></pre>
 
-<h2 id="base64">base64</h2>
+<h2 id="base64">base64 <span class="article-date">2013/05/11</span></h2>
 
 <p>標準入力のデータをBASE64でエンコードまたはデコードして標準出力する。</p>
 
@@ -188,7 +194,7 @@ openssl enc -d -base64 # デコード
 
 <p><a href="http://dharry.hatenablog.com/entry/20120701/1341113739" target="_blank">http://dharry.hatenablog.com/entry/20120701/1341113739</a></p>
 
-<h2 id="cp">cp</h2>
+<h2 id="cp">cp <span class="article-date">2013/04/03</span></h2>
 
 <dl>
   <dt><code>-i</code></dt>
@@ -201,7 +207,7 @@ openssl enc -d -base64 # デコード
   <dd>ファイル名を表示しながらコピーする</dd>
 </dl>
 
-<h3 id="section-3">ディレクトリ名も含めてファイルをコピーするには</h3>
+<h3 id="section-3">ディレクトリ名も含めてファイルをコピーするには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>cp --parents abc/def/ghi.dat /home/who/
 </code></pre>
@@ -210,7 +216,7 @@ openssl enc -d -base64 # デコード
 
 <p><code>rsync</code> での同じ役割をはたすのは <code>-R</code>。</p>
 
-<h2 id="crontab">crontab</h2>
+<h2 id="crontab">crontab <span class="article-date">2013/04/22</span></h2>
 
 <p><code>-r</code> は設定をすべて削除してしまうので要注意。<code>r</code> は <code>e</code> の隣。</p>
 
