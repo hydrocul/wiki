@@ -108,11 +108,12 @@ footer {
 <ul>
   <li><a href="#if">if文</a></li>
   <li><a href="#for">for文(繰り返し)</a></li>
+  <li><a href="#switch">switch文</a></li>
 </ul>
 
 <h2 id="if">if文</h2>
 
-<h3 id="ruby">Ruby</h3>
+<h3 id="ruby-20130502">Ruby <span class="article-date">2013/05/02</span></h3>
 
 <pre><code>if ... then
   ...
@@ -123,7 +124,7 @@ else
 end
 </code></pre>
 
-<h3 id="bash">bash</h3>
+<h3 id="bash-20130410">bash <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>if [ ... ]; then
     ...
@@ -134,7 +135,7 @@ else
 fi
 </code></pre>
 
-<h3 id="coffeescript">CoffeeScript</h3>
+<h3 id="coffeescript-20130410">CoffeeScript <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>if ... then ... else ...
 
@@ -170,7 +171,7 @@ else ...
 <p><i>-&gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/list.html">リスト(配列)</a> &gt; <a href="../programming_languages_diff/list.html#foreach">foreach</a></i><br />
 <i>-&gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/map.html">マップ(連想配列)</a> &gt; <a href="../programming_languages_diff/map.html#foreach">foreach</a></i>  </p>
 
-<h3 id="c-c">C言語, C++</h3>
+<h3 id="c-c-20130422">C言語, C++ <span class="article-date">2013/04/22</span></h3>
 
 <pre><code>for(int i = 0; i &lt; 10; i++){
     ...
@@ -190,7 +191,7 @@ while(式2){
 }
 </code></pre>
 
-<h3 id="ruby-1">Ruby</h3>
+<h3 id="ruby-20130504">Ruby <span class="article-date">2013/05/04</span></h3>
 
 <p>0 から n-1 までを繰り返すには</p>
 
@@ -198,6 +199,66 @@ while(式2){
   ...
 end
 </code></pre>
+
+<h2 id="switch">switch文</h2>
+
+<h3 id="c-c-20130515">C言語, C++ <span class="article-date">2013/05/15</span></h3>
+
+<pre><code>switch(x){
+case 1:
+  ...
+  break;
+case 2:
+  ...
+  break;
+default:
+  ...
+  break;
+}
+</code></pre>
+
+<p><code>break</code> を書かないとswitch文から脱出せずに次のラベルを引き続き実行してしまう。(fall through)</p>
+
+<h3 id="java-20130515">Java <span class="article-date">2013/05/15</span></h3>
+
+<pre><code>switch(x){
+case 1:
+  ...
+  break;
+case 2:
+  ...
+  break;
+default:
+  ...
+  break;
+}
+</code></pre>
+
+<p><code>break</code> を書かないとswitch文から脱出せずに次のラベルを引き続き実行してしまう。(fall through)</p>
+
+<p><code>x</code> には、<code>byte</code>, <code>short</code>, <code>char</code>, <code>int</code>, <code>Byte</code>, <code>Short</code>, <code>Character</code>, <code>Integer</code>,
+<code>enum</code>, <code>String</code> が使える。</p>
+
+<p><code>String</code> が使えるのは、Java SE 7 から。ただ、<code>String</code> の場合、 <code>null</code> だと
+<code>NullPointerException</code> が発生してしまい、caseで <code>null</code> を指定したり、
+defaultに飛んでくれたりはしない。
+<code>Integer</code> の場合も、<code>NullPointerException</code> が発生しうるのは同様。</p>
+
+<p><code>Byte</code>, <code>Short</code>, <code>Character</code>, <code>Integer</code> が使えるのは、たぶん autoboxing が導入された Java SE 5 から。</p>
+
+<h2 id="scala-20130515">Scala <span class="article-date">2013/05/15</span></h2>
+
+<pre><code>x match {
+  case 1 =&gt;
+    ...
+  case 2 =&gt;
+    ...
+  case 3 =&gt;
+    ...
+}
+</code></pre>
+
+<p>C言語やJavaのように　fall through することはない。</p>
 
 
 </div>
