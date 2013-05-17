@@ -181,6 +181,33 @@ end
 end
 </code></pre>
 
+<h2 id="section-9">ディレクトリの中をを再帰的にたどってすべて削除するには</h2>
+
+<h3 id="php-20111013">PHP <span class="article-date">2011/10/13</span></h3>
+
+<pre><code>function rmdir_all($dir) {
+  if (!file_exists($dir)) {
+    return;
+  }
+  $dhandle = opendir($dir);
+  if ($dhandle) {
+    while (false !== ($fname = readdir($dhandle))) {
+       if (is_dir( "{$dir}/{$fname}" )) {
+          if (($fname != '.') &amp;&amp; ($fname != '..')) {
+             rmdir_all("$dir/$fname");
+          }
+       } else {
+          unlink("$dir/$fname");
+          echo "delete $dir/$fname&lt;br /&gt;";
+       }
+    }
+    closedir($dhandle);
+  }
+  rmdir($dir);
+  echo "delete $dir&lt;br /&gt;";
+}
+</code></pre>
+
 
 </div>
 

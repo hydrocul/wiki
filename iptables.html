@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Home | hydrocul のメモ</title>
+<title>iptables | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -94,7 +94,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="./">ホーム</a> &gt; Home
+    <a href="./">ホーム</a> &gt; iptables
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -103,9 +103,23 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="home">Home</h1>
+  <h1 id="iptables">iptables</h1>
 
-<p><a href="./algorithm.html">アルゴリズム</a> <a href="./apache.html">Apache</a> <a href="./bash.html">シェルスクリプト</a> <a href="./codeigniter.html">CodeIgniter</a> <a href="./color.html">色</a> <a href="./commands.html">コマンドリファレンス</a> <a href="./css.html">CSS</a> <a href="./emacs.html">Emacs</a> <a href="./find.html">find</a> <a href="./git.html">git</a> <a href="./html.html">HTML</a> <a href="./incron.html">incron (inotify cron)</a> <a href="./iptables.html">iptables</a> <a href="./java.html">Java</a> <a href="./jquery.html">jQuery</a> <a href="./linux.html">Linux</a> <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a> <a href="./markdown.html">Markdown</a> <a href="./materials.html">素材集</a> <a href="./mechanize.html">mechanize</a> <a href="./misc.html">misc</a> <a href="./mylisp.html">オレオレLisp</a> <a href="./mysql.html">MySQL</a> <a href="./passenger.html">Passenger (Ruby on Rails)</a> <a href="./php.html">PHP</a> <a href="./physics.html">物理学</a> <a href="./programming_languages_diff/">プログラミング言語の比較</a> <a href="./python.html">Python</a> <a href="./rails.html">Ruby on Rails</a> <a href="./ruby.html">Ruby</a> <a href="./ssh.html">SSH</a> <a href="./ubuntu.html">Ubuntu</a> </p>
+<h2 id="centosapache-20130517">CentOSをインストールしたあとにApacheのポートを外部に向けて開けるには <span class="article-date">2013/05/17</span></h2>
+
+<pre><code># root権限で
+iptables -L –line-number
+iptables -I INPUT 5 -p tcp --dport 443 -j ACCEPT
+iptables -I INPUT 5 -p tcp --dport 80 -j ACCEPT
+</code></pre>
+
+<p><code>5</code> というのは、 <code>iptables -L –line-number</code> で現状の設定を確認した結果、
+<code>Chain INPUT</code> の最後にある <code>REJECT</code> が5行目だった場合で、5行目に新しいルールを挿入する、という意味。</p>
+
+<p>iptablesを設定した後は、設定の保存が必要。そうしないと、OS再起動時にリセットされてしまう。</p>
+
+<pre><code>/sbin/service iptables save
+</code></pre>
 
 
 </div>
