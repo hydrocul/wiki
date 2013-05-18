@@ -311,6 +311,13 @@ end
 <p>Ruby 1.9.3 リファレンスマニュアル &gt; ヒアドキュメント<br />
 <a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
 
+<h3 id="javascript-20130517">JavaScript <span class="article-date">2013/05/17</span></h3>
+
+<p>標準ではヒアドキュメントの仕組みはないが、似たようなことを実現する工夫はできる。</p>
+
+<p>Javascriptでヒアドキュメント<br />
+<a href="http://www.m-bsys.com/code/javascript-heredoc" target="_blank">http://www.m-bsys.com/code/javascript-heredoc</a></p>
+
 <h2 id="exception">例外処理</h2>
 
 <h3 id="ruby-4">Ruby</h3>
@@ -416,6 +423,23 @@ num, str = f
 
 <pre><code>ENV['HOME']
 </code></pre>
+
+<h2 id="section-3">コマンドライン引数の取得</h2>
+
+<h3 id="php-20130517">PHP <span class="article-date">2013/05/17</span></h3>
+
+<dl>
+  <dt><code>$argc</code></dt>
+  <dd>引数の数。PHPスクリプトのファイル名が最初の引数になるので、これが0になることはない。<br />
+http://www.php.net/manual/ja/reserved.variables.argc.php</dd>
+  <dt><code>$argv</code></dt>
+  <dd>引数が配列で入っている。<code>$argv[0]</code> はPHPスクリプトのファイル名になる。<br />
+http://php.net/manual/ja/reserved.variables.argv.php</dd>
+</dl>
+
+<h3 id="ruby-20130517">Ruby <span class="article-date">2013/05/17</span></h3>
+
+<p><code>ARGV</code> という定数に引数が配列で入っている。スクリプトファイル名は含まれておらず、先頭から本当の引数が入っている。</p>
 
 
 </div>
