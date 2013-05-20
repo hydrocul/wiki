@@ -133,11 +133,12 @@ link = agent.page.link_with(:text =&gt; 'ヘルプ'.toutf8) # リンクを探す
 link.click if link != nil リンクをクリック
 </code></pre>
 
-<h2 id="section-1">フォームに関するコードの例 <span class="article-date">2013/04/29</span></h2>
+<h2 id="section-1">フォームに関するコードの例 <span class="article-date">2013/05/18</span></h2>
 
 <pre><code>form = agent.page.forms[0] # フォームを取得
 # または
-form = agent.page.form_with(:id =&gt; 'login_form') # フォームを取得
+form = agent.page.form_with(:id =&gt; 'login_form') # フォームをidで取得
+form = agent.page.form_with(:action =&gt; '/service') # フォームをactionで取得
 
 form['login'] = email # input要素に値を設定
 form['password'] = pw # input要素に値を設定
