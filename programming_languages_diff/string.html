@@ -106,6 +106,7 @@ footer {
   <h1 id="section">文字列処理</h1>
 
 <ul>
+  <li><a href="#literal">文字列の書き方</a></li>
   <li><a href="#substr">substr</a></li>
   <li><a href="#charat">charAt</a></li>
   <li><a href="#trim">trim</a></li>
@@ -119,6 +120,49 @@ footer {
   <li><a href="#compare">比較</a></li>
   <li><a href="#upper-lower">大文字小文字変換</a></li>
 </ul>
+
+<h2 id="literal">文字列の書き方</h2>
+
+<h3 id="java-20130520">Java <span class="article-date">2013/05/20</span></h3>
+
+<p><code>"</code> で囲んで文字列を表す。 <code>'</code> で囲むと文字列ではなく文字になる。</p>
+
+<h4 id="section-1">エスケープ処理</h4>
+
+<dl>
+  <dt><code>\uxxxx</code></dt>
+  <dd>Unicodeで文字を表現(Unicodeエスケープ)</dd>
+  <dt><code>\xxx</code></dt>
+  <dd>8進数で文字を表現 (\u0000 〜 \u00FF までしか表現できない)</dd>
+  <dt><code>\b</code></dt>
+  <dd>0x08</dd>
+  <dt><code>\t</code></dt>
+  <dd>0x09 タブ</dd>
+  <dt><code>\n</code></dt>
+  <dd>0x0a LF</dd>
+  <dt><code>\f</code></dt>
+  <dd>0x0c</dd>
+  <dt><code>\r</code></dt>
+  <dd>0x0d CR</dd>
+  <dt><code>\"</code></dt>
+  <dd><code>"</code></dd>
+  <dt><code>\'</code></dt>
+  <dd><code>'</code></dd>
+  <dt><code>\\</code></dt>
+  <dd>’\’</dd>
+</dl>
+
+<p>Unicodeエスケープは、文字列リテラルの機能ではなく、Javaソースコードをコンパイラがトークンに分割する前の処理として機能する。</p>
+
+<h3 id="sh-20130520">sh <span class="article-date">2013/05/20</span></h3>
+
+<h4 id="section-2">エスケープ処理</h4>
+
+<p>いくつかの記号はシェルで特別な意味を持つので <code>\</code> でエスケープが必要。</p>
+
+<p><code>"</code> で囲めば、エスケープが必要になるのは <code>"</code>, <code>$</code>,  <code>\</code><code>,  </code>` のみになる。</p>
+
+<p><code>'</code> で囲めば、エスケープ処理が不要になるが、 <code>'</code> を含めることができなくなる。</p>
 
 <h2 id="substr">substr</h2>
 

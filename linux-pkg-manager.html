@@ -109,7 +109,7 @@ footer {
 
 <h2 id="section">パッケージマネージャ別の基本操作</h2>
 
-<h3 id="apt-get"><code>apt-get</code></h3>
+<h3 id="apt-get-20130520"><code>apt-get</code> <span class="article-date">2013/05/20</span></h3>
 
 <pre><code># パッケージを検索
 apt-cache search キーワード
@@ -133,9 +133,12 @@ dpkg -l
 
 # パッケージでインストールされるファイルの一覧を見るには
 dpkg -L パッケージ名
+
+# 特定のファイルがどのパッケージに含まれるかを調べるには
+dpkg -S ファイル名
 </code></pre>
 
-<h3 id="yum"><code>yum</code></h3>
+<h3 id="yum-20130520"><code>yum</code> <span class="article-date">2013/05/20</span></h3>
 
 <pre><code># パッケージを検索
 yum search キーワード
@@ -154,9 +157,12 @@ rpm -qa
 
 # パッケージでインストールされるファイルの一覧を見るには
 rpm -ql パッケージ名
+
+# 特定のファイルがどのパッケージに含まれるかを調べるには
+rpm -qf ファイル名
 </code></pre>
 
-<h3 id="macports">Macports</h3>
+<h3 id="macports-20130503">Macports <span class="article-date">2013/05/03</span></h3>
 
 <pre><code># パッケージを検索
 port search キーワード
@@ -183,7 +189,7 @@ port installed
 port contents パッケージ名
 </code></pre>
 
-<h3 id="homebrew">Homebrew</h3>
+<h3 id="homebrew-20130503">Homebrew <span class="article-date">2013/05/03</span></h3>
 
 <pre><code># パッケージを検索
 brew search キーワード
