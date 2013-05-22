@@ -166,7 +166,7 @@ CentOS release 5.2 (Final)
 wheezy/sid
 </code></pre>
 
-<h3 id="section-2">スクリプトで自動判定するには <span class="article-date">2013/05/21</span></h3>
+<h3 id="section-2">スクリプトで自動判定するには <span class="article-date">2013/05/22</span></h3>
 
 <pre><code># ファイルの有無で調べる
 if [ -e /etc/redhat-release ] ; then
@@ -176,9 +176,9 @@ elif [ -e /etc/debian_version ] ; then
 fi
 
 # パッケージ管理ツールのコマンドで調べる
-if which yum &gt; /dev/null ; then
+if [ -x /usr/bin/yum ] ; then
     echo Redhat
-elif which apt-get &gt; /dev/null ; then
+elif [ -x /usr/bin/apt-get ] ; then
     echo Debian
 fi
 </code></pre>
