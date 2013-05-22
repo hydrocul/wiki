@@ -130,6 +130,7 @@ footer {
   <li><a href="#scaladoc">scaladoc</a></li>
   <li><a href="#sed">sed</a></li>
   <li><a href="#source-highlight">source-highlight</a></li>
+  <li><a href="#sort">sort</a></li>
   <li><a href="#ssh">ssh</a></li>
   <li><a href="#tac">tac</a></li>
   <li><a href="#tar">tar</a></li>
@@ -474,6 +475,21 @@ grep -rni --color=always abc | less -X -R
 
 <p>GNU Source-highlight のマニュアルの和訳<br />
 <a href="http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_toc.html" target="_blank">http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_toc.html</a></p>
+
+<h2 id="sort">sort</h2>
+
+<p>行単位で並び替えができる。</p>
+
+<dl>
+  <dt><code>-r</code></dt>
+  <dd>逆順に並び替える</dd>
+  <dt><code>-k</code></dt>
+  <dd>どの列で並び替えるかを指定する。 <code>-k 6,7</code> は、6列目で比較し、6列目が同じ場合は
+7列目で比較する。列番号は1から始まる。</dd>
+  <dt><code>-t</code></dt>
+  <dd>列の区切り文字を指定する。デフォルトは空白。 <code>-t $'\t'</code> でタブ区切りの
+ファイルを処理できるようになる。</dd>
+</dl>
 
 <h2 id="ssh">ssh</h2>
 

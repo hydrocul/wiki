@@ -129,10 +129,12 @@ footer {
 
 <h4 id="section-1">エスケープ処理</h4>
 
+<p>以下ののエスケープが使える。</p>
+
 <dl>
   <dt><code>\uxxxx</code></dt>
   <dd>Unicodeで文字を表現(Unicodeエスケープ)</dd>
-  <dt><code>\xxx</code></dt>
+  <dt><code>\\</code>数字(1ケタ〜3ケタ)</dt>
   <dd>8進数で文字を表現 (\u0000 〜 \u00FF までしか表現できない)</dd>
   <dt><code>\b</code></dt>
   <dd>0x08</dd>
@@ -149,18 +151,65 @@ footer {
   <dt><code>\'</code></dt>
   <dd><code>'</code></dd>
   <dt><code>\\</code></dt>
-  <dd>’\’</dd>
+  <dd><code>\</code></dd>
 </dl>
 
 <p>Unicodeエスケープは、文字列リテラルの機能ではなく、Javaソースコードをコンパイラがトークンに分割する前の処理として機能する。</p>
 
-<h3 id="sh-20130520">sh <span class="article-date">2013/05/20</span></h3>
+<h3 id="php-20130520">PHP <span class="article-date">2013/05/20</span></h3>
+
+<p><code>'</code> または <code>"</code> で囲む。またはヒアドキュメントを使う。</p>
+
+<p><code>"</code> で囲んだ場合は <code>$</code> で始まる部分が変数名として値に展開される。</p>
 
 <h4 id="section-2">エスケープ処理</h4>
 
+<p><code>'</code> で囲めば、エスケープが必要になるのは <code>'</code>, <code>\</code> のみになる。<code>'\n'</code> などと書いても <code>\n</code> そのものになって改行にはならない。</p>
+
+<p><code>"</code> で囲んだ場合は、以下のエスケープが使える。</p>
+
+<dl>
+  <dt><code>\\</code>数字(1ケタ〜3ケタ)</dt>
+  <dd>8進数で文字を表現</dd>
+  <dt><code>\\x</code>数字(1ケタ〜2ケタ)</dt>
+  <dd>16進数で文字を表現</dd>
+  <dt><code>\t</code></dt>
+  <dd>0x09 タブ</dd>
+  <dt><code>\n</code></dt>
+  <dd>0x0a LF</dd>
+  <dt><code>\f</code></dt>
+  <dd>0x0c</dd>
+  <dt><code>\r</code></dt>
+  <dd>0x0d CR</dd>
+  <dt><code>\e</code></dt>
+  <dd>0x1B ESC</dd>
+  <dt><code>\$</code></dt>
+  <dd><code>$</code></dd>
+  <dt><code>\"</code></dt>
+  <dd><code>"</code></dd>
+  <dt><code>\\</code></dt>
+  <dd><code>\</code></dd>
+</dl>
+
+<h4 id="section-3">ヒアドキュメント</h4>
+
+<p>ヒアドキュメント | PHPマニュアル<br />
+<a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc" target="_blank">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc</a></p>
+
+<p><code>"</code> で囲んだ場合と同様に <code>$</code> で始まる部分が変数名として値に展開される。</p>
+
+<p>シングルクオートのヒアドキュメント | PHPマニュアル<br />
+<a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc" target="_blank">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc</a></p>
+
+<p>これは変数名が展開されない。</p>
+
+<h3 id="sh-20130520">sh <span class="article-date">2013/05/20</span></h3>
+
+<h4 id="section-4">エスケープ処理</h4>
+
 <p>いくつかの記号はシェルで特別な意味を持つので <code>\</code> でエスケープが必要。</p>
 
-<p><code>"</code> で囲めば、エスケープが必要になるのは <code>"</code>, <code>$</code>,  <code>\</code><code>,  </code>` のみになる。</p>
+<p><code>"</code> で囲めば、エスケープが必要になるのは <code>"</code>, <code>$</code>,  <code>\</code>,  <code>`</code> のみになる。</p>
 
 <p><code>'</code> で囲めば、エスケープ処理が不要になるが、 <code>'</code> を含めることができなくなる。</p>
 

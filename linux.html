@@ -166,6 +166,23 @@ CentOS release 5.2 (Final)
 wheezy/sid
 </code></pre>
 
+<h3 id="section-2">スクリプトで自動判定するには <span class="article-date">2013/05/21</span></h3>
+
+<pre><code># ファイルの有無で調べる
+if [ -e /etc/redhat-release ] ; then
+    echo Redhat
+elif [ -e /etc/debian_version ] ; then
+    echo Debian
+fi
+
+# パッケージ管理ツールのコマンドで調べる
+if which yum &gt; /dev/null ; then
+    echo Redhat
+elif which apt-get &gt; /dev/null ; then
+    echo Debian
+fi
+</code></pre>
+
 <h2 id="adduser--useradd-20130513"><code>adduser</code> と <code>useradd</code> <span class="article-date">2013/05/13</span></h2>
 
 <h3 id="ubuntu">Ubuntu</h3>
@@ -213,7 +230,7 @@ wheezy/sid
 
 <p>(Ubuntu12.04で確認)</p>
 
-<h2 id="section-2">プロセスとかスレッドとかプロセス間通信とかについて <span class="article-date">2013/04/03</span></h2>
+<h2 id="section-3">プロセスとかスレッドとかプロセス間通信とかについて <span class="article-date">2013/04/03</span></h2>
 
 <p><a href="https://github.com/Shinpeim/process-book" target="_blank">https://github.com/Shinpeim/process-book</a></p>
 
