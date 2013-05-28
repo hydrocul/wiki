@@ -94,7 +94,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="../">ホーム</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; Overview
+    <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; Overview
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -111,6 +111,11 @@ footer {
   <li><a href="#method">関数・メソッド定義</a></li>
   <li><a href="#heredoc">ヒアドキュメント</a></li>
   <li><a href="#exception">例外処理</a></li>
+  <li><a href="#multi-return">複数の返り値</a></li>
+  <li><a href="#environment">環境変数の取得</a></li>
+  <li><a href="#command-line-arguments">コマンドライン引数の取得</a></li>
+  <li><a href="#source-file-name">ソースファイル名をソースコード中で取得するには</a></li>
+  <li><a href="#main-function">そのソースファイルが他からの参照ではなく、直接実行された場合にのみ何らかの処理をするには</a></li>
 </ul>
 
 <h2 id="comment">コメント</h2>
@@ -393,7 +398,7 @@ finally
   ...
 </code></pre>
 
-<h2 id="section-1">複数の返り値</h2>
+<h2 id="multi-return">複数の返り値</h2>
 
 <h3 id="php-3">PHP</h3>
 
@@ -415,7 +420,7 @@ end
 num, str = f
 </code></pre>
 
-<h2 id="section-2">環境変数の取得</h2>
+<h2 id="environment">環境変数の取得</h2>
 
 <h3 id="ruby-6">Ruby</h3>
 
@@ -424,7 +429,7 @@ num, str = f
 <pre><code>ENV['HOME']
 </code></pre>
 
-<h2 id="section-3">コマンドライン引数の取得</h2>
+<h2 id="command-line-arguments">コマンドライン引数の取得</h2>
 
 <h3 id="php-20130517">PHP <span class="article-date">2013/05/17</span></h3>
 
@@ -440,6 +445,22 @@ http://php.net/manual/ja/reserved.variables.argv.php</dd>
 <h3 id="ruby-20130517">Ruby <span class="article-date">2013/05/17</span></h3>
 
 <p><code>ARGV</code> という定数に引数が配列で入っている。スクリプトファイル名は含まれておらず、先頭から本当の引数が入っている。</p>
+
+<h2 id="source-file-name">ソースファイル名をソースコード中で取得するには</h2>
+
+<h3 id="ruby-20130526">Ruby <span class="article-date">2013/05/26</span></h3>
+
+<pre><code>__FILE__
+</code></pre>
+
+<h2 id="main-function">そのソースファイルが他からの参照ではなく、直接実行された場合にのみ何らかの処理をするには</h2>
+
+<h3 id="ruby-20130526-1">Ruby <span class="article-date">2013/05/26</span></h3>
+
+<pre><code>if __FILE__ == $PROGRAM_NAME
+    # 何らかの処理
+end
+</code></pre>
 
 
 </div>
