@@ -110,6 +110,7 @@ footer {
   <li><a href="#base64">base64</a></li>
   <li><a href="#cp">cp</a></li>
   <li><a href="#crontab">crontab</a></li>
+  <li><a href="#cut">cut</a></li>
   <li><a href="#date">date</a></li>
   <li><a href="#du">du</a></li>
   <li><a href="#echo">echo</a></li>
@@ -221,6 +222,16 @@ openssl enc -d -base64 # デコード
 <h2 id="crontab">crontab <span class="article-date">2013/04/22</span></h2>
 
 <p><code>-r</code> は設定をすべて削除してしまうので要注意。<code>r</code> は <code>e</code> の隣。</p>
+
+<h2 id="cut">cut <span class="article-date">2013/05/29</span></h2>
+
+<h3 id="cut-">cut でタブ区切りを処理するには</h3>
+
+<pre><code># 最初のカラムだけを表示
+cut -d$'\t' -f1
+</code></pre>
+
+<p><code>sort</code> でも似たような書き方でできる。</p>
 
 <h2 id="date">date</h2>
 

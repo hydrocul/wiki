@@ -105,24 +105,34 @@ footer {
 <div id="content">
   <h1 id="ssh">SSH</h1>
 
-<h2 id="ssh-1">ポートが22以外のSSHサーバに接続するには</h2>
+<h2 id="ssh-20130528">ポートが22以外のSSHサーバに接続するには <span class="article-date">2013/05/28</span></h2>
 
 <pre><code>ssh -p &lt;port&gt; &lt;ID&gt;@&lt;IP&gt;
 </code></pre>
 
-<p>sshfsも同様。</p>
+<p>moshは</p>
+
+<pre><code>mosh --ssh="ssh -p &lt;port&gt;" &lt;ID&gt;@&lt;IP&gt;
+</code></pre>
+
+<p>sshfsは</p>
 
 <pre><code>sshfs -p &lt;port&gt; &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
 </code></pre>
 
-<p>rsyncも同様。</p>
+<p>rsyncは</p>
 
 <pre><code>rsync -e "ssh -p &lt;port&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
 </code></pre>
 
-<h2 id="section">秘密鍵を個別に指定して接続するには</h2>
+<h2 id="section">秘密鍵を個別に指定して接続するには <span class="article-date">2013/05/28</span></h2>
 
 <pre><code>ssh -i &lt;private_key_file&gt; &lt;ID&gt;@&lt;IP&gt;
+</code></pre>
+
+<p>moshは</p>
+
+<pre><code>mosh --ssh="ssh -i &lt;private_key_file&gt;" &lt;ID&gt;@&lt;IP&gt;
 </code></pre>
 
 <p>sshfsは</p>
@@ -135,14 +145,14 @@ footer {
 <pre><code>rsync -e "ssh -i &lt;private_key_file&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
 </code></pre>
 
-<h2 id="tar-">サーバにある大量のファイルを tar しながら、ローカルにダウンロードするには</h2>
+<h2 id="tar--20130403">サーバにある大量のファイルを tar しながら、ローカルにダウンロードするには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>ssh &lt;ID&gt;@&lt;IP&gt; tar cvzf - リモートのバックアップ対象ディレクトリ &gt; ローカルの保存先tarファイル名
 </code></pre>
 
 <p>リモートでtarを実行してファイルに書き出すのではなく標準出力に出して、それをsshでそのままローカルに転送し、ローカルでファイルに書き出している。</p>
 
-<h2 id="ssh-2">SSHが勝手に切断されないようにするには</h2>
+<h2 id="ssh-20130403">SSHが勝手に切断されないようにするには <span class="article-date">2013/04/03</span></h2>
 
 <p>クライアント側の ~/.ssh/config に以下を記述する。</p>
 
@@ -150,14 +160,14 @@ footer {
   ServerAliveInterval 60
 </code></pre>
 
-<h2 id="section-1">秘密鍵・公開鍵のペアを作るには</h2>
+<h2 id="section-1">秘密鍵・公開鍵のペアを作るには <span class="article-date">2013/04/03</span></h2>
 
 <p>以下のコマンドで <code>~/.ssh/id_rsa</code>, <code>~/.ssh/id_rsa.pub</code> にできる。</p>
 
 <pre><code>ssh-keygen -t rsa
 </code></pre>
 
-<h2 id="section-2">公開鍵をリモートのサーバに簡単に設置するには</h2>
+<h2 id="section-2">公開鍵をリモートのサーバに簡単に設置するには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>cat ~/.ssh/id_rsa.pub | ssh &lt;ID&gt;@&lt;IP&gt; "bash -c \"if [ ! -d ~/.ssh ] ; then mkdir ~/.ssh; fi; if [ -f ~/.ssh/authorized_keys ] ; then cat &gt;&gt; ~/.ssh/authorized_keys; else cat &gt;&gt; ~/.ssh/authorized_keys2; fi\""
 </code></pre>
@@ -200,6 +210,12 @@ moshが対応していないので、このツールが便利かもしれない�
 |  Local     |
 \------------/
 </code></pre>
+
+<h2 id="mosh">mosh</h2>
+
+<p>モバイル環境に強くしたssh。</p>
+
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./mosh.html">mosh</a></i></p>
 
 
 </div>

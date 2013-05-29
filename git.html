@@ -396,6 +396,22 @@ fatal: The remote end hung up unexpectedly
 
 <p>として、<code>bisect</code> を終了させる。</p>
 
+<h2 id="git-push--warning-pushdefault-is-unset--20130529"><code>git push</code> したときに warning: push.default is unset などと表示された場合 <span class="article-date">2013/05/29</span></h2>
+
+<pre><code>warning: push.default is unset; its implicit value is changing in Git 2.0 from 'matching' to 'simple'.
+</code></pre>
+
+<p>Git 2.0 からpushの仕様が少し変わり、 push.default のデフォルト値が 
+matching から simple に変わる予定とのこと。simple にする場合は以下のようにでもしておく。</p>
+
+<pre><code>git config --global push.default simple
+</code></pre>
+
+<p>ただし、simpleは、Git 1.8からなのでこの ~/.gitconfig を複数のホストで共有している場合でGit 1.7のホストが混ざっていると、そこでは <code>git push</code> ができなくなってしまう。Git 1.7と互換性を保ちたければ、以下のようにしておく。</p>
+
+<pre><code>git config --global push.default matching
+</code></pre>
+
 
 </div>
 

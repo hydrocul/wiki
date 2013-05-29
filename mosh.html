@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Ubuntu | hydrocul のメモ</title>
+<title>mosh | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -94,7 +94,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="./">Home</a> &gt; Ubuntu
+    <a href="./">Home</a> &gt; mosh
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -103,37 +103,17 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="ubuntu">Ubuntu</h1>
+  <h1 id="mosh-20130528">mosh <span class="article-date">2013/05/28</span></h1>
 
-<h2 id="ubuntu-1">Ubuntuのバージョンを確認するには</h2>
+<p>モバイル環境など頻繁にネットが切断されたり、ノートPCを開いたり閉じたりしても、ネットが復活したときに自動でsshを再接続し、しかも切断される前のセッションの状態を維持してくれる高機能sshクライアント。ネットが復活したときにIPが変わってしまってもセッションの維持に問題ない。</p>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./linux.html">Linux</a> &gt; <a href="./linux.html#view-distribution-version">Linuxのディストリビューションの確認方法</a></i></p>
+<p>ただし、ポートフォワードの機能がない。</p>
 
-<h2 id="ufw">ufwの使い方</h2>
+<p>moshの実装はsshの機能に依存しているので、sshで接続できることが前提でさらにサーバ側とクライアント側の両方にmoshのインストールが必要。</p>
 
-<p><a href="http://linuxsalad.blogspot.com/2009/02/ufw.html" target="_blank">http://linuxsalad.blogspot.com/2009/02/ufw.html</a></p>
+<h2 id="section">インストール方法 <span class="article-date">2013/05/28</span></h2>
 
-<pre><code># 現在の設定内容を表示
-sudo ufw status
-</code></pre>
-
-<h2 id="ip">固定IPにする方法</h2>
-
-<p>/etc/network/interfaces を設定する他に以下を実行する。</p>
-
-<pre><code>sudo update-rc.d -f NetworkManager remove
-</code></pre>
-
-<h2 id="section">ネットワークのリスタート <span class="article-date">2013/05/28</span></h2>
-
-<pre><code>sudo /etc/init.d/networking restart
-</code></pre>
-
-<p>(Ubuntu 13.04で確認)</p>
-
-<h2 id="apt-get-">apt-get について</h2>
-
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></i></p>
+<p><a href="http://mosh.mit.edu/#getting" target="_blank">http://mosh.mit.edu/#getting</a></p>
 
 
 </div>

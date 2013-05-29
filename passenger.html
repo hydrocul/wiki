@@ -107,7 +107,23 @@ footer {
 
 <p>Ruby on Rails のアプリをApacheで動かすためのモジュール。GitLabやRedmineでも使われている。</p>
 
-<h2 id="section">環境の切替</h2>
+<h2 id="section">インストール <span class="article-date">2013/05/29</span></h2>
+
+<p>以下のコマンドだけでよい。</p>
+
+<pre><code>sudo gem install passenger
+sudo passenger-install-apache2-module
+</code></pre>
+
+<p>足りないパッケージがあった場合は全部やり方を 
+<code>passenger-install-apache2-module</code> が教えてくれるのでそのとおりにすればよい。</p>
+
+<p>Ubuntuの場合は事前に以下を実行すると少し楽になる。</p>
+
+<pre><code>sudo apt-get install build-essential libcurl4-openssl-dev libssl-dev zlib1g-dev apache2-threaded-dev libapr1-dev libaprutil1-dev
+</code></pre>
+
+<h2 id="section-1">環境の切替</h2>
 
 <p>Passenger のデフォルトだと production 環境での動作となる。
 development または test に切り替えたい場合は、Apacheの設定に以下を書き足す。
@@ -116,7 +132,7 @@ VirtualHostの中に書けばそのバーチャルホストにだけ適用でき
 <pre><code>RailsEnv development
 </code></pre>
 
-<h2 id="section-1">環境変数</h2>
+<h2 id="section-2">環境変数</h2>
 
 <p>環境変数を設定したい場合は、Apacheの設定に以下のように書き足す。</p>
 
