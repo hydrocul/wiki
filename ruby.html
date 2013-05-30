@@ -105,12 +105,12 @@ footer {
 <div id="content">
   <h1 id="ruby">Ruby</h1>
 
-<h2 id="api">るりまサーチ (APIレファレンス)</h2>
+<h2 id="api-20130415">るりまサーチ (APIレファレンス) <span class="article-date">2013/04/15</span></h2>
 
 <p><a href="http://doc.ruby-lang.org/ja/search/" target="_blank">http://doc.ruby-lang.org/ja/search/</a><br />
 Rubyリファレンスマニュアル検索！</p>
 
-<h2 id="section">正規表現で全角文字をマッチさせるには</h2>
+<h2 id="section">正規表現で全角文字をマッチさせるには <span class="article-date">2013/04/03</span></h2>
 
 <p>以下のgemを入れると簡単。</p>
 
@@ -124,7 +124,7 @@ Rubyリファレンスマニュアル検索！</p>
 str.gsub(/#{Moji.zen}/, "")
 </code></pre>
 
-<h2 id="encodingundefinedconversionerror"><code>Encoding::UndefinedConversionError</code></h2>
+<h2 id="encodingundefinedconversionerror-20130403"><code>Encoding::UndefinedConversionError</code> <span class="article-date">2013/04/03</span></h2>
 
 <p><code>String#encode</code> で文字コードを変換したときに、変換できない文字があって
 <code>Encoding::UndefinedConversionError</code> が発生した場合は、以下のようにオプションを付ける。</p>
@@ -137,7 +137,7 @@ str.gsub(/#{Moji.zen}/, "")
 <p>instance method String#encode<br />
 <a href="http://doc.ruby-lang.org/ja/1.9.3/method/String/i/encode.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/method/String/i/encode.html</a></p>
 
-<h2 id="section-1">ワンライナー</h2>
+<h2 id="section-1">ワンライナー <span class="article-date">2013/04/03</span></h2>
 
 <p><code>-ne</code> をつけると、行ごとに処理するコードをコマンドラインで指定できる。コードの中で <code>$_</code> は行の文字列が最後の改行付きで入る。以下はなにもせずに、データを聞き流すコード。</p>
 
@@ -154,16 +154,11 @@ str.gsub(/#{Moji.zen}/, "")
 <pre><code>cat src.txt | tr -d '\n'
 </code></pre>
 
-<h3 id="unicode">Unicodeエスケープをデコードするには</h3>
-
-<p>Unicodeエスケープは、<code>\u5c71</code> のようなもの。</p>
-
-<pre><code>cat ファイル名 | ruby -ne 'print $_.gsub(/\\u([0-9a-f]{4})/){[$1.hex].pack("U")}'
-</code></pre>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./oneliner.html">ワンライナー</a> &gt; <a href="./oneliner.html#unicode-escape-decode">Unicodeエスケープをデコードするには</a></i></p>
 
 <h2 id="rake">Rake</h2>
 
-<h3 id="rubyrake">RubyによるビルドツールRakeの覚え書き。興に乗ったので詳しく書いてみた</h3>
+<h3 id="rubyrake-20130403">RubyによるビルドツールRakeの覚え書き。興に乗ったので詳しく書いてみた <span class="article-date">2013/04/03</span></h3>
 
 <p><a href="http://www2s.biglobe.ne.jp/~idesaku/sss/tech/rake/" target="_blank">http://www2s.biglobe.ne.jp/~idesaku/sss/tech/rake/</a></p>
 
@@ -171,11 +166,11 @@ str.gsub(/#{Moji.zen}/, "")
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./mechanize.html">mechanize</a></i></p>
 
-<h2 id="api-1">かな漢字変換のAPI</h2>
+<h2 id="api">かな漢字変換のAPI</h2>
 
 <p>-&gt; &lt; no title &gt;</p>
 
-<h2 id="url">URLエンコード</h2>
+<h2 id="url-20130410">URLエンコード <span class="article-date">2013/04/10</span></h2>
 
 <p><a href="http://d.hatena.ne.jp/gan2/20070601/1180677149" target="_blank">http://d.hatena.ne.jp/gan2/20070601/1180677149</a></p>
 
@@ -187,7 +182,7 @@ CGI.escape はURLとしての意味を持たせたくない文字をエスケー
 <p>Rubyのcgiライブラリについて<br />
 <a href="http://www.ruby-doc.org/stdlib-1.9.3/libdoc/cgi/rdoc/CGI.html" target="_blank">http://www.ruby-doc.org/stdlib-1.9.3/libdoc/cgi/rdoc/CGI.html</a></p>
 
-<h2 id="ruby-1">Rubyソースコード完全解説</h2>
+<h2 id="ruby-20130412">Rubyソースコード完全解説 <span class="article-date">2013/04/12</span></h2>
 
 <p><a href="http://loveruby.net/ja/rhg/book/" target="_blank">http://loveruby.net/ja/rhg/book/</a></p>
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Home | hydrocul のメモ</title>
+<title>ワンライナー | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -94,7 +94,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="./">Home</a>
+    <a href="./">Home</a> &gt; ワンライナー
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -103,9 +103,38 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="home">Home</h1>
+  <h1 id="section">ワンライナー</h1>
 
-<p><a href="./algorithm.html">アルゴリズム</a> <a href="./apache.html">Apache</a> <a href="./bash.html">シェルスクリプト</a> <a href="./codeigniter.html">CodeIgniter</a> <a href="./color.html">色</a> <a href="./commands.html">コマンドリファレンス</a> <a href="./css.html">CSS</a> <a href="./emacs.html">Emacs</a> <a href="./find.html">find</a> <a href="./git.html">git</a> <a href="./html.html">HTML</a> <a href="./incron.html">incron (inotify cron)</a> <a href="./iptables.html">iptables</a> <a href="./java.html">Java</a> <a href="./jquery.html">jQuery</a> <a href="./linux.html">Linux</a> <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a> <a href="./markdown.html">Markdown</a> <a href="./materials.html">素材集</a> <a href="./mechanize.html">mechanize</a> <a href="./misc.html">misc</a> <a href="./mosh.html">mosh</a> <a href="./mylisp.html">オレオレLisp</a> <a href="./mysql.html">MySQL</a> <a href="./oneliner.html">ワンライナー</a> <a href="./passenger.html">Passenger (Ruby on Rails)</a> <a href="./php.html">PHP</a> <a href="./physics.html">物理学</a> <a href="./programming_languages_diff/">プログラミング言語の比較</a> <a href="./python.html">Python</a> <a href="./rails.html">Ruby on Rails</a> <a href="./ruby.html">Ruby</a> <a href="./ssh.html">SSH</a> <a href="./ubuntu.html">Ubuntu</a> </p>
+<h2 id="section-1">シェルスクリプトでシンボリックリンクからリンク先を取得するには <span class="article-date">2013/04/22</span></h2>
+
+<pre><code>ls -l シンボリックリンク名 | perl -anle '$_ =~ /-&gt; (.+)$/; print $1'
+</code></pre>
+
+<h2 id="loop">永久ループを書くには <span class="article-date">2013/04/24</span></h2>
+
+<pre><code>while : ; do date; sleep 1; done
+</code></pre>
+
+<h2 id="urlencode-urldecode">URLエンコード / URLデコード <span class="article-date">2013/05/30</span></h2>
+
+<pre><code># URLエンコード
+echo あ | ruby -r cgi -ne 'puts CGI.escape $_.chomp' | tr "\n" " " | sed 's/ /%0D%0A/g'
+</code></pre>
+
+<p>最後の <code>tr "\n" " " | sed s/ /%0D%0A/g</code> は改行を <code>%0D%0A</code> に変換するためのもの。</p>
+
+<pre><code># URLデコード
+echo %E3%81%82 | tr % = | nkf -WmQ
+</code></pre>
+
+<p><code>-W</code> はUTF-8を意味し、 <code>-mQ</code> はURLデコードする。</p>
+
+<h2 id="unicode-escape-decode">Unicodeエスケープをデコードするには <span class="article-date">2013/04/16</span></h2>
+
+<p>Unicodeエスケープは、<code>\u5c71</code> のようなもの。</p>
+
+<pre><code>cat ファイル名 | ruby -ne 'print $_.gsub(/\\u([0-9a-f]{4})/){[$1.hex].pack("U")}'
+</code></pre>
 
 
 </div>
