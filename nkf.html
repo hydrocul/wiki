@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Emacs | hydrocul のメモ</title>
+<title>nkf | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -94,7 +94,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="./">Home</a> &gt; Emacs
+    <a href="./">Home</a> &gt; nkf
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -103,47 +103,32 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="emacs">Emacs</h1>
+  <h1 id="nkf-20130501">nkf <span class="article-date">2013/05/01</span></h1>
 
-<h2 id="section">文字コード・改行コードを変えてファイルを再読みこむには <span class="article-date">2013/05/17</span></h2>
+<p>標準入力を文字コードを変換しながらそのまま標準出力に吐き出す。ファイルをもとにする場合は引数に指定しても可能。</p>
 
-<ol>
-  <li>C-x C-m c</li>
-  <li>文字コード・改行コードを入力 C-m</li>
-  <li>M-x revert-buffer C-m</li>
-</ol>
+<p>EUC-JP を UTF-8 に変換するには</p>
 
-<p>文字コード・改行コードは以下のような文字列</p>
-
-<ul>
-  <li>utf-8-unix</li>
-  <li>sjis-dos</li>
-  <li>sjis-mac</li>
-  <li>euc-japan-unix</li>
-  <li>junet-unix</li>
-</ul>
-
-<p>以下の方法もあるらしい</p>
-
-<ol>
-  <li>C-x C-m r utf-8</li>
-</ol>
-
-<h2 id="section-1">文字コードを変更して保存するには <span class="article-date">2013/05/17</span></h2>
-
-<p>C-x C-m f utf-8</p>
-
-<h2 id="insert-tab-by-one-stroke">タブ文字を1ストロークで入力できるようにするには <span class="article-date">2013/05/31</span></h2>
-
-<p>タブ文字そのものは C-q TAB で入力できるが、2ストロークが面倒なので、以下の設定を <code>.emacs</code> に書いて、C-i で入力できるようにする。</p>
-
-<pre><code>;; C-i でタブを入力できるように
-(global-set-key "\C-i" '(lambda ()
-  (interactive)
-  (insert "\t")))
+<pre><code>cat ファイル名 | nkf -Ew
 </code></pre>
 
-<p>ちなみにシェル環境では C-v TAB でタブ文字を入力できる。</p>
+<p>または</p>
+
+<pre><code>nkf -Ew ファイル名
+</code></pre>
+
+<p>以下のオプションで、大文字が入力の文字コード、小文字が出力の文字コードを表す。</p>
+
+<dl>
+  <dt><code>-J</code>, <code>-j</code></dt>
+  <dd>ISO-2022-JP</dd>
+  <dt><code>-S</code>, <code>-s</code></dt>
+  <dd>Shift-JIS</dd>
+  <dt><code>-E</code>, <code>-e</code></dt>
+  <dd>EUC-JP</dd>
+  <dt><code>-W</code>, <code>-w</code></dt>
+  <dd>UTF-8</dd>
+</dl>
 
 
 </div>
