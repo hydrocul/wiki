@@ -109,7 +109,6 @@ footer {
   <li><a href="#comment">コメント</a></li>
   <li><a href="#semicolon">インデント / セミコロン</a></li>
   <li><a href="#method">関数・メソッド定義</a></li>
-  <li><a href="#heredoc">ヒアドキュメント</a></li>
   <li><a href="#exception">例外処理</a></li>
   <li><a href="#multi-return">複数の返り値</a></li>
   <li><a href="#environment">環境変数の取得</a></li>
@@ -309,23 +308,9 @@ end
   <li>関数呼び出しは、引数がある場合はカッコを省略可。引数がない場合はカッコを省略できない。</li>
 </ul>
 
-<h2 id="heredoc">ヒアドキュメント</h2>
-
-<h3 id="ruby-3">Ruby</h3>
-
-<p>Ruby 1.9.3 リファレンスマニュアル &gt; ヒアドキュメント<br />
-<a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
-
-<h3 id="javascript-20130517">JavaScript <span class="article-date">2013/05/17</span></h3>
-
-<p>標準ではヒアドキュメントの仕組みはないが、似たようなことを実現する工夫はできる。</p>
-
-<p>Javascriptでヒアドキュメント<br />
-<a href="http://www.m-bsys.com/code/javascript-heredoc" target="_blank">http://www.m-bsys.com/code/javascript-heredoc</a></p>
-
 <h2 id="exception">例外処理</h2>
 
-<h3 id="ruby-4">Ruby</h3>
+<h3 id="ruby-3">Ruby</h3>
 
 <pre><code>begin
   ...
@@ -410,7 +395,7 @@ finally
 list($num, $str) = f();
 </code></pre>
 
-<h3 id="ruby-5">Ruby</h3>
+<h3 id="ruby-4">Ruby</h3>
 
 <p><code>return</code> にカンマ区切りで複数の値を書けば、配列を返すことができ、受け取り側は配列の多重代入を使う。</p>
 
@@ -422,7 +407,7 @@ num, str = f
 
 <h2 id="environment">環境変数の取得</h2>
 
-<h3 id="ruby-6">Ruby</h3>
+<h3 id="ruby-5">Ruby</h3>
 
 <p><code>ENV</code>という変数を利用する。</p>
 

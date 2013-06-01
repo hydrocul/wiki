@@ -203,15 +203,51 @@ footer {
 
 <p>これは変数名が展開されない。</p>
 
+<h3 id="ruby">Ruby</h3>
+
+<h4 id="section-4">ヒアドキュメント <span class="article-date">2013/04/10</span></h4>
+
+<p>Ruby 1.9.3 リファレンスマニュアル &gt; ヒアドキュメント<br />
+<a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
+
 <h3 id="sh-20130520">sh <span class="article-date">2013/05/20</span></h3>
 
-<h4 id="section-4">エスケープ処理</h4>
+<h4 id="section-5">エスケープ処理 <span class="article-date">2013/05/20</span></h4>
 
 <p>いくつかの記号はシェルで特別な意味を持つので <code>\</code> でエスケープが必要。</p>
 
 <p><code>"</code> で囲めば、エスケープが必要になるのは <code>"</code>, <code>$</code>,  <code>\</code>,  <code>`</code> のみになる。</p>
 
 <p><code>'</code> で囲めば、エスケープ処理が不要になるが、 <code>'</code> を含めることができなくなる。</p>
+
+<h4 id="section-6">ヒアドキュメント <span class="article-date">2013/05/31</span></h4>
+
+<p>例</p>
+
+<pre><code>cat &lt;&lt;EOD
+foo
+bar
+$HOME
+`date`
+EOD
+</code></pre>
+
+<p>ヒアドキュメントの中では <code>\</code>`<code> や </code>$` で始まる変数の展開が使える。それらを使いたくない場合は、以下のようにする。</p>
+
+<pre><code>cat &lt;&lt;\EOD
+foo
+bar
+EOD
+</code></pre>
+
+<h3 id="javascript">JavaScript</h3>
+
+<h4 id="section-7">ヒアドキュメント <span class="article-date">2013/05/17</span></h4>
+
+<p>標準ではヒアドキュメントの仕組みはないが、似たようなことを実現する工夫はできる。</p>
+
+<p>Javascriptでヒアドキュメント<br />
+<a href="http://www.m-bsys.com/code/javascript-heredoc" target="_blank">http://www.m-bsys.com/code/javascript-heredoc</a></p>
 
 <h2 id="substr">substr</h2>
 
@@ -237,7 +273,7 @@ length が指定され、かつ 0 である場合は、 空文字列なら NULL�
 length を省略した場合は、 start の位置から文字列の最後までの部分文字列を返します。  </p>
 </blockquote>
 
-<h3 id="ruby">Ruby</h3>
+<h3 id="ruby-1">Ruby</h3>
 
 <pre><code>String#slice(index)
 String#slice(from, length)
@@ -247,7 +283,7 @@ String#slice(from, length)
 
 <p>配列に対しても同じように <code>slice</code> が使える。</p>
 
-<h3 id="javascript">JavaScript</h3>
+<h3 id="javascript-1">JavaScript</h3>
 
 <pre><code>string.substring(from [, to])
 string.substr(from [, len])
@@ -300,7 +336,7 @@ echo $str[0][0][0]; // =&gt; a
 “\x0B” (ASCII 11 (0x0B)), 垂直タブ  </p>
 </blockquote>
 
-<h3 id="ruby-1">Ruby</h3>
+<h3 id="ruby-2">Ruby</h3>
 
 <pre><code>String#strip
 String#strip!
@@ -320,7 +356,7 @@ String#chomp!(str)
 
 <p><a href="http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html" target="_blank">http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html</a></p>
 
-<h3 id="javascript-1">JavaScript</h3>
+<h3 id="javascript-2">JavaScript</h3>
 
 <pre><code>jQuery.trim(str)
 </code></pre>
@@ -336,13 +372,13 @@ String#chomp!(str)
 String String#endsWith(String suffix)
 </code></pre>
 
-<h3 id="ruby-2">Ruby</h3>
+<h3 id="ruby-3">Ruby</h3>
 
 <pre><code>String#start_with?(prefix)
 String#end_with?(suffix)
 </code></pre>
 
-<h3 id="javascript-2">JavaScript</h3>
+<h3 id="javascript-3">JavaScript</h3>
 
 <p>startsWithに相当するよく使う方法。</p>
 
@@ -390,7 +426,7 @@ def format(args: Any*): String
 <p>フォーマットの説明<br />
 <a href="http://www.php.net/manual/ja/function.sprintf.php" target="_blank">http://www.php.net/manual/ja/function.sprintf.php</a></p>
 
-<h3 id="ruby-3">Ruby</h3>
+<h3 id="ruby-4">Ruby</h3>
 
 <p>例：</p>
 
@@ -425,7 +461,7 @@ int String#lastIndexOf(String str)
 
 <p>見つからない場合は <code>FALSE</code> を返す。</p>
 
-<h3 id="ruby-4">Ruby</h3>
+<h3 id="ruby-5">Ruby</h3>
 
 <pre><code>String#index(str)
 String#index(str, index)
@@ -445,7 +481,7 @@ String#rindex(str, index)
 'abcabc'.rindex('abc', 2) # =&gt; 0
 </code></pre>
 
-<h3 id="javascript-3">JavaScript</h3>
+<h3 id="javascript-4">JavaScript</h3>
 
 <pre><code>string.indexOf(str)
 </code></pre>
@@ -464,7 +500,7 @@ String#rindex(str, index)
 <pre><code>int strlen($string)
 </code></pre>
 
-<h3 id="ruby-5">Ruby</h3>
+<h3 id="ruby-6">Ruby</h3>
 
 <pre><code>String#length
 String#size
@@ -493,7 +529,7 @@ String#size
 
 <p><a href="http://jp2.php.net/manual/ja/function.explode.php" target="_blank">http://jp2.php.net/manual/ja/function.explode.php</a></p>
 
-<h3 id="ruby-6">Ruby</h3>
+<h3 id="ruby-7">Ruby</h3>
 
 <pre><code>String#split(pattern [, limit]))
 </code></pre>
@@ -510,19 +546,19 @@ String#size
 
 <p><a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
 
-<h3 id="ruby-7">Ruby</h3>
+<h3 id="ruby-8">Ruby</h3>
 
 <pre><code>Array#join(separator)
 </code></pre>
 
-<h3 id="javascript-4">JavaScript</h3>
+<h3 id="javascript-5">JavaScript</h3>
 
 <pre><code>arr.join(separator)
 </code></pre>
 
 <h2 id="compare">比較</h2>
 
-<h3 id="ruby-8">Ruby</h3>
+<h3 id="ruby-9">Ruby</h3>
 
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!~</code> はその反対。</p>
 
@@ -542,13 +578,13 @@ String String#toLowerCase()
 string strtolower($string)
 </code></pre>
 
-<h3 id="ruby-9">Ruby</h3>
+<h3 id="ruby-10">Ruby</h3>
 
 <pre><code>String#upcase
 String#downcase
 </code></pre>
 
-<h3 id="javascript-5">JavaScript</h3>
+<h3 id="javascript-6">JavaScript</h3>
 
 <pre><code>string.toUpperCase()
 string.toLowerCase()
