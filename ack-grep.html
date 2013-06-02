@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Home | hydrocul のメモ</title>
+<title>ack-grep | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -94,7 +94,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="./">Home</a>
+    <a href="./">Home</a> &gt; ack-grep
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -103,9 +103,37 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="home">Home</h1>
+  <h1 id="ack-grep">ack-grep <span class="article-date">2013/05/13</span></h1>
 
-<p><a href="./ack-grep.html">ack-grep</a> <a href="./algorithm.html">アルゴリズム</a> <a href="./apache.html">Apache</a> <a href="./bash.html">シェルスクリプト</a> <a href="./codeigniter.html">CodeIgniter</a> <a href="./color.html">色</a> <a href="./commands.html">コマンドリファレンス</a> <a href="./css.html">CSS</a> <a href="./emacs.html">Emacs</a> <a href="./find.html">find</a> <a href="./git.html">git</a> <a href="./html.html">HTML</a> <a href="./incron.html">incron (inotify cron)</a> <a href="./iptables.html">iptables</a> <a href="./java.html">Java</a> <a href="./jquery.html">jQuery</a> <a href="./linux.html">Linux</a> <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a> <a href="./markdown.html">Markdown</a> <a href="./materials.html">素材集</a> <a href="./mechanize.html">mechanize</a> <a href="./misc.html">misc</a> <a href="./mosh.html">mosh</a> <a href="./mylisp.html">オレオレLisp</a> <a href="./mysql.html">MySQL</a> <a href="./nkf.html">nkf</a> <a href="./oneliner.html">ワンライナー</a> <a href="./passenger.html">Passenger (Ruby on Rails)</a> <a href="./php.html">PHP</a> <a href="./physics.html">物理学</a> <a href="./programming_languages_diff/">プログラミング言語の比較</a> <a href="./python.html">Python</a> <a href="./rails.html">Ruby on Rails</a> <a href="./ruby.html">Ruby</a> <a href="./ssh.html">SSH</a> <a href="./ubuntu.html">Ubuntu</a> </p>
+<p>grepよりもスマートに検索できるコマンド。</p>
+
+<p>(もっと高速に検索できる The Silver Searcher というのがあるらしい。)</p>
+
+<h2 id="section">インストール <span class="article-date">2013/04/03</span></h2>
+
+<p>Ubuntuの場合</p>
+
+<pre><code>sudo apt-get install ack-grep
+</code></pre>
+
+<h2 id="section-1">対応しているファイルタイプの一覧を見るには <span class="article-date">2013/04/03</span></h2>
+
+<pre><code>ack-grep --help-type
+</code></pre>
+
+<p>ファイルタイプの一覧をいじるには <code>/usr/share/perl5/App/Ack.pm</code> をいじる(apt-get でインストールした場合)。以下はmarkdown形式に対応させる例。</p>
+
+<pre><code>--- Ack.pm
++++ Ack.pm
+@@ -93,6 +93,7 @@
+         lisp        =&gt; [qw( lisp lsp )],
+         lua         =&gt; [qw( lua )],
+         make        =&gt; q{Makefiles},
++        markdown    =&gt; [qw( md markdown )],
+         mason       =&gt; [qw( mas mhtml mpl mtxt )],
+         objc        =&gt; [qw( m h )],
+         objcpp      =&gt; [qw( mm h )],
+</code></pre>
 
 
 </div>
