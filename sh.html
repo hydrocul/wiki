@@ -180,13 +180,17 @@ if [ "$a" = "abc" ]; then
 fi
 </code></pre>
 
-<h2 id="section-6">演算子 <span class="article-date">2013/04/23</span></h2>
+<h2 id="section-6">演算子 <span class="article-date">2013/06/04</span></h2>
 
 <dl>
   <dt>文字列1 <code>=</code> 文字列2</dt>
   <dd>文字列が等しい場合</dd>
   <dt>文字列1 <code>!=</code> 文字列2</dt>
   <dd>文字列が等しくない場合</dd>
+  <dt><code>-z</code> 文字列</dt>
+  <dd>空文字列の場合</dd>
+  <dt><code>-n</code> 文字列</dt>
+  <dd>長さ1以上の文字列の場合</dd>
   <dt>数値1 <code>-eq</code> 数値2</dt>
   <dd>数値が等しい場合</dd>
   <dt>数値1 <code>-ne</code> 数値2</dt>
@@ -207,6 +211,8 @@ fi
   <dd>ファイルがディレクトリとして存在する場合</dd>
   <dt><code>-s</code> ファイル名</dt>
   <dd>ファイルサイズが0より大きい場合</dd>
+  <dt><code>-x</code> ファイル名</dt>
+  <dd>ファイルが実行可能な場合</dd>
   <dt>ファイル名1 <code>-nt</code> ファイル名2</dt>
   <dd>ファイル1のほうが新しい場合</dd>
   <dt>ファイル名1 <code>-ot</code> ファイル名2</dt>

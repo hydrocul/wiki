@@ -181,27 +181,9 @@ openssl enc -d -base64 # デコード
   <dd>タブを <code>^I</code> として出力する。</dd>
 </dl>
 
-<h2 id="cp">cp <span class="article-date">2013/04/03</span></h2>
+<h2 id="cp">cp</h2>
 
-<dl>
-  <dt><code>-i</code></dt>
-  <dd>コピー先にすでにファイルが存在する場合は、上書きするかどうかを聞いてくる</dd>
-  <dt><code>-p</code></dt>
-  <dd>パーミッション、ユーザ・グループ、タイムスタンプもコピーする</dd>
-  <dt><code>-r</code>, <code>-R</code></dt>
-  <dd>ディレクトリの中を再帰的にコピーする</dd>
-  <dt><code>-v</code></dt>
-  <dd>ファイル名を表示しながらコピーする</dd>
-</dl>
-
-<h3 id="section-1">ディレクトリ名も含めてファイルをコピーするには <span class="article-date">2013/04/03</span></h3>
-
-<pre><code>cp --parents abc/def/ghi.dat /home/who/
-</code></pre>
-
-<p>この場合、コピー先には <code>/home/who/ghi.dat</code> ではなく <code>/home/who/abc/def/ghi.dat</code> という名前でコピーされる。コピー先にディレクトリが存在しない場合は自動で作成される。</p>
-
-<p><code>rsync</code> での同じ役割をはたすのは <code>-R</code>。</p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./cp.html">cp</a></i></p>
 
 <h2 id="crontab">crontab <span class="article-date">2013/04/22</span></h2>
 
@@ -235,7 +217,7 @@ cut -d$'\t' -f1
 
 <h2 id="echo">echo</h2>
 
-<h3 id="section-2">最後に改行をさせないようにするには</h3>
+<h3 id="section-1">最後に改行をさせないようにするには</h3>
 
 <p><code>-n</code> をつける</p>
 
@@ -264,7 +246,7 @@ cut -d$'\t' -f1
 <pre><code>jhead -nf%Y-%m-%d-%H%M%S IMAG0000.jpg
 </code></pre>
 
-<h2 id="less">less</h2>
+<h2 id="less">less <span class="article-date">2013/06/04</span></h2>
 
 <ul>
   <li>オプション <code>-X</code> は、less 終了時に画面をクリアしない。</li>
@@ -272,6 +254,7 @@ cut -d$'\t' -f1
   <li>オプション <code>-R</code> は、色などのエスケープシーケンスをそのとおりに解釈して
 色付きで表示する。 <code>ls</code> は <code>--color</code> を付け、 <code>grep</code> は <code>--color=always</code> を
 付けると色付きで出力される。</li>
+  <li>オプション <code>-S</code> は、長い行を折り返さずに横方向にもページングできるようにする。</li>
 </ul>
 
 <p><code>-R</code> の例</p>
@@ -338,12 +321,12 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="ps">ps</h2>
 
-<h3 id="section-3">プロセスの一覧を見るには</h3>
+<h3 id="section-2">プロセスの一覧を見るには</h3>
 
 <pre><code>ps aux
 </code></pre>
 
-<h3 id="section-4">プロセスの親子関係をツリーで表示するには</h3>
+<h3 id="section-3">プロセスの親子関係をツリーで表示するには</h3>
 
 <pre><code>ps auxf
 </code></pre>
@@ -373,22 +356,22 @@ grep -rni --color=always abc | less -X -R
   <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
 </ul>
 
-<h3 id="section-5">リモートホストからローカルにダウンロードするには</h3>
+<h3 id="section-4">リモートホストからローカルにダウンロードするには</h3>
 
 <pre><code>rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<h3 id="section-6">ポート番号が22以外の場合</h3>
+<h3 id="section-5">ポート番号が22以外の場合</h3>
 
 <pre><code>rsync -e "ssh -p ポート番号" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<h3 id="section-7">秘密鍵のファイルを指定する場合</h3>
+<h3 id="section-6">秘密鍵のファイルを指定する場合</h3>
 
 <pre><code>rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<h3 id="section-8">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには</h3>
+<h3 id="section-7">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには</h3>
 
 <pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
 </code></pre>
@@ -422,7 +405,7 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="sed">sed</h2>
 
-<h3 id="section-9">ファイルの中のテキストを全置換するには</h3>
+<h3 id="section-8">ファイルの中のテキストを全置換するには</h3>
 
 <pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
 </code></pre>
@@ -448,7 +431,7 @@ grep -rni --color=always abc | less -X -R
 <p>GNU Source-highlight のマニュアルの和訳<br />
 <a href="http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_toc.html" target="_blank">http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_toc.html</a></p>
 
-<h2 id="sort">sort</h2>
+<h2 id="sort">sort <span class="article-date">2013/06/04</span></h2>
 
 <p>行単位で並び替えができる。</p>
 
@@ -461,6 +444,8 @@ grep -rni --color=always abc | less -X -R
   <dt><code>-t</code></dt>
   <dd>列の区切り文字を指定する。デフォルトは空白。 <code>-t $'\t'</code> でタブ区切りの
 ファイルを処理できるようになる。</dd>
+  <dt><code>-n</code></dt>
+  <dd>列のデータを数字とみなして並び替える。</dd>
 </dl>
 
 <h2 id="ssh">ssh</h2>
@@ -473,7 +458,7 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="tar">tar</h2>
 
-<h3 id="section-10">基本操作</h3>
+<h3 id="section-9">基本操作</h3>
 
 <pre><code># 圧縮
 tar cvzf tarファイル名 圧縮対象ディレクトリ
@@ -498,21 +483,21 @@ tar xvzf tarファイル名
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-11">ファイルの特定の文字を改行に全置換するには</h3>
+<h3 id="section-10">ファイルの特定の文字を改行に全置換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-12">ファイルの特定の文字を削除するには</h3>
+<h3 id="section-11">ファイルの特定の文字を削除するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、改行をすべて削除する。</p>
 
-<h3 id="section-13">連続したスペースを単一のスペースに変換するには</h3>
+<h3 id="section-12">連続したスペースを単一のスペースに変換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名
 </code></pre>
@@ -542,7 +527,7 @@ tar xvzf tarファイル名
 <pre><code>wget --http-user=user --http-passwd=password URL
 </code></pre>
 
-<h3 id="section-14">ウェブサイトを丸ごとダウンロードするには</h3>
+<h3 id="section-13">ウェブサイトを丸ごとダウンロードするには</h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする。</p>
 
@@ -554,7 +539,7 @@ tar xvzf tarファイル名
 <pre><code>wget -r -l5 --convert-links URL
 </code></pre>
 
-<h3 id="section-15">標準出力に吐き出すには</h3>
+<h3 id="section-14">標準出力に吐き出すには</h3>
 
 <pre><code>wget -q -O - URL
 </code></pre>

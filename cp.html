@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Home | hydrocul のメモ</title>
+<title>cp | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -94,7 +94,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="./">Home</a>
+    <a href="./">Home</a> &gt; cp
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -103,9 +103,29 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="home">Home</h1>
+  <h1 id="cp-20130603">cp <span class="article-date">2013/06/03</span></h1>
 
-<p><a href="./ack-grep.html">ack-grep</a> <a href="./algorithm.html">アルゴリズム</a> <a href="./apache.html">Apache</a> <a href="./codeigniter.html">CodeIgniter</a> <a href="./color.html">色</a> <a href="./commands.html">コマンドリファレンス</a> <a href="./cp.html">cp</a> <a href="./css.html">CSS</a> <a href="./emacs.html">Emacs</a> <a href="./find.html">find</a> <a href="./git.html">git</a> <a href="./html.html">HTML</a> <a href="./incron.html">incron (inotify cron)</a> <a href="./iptables.html">iptables</a> <a href="./java.html">Java</a> <a href="./jquery.html">jQuery</a> <a href="./linux.html">Linux</a> <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a> <a href="./mac.html">Mac</a> <a href="./markdown.html">Markdown</a> <a href="./materials.html">素材集</a> <a href="./mechanize.html">mechanize</a> <a href="./misc.html">misc</a> <a href="./mosh.html">mosh</a> <a href="./mylisp.html">オレオレLisp</a> <a href="./mysql.html">MySQL</a> <a href="./nkf.html">nkf</a> <a href="./oneliner.html">ワンライナー</a> <a href="./passenger.html">Passenger (Ruby on Rails)</a> <a href="./php.html">PHP</a> <a href="./physics.html">物理学</a> <a href="./programming_languages_diff/">プログラミング言語の比較</a> <a href="./python.html">Python</a> <a href="./rails.html">Ruby on Rails</a> <a href="./ruby.html">Ruby</a> <a href="./sh.html">シェルスクリプト</a> <a href="./ssh.html">SSH</a> <a href="./ubuntu.html">Ubuntu</a> </p>
+<dl>
+  <dt><code>-i</code></dt>
+  <dd>コピー先にすでにファイルが存在する場合は、上書きするかどうかを聞いてくる</dd>
+  <dt><code>-p</code></dt>
+  <dd>パーミッション、ユーザ・グループ、タイムスタンプもコピーする</dd>
+  <dt><code>-r</code>, <code>-R</code></dt>
+  <dd>ディレクトリの中を再帰的にコピーする</dd>
+  <dt><code>-u</code></dt>
+  <dd>コピー先にすでにコピー元よりも新しいか同じタイムスタンプのファイルがあった場合はコピーをしない</dd>
+  <dt><code>-v</code></dt>
+  <dd>ファイル名を表示しながらコピーする</dd>
+</dl>
+
+<h2 id="section">ディレクトリ名も含めてファイルをコピーするには <span class="article-date">2013/04/03</span></h2>
+
+<pre><code>cp --parents abc/def/ghi.dat /home/who/
+</code></pre>
+
+<p>この場合、コピー先には <code>/home/who/ghi.dat</code> ではなく <code>/home/who/abc/def/ghi.dat</code> という名前でコピーされる。コピー先にディレクトリが存在しない場合は自動で作成される。</p>
+
+<p><code>rsync</code> での同じ役割をはたすのは <code>-R</code>。</p>
 
 
 </div>
