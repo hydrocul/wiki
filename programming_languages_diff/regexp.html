@@ -233,6 +233,25 @@ footer {
 <p>正規表現をビジュアルで見せるツール<br />
 <a href="http://www.regexper.com/" target="_blank">http://www.regexper.com/</a></p>
 
+<h2 id="section-1">備考</h2>
+
+<h3 id="php-1">PHP</h3>
+
+<p>PHPにある正規表現のライブラリは、ereg, preg, mb_ereg の3つあるが、eregはバイナリセーフではないので、セキュリティ上問題があり、非推奨になっている。</p>
+
+<p>ereg は、文字列の途中に \x00 があった場合にそこで文字列の終了とみなされてしまい、その後ろに不正な文字があってもチェックができない。そのために非推奨とされている。</p>
+
+<p><a href="http://php.net/manual/ja/function.ereg.php" target="_blank">http://php.net/manual/ja/function.ereg.php</a></p>
+
+<dl>
+  <dt>ereg</dt>
+  <dd>バイナリセーフではなく、セキュリティに問題があるため、非推奨</dd>
+  <dt>preg</dt>
+  <dd>日本語の処理は UTF-8 限定</dd>
+  <dt>mb_ereg</dt>
+  <dd>任意の文字エンコーディングが使える</dd>
+</dl>
+
 
 </div>
 

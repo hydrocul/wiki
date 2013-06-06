@@ -450,14 +450,23 @@ cut -d$'\t' -f1
 <p>man page<br />
 <a href="http://www.scala-lang.org/docu/files/tools/scaladoc.html" target="_blank">http://www.scala-lang.org/docu/files/tools/scaladoc.html</a></p>
 
-<h2 id="sed">sed</h2>
+<h2 id="sed">sed <span class="article-date">2013/06/06</span></h2>
 
-<h3 id="section-10">ファイルの中のテキストを全置換するには</h3>
+<p>文字列を全治関するコマンド。</p>
+
+<p>パイプで使う場合の例：</p>
+
+<pre><code>cat ファイル名 | sed 's/置換前/置換後/g' &gt; ファイル名
+</code></pre>
+
+<h3 id="section-10">ファイルの中のテキストを全置換するには <span class="article-date">2013/06/06</span></h3>
 
 <pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
 </code></pre>
 
 <p><code>-i</code> を取ると、全置換後の結果を標準出力に吐き出して、ファイルは書き換えない。</p>
+
+<p><code>-e</code> はどういう意味だろう？</p>
 
 <h2 id="source-highlight">source-highlight</h2>
 
