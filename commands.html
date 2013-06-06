@@ -113,10 +113,12 @@ footer {
   <li><a href="#crontab">crontab</a></li>
   <li><a href="#cut">cut</a></li>
   <li><a href="#date">date</a></li>
+  <li><a href="#diff">diff</a></li>
   <li><a href="#du">du</a></li>
   <li><a href="#echo">echo</a></li>
   <li><a href="#find">find</a></li>
   <li><a href="#git">git</a></li>
+  <li><a href="#grep">grep</a></li>
   <li><a href="#incrontab">incrontab</a></li>
   <li><a href="#jhead">jhead</a></li>
   <li><a href="#less">less</a></li>
@@ -181,6 +183,30 @@ openssl enc -d -base64 # デコード
   <dd>タブを <code>^I</code> として出力する。</dd>
 </dl>
 
+<h3 id="cat--bash-zsh--20130604">cat を使ったファイルの作成と bash, zsh での機能 <span class="article-date">2013/06/04</span></h3>
+
+<p>シェルから <code>cat</code> を使ってファイルを作成するには、以下のような方法がある。</p>
+
+<pre><code>$ cat &gt; foo.txt
+hogehoge
+# ここで Ctrl+D を押せば、標準入力が閉じられて、
+# 入力した内容がファイルに書きだされる。
+</code></pre>
+
+<p>ただ、これは zsh では <code>cat</code> を使わなくても以下のようにできる。</p>
+
+<pre><code># zshの場合
+
+$ &gt; foo.txt
+hogehoge
+# ここで Ctrl+D を押せば、標準入力が閉じられて、
+# 入力した内容がファイルに書きだされる。
+</code></pre>
+
+<p>bash では標準入力を端末で入力させてもらえずに、空っぽのファイルが書きだされる。ファイルが既存だった場合は、内容が削除され、強制的に空っぽのファイルになってしまう。</p>
+
+<p>bash での動きは <code>touch</code> に似ているが、 <code>touch</code> は、ファイルが既存だった場合は、内容を削除せずにタイムスタンプだけ新しくする。</p>
+
 <h2 id="cp">cp</h2>
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./cp.html">cp</a></i></p>
@@ -206,6 +232,30 @@ cut -d$'\t' -f1
 <pre><code>date "+%Y%m%d-%H%M%S"
 </code></pre>
 
+<h2 id="diff">diff</h2>
+
+<h3 id="section-1">2つのコマンドの出力を比較するには <span class="article-date">2013/06/04</span></h3>
+
+<p>以下のようにすることで、2つのコマンドの出力を diff にかけることができる。</p>
+
+<pre><code>diff &lt;(cat foo.txt) &lt;(cat bar.txt)
+</code></pre>
+
+<p>でもこれは、<code>diff</code> にとっては標準入力が2つ存在するわけでは、もちろんなく、たぶん、シェルがなにやらがんばっているみたい。その証拠に、</p>
+
+<pre><code>echo &lt;(cat foo.txt) &lt;(cat bar.txt)
+</code></pre>
+
+<p>とすると、<code>/proc/self/fd/11 /proc/self/fd/12</code> のように出力される。
+(bash, zsh で動作確認済み)</p>
+
+<h3 id="section-2">コマンドの出力とファイルを比較するには <span class="article-date">2013/06/04</span></h3>
+
+<p>以下のように、 <code>-</code> を使うと、比較対象の片方を標準入力にすることができる。</p>
+
+<pre><code>cat foo.txt | diff bar.txt -
+</code></pre>
+
 <h2 id="du">du</h2>
 
 <p>カレントディレクトリの中のファイル・ディレクトリの容量一覧を表示させる例</p>
@@ -217,7 +267,7 @@ cut -d$'\t' -f1
 
 <h2 id="echo">echo</h2>
 
-<h3 id="section-1">最後に改行をさせないようにするには</h3>
+<h3 id="section-3">最後に改行をさせないようにするには</h3>
 
 <p><code>-n</code> をつける</p>
 
@@ -231,6 +281,22 @@ cut -d$'\t' -f1
 <h2 id="git">git</h2>
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./git.html">git</a></i></p>
+
+<h2 id="grep">grep <span class="article-date">2013/06/04</span></h2>
+
+<dl>
+  <dt><code>-r</code></dt>
+  <dd>ディレクトリを再帰的にたどって検索する。</dd>
+  <dt><code>-n</code></dt>
+  <dd>検索結果の出力に行番号をつける。</dd>
+  <dt><code>-i</code></dt>
+  <dd>大文字小文字を区別せずにマッチングをする。</dd>
+  <dt><code>-v</code></dt>
+  <dd>通常とは逆に、マッチしない行を出力する。</dd>
+  <dt><code>-E</code></dt>
+  <dd>拡張正規表現を使う。 <code>(foo|bar)</code> のような表記の正規表現を使うには、
+<code>-E</code> が必要。</dd>
+</dl>
 
 <h2 id="incrontab">incrontab</h2>
 
@@ -246,28 +312,9 @@ cut -d$'\t' -f1
 <pre><code>jhead -nf%Y-%m-%d-%H%M%S IMAG0000.jpg
 </code></pre>
 
-<h2 id="less">less <span class="article-date">2013/06/04</span></h2>
+<h2 id="less">less</h2>
 
-<ul>
-  <li>オプション <code>-X</code> は、less 終了時に画面をクリアしない。</li>
-  <li>オプション <code>-F</code> は、行数が短くて位置画面に収まる場合は less がすぐに終了する。</li>
-  <li>オプション <code>-R</code> は、色などのエスケープシーケンスをそのとおりに解釈して
-色付きで表示する。 <code>ls</code> は <code>--color</code> を付け、 <code>grep</code> は <code>--color=always</code> を
-付けると色付きで出力される。</li>
-  <li>オプション <code>-S</code> は、長い行を折り返さずに横方向にもページングできるようにする。</li>
-</ul>
-
-<p><code>-R</code> の例</p>
-
-<pre><code>ls -alF --color | less -X -R
-grep -rni --color=always abc | less -X -R
-</code></pre>
-
-<h3 id="tail--f--20130423"><code>tail -f</code> みたいにするには <span class="article-date">2013/04/23</span></h3>
-
-<p><code>less +F ファイル名</code> とすると、<code>tail -f</code> みたいな動きになる。Ctrl+C を押すと、普通の less に戻り、Shift+F を押すと、また <code>tail -f</code> に戻る。</p>
-
-<p><a href="http://www.commandlinefu.com/commands/view/1024/make-less-behave-like-tail-f." target="_blank">http://www.commandlinefu.com/commands/view/1024/make-less-behave-like-tail-f.</a></p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./less.html">less</a></i></p>
 
 <h2 id="ls">ls</h2>
 
@@ -321,12 +368,12 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="ps">ps</h2>
 
-<h3 id="section-2">プロセスの一覧を見るには</h3>
+<h3 id="section-4">プロセスの一覧を見るには</h3>
 
 <pre><code>ps aux
 </code></pre>
 
-<h3 id="section-3">プロセスの親子関係をツリーで表示するには</h3>
+<h3 id="section-5">プロセスの親子関係をツリーで表示するには</h3>
 
 <pre><code>ps auxf
 </code></pre>
@@ -356,22 +403,22 @@ grep -rni --color=always abc | less -X -R
   <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
 </ul>
 
-<h3 id="section-4">リモートホストからローカルにダウンロードするには</h3>
+<h3 id="section-6">リモートホストからローカルにダウンロードするには</h3>
 
 <pre><code>rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<h3 id="section-5">ポート番号が22以外の場合</h3>
+<h3 id="section-7">ポート番号が22以外の場合</h3>
 
 <pre><code>rsync -e "ssh -p ポート番号" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<h3 id="section-6">秘密鍵のファイルを指定する場合</h3>
+<h3 id="section-8">秘密鍵のファイルを指定する場合</h3>
 
 <pre><code>rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<h3 id="section-7">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには</h3>
+<h3 id="section-9">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには</h3>
 
 <pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
 </code></pre>
@@ -405,7 +452,7 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="sed">sed</h2>
 
-<h3 id="section-8">ファイルの中のテキストを全置換するには</h3>
+<h3 id="section-10">ファイルの中のテキストを全置換するには</h3>
 
 <pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
 </code></pre>
@@ -458,7 +505,7 @@ grep -rni --color=always abc | less -X -R
 
 <h2 id="tar">tar</h2>
 
-<h3 id="section-9">基本操作</h3>
+<h3 id="section-11">基本操作</h3>
 
 <pre><code># 圧縮
 tar cvzf tarファイル名 圧縮対象ディレクトリ
@@ -483,26 +530,26 @@ tar xvzf tarファイル名
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-10">ファイルの特定の文字を改行に全置換するには</h3>
+<h3 id="section-12">ファイルの特定の文字を改行に全置換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-11">ファイルの特定の文字を削除するには</h3>
+<h3 id="section-13">ファイルの特定の文字を削除するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、改行をすべて削除する。</p>
 
-<h3 id="section-12">連続したスペースを単一のスペースに変換するには</h3>
+<h3 id="section-14">連続したスペースを単一のスペースに変換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名
 </code></pre>
 
-<h2 id="watch">watch</h2>
+<h2 id="watch">watch <span class="article-date">2013/06/04</span></h2>
 
 <p><code>ls -al</code> を1秒ごとに実行</p>
 
@@ -513,6 +560,8 @@ tar xvzf tarファイル名
 
 <pre><code>watch -n 1 "ls | wc -l"
 </code></pre>
+
+<p><code>-d</code> を付けると、変化した部分が強調して表示される。</p>
 
 <h2 id="wget">wget</h2>
 
@@ -527,7 +576,7 @@ tar xvzf tarファイル名
 <pre><code>wget --http-user=user --http-passwd=password URL
 </code></pre>
 
-<h3 id="section-13">ウェブサイトを丸ごとダウンロードするには</h3>
+<h3 id="section-15">ウェブサイトを丸ごとダウンロードするには</h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする。</p>
 
@@ -539,7 +588,7 @@ tar xvzf tarファイル名
 <pre><code>wget -r -l5 --convert-links URL
 </code></pre>
 
-<h3 id="section-14">標準出力に吐き出すには</h3>
+<h3 id="section-16">標準出力に吐き出すには</h3>
 
 <pre><code>wget -q -O - URL
 </code></pre>

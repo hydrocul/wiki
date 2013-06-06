@@ -260,19 +260,31 @@ defaultに飛んでくれたりはしない。
 
 <p><code>Byte</code>, <code>Short</code>, <code>Character</code>, <code>Integer</code> が使えるのは、たぶん autoboxing が導入された Java SE 5 から。</p>
 
-<h2 id="scala-20130515">Scala <span class="article-date">2013/05/15</span></h2>
+<h3 id="scala-20130515">Scala <span class="article-date">2013/05/15</span></h3>
 
 <pre><code>x match {
   case 1 =&gt;
     ...
   case 2 =&gt;
     ...
-  case 3 =&gt;
+  case _ =&gt;
     ...
 }
 </code></pre>
 
 <p>C言語やJavaのように　fall through することはない。</p>
+
+<h3 id="ruby-20130605">Ruby <span class="article-date">2013/06/05</span></h3>
+
+<pre><code>case x
+when 1
+  ...
+when 2
+  ...
+else
+  ...
+end
+</code></pre>
 
 
 </div>
