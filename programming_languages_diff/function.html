@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Home | hydrocul のメモ</title>
+<title>関数・メソッド | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 #side-menu {
@@ -94,7 +94,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="./">Home</a>
+    <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; 関数・メソッド
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -103,15 +103,95 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="home">Home</h1>
+  <h1 id="section">関数・メソッド</h1>
 
-<p><a href="./ack-grep.html">ack-grep</a> <a href="./algorithm.html">アルゴリズム</a> <a href="./apache.html">Apache</a> <a href="./codeigniter.html">CodeIgniter</a> <a href="./color.html">色</a> <a href="./commands.html">コマンドリファレンス</a> <a href="./cp.html">cp</a> <a href="./css.html">CSS</a> <a href="./emacs.html">Emacs</a> <a href="./find.html">find</a> <a href="./git.html">git</a> <a href="./html.html">HTML</a> <a href="./incron.html">incron (inotify cron)</a> <a href="./iptables.html">iptables</a> <a href="./java.html">Java</a> <a href="./jquery.html">jQuery</a> <a href="./less.html">less</a> <a href="./linux.html">Linux</a> <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a> <a href="./mac.html">Mac</a> <a href="./markdown.html">Markdown</a> <a href="./materials.html">素材集</a> <a href="./mechanize.html">mechanize</a> <a href="./misc.html">misc</a> <a href="./mosh.html">mosh</a> <a href="./mylisp.html">オレオレLisp</a> <a href="./mysql.html">MySQL</a> <a href="./nkf.html">nkf</a> <a href="./oneliner.html">ワンライナー</a> <a href="./passenger.html">Passenger (Ruby on Rails)</a> <a href="./php.html">PHP</a> <a href="./physics.html">物理学</a> <a href="./programming_languages_diff/">プログラミング言語の比較</a> <a href="./python.html">Python</a> <a href="./rails.html">Ruby on Rails</a> <a href="./ruby.html">Ruby</a> <a href="./sh.html">シェルスクリプト</a> <a href="./ssh.html">SSH</a> <a href="./ubuntu.html">Ubuntu</a> <a href="./wget.html">wget</a> </p>
+<ul>
+  <li><a href="#method-definition">メソッド定義</a></li>
+  <li><a href="#multi-return">複数の返り値</a></li>
+</ul>
+
+<h2 id="method-definition">メソッド定義</h2>
+
+<h3 id="php-20130410">PHP <span class="article-date">2013/04/10</span></h3>
+
+<pre><code>function f($arg1, $arg2){
+  ...;
+  return ...;
+}
+</code></pre>
+
+<ul>
+  <li>関数呼び出しはカッコを省略不可</li>
+</ul>
+
+<h3 id="ruby-20130410">Ruby <span class="article-date">2013/04/10</span></h3>
+
+<pre><code>def f(arg1, arg2)
+  ...
+  return ...
+end
+</code></pre>
+
+<ul>
+  <li>メソッド呼び出しはカッコを省略可</li>
+</ul>
+
+<h3 id="scala-20130422">Scala <span class="article-date">2013/04/22</span></h3>
+
+<pre><code>def f(arg1: String, arg2: Int): String = {
+  ...
+}
+</code></pre>
+
+<ul>
+  <li>メソッド呼び出しは、引数がない場合に限り、カッコを省略できる</li>
+</ul>
+
+<h3 id="coffeescript-20130428">CoffeeScript <span class="article-date">2013/04/28</span></h3>
+
+<pre><code>(arg1, arg2) -&gt;
+  ...
+  ...
+</code></pre>
+
+<p>引数がない場合</p>
+
+<pre><code>-&gt;
+  ...
+  ...
+</code></pre>
+
+<ul>
+  <li>関数呼び出しは、引数がある場合はカッコを省略可。引数がない場合はカッコを省略できない。</li>
+</ul>
+
+<h2 id="multi-return">複数の返り値</h2>
+
+<h3 id="php-20130422">PHP <span class="article-date">2013/04/22</span></h3>
+
+<p>配列を使って無理やりやろうと思えばできなくもない。</p>
+
+<pre><code>function f(){
+  return array(1, "abc");
+}
+list($num, $str) = f();
+</code></pre>
+
+<h3 id="ruby-20130422">Ruby <span class="article-date">2013/04/22</span></h3>
+
+<p><code>return</code> にカンマ区切りで複数の値を書けば、配列を返すことができ、受け取り側は配列の多重代入を使う。</p>
+
+<pre><code>def f
+  return 1, "abc"
+end
+num, str = f
+</code></pre>
 
 
 </div>
 
   <footer>
-    <a href="./">目次</a>
+    <a href="../">目次</a>
     <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
   </footer>
 

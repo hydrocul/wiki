@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Home | hydrocul のメモ</title>
+<title>例外処理 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 #side-menu {
@@ -94,7 +94,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="./">Home</a>
+    <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; 例外処理
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -103,15 +103,88 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="home">Home</h1>
+  <h1 id="section">例外処理</h1>
 
-<p><a href="./ack-grep.html">ack-grep</a> <a href="./algorithm.html">アルゴリズム</a> <a href="./apache.html">Apache</a> <a href="./codeigniter.html">CodeIgniter</a> <a href="./color.html">色</a> <a href="./commands.html">コマンドリファレンス</a> <a href="./cp.html">cp</a> <a href="./css.html">CSS</a> <a href="./emacs.html">Emacs</a> <a href="./find.html">find</a> <a href="./git.html">git</a> <a href="./html.html">HTML</a> <a href="./incron.html">incron (inotify cron)</a> <a href="./iptables.html">iptables</a> <a href="./java.html">Java</a> <a href="./jquery.html">jQuery</a> <a href="./less.html">less</a> <a href="./linux.html">Linux</a> <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a> <a href="./mac.html">Mac</a> <a href="./markdown.html">Markdown</a> <a href="./materials.html">素材集</a> <a href="./mechanize.html">mechanize</a> <a href="./misc.html">misc</a> <a href="./mosh.html">mosh</a> <a href="./mylisp.html">オレオレLisp</a> <a href="./mysql.html">MySQL</a> <a href="./nkf.html">nkf</a> <a href="./oneliner.html">ワンライナー</a> <a href="./passenger.html">Passenger (Ruby on Rails)</a> <a href="./php.html">PHP</a> <a href="./physics.html">物理学</a> <a href="./programming_languages_diff/">プログラミング言語の比較</a> <a href="./python.html">Python</a> <a href="./rails.html">Ruby on Rails</a> <a href="./ruby.html">Ruby</a> <a href="./sh.html">シェルスクリプト</a> <a href="./ssh.html">SSH</a> <a href="./ubuntu.html">Ubuntu</a> <a href="./wget.html">wget</a> </p>
+<h2 id="section-1">書き方</h2>
+
+<h3 id="ruby-20130416">Ruby <span class="article-date">2013/04/16</span></h3>
+
+<pre><code>begin
+  ...
+  raise ...
+  ...
+rescue
+  ...
+else
+  ...
+ensure
+  ...
+end
+</code></pre>
+
+<p><code>rescue</code> で特定のクラスの例外を補足したい場合は、以下のように書く。</p>
+
+<pre><code>rescue ZeroDivisionError =&gt; ex
+</code></pre>
+
+<p><code>rescue</code> 節は複数書くことができる。</p>
+
+<p>例外をスローするには、以下のような書き方がある。</p>
+
+<pre><code>raise "exception message ..."
+raise ZeroDivisionError, "message ..."
+</code></pre>
+
+<h3 id="python-20130417">Python <span class="article-date">2013/04/17</span></h3>
+
+<pre><code>try:
+  ...
+  raise "message ..."
+  raise HogeException()
+  ...
+except:
+  ...
+finally:
+  ...
+</code></pre>
+
+<p><code>except</code> で例外オブジェクトを扱う場合は、 <code>except ex:</code> のように書く。</p>
+
+<p>特定の例外クラスだけ <code>except</code> で扱う場合は、 <code>except HogeException:</code>
+または <code>except HogeException, ex:</code> のように書く。</p>
+
+<p><code>except</code> の中で同じ例外を再スローするには <code>raise</code> とだけ書く。</p>
+
+<h3 id="javascript-20130416">JavaScript <span class="article-date">2013/04/16</span></h3>
+
+<pre><code>try {
+  ...
+  throw "message ...";
+  ...
+} catch(ex){
+  ...
+} finally {
+  ...
+}
+</code></pre>
+
+<h3 id="coffeescript-20130416">CoffeeScript <span class="article-date">2013/04/16</span></h3>
+
+<pre><code>try
+  ...
+  throw("message")
+  ...
+catch ex
+  ...
+finally
+  ...
+</code></pre>
 
 
 </div>
 
   <footer>
-    <a href="./">目次</a>
+    <a href="../">目次</a>
     <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
   </footer>
 
