@@ -257,7 +257,7 @@ arr = [
 
 <p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/list.html">リスト(配列)</a> &gt; <a href="../programming_languages_diff/list.html#find">find</a></i></p>
 
-<h3 id="java-1">Java</h3>
+<h3 id="java-20130506">Java <span class="article-date">2013/05/06</span></h3>
 
 <pre><code>int List&lt;E&gt;#indexOf(Object obj)
 int List&lt;E&gt;#lastIndexOf(Object obj)
@@ -265,7 +265,7 @@ int List&lt;E&gt;#lastIndexOf(Object obj)
 
 <p>見つからなかった場合は <code>-1</code> を返す。</p>
 
-<h3 id="scala-1">Scala</h3>
+<h3 id="scala-20130506">Scala <span class="article-date">2013/05/06</span></h3>
 
 <pre><code>def Seq[A]#indexOf(obj: A): Int
 def Seq[A]#indexOf(obj: A, from: Int): Int
@@ -275,7 +275,21 @@ def Seq[A]#indexWhere(p: A =&gt; Boolean, from: Int): Int
 
 <p>見つからなかった場合は <code>-1</code> を返す。</p>
 
-<h3 id="ruby-1">Ruby</h3>
+<h3 id="php-20130611">PHP <span class="article-date">2013/06/11</span></h3>
+
+<pre><code>array_search($obj, $arr)
+</code></pre>
+
+<p>見つからなかった場合は <code>false</code> を返す。<code>0</code> を返す場合と区別するために以下のように <code>===</code> または <code>!==</code> での比較が必要。</p>
+
+<pre><code>if(array_search($obj, $arr) === false){
+    ...
+}
+</code></pre>
+
+<p><a href="http://www.php.net/manual/ja/function.array-search.php" target="_blank">http://www.php.net/manual/ja/function.array-search.php</a></p>
+
+<h3 id="ruby-20130416">Ruby <span class="article-date">2013/04/16</span></h3>
 
 <pre><code>Array#index(obj)
 </code></pre>
@@ -284,12 +298,12 @@ def Seq[A]#indexWhere(p: A =&gt; Boolean, from: Int): Int
 
 <h2 id="size">size</h2>
 
-<h3 id="java-2">Java</h3>
+<h3 id="java-20130506-1">Java <span class="article-date">2013/05/06</span></h3>
 
 <pre><code>int List&lt;E&gt;#size()
 </code></pre>
 
-<h3 id="scala-2">Scala</h3>
+<h3 id="scala-20130506-1">Scala <span class="article-date">2013/05/06</span></h3>
 
 <pre><code>def Seq[A]#length: Int
 def Seq[A]#size: Int
@@ -297,13 +311,13 @@ def Seq[A]#size: Int
 
 <p>2つのメソッドは全く同じ。</p>
 
-<h3 id="php-1">PHP</h3>
+<h3 id="php-20130427">PHP <span class="article-date">2013/04/27</span></h3>
 
 <pre><code>count($arr)
 sizeof($arr)
 </code></pre>
 
-<h3 id="ruby-2">Ruby</h3>
+<h3 id="ruby-20130416-1">Ruby <span class="article-date">2013/04/16</span></h3>
 
 <pre><code>Array#length
 Array#size
@@ -311,7 +325,7 @@ Array#size
 
 <p>2つのメソッドは全く同じ。文字列の長さも同じ名前の2つのメソッドがある。</p>
 
-<h3 id="javascript-1">JavaScript</h3>
+<h3 id="javascript-20130419">JavaScript <span class="article-date">2013/04/19</span></h3>
 
 <pre><code>arr.length
 </code></pre>
@@ -333,58 +347,58 @@ console.log(arr.length); // =&gt; 0
 
 <h2 id="isempty">isEmpty</h2>
 
-<h3 id="java-3">Java</h3>
+<h3 id="java-1">Java</h3>
 
 <pre><code>boolean List&lt;E&gt;#isEmpty()
 </code></pre>
 
-<h3 id="scala-3">Scala</h3>
+<h3 id="scala-1">Scala</h3>
 
 <pre><code>def Seq[A]#isEmpty: Boolean
 </code></pre>
 
 <h2 id="contains">contains</h2>
 
-<h3 id="java-4">Java</h3>
+<h3 id="java-2">Java</h3>
 
 <pre><code>boolean List&lt;E&gt;#contains(Object obj)
 </code></pre>
 
-<h3 id="scala-4">Scala</h3>
+<h3 id="scala-2">Scala</h3>
 
 <pre><code>def Seq[A]#contains(obj: Any): Boolean
 </code></pre>
 
-<h3 id="php-2">PHP</h3>
+<h3 id="php-1">PHP</h3>
 
 <pre><code>bool in_array($obj, $arr)
 </code></pre>
 
-<h3 id="ruby-3">Ruby</h3>
+<h3 id="ruby-1">Ruby</h3>
 
 <pre><code>arr.include?(obj)
 </code></pre>
 
 <h2 id="subList">subList</h2>
 
-<h3 id="java-5">Java</h3>
+<h3 id="java-3">Java</h3>
 
 <pre><code>List&lt;E&gt; List&lt;E&gt;#subList(int from, int until)
 </code></pre>
 
 <p><code>subList</code> で返されたリストを変更すると、元のリストにも反映される。</p>
 
-<h3 id="scala-5">Scala</h3>
+<h3 id="scala-3">Scala</h3>
 
 <pre><code>def Seq[A]#slice(from: Int, until: Int): Seq[A]
 </code></pre>
 
-<h3 id="php-3">PHP</h3>
+<h3 id="php-2">PHP</h3>
 
 <pre><code>array array_slice($arr, $from [, $length])
 </code></pre>
 
-<h3 id="ruby-4">Ruby</h3>
+<h3 id="ruby-2">Ruby</h3>
 
 <pre><code>Array#slice(index)
 Array#slice(from, length)
@@ -392,75 +406,75 @@ Array#slice(from, length)
 
 <p>lengthを省略したら、from以降の部分配列ではなく、その場所の要素を返す(<code>[]</code> と同じ)。</p>
 
-<h3 id="javascript-2">JavaScript</h3>
+<h3 id="javascript-1">JavaScript</h3>
 
 <pre><code>Array#slice(start[, end])
 </code></pre>
 
 <h2 id="head">head</h2>
 
-<h3 id="scala-6">Scala</h3>
+<h3 id="scala-4">Scala</h3>
 
 <pre><code>def Seq[A]#head: A
 </code></pre>
 
 <h2 id="last">last</h2>
 
-<h3 id="scala-7">Scala</h3>
+<h3 id="scala-5">Scala</h3>
 
 <pre><code>def Seq[A]#last: A
 </code></pre>
 
 <h2 id="tail">tail</h2>
 
-<h3 id="scala-8">Scala</h3>
+<h3 id="scala-6">Scala</h3>
 
 <pre><code>def Seq[A]#tail: Seq[A]
 </code></pre>
 
 <h2 id="take">take</h2>
 
-<h3 id="scala-9">Scala</h3>
+<h3 id="scala-7">Scala</h3>
 
 <pre><code>def Seq[A]#take(n: Int): Seq[A]
 </code></pre>
 
-<h3 id="ruby-5">Ruby</h3>
+<h3 id="ruby-3">Ruby</h3>
 
 <pre><code>arr.slice(0, n)
 </code></pre>
 
 <h2 id="drop">drop</h2>
 
-<h3 id="scala-10">Scala</h3>
+<h3 id="scala-8">Scala</h3>
 
 <pre><code>def Seq[A]#drop(n: Int): Seq[A]
 </code></pre>
 
-<h3 id="ruby-6">Ruby</h3>
+<h3 id="ruby-4">Ruby</h3>
 
 <pre><code>arr.slice(n, arr.size - n)
 </code></pre>
 
 <h2 id="reverse">reverse</h2>
 
-<h3 id="scala-11">Scala</h3>
+<h3 id="scala-9">Scala</h3>
 
 <pre><code>def Seq[A]#reverse: Seq[A]
 </code></pre>
 
-<h3 id="php-4">PHP</h3>
+<h3 id="php-3">PHP</h3>
 
 <pre><code>array array_reverse($arr)
 </code></pre>
 
-<h3 id="ruby-7">Ruby</h3>
+<h3 id="ruby-5">Ruby</h3>
 
 <pre><code>Array#reverse
 Array#reverse!
 </code></pre>
 
-<h3 id="javascript-3">JavaScript</h3>
+<h3 id="javascript-2">JavaScript</h3>
 
 <pre><code>Array#reverse
 </code></pre>
@@ -469,7 +483,7 @@ Array#reverse!
 
 <h2 id="foreach">foreach</h2>
 
-<h3 id="java-6">Java</h3>
+<h3 id="java-4">Java</h3>
 
 <p>配列をループ。</p>
 
@@ -485,12 +499,12 @@ Array#reverse!
 }
 </code></pre>
 
-<h3 id="scala-12">Scala</h3>
+<h3 id="scala-10">Scala</h3>
 
 <pre><code>def Seq[A]#foreach(f: A =&gt; Unit): Unit
 </code></pre>
 
-<h3 id="php-5">PHP</h3>
+<h3 id="php-4">PHP</h3>
 
 <pre><code>for(int $i = 0; $i &lt; $arr.length; $i++){
   ...
@@ -501,7 +515,7 @@ foreach($arr as $value){
 }
 </code></pre>
 
-<h3 id="ruby-8">Ruby</h3>
+<h3 id="ruby-6">Ruby</h3>
 
 <pre><code>for value in arr do
   ...
@@ -533,12 +547,12 @@ end
 
 <h2 id="map">map</h2>
 
-<h3 id="scala-13">Scala</h3>
+<h3 id="scala-11">Scala</h3>
 
 <pre><code>def Seq[A]#map[B](f: A =&gt; B): Seq[B]
 </code></pre>
 
-<h3 id="php-6">PHP</h3>
+<h3 id="php-5">PHP</h3>
 
 <pre><code>array_map(function($elem){
   ...
@@ -560,24 +574,24 @@ end
 
 <h2 id="flatmap">flatMap</h2>
 
-<h3 id="scala-14">Scala</h3>
+<h3 id="scala-12">Scala</h3>
 
 <pre><code>def Seq[A]#flatMap[B](f: A =&gt; Seq[B]): Seq[B]
 </code></pre>
 
-<h3 id="ruby-9">Ruby</h3>
+<h3 id="ruby-7">Ruby</h3>
 
 <pre><code>arr.map{|elem| ...}.flatten(1)
 </code></pre>
 
 <h2 id="filter">filter</h2>
 
-<h3 id="scala-15">Scala</h3>
+<h3 id="scala-13">Scala</h3>
 
 <pre><code>def Seq[A]#filter(p: A =&gt; Boolean): Seq[A]
 </code></pre>
 
-<h3 id="ruby-10">Ruby</h3>
+<h3 id="ruby-8">Ruby</h3>
 
 <pre><code>Array#select
 </code></pre>
@@ -596,12 +610,12 @@ end
 
 <h2 id="flatten">flatten</h2>
 
-<h3 id="scala-16">Scala</h3>
+<h3 id="scala-14">Scala</h3>
 
 <pre><code>def Seq[A]#flatten[B]: Seq[B]
 </code></pre>
 
-<h3 id="ruby-11">Ruby</h3>
+<h3 id="ruby-9">Ruby</h3>
 
 <pre><code>Array#flatten
 Array#flatten(level)
@@ -619,12 +633,12 @@ arr.flatten    # =&gt; [1, 2, 3, 4]
 
 <h2 id="fold-left">foldLeft</h2>
 
-<h3 id="scala-17">Scala</h3>
+<h3 id="scala-15">Scala</h3>
 
 <pre><code>def Seq[A]#foldLeft[B](initial: B)(f: (B, A) =&gt; B): B
 </code></pre>
 
-<h3 id="ruby-12">Ruby</h3>
+<h3 id="ruby-10">Ruby</h3>
 
 <pre><code>arr = [1, 2, 3]
 arr.inject(:+)               # =&gt; 6
@@ -636,20 +650,20 @@ arr.inject(0) {|i, x| i + x} # =&gt; 6
 
 <h2 id="find">find</h2>
 
-<h3 id="scala-18">Scala</h3>
+<h3 id="scala-16">Scala</h3>
 
 <pre><code>def Seq[A]#find(p: A =&gt; Boolean): Option[A]
 </code></pre>
 
 <h2 id="sort">sort</h2>
 
-<h3 id="scala-19">Scala</h3>
+<h3 id="scala-17">Scala</h3>
 
 <pre><code>def Seq[A]#sorted: Seq[A]
 def Seq[A]#sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 </code></pre>
 
-<h3 id="ruby-13">Ruby</h3>
+<h3 id="ruby-11">Ruby</h3>
 
 <pre><code>Array#sort
 
@@ -668,7 +682,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 
 <p>リストの最後に要素を追加する。</p>
 
-<h3 id="php-7">PHP</h3>
+<h3 id="php-6">PHP</h3>
 
 <pre><code>$arr[] = $obj;
 </code></pre>
@@ -678,7 +692,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 <p>array_push | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-push.php" target="_blank">http://jp2.php.net/manual/ja/function.array-push.php</a></p>
 
-<h3 id="ruby-14">Ruby</h3>
+<h3 id="ruby-12">Ruby</h3>
 
 <pre><code>Array#push(obj)
 </code></pre>
@@ -697,7 +711,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 <pre><code>arr.append(obj)
 </code></pre>
 
-<h3 id="javascript-4">JavaScript</h3>
+<h3 id="javascript-3">JavaScript</h3>
 
 <pre><code>Array#push(obj)
 </code></pre>
@@ -708,7 +722,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 
 <p>配列の先頭に要素を挿入する。</p>
 
-<h3 id="php-8">PHP</h3>
+<h3 id="php-7">PHP</h3>
 
 <pre><code>array_unshift($arr, $obj);
 </code></pre>
@@ -716,7 +730,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 <p>array_unshift | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-unshift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-unshift.php</a></p>
 
-<h3 id="ruby-15">Ruby</h3>
+<h3 id="ruby-13">Ruby</h3>
 
 <pre><code>Array#unshift(obj)
 </code></pre>
@@ -733,7 +747,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 <pre><code>arr.insert(index, obj)
 </code></pre>
 
-<h3 id="javascript-5">JavaScript</h3>
+<h3 id="javascript-4">JavaScript</h3>
 
 <pre><code>Array#unshift(obj)
 </code></pre>
@@ -744,7 +758,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 
 <p>リストの最後の要素を取得し、削除する。</p>
 
-<h3 id="php-9">PHP</h3>
+<h3 id="php-8">PHP</h3>
 
 <pre><code>array_pop($arr);
 </code></pre>
@@ -752,7 +766,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 <p>array_pop | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-pop.php" target="_blank">http://jp2.php.net/manual/ja/function.array-pop.php</a></p>
 
-<h3 id="ruby-16">Ruby</h3>
+<h3 id="ruby-14">Ruby</h3>
 
 <pre><code>Array#pop
 </code></pre>
@@ -766,7 +780,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 
 <p>Ruby, JavaScriptと同じメソッド名。</p>
 
-<h3 id="javascript-6">JavaScript</h3>
+<h3 id="javascript-5">JavaScript</h3>
 
 <pre><code>Array#pop
 </code></pre>
@@ -784,7 +798,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 
 <p>リストの先頭の要素を取得し、削除する。</p>
 
-<h3 id="php-10">PHP</h3>
+<h3 id="php-9">PHP</h3>
 
 <pre><code>array_shift($arr);
 </code></pre>
@@ -792,7 +806,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 <p>array_shift | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-shift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-shift.php</a></p>
 
-<h3 id="ruby-17">Ruby</h3>
+<h3 id="ruby-15">Ruby</h3>
 
 <pre><code>Array#shift
 </code></pre>
@@ -809,7 +823,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 <pre><code>arr.pop(index)
 </code></pre>
 
-<h3 id="javascript-7">JavaScript</h3>
+<h3 id="javascript-6">JavaScript</h3>
 
 <pre><code>Array#shift
 </code></pre>
@@ -834,7 +848,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 
 <h2 id="clone">clone</h2>
 
-<h3 id="ruby-18">Ruby</h3>
+<h3 id="ruby-16">Ruby</h3>
 
 <p>shallow copy</p>
 
@@ -842,7 +856,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 Array#dup
 </code></pre>
 
-<h3 id="javascript-8">JavaScript</h3>
+<h3 id="javascript-7">JavaScript</h3>
 
 <p>shallow copy</p>
 
@@ -861,7 +875,7 @@ arr_copy = arr.clone();
 
 <p>リストからマップに変換する方法。</p>
 
-<h3 id="scala-20">Scala</h3>
+<h3 id="scala-18">Scala</h3>
 
 <p>タプルのリストをマップに変換する方法。</p>
 
@@ -874,7 +888,7 @@ arr_copy = arr.clone();
 list.toMap; // =&gt; Map("a" -&gt; 1, "b" -&gt; 2)
 </code></pre>
 
-<h3 id="ruby-19">Ruby</h3>
+<h3 id="ruby-17">Ruby</h3>
 
 <p>偶数個の要素を持つ配列をハッシュに変換する方法。</p>
 
@@ -884,12 +898,12 @@ Hash[*arr] # =&gt; {'a' =&gt; 1, 'b' =&gt; 2}
 
 <h2 id="grouped">grouped</h2>
 
-<h3 id="scala-21">Scala</h3>
+<h3 id="scala-19">Scala</h3>
 
 <pre><code>def Seq[A]#grouped(size: Int): Iterator[Seq[A]]
 </code></pre>
 
-<h3 id="ruby-20">Ruby</h3>
+<h3 id="ruby-18">Ruby</h3>
 
 <p>以下のような関数で同様のことができる。</p>
 
@@ -910,19 +924,19 @@ end
 
 <h2 id="group-by">groupBy</h2>
 
-<h3 id="scala-22">Scala</h3>
+<h3 id="scala-20">Scala</h3>
 
 <pre><code>def Seq[A]#groupBy(f: A =&gt; K): Map[K, Seq[A]]
 </code></pre>
 
 <h2 id="zip">zip</h2>
 
-<h3 id="scala-23">Scala</h3>
+<h3 id="scala-21">Scala</h3>
 
 <pre><code>def Seq[A]#zip(that: Iterable[B]): Seq[(A, B)]
 </code></pre>
 
-<h3 id="ruby-21">Ruby</h3>
+<h3 id="ruby-19">Ruby</h3>
 
 <pre><code>Array#zip(a1, a2, ...)
 </code></pre>
@@ -935,14 +949,14 @@ end
 
 <h2 id="fill">fill</h2>
 
-<h3 id="scala-24">Scala</h3>
+<h3 id="scala-22">Scala</h3>
 
 <pre><code>Seq.fill[A](n: Int)(elem: =&gt; A): Seq[A]
 Seq.fill[A](n1: Int, n2: Int)(elem: =&gt; A): Seq[Seq[A]]
 Seq.fill[A](n1: Int, n2: Int, n3: Int)(elem: =&gt; A): Seq[Seq[Seq[A]]]
 </code></pre>
 
-<h3 id="ruby-22">Ruby</h3>
+<h3 id="ruby-20">Ruby</h3>
 
 <p>同じ値を指定の数だけ含む配列を作るには</p>
 
@@ -951,7 +965,7 @@ Seq.fill[A](n1: Int, n2: Int, n3: Int)(elem: =&gt; A): Seq[Seq[Seq[A]]]
 
 <h2 id="product">product</h2>
 
-<h3 id="ruby-23">Ruby</h3>
+<h3 id="ruby-21">Ruby</h3>
 
 <p>例</p>
 
@@ -962,14 +976,14 @@ Seq.fill[A](n1: Int, n2: Int, n3: Int)(elem: =&gt; A): Seq[Seq[Seq[A]]]
 
 <p>数のリストの合計を計算するには</p>
 
-<h3 id="scala-25">Scala</h3>
+<h3 id="scala-23">Scala</h3>
 
 <pre><code>def Seq[A]#sum: A
 </code></pre>
 
 <p>要素が <code>Int</code> や <code>Double</code> などの場合に限る。</p>
 
-<h3 id="ruby-24">Ruby</h3>
+<h3 id="ruby-22">Ruby</h3>
 
 <pre><code>def sum(arr)
   arr.inject(0, :+)

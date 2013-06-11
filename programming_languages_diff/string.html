@@ -314,12 +314,12 @@ echo $str[0][0][0]; // =&gt; a
 
 <h2 id="trim">trim</h2>
 
-<h3 id="java--scala-2">Java / Scala</h3>
+<h3 id="java--scala-20130410">Java / Scala <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>String String#trim()
 </code></pre>
 
-<h3 id="php-2">PHP</h3>
+<h3 id="php-20130611">PHP <span class="article-date">2013/06/11</span></h3>
 
 <pre><code>string trim(string $str [, string $charlist])
 </code></pre>
@@ -336,7 +336,11 @@ echo $str[0][0][0]; // =&gt; a
 “\x0B” (ASCII 11 (0x0B)), 垂直タブ  </p>
 </blockquote>
 
-<h3 id="ruby-2">Ruby</h3>
+<pre><code># 改行コードのみを削除
+trim($str, "\r\n")
+</code></pre>
+
+<h3 id="ruby-20130410">Ruby <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>String#strip
 String#strip!
@@ -356,7 +360,7 @@ String#chomp!(str)
 
 <p><a href="http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html" target="_blank">http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html</a></p>
 
-<h3 id="javascript-2">JavaScript</h3>
+<h3 id="javascript-20130410">JavaScript <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>jQuery.trim(str)
 </code></pre>
@@ -366,19 +370,19 @@ String#chomp!(str)
 
 <h2 id="starts-with">startsWith / endsWith</h2>
 
-<h3 id="java--scala-3">Java / Scala</h3>
+<h3 id="java--scala-2">Java / Scala</h3>
 
 <pre><code>String String#startsWith(String prefix)
 String String#endsWith(String suffix)
 </code></pre>
 
-<h3 id="ruby-3">Ruby</h3>
+<h3 id="ruby-2">Ruby</h3>
 
 <pre><code>String#start_with?(prefix)
 String#end_with?(suffix)
 </code></pre>
 
-<h3 id="javascript-3">JavaScript</h3>
+<h3 id="javascript-2">JavaScript</h3>
 
 <p>startsWithに相当するよく使う方法。</p>
 
@@ -418,7 +422,7 @@ def format(args: Any*): String
 <p>フォーマットの説明<br />
 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax</a></p>
 
-<h3 id="php-3">PHP</h3>
+<h3 id="php-2">PHP</h3>
 
 <pre><code>string sprintf(string $format [, $arg1 [, $arg2 ... ]])
 </code></pre>
@@ -426,7 +430,7 @@ def format(args: Any*): String
 <p>フォーマットの説明<br />
 <a href="http://www.php.net/manual/ja/function.sprintf.php" target="_blank">http://www.php.net/manual/ja/function.sprintf.php</a></p>
 
-<h3 id="ruby-4">Ruby</h3>
+<h3 id="ruby-3">Ruby</h3>
 
 <p>例：</p>
 
@@ -438,7 +442,7 @@ def format(args: Any*): String
 
 <h2 id="index-of">indexOf</h2>
 
-<h3 id="java--scala-4">Java / Scala</h3>
+<h3 id="java--scala-3">Java / Scala</h3>
 
 <pre><code>int String#indexOf(int ch)
 int String#indexOf(String str)
@@ -449,7 +453,7 @@ int String#lastIndexOf(String str)
 
 <p>見つからない場合は <code>-1</code> を返す。</p>
 
-<h3 id="php-4">PHP</h3>
+<h3 id="php-3">PHP</h3>
 
 <pre><code>int strpos($mystring, $str)
 </code></pre>
@@ -461,7 +465,7 @@ int String#lastIndexOf(String str)
 
 <p>見つからない場合は <code>FALSE</code> を返す。</p>
 
-<h3 id="ruby-5">Ruby</h3>
+<h3 id="ruby-4">Ruby</h3>
 
 <pre><code>String#index(str)
 String#index(str, index)
@@ -481,7 +485,7 @@ String#rindex(str, index)
 'abcabc'.rindex('abc', 2) # =&gt; 0
 </code></pre>
 
-<h3 id="javascript-4">JavaScript</h3>
+<h3 id="javascript-3">JavaScript</h3>
 
 <pre><code>string.indexOf(str)
 </code></pre>
@@ -490,17 +494,17 @@ String#rindex(str, index)
 
 <h2 id="length">length</h2>
 
-<h3 id="java--scala-5">Java / Scala</h3>
+<h3 id="java--scala-4">Java / Scala</h3>
 
 <pre><code>int String#length()
 </code></pre>
 
-<h3 id="php-5">PHP</h3>
+<h3 id="php-4">PHP</h3>
 
 <pre><code>int strlen($string)
 </code></pre>
 
-<h3 id="ruby-6">Ruby</h3>
+<h3 id="ruby-5">Ruby</h3>
 
 <pre><code>String#length
 String#size
@@ -510,26 +514,26 @@ String#size
 
 <h2 id="is-empty">isEmpty</h2>
 
-<h3 id="java--scala-6">Java / Scala</h3>
+<h3 id="java--scala-5">Java / Scala</h3>
 
 <pre><code>boolean String#isEmpty()
 </code></pre>
 
-<h3 id="php-6">PHP</h3>
+<h3 id="php-5">PHP</h3>
 
 <pre><code>strlen($string) == 0
 </code></pre>
 
 <h2 id="split">split / explode</h2>
 
-<h3 id="php-7">PHP</h3>
+<h3 id="php-6">PHP</h3>
 
 <pre><code>explode($separator, $str [, $limit])
 </code></pre>
 
 <p><a href="http://jp2.php.net/manual/ja/function.explode.php" target="_blank">http://jp2.php.net/manual/ja/function.explode.php</a></p>
 
-<h3 id="ruby-7">Ruby</h3>
+<h3 id="ruby-6">Ruby</h3>
 
 <pre><code>String#split(pattern [, limit]))
 </code></pre>
@@ -539,26 +543,26 @@ String#size
 
 <h2 id="join">join / implode</h2>
 
-<h3 id="php-8">PHP</h3>
+<h3 id="php-7">PHP</h3>
 
 <pre><code>implode($separator, $arr)
 </code></pre>
 
 <p><a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
 
-<h3 id="ruby-8">Ruby</h3>
+<h3 id="ruby-7">Ruby</h3>
 
 <pre><code>Array#join(separator)
 </code></pre>
 
-<h3 id="javascript-5">JavaScript</h3>
+<h3 id="javascript-4">JavaScript</h3>
 
 <pre><code>arr.join(separator)
 </code></pre>
 
 <h2 id="compare">比較</h2>
 
-<h3 id="ruby-9">Ruby</h3>
+<h3 id="ruby-8">Ruby</h3>
 
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!~</code> はその反対。</p>
 
@@ -566,25 +570,25 @@ String#size
 
 <h2 id="upper-lower">大文字小文字変換</h2>
 
-<h3 id="java--scala-7">Java / Scala</h3>
+<h3 id="java--scala-6">Java / Scala</h3>
 
 <pre><code>String String#toUpperCase()
 String String#toLowerCase()
 </code></pre>
 
-<h3 id="php-9">PHP</h3>
+<h3 id="php-8">PHP</h3>
 
 <pre><code>string strtoupper($string)
 string strtolower($string)
 </code></pre>
 
-<h3 id="ruby-10">Ruby</h3>
+<h3 id="ruby-9">Ruby</h3>
 
 <pre><code>String#upcase
 String#downcase
 </code></pre>
 
-<h3 id="javascript-6">JavaScript</h3>
+<h3 id="javascript-5">JavaScript</h3>
 
 <pre><code>string.toUpperCase()
 string.toLowerCase()

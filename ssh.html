@@ -105,6 +105,31 @@ footer {
 <div id="content">
   <h1 id="ssh">SSH</h1>
 
+<h2 id="section">基本の使い方 <span class="article-date">2013/06/11</span></h2>
+
+<pre><code>ssh &lt;ID&gt;@&lt;IP&gt;
+</code></pre>
+
+<p>moshは</p>
+
+<pre><code>mosh &lt;ID&gt;@&lt;IP&gt;
+</code></pre>
+
+<p>sshfsは</p>
+
+<pre><code>sshfs &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
+</code></pre>
+
+<p>rsyncは</p>
+
+<pre><code>rsync &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
+</code></pre>
+
+<p><code>&lt;IP&gt;</code> と書いてある箇所はホスト名でも可。</p>
+
+<p><code>&lt;ID&gt;@</code> の部分はローカルホストのログインユーザ名と同じであるか、
+<code>~/.ssh/config</code> にユーザ名が指定してあれば、省略可。</p>
+
 <h2 id="ssh-20130528">ポートが22以外のSSHサーバに接続するには <span class="article-date">2013/05/28</span></h2>
 
 <pre><code>ssh -p &lt;port&gt; &lt;ID&gt;@&lt;IP&gt;
@@ -125,7 +150,7 @@ footer {
 <pre><code>rsync -e "ssh -p &lt;port&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
 </code></pre>
 
-<h2 id="section">秘密鍵を個別に指定して接続するには <span class="article-date">2013/05/28</span></h2>
+<h2 id="section-1">秘密鍵を個別に指定して接続するには <span class="article-date">2013/05/28</span></h2>
 
 <pre><code>ssh -i &lt;private_key_file&gt; &lt;ID&gt;@&lt;IP&gt;
 </code></pre>
@@ -160,14 +185,14 @@ footer {
   ServerAliveInterval 60
 </code></pre>
 
-<h2 id="section-1">秘密鍵・公開鍵のペアを作るには <span class="article-date">2013/04/03</span></h2>
+<h2 id="section-2">秘密鍵・公開鍵のペアを作るには <span class="article-date">2013/04/03</span></h2>
 
 <p>以下のコマンドで <code>~/.ssh/id_rsa</code>, <code>~/.ssh/id_rsa.pub</code> にできる。</p>
 
 <pre><code>ssh-keygen -t rsa
 </code></pre>
 
-<h2 id="section-2">公開鍵をリモートのサーバに簡単に設置するには <span class="article-date">2013/04/03</span></h2>
+<h2 id="section-3">公開鍵をリモートのサーバに簡単に設置するには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>cat ~/.ssh/id_rsa.pub | ssh &lt;ID&gt;@&lt;IP&gt; "bash -c \"if [ ! -d ~/.ssh ] ; then mkdir ~/.ssh; fi; if [ -f ~/.ssh/authorized_keys ] ; then cat &gt;&gt; ~/.ssh/authorized_keys; else cat &gt;&gt; ~/.ssh/authorized_keys2; fi\""
 </code></pre>
@@ -182,7 +207,7 @@ footer {
 moshを使っていれば問題ないが、SSH port forwarding を使っている場合は、
 moshが対応していないので、このツールが便利かもしれない。</p>
 
-<h2 id="section-3">ポートフォワードの待ち受けポートに外部から接続できるようにするには <span class="article-date">2013/04/27</span></h2>
+<h2 id="section-4">ポートフォワードの待ち受けポートに外部から接続できるようにするには <span class="article-date">2013/04/27</span></h2>
 
 <p>ポートを待ち受ける方のホストの <code>/etc/ssh/sshd_config</code> に以下を書いておく。</p>
 

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Subversion (svn) | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+#side-menu {
+  float: left;
+  width: 150px;
+}
+#side-menu-attention {
+  margin: 10px;
+  font-size: 80%;
+}
+#content {
+
+  margin: 0 40px 0px 150px;
+
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 30px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+  font-size: 32px;
+}
+#content h2 {
+  margin: 30px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+  font-size: 24px;
+}
+#content h3 {
+  margin: 30px 0 20px 40px;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 20px 0 10px 40px;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 10px 0 10px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 10px 0 10px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 10px 0 10px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="./">Home</a> &gt; Subversion (svn)
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="subversion-svn-20130611">Subversion (svn) <span class="article-date">2013/06/11</span></h1>
+
+<p>gitをCUIのみで使っている筆者がsvnを使わないといけなくて、かつCUIのみで使いたいときに、コマンドの使い方を調べたメモです。</p>
+
+<ul>
+  <li><a href="#diff-from-git">gitとの違い</a></li>
+  <li><a href="#checkout">チェックアウト</a></li>
+  <li><a href="#info">詳細情報表示</a></li>
+  <li><a href="#log">ログ表示</a></li>
+  <li><a href="#diff">差分表示</a></li>
+  <li><a href="#ls">ファイル一覧表示</a></li>
+</ul>
+
+<h2 id="diff-from-git">gitとの違い <span class="article-date">2013/06/11</span></h2>
+
+<ul>
+  <li>ブランチやタグは branches や tags の中の普通のディレクトリとしてコピーして作る
+(これは単なる習慣でsvnの仕様ではない)</li>
+  <li>clone, push, pull がない</li>
+</ul>
+
+<h2 id="checkout">チェックアウト <span class="article-date">2013/06/11</span></h2>
+
+<pre><code># チェックアウト
+# (カレントディレクトリにtrunkというディレクトリが作成される)
+svn checkout svn://id@host/path/to/svnroot/trunk
+
+# カレントディレクトリにチェックアウト
+svn checkout svn://id@host/path/to/svnroot/trunk .
+
+# 作成されるディレクトリの名前を指定してチェックアウト
+# (カレントディレクトリにhogeというディレクトリが作成される)
+svn checkout svn://id@host/path/to/svnroot/trunk hoge
+</code></pre>
+
+<h2 id="info">詳細情報表示 <span class="article-date">2013/06/11</span></h2>
+
+<pre><code># カレントディレクトリの詳細情報を表示
+svn info
+
+# 作業用ディレクトリ特定のパスを指定して詳細情報を表示
+svn info foo/bar
+</code></pre>
+
+<h2 id="log">ログ表示 <span class="article-date">2013/06/11</span></h2>
+
+<pre><code># リポジトリのルートを指定してログを表示
+svn log svn://id@host/path/to/svnroot
+
+# リポジトリの特定のパスを指定してログを表示
+svn log svn://id@host/path/to/svnroot/trunk/foo/bar
+
+# リポジトリの特定のリビジョンを指定してログを表示
+svn log svn://id@host/path/to/svnroot/trunk/foo/bar@r999
+
+# リポジトリの特定のリビジョンを指定してログを表示
+svn log svn://id@host/path/to/svnroot@r999
+
+# カレントディレクトリのログを表示
+svn log
+
+# 作業用ディレクトリ特定のパスを指定してログを表示
+svn log foo/bar
+</code></pre>
+
+<h2 id="diff">差分表示 <span class="article-date">2013/06/11</span></h2>
+
+<pre><code># リポジトリの特定のパスとリビジョンを指定して差分を表示
+svn diff svn://id@host/path/to/svnroot/trunk@r998 svn://id@host/path/to/svnroot/tags/hoge@r999
+</code></pre>
+
+<h2 id="ls">ファイル一覧表示 <span class="article-date">2013/06/11</span></h2>
+
+<pre><code># リポジトリの特定のパスを指定してファイル一覧を表示
+svn ls svn://id@host/path/to/svnroot/trunk/foo/bar
+
+# ファイル一覧を詳細に表示 (ls -l みたいな)
+svn ls -v svn://id@host/path/to/svnroot/trunk/foo/bar
+
+# ファイル一覧をサブディレクトリも再帰的に表示 (find みたいな)
+svn ls -R svn://id@host/path/to/svnroot/trunk/foo/bar
+
+# カレントディレクトリのファイル一覧を表示
+# (まだaddしていないファイルがあれば、それは表示されない。
+#  まだrmしていない削除済みファイルは表示される)
+svn ls
+
+# 作業用ディレクトリ特定のパスを指定してファイル一覧を表示
+svn ls foo/bar
+</code></pre>
+
+
+</div>
+
+  <footer>
+    <a href="./">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>
