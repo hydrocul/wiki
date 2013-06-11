@@ -140,6 +140,7 @@ footer {
   <li><a href="#tar">tar</a></li>
   <li><a href="#touch">touch</a></li>
   <li><a href="#tr">tr</a></li>
+  <li><a href="#unzip">unzip</a></li>
   <li><a href="#watch">watch</a></li>
   <li><a href="#wc">wc</a></li>
   <li><a href="#wget">wget</a></li>
@@ -257,7 +258,7 @@ cut -d$'\t' -f1
 <pre><code>cat foo.txt | diff bar.txt -
 </code></pre>
 
-<h2 id="du">du</h2>
+<h2 id="du">du <span class="article-date">2013/06/09</span></h2>
 
 <p>カレントディレクトリの中のファイル・ディレクトリの容量一覧を表示させる例</p>
 
@@ -265,6 +266,20 @@ cut -d$'\t' -f1
 </code></pre>
 
 <p>ディレクトリはサブディレクトリも含めて再帰的に容量を計算して合計が表示される。</p>
+
+<dl>
+  <dt><code>-x</code></dt>
+  <dd>別のファイルシステムのディレクトリは除外する</dd>
+  <dt><code>-m</code></dt>
+  <dd>MB単位で表示する</dd>
+  <dt><code>-k</code></dt>
+  <dd>KB単位で表示する</dd>
+  <dt><code>-h</code></dt>
+  <dd>大きさに応じてMB単位だったり、KB単位だったり、人間にとって読みやすい単位で表示する</dd>
+  <dt><code>-s</code></dt>
+  <dd>サブディレクトリをたどってそれぞれを表示するのではなく、引数に与えられた
+ディレクトリの容量合計のみを表示する</dd>
+</dl>
 
 <h2 id="echo">echo</h2>
 
@@ -564,6 +579,10 @@ tar xvzf tarファイル名
 <pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名
 </code></pre>
 
+<h2 id="unzip">unzip</h2>
+
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./commands.html">コマンドリファレンス</a> &gt; <a href="./commands.html#zip">zip</a></i></p>
+
 <h2 id="watch">watch <span class="article-date">2013/06/04</span></h2>
 
 <p><code>ls -al</code> を1秒ごとに実行</p>
@@ -600,7 +619,7 @@ unzip -P パスワード ZIPファイル名
 
 <p><a href="http://d.hatena.ne.jp/hydrocul/20110227/1298798530" target="_blank">http://d.hatena.ne.jp/hydrocul/20110227/1298798530</a></p>
 
-<h3 id="zip">ディレクトリまるごとzip圧縮するには</h3>
+<h3 id="zip-20130403">ディレクトリまるごとzip圧縮するには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>zip -r ZIPファイル名 対象ディレクトリ
 </code></pre>
@@ -610,7 +629,7 @@ unzip -P パスワード ZIPファイル名
 <pre><code>tar cvzf TARGZファイル名 対象ディレクトリ
 </code></pre>
 
-<h3 id="zip-1">zipファイルを解凍するには</h3>
+<h3 id="zip-20130403-1">zipファイルを解凍するには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>unzip ZIPファイル名
 </code></pre>
@@ -618,6 +637,11 @@ unzip -P パスワード ZIPファイル名
 <p><code>tar</code> での以下に相当する。</p>
 
 <pre><code>tar xvzf TARGZファイル名
+</code></pre>
+
+<h3 id="zip-20130609">zipファイルに含まれるファイルの一覧を見るには <span class="article-date">2013/06/09</span></h3>
+
+<pre><code>unzip -l ZIPファイル名
 </code></pre>
 
 

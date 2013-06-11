@@ -107,12 +107,13 @@ footer {
 
 <ul>
   <li><a href="#method-definition">メソッド定義</a></li>
+  <li><a href="#closure">クロージャ</a></li>
   <li><a href="#multi-return">複数の返り値</a></li>
 </ul>
 
 <h2 id="method-definition">メソッド定義</h2>
 
-<h3 id="php-20130410">PHP <span class="article-date">2013/04/10</span></h3>
+<h3 id="php-20130609">PHP <span class="article-date">2013/06/09</span></h3>
 
 <pre><code>function f($arg1, $arg2){
   ...;
@@ -121,7 +122,7 @@ footer {
 </code></pre>
 
 <ul>
-  <li>関数呼び出しはカッコを省略不可</li>
+  <li>関数定義と呼び出しではカッコを省略不可</li>
 </ul>
 
 <h3 id="ruby-20130410">Ruby <span class="article-date">2013/04/10</span></h3>
@@ -147,6 +148,26 @@ end
   <li>メソッド呼び出しは、引数がない場合に限り、カッコを省略できる</li>
 </ul>
 
+<h3 id="javascript-20130609">JavaScript <span class="article-date">2013/06/09</span></h3>
+
+<pre><code>function f(arg1, arg2){
+    ...;
+    return ...;
+}
+</code></pre>
+
+<p>または</p>
+
+<pre><code>var f = function(arg1, arg2){
+    ...;
+    return ...;
+}
+</code></pre>
+
+<ul>
+  <li>関数定義と呼び出しではカッコを省略不可</li>
+</ul>
+
 <h3 id="coffeescript-20130428">CoffeeScript <span class="article-date">2013/04/28</span></h3>
 
 <pre><code>(arg1, arg2) -&gt;
@@ -164,6 +185,45 @@ end
 <ul>
   <li>関数呼び出しは、引数がある場合はカッコを省略可。引数がない場合はカッコを省略できない。</li>
 </ul>
+
+<h2 id="closure">クロージャ</h2>
+
+<h3 id="ruby-20130609">Ruby <span class="article-date">2013/06/09</span></h3>
+
+<pre><code>def builder
+  i = 0
+  Proc.new do
+    puts i
+    i = i + 1
+  end
+end
+
+f1 = builder
+f2 = builder
+f1.call # 0
+f1.call # 1
+f2.call # 0
+f1.call # 2
+</code></pre>
+
+<p>Procオブジェクトは、その外側の変数を読み書きできる。</p>
+
+<h3 id="javascript-20130609-1">JavaScript <span class="article-date">2013/06/09</span></h3>
+
+<pre><code>var builder = function(){
+    var i = 0;
+    return function(){
+        console.log(i);
+        i = i + 1;
+    }
+}
+var f1 = builder();
+var f2 = builder();
+f1(); // 0
+f1(); // 1
+f2(); // 0
+f1(); // 2
+</code></pre>
 
 <h2 id="multi-return">複数の返り値</h2>
 
