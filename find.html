@@ -105,17 +105,17 @@ footer {
 <div id="content">
   <h1 id="find">find</h1>
 
-<h2 id="yyyy-mm-dd-hhmmss-">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには</h2>
+<h2 id="yyyy-mm-dd-hhmmss--20130403">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n"
 </code></pre>
 
-<h2 id="section">タイムスタンプの新しい順にファイル一覧を表示するには</h2>
+<h2 id="section">タイムスタンプの新しい順にファイル一覧を表示するには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n" | sort -r -k6,7
 </code></pre>
 
-<h2 id="ht--htexample-">カレントディレクトリ以下にある <code>.ht</code> で始まるファイルをそれぞれ <code>.ht*.example</code> というファイルにコピーするには</h2>
+<h2 id="ht--htexample--20130416">カレントディレクトリ以下にある <code>.ht</code> で始まるファイルをそれぞれ <code>.ht*.example</code> というファイルにコピーするには <span class="article-date">2013/04/16</span></h2>
 
 <pre><code>find . -name ".ht*" | awk '{print "cp " $1 " " $1 ".example"}' | sh
 </code></pre>
@@ -125,7 +125,14 @@ footer {
 <pre><code>find . -type l -exec ls -l {} \;
 </code></pre>
 
-<h2 id="section-2">リンク集</h2>
+<h2 id="permission-denied--20130611"><code>Permission denied</code> を表示しないようにするには <span class="article-date">2013/06/11</span></h2>
+
+<p><code>find</code> で <code>/</code> などを検索すると、 <code>Permission denied</code> というエラーメッセージが大量に出力されてしまう。それを抑制するには以下のようにする。</p>
+
+<pre><code>find / ... 2&gt;/dev/null
+</code></pre>
+
+<h2 id="section-2">リンク集 <span class="article-date">2013/04/03</span></h2>
 
 <p>ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法<br />
 <a href="http://hydrocul.seesaa.net/article/138935635.html" target="_blank">http://hydrocul.seesaa.net/article/138935635.html</a></p>

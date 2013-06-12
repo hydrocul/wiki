@@ -108,6 +108,7 @@ footer {
 <ul>
   <li><a href="#file-get-contents">ファイルの中身を1つの文字列として取得するには</a></li>
   <li><a href="#each-line">ファイルの中身を1行ずつテキスト処理するには</a></li>
+  <li><a href="#append">ファイルに追記するには</a></li>
   <li><a href="#rm">ファイルを削除するには</a></li>
   <li><a href="#ls">ディレクトリの中のファイル一覧を取得</a></li>
   <li><a href="#file-size">ファイルサイズを取得</a></li>
@@ -140,6 +141,15 @@ footer {
 <pre><code>IO.foreach('./hoge.txt') do |line|
   ...
 end
+</code></pre>
+
+<h2 id="append">ファイルに追記するには</h2>
+
+<h3 id="php-20130611">PHP <span class="article-date">2013/06/11</span></h3>
+
+<pre><code>$handle = fopen($file_path, 'a');
+fwrite($handle, $data);
+fclose($handle);
 </code></pre>
 
 <h2 id="rm">ファイルを削除するには</h2>

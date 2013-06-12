@@ -145,6 +145,7 @@ footer {
   <li><a href="#watch">watch</a></li>
   <li><a href="#wc">wc</a></li>
   <li><a href="#wget">wget</a></li>
+  <li><a href="#xargs">xargs</a></li>
   <li><a href="#zip">zip</a></li>
 </ul>
 
@@ -611,6 +612,28 @@ tar xvzf tarファイル名
 <h2 id="wget">wget</h2>
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./wget.html">wget</a></i></p>
+
+<h2 id="xargs">xargs <span class="article-date">2013/06/11</span></h2>
+
+<p>ファイルの一覧を標準入力から受け取って、そのファイル一覧を任意のコマンドに引数として渡すコマンド。</p>
+
+<p>以下のようにすると、例えば <code>find</code> で <code>a.txt b.txt dir/c.txt dir/d.txt</code> が出力されるとすると、それがそのまま <code>cat</code> に引数として渡され、
+<code>cat a.txt b.txt dir/c.txt dir/d.txt</code> が実行される。
+<code>find</code> の結果が多すぎて一度に引数として渡しきれない場合は、引数が分割され、<code>cat</code> が複数回実行される。</p>
+
+<pre><code>find . -type f | xargs cat
+</code></pre>
+
+<h3 id="mv--20130611"><code>mv</code> に渡す場合は要注意 <span class="article-date">2013/06/11</span></h3>
+
+<p>xargsは、コマンドの最後にファイル名を引数として渡すため、
+<code>mv</code> に渡すには <code>mv -t</code> とする必要がある。</p>
+
+<pre><code>find . -type f | xargs mv -t ~/dst
+</code></pre>
+
+<p><code>-t</code> を与えないと <code>mv ~/dst a.txt b.txt dir/c.txt dir/d.txt</code> のようになって、
+dir/d.txt に移動することになってしまい、ほとんどのファイルの中身が破壊されてしまう。</p>
 
 <h2 id="zip">zip</h2>
 

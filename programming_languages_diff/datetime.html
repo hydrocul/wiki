@@ -107,15 +107,23 @@ footer {
 
 <h2 id="section-1">今日の日付を取得するには</h2>
 
-<h3 id="ruby">Ruby</h3>
+<h3 id="php-20130611">PHP <span class="article-date">2013/06/11</span></h3>
+
+<pre><code># 現在日時を YYYY/MM/DD hh:mm:ss の書式の文字列で取得する
+date('Y/m/d H:i:s');
+</code></pre>
+
+<h3 id="ruby-20130611">Ruby <span class="article-date">2013/06/11</span></h3>
 
 <pre><code>rquire 'date'
+
+# Dateオブジェクトを取得する
 Date.today
 </code></pre>
 
 <h2 id="section-2">日付オブジェクトの各フィールドを取得するには</h2>
 
-<h3 id="ruby-1">Ruby</h3>
+<h3 id="ruby-20130506">Ruby <span class="article-date">2013/05/06</span></h3>
 
 <pre><code>date.year
 date.month
@@ -125,7 +133,7 @@ date.wday   # 曜日(0-6)。日曜日が0
 
 <h2 id="section-3">日付単位の計算</h2>
 
-<h3 id="ruby-2">Ruby</h3>
+<h3 id="ruby-20130506-1">Ruby <span class="article-date">2013/05/06</span></h3>
 
 <pre><code>date + 3       # 3日後の日付
 date1 - date2  # 日付の差
@@ -133,7 +141,7 @@ date1 - date2  # 日付の差
 
 <h2 id="str-to-date">文字列を日付に変換</h2>
 
-<h3 id="ruby-3">Ruby</h3>
+<h3 id="ruby-20130506-2">Ruby <span class="article-date">2013/05/06</span></h3>
 
 <pre><code>require 'date'
 date = Date.strptime('2013/03/17', '%Y/%m/%d')
