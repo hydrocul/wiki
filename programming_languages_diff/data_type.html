@@ -162,7 +162,24 @@ num.is_a?(Array)
 
 <h2 id="str-to-int">文字列を整数に変換</h2>
 
-<h3 id="ruby-2">Ruby</h3>
+<h3 id="php-20130612">PHP <span class="article-date">2013/06/12</span></h3>
+
+<pre><code>(int)$str
+</code></pre>
+
+<p>例</p>
+
+<pre><code>(int)"0" // =&gt; 0
+(int)"-0" // =&gt; 0
+(int)"1" // =&gt; 1
+(int)"1.5" // =&gt; 1
+(int)"-1.5" // =&gt; -1
+(int)"010" // =&gt; 10
+(int)"0x10" // =&gt; 0
+(int)"10 abc" // =&gt; 10
+</code></pre>
+
+<h3 id="ruby-20130504">Ruby <span class="article-date">2013/05/04</span></h3>
 
 <pre><code>String#to_i
 </code></pre>
