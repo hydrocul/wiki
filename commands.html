@@ -133,6 +133,7 @@ footer {
   <li><a href="#rsync">rsync</a></li>
   <li><a href="#scala">scala</a></li>
   <li><a href="#scaladoc">scaladoc</a></li>
+  <li><a href="#sdiff">sdiff</a></li>
   <li><a href="#sed">sed</a></li>
   <li><a href="#source-highlight">source-highlight</a></li>
   <li><a href="#sort">sort</a></li>
@@ -266,6 +267,16 @@ cut -d$'\t' -f1
 <pre><code>cat foo.txt | diff bar.txt -
 </code></pre>
 
+<h3 id="section-3">2つのファイルを左右に並べて表示するには <span class="article-date">2013/06/14</span></h3>
+
+<pre><code>diff --side-by-side foo.txt bar.txt
+</code></pre>
+
+<p>または、sdiff というコマンドを使う。</p>
+
+<pre><code>sdiff foo.txt bar.txt
+</code></pre>
+
 <h2 id="du">du <span class="article-date">2013/06/09</span></h2>
 
 <p>カレントディレクトリの中のファイル・ディレクトリの容量一覧を表示させる例</p>
@@ -291,7 +302,7 @@ cut -d$'\t' -f1
 
 <h2 id="echo">echo</h2>
 
-<h3 id="section-3">最後に改行をさせないようにするには</h3>
+<h3 id="section-4">最後に改行をさせないようにするには</h3>
 
 <p><code>-n</code> をつける</p>
 
@@ -392,12 +403,12 @@ cut -d$'\t' -f1
 
 <h2 id="ps">ps</h2>
 
-<h3 id="section-4">プロセスの一覧を見るには</h3>
+<h3 id="section-5">プロセスの一覧を見るには</h3>
 
 <pre><code>ps aux
 </code></pre>
 
-<h3 id="section-5">プロセスの親子関係をツリーで表示するには</h3>
+<h3 id="section-6">プロセスの親子関係をツリーで表示するには</h3>
 
 <pre><code>ps auxf
 </code></pre>
@@ -421,33 +432,29 @@ cut -d$'\t' -f1
 <pre><code>kill `ps aux | grep ruby | grep -v grep | tr -s ' ' | cut -d ' ' -f2`
 </code></pre>
 
-<h2 id="rsync">rsync</h2>
+<h2 id="rsync">rsync <span class="article-date">2013/06/14</span></h2>
+
+<pre><code># リモートホストからローカルにダウンロードする
+rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+
+# ポート番号が22以外の場合
+rsync -e "ssh -p ポート番号" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+
+# 秘密鍵のファイルを指定する場合
+rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+</code></pre>
 
 <ul>
   <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
 </ul>
 
-<h3 id="section-6">リモートホストからローカルにダウンロードするには</h3>
-
-<pre><code>rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
-</code></pre>
-
-<h3 id="section-7">ポート番号が22以外の場合</h3>
-
-<pre><code>rsync -e "ssh -p ポート番号" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
-</code></pre>
-
-<h3 id="section-8">秘密鍵のファイルを指定する場合</h3>
-
-<pre><code>rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
-</code></pre>
-
-<h3 id="section-9">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには</h3>
+<h3 id="section-7">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
 </code></pre>
 
-<p>この場合、リモートには <code>/home/who/ghi.dat</code> ではなく <code>/home/who/abc/def/ghi.dat</code> という名前でアップロードされる。リモートにディレクトリが存在しない場合は自動で作成される。</p>
+<p>この場合、リモートには <code>/home/who/ghi.dat</code> ではなく <code>/home/who/abc/def/ghi.dat</code> 
+という名前でアップロードされる。リモートにディレクトリが存在しない場合は自動で作成される。</p>
 
 <p><code>cp</code> での同じ役割をはたすのは <code>--parents</code>。</p>
 
@@ -479,6 +486,16 @@ cut -d$'\t' -f1
 <p>man page<br />
 <a href="http://www.scala-lang.org/docu/files/tools/scaladoc.html" target="_blank">http://www.scala-lang.org/docu/files/tools/scaladoc.html</a></p>
 
+<h2 id="sdiff">sdiff</h2>
+
+<p>2つのファイルの差分を確認できるように、左右に並べて表示する。
+<code>diff --side-by-side</code>  と同じ。</p>
+
+<dl>
+  <dt><code>-s</code></dt>
+  <dd>違う行のみを表示する。デフォルトだと全行が表示される。</dd>
+</dl>
+
 <h2 id="sed">sed <span class="article-date">2013/06/06</span></h2>
 
 <p>文字列を全治関するコマンド。</p>
@@ -488,7 +505,7 @@ cut -d$'\t' -f1
 <pre><code>cat ファイル名 | sed 's/置換前/置換後/g' &gt; ファイル名
 </code></pre>
 
-<h3 id="section-10">ファイルの中のテキストを全置換するには <span class="article-date">2013/06/06</span></h3>
+<h3 id="section-8">ファイルの中のテキストを全置換するには <span class="article-date">2013/06/06</span></h3>
 
 <pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
 </code></pre>
@@ -499,22 +516,7 @@ cut -d$'\t' -f1
 
 <h2 id="source-highlight">source-highlight</h2>
 
-<p>基本的な使い方</p>
-
-<pre><code>source-highlight --falesafe --infer-lang -f esc --line-number -i ファイル名
-</code></pre>
-
-<p><code>--infer-lang</code> を付けると、拡張子やコマンドラインオプションからの指定よりも、ファイルの中身からファイルの種類を推定するほうを優先してくれる。中身と行っても、バージョン2.5の段階ではshebangからの推定のみのよう。詳しくは<br />
-<a href="http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_36.html#How-the-input-language-is-discovered" target="_blank">http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_36.html#How-the-input-language-is-discovered</a></p>
-
-<p><code>-f esc</code> はエスケープシーケンスを使って色付きで出力してくれるので、端末で直接見るのに便利。<code>-f html</code> とすると、HTMLフォーマットで出力される。</p>
-
-<p><code>--line-number</code> は行番号をつけてくれる。</p>
-
-<p><code>-i ファイル名</code> を付けないと、標準入力からソースを読もうとする。その場合、拡張子からのファイル種類の推定ができない。</p>
-
-<p>GNU Source-highlight のマニュアルの和訳<br />
-<a href="http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_toc.html" target="_blank">http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_toc.html</a></p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./source-highlight.html">source-highlight</a></i></p>
 
 <h2 id="sort">sort <span class="article-date">2013/06/04</span></h2>
 
@@ -543,7 +545,7 @@ cut -d$'\t' -f1
 
 <h2 id="tar">tar</h2>
 
-<h3 id="section-11">基本操作</h3>
+<h3 id="section-9">基本操作</h3>
 
 <pre><code># 圧縮
 tar cvzf tarファイル名 圧縮対象ディレクトリ
@@ -568,21 +570,21 @@ tar xvzf tarファイル名
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-12">ファイルの特定の文字を改行に全置換するには</h3>
+<h3 id="section-10">ファイルの特定の文字を改行に全置換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-13">ファイルの特定の文字を削除するには</h3>
+<h3 id="section-11">ファイルの特定の文字を削除するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、改行をすべて削除する。</p>
 
-<h3 id="section-14">連続したスペースを単一のスペースに変換するには</h3>
+<h3 id="section-12">連続したスペースを単一のスペースに変換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名
 </code></pre>

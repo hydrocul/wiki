@@ -145,13 +145,11 @@ SHOW FULL PROCESSLIST;
 <pre><code>mysqldump -u ユーザ名 -p --no-data データベース名
 </code></pre>
 
-<h2 id="mysql-2">mysqlコマンドで結果が縦に長い時にページャで見るには、または横に長くて崩れてしまうのをなんとかするには</h2>
+<h2 id="mysql-20130614">mysqlコマンドで結果が縦に長い時にページャで見るには、または横に長くて崩れてしまうのをなんとかするには <span class="article-date">2013/06/14</span></h2>
 
-<p><a href="http://tm.root-n.com/database:mysql:etc:pager" target="_blank">http://tm.root-n.com/database:mysql:etc:pager</a></p>
+<p>mysqlコマンドのオプションに <code>--pager='less -S -X -F'</code> をつける。 <code>-X</code> を付けると、 less 終了時に画面をクリアしない。 <code>-F</code> を付けると、行数が短くて一画面に収まる場合は less がすぐに終了する。</p>
 
-<p>mysqlコマンドのオプションに <code>--pager='less -S -X -F'</code> をつける。 <code>-X</code> を付けると、 less 終了時に画面をクリアしない。 <code>-F</code> を付けると、行数が短くて位置画面に収まる場合は less がすぐに終了する。</p>
-
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./commands.html">コマンドリファレンス</a> &gt; <a href="./commands.html#less">less</a></i></p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./less.html">less</a></i></p>
 
 <h2 id="mysql-20130423">MySQLは正規表現が使える <span class="article-date">2013/04/23</span></h2>
 

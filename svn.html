@@ -164,34 +164,43 @@ svn log svn://id@host/path/to/svnroot@r999
 # カレントディレクトリのログを表示
 svn log
 
-# 作業用ディレクトリ特定のパスを指定してログを表示
+# 作業用ディレクトリの特定のパスを指定してログを表示
 svn log foo/bar
 </code></pre>
 
-<h2 id="diff">差分表示 <span class="article-date">2013/06/11</span></h2>
+<h2 id="diff">差分表示 <span class="article-date">2013/06/14</span></h2>
 
-<pre><code># リポジトリの特定のパスとリビジョンを指定して差分を表示
+<pre><code># カレントディレクトリについてのリビジョン間の差分を表示
+svn diff -r r998:r999
+
+# 差分のファイりう名のみを表示
+svn diff --summarize -r r998:r999
+
+# 作業用ディレクトリの特定のパスについてのリビジョン間の差分を表示
+svn diff -r r998:r999 foo/bar
+
+# リポジトリの特定のパスとリビジョンを指定して差分を表示
 svn diff svn://id@host/path/to/svnroot/trunk@r998 svn://id@host/path/to/svnroot/tags/hoge@r999
 </code></pre>
 
-<h2 id="ls">ファイル一覧表示 <span class="article-date">2013/06/11</span></h2>
+<h2 id="ls">ファイル一覧表示 <span class="article-date">2013/06/14</span></h2>
 
-<pre><code># リポジトリの特定のパスを指定してファイル一覧を表示
-svn ls svn://id@host/path/to/svnroot/trunk/foo/bar
-
-# ファイル一覧を詳細に表示 (ls -l みたいな)
-svn ls -v svn://id@host/path/to/svnroot/trunk/foo/bar
-
-# ファイル一覧をサブディレクトリも再帰的に表示 (find みたいな)
-svn ls -R svn://id@host/path/to/svnroot/trunk/foo/bar
-
-# カレントディレクトリのファイル一覧を表示
+<pre><code># カレントディレクトリのファイル一覧を表示
 # (まだaddしていないファイルがあれば、それは表示されない。
 #  まだrmしていない削除済みファイルは表示される)
 svn ls
 
+# ファイル一覧を詳細に表示 (ls -l みたいな)
+svn ls -v
+
+# ファイル一覧をサブディレクトリも再帰的に表示 (find みたいな)
+svn ls -R
+
 # 作業用ディレクトリ特定のパスを指定してファイル一覧を表示
 svn ls foo/bar
+
+# リポジトリの特定のパスを指定してファイル一覧を表示
+svn ls svn://id@host/path/to/svnroot/trunk/foo/bar
 </code></pre>
 
 
