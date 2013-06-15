@@ -514,6 +514,39 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 <p><code>-e</code> はどういう意味だろう？</p>
 
+<h3 id="section-9">行番号で指定する範囲のみを抽出するには <span class="article-date">2013/06/14</span></h3>
+
+<pre><code># 2行目から4行目を抽出(4行目を含む)
+cat ファイル名 | sed -n 2,4p
+
+# 2行目のみを抽出
+cat ファイル名 | sed -n 2p
+
+# 2行目から最後まで抽出
+cat ファイル名 | sed -n '2,$p'
+# または
+cat ファイル名 | sed -n 2,\$p
+</code></pre>
+
+<h3 id="section-10">行番号で指定する範囲のみを削除するには <span class="article-date">2013/06/14</span></h3>
+
+<pre><code># 2行目から4行目を削除(4行目も削除)
+cat ファイル名 | sed -e 2,4d
+
+# 2行目のみを削除
+cat ファイル名 | sed -e 2d
+
+# 2行目から最後まで削除
+cat ファイル名 | sed -e '2,$d'
+# または
+cat ファイル名 | sed -e 2,\$d
+# または head でも同じことができる
+cat ファイル名 | head -n 1
+
+# 最後の行のみを削除
+cat ファイル名 | sed -e \$d
+</code></pre>
+
 <h2 id="source-highlight">source-highlight</h2>
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./source-highlight.html">source-highlight</a></i></p>
@@ -545,7 +578,7 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 <h2 id="tar">tar</h2>
 
-<h3 id="section-9">基本操作</h3>
+<h3 id="section-11">基本操作</h3>
 
 <pre><code># 圧縮
 tar cvzf tarファイル名 圧縮対象ディレクトリ
@@ -570,21 +603,21 @@ tar xvzf tarファイル名
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-10">ファイルの特定の文字を改行に全置換するには</h3>
+<h3 id="section-12">ファイルの特定の文字を改行に全置換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-11">ファイルの特定の文字を削除するには</h3>
+<h3 id="section-13">ファイルの特定の文字を削除するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、改行をすべて削除する。</p>
 
-<h3 id="section-12">連続したスペースを単一のスペースに変換するには</h3>
+<h3 id="section-14">連続したスペースを単一のスペースに変換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名
 </code></pre>
