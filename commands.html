@@ -496,23 +496,35 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
   <dd>違う行のみを表示する。デフォルトだと全行が表示される。</dd>
 </dl>
 
-<h2 id="sed">sed <span class="article-date">2013/06/06</span></h2>
+<h2 id="sed">sed <span class="article-date">2013/06/16</span></h2>
 
-<p>文字列を全治関するコマンド。</p>
+<p>文字列を全置換したり、行単位で削除したり、いろいろできるコマンド。</p>
 
 <p>パイプで使う場合の例：</p>
 
 <pre><code>cat ファイル名 | sed 's/置換前/置換後/g' &gt; ファイル名
 </code></pre>
 
-<h3 id="section-8">ファイルの中のテキストを全置換するには <span class="article-date">2013/06/06</span></h3>
+<p>正規表現で文字数を指定する <code>{}</code> は <code>\</code> でエスケープしないと使えないようだ。</p>
+
+<pre><code>sed -e 's/x{4}/XXXX/g' # =&gt; NG
+sed -e 's/x\{4\}/XXXX/g' # =&gt; OK
+sed -e "s/x{4}/XXXX/g" # =&gt; NG
+sed -e "s/x\{4\}/XXXX/g" # =&gt; OK
+sed -e "s/x\\\{4\\\}/XXXX/g" # =&gt; NG
+</code></pre>
+
+<h3 id="section-8">ファイルの中のテキストを全置換するには <span class="article-date">2013/06/15</span></h3>
 
 <pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
 </code></pre>
 
 <p><code>-i</code> を取ると、全置換後の結果を標準出力に吐き出して、ファイルは書き換えない。</p>
 
-<p><code>-e</code> はどういう意味だろう？</p>
+<p><code>-e</code> はどういう意味だろう？とりあえず、<code>-e</code> で2つ以上の全置換を実行できる。</p>
+
+<pre><code>sed -i -e 's/置換前/置換後/g' -e 's/別の置換前/別の置換後/g' ファイル名
+</code></pre>
 
 <h3 id="section-9">行番号で指定する範囲のみを抽出するには <span class="article-date">2013/06/14</span></h3>
 
