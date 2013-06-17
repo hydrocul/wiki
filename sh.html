@@ -266,6 +266,23 @@ fi
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="./programming_languages_diff/string.html">文字列処理</a> &gt; <a href="./programming_languages_diff/string.html#escape">エスケープ処理</a></i></p>
 
+<h2 id="sudoroot-20130617">sudoでリダイレクトするには(root権限でしか書き込めないファイルにリダイレクトするには) <span class="article-date">2013/06/17</span></h2>
+
+<pre><code>sudo hogehoge &gt; /etc/foo/bar
+</code></pre>
+
+<p>とやっても /etc/foo/bar への一般ユーザでの書き込み権限がないと、
+permission denied と言われてしまうので、以下のようにする。</p>
+
+<pre><code>sudo sh -c "hogehoge &gt; /etc/foo/bar"
+</code></pre>
+
+<p>teeを使って以下のようにしてもよい。この場合、画面にも出力が表示される。
+hogehoge自体にroot権限が不要な場合は、1つ目のsudoを外せる。</p>
+
+<pre><code>sudo hogehoge | sudo tee /etc/foo/bar
+</code></pre>
+
 
 </div>
 

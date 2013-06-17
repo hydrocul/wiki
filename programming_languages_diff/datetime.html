@@ -139,9 +139,34 @@ date.wday   # 曜日(0-6)。日曜日が0
 date1 - date2  # 日付の差
 </code></pre>
 
-<h2 id="str-to-date">文字列を日付に変換</h2>
+<h2 id="strptime">文字列を日付に変換</h2>
 
-<h3 id="ruby-20130506-2">Ruby <span class="article-date">2013/05/06</span></h3>
+<h3 id="php-20130616">PHP <span class="article-date">2013/06/16</span></h3>
+
+<pre><code>var_export(strptime('2013/06/16', '%Y/%m/%d'));
+// =&gt; array (
+//   'tm_sec' =&gt; 0,
+//   'tm_min' =&gt; 0,
+//   'tm_hour' =&gt; 0,
+//   'tm_mday' =&gt; 16,
+//   'tm_mon' =&gt; 5,
+//   'tm_year' =&gt; 113,
+//   'tm_wday' =&gt; 0,
+//   'tm_yday' =&gt; 166,
+//   'unparsed' =&gt; '',
+// )
+</code></pre>
+
+<p><a href="http://www.php.net/manual/ja/function.strptime.php" target="_blank">http://www.php.net/manual/ja/function.strptime.php</a></p>
+
+<p>本当は怖いstrptimeと%Y%m%dの関係<br />
+<a href="http://nekoya.github.io/blog/2013/06/10/strptime-ymd/" target="_blank">http://nekoya.github.io/blog/2013/06/10/strptime-ymd/</a></p>
+
+<blockquote>
+  <p>%Y%m%dを取る場合は、strptime任せにせず自分でフォーマットのチェックもしておかないと危険ですね。もしくは、おとなしくデリミタ挟むか。</p>
+</blockquote>
+
+<h3 id="ruby-20130616">Ruby <span class="article-date">2013/06/16</span></h3>
 
 <pre><code>require 'date'
 date = Date.strptime('2013/03/17', '%Y/%m/%d')
@@ -149,6 +174,13 @@ p [date.year, date.month, date.day, date.wday]
 </code></pre>
 
 <p>date.wday で曜日を整数で取得でき、日曜日が0。</p>
+
+<p>本当は怖いstrptimeと%Y%m%dの関係<br />
+<a href="http://nekoya.github.io/blog/2013/06/10/strptime-ymd/" target="_blank">http://nekoya.github.io/blog/2013/06/10/strptime-ymd/</a></p>
+
+<blockquote>
+  <p>%Y%m%dを取る場合は、strptime任せにせず自分でフォーマットのチェックもしておかないと危険ですね。もしくは、おとなしくデリミタ挟むか。</p>
+</blockquote>
 
 
 </div>

@@ -129,25 +129,23 @@ footer {
 
 <p><code>"</code> で囲んで文字列を表す。 <code>'</code> で囲むと文字列ではなく文字になる。</p>
 
-<h3 id="php-20130520">PHP <span class="article-date">2013/05/20</span></h3>
+<h3 id="php-20130616">PHP <span class="article-date">2013/06/16</span></h3>
 
 <p><code>'</code> または <code>"</code> で囲む。またはヒアドキュメントを使う。</p>
 
-<p><code>"</code> で囲んだ場合は <code>$</code> で始まる部分が変数名として値に展開される。</p>
+<p><code>"</code> で囲んだ場合とヒアドキュメントでは <code>$</code> で始まる部分が変数名として値に展開される。</p>
 
 <h2 id="heredoc">ヒアドキュメント</h2>
 
-<h3 id="php-20130520-1">PHP <span class="article-date">2013/05/20</span></h3>
+<h3 id="php-20130616-1">PHP <span class="article-date">2013/06/16</span></h3>
+
+<p>普通のヒアドキュメントとNowdocというものがある。ヒアドキュメントでは、<code>"</code> で囲んだ文字列リテラルと同じように、<code>$</code> で始まる部分が変数名としてその値に展開がされるのに対して、Nowdocは、<code>'</code> で囲んだ文字列リテラルと同じように、そういった展開がされない。</p>
 
 <p>ヒアドキュメント | PHPマニュアル<br />
 <a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc" target="_blank">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc</a></p>
 
-<p><code>"</code> で囲んだ場合と同様に <code>$</code> で始まる部分が変数名として値に展開される。</p>
-
 <p>シングルクオートのヒアドキュメント | PHPマニュアル<br />
 <a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc" target="_blank">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc</a></p>
-
-<p>これは変数名が展開されない。</p>
 
 <h3 id="ruby-20130410">Ruby <span class="article-date">2013/04/10</span></h3>
 
@@ -212,9 +210,16 @@ EOD
 
 <p>Unicodeエスケープは、文字列リテラルの機能ではなく、Javaソースコードをコンパイラがトークンに分割する前の処理として機能する。</p>
 
-<h3 id="php-20130520-2">PHP <span class="article-date">2013/05/20</span></h3>
+<h3 id="php-20130616-2">PHP <span class="article-date">2013/06/16</span></h3>
 
-<p><code>'</code> で囲めば、エスケープが必要になるのは <code>'</code>, <code>\</code> のみになる。<code>'\n'</code> などと書いても <code>\n</code> そのものになって改行にはならない。</p>
+<p><code>'</code> で囲めば、エスケープが必要になるのは <code>'</code>, <code>\</code> のみになる。<code>'\n'</code> などと書いても <code>\n</code> そのものになって改行にはならない。
+<code>'</code> で囲まれている場合、 <code>\</code> の次に <code>'</code>, <code>\</code> 以外が来ても特別な意味にはならない。</p>
+
+<pre><code>echo 'aaa\nttt'; // =&gt; aaa\nttt // \n は改行にはならない
+echo 'aaa\'ttt'; // =&gt; aaa'ttt
+echo 'aaa\ttt'; // =&gt; aaa\ttt // \t はタブにはならずに \t のまま
+echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
+</code></pre>
 
 <p><code>"</code> で囲んだ場合は、以下のエスケープが使える。</p>
 

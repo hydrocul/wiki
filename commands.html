@@ -226,9 +226,29 @@ hogehoge
 
 <p><code>-r</code> は設定をすべて削除してしまうので要注意。<code>r</code> は <code>e</code> の隣。</p>
 
-<h2 id="cut">cut <span class="article-date">2013/05/29</span></h2>
+<h2 id="cut">cut <span class="article-date">2013/06/17</span></h2>
 
-<h3 id="cut-">cut でタブ区切りを処理するには</h3>
+<p>タブ区切りでフィールドを選択して出力する。または文字単位・バイト単位で1行の中の場所を選択して出力する。</p>
+
+<p>例</p>
+
+<pre><code># タブ区切りで最初の列と3列目だけを抽出して、タブ区切りで出力する
+cat ファイル名 | cut -f1,3
+</code></pre>
+
+<h3 id="section-1">スペース区切りを処理するには <span class="article-date">2013/06/17</span></h3>
+
+<pre><code>cat ファイル名 | cut -d' ' -f1,3
+</code></pre>
+
+<h3 id="section-2">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには <span class="article-date">2013/06/17</span></h3>
+
+<pre><code>cat ファイル名 | sed -E '/[\t ]+/ /g' | cut -d' ' -f1,3
+</code></pre>
+
+<h3 id="section-3">タブをコマンドラインから指定するには <span class="article-date">2013/06/17</span></h3>
+
+<p><code>cut</code> は <code>-f</code> でフィールドを指定した場合、デフォルトでタブ区切りだが、コマンドラインからどうしてもタブ区切りであることを指定したい場合は、以下のように書けなくもない。</p>
 
 <pre><code># 最初のカラムだけを表示
 cut -d$'\t' -f1
@@ -245,7 +265,7 @@ cut -d$'\t' -f1
 
 <h2 id="diff">diff</h2>
 
-<h3 id="section-1">2つのコマンドの出力を比較するには <span class="article-date">2013/06/04</span></h3>
+<h3 id="section-4">2つのコマンドの出力を比較するには <span class="article-date">2013/06/04</span></h3>
 
 <p>以下のようにすることで、2つのコマンドの出力を diff にかけることができる。</p>
 
@@ -260,14 +280,14 @@ cut -d$'\t' -f1
 <p>とすると、<code>/proc/self/fd/11 /proc/self/fd/12</code> のように出力される。
 (bash, zsh で動作確認済み)</p>
 
-<h3 id="section-2">コマンドの出力とファイルを比較するには <span class="article-date">2013/06/04</span></h3>
+<h3 id="section-5">コマンドの出力とファイルを比較するには <span class="article-date">2013/06/04</span></h3>
 
 <p>以下のように、 <code>-</code> を使うと、比較対象の片方を標準入力にすることができる。</p>
 
 <pre><code>cat foo.txt | diff bar.txt -
 </code></pre>
 
-<h3 id="section-3">2つのファイルを左右に並べて表示するには <span class="article-date">2013/06/14</span></h3>
+<h3 id="section-6">2つのファイルを左右に並べて表示するには <span class="article-date">2013/06/14</span></h3>
 
 <pre><code>diff --side-by-side foo.txt bar.txt
 </code></pre>
@@ -302,7 +322,7 @@ cut -d$'\t' -f1
 
 <h2 id="echo">echo</h2>
 
-<h3 id="section-4">最後に改行をさせないようにするには</h3>
+<h3 id="section-7">最後に改行をさせないようにするには</h3>
 
 <p><code>-n</code> をつける</p>
 
@@ -403,12 +423,12 @@ cut -d$'\t' -f1
 
 <h2 id="ps">ps</h2>
 
-<h3 id="section-5">プロセスの一覧を見るには</h3>
+<h3 id="section-8">プロセスの一覧を見るには</h3>
 
 <pre><code>ps aux
 </code></pre>
 
-<h3 id="section-6">プロセスの親子関係をツリーで表示するには</h3>
+<h3 id="section-9">プロセスの親子関係をツリーで表示するには</h3>
 
 <pre><code>ps auxf
 </code></pre>
@@ -448,7 +468,7 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
   <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
 </ul>
 
-<h3 id="section-7">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには <span class="article-date">2013/04/03</span></h3>
+<h3 id="section-10">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
 </code></pre>
@@ -496,7 +516,7 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
   <dd>違う行のみを表示する。デフォルトだと全行が表示される。</dd>
 </dl>
 
-<h2 id="sed">sed <span class="article-date">2013/06/16</span></h2>
+<h2 id="sed">sed <span class="article-date">2013/06/17</span></h2>
 
 <p>文字列を全置換したり、行単位で削除したり、いろいろできるコマンド。</p>
 
@@ -507,26 +527,60 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 <p>正規表現で文字数を指定する <code>{}</code> は <code>\</code> でエスケープしないと使えないようだ。</p>
 
-<pre><code>sed -e 's/x{4}/XXXX/g' # =&gt; NG
-sed -e 's/x\{4\}/XXXX/g' # =&gt; OK
-sed -e "s/x{4}/XXXX/g" # =&gt; NG
-sed -e "s/x\{4\}/XXXX/g" # =&gt; OK
-sed -e "s/x\\\{4\\\}/XXXX/g" # =&gt; NG
+<pre><code>sed 's/x{4}/XXXX/g' # =&gt; NG
+sed 's/x\{4\}/XXXX/g' # =&gt; OK
+sed "s/x{4}/XXXX/g" # =&gt; NG
+sed "s/x\{4\}/XXXX/g" # =&gt; OK
+sed "s/x\\\{4\\\}/XXXX/g" # =&gt; NG
 </code></pre>
 
-<h3 id="section-8">ファイルの中のテキストを全置換するには <span class="article-date">2013/06/15</span></h3>
+<h3 id="section-11">タブ文字を全置換するには <span class="article-date">2013/06/17</span></h3>
+
+<pre><code># タブ文字をスペースに全置換
+sed '/\t/ /g'
+</code></pre>
+
+<h3 id="section-12">正規表現にマッチする行を削除するには <span class="article-date">2013/06/17</span></h3>
+
+<pre><code># '2013' が含まれる行を削除
+sed '/^2013/d'
+
+# 空行を削除
+sed '/^$/d'
+</code></pre>
+
+<h3 id="section-13">正規表現にマッチする行を抽出するには <span class="article-date">2013/06/17</span></h3>
+
+<pre><code># '2013' が含まれる行のみを出力
+sed '/^2013/!d'
+
+# 空行の数をカウント
+sed '/^$/!d' | wc -l
+</code></pre>
+
+<h3 id="section-14">1つ以上の連続するスペースまたはタブ文字を1つのスペースに全置換するには <span class="article-date">2013/06/17</span></h3>
+
+<pre><code># タブ文字をスペースに全置換
+sed -E '/[\t ]+/ /g'
+</code></pre>
+
+<h3 id="section-15">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには <span class="article-date">2013/06/17</span></h3>
 
 <pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
 </code></pre>
 
 <p><code>-i</code> を取ると、全置換後の結果を標準出力に吐き出して、ファイルは書き換えない。</p>
 
-<p><code>-e</code> はどういう意味だろう？とりあえず、<code>-e</code> で2つ以上の全置換を実行できる。</p>
+<p><code>-e</code> はどういう意味だろう？</p>
 
-<pre><code>sed -i -e 's/置換前/置換後/g' -e 's/別の置換前/別の置換後/g' ファイル名
+<h3 id="section-16">2つ以上の全置換を一括で実行するには <span class="article-date">2013/06/17</span></h3>
+
+<p><code>-e</code> で2つ以上の全置換を実行できる。</p>
+
+<pre><code>cat ファイル名 | sed -e 's/置換前/置換後/g' -e 's/別の置換前/別の置換後/g'
 </code></pre>
 
-<h3 id="section-9">行番号で指定する範囲のみを抽出するには <span class="article-date">2013/06/14</span></h3>
+<h3 id="section-17">行番号で指定する範囲のみを抽出するには <span class="article-date">2013/06/14</span></h3>
 
 <pre><code># 2行目から4行目を抽出(4行目を含む)
 cat ファイル名 | sed -n 2,4p
@@ -540,7 +594,7 @@ cat ファイル名 | sed -n '2,$p'
 cat ファイル名 | sed -n 2,\$p
 </code></pre>
 
-<h3 id="section-10">行番号で指定する範囲のみを削除するには <span class="article-date">2013/06/14</span></h3>
+<h3 id="section-18">行番号で指定する範囲のみを削除するには <span class="article-date">2013/06/14</span></h3>
 
 <pre><code># 2行目から4行目を削除(4行目も削除)
 cat ファイル名 | sed -e 2,4d
@@ -590,7 +644,7 @@ cat ファイル名 | sed -e \$d
 
 <h2 id="tar">tar</h2>
 
-<h3 id="section-11">基本操作</h3>
+<h3 id="section-19">基本操作</h3>
 
 <pre><code># 圧縮
 tar cvzf tarファイル名 圧縮対象ディレクトリ
@@ -615,21 +669,21 @@ tar xvzf tarファイル名
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-12">ファイルの特定の文字を改行に全置換するには</h3>
+<h3 id="section-20">ファイルの特定の文字を改行に全置換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-13">ファイルの特定の文字を削除するには</h3>
+<h3 id="section-21">ファイルの特定の文字を削除するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、改行をすべて削除する。</p>
 
-<h3 id="section-14">連続したスペースを単一のスペースに変換するには</h3>
+<h3 id="section-22">連続したスペースを単一のスペースに変換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名
 </code></pre>

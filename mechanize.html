@@ -148,6 +148,15 @@ form['password'] = pw # input要素に値を設定
 form.click_button # submitを実行
 </code></pre>
 
+<h2 id="basic-20130617">BASIC認証のあるページにアクセスするには <span class="article-date">2013/06/17</span></h2>
+
+<p>リクエストする前にid, pwをauthメソッドに渡す。</p>
+
+<p>例：</p>
+
+<pre><code>agent.auth('user_hoge', 'passwd')
+</code></pre>
+
 
 </div>
 
