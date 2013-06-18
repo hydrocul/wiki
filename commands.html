@@ -129,6 +129,7 @@ footer {
   <li><a href="#mysql">mysql</a></li>
   <li><a href="#netstat">netstat</a></li>
   <li><a href="#nkf">nkf</a></li>
+  <li><a href="#od">od</a></li>
   <li><a href="#ps">ps</a></li>
   <li><a href="#rsync">rsync</a></li>
   <li><a href="#scala">scala</a></li>
@@ -415,6 +416,30 @@ cut -d$'\t' -f1
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./nkf.html">nkf</a></i></p>
 
+<h2 id="od">od <span class="article-date">2013/06/17</span></h2>
+
+<p>バイナリファイルを16進数などでダンプする。ファイル名を指定するとファイルを読み込み、そうでない場合は標準入力を読み込み、標準出力にダンプする。</p>
+
+<p>例</p>
+
+<pre><code>od -x ファイル名
+</code></pre>
+
+<p>または</p>
+
+<pre><code>cat ファイル名 | od -x
+</code></pre>
+
+<dl>
+  <dt><code>-x</code></dt>
+  <dd>16進数で出力</dd>
+  <dt><code>-h</code></dt>
+  <dd>16進数で出力。<code>-x</code> と同じ。</dd>
+  <dt><code>-c</code></dt>
+  <dd>文字で出力、またはC言語のようなバックスラッシュエスケープで出力。
+(128以上は8進数で表示されるようだ)</dd>
+</dl>
+
 <h2 id="openssl">openssl</h2>
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./apache.html">Apache</a> &gt; <a href="./apache.html#create-csr">SSLのCSRの作成方法</a></i><br />
@@ -516,102 +541,9 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
   <dd>違う行のみを表示する。デフォルトだと全行が表示される。</dd>
 </dl>
 
-<h2 id="sed">sed <span class="article-date">2013/06/17</span></h2>
+<h2 id="sed">sed</h2>
 
-<p>文字列を全置換したり、行単位で削除したり、いろいろできるコマンド。</p>
-
-<p>パイプで使う場合の例：</p>
-
-<pre><code>cat ファイル名 | sed 's/置換前/置換後/g' &gt; ファイル名
-</code></pre>
-
-<p>正規表現で文字数を指定する <code>{}</code> は <code>\</code> でエスケープしないと使えないようだ。</p>
-
-<pre><code>sed 's/x{4}/XXXX/g' # =&gt; NG
-sed 's/x\{4\}/XXXX/g' # =&gt; OK
-sed "s/x{4}/XXXX/g" # =&gt; NG
-sed "s/x\{4\}/XXXX/g" # =&gt; OK
-sed "s/x\\\{4\\\}/XXXX/g" # =&gt; NG
-</code></pre>
-
-<h3 id="section-11">タブ文字を全置換するには <span class="article-date">2013/06/17</span></h3>
-
-<pre><code># タブ文字をスペースに全置換
-sed '/\t/ /g'
-</code></pre>
-
-<h3 id="section-12">正規表現にマッチする行を削除するには <span class="article-date">2013/06/17</span></h3>
-
-<pre><code># '2013' が含まれる行を削除
-sed '/^2013/d'
-
-# 空行を削除
-sed '/^$/d'
-</code></pre>
-
-<h3 id="section-13">正規表現にマッチする行を抽出するには <span class="article-date">2013/06/17</span></h3>
-
-<pre><code># '2013' が含まれる行のみを出力
-sed '/^2013/!d'
-
-# 空行の数をカウント
-sed '/^$/!d' | wc -l
-</code></pre>
-
-<h3 id="section-14">1つ以上の連続するスペースまたはタブ文字を1つのスペースに全置換するには <span class="article-date">2013/06/17</span></h3>
-
-<pre><code># タブ文字をスペースに全置換
-sed -E '/[\t ]+/ /g'
-</code></pre>
-
-<h3 id="section-15">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには <span class="article-date">2013/06/17</span></h3>
-
-<pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
-</code></pre>
-
-<p><code>-i</code> を取ると、全置換後の結果を標準出力に吐き出して、ファイルは書き換えない。</p>
-
-<p><code>-e</code> はどういう意味だろう？</p>
-
-<h3 id="section-16">2つ以上の全置換を一括で実行するには <span class="article-date">2013/06/17</span></h3>
-
-<p><code>-e</code> で2つ以上の全置換を実行できる。</p>
-
-<pre><code>cat ファイル名 | sed -e 's/置換前/置換後/g' -e 's/別の置換前/別の置換後/g'
-</code></pre>
-
-<h3 id="section-17">行番号で指定する範囲のみを抽出するには <span class="article-date">2013/06/14</span></h3>
-
-<pre><code># 2行目から4行目を抽出(4行目を含む)
-cat ファイル名 | sed -n 2,4p
-
-# 2行目のみを抽出
-cat ファイル名 | sed -n 2p
-
-# 2行目から最後まで抽出
-cat ファイル名 | sed -n '2,$p'
-# または
-cat ファイル名 | sed -n 2,\$p
-</code></pre>
-
-<h3 id="section-18">行番号で指定する範囲のみを削除するには <span class="article-date">2013/06/14</span></h3>
-
-<pre><code># 2行目から4行目を削除(4行目も削除)
-cat ファイル名 | sed -e 2,4d
-
-# 2行目のみを削除
-cat ファイル名 | sed -e 2d
-
-# 2行目から最後まで削除
-cat ファイル名 | sed -e '2,$d'
-# または
-cat ファイル名 | sed -e 2,\$d
-# または head でも同じことができる
-cat ファイル名 | head -n 1
-
-# 最後の行のみを削除
-cat ファイル名 | sed -e \$d
-</code></pre>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./sed.html">sed</a></i></p>
 
 <h2 id="source-highlight">source-highlight</h2>
 
@@ -644,7 +576,7 @@ cat ファイル名 | sed -e \$d
 
 <h2 id="tar">tar</h2>
 
-<h3 id="section-19">基本操作</h3>
+<h3 id="section-11">基本操作</h3>
 
 <pre><code># 圧縮
 tar cvzf tarファイル名 圧縮対象ディレクトリ
@@ -669,21 +601,21 @@ tar xvzf tarファイル名
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-20">ファイルの特定の文字を改行に全置換するには</h3>
+<h3 id="section-12">ファイルの特定の文字を改行に全置換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-21">ファイルの特定の文字を削除するには</h3>
+<h3 id="section-13">ファイルの特定の文字を削除するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、改行をすべて削除する。</p>
 
-<h3 id="section-22">連続したスペースを単一のスペースに変換するには</h3>
+<h3 id="section-14">連続したスペースを単一のスペースに変換するには</h3>
 
 <pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名
 </code></pre>
