@@ -114,6 +114,7 @@ footer {
   <li><a href="#log">ログ表示</a></li>
   <li><a href="#diff">差分表示</a></li>
   <li><a href="#ls">ファイル一覧表示</a></li>
+  <li><a href="#revert">編集取り消し</a></li>
 </ul>
 
 <h2 id="diff-from-git">gitとの違い <span class="article-date">2013/06/11</span></h2>
@@ -201,6 +202,13 @@ svn ls foo/bar
 
 # リポジトリの特定のパスを指定してファイル一覧を表示
 svn ls svn://id@host/path/to/svnroot/trunk/foo/bar
+</code></pre>
+
+<h2 id="revert">編集取り消し <span class="article-date">2013/06/18</span></h2>
+
+<pre><code># まだコミットしていない編集済みのファイルを元に戻す
+# git checkout foo/bar.txt に相当
+svn revert foo/bar.txt
 </code></pre>
 
 

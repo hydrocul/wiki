@@ -200,6 +200,15 @@ cat ファイル名 | head -n 1
 cat ファイル名 | sed -e \$d
 </code></pre>
 
+<h3 id="section-8">パスなどを全置換する際にスラッシュをエスケープするのが面倒な場合 <span class="article-date">2013/06/18</span></h3>
+
+<p><code>s/.../..../g</code> の記法のスラッシュは記号なら比較的なんでもよくて、3つ同じ記号を使っていることに意味があるので、<code>s@...@...@g</code> のようにも書ける。</p>
+
+<p>例</p>
+
+<pre><code>cat ファイル名 | sed -e 's@/etc/foo/bar@/home/my/etc/foo/bar@g'
+</code></pre>
+
 
 </div>
 

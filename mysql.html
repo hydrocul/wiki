@@ -105,7 +105,7 @@ footer {
 <div id="content">
   <h1 id="mysql">MySQL</h1>
 
-<h2 id="section">プロセス</h2>
+<h2 id="section">プロセス <span class="article-date">2013/04/03</span></h2>
 
 <p>実行中のプロセスの一覧を表示する</p>
 
@@ -118,16 +118,16 @@ SHOW FULL PROCESSLIST;
 <pre><code>KILL プロセスID
 </code></pre>
 
-<h2 id="explain">EXPLAIN</h2>
+<h2 id="explain-20130403">EXPLAIN <span class="article-date">2013/04/03</span></h2>
 
 <p>EXPLAINを使用して、クエリを最適化する | MySQL リファレンスマニュアル<br />
 <a href="http://dev.mysql.com/doc/refman/5.1/ja/explain.html" target="_blank">http://dev.mysql.com/doc/refman/5.1/ja/explain.html</a></p>
 
-<h2 id="section-1">テーブルの文字コードを調べるには</h2>
+<h2 id="section-1">テーブルの文字コードを調べるには <span class="article-date">2013/04/03</span></h2>
 
 <p><a href="http://www.softel.co.jp/blogs/tech/archives/1470" target="_blank">http://www.softel.co.jp/blogs/tech/archives/1470</a></p>
 
-<h2 id="mysql1">MySQLダンプファイルを1行ずつ見やすいフォーマットにするには</h2>
+<h2 id="mysql1-20130409">MySQLダンプファイルを1行ずつ見やすいフォーマットにするには <span class="article-date">2013/04/09</span></h2>
 
 <pre><code>mysqldump -u ユーザ名 -p --skip-extended-insert --complete-insert --order-by-primary データベース名
 </code></pre>
@@ -140,7 +140,7 @@ SHOW FULL PROCESSLIST;
   <li>オプション <code>--order-by-primary</code> はプライマリキーの順にINSER文を出力する。</li>
 </ul>
 
-<h2 id="mysql-1">MySQLダンプでデータ自体ではなく、テーブル定義のみをエクスポートするには</h2>
+<h2 id="mysql-20130409">MySQLダンプでデータ自体ではなく、テーブル定義のみをエクスポートするには <span class="article-date">2013/04/09</span></h2>
 
 <pre><code>mysqldump -u ユーザ名 -p --no-data データベース名
 </code></pre>
@@ -155,6 +155,34 @@ SHOW FULL PROCESSLIST;
 
 <p>正規表現 | MySQL 5.1 リファレンスマニュアル<br />
 <a href="http://dev.mysql.com/doc/refman/5.1/ja/regexp.html" target="_blank">http://dev.mysql.com/doc/refman/5.1/ja/regexp.html</a></p>
+
+<h2 id="mysql-20130618">MySQLへの接続のパスワードを変更するには <span class="article-date">2013/06/18</span></h2>
+
+<p>MySQLへの接続のパスワードを変更するには、以下のコマンドを打つ。</p>
+
+<pre><code>mysqladmin password -u username -p
+</code></pre>
+
+<p>まず現在のパスワードを聞かれるので、それを入力し、その後に新しいパスワードを
+2回入力する。新しいパスワードとしてなにも入力せずにエンターを押すと、パスワードなしで接続できるようになる。</p>
+
+<p>パスワードを削除するには、MySQLに接続して、以下のSQLを実行してもよい。</p>
+
+<pre><code>USE mysql;
+UPDATE user set Password = '' where User='username';
+FLUSH PRIVILEGES
+</code></pre>
+
+<p>mysqlテーブルに認証情報が保存されているので、それを直接書き換える方法だが、
+<code>FLUSH PRIVILEGES</code> を実行しないと、起動中のデーモンに反映されない。</p>
+
+<p>同様にパスワードを削除ではなく新しいパスワードを設定するには、
+<code>PASSWORD</code> という関数を使う。</p>
+
+<pre><code>USE mysql;
+UPDATE user set Password = PASSWORD('newpassword')  where User='username';
+FLUSH PRIVILEGES
+</code></pre>
 
 
 </div>

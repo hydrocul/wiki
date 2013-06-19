@@ -120,6 +120,21 @@ footer {
 <a href="http://nokogiri.org/" target="_blank">http://nokogiri.org/</a><br />
 Mechanizeが利用しているHTMLを解析するライブラリ</p>
 
+<h2 id="nokogirigem-20130617">Nokogiriをインストールするにはgem以外のパッケージも必要 <span class="article-date">2013/06/17</span></h2>
+
+<p>自分の環境では <code>gem install</code> する前に apt-get でいくつかのパッケージをインストールすることが必要だった。</p>
+
+<pre><code>sudo apt-get install libxslt-dev libxml2-dev libruby1.9.1
+sudo gem install nokogiri
+
+# nokogiriの最新バージョン 1.6.0 では Ruby 1.9.2 以上が必要
+# Ruby 1.9.1 の場合は nokogiri のバージョンの指定が必要
+sudo gem install -v 1.5.9 nokogiri
+</code></pre>
+
+<p>詳しくは以下の公式ドキュメントを参照。<br />
+<a href="http://nokogiri.org/tutorials/installing_nokogiri.html" target="_blank">http://nokogiri.org/tutorials/installing_nokogiri.html</a></p>
+
 <h2 id="section">コードの例 <span class="article-date">2013/04/15</span></h2>
 
 <pre><code>require 'mechanize'

@@ -105,7 +105,7 @@ footer {
 <div id="content">
   <h1 id="section">日付と時刻</h1>
 
-<h2 id="section-1">今日の日付を取得するには</h2>
+<h2 id="section-1">今日の日付を取得するには／現在時刻を取得するには <span class="article-date">2013/06/19</span></h2>
 
 <h3 id="php-20130611">PHP <span class="article-date">2013/06/11</span></h3>
 
@@ -113,27 +113,39 @@ footer {
 date('Y/m/d H:i:s');
 </code></pre>
 
-<h3 id="ruby-20130611">Ruby <span class="article-date">2013/06/11</span></h3>
+<h3 id="ruby-20130619">Ruby <span class="article-date">2013/06/19</span></h3>
 
-<pre><code>rquire 'date'
+<pre><code>require 'date'
+# DateTime を使う場合でも require は date だけでよい
 
 # Dateオブジェクトを取得する
 Date.today
+
+# DateTimeオブジェクトを取得する
+DateTime.now
 </code></pre>
 
-<h2 id="section-2">日付オブジェクトの各フィールドを取得するには</h2>
+<h2 id="section-2">日付オブジェクト・時刻オブジェクトの各フィールドを取得するには</h2>
 
-<h3 id="ruby-20130506">Ruby <span class="article-date">2013/05/06</span></h3>
+<h3 id="ruby-20130619-1">Ruby <span class="article-date">2013/06/19</span></h3>
 
 <pre><code>date.year
 date.month
 date.day    # その月の中での日付(1-31)
 date.wday   # 曜日(0-6)。日曜日が0
+
+datetime.year
+datetime.month
+datetime.day    # その月の中での日付(1-31)
+datetime.wday   # 曜日(0-6)。日曜日が0
+datetime.hour
+datetime.min
+datetime.sec
 </code></pre>
 
 <h2 id="section-3">日付単位の計算</h2>
 
-<h3 id="ruby-20130506-1">Ruby <span class="article-date">2013/05/06</span></h3>
+<h3 id="ruby-20130506">Ruby <span class="article-date">2013/05/06</span></h3>
 
 <pre><code>date + 3       # 3日後の日付
 date1 - date2  # 日付の差

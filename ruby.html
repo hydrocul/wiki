@@ -216,7 +216,7 @@ URI.encode &lt;-&gt; URI.decode  </p>
 
 <p><a href="http://soplana.hateblo.jp/entry/2012/06/01/234259" target="_blank">http://soplana.hateblo.jp/entry/2012/06/01/234259</a></p>
 
-<h3 id="gem">gemインストールする際にドキュメントはインストールしないようにするには</h3>
+<h3 id="gem-20130412">gemインストールする際にドキュメントはインストールしないようにするには <span class="article-date">2013/04/12</span></h3>
 
 <pre><code>gem install パッケージ名 --no-ri --no-rdoc
 </code></pre>
@@ -224,11 +224,21 @@ URI.encode &lt;-&gt; URI.decode  </p>
 <p>ドキュメントの除外をデフォルトの動作にするには<br />
 <a href="http://blog.ruedap.com/entry/20110514/ruby_gem_install_no_ri_no_rdoc_gemrc" target="_blank">http://blog.ruedap.com/entry/20110514/ruby_gem_install_no_ri_no_rdoc_gemrc</a></p>
 
-<h2 id="check-version-from-ruby">RubyのバージョンをRubyのソースコード中で参照するには</h2>
+<h3 id="ruby-187-gem-20130617">Ruby 1.8.7 以下でgemのライブラリを使うには <span class="article-date">2013/06/17</span></h3>
+
+<p>1.8.7以下では、gemのライブラリをrequireする前に</p>
+
+<pre><code>require 'rubygems'
+</code></pre>
+
+<p>とすることが必要。1.9からはなにもしなくてもgemのライブラリをrequireできる。</p>
+
+<h2 id="check-version-from-ruby">RubyのバージョンをRubyのソースコード中で参照するには <span class="article-date">2013/06/18</span></h2>
 
 <p><code>RUBY_VERSION</code> という定数に保存されている。</p>
 
 <pre><code>p RUBY_VERSION
+# =&gt; "1.8.7" や "1.9.3" などの文字列
 </code></pre>
 
 <h2 id="require--requirerelative"><code>require</code> と <code>require_relative</code></h2>
