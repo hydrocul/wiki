@@ -149,7 +149,7 @@ SHOW FULL PROCESSLIST;
 
 <p>mysqlコマンドのオプションに <code>--pager='less -S -X -F'</code> をつける。 <code>-X</code> を付けると、 less 終了時に画面をクリアしない。 <code>-F</code> を付けると、行数が短くて一画面に収まる場合は less がすぐに終了する。</p>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./less.html">less</a></i></p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./less.html">less</a></i>  </p>
 
 <h2 id="mysql-20130423">MySQLは正規表現が使える <span class="article-date">2013/04/23</span></h2>
 
@@ -182,6 +182,15 @@ FLUSH PRIVILEGES
 <pre><code>USE mysql;
 UPDATE user set Password = PASSWORD('newpassword')  where User='username';
 FLUSH PRIVILEGES
+</code></pre>
+
+<h2 id="sql-20130619">コマンドラインから直接SQLを実行するには <span class="article-date">2013/06/19</span></h2>
+
+<p><code>-e</code> オプションでSQLを渡す。</p>
+
+<p>例</p>
+
+<pre><code>mysql -u username -p dbname -e 'SELECT * FROM foo;'
 </code></pre>
 
 

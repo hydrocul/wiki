@@ -114,7 +114,52 @@ footer {
 
 <h2 id="if">if文</h2>
 
-<h3 id="php-20130616">PHP <span class="article-date">2013/06/16</span></h3>
+<h3 id="c-c-20130619">C言語, C++ <span class="article-date">2013/06/19</span></h3>
+
+<pre><code>if(...){
+  ...
+} else if(...){
+  ...
+} else {
+  ...
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合は <code>{}</code> を省略可。</p>
+
+<pre><code>if(...)
+  ...
+else
+  ...
+</code></pre>
+
+<p>いずれの構文でも <code>else</code> で実行する文がなければ、<code>else</code> を省略可。</p>
+
+<h3 id="go-20130619">Go言語 <span class="article-date">2013/06/19</span></h3>
+
+<pre><code>if ... {
+  ...
+} else if ... {
+  ...
+} else {
+  ...
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合でも <code>{}</code> を省略不可。</p>
+
+<p><code>else</code> で実行する文がなければ、<code>else</code> を省略可。</p>
+
+<p>条件を書くの部分にセミコロンで区切って変数初期化の文を書くことができる。</p>
+
+<pre><code>if a := f(); a &lt; 0 {
+  return 0
+} else {
+  return a
+}
+</code></pre>
+
+<h3 id="php-20130619">PHP <span class="article-date">2013/06/19</span></h3>
 
 <pre><code>if(...){
   ...
@@ -131,6 +176,8 @@ footer {
 
 <pre><code>if(...)
   ...
+else
+  ...
 </code></pre>
 
 <p>コロンを使った以下の記法も可能。</p>
@@ -143,6 +190,8 @@ else:
   ...
 endif;
 </code></pre>
+
+<p>いずれの構文でも <code>else</code> で実行する文がなければ、<code>else</code> を省略可。</p>
 
 <h3 id="ruby-20130601">Ruby <span class="article-date">2013/06/01</span></h3>
 
@@ -201,6 +250,28 @@ else ...
 
 <h2 id="while">while文</h2>
 
+<h3 id="c-c-20130619-1">C言語, C++ <span class="article-date">2013/06/19</span></h3>
+
+<pre><code>while(...){
+  ...
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合は <code>{}</code> を省略可。</p>
+
+<pre><code>while(...)
+  ...
+</code></pre>
+
+<h3 id="go-20130619-1">Go言語 <span class="article-date">2013/06/19</span></h3>
+
+<pre><code>for {
+  ...
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合でも <code>{}</code> を省略不可。</p>
+
 <h3 id="ruby-20130601-1">Ruby <span class="article-date">2013/06/01</span></h3>
 
 <pre><code>while ... do
@@ -212,8 +283,8 @@ end
 
 <h2 id="for">for文(繰り返し)</h2>
 
-<p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/list.html">リスト(配列)</a> &gt; <a href="../programming_languages_diff/list.html#foreach">foreach</a></i><br />
-<i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/map.html">マップ(連想配列)</a> &gt; <a href="../programming_languages_diff/map.html#foreach">foreach</a></i>  </p>
+<p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/list.html">リスト(配列)</a> &gt; <a href="../programming_languages_diff/list.html#foreach">foreach</a></i>  <br />
+<i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/map.html">マップ(連想配列)</a> &gt; <a href="../programming_languages_diff/map.html#foreach">foreach</a></i>    </p>
 
 <h3 id="c-c-20130422">C言語, C++ <span class="article-date">2013/04/22</span></h3>
 
