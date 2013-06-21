@@ -105,7 +105,11 @@ footer {
 <div id="content">
   <h1 id="emacs">Emacs</h1>
 
-<h2 id="section">文字コード・改行コードを変えてファイルを再読みこむには <span class="article-date">2013/05/17</span></h2>
+<h2 id="section">文字コード・改行コードを変えてファイルを再読みこむには <span class="article-date">2013/06/21</span></h2>
+
+<p>C-x C-m r utf-8</p>
+
+<p>以下の方法もある。</p>
 
 <ol>
   <li>C-x C-m c</li>
@@ -113,21 +117,18 @@ footer {
   <li>M-x revert-buffer C-m</li>
 </ol>
 
-<p>文字コード・改行コードは以下のような文字列</p>
+<p>文字コード・改行コードは以下のような文字列が使える。</p>
 
 <ul>
-  <li>utf-8-unix</li>
-  <li>sjis-dos</li>
-  <li>sjis-mac</li>
-  <li>euc-japan-unix</li>
-  <li>junet-unix</li>
+  <li><code>utf-8-unix</code></li>
+  <li><code>sjis-dos</code></li>
+  <li><code>sjis-mac</code></li>
+  <li><code>euc-jp-unix</code></li>
+  <li><code>euc-japan-unix</code></li>
+  <li><code>junet-unix</code></li>
 </ul>
 
-<p>以下の方法もあるらしい</p>
-
-<ol>
-  <li>C-x C-m r utf-8</li>
-</ol>
+<p><code>euc-jp</code> と <code>euc-japan</code> はたぶん同じ。</p>
 
 <h2 id="section-1">文字コードを変更して保存するには <span class="article-date">2013/05/17</span></h2>
 

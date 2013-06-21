@@ -255,7 +255,7 @@ arr = [
 
 <h2 id="index-of">indexOf</h2>
 
-<p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/list.html">リスト(配列)</a> &gt; <a href="../programming_languages_diff/list.html#find">find</a></i></p>
+<p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/list.html">リスト(配列)</a> &gt; <a href="../programming_languages_diff/list.html#find">find</a></i>  </p>
 
 <h3 id="java-20130506">Java <span class="article-date">2013/05/06</span></h3>
 
@@ -537,6 +537,32 @@ end
   break if i == 2
 end
 # =&gt; 1 2
+</code></pre>
+
+<h3 id="sh-20130621">sh <span class="article-date">2013/06/21</span></h3>
+
+<p>例1</p>
+
+<pre><code>for v in foo bar hoge
+do
+  echo $v
+done
+</code></pre>
+
+<p>例2</p>
+
+<pre><code>list="foo bar hoge"
+for v in $list
+do
+  echo $v
+done
+</code></pre>
+
+<p>出力結果(どちらも同じ)</p>
+
+<pre><code>foo
+bar
+hoge
 </code></pre>
 
 <h3 id="coffeescript-1">CoffeeScript</h3>

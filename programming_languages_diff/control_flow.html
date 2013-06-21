@@ -250,7 +250,7 @@ else ...
 
 <h2 id="while">while文</h2>
 
-<h3 id="c-c-20130619-1">C言語, C++ <span class="article-date">2013/06/19</span></h3>
+<h3 id="c-c-20130621">C言語, C++ <span class="article-date">2013/06/21</span></h3>
 
 <pre><code>while(...){
   ...
@@ -263,16 +263,30 @@ else ...
   ...
 </code></pre>
 
-<h3 id="go-20130619-1">Go言語 <span class="article-date">2013/06/19</span></h3>
+<p>永久ループは</p>
 
-<pre><code>for {
+<pre><code>for(;;){
+  ...
+}
+</code></pre>
+
+<h3 id="go-20130621">Go言語 <span class="article-date">2013/06/21</span></h3>
+
+<pre><code>for ... {
   ...
 }
 </code></pre>
 
 <p>本体の文が1つだけの場合でも <code>{}</code> を省略不可。</p>
 
-<h3 id="ruby-20130601-1">Ruby <span class="article-date">2013/06/01</span></h3>
+<p>永久ループは</p>
+
+<pre><code>for {
+  ...
+}
+</code></pre>
+
+<h3 id="ruby-20130621">Ruby <span class="article-date">2013/06/21</span></h3>
 
 <pre><code>while ... do
   ...
@@ -281,12 +295,19 @@ end
 
 <p><code>do</code> は省略可能。</p>
 
+<p>永久ループは</p>
+
+<pre><code>while true do
+  ...
+end
+</code></pre>
+
 <h2 id="for">for文(繰り返し)</h2>
 
 <p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/list.html">リスト(配列)</a> &gt; <a href="../programming_languages_diff/list.html#foreach">foreach</a></i>  <br />
 <i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/map.html">マップ(連想配列)</a> &gt; <a href="../programming_languages_diff/map.html#foreach">foreach</a></i>    </p>
 
-<h3 id="c-c-20130422">C言語, C++ <span class="article-date">2013/04/22</span></h3>
+<h3 id="c-c-20130621-1">C言語, C++ <span class="article-date">2013/06/21</span></h3>
 
 <pre><code>for(int i = 0; i &lt; 10; i++){
     ...
@@ -298,17 +319,27 @@ end
 <pre><code>for(式1; 式2; 式3){
     ...
 }
+</code></pre>
 
-式1;
+<p>または</p>
+
+<pre><code>式1;
 while(式2){
     ...
     式3;
 }
 </code></pre>
 
-<h3 id="ruby-20130504">Ruby <span class="article-date">2013/05/04</span></h3>
+<h3 id="ruby-20130621-1">Ruby <span class="article-date">2013/06/21</span></h3>
 
 <p>0 から n-1 までを繰り返すには</p>
+
+<pre><code>n.times do |i|
+  ...
+end
+</code></pre>
+
+<p>または</p>
 
 <pre><code>for i in 0..(n-1) do
   ...
