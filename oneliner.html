@@ -150,6 +150,25 @@ echo %E3%81%82 | tr % = | nkf -WmQ
 <pre><code>cat ファイル名 | perl -pe 's/\r\n/\n/'
 </code></pre>
 
+<h2 id="count-files-each-day">ファイル名に日付が入っているファイルがたくさんあって、日付ごとにファイル数を調べるには <span class="article-date">2013/06/22</span></h2>
+
+<p><code>2013-06-22-hogehoge</code> みたいな名前のファイルがたくさんあって、日付ごとにそのファイル数を集計するには、以下のようにする。</p>
+
+<pre><code>for i in 0 1 2 3 4 5 6 7; do date --date "$i days" "+%Y-%m-%d"; done | awk '{print "echo -n " $1 " \"\"; ls " $1 "-* 2&gt;/dev/null | wc -l";}' | sh
+</code></pre>
+
+<p>出力例</p>
+
+<pre><code>2013-06-22 2
+2013-06-23 0
+2013-06-24 937
+2013-06-25 860
+2013-06-26 673
+2013-06-27 281
+2013-06-28 977
+2013-06-29 0
+</code></pre>
+
 
 </div>
 
