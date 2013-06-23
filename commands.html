@@ -221,7 +221,7 @@ hogehoge
 
 <h2 id="cp">cp</h2>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./cp.html">cp</a></i>  </p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./cp.html">cp コマンド</a></i>  </p>
 
 <h2 id="crontab">crontab <span class="article-date">2013/04/22</span></h2>
 
@@ -259,14 +259,29 @@ cut -d$'\t' -f1
 
 <h2 id="date">date</h2>
 
-<h3 id="yyyymmdd-hhmmss-">YYYYMMDD-hhmmss の書式で日時を出力する方法</h3>
+<h3 id="yyyymmdd-hhmmss--20130321">YYYYMMDD-hhmmss の書式で日時を出力するには <span class="article-date">2013/03/21</span></h3>
 
 <pre><code>date "+%Y%m%d-%H%M%S"
 </code></pre>
 
+<h3 id="section-4">明日の日付を取得するには <span class="article-date">2013/06/22</span></h3>
+
+<pre><code>date --date "1 day" "+%Y-%m-%d"
+</code></pre>
+
+<p><code>--date</code> オプションに渡す文字列はいろいろ書ける。</p>
+
+<p>例</p>
+
+<pre><code>date --date "2 days" "+%Y-%m-%d"
+date --date "1 day ago" "+%Y-%m-%d"
+date --date "1 days ago" "+%Y-%m-%d" # 単数形複数形が間違っていても大丈夫
+date --date "1 month" "+%Y-%m-%d"
+</code></pre>
+
 <h2 id="diff">diff</h2>
 
-<h3 id="section-4">2つのコマンドの出力を比較するには <span class="article-date">2013/06/04</span></h3>
+<h3 id="section-5">2つのコマンドの出力を比較するには <span class="article-date">2013/06/04</span></h3>
 
 <p>以下のようにすることで、2つのコマンドの出力を diff にかけることができる。</p>
 
@@ -281,14 +296,14 @@ cut -d$'\t' -f1
 <p>とすると、<code>/proc/self/fd/11 /proc/self/fd/12</code> のように出力される。
 (bash, zsh で動作確認済み)</p>
 
-<h3 id="section-5">コマンドの出力とファイルを比較するには <span class="article-date">2013/06/04</span></h3>
+<h3 id="section-6">コマンドの出力とファイルを比較するには <span class="article-date">2013/06/04</span></h3>
 
 <p>以下のように、 <code>-</code> を使うと、比較対象の片方を標準入力にすることができる。</p>
 
 <pre><code>cat foo.txt | diff bar.txt -
 </code></pre>
 
-<h3 id="section-6">2つのファイルを左右に並べて表示するには <span class="article-date">2013/06/14</span></h3>
+<h3 id="section-7">2つのファイルを左右に並べて表示するには <span class="article-date">2013/06/14</span></h3>
 
 <pre><code>diff --side-by-side foo.txt bar.txt
 </code></pre>
@@ -298,7 +313,7 @@ cut -d$'\t' -f1
 <pre><code>sdiff foo.txt bar.txt
 </code></pre>
 
-<h3 id="section-7">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには <span class="article-date">2013/06/19</span></h3>
+<h3 id="section-8">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには <span class="article-date">2013/06/19</span></h3>
 
 <p>diff は同じだったかどうかによって終了コードがことなるので、以下のように書ける。</p>
 
@@ -334,7 +349,7 @@ fi
 
 <h2 id="echo">echo</h2>
 
-<h3 id="section-8">最後に改行をさせないようにするには</h3>
+<h3 id="section-9">最後に改行をさせないようにするには</h3>
 
 <p><code>-n</code> をつける</p>
 
@@ -343,11 +358,11 @@ fi
 
 <h2 id="find">find</h2>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./find.html">find</a></i>  </p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./find.html">find コマンド</a></i>  </p>
 
 <h2 id="git">git</h2>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./git.html">git</a></i>  </p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./git.html">git コマンド</a></i>  </p>
 
 <h2 id="grep">grep <span class="article-date">2013/06/04</span></h2>
 
@@ -381,11 +396,11 @@ fi
 
 <h2 id="less">less</h2>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./less.html">less</a></i>  </p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./less.html">less コマンド</a></i>  </p>
 
 <h2 id="ls">ls</h2>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./ls.html">ls</a></i>  </p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./ls.html">ls コマンド</a></i>  </p>
 
 <h2 id="lsof">lsof</h2>
 
@@ -415,7 +430,7 @@ fi
 
 <h2 id="nkf">nkf</h2>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./nkf.html">nkf</a></i>  </p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./nkf.html">nkf コマンド</a></i>  </p>
 
 <h2 id="od">od <span class="article-date">2013/06/17</span></h2>
 
@@ -449,12 +464,12 @@ fi
 
 <h2 id="ps">ps</h2>
 
-<h3 id="section-9">プロセスの一覧を見るには</h3>
+<h3 id="section-10">プロセスの一覧を見るには</h3>
 
 <pre><code>ps aux
 </code></pre>
 
-<h3 id="section-10">プロセスの親子関係をツリーで表示するには</h3>
+<h3 id="section-11">プロセスの親子関係をツリーで表示するには</h3>
 
 <pre><code>ps auxf
 </code></pre>
@@ -494,7 +509,7 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
   <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
 </ul>
 
-<h3 id="section-11">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには <span class="article-date">2013/04/03</span></h3>
+<h3 id="section-12">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
 </code></pre>
@@ -544,7 +559,7 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 <h2 id="sed">sed</h2>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./sed.html">sed</a></i>  </p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./sed.html">sed コマンド</a></i>  </p>
 
 <h2 id="source-highlight">source-highlight</h2>
 
@@ -567,8 +582,8 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
   <dd>列のデータを数字とみなして並び替える。</dd>
 </dl>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./ls.html">ls</a> &gt; <a href="./ls.html#sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには</a></i>  <br />
-<i>-&gt; <a href="./">Home</a> &gt; <a href="./find.html">find</a> &gt; <a href="./find.html#sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには</a></i>    </p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./ls.html">ls コマンド</a> &gt; <a href="./ls.html#sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには</a></i>  <br />
+<i>-&gt; <a href="./">Home</a> &gt; <a href="./find.html">find コマンド</a> &gt; <a href="./find.html#sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには</a></i>    </p>
 
 <h2 id="ssh">ssh</h2>
 
@@ -596,7 +611,7 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 <p><code>-z</code> を使う場合は、アーカイブファイルの拡張子として .tar.gz または .tgz がよく使われる。<code>-z</code> を使わない場合は、.tar がよく使われる。</p>
 
-<h3 id="section-12">基本操作 <span class="article-date">2013/04/04</span></h3>
+<h3 id="section-13">基本操作 <span class="article-date">2013/04/04</span></h3>
 
 <pre><code># 圧縮
 tar cvzf tarファイル名 圧縮対象ディレクトリ
@@ -621,21 +636,21 @@ tar xvzf tarファイル名
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-13">ファイルの特定の文字を改行に全置換するには <span class="article-date">2013/04/03</span></h3>
+<h3 id="section-14">ファイルの特定の文字を改行に全置換するには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-14">ファイルの特定の文字を削除するには <span class="article-date">2013/04/03</span></h3>
+<h3 id="section-15">ファイルの特定の文字を削除するには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、改行をすべて削除する。</p>
 
-<h3 id="section-15">連続したスペースを単一のスペースに変換するには <span class="article-date">2013/04/18</span></h3>
+<h3 id="section-16">連続したスペースを単一のスペースに変換するには <span class="article-date">2013/04/18</span></h3>
 
 <pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名
 </code></pre>
@@ -664,7 +679,7 @@ tar xvzf tarファイル名
 
 <h2 id="wget">wget</h2>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./wget.html">wget</a></i>  </p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./wget.html">wget コマンド</a></i>  </p>
 
 <h2 id="xargs">xargs <span class="article-date">2013/06/11</span></h2>
 
