@@ -227,7 +227,7 @@ hogehoge
 
 <p><code>-r</code> は設定をすべて削除してしまうので要注意。<code>r</code> は <code>e</code> の隣。</p>
 
-<h2 id="cut">cut <span class="article-date">2013/06/17</span></h2>
+<h2 id="cut">cut <span class="article-date">2013/06/24</span></h2>
 
 <p>タブ区切りでフィールドを選択して出力する。または文字単位・バイト単位で1行の中の場所を選択して出力する。</p>
 
@@ -235,6 +235,9 @@ hogehoge
 
 <pre><code># タブ区切りで最初の列と3列目だけを抽出して、タブ区切りで出力する
 cat ファイル名 | cut -f1,3
+
+# 以下のようにしても列の順番は入れ替えてくれない
+cat ファイル名 | cut -f3,1
 </code></pre>
 
 <h3 id="section-1">スペース区切りを処理するには <span class="article-date">2013/06/17</span></h3>

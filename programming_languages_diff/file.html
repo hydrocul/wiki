@@ -112,6 +112,7 @@ footer {
   <li><a href="#rm">ファイルを削除するには</a></li>
   <li><a href="#ls">ディレクトリの中のファイル一覧を取得</a></li>
   <li><a href="#file-size">ファイルサイズを取得</a></li>
+  <li><a href="#mkdir">ディレクトリを作成</a></li>
   <li><a href="#exists">ファイルが存在するかどうかを取得</a></li>
   <li><a href="#is-file">ファイルかどうかを調べる</a></li>
   <li><a href="#is-directory">ディレクトリかどうかを調べる</a></li>
@@ -171,6 +172,19 @@ fclose($handle);
 <h3 id="ruby-20130528">Ruby <span class="article-date">2013/05/28</span></h3>
 
 <pre><code>File::stat('./hoge.txt').size
+</code></pre>
+
+<h2 id="mkdir">ディレクトリを作成</h2>
+
+<h3 id="ruby-20130624">Ruby <span class="article-date">2013/06/24</span></h3>
+
+<pre><code>Dir::mkdir(dirname)
+</code></pre>
+
+<p>または、<code>mkdir -p</code> に相当する方法として</p>
+
+<pre><code>require 'fileutls'
+FileUtils::mkdir_p(dirname)
 </code></pre>
 
 <h2 id="exists">ファイルが存在するかどうかを取得</h2>
