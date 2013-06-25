@@ -132,7 +132,16 @@ footer {
 <pre><code>find / ... 2&gt;/dev/null
 </code></pre>
 
-<h2 id="section-1">リンク集 <span class="article-date">2013/04/03</span></h2>
+<h2 id="section-1">別のマウント領域の中は探索しないようにするには <span class="article-date">2013/06/25</span></h2>
+
+<p><code>-mount</code> を使う。</p>
+
+<pre><code># hogeという名前のファイルをルートからたどって探す
+# ただし別のファイルシステムにはたどらない
+find / -mount -name "hoge" 2&gt;/dev/null
+</code></pre>
+
+<h2 id="section-2">リンク集 <span class="article-date">2013/04/03</span></h2>
 
 <p>ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法<br />
 <a href="http://hydrocul.seesaa.net/article/138935635.html" target="_blank">http://hydrocul.seesaa.net/article/138935635.html</a></p>

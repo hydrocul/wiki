@@ -121,13 +121,19 @@ sed "s/x\{4\}/XXXX/g" # =&gt; OK
 sed "s/x\\\{4\\\}/XXXX/g" # =&gt; NG
 </code></pre>
 
-<h3 id="section">タブ文字を全置換するには <span class="article-date">2013/06/17</span></h3>
+<p>置換後の文字列には、<code>\1</code>, <code>\2</code> などを指定することで、正規表現にマッチしたグループに置き換えられる。</p>
+
+<pre><code>echo "bc abcc" | sed 's/b\(c*\)/\1/g'
+# =&gt; c acc
+</code></pre>
+
+<h2 id="section">タブ文字を全置換するには <span class="article-date">2013/06/17</span></h2>
 
 <pre><code># タブ文字をスペースに全置換
 sed '/\t/ /g'
 </code></pre>
 
-<h3 id="section-1">正規表現にマッチする行を削除するには <span class="article-date">2013/06/17</span></h3>
+<h2 id="section-1">正規表現にマッチする行を削除するには <span class="article-date">2013/06/17</span></h2>
 
 <pre><code># '2013' が含まれる行を削除
 sed '/^2013/d'
@@ -136,7 +142,7 @@ sed '/^2013/d'
 sed '/^$/d'
 </code></pre>
 
-<h3 id="section-2">正規表現にマッチする行を抽出するには <span class="article-date">2013/06/17</span></h3>
+<h2 id="section-2">正規表現にマッチする行を抽出するには <span class="article-date">2013/06/17</span></h2>
 
 <pre><code># '2013' が含まれる行のみを出力
 sed '/^2013/!d'
@@ -145,13 +151,13 @@ sed '/^2013/!d'
 sed '/^$/!d' | wc -l
 </code></pre>
 
-<h3 id="section-3">1つ以上の連続するスペースまたはタブ文字を1つのスペースに全置換するには <span class="article-date">2013/06/17</span></h3>
+<h2 id="section-3">1つ以上の連続するスペースまたはタブ文字を1つのスペースに全置換するには <span class="article-date">2013/06/17</span></h2>
 
 <pre><code># タブ文字をスペースに全置換
 sed -E '/[\t ]+/ /g'
 </code></pre>
 
-<h3 id="section-4">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには <span class="article-date">2013/06/17</span></h3>
+<h2 id="section-4">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには <span class="article-date">2013/06/17</span></h2>
 
 <pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
 </code></pre>
@@ -160,14 +166,14 @@ sed -E '/[\t ]+/ /g'
 
 <p><code>-e</code> はどういう意味だろう？</p>
 
-<h3 id="section-5">2つ以上の全置換を一括で実行するには <span class="article-date">2013/06/17</span></h3>
+<h2 id="section-5">2つ以上の全置換を一括で実行するには <span class="article-date">2013/06/17</span></h2>
 
 <p><code>-e</code> で2つ以上の全置換を実行できる。</p>
 
 <pre><code>cat ファイル名 | sed -e 's/置換前/置換後/g' -e 's/別の置換前/別の置換後/g'
 </code></pre>
 
-<h3 id="section-6">行番号で指定する範囲のみを抽出するには <span class="article-date">2013/06/14</span></h3>
+<h2 id="section-6">行番号で指定する範囲のみを抽出するには <span class="article-date">2013/06/14</span></h2>
 
 <pre><code># 2行目から4行目を抽出(4行目を含む)
 cat ファイル名 | sed -n 2,4p
@@ -181,7 +187,7 @@ cat ファイル名 | sed -n '2,$p'
 cat ファイル名 | sed -n 2,\$p
 </code></pre>
 
-<h3 id="section-7">行番号で指定する範囲のみを削除するには <span class="article-date">2013/06/14</span></h3>
+<h2 id="section-7">行番号で指定する範囲のみを削除するには <span class="article-date">2013/06/14</span></h2>
 
 <pre><code># 2行目から4行目を削除(4行目も削除)
 cat ファイル名 | sed -e 2,4d
@@ -200,7 +206,7 @@ cat ファイル名 | head -n 1
 cat ファイル名 | sed -e \$d
 </code></pre>
 
-<h3 id="section-8">パスなどを全置換する際にスラッシュをエスケープするのが面倒な場合 <span class="article-date">2013/06/18</span></h3>
+<h2 id="section-8">パスなどを全置換する際にスラッシュをエスケープするのが面倒な場合 <span class="article-date">2013/06/18</span></h2>
 
 <p><code>s/.../..../g</code> の記法のスラッシュは記号なら比較的なんでもよくて、3つ同じ記号を使っていることに意味があるので、<code>s@...@...@g</code> のようにも書ける。</p>
 

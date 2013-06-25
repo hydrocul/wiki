@@ -169,12 +169,15 @@ svn log
 svn log foo/bar
 </code></pre>
 
-<h2 id="diff">差分表示 <span class="article-date">2013/06/14</span></h2>
+<h2 id="diff">差分表示 <span class="article-date">2013/06/25</span></h2>
 
-<pre><code># カレントディレクトリについてのリビジョン間の差分を表示
+<pre><code># カレントディレクトリの最後のコミットと作業用ディレクトリとの差分を表示
+svn diff
+
+# カレントディレクトリについてのリビジョン間の差分を表示
 svn diff -r r998:r999
 
-# 差分のファイりう名のみを表示
+# 差分のファイル名のみを表示
 svn diff --summarize -r r998:r999
 
 # 作業用ディレクトリの特定のパスについてのリビジョン間の差分を表示

@@ -227,38 +227,9 @@ hogehoge
 
 <p><code>-r</code> は設定をすべて削除してしまうので要注意。<code>r</code> は <code>e</code> の隣。</p>
 
-<h2 id="cut">cut <span class="article-date">2013/06/24</span></h2>
+<h2 id="cut">cut</h2>
 
-<p>タブ区切りでフィールドを選択して出力する。または文字単位・バイト単位で1行の中の場所を選択して出力する。</p>
-
-<p>例</p>
-
-<pre><code># タブ区切りで最初の列と3列目だけを抽出して、タブ区切りで出力する
-cat ファイル名 | cut -f1,3
-
-# 以下のようにしても列の順番は入れ替えてくれない
-cat ファイル名 | cut -f3,1
-</code></pre>
-
-<h3 id="section-1">スペース区切りを処理するには <span class="article-date">2013/06/17</span></h3>
-
-<pre><code>cat ファイル名 | cut -d' ' -f1,3
-</code></pre>
-
-<h3 id="section-2">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには <span class="article-date">2013/06/17</span></h3>
-
-<pre><code>cat ファイル名 | sed -E '/[\t ]+/ /g' | cut -d' ' -f1,3
-</code></pre>
-
-<h3 id="section-3">タブをコマンドラインから指定するには <span class="article-date">2013/06/17</span></h3>
-
-<p><code>cut</code> は <code>-f</code> でフィールドを指定した場合、デフォルトでタブ区切りだが、コマンドラインからどうしてもタブ区切りであることを指定したい場合は、以下のように書けなくもない。</p>
-
-<pre><code># 最初のカラムだけを表示
-cut -d$'\t' -f1
-</code></pre>
-
-<p><code>sort</code> でも似たような書き方でできる。</p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./cut.html">cut</a></i>  </p>
 
 <h2 id="date">date</h2>
 
@@ -267,7 +238,7 @@ cut -d$'\t' -f1
 <pre><code>date "+%Y%m%d-%H%M%S"
 </code></pre>
 
-<h3 id="section-4">明日の日付を取得するには <span class="article-date">2013/06/22</span></h3>
+<h3 id="section-1">明日の日付を取得するには <span class="article-date">2013/06/22</span></h3>
 
 <pre><code>date --date "1 day" "+%Y-%m-%d"
 </code></pre>
@@ -284,7 +255,7 @@ date --date "1 month" "+%Y-%m-%d"
 
 <h2 id="diff">diff</h2>
 
-<h3 id="section-5">2つのコマンドの出力を比較するには <span class="article-date">2013/06/04</span></h3>
+<h3 id="section-2">2つのコマンドの出力を比較するには <span class="article-date">2013/06/04</span></h3>
 
 <p>以下のようにすることで、2つのコマンドの出力を diff にかけることができる。</p>
 
@@ -299,14 +270,14 @@ date --date "1 month" "+%Y-%m-%d"
 <p>とすると、<code>/proc/self/fd/11 /proc/self/fd/12</code> のように出力される。
 (bash, zsh で動作確認済み)</p>
 
-<h3 id="section-6">コマンドの出力とファイルを比較するには <span class="article-date">2013/06/04</span></h3>
+<h3 id="section-3">コマンドの出力とファイルを比較するには <span class="article-date">2013/06/04</span></h3>
 
 <p>以下のように、 <code>-</code> を使うと、比較対象の片方を標準入力にすることができる。</p>
 
 <pre><code>cat foo.txt | diff bar.txt -
 </code></pre>
 
-<h3 id="section-7">2つのファイルを左右に並べて表示するには <span class="article-date">2013/06/14</span></h3>
+<h3 id="section-4">2つのファイルを左右に並べて表示するには <span class="article-date">2013/06/14</span></h3>
 
 <pre><code>diff --side-by-side foo.txt bar.txt
 </code></pre>
@@ -316,7 +287,7 @@ date --date "1 month" "+%Y-%m-%d"
 <pre><code>sdiff foo.txt bar.txt
 </code></pre>
 
-<h3 id="section-8">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには <span class="article-date">2013/06/19</span></h3>
+<h3 id="section-5">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには <span class="article-date">2013/06/19</span></h3>
 
 <p>diff は同じだったかどうかによって終了コードがことなるので、以下のように書ける。</p>
 
@@ -352,7 +323,7 @@ fi
 
 <h2 id="echo">echo</h2>
 
-<h3 id="section-9">最後に改行をさせないようにするには</h3>
+<h3 id="section-6">最後に改行をさせないようにするには</h3>
 
 <p><code>-n</code> をつける</p>
 
@@ -467,12 +438,12 @@ fi
 
 <h2 id="ps">ps</h2>
 
-<h3 id="section-10">プロセスの一覧を見るには</h3>
+<h3 id="section-7">プロセスの一覧を見るには</h3>
 
 <pre><code>ps aux
 </code></pre>
 
-<h3 id="section-11">プロセスの親子関係をツリーで表示するには</h3>
+<h3 id="section-8">プロセスの親子関係をツリーで表示するには</h3>
 
 <pre><code>ps auxf
 </code></pre>
@@ -512,7 +483,7 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
   <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
 </ul>
 
-<h3 id="section-12">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには <span class="article-date">2013/04/03</span></h3>
+<h3 id="section-9">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
 </code></pre>
@@ -614,7 +585,7 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 <p><code>-z</code> を使う場合は、アーカイブファイルの拡張子として .tar.gz または .tgz がよく使われる。<code>-z</code> を使わない場合は、.tar がよく使われる。</p>
 
-<h3 id="section-13">基本操作 <span class="article-date">2013/04/04</span></h3>
+<h3 id="section-10">基本操作 <span class="article-date">2013/04/04</span></h3>
 
 <pre><code># 圧縮
 tar cvzf tarファイル名 圧縮対象ディレクトリ
@@ -639,21 +610,21 @@ tar xvzf tarファイル名
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-14">ファイルの特定の文字を改行に全置換するには <span class="article-date">2013/04/03</span></h3>
+<h3 id="section-11">ファイルの特定の文字を改行に全置換するには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-15">ファイルの特定の文字を削除するには <span class="article-date">2013/04/03</span></h3>
+<h3 id="section-12">ファイルの特定の文字を削除するには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、改行をすべて削除する。</p>
 
-<h3 id="section-16">連続したスペースを単一のスペースに変換するには <span class="article-date">2013/04/18</span></h3>
+<h3 id="section-13">連続したスペースを単一のスペースに変換するには <span class="article-date">2013/04/18</span></h3>
 
 <pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名
 </code></pre>
