@@ -34,11 +34,11 @@
   font-size: 24px;
 }
 #content h3 {
-  margin: 30px 0 20px 40px;
+  margin: 30px 0 20px 0;
   font-size: 20px;
 }
 #content h4 {
-  margin: 20px 0 10px 40px;
+  margin: 20px 0 20px 0;
   font-size: 16px;
 }
 #content .article-date {
@@ -49,18 +49,18 @@
 #content p,
 #content ul,
 #content dl {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 20px 40px;
 }
 #content ul {
   padding-left: 2em
 }
 #content pre {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -132,6 +132,7 @@ footer {
   <li><a href="#od">od</a></li>
   <li><a href="#ps">ps</a></li>
   <li><a href="#rsync">rsync</a></li>
+  <li><a href="#runlevel">runlevel</a></li>
   <li><a href="#scala">scala</a></li>
   <li><a href="#scaladoc">scaladoc</a></li>
   <li><a href="#sdiff">sdiff</a></li>
@@ -497,6 +498,19 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 <p>rsync の複雑怪奇な exclude と include の適用手順を理解しよう<br />
 <a href="http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/" target="_blank">http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/</a></p>
+
+<h2 id="runlevel">runlevel <span class="article-date">2013/06/26</span></h2>
+
+<p>現在のLinuxのランレベルを調べるコマンド。</p>
+
+<pre><code>$ runlevel
+N 2
+</code></pre>
+
+<p>1つ前のランレベルと現在のランレベルが表示される。1つ前のランレベルがない場合は 
+<code>N</code> と表示される。</p>
+
+<p>手元のUbuntu Server 13.04では2、CentOS 6.4では3であった。</p>
 
 <h2 id="scala">scala</h2>
 

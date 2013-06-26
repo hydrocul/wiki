@@ -34,11 +34,11 @@
   font-size: 24px;
 }
 #content h3 {
-  margin: 30px 0 20px 40px;
+  margin: 30px 0 20px 0;
   font-size: 20px;
 }
 #content h4 {
-  margin: 20px 0 10px 40px;
+  margin: 20px 0 20px 0;
   font-size: 16px;
 }
 #content .article-date {
@@ -49,18 +49,18 @@
 #content p,
 #content ul,
 #content dl {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 20px 40px;
 }
 #content ul {
   padding-left: 2em
 }
 #content pre {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -103,9 +103,13 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="iptables">iptables</h1>
+  <h1 id="iptables-20130626">iptables <span class="article-date">2013/06/26</span></h1>
 
-<h2 id="centosapache-20130517">CentOSをインストールしたあとにApacheのポートを外部に向けて開けるには <span class="article-date">2013/05/17</span></h2>
+<p>Ubuntuではufwを使う。</p>
+
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./ubuntu.html">Ubuntu</a> &gt; <a href="./ubuntu.html#ufw">ufwの使い方</a></i>  </p>
+
+<h2 id="centosapache-20130626">CentOSをインストールしたあとにApacheのポートを外部に向けて開けるには <span class="article-date">2013/06/26</span></h2>
 
 <pre><code># root権限で
 iptables -L –line-number
@@ -118,7 +122,8 @@ iptables -I INPUT 5 -p tcp --dport 80 -j ACCEPT
 
 <p>iptablesを設定した後は、設定の保存が必要。そうしないと、OS再起動時にリセットされてしまう。</p>
 
-<pre><code>/sbin/service iptables save
+<pre><code># root権限で
+/sbin/service iptables save
 </code></pre>
 
 

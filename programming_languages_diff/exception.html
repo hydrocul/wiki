@@ -107,6 +107,32 @@ footer {
 
 <h2 id="section-1">書き方</h2>
 
+<h3 id="java-20130625">Java <span class="article-date">2013/06/25</span></h3>
+
+<pre><code>try {
+  ...
+  throw ...
+  ...
+} catch (FileNotFoundException e) {
+  ...
+} catch (IOException e) {
+  ...
+} finally {
+  ...
+}
+</code></pre>
+
+<p>Java7から使える try-with-resources 構文では以下のように書ける。finally節を書かなくても try のカッコの中で生成したオブジェクトを確実にcloseしてくれる。</p>
+
+<pre><code>try (FileInputStream in = new FileInputStream(...)) {
+  ...
+} catch (FileNotFoundException e) {
+  ...
+} catch (IOException e) {
+  ...
+}
+</code></pre>
+
 <h3 id="ruby-20130416">Ruby <span class="article-date">2013/04/16</span></h3>
 
 <pre><code>begin
