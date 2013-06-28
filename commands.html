@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
 #side-menu {
   float: left;
   width: 150px;
@@ -693,42 +696,7 @@ dir/d.txt に移動することになってしまい、ほとんどのファイ�
 
 <h2 id="zip">zip</h2>
 
-<h3 id="zip-20110227">パスワード付きのZIPの作成・解凍 <span class="article-date">2011/02/27</span></h3>
-
-<p>パスワード付きのZIPの作成(圧縮)または解凍をコマンドで行うには <code>-P</code> オプションを使う。</p>
-
-<pre><code>zip -P パスワード ZIPファイル名 圧縮対象ファイル
-unzip -P パスワード ZIPファイル名
-</code></pre>
-
-<p>ただし、コマンドラインにパスワードを与えると、履歴やpsコマンドでわかってしまうので、セキュリティ上はよくない。</p>
-
-<p><a href="http://d.hatena.ne.jp/hydrocul/20110227/1298798530" target="_blank">http://d.hatena.ne.jp/hydrocul/20110227/1298798530</a></p>
-
-<h3 id="zip-20130403">ディレクトリまるごとzip圧縮するには <span class="article-date">2013/04/03</span></h3>
-
-<pre><code>zip -r ZIPファイル名 対象ディレクトリ
-</code></pre>
-
-<p><code>tar</code> での以下に相当する。</p>
-
-<pre><code>tar cvzf TARGZファイル名 対象ディレクトリ
-</code></pre>
-
-<h3 id="zip-20130403-1">zipファイルを解凍するには <span class="article-date">2013/04/03</span></h3>
-
-<pre><code>unzip ZIPファイル名
-</code></pre>
-
-<p><code>tar</code> での以下に相当する。</p>
-
-<pre><code>tar xvzf TARGZファイル名
-</code></pre>
-
-<h3 id="zip-20130609">zipファイルに含まれるファイルの一覧を見るには <span class="article-date">2013/06/09</span></h3>
-
-<pre><code>unzip -l ZIPファイル名
-</code></pre>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./zip.html">zip</a></i>  </p>
 
 
 </div>

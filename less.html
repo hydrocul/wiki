@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
 #side-menu {
   float: left;
   width: 150px;
@@ -34,11 +37,11 @@
   font-size: 24px;
 }
 #content h3 {
-  margin: 30px 0 20px 40px;
+  margin: 30px 0 20px 0;
   font-size: 20px;
 }
 #content h4 {
-  margin: 20px 0 10px 40px;
+  margin: 20px 0 20px 0;
   font-size: 16px;
 }
 #content .article-date {
@@ -49,18 +52,18 @@
 #content p,
 #content ul,
 #content dl {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 20px 40px;
 }
 #content ul {
   padding-left: 2em
 }
 #content pre {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -133,6 +136,17 @@ footer {
 <p><code>less +F ファイル名</code> とすると、<code>tail -f</code> みたいな動きになる。Ctrl+C を押すと、普通の less に戻り、Shift+F を押すと、また <code>tail -f</code> に戻る。</p>
 
 <p><a href="http://www.commandlinefu.com/commands/view/1024/make-less-behave-like-tail-f." target="_blank">http://www.commandlinefu.com/commands/view/1024/make-less-behave-like-tail-f.</a></p>
+
+<h2 id="utf-8euc-jpless-20130628">UTF-8のターミナルからEUC-JPなサーバに接続してlessで文字化けしてしまう場合 <span class="article-date">2013/06/28</span></h2>
+
+<p><code>less hoge.txt</code> で日本語が <code>?</code> とかに化けてしまい、
+<code>nkf -Ew hoge.txt | less</code> で日本語が <code>[3m&lt;9A&gt;</code> みたいなコードで表示されてしまう場合、
+<code>-r</code> をつけることでうまく表示できる。</p>
+
+<pre><code>nkf -Ew hoge.txt | less -r
+</code></pre>
+
+<p>たぶん、<code>[3m&lt;9A&gt;</code> とかはlessコマンドがUTF-8を扱えないために変換しちゃうのだと思う。<code>-r</code> は文字を解釈せずにそのままスルーするオプションで、端末がUTF-8で動いていれば、結果的にうまく表示できる。</p>
 
 
 </div>

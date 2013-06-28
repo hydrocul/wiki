@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
 #side-menu {
   float: left;
   width: 150px;
@@ -34,11 +37,11 @@
   font-size: 24px;
 }
 #content h3 {
-  margin: 30px 0 20px 40px;
+  margin: 30px 0 20px 0;
   font-size: 20px;
 }
 #content h4 {
-  margin: 20px 0 10px 40px;
+  margin: 20px 0 20px 0;
   font-size: 16px;
 }
 #content .article-date {
@@ -49,18 +52,18 @@
 #content p,
 #content ul,
 #content dl {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 20px 40px;
 }
 #content ul {
   padding-left: 2em
 }
 #content pre {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -149,7 +152,7 @@ SHOW FULL PROCESSLIST;
 
 <p>mysqlコマンドのオプションに <code>--pager='less -S -X -F'</code> をつける。 <code>-X</code> を付けると、 less 終了時に画面をクリアしない。 <code>-F</code> を付けると、行数が短くて一画面に収まる場合は less がすぐに終了する。</p>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./less.html">less</a></i>  </p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./less.html">less コマンド</a></i>  </p>
 
 <h2 id="mysql-20130423">MySQLは正規表現が使える <span class="article-date">2013/04/23</span></h2>
 
@@ -191,6 +194,23 @@ FLUSH PRIVILEGES
 <p>例</p>
 
 <pre><code>mysql -u username -p dbname -e 'SELECT * FROM foo;'
+</code></pre>
+
+<p>SELECT文の結果はTSVで出力される。</p>
+
+<h2 id="tsv-20130628">TSVファイルでデータをインポートするには <span class="article-date">2013/06/28</span></h2>
+
+<p><code>LOAD DATA</code> というSQLの構文を使う。以下は <code>items</code> テーブルに
+<code>/home/foo/bar.tsv</code> のファイルからインポートするSQLの例。</p>
+
+<pre><code>load data local infile '/home/foo/bar.tsv' into table items;
+</code></pre>
+
+<p>TSVファイルのカラムの順番は、テーブルのカラムの順番と一致している必要がある。</p>
+
+<p>テーブルの一部カラムのみをTSVファイルからインポートしたい場合や、カラムの順番が違う場合は、以下のようにTSVにあるカラムを列挙する。</p>
+
+<pre><code>load data local infile '/home/foo/bar.tsv' into table items (id, title, keywd);
 </code></pre>
 
 
