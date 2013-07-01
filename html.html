@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
 #side-menu {
   float: left;
   width: 150px;
@@ -34,11 +37,11 @@
   font-size: 24px;
 }
 #content h3 {
-  margin: 30px 0 20px 40px;
+  margin: 30px 0 20px 0;
   font-size: 20px;
 }
 #content h4 {
-  margin: 20px 0 10px 40px;
+  margin: 20px 0 20px 0;
   font-size: 16px;
 }
 #content .article-date {
@@ -49,18 +52,18 @@
 #content p,
 #content ul,
 #content dl {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 20px 40px;
 }
 #content ul {
   padding-left: 2em
 }
 #content pre {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -123,10 +126,18 @@ footer {
 &lt;/html&gt;
 </code></pre>
 
-<h2 id="meta-refresh--20130511">meta refresh の書き方 <span class="article-date">2013/05/11</span></h2>
+<h2 id="meta-refresh--20130701">meta refresh の書き方 <span class="article-date">2013/07/01</span></h2>
 
 <pre><code>&lt;meta http-equiv="refresh" content="秒数;URL=ジャンプ先URL"&gt;
 </code></pre>
+
+<p>例：ただちに <code>/top</code> というURLにジャンプする。</p>
+
+<pre><code>&lt;meta http-equiv="refresh" content="0;URL=/top"&gt;
+</code></pre>
+
+<p><code>content</code> の部分を誤って <code>content="0;/top"</code> と書いてしまっても、Chromeや
+Firefoxでは動いてしまうが、IE9ではURLを認識せず、同じページを永久にリロードし続けてしまう。(Chrome 27, Firefox 22で確認)</p>
 
 
 </div>

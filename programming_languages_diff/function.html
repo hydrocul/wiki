@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
 #side-menu {
   float: left;
   width: 150px;
@@ -34,11 +37,11 @@
   font-size: 24px;
 }
 #content h3 {
-  margin: 30px 0 20px 40px;
+  margin: 30px 0 20px 0;
   font-size: 20px;
 }
 #content h4 {
-  margin: 20px 0 10px 40px;
+  margin: 20px 0 20px 0;
   font-size: 16px;
 }
 #content .article-date {
@@ -49,18 +52,18 @@
 #content p,
 #content ul,
 #content dl {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 20px 40px;
 }
 #content ul {
   padding-left: 2em
 }
 #content pre {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -146,6 +149,19 @@ end
 
 <ul>
   <li>メソッド呼び出しは、引数がない場合に限り、カッコを省略できる</li>
+</ul>
+
+<h3 id="sh-20130701">sh <span class="article-date">2013/07/01</span></h3>
+
+<pre><code>f()
+{
+    ...
+}
+</code></pre>
+
+<ul>
+  <li>関数呼び出しは通常の外部コマンドの実行と同じくカッコを付けずに引数を並べる</li>
+  <li>関数定義の中では引数は <code>$@</code>, <code>$1</code>, <code>$2</code>,,, などを使う</li>
 </ul>
 
 <h3 id="javascript-20130609">JavaScript <span class="article-date">2013/06/09</span></h3>
