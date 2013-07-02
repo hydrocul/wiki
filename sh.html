@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
 #side-menu {
   float: left;
   width: 150px;
@@ -34,11 +37,11 @@
   font-size: 24px;
 }
 #content h3 {
-  margin: 30px 0 20px 40px;
+  margin: 30px 0 20px 0;
   font-size: 20px;
 }
 #content h4 {
-  margin: 20px 0 10px 40px;
+  margin: 20px 0 20px 0;
   font-size: 16px;
 }
 #content .article-date {
@@ -49,18 +52,18 @@
 #content p,
 #content ul,
 #content dl {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 20px 40px;
 }
 #content ul {
   padding-left: 2em
 }
 #content pre {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -180,7 +183,7 @@ if [ "$a" = "abc" ]; then
 fi
 </code></pre>
 
-<h2 id="section-6">演算子 <span class="article-date">2013/06/04</span></h2>
+<h2 id="section-6">演算子 <span class="article-date">2013/07/01</span></h2>
 
 <dl>
   <dt>文字列1 <code>=</code> 文字列2</dt>
@@ -209,6 +212,8 @@ fi
   <dd>ファイルが通常のファイルとして存在する場合</dd>
   <dt><code>-d</code> ファイル名</dt>
   <dd>ファイルがディレクトリとして存在する場合</dd>
+  <dt><code>-L</code> ファイル名</dt>
+  <dd>ファイルがシンボリックリンクとして存在する場合</dd>
   <dt><code>-s</code> ファイル名</dt>
   <dd>ファイルサイズが0より大きい場合</dd>
   <dt><code>-x</code> ファイル名</dt>
@@ -264,7 +269,7 @@ fi
 
 <h2 id="section-10">エスケープ処理</h2>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="./programming_languages_diff/string.html">文字列処理</a> &gt; <a href="./programming_languages_diff/string.html#escape">エスケープ処理</a></i></p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="./programming_languages_diff/string.html">文字列処理</a> &gt; <a href="./programming_languages_diff/string.html#escape">エスケープ処理</a></i>  </p>
 
 <h2 id="sudoroot-20130617">sudoでリダイレクトするには(root権限でしか書き込めないファイルにリダイレクトするには) <span class="article-date">2013/06/17</span></h2>
 

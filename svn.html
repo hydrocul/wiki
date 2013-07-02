@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
 #side-menu {
   float: left;
   width: 150px;
@@ -34,11 +37,11 @@
   font-size: 24px;
 }
 #content h3 {
-  margin: 30px 0 20px 40px;
+  margin: 30px 0 20px 0;
   font-size: 20px;
 }
 #content h4 {
-  margin: 20px 0 10px 40px;
+  margin: 20px 0 20px 0;
   font-size: 16px;
 }
 #content .article-date {
@@ -49,18 +52,18 @@
 #content p,
 #content ul,
 #content dl {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 20px 40px;
 }
 #content ul {
   padding-left: 2em
 }
 #content pre {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -114,7 +117,12 @@ footer {
   <li><a href="#log">ログ表示</a></li>
   <li><a href="#diff">差分表示</a></li>
   <li><a href="#ls">ファイル一覧表示</a></li>
+  <li><a href="#add">新規作成ファイルの登録</a></li>
+  <li><a href="#commit">コミット</a></li>
   <li><a href="#revert">編集取り消し</a></li>
+  <li><a href="#update">更新を取り込むには</a></li>
+  <li><a href="#tags">タグの設定</a></li>
+  <li><a href="#admin-create">レポジトリ作成</a></li>
 </ul>
 
 <h2 id="diff-from-git">gitとの違い <span class="article-date">2013/06/11</span></h2>
@@ -154,6 +162,7 @@ svn info foo/bar
 svn log svn://id@host/path/to/svnroot
 
 # リポジトリの特定のパスを指定してログを表示
+# ファイルでもディレクトリでも可能
 svn log svn://id@host/path/to/svnroot/trunk/foo/bar
 
 # リポジトリの特定のリビジョンを指定してログを表示
@@ -207,11 +216,64 @@ svn ls foo/bar
 svn ls svn://id@host/path/to/svnroot/trunk/foo/bar
 </code></pre>
 
+<h2 id="add">新規作成ファイルの登録 <span class="article-date">2013/07/02</span></h2>
+
+<pre><code># ファイルをステージングに登録
+# git add newhoge.txt に相当
+svn add newhoge.txt
+
+# ディレクトリをステージングに登録
+# ディレクトリの中も再帰的に登録
+# git add newhogedir に相当
+svn add newhogedir
+</code></pre>
+
+<h2 id="commit">コミット <span class="article-date">2013/07/02</span></h2>
+
+<pre><code># コミット
+# git commit &amp;&amp; git push に相当(?)
+# svn update しないと、svn log したときの結果には反映されない
+# コミットメッセージを入力するエディタが開く
+svn commit &amp;&amp; svn update
+
+# コミットメッセージを指定してコミット
+# git commit -m "hogehoge message" &amp;&amp; git push に相当(?)
+svn commit -m "hogehoge message" &amp;&amp; svn update
+</code></pre>
+
 <h2 id="revert">編集取り消し <span class="article-date">2013/06/18</span></h2>
 
 <pre><code># まだコミットしていない編集済みのファイルを元に戻す
 # git checkout foo/bar.txt に相当
 svn revert foo/bar.txt
+</code></pre>
+
+<h2 id="update">更新を取り込むには <span class="article-date">2013/07/02</span></h2>
+
+<pre><code># 更新を取り込む
+# git pull に相当(?)
+# カレントディレクトリ配下のみをとり込むので、
+# 作業ディレクトリのルートより下で実行すると
+# カレントディレクトリは以下とそれより上のディレクトリとで
+# リビジョンがずれる
+svn update
+
+# ディレクトリを指定して更新を取り込む
+svn update ../hogedir
+</code></pre>
+
+<h2 id="tags">タグの設定 <span class="article-date">2013/07/02</span></h2>
+
+<pre><code># trunkに対してタグを設定する
+# trunk, tagsディレクトリの存在する作業ディレクトリにて
+svn copy trunk tags/hogehoge &amp;&amp; svn commit -m "commit message"
+</code></pre>
+
+<h2 id="admin-create">レポジトリ作成 <span class="article-date">2013/07/02</span></h2>
+
+<pre><code># カレントディレクトリをレポジトリにする
+# git init --bare . に相当
+svnadmin create .
 </code></pre>
 
 

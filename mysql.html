@@ -148,9 +148,9 @@ SHOW FULL PROCESSLIST;
 <pre><code>mysqldump -u ユーザ名 -p --no-data データベース名
 </code></pre>
 
-<h2 id="mysql-20130614">mysqlコマンドで結果が縦に長い時にページャで見るには、または横に長くて崩れてしまうのをなんとかするには <span class="article-date">2013/06/14</span></h2>
+<h2 id="mysql-20130702">mysqlコマンドで結果が縦に長い時にページャで見るには、または横に長くて崩れてしまうのをなんとかするには <span class="article-date">2013/07/02</span></h2>
 
-<p>mysqlコマンドのオプションに <code>--pager='less -S -X -F'</code> をつける。 <code>-X</code> を付けると、 less 終了時に画面をクリアしない。 <code>-F</code> を付けると、行数が短くて一画面に収まる場合は less がすぐに終了する。</p>
+<p>mysqlコマンドのオプションに <code>--pager='less -SXF'</code> をつける。 <code>-X</code> を付けると、 less 終了時に画面をクリアしない。 <code>-F</code> を付けると、行数が短くて一画面に収まる場合は less がすぐに終了する。</p>
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./less.html">less コマンド</a></i>  </p>
 
@@ -212,6 +212,17 @@ FLUSH PRIVILEGES
 
 <pre><code>load data local infile '/home/foo/bar.tsv' into table items (id, title, keywd);
 </code></pre>
+
+<h2 id="mysqlskip-name-resolve-20130702">MySQLサーバをskip-name-resolveオプション付きで起動するときは注意が要る件について <span class="article-date">2013/07/02</span></h2>
+
+<p><a href="http://backslash.ddo.jp/wordpress/archives/397" target="_blank">http://backslash.ddo.jp/wordpress/archives/397</a></p>
+
+<blockquote>
+  <p>接続する際のホスト名を 127.0.0.1 から localhost に変更すると接続できるようになるという奇抜な現象</p>
+</blockquote>
+
+<p>に自分も先日食らって、接続するソースコードに
+<code>s/127\.0\.0\.1/localhost/</code> 的なコードを追加していたのだった。</p>
 
 
 </div>
