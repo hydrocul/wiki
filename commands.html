@@ -291,11 +291,11 @@ date --date "1 month" "+%Y-%m-%d"
 <pre><code>sdiff foo.txt bar.txt
 </code></pre>
 
-<h3 id="section-5">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには <span class="article-date">2013/06/19</span></h3>
+<h3 id="section-5">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには <span class="article-date">2013/07/03</span></h3>
 
-<p>diff は同じだったかどうかによって終了コードがことなるので、以下のように書ける。</p>
+<p>diff は同じだったかどうかによって終了コードが異なるので、以下のように書ける。</p>
 
-<pre><code>if diff fileA.txt fileB.txt ; then
+<pre><code>if diff fileA.txt fileB.txt &gt;/dev/null ; then
     # 同じだった場合
 else
     # 違っていた場合
@@ -342,7 +342,7 @@ fi
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./git.html">git コマンド</a></i>  </p>
 
-<h2 id="grep">grep <span class="article-date">2013/06/04</span></h2>
+<h2 id="grep">grep <span class="article-date">2013/07/03</span></h2>
 
 <dl>
   <dt><code>-r</code></dt>
@@ -356,7 +356,16 @@ fi
   <dt><code>-E</code></dt>
   <dd>拡張正規表現を使う。 <code>(foo|bar)</code> のような表記の正規表現を使うには、
 <code>-E</code> が必要。</dd>
+  <dt><code>--line-buffered</code></dt>
+  <dd>行ごとのバッファリングにする。<code>tail -f</code> などからパイプで受け取るときに便利。</dd>
 </dl>
+
+<h3 id="tail--f-grep-20130703">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには <span class="article-date">2013/07/03</span></h3>
+
+<pre><code>tail -f access_log | grep --line-buffered hogehoge
+</code></pre>
+
+<p><code>--line-buffered</code> を付けないとgrepがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
 
 <h2 id="incrontab">incrontab</h2>
 
