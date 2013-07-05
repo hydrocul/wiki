@@ -111,7 +111,9 @@ footer {
 <ul>
   <li><a href="#method-definition">メソッド定義</a></li>
   <li><a href="#closure">クロージャ</a></li>
+  <li><a href="#override">メソッドのオーバーライド</a></li>
   <li><a href="#multi-return">複数の返り値</a></li>
+  <li><a href="#recursive">末尾再帰の最適化</a></li>
 </ul>
 
 <h2 id="method-definition">メソッド定義</h2>
@@ -241,6 +243,24 @@ f2(); // 0
 f1(); // 2
 </code></pre>
 
+<h2 id="override">メソッドのオーバーライド</h2>
+
+<h3 id="java-20130705">Java <span class="article-date">2013/07/05</span></h3>
+
+<ul>
+  <li>メソッドをオーバーライドする場合は、サブクラスのメソッド定義の方に 
+<code>@Override</code> アノテーションを付けたほうがよい(Java 5以降)。
+スペルミスなどでオーバーライドできていない場合にコンパイルエラーになってくれる</li>
+</ul>
+
+<h3 id="scala-20130705">Scala <span class="article-date">2013/07/05</span></h3>
+
+<ul>
+  <li>メソッドをオーバーライドする場合は、サブクラスのメソッド定義の方に 
+<code>override</code> を付ける</li>
+  <li>抽象メソッドをサブクラスで定義する場合は、<code>override</code> を付けても付けなくてもよい</li>
+</ul>
+
 <h2 id="multi-return">複数の返り値</h2>
 
 <h3 id="php-20130422">PHP <span class="article-date">2013/04/22</span></h3>
@@ -262,6 +282,21 @@ list($num, $str) = f();
 end
 num, str = f
 </code></pre>
+
+<h2 id="recursive">末尾再帰の最適化</h2>
+
+<h3 id="java-20130705-1">Java <span class="article-date">2013/07/05</span></h3>
+
+<p>末尾再帰の最適化はしてくれない。</p>
+
+<h3 id="scala-20130705-1">Scala <span class="article-date">2013/07/05</span></h3>
+
+<p>末尾再帰の最適化ができるばあいは、コンパイラが自動でそのようにしてくれる。</p>
+
+<p><code>@scala.annotation.tailrec</code> アノテーションをメソッドに付けると、そのメソッドの再帰呼び出しの箇所が末尾再帰の最適化にならない場合にコンパイルエラーになってくれるので、末尾再帰でないと困る場合はこれを付けたほうが良い。</p>
+
+<p>メソッドがオーバーライド可能だと、末尾再帰できないので、
+<code>final</code> も付ける必要がある。</p>
 
 
 </div>

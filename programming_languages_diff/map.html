@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
 #side-menu {
   float: left;
   width: 150px;
@@ -34,11 +37,11 @@
   font-size: 24px;
 }
 #content h3 {
-  margin: 30px 0 20px 40px;
+  margin: 30px 0 20px 0;
   font-size: 20px;
 }
 #content h4 {
-  margin: 20px 0 10px 40px;
+  margin: 20px 0 20px 0;
   font-size: 16px;
 }
 #content .article-date {
@@ -49,18 +52,18 @@
 #content p,
 #content ul,
 #content dl {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 20px 40px;
 }
 #content ul {
   padding-left: 2em
 }
 #content pre {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -225,17 +228,17 @@ map =
 
 <h2 id="contains-key">containsKey</h2>
 
-<h3 id="java-2">Java</h3>
+<h3 id="java-20130506">Java <span class="article-date">2013/05/06</span></h3>
 
 <pre><code>boolean Map&lt;K, V&gt;#containsKey(Object key)
 </code></pre>
 
-<h3 id="scala-2">Scala</h3>
+<h3 id="scala-20130506">Scala <span class="article-date">2013/05/06</span></h3>
 
 <pre><code>def Map[A, B]#contains(key: A): Boolean
 </code></pre>
 
-<h3 id="php-2">PHP</h3>
+<h3 id="php-20130422">PHP <span class="article-date">2013/04/22</span></h3>
 
 <pre><code>array_key_exists($key, $map)
 </code></pre>
@@ -248,7 +251,7 @@ map =
 一方、 array_key_exists() は TRUE を返します。</p>
 </blockquote>
 
-<h3 id="ruby-1">Ruby</h3>
+<h3 id="ruby-20130506">Ruby <span class="article-date">2013/05/06</span></h3>
 
 <p>以下の4つはすべて同じ意味。</p>
 
@@ -276,14 +279,14 @@ map_copy = map.clone();
 
 <h2 id="foreach">foreach</h2>
 
-<h3 id="php-3">PHP</h3>
+<h3 id="php-2">PHP</h3>
 
 <pre><code>foreach($arr as $key =&gt; $value){
   ...
 }
 </code></pre>
 
-<h3 id="ruby-2">Ruby</h3>
+<h3 id="ruby-1">Ruby</h3>
 
 <p>ハッシュの全エントリに対してキーのみを引数としてブロックを実行</p>
 
