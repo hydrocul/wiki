@@ -113,7 +113,7 @@ footer {
   <li><a href="#semicolon">インデント / セミコロン</a></li>
   <li><a href="#environment">環境変数の取得</a></li>
   <li><a href="#command-line-arguments">コマンドライン引数の取得</a></li>
-  <li><a href="#source-file-name">ソースファイル名をソースコード中で取得するには</a></li>
+  <li><a href="#source-file-name">ソースファイル名と行番号をソースコード中で取得するには</a></li>
   <li><a href="#main-function">そのソースファイルが他からの参照ではなく、直接実行された場合にのみ何らかの処理をするには</a></li>
 </ul>
 
@@ -304,12 +304,16 @@ http://php.net/manual/ja/reserved.variables.argv.php</dd>
 
 <p><code>ARGV</code> という定数に引数が配列で入っている。スクリプトファイル名は含まれておらず、先頭から本当の引数が入っている。</p>
 
-<h2 id="source-file-name">ソースファイル名をソースコード中で取得するには</h2>
+<h2 id="source-file-name">ソースファイル名と行番号をソースコード中で取得するには</h2>
 
 <h3 id="ruby-20130526">Ruby <span class="article-date">2013/05/26</span></h3>
 
 <pre><code>__FILE__
 </code></pre>
+
+<h3 id="sh-20130705">sh <span class="article-date">2013/07/05</span></h3>
+
+<p>bashでは、行番号は <code>$LINENO</code> という変数で取得できる。</p>
 
 <h2 id="main-function">そのソースファイルが他からの参照ではなく、直接実行された場合にのみ何らかの処理をするには</h2>
 
