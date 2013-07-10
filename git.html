@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
 #side-menu {
   float: left;
   width: 150px;
@@ -34,11 +37,11 @@
   font-size: 24px;
 }
 #content h3 {
-  margin: 30px 0 20px 40px;
+  margin: 30px 0 20px 0;
   font-size: 20px;
 }
 #content h4 {
-  margin: 20px 0 10px 40px;
+  margin: 20px 0 20px 0;
   font-size: 16px;
 }
 #content .article-date {
@@ -49,18 +52,18 @@
 #content p,
 #content ul,
 #content dl {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 20px 40px;
 }
 #content ul {
   padding-left: 2em
 }
 #content pre {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -420,6 +423,20 @@ matching から simple に変わる予定とのこと。simple にする場合�
 <p>uriの次にclone先のディレクトリを指定できる。</p>
 
 <pre><code>git clone &lt;remote-repository-uri&gt; .
+</code></pre>
+
+<h2 id="zshgit-20130710">zshのプロンプトにgitのメールアドレスを表示させるには <span class="article-date">2013/07/10</span></h2>
+
+<p>~/.zshrc に以下のような記述をしている。ブランチ名をプロンプトに表示させるところまではよくある例だが、その中に無理やり <code>git config user.email</code> という記述を入れて、メールアドレスも追加で表示させている。プライベートのレポジトリと会社のレポジトリとが混在していて、会社のレポジトリに間違ってプライベートのメールアドレスでコミットしちゃわないようにするためのものである。</p>
+
+<pre><code>autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '[%b]'
+precmd () {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] &amp;&amp; psvar[1]="$vcs_info_msg_0_`git config user.email`"
+}
+export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
 </code></pre>
 
 

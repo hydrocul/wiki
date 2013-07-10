@@ -144,6 +144,7 @@ footer {
   <li><a href="#source-highlight">source-highlight</a></li>
   <li><a href="#sort">sort</a></li>
   <li><a href="#ssh">ssh</a></li>
+  <li><a href="#sshfs">sshfs</a></li>
   <li><a href="#tac">tac</a></li>
   <li><a href="#tar">tar</a></li>
   <li><a href="#top">top</a></li>
@@ -235,7 +236,7 @@ hogehoge
 
 <h2 id="cut">cut</h2>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./cut.html">cut</a></i>  </p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./cut.html">cut コマンド</a></i>  </p>
 
 <h2 id="date">date</h2>
 
@@ -457,7 +458,7 @@ fi
 
 <p>例</p>
 
-<pre><code># Markdown形式のファイルからRedmineのWiki形式に変換
+<pre><code># Markdown形式のファイルからRedmineのWiki形式(textile形式)に変換
 pandoc -t textile -s -S hoge.md &gt; hoge.txt
 </code></pre>
 
@@ -537,18 +538,9 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 <p>rsync の複雑怪奇な exclude と include の適用手順を理解しよう<br />
 <a href="http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/" target="_blank">http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/</a></p>
 
-<h2 id="runlevel">runlevel <span class="article-date">2013/06/26</span></h2>
+<h2 id="runlevel">runlevel</h2>
 
-<p>現在のLinuxのランレベルを調べるコマンド。</p>
-
-<pre><code>$ runlevel
-N 2
-</code></pre>
-
-<p>1つ前のランレベルと現在のランレベルが表示される。1つ前のランレベルがない場合は 
-<code>N</code> と表示される。</p>
-
-<p>手元のUbuntu Server 13.04では2、CentOS 6.4では3であった。</p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./linux.html">Linux</a> &gt; <a href="./linux.html#runlevel">runlevel</a></i>  </p>
 
 <h2 id="scala">scala</h2>
 
@@ -612,6 +604,15 @@ N 2
 <i>-&gt; <a href="./">Home</a> &gt; <a href="./find.html">find コマンド</a> &gt; <a href="./find.html#sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには</a></i>    </p>
 
 <h2 id="ssh">ssh</h2>
+
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./ssh.html">SSH</a></i>  </p>
+
+<h2 id="sshfs">sshfs</h2>
+
+<p>例</p>
+
+<pre><code>sshfs -o auto_cache -o reconnect hogesrv:/ ~/mnt/hogesrv
+</code></pre>
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./ssh.html">SSH</a></i>  </p>
 

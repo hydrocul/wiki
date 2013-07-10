@@ -118,6 +118,44 @@ footer {
 
 <h2 id="method-definition">メソッド定義</h2>
 
+<h3 id="java-20130710">Java <span class="article-date">2013/07/10</span></h3>
+
+<pre><code>public String f(String arg1, int arg2){
+  ...;
+  return ...;
+}
+</code></pre>
+
+<p>返り値がない場合</p>
+
+<pre><code>public void f(String arg1, int arg2){
+  ...;
+}
+</code></pre>
+
+<ul>
+  <li>メソッド呼び出しは、引数のカッコを省略不可</li>
+</ul>
+
+<h3 id="scala-20130710">Scala <span class="article-date">2013/07/10</span></h3>
+
+<pre><code>def f(arg1: String, arg2: Int): String = {
+  ...;
+}
+</code></pre>
+
+<p>返り値が <code>Unit</code> の場合(返り値がない場合)は、以下でも可。</p>
+
+<pre><code>def f(arg1: String, arg2: Int){
+  ...;
+}
+</code></pre>
+
+<ul>
+  <li>メソッド呼び出しは、引数がない場合に限り、カッコを省略できる</li>
+  <li>関数本体の最後の式が返り値になり <code>return</code> を省略可</li>
+</ul>
+
 <h3 id="php-20130609">PHP <span class="article-date">2013/06/09</span></h3>
 
 <pre><code>function f($arg1, $arg2){
@@ -127,7 +165,7 @@ footer {
 </code></pre>
 
 <ul>
-  <li>関数定義と呼び出しではカッコを省略不可</li>
+  <li>関数定義と呼び出しでは引数のカッコを省略不可</li>
 </ul>
 
 <h3 id="ruby-20130410">Ruby <span class="article-date">2013/04/10</span></h3>
@@ -139,18 +177,7 @@ end
 </code></pre>
 
 <ul>
-  <li>メソッド呼び出しはカッコを省略可</li>
-</ul>
-
-<h3 id="scala-20130422">Scala <span class="article-date">2013/04/22</span></h3>
-
-<pre><code>def f(arg1: String, arg2: Int): String = {
-  ...
-}
-</code></pre>
-
-<ul>
-  <li>メソッド呼び出しは、引数がない場合に限り、カッコを省略できる</li>
+  <li>メソッド呼び出しは引数のカッコを省略可</li>
 </ul>
 
 <h3 id="sh-20130701">sh <span class="article-date">2013/07/01</span></h3>
@@ -183,7 +210,7 @@ end
 </code></pre>
 
 <ul>
-  <li>関数定義と呼び出しではカッコを省略不可</li>
+  <li>関数定義と呼び出しでは引数のカッコを省略不可</li>
 </ul>
 
 <h3 id="coffeescript-20130428">CoffeeScript <span class="article-date">2013/04/28</span></h3>

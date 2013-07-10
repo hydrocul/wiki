@@ -130,20 +130,39 @@ unzip -P パスワード ZIPファイル名
 <pre><code>tar cvzf TARGZファイル名 対象ディレクトリ
 </code></pre>
 
-<h2 id="zip-20130403-1">zipファイルを解凍するには <span class="article-date">2013/04/03</span></h2>
+<h2 id="zip-20130710">zipファイルを解凍するには <span class="article-date">2013/07/10</span></h2>
 
 <pre><code>unzip ZIPファイル名
 </code></pre>
 
-<p><code>tar</code> での以下に相当する。</p>
+<p><code>jar</code> でもできる。</p>
+
+<pre><code>jar xvf ZIPファイル名
+</code></pre>
+
+<p>これらは <code>tar</code> での以下に相当する。</p>
 
 <pre><code>tar xvzf TARGZファイル名
 </code></pre>
 
-<h2 id="zip-20130609">zipファイルに含まれるファイルの一覧を見るには <span class="article-date">2013/06/09</span></h2>
+<p>jar は tar と同じ使い方で、ただ tar に付けるオプション <code>z</code> だけ削除する、と覚えると楽。</p>
+
+<h2 id="zip-20130710-1">zipファイルに含まれるファイルの一覧を見るには <span class="article-date">2013/07/10</span></h2>
 
 <pre><code>unzip -l ZIPファイル名
 </code></pre>
+
+<p><code>jar</code> でもできる。</p>
+
+<pre><code>jar tf ZIPファイル名
+</code></pre>
+
+<p>これらは <code>tar</code> での以下に相当する。</p>
+
+<pre><code>tar tzf TARGZファイル名
+</code></pre>
+
+<p>jar は tar と同じ使い方で、ただ tar に付けるオプション <code>z</code> だけ削除する、と覚えると楽。</p>
 
 
 </div>

@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
 #side-menu {
   float: left;
   width: 150px;
@@ -103,9 +106,9 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="iptables-20130626">iptables <span class="article-date">2013/06/26</span></h1>
+  <h1 id="iptables-20130710">iptables <span class="article-date">2013/07/10</span></h1>
 
-<p>Ubuntuではufwを使う。</p>
+<p>Ubuntuではiptablesの設定をufwで行う。</p>
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./ubuntu.html">Ubuntu</a> &gt; <a href="./ubuntu.html#ufw">ufwの使い方</a></i>  </p>
 
@@ -125,6 +128,12 @@ iptables -I INPUT 5 -p tcp --dport 80 -j ACCEPT
 <pre><code># root権限で
 /sbin/service iptables save
 </code></pre>
+
+<h2 id="rhel-7--20130710">RHEL 7 では <span class="article-date">2013/07/10</span></h2>
+
+<p><a href="http://www.hitachi-solutions.co.jp/redhat/sp/column/vol01/" target="_blank">http://www.hitachi-solutions.co.jp/redhat/sp/column/vol01/</a></p>
+
+<p>iptables から firewalld というものに置き換わるらしい。</p>
 
 
 </div>
