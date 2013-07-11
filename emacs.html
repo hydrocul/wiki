@@ -149,6 +149,21 @@ footer {
 
 <p>ちなみにシェル環境では C-v TAB でタブ文字を入力できる。</p>
 
+<h2 id="section-2">タブと全角スペースを表示させるには <span class="article-date">2013/07/10</span></h2>
+
+<p>以下の設定で、タブは黄色のアンダーバー、全角スペースはアンダーバー+赤で塗りつぶしで表示される。</p>
+
+<pre><code>(global-whitespace-mode 1)
+(setq whitespace-space-regexp "\\(\u3000\\)")
+(setq whitespace-style '(face tabs tab-mark spaces space-mark))
+(setq whitespace-display-mappings ())
+(set-face-foreground 'whitespace-tab "yellow")
+(set-face-underline  'whitespace-tab t)
+(set-face-foreground 'whitespace-space "yellow")
+(set-face-background 'whitespace-space "red")
+(set-face-underline  'whitespace-space t)
+</code></pre>
+
 
 </div>
 

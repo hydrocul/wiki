@@ -434,10 +434,13 @@ zstyle ':vcs_info:*' formats '[%b]'
 precmd () {
     psvar=()
     LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] &amp;&amp; psvar[1]="$vcs_info_msg_0_`git config user.email`"
+    [[ -n "$vcs_info_msg_0_" ]] &amp;&amp; psvar[1]="$vcs_info_msg_0_`if git status &gt;/dev/null 2&gt;&amp;1; then git config user.email; fi`"
 }
 export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
 </code></pre>
+
+<p>svnなどgit以外のワーキングディレクトリではメールアドレスを表示できないので、
+<code>git config user.email</code> する前にif文で分岐させている。</p>
 
 
 </div>
