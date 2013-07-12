@@ -121,7 +121,10 @@ footer {
   <li><a href="#commit">コミット</a></li>
   <li><a href="#revert">編集取り消し</a></li>
   <li><a href="#update">更新を取り込むには</a></li>
+  <li><a href="#branches">ブランチの作成</a></li>
   <li><a href="#tags">タグの設定</a></li>
+  <li><a href="#switch">作業ディレクトリを特定のブランチに切り替え</a></li>
+  <li><a href="#merge">マージ</a></li>
   <li><a href="#admin-create">レポジトリ作成</a></li>
 </ul>
 
@@ -262,12 +265,38 @@ svn update
 svn update ../hogedir
 </code></pre>
 
-<h2 id="tags">タグの設定 <span class="article-date">2013/07/02</span></h2>
+<h2 id="branches">ブランチの作成 <span class="article-date">2013/07/11</span></h2>
+
+<pre><code>svn copy svn://id@host/path/to/svnroot/trunk svn://id@host/path/to/svnroot/branches/hoge -m "hogehoge message"
+</code></pre>
+
+<h2 id="tags">タグの設定 <span class="article-date">2013/07/11</span></h2>
+
+<pre><code>svn copy svn://id@host/path/to/svnroot/trunk svn://id@host/path/to/svnroot/tags/hoge -m "hogehoge message"
+</code></pre>
+
+<p>または、ローカルにtrunk, tagsディレクトリの存在する作業ディレクトリがあれば</p>
 
 <pre><code># trunkに対してタグを設定する
 # trunk, tagsディレクトリの存在する作業ディレクトリにて
 svn copy trunk tags/hogehoge &amp;&amp; svn commit -m "commit message"
 </code></pre>
+
+<h2 id="switch">作業ディレクトリを特定のブランチに切り替え <span class="article-date">2013/07/11</span></h2>
+
+<pre><code># git checkout hoge に相当
+svn switch svn://id@host/path/to/svnroot/trunk svn://id@host/path/to/svnroot/branches/hoge
+</code></pre>
+
+<h2 id="merge">マージ <span class="article-date">2013/07/12</span></h2>
+
+<pre><code># hogeブランチをtrunkにマージ。現在の作業ディレクトリがtrunkだとして
+# hogeブランチを作ったリビジョンが99だとして
+svn merge -r 99:HEAD svn://id@host/path/to/svnroot/branches/hoge
+svn commit -m "hogehoge message"
+</code></pre>
+
+<p>マージしたあとのコミットはなぜか <code>svn update</code> しなくてもローカルのリビジョン番号が上がる。</p>
 
 <h2 id="admin-create">レポジトリ作成 <span class="article-date">2013/07/02</span></h2>
 
