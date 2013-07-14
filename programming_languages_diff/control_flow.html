@@ -120,20 +120,20 @@ footer {
 <h3 id="c-c-20130619">C言語, C++ <span class="article-date">2013/06/19</span></h3>
 
 <pre><code>if(...){
-  ...
+  ...;
 } else if(...){
-  ...
+  ...;
 } else {
-  ...
+  ...;
 }
 </code></pre>
 
 <p>本体の文が1つだけの場合は <code>{}</code> を省略可。</p>
 
 <pre><code>if(...)
-  ...
+  ...;
 else
-  ...
+  ...;
 </code></pre>
 
 <p>いずれの構文でも <code>else</code> で実行する文がなければ、<code>else</code> を省略可。</p>
@@ -165,39 +165,39 @@ else
 <h3 id="java-20130707">Java <span class="article-date">2013/07/07</span></h3>
 
 <pre><code>if(...){
-  ...
+  ...;
 } else if(...){
-  ...
+  ...;
 } else {
-  ...
+  ...;
 }
 </code></pre>
 
 <p>本体の文が1つだけの場合はC言語と同様に <code>{}</code> を省略可。</p>
 
 <pre><code>if(...)
-  ...
+  ...;
 else
-  ...
+  ...;
 </code></pre>
 
 <h3 id="scala-20130707">Scala <span class="article-date">2013/07/07</span></h3>
 
 <pre><code>if(...){
-  ...
+  ...;
 } else if(...){
-  ...
+  ...;
 } else {
-  ...
+  ...;
 }
 </code></pre>
 
 <p>本体の文が1つだけの場合はC言語と同様に <code>{}</code> を省略可。</p>
 
 <pre><code>if(...)
-  ...
+  ...;
 else
-  ...
+  ...;
 </code></pre>
 
 <p>Scalaではifは式であり、結果を返すことができるので以下のように三項演算子の代わりとしても使える。</p>
@@ -208,11 +208,11 @@ else
 <h3 id="php-20130619">PHP <span class="article-date">2013/06/19</span></h3>
 
 <pre><code>if(...){
-  ...
+  ...;
 } else if(...){
-  ...
+  ...;
 } else {
-  ...
+  ...;
 }
 </code></pre>
 
@@ -221,19 +221,19 @@ else
 <p>本体の文が1つだけの場合はC言語と同様に <code>{}</code> を省略可。</p>
 
 <pre><code>if(...)
-  ...
+  ...;
 else
-  ...
+  ...;
 </code></pre>
 
 <p>コロンを使った以下の記法も可能。</p>
 
 <pre><code>if(...):
-  ...
+  ...;
 elseif(...):
-  ...
+  ...;
 else:
-  ...
+  ...;
 endif;
 </code></pre>
 
@@ -309,7 +309,7 @@ else ...
 
 <h2 id="while">while文</h2>
 
-<h3 id="c-c-20130621">C言語, C++ <span class="article-date">2013/06/21</span></h3>
+<h3 id="c-c-20130714">C言語, C++ <span class="article-date">2013/07/14</span></h3>
 
 <pre><code>while(...){
   ...
@@ -323,6 +323,13 @@ else ...
 </code></pre>
 
 <p>永久ループは</p>
+
+<pre><code>while(true){
+  ...
+}
+</code></pre>
+
+<p>または</p>
 
 <pre><code>for(;;){
   ...
@@ -345,35 +352,49 @@ else ...
 }
 </code></pre>
 
-<h3 id="java-20130707-1">Java <span class="article-date">2013/07/07</span></h3>
+<h3 id="java-20130714">Java <span class="article-date">2013/07/14</span></h3>
 
 <pre><code>while(...){
-  ...
+  ...;
 }
 </code></pre>
 
 <p>本体が式1つだけの場合は <code>{}</code> を省略可</p>
 
 <pre><code>while(...)
-  ...
+  ...;
 </code></pre>
 
-<h3 id="scala-20130705">Scala <span class="article-date">2013/07/05</span></h3>
+<p>永久ループは</p>
+
+<pre><code>while(true){
+  ...;
+}
+</code></pre>
+
+<h3 id="scala-20130714">Scala <span class="article-date">2013/07/14</span></h3>
 
 <pre><code>while(...){
-  ...
+  ...;
 }
 </code></pre>
 
 <p>本体が式1つだけの場合は <code>{}</code> を省略可</p>
 
 <pre><code>while(...)
-  ...
+  ...;
 </code></pre>
 
 <p>Scalaのif式などと違い、whileは常に <code>Unit</code> を返す。</p>
 
 <p><code>break</code> や <code>continue</code> は存在しない。再帰関数を使うなどする。</p>
+
+<p>永久ループは</p>
+
+<pre><code>while(true){
+  ...;
+}
+</code></pre>
 
 <h3 id="ruby-20130621">Ruby <span class="article-date">2013/06/21</span></h3>
 
@@ -416,17 +437,17 @@ end
 <p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/list.html">リスト(配列)</a> &gt; <a href="../programming_languages_diff/list.html#foreach">foreach</a></i>  <br />
 <i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/map.html">マップ(連想配列)</a> &gt; <a href="../programming_languages_diff/map.html#foreach">foreach</a></i>    </p>
 
-<h3 id="c-c-20130621-1">C言語, C++ <span class="article-date">2013/06/21</span></h3>
+<h3 id="c-c-20130621">C言語, C++ <span class="article-date">2013/06/21</span></h3>
 
 <pre><code>for(int i = 0; i &lt; 10; i++){
-    ...
+    ...;
 }
 </code></pre>
 
 <p>以下の2つは同じ意味になる。</p>
 
 <pre><code>for(式1; 式2; 式3){
-    ...
+    ...;
 }
 </code></pre>
 
@@ -434,8 +455,26 @@ end
 
 <pre><code>式1;
 while(式2){
-    ...
+    ...;
     式3;
+}
+</code></pre>
+
+<h3 id="java-20130714-1">Java <span class="article-date">2013/07/14</span></h3>
+
+<p>C言語ライクのfor文を使える。</p>
+
+<pre><code>for(int i = 0; i &lt; 10; i++){
+    ...;
+}
+</code></pre>
+
+<h3 id="php-20130714">PHP <span class="article-date">2013/07/14</span></h3>
+
+<p>C言語ライクのfor文を使える。</p>
+
+<pre><code>for($i = 0; $i &lt; 10; $i++){
+    ...;
 }
 </code></pre>
 
@@ -465,30 +504,32 @@ end
 
 <pre><code>switch(x){
 case 1:
-  ...
+  ...;
   break;
 case 2:
-  ...
+  ...;
   break;
 default:
-  ...
+  ...;
   break;
 }
 </code></pre>
 
 <p><code>break</code> を書かないとswitch文から脱出せずに次のラベルを引き続き実行してしまう。(fall through)</p>
 
-<h3 id="java-20130515">Java <span class="article-date">2013/05/15</span></h3>
+<h3 id="java-20130714-2">Java <span class="article-date">2013/07/14</span></h3>
+
+<p>C言語ライクのswitch文を使える。</p>
 
 <pre><code>switch(x){
 case 1:
-  ...
+  ...;
   break;
 case 2:
-  ...
+  ...;
   break;
 default:
-  ...
+  ...;
   break;
 }
 </code></pre>
@@ -509,15 +550,34 @@ defaultに飛んでくれたりはしない。
 
 <pre><code>x match {
   case 1 =&gt;
-    ...
+    ...;
   case 2 =&gt;
-    ...
+    ...;
   case _ =&gt;
-    ...
+    ...;
 }
 </code></pre>
 
 <p>C言語やJavaのように　fall through することはない。</p>
+
+<h3 id="php-20130714-1">PHP <span class="article-date">2013/07/14</span></h3>
+
+<p>C言語ライクのswitch文を使える。</p>
+
+<pre><code>switch($x){
+case 1:
+  ...;
+  break;
+case 2:
+  ...;
+  break;
+default:
+  ...;
+  break;
+}
+</code></pre>
+
+<p><code>break</code> を書かないとswitch文から脱出せずに次のラベルを引き続き実行してしまう。(fall through)</p>
 
 <h3 id="ruby-20130605">Ruby <span class="article-date">2013/06/05</span></h3>
 
