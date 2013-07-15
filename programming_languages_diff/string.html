@@ -259,13 +259,13 @@ echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
 
 <h2 id="substr">substr</h2>
 
-<h3 id="java--scala">Java / Scala</h3>
+<h3 id="java--scala-20130410">Java / Scala <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>String String#substring(int from)
 String String#substring(int from, int to)
 </code></pre>
 
-<h3 id="php">PHP</h3>
+<h3 id="php-20130410">PHP <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>string substr(string $string, int $start [, int $length])
 </code></pre>
@@ -281,7 +281,7 @@ length が指定され、かつ 0 である場合は、 空文字列なら NULL�
 length を省略した場合は、 start の位置から文字列の最後までの部分文字列を返します。  </p>
 </blockquote>
 
-<h3 id="ruby">Ruby</h3>
+<h3 id="ruby-20130412">Ruby <span class="article-date">2013/04/12</span></h3>
 
 <pre><code>String#slice(index)
 String#slice(from, length)
@@ -291,7 +291,7 @@ String#slice(from, length)
 
 <p>配列に対しても同じように <code>slice</code> が使える。</p>
 
-<h3 id="javascript">JavaScript</h3>
+<h3 id="javascript-20130410">JavaScript <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>string.substring(from [, to])
 string.substr(from [, len])
@@ -299,12 +299,12 @@ string.substr(from [, len])
 
 <h2 id="charat">charAt</h2>
 
-<h3 id="java--scala-1">Java / Scala</h3>
+<h3 id="java--scala-20130417">Java / Scala <span class="article-date">2013/04/17</span></h3>
 
 <pre><code>char String#charAt(int index)
 </code></pre>
 
-<h3 id="php-1">PHP</h3>
+<h3 id="php-20130417">PHP <span class="article-date">2013/04/17</span></h3>
 
 <pre><code>str[index];
 </code></pre>
@@ -322,7 +322,7 @@ echo $str[0][0][0]; // =&gt; a
 
 <h2 id="trim">trim</h2>
 
-<h3 id="java--scala-20130410">Java / Scala <span class="article-date">2013/04/10</span></h3>
+<h3 id="java--scala-20130410-1">Java / Scala <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>String String#trim()
 </code></pre>
@@ -368,7 +368,7 @@ String#chomp!(str)
 
 <p><a href="http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html" target="_blank">http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html</a></p>
 
-<h3 id="javascript-20130410">JavaScript <span class="article-date">2013/04/10</span></h3>
+<h3 id="javascript-20130410-1">JavaScript <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>jQuery.trim(str)
 </code></pre>
@@ -378,19 +378,19 @@ String#chomp!(str)
 
 <h2 id="starts-with">startsWith / endsWith</h2>
 
-<h3 id="java--scala-2">Java / Scala</h3>
+<h3 id="java--scala-20130410-2">Java / Scala <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>String String#startsWith(String prefix)
 String String#endsWith(String suffix)
 </code></pre>
 
-<h3 id="ruby-1">Ruby</h3>
+<h3 id="ruby-20130410-2">Ruby <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>String#start_with?(prefix)
 String#end_with?(suffix)
 </code></pre>
 
-<h3 id="javascript-1">JavaScript</h3>
+<h3 id="javascript-20130410-2">JavaScript <span class="article-date">2013/04/10</span></h3>
 
 <p>startsWithに相当するよく使う方法。</p>
 
@@ -408,7 +408,7 @@ String#end_with?(suffix)
 
 <h2 id="sprintf">sprintf</h2>
 
-<h3 id="java">Java</h3>
+<h3 id="java-20130410">Java <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>static String String#format(String format, Object... args)
 </code></pre>
@@ -421,7 +421,7 @@ String#end_with?(suffix)
 <p>フォーマットの説明<br />
 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax</a></p>
 
-<h3 id="scala">Scala</h3>
+<h3 id="scala-20130506">Scala <span class="article-date">2013/05/06</span></h3>
 
 <pre><code>// StringLike
 def format(args: Any*): String
@@ -430,7 +430,7 @@ def format(args: Any*): String
 <p>フォーマットの説明<br />
 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax</a></p>
 
-<h3 id="php-2">PHP</h3>
+<h3 id="php-20130410-1">PHP <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>string sprintf(string $format [, $arg1 [, $arg2 ... ]])
 </code></pre>
@@ -438,7 +438,7 @@ def format(args: Any*): String
 <p>フォーマットの説明<br />
 <a href="http://www.php.net/manual/ja/function.sprintf.php" target="_blank">http://www.php.net/manual/ja/function.sprintf.php</a></p>
 
-<h3 id="ruby-2">Ruby</h3>
+<h3 id="ruby-20130410-3">Ruby <span class="article-date">2013/04/10</span></h3>
 
 <p>例：</p>
 
@@ -450,7 +450,7 @@ def format(args: Any*): String
 
 <h2 id="index-of">indexOf</h2>
 
-<h3 id="java--scala-3">Java / Scala</h3>
+<h3 id="java--scala-20130427">Java / Scala <span class="article-date">2013/04/27</span></h3>
 
 <pre><code>int String#indexOf(int ch)
 int String#indexOf(String str)
@@ -461,7 +461,7 @@ int String#lastIndexOf(String str)
 
 <p>見つからない場合は <code>-1</code> を返す。</p>
 
-<h3 id="php-3">PHP</h3>
+<h3 id="php-20130427">PHP <span class="article-date">2013/04/27</span></h3>
 
 <pre><code>int strpos($mystring, $str)
 </code></pre>
@@ -473,7 +473,7 @@ int String#lastIndexOf(String str)
 
 <p>見つからない場合は <code>FALSE</code> を返す。</p>
 
-<h3 id="ruby-3">Ruby</h3>
+<h3 id="ruby-20130410-4">Ruby <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>String#index(str)
 String#index(str, index)
@@ -493,7 +493,7 @@ String#rindex(str, index)
 'abcabc'.rindex('abc', 2) # =&gt; 0
 </code></pre>
 
-<h3 id="javascript-2">JavaScript</h3>
+<h3 id="javascript-20130410-3">JavaScript <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>string.indexOf(str)
 </code></pre>
@@ -502,17 +502,17 @@ String#rindex(str, index)
 
 <h2 id="length">length</h2>
 
-<h3 id="java--scala-4">Java / Scala</h3>
+<h3 id="java--scala-20130410-3">Java / Scala <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>int String#length()
 </code></pre>
 
-<h3 id="php-4">PHP</h3>
+<h3 id="php-20130427-1">PHP <span class="article-date">2013/04/27</span></h3>
 
 <pre><code>int strlen($string)
 </code></pre>
 
-<h3 id="ruby-4">Ruby</h3>
+<h3 id="ruby-20130504">Ruby <span class="article-date">2013/05/04</span></h3>
 
 <pre><code>String#length
 String#size
@@ -522,12 +522,12 @@ String#size
 
 <h2 id="is-empty">isEmpty</h2>
 
-<h3 id="java--scala-5">Java / Scala</h3>
+<h3 id="java--scala-20130410-4">Java / Scala <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>boolean String#isEmpty()
 </code></pre>
 
-<h3 id="php-5">PHP</h3>
+<h3 id="php-20130427-2">PHP <span class="article-date">2013/04/27</span></h3>
 
 <pre><code>strlen($string) == 0
 </code></pre>
@@ -558,7 +558,7 @@ def split(regex: String, limit: Int): Array[String]
 
 <p><a href="http://jp2.php.net/manual/ja/function.explode.php" target="_blank">http://jp2.php.net/manual/ja/function.explode.php</a></p>
 
-<h3 id="ruby-20130504">Ruby <span class="article-date">2013/05/04</span></h3>
+<h3 id="ruby-20130504-1">Ruby <span class="article-date">2013/05/04</span></h3>
 
 <pre><code>String#split(pattern [, limit]))
 </code></pre>
@@ -568,52 +568,61 @@ def split(regex: String, limit: Int): Array[String]
 
 <h2 id="join">join / implode</h2>
 
-<h3 id="php-20130410">PHP <span class="article-date">2013/04/10</span></h3>
+<h3 id="php-20130410-2">PHP <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>implode($separator, $arr)
 </code></pre>
 
 <p><a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
 
-<h3 id="ruby-20130410-2">Ruby <span class="article-date">2013/04/10</span></h3>
+<h3 id="ruby-20130410-5">Ruby <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>Array#join(separator)
 </code></pre>
 
-<h3 id="javascript-20130410-1">JavaScript <span class="article-date">2013/04/10</span></h3>
+<h3 id="javascript-20130410-4">JavaScript <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>arr.join(separator)
 </code></pre>
 
 <h2 id="compare">比較</h2>
 
-<h3 id="ruby-5">Ruby</h3>
+<h3 id="java-20130714">Java <span class="article-date">2013/07/14</span></h3>
 
-<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!~</code> はその反対。</p>
+<dl>
+  <dt><code>==</code>, <code>!=</code></dt>
+  <dd>プリミティブ型の場合は値を比較できる。参照型の場合は同じインスタンスかどうかを判別できる。</dd>
+  <dt><code>obj1.equals(obj2)</code> (参照型に対して)</dt>
+  <dd>値を比較する。</dd>
+</dl>
+
+<h3 id="ruby-20130714">Ruby <span class="article-date">2013/07/14</span></h3>
+
+<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
 
 <p><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&gt;</code>, <code>&lt;=&gt;</code> で文字列の辞書順の比較ができる。</p>
 
 <h2 id="upper-lower">大文字小文字変換</h2>
 
-<h3 id="java--scala-6">Java / Scala</h3>
+<h3 id="java--scala-20130506">Java / Scala <span class="article-date">2013/05/06</span></h3>
 
 <pre><code>String String#toUpperCase()
 String String#toLowerCase()
 </code></pre>
 
-<h3 id="php-6">PHP</h3>
+<h3 id="php-20130427-3">PHP <span class="article-date">2013/04/27</span></h3>
 
 <pre><code>string strtoupper($string)
 string strtolower($string)
 </code></pre>
 
-<h3 id="ruby-6">Ruby</h3>
+<h3 id="ruby-20130504-2">Ruby <span class="article-date">2013/05/04</span></h3>
 
 <pre><code>String#upcase
 String#downcase
 </code></pre>
 
-<h3 id="javascript-3">JavaScript</h3>
+<h3 id="javascript-20130419">JavaScript <span class="article-date">2013/04/19</span></h3>
 
 <pre><code>string.toUpperCase()
 string.toLowerCase()
