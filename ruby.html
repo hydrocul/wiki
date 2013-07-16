@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="./common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
 #side-menu {
   float: left;
   width: 150px;
@@ -34,11 +37,11 @@
   font-size: 24px;
 }
 #content h3 {
-  margin: 30px 0 20px 40px;
+  margin: 30px 0 20px 0;
   font-size: 20px;
 }
 #content h4 {
-  margin: 20px 0 10px 40px;
+  margin: 20px 0 20px 0;
   font-size: 16px;
 }
 #content .article-date {
@@ -49,18 +52,18 @@
 #content p,
 #content ul,
 #content dl {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 20px 40px;
 }
 #content ul {
   padding-left: 2em
 }
 #content pre {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -154,7 +157,7 @@ str.gsub(/#{Moji.zen}/, "")
 <pre><code>cat src.txt | tr -d '\n'
 </code></pre>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./oneliner.html">ワンライナー</a> &gt; <a href="./oneliner.html#unicode-escape-decode">Unicodeエスケープをデコードするには</a></i></p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./oneliner.html">ワンライナー</a> &gt; <a href="./oneliner.html#unicode-escape-decode">Unicodeエスケープをデコードするには</a></i>  </p>
 
 <h2 id="rake">Rake</h2>
 
@@ -164,11 +167,11 @@ str.gsub(/#{Moji.zen}/, "")
 
 <h2 id="mechanize">mechanize</h2>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./mechanize.html">mechanize</a></i></p>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./mechanize.html">mechanize</a></i>  </p>
 
 <h2 id="api">かな漢字変換のAPI</h2>
 
-<p>-&gt; &lt; no title &gt;</p>
+<p>-&gt; &lt; no title &gt;  </p>
 
 <h2 id="url-20130617">URLエンコード <span class="article-date">2013/06/17</span></h2>
 
@@ -211,6 +214,18 @@ URI.encode &lt;-&gt; URI.decode  </p>
 <h2 id="gem">gem <span class="article-date">2013/04/11</span></h2>
 
 <p><a href="https://rubygems.org/" target="_blank">https://rubygems.org/</a></p>
+
+<h3 id="section-2">基本操作 <span class="article-date">2013/07/15</span></h3>
+
+<pre><code># パッケージを検索
+gem search -r キーワード
+
+# インストール
+sudo gem install パッケージ名
+
+# アンインストール
+sudo gem unsintall パッケージ名
+</code></pre>
 
 <h3 id="gem-rubygem-20130412">gemの作り方 Rubyのオブジェクトをグンマー県が制圧するgem書いた <span class="article-date">2013/04/12</span></h3>
 

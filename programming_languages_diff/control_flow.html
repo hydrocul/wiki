@@ -478,7 +478,7 @@ while(式2){
 }
 </code></pre>
 
-<h3 id="ruby-20130621-1">Ruby <span class="article-date">2013/06/21</span></h3>
+<h3 id="ruby-20130716">Ruby <span class="article-date">2013/07/16</span></h3>
 
 <p>0 から n-1 までを繰り返すには</p>
 
@@ -490,6 +490,20 @@ end
 <p>または</p>
 
 <pre><code>for i in 0..(n-1) do
+  ...
+end
+</code></pre>
+
+<p>または</p>
+
+<pre><code>for i in (0).upto(n-1) do
+  ...
+end
+</code></pre>
+
+<p>逆順にするには</p>
+
+<pre><code>for i in (n-1).downto(0) do
   ...
 end
 </code></pre>
