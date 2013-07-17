@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
 #side-menu {
   float: left;
   width: 150px;
@@ -34,11 +37,11 @@
   font-size: 24px;
 }
 #content h3 {
-  margin: 30px 0 20px 40px;
+  margin: 30px 0 20px 0;
   font-size: 20px;
 }
 #content h4 {
-  margin: 20px 0 10px 40px;
+  margin: 20px 0 20px 0;
   font-size: 16px;
 }
 #content .article-date {
@@ -49,18 +52,18 @@
 #content p,
 #content ul,
 #content dl {
-  margin: 10px 0 10px 40px;
+  margin: 20px 0 20px 40px;
 }
 #content ul {
   padding-left: 2em
 }
 #content pre {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border: 1px #CCC solid;
   padding: 4px;
 }
 #content blockquote {
-  margin: 10px 0 10px 60px;
+  margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
@@ -151,6 +154,13 @@ end
 <pre><code>$handle = fopen($file_path, 'a');
 fwrite($handle, $data);
 fclose($handle);
+</code></pre>
+
+<h3 id="ruby-20130716">Ruby <span class="article-date">2013/07/16</span></h3>
+
+<pre><code>File.open(file_path, 'a') do |handle|
+  handle.puts($data)
+end
 </code></pre>
 
 <h2 id="rm">ファイルを削除するには</h2>

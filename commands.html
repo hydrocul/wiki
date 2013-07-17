@@ -495,6 +495,18 @@ pandoc -t textile -s -S hoge.md &gt; hoge.txt
 <pre><code>kill `ps aux | grep ruby | grep -v grep | tr -s ' ' | cut -d ' ' -f2`
 </code></pre>
 
+<h3 id="id-20130717">特定のプロセスIDだけを表示するには <span class="article-date">2013/07/17</span></h3>
+
+<pre><code>ps プロセス番号
+</code></pre>
+
+<p>は</p>
+
+<pre><code>ps --pid プロセス番号
+</code></pre>
+
+<p>と同じ。</p>
+
 <h2 id="pstree">pstree <span class="article-date">2013/07/08</span></h2>
 
 <p>プロセス一覧をその親子関係を元にツリー上に表示してくれるコマンド。</p>
