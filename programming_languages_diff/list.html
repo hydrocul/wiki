@@ -491,7 +491,7 @@ Array#reverse!
 
 <h2 id="foreach">foreach</h2>
 
-<h3 id="java-3">Java</h3>
+<h3 id="java-20130718">Java <span class="article-date">2013/07/18</span></h3>
 
 <p>配列をループ。</p>
 
@@ -500,19 +500,22 @@ Array#reverse!
 }
 </code></pre>
 
-<p>Java5からは、拡張for文の利用が可能。</p>
+<p>Java5からは、以下の拡張for文の利用が可能。(foreach構文)</p>
 
 <pre><code>for(String str: str_arr){
   ...
 }
 </code></pre>
 
-<h3 id="scala-9">Scala</h3>
+<p><code>str_arr</code> は配列であるか、java.lang.Iterable を実装しているオブジェクトであることが必要。</p>
 
-<pre><code>def Seq[A]#foreach(f: A =&gt; Unit): Unit
+<h3 id="scala-20130506-2">Scala <span class="article-date">2013/05/06</span></h3>
+
+<pre><code>// Seq[A]
+def foreach(f: A =&gt; Unit): Unit
 </code></pre>
 
-<h3 id="php-3">PHP</h3>
+<h3 id="php-20130421">PHP <span class="article-date">2013/04/21</span></h3>
 
 <pre><code>for(int $i = 0; $i &lt; $arr.length; $i++){
   ...
@@ -523,7 +526,7 @@ foreach($arr as $value){
 }
 </code></pre>
 
-<h3 id="ruby-5">Ruby</h3>
+<h3 id="ruby-20130421">Ruby <span class="article-date">2013/04/21</span></h3>
 
 <pre><code>for value in arr do
   ...
@@ -575,7 +578,7 @@ hoge
 
 <p><i>-&gt; <a href="../">Home</a> &gt; <a href="../oneliner.html">ワンライナー</a> &gt; <a href="../oneliner.html#count-files-each-day">ファイル名に日付が入っているファイルがたくさんあって、日付ごとにファイル数を調べるには</a></i>  </p>
 
-<h3 id="coffeescript">CoffeeScript</h3>
+<h3 id="coffeescript-20130419">CoffeeScript <span class="article-date">2013/04/19</span></h3>
 
 <pre><code>for elem in arr
   ....
@@ -583,12 +586,13 @@ hoge
 
 <h2 id="map">map</h2>
 
-<h3 id="scala-10">Scala</h3>
+<h3 id="scala-20130506-3">Scala <span class="article-date">2013/05/06</span></h3>
 
-<pre><code>def Seq[A]#map[B](f: A =&gt; B): Seq[B]
+<pre><code>// Seq[A]
+def map[B](f: A =&gt; B): Seq[B]
 </code></pre>
 
-<h3 id="php-4">PHP</h3>
+<h3 id="php-20130427-1">PHP <span class="article-date">2013/04/27</span></h3>
 
 <pre><code>array_map(function($elem){
   ...
@@ -601,7 +605,7 @@ hoge
 <pre><code>arr.map{|elem| ...}
 </code></pre>
 
-<h3 id="coffeescript-1">CoffeeScript</h3>
+<h3 id="coffeescript-20130419-1">CoffeeScript <span class="article-date">2013/04/19</span></h3>
 
 <p>配列の内包表記</p>
 
@@ -610,24 +614,24 @@ hoge
 
 <h2 id="flatmap">flatMap</h2>
 
-<h3 id="scala-11">Scala</h3>
+<h3 id="scala-9">Scala</h3>
 
 <pre><code>def Seq[A]#flatMap[B](f: A =&gt; Seq[B]): Seq[B]
 </code></pre>
 
-<h3 id="ruby-6">Ruby</h3>
+<h3 id="ruby-5">Ruby</h3>
 
 <pre><code>arr.map{|elem| ...}.flatten(1)
 </code></pre>
 
 <h2 id="filter">filter</h2>
 
-<h3 id="scala-12">Scala</h3>
+<h3 id="scala-10">Scala</h3>
 
 <pre><code>def Seq[A]#filter(p: A =&gt; Boolean): Seq[A]
 </code></pre>
 
-<h3 id="ruby-7">Ruby</h3>
+<h3 id="ruby-6">Ruby</h3>
 
 <pre><code>Array#select
 </code></pre>
@@ -637,7 +641,7 @@ hoge
 <pre><code>arr.select {|item| item &gt; 0}
 </code></pre>
 
-<h3 id="coffeescript-2">CoffeeScript</h3>
+<h3 id="coffeescript">CoffeeScript</h3>
 
 <p>配列の内包表記</p>
 
@@ -646,12 +650,12 @@ hoge
 
 <h2 id="flatten">flatten</h2>
 
-<h3 id="scala-13">Scala</h3>
+<h3 id="scala-11">Scala</h3>
 
 <pre><code>def Seq[A]#flatten[B]: Seq[B]
 </code></pre>
 
-<h3 id="ruby-8">Ruby</h3>
+<h3 id="ruby-7">Ruby</h3>
 
 <pre><code>Array#flatten
 Array#flatten(level)
@@ -669,12 +673,12 @@ arr.flatten    # =&gt; [1, 2, 3, 4]
 
 <h2 id="fold-left">foldLeft</h2>
 
-<h3 id="scala-14">Scala</h3>
+<h3 id="scala-12">Scala</h3>
 
 <pre><code>def Seq[A]#foldLeft[B](initial: B)(f: (B, A) =&gt; B): B
 </code></pre>
 
-<h3 id="ruby-9">Ruby</h3>
+<h3 id="ruby-8">Ruby</h3>
 
 <pre><code>arr = [1, 2, 3]
 arr.inject(:+)               # =&gt; 6
@@ -686,20 +690,20 @@ arr.inject(0) {|i, x| i + x} # =&gt; 6
 
 <h2 id="find">find</h2>
 
-<h3 id="scala-15">Scala</h3>
+<h3 id="scala-13">Scala</h3>
 
 <pre><code>def Seq[A]#find(p: A =&gt; Boolean): Option[A]
 </code></pre>
 
 <h2 id="sort">sort</h2>
 
-<h3 id="scala-16">Scala</h3>
+<h3 id="scala-14">Scala</h3>
 
 <pre><code>def Seq[A]#sorted: Seq[A]
 def Seq[A]#sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 </code></pre>
 
-<h3 id="ruby-10">Ruby</h3>
+<h3 id="ruby-9">Ruby</h3>
 
 <pre><code>Array#sort
 
@@ -718,7 +722,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 
 <p>リストの最後に要素を追加する。</p>
 
-<h3 id="php-5">PHP</h3>
+<h3 id="php-3">PHP</h3>
 
 <pre><code>$arr[] = $obj;
 </code></pre>
@@ -728,7 +732,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 <p>array_push | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-push.php" target="_blank">http://jp2.php.net/manual/ja/function.array-push.php</a></p>
 
-<h3 id="ruby-11">Ruby</h3>
+<h3 id="ruby-10">Ruby</h3>
 
 <pre><code>Array#push(obj)
 </code></pre>
@@ -758,7 +762,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 
 <p>配列の先頭に要素を挿入する。</p>
 
-<h3 id="php-6">PHP</h3>
+<h3 id="php-4">PHP</h3>
 
 <pre><code>array_unshift($arr, $obj);
 </code></pre>
@@ -766,7 +770,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 <p>array_unshift | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-unshift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-unshift.php</a></p>
 
-<h3 id="ruby-12">Ruby</h3>
+<h3 id="ruby-11">Ruby</h3>
 
 <pre><code>Array#unshift(obj)
 </code></pre>
@@ -794,7 +798,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 
 <p>リストの最後の要素を取得し、削除する。</p>
 
-<h3 id="php-7">PHP</h3>
+<h3 id="php-5">PHP</h3>
 
 <pre><code>array_pop($arr);
 </code></pre>
@@ -802,7 +806,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 <p>array_pop | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-pop.php" target="_blank">http://jp2.php.net/manual/ja/function.array-pop.php</a></p>
 
-<h3 id="ruby-13">Ruby</h3>
+<h3 id="ruby-12">Ruby</h3>
 
 <pre><code>Array#pop
 </code></pre>
@@ -823,7 +827,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 
 <p>Ruby, Pythonと同じメソッド名。</p>
 
-<h3 id="coffeescript-3">CoffeeScript</h3>
+<h3 id="coffeescript-1">CoffeeScript</h3>
 
 <pre><code>Array#pop
 </code></pre>
@@ -834,7 +838,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 
 <p>リストの先頭の要素を取得し、削除する。</p>
 
-<h3 id="php-8">PHP</h3>
+<h3 id="php-6">PHP</h3>
 
 <pre><code>array_shift($arr);
 </code></pre>
@@ -842,7 +846,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 <p>array_shift | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/function.array-shift.php" target="_blank">http://jp2.php.net/manual/ja/function.array-shift.php</a></p>
 
-<h3 id="ruby-14">Ruby</h3>
+<h3 id="ruby-13">Ruby</h3>
 
 <pre><code>Array#shift
 </code></pre>
@@ -866,7 +870,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 
 <p>Rubyと同じメソッド名。</p>
 
-<h3 id="coffeescript-4">CoffeeScript</h3>
+<h3 id="coffeescript-2">CoffeeScript</h3>
 
 <pre><code>Array#shift
 </code></pre>
@@ -891,7 +895,7 @@ def ++[A](arr2: A): Seq[A]
 
 <h2 id="remove">remove</h2>
 
-<h3 id="coffeescript-5">CoffeeScript</h3>
+<h3 id="coffeescript-3">CoffeeScript</h3>
 
 <p>特定の値をすべて削除するには</p>
 
@@ -900,7 +904,7 @@ def ++[A](arr2: A): Seq[A]
 
 <h2 id="clone">clone</h2>
 
-<h3 id="ruby-15">Ruby</h3>
+<h3 id="ruby-14">Ruby</h3>
 
 <p>shallow copy</p>
 
@@ -927,7 +931,7 @@ arr_copy = arr.clone();
 
 <p>リストからマップに変換する方法。</p>
 
-<h3 id="scala-17">Scala</h3>
+<h3 id="scala-15">Scala</h3>
 
 <p>タプルのリストをマップに変換する方法。</p>
 
@@ -940,7 +944,7 @@ arr_copy = arr.clone();
 list.toMap; // =&gt; Map("a" -&gt; 1, "b" -&gt; 2)
 </code></pre>
 
-<h3 id="ruby-16">Ruby</h3>
+<h3 id="ruby-15">Ruby</h3>
 
 <p>偶数個の要素を持つ配列をハッシュに変換する方法。</p>
 
@@ -950,12 +954,12 @@ Hash[*arr] # =&gt; {'a' =&gt; 1, 'b' =&gt; 2}
 
 <h2 id="grouped">grouped</h2>
 
-<h3 id="scala-18">Scala</h3>
+<h3 id="scala-16">Scala</h3>
 
 <pre><code>def Seq[A]#grouped(size: Int): Iterator[Seq[A]]
 </code></pre>
 
-<h3 id="ruby-17">Ruby</h3>
+<h3 id="ruby-16">Ruby</h3>
 
 <p>以下のような関数で同様のことができる。</p>
 
@@ -976,19 +980,19 @@ end
 
 <h2 id="group-by">groupBy</h2>
 
-<h3 id="scala-19">Scala</h3>
+<h3 id="scala-17">Scala</h3>
 
 <pre><code>def Seq[A]#groupBy(f: A =&gt; K): Map[K, Seq[A]]
 </code></pre>
 
 <h2 id="zip">zip</h2>
 
-<h3 id="scala-20">Scala</h3>
+<h3 id="scala-18">Scala</h3>
 
 <pre><code>def Seq[A]#zip(that: Iterable[B]): Seq[(A, B)]
 </code></pre>
 
-<h3 id="ruby-18">Ruby</h3>
+<h3 id="ruby-17">Ruby</h3>
 
 <pre><code>Array#zip(a1, a2, ...)
 </code></pre>
@@ -1001,14 +1005,14 @@ end
 
 <h2 id="fill">fill</h2>
 
-<h3 id="scala-21">Scala</h3>
+<h3 id="scala-19">Scala</h3>
 
 <pre><code>Seq.fill[A](n: Int)(elem: =&gt; A): Seq[A]
 Seq.fill[A](n1: Int, n2: Int)(elem: =&gt; A): Seq[Seq[A]]
 Seq.fill[A](n1: Int, n2: Int, n3: Int)(elem: =&gt; A): Seq[Seq[Seq[A]]]
 </code></pre>
 
-<h3 id="ruby-19">Ruby</h3>
+<h3 id="ruby-18">Ruby</h3>
 
 <p>同じ値を指定の数だけ含む配列を作るには</p>
 
@@ -1017,7 +1021,7 @@ Seq.fill[A](n1: Int, n2: Int, n3: Int)(elem: =&gt; A): Seq[Seq[Seq[A]]]
 
 <h2 id="product">product</h2>
 
-<h3 id="ruby-20">Ruby</h3>
+<h3 id="ruby-19">Ruby</h3>
 
 <p>例</p>
 
@@ -1028,14 +1032,14 @@ Seq.fill[A](n1: Int, n2: Int, n3: Int)(elem: =&gt; A): Seq[Seq[Seq[A]]]
 
 <p>数のリストの合計を計算するには</p>
 
-<h3 id="scala-22">Scala</h3>
+<h3 id="scala-20">Scala</h3>
 
 <pre><code>def Seq[A]#sum: A
 </code></pre>
 
 <p>要素が <code>Int</code> や <code>Double</code> などの場合に限る。</p>
 
-<h3 id="ruby-21">Ruby</h3>
+<h3 id="ruby-20">Ruby</h3>
 
 <pre><code>def sum(arr)
   arr.inject(0, :+)

@@ -205,6 +205,33 @@ else
 <pre><code>val max = if(a &gt; b) a else b;
 </code></pre>
 
+<h3 id="perl-20130718">perl <span class="article-date">2013/07/18</span></h3>
+
+<pre><code>if(...){
+  ...;
+} elsif(...){
+  ...;
+} else {
+  ...;
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合でも <code>{}</code> で囲むことが必要。</p>
+
+<p>else節がなく、本体の文が1つだけの場合は以下の修飾子の書き方も可能。</p>
+
+<pre><code>... if ...;
+</code></pre>
+
+<p>ifの反対で条件が満たされなかった場合にのみ実行するunlessもある。</p>
+
+<pre><code>unless(...){
+  ...;
+}
+
+... unless ...;
+</code></pre>
+
 <h3 id="php-20130619">PHP <span class="article-date">2013/06/19</span></h3>
 
 <pre><code>if(...){
@@ -239,7 +266,7 @@ endif;
 
 <p>いずれの構文でも <code>else</code> で実行する文がなければ、<code>else</code> を省略可。</p>
 
-<h3 id="ruby-20130601">Ruby <span class="article-date">2013/06/01</span></h3>
+<h3 id="ruby-20130718">Ruby <span class="article-date">2013/07/18</span></h3>
 
 <pre><code>if ... then
   ...
@@ -251,6 +278,20 @@ end
 </code></pre>
 
 <p><code>then</code> は省略可能。</p>
+
+<p>elseの節がなく、本体の文が1つだけの場合は以下の修飾子の書き方も可能。</p>
+
+<pre><code>... if ...
+</code></pre>
+
+<p>ifの反対で条件が満たされなかった場合にのみ実行するunlessもある。</p>
+
+<pre><code>unless(...){
+  ...
+}
+
+... unless ...
+</code></pre>
 
 <h3 id="python-20130630">Python <span class="article-date">2013/06/30</span></h3>
 

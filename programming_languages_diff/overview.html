@@ -111,6 +111,7 @@ footer {
 <ul>
   <li><a href="#comment">コメント</a></li>
   <li><a href="#semicolon">インデント / セミコロン</a></li>
+  <li><a href="#variable">変数</a></li>
   <li><a href="#environment">環境変数の取得</a></li>
   <li><a href="#command-line-arguments">コマンドライン引数の取得</a></li>
   <li><a href="#source-file-name">ソースファイル名と行番号をソースコード中で取得するには</a></li>
@@ -284,6 +285,17 @@ footer {
   <li>ブロックをインデントで表現</li>
   <li>行末のセミコロンは省略可</li>
 </ul>
+
+<h2 id="variable">変数</h2>
+
+<h3 id="perl-20130718">perl <span class="article-date">2013/07/18</span></h3>
+
+<p><code>$</code> で始まる変数は、配列やハッシュ(連想配列 or マップ)以外のアトミックな値を保存する変数。<br />
+<code>@</code> で始まる変数は、配列を保存する変数。要素にアクセスするには <code>$...[..]</code> とする。<br />
+<code>%</code> で始まる変数は、ハッシュを保存する変数。要素にアクセスするには <code>$...{..}</code> とする。  </p>
+
+<p>変数宣言をせずにいきなり値を代入するとグローバル変数になる。<br />
+<code>my</code> で宣言すると、ローカル変数になる。  </p>
 
 <h2 id="environment">環境変数の取得</h2>
 

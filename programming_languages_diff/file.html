@@ -140,10 +140,33 @@ footer {
 
 <h2 id="each-line">ファイルの中身を1行ずつテキスト処理するには</h2>
 
-<h3 id="ruby-20130504-1">Ruby <span class="article-date">2013/05/04</span></h3>
+<h3 id="php-20130718">PHP <span class="article-date">2013/07/18</span></h3>
+
+<pre><code>$fh = fopen('./hoge.txt', 'r');
+if($fh){
+  while (!feof($fh)) {
+    $line = fgets($fh);
+    // $line には最後の改行を含む
+    ...;
+  }
+  fclose($fh);
+}
+</code></pre>
+
+<h3 id="ruby-20130717">Ruby <span class="article-date">2013/07/17</span></h3>
 
 <pre><code>IO.foreach('./hoge.txt') do |line|
   ...
+end
+</code></pre>
+
+<p>または</p>
+
+<pre><code>open(script_name) do |fh|
+  while line = fh.gets
+    // line には最後の改行を含む
+    ...
+  end
 end
 </code></pre>
 
@@ -165,7 +188,7 @@ end
 
 <h2 id="rm">ファイルを削除するには</h2>
 
-<h3 id="ruby-20130504-2">Ruby <span class="article-date">2013/05/04</span></h3>
+<h3 id="ruby-20130504-1">Ruby <span class="article-date">2013/05/04</span></h3>
 
 <pre><code>File.unlink('./hoge.txt')
 </code></pre>
