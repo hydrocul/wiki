@@ -442,6 +442,20 @@ export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
 <p>svnなどgit以外のワーキングディレクトリではメールアドレスを表示できないので、
 <code>git config user.email</code> する前にif文で分岐させている。</p>
 
+<h2 id="git-add--20130719">ファイル単位ではなくファイルの中の差分ごとに git add するには <span class="article-date">2013/07/19</span></h2>
+
+<p>以下のコマンドで差分を1つずつインタラクティブに確認しながら git add できる。</p>
+
+<pre><code>git add -p
+</code></pre>
+
+<p>特定のファイルまたはディレクトリに限定して、インタラクティブに git add することもできる。</p>
+
+<pre><code>git add -p ./hoge.txt
+</code></pre>
+
+<p><code>-p</code> のかわりに <code>--patch</code> でも同じ。</p>
+
 
 </div>
 
