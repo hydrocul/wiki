@@ -155,6 +155,18 @@ footer {
 <p>Ruby 1.9.3 リファレンスマニュアル &gt; ヒアドキュメント<br />
 <a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
 
+<h3 id="python-20130723">Python <span class="article-date">2013/07/23</span></h3>
+
+<p>ダブルクオーテーション3つで囲むと改行を含む文字列を書くことができる。</p>
+
+<pre><code>"""\
+foo
+bar
+"""
+</code></pre>
+
+<p>上記の例で1行目にバックスラッシュがあるのは最初の改行を文字列に含めないようにするため。</p>
+
 <h3 id="sh-20130531">sh <span class="article-date">2013/05/31</span></h3>
 
 <p>例</p>
@@ -265,7 +277,7 @@ echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
 String String#substring(int from, int to)
 </code></pre>
 
-<h3 id="php-20130410">PHP <span class="article-date">2013/04/10</span></h3>
+<h3 id="php-20130723">PHP <span class="article-date">2013/07/23</span></h3>
 
 <pre><code>string substr(string $string, int $start [, int $length])
 </code></pre>
@@ -280,6 +292,8 @@ length が指定され、かつ負である場合、 string の終端から多�
 length が指定され、かつ 0 である場合は、 空文字列なら NULL、そうでなければ FALSE を返します。<br />
 length を省略した場合は、 start の位置から文字列の最後までの部分文字列を返します。  </p>
 </blockquote>
+
+<p><code>$length</code>が<code>$string</code>に比べ長すぎる場合は、エラーにならずに<code>$string</code>の最後までを返す。</p>
 
 <h3 id="ruby-20130412">Ruby <span class="article-date">2013/04/12</span></h3>
 
@@ -384,6 +398,22 @@ String#chomp!(str)
 String String#endsWith(String suffix)
 </code></pre>
 
+<h3 id="php-20130723-1">PHP <span class="article-date">2013/07/23</span></h3>
+
+<p>startsWithに相当するよく使う方法。</p>
+
+<pre><code>strpos($str, $prefix) === 0
+</code></pre>
+
+<p>ただ、これだと、<code>$str</code>が長い文字列の時にいちいち<code>$str</code>の最後までなめるのが効率よくなさそう。</p>
+
+<p>endsWithに相当するよく使う方法。</p>
+
+<pre><code>strrpos($str, $suffix) === strlen($str) - strlen($suffix)
+</code></pre>
+
+<p>これも<code>$str</code>が長い時に効率が悪そう。</p>
+
 <h3 id="ruby-20130410-2">Ruby <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>String#start_with?(prefix)
@@ -397,14 +427,14 @@ String#end_with?(suffix)
 <pre><code>str.indexOf(prefix) == 0
 </code></pre>
 
-<p>ただ、これだと、strが長い文字列の時にいちいちstrの最後までなめるのが効率よくなさそう。</p>
+<p>ただ、これだと、<code>str</code>が長い文字列の時にいちいち<code>str</code>の最後までなめるのが効率よくなさそう。</p>
 
 <p>endsWithに相当するよく使う方法。</p>
 
 <pre><code>str.substr(str.length - prefix.length) == prefix
 </code></pre>
 
-<p>ただ、これだと、prefixがstrより長い場合にどうなることやら。</p>
+<p>ただ、これだと、<code>prefix</code>が<code>str</code>より長い場合にどうなることやら。</p>
 
 <h2 id="sprintf">sprintf</h2>
 
@@ -430,7 +460,7 @@ def format(args: Any*): String
 <p>フォーマットの説明<br />
 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax</a></p>
 
-<h3 id="php-20130410-1">PHP <span class="article-date">2013/04/10</span></h3>
+<h3 id="php-20130410">PHP <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>string sprintf(string $format [, $arg1 [, $arg2 ... ]])
 </code></pre>
@@ -568,7 +598,7 @@ def split(regex: String, limit: Int): Array[String]
 
 <h2 id="join">join / implode</h2>
 
-<h3 id="php-20130410-2">PHP <span class="article-date">2013/04/10</span></h3>
+<h3 id="php-20130410-1">PHP <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>implode($separator, $arr)
 </code></pre>
