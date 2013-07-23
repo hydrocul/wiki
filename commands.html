@@ -632,37 +632,9 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 <p><code>cat</code> の反対。入力を逆順にして出力する。最後の行が最初の行として出力される。</p>
 
-<h2 id="tar">tar <span class="article-date">2013/06/19</span></h2>
+<h2 id="tar">tar</h2>
 
-<p>複数のファイルを1つのアーカイブファイルにまとめたり、逆に展開したりするコマンド。オプション <code>-z</code> を使えば、gzip での圧縮または展開も同時に行う。</p>
-
-<dl>
-  <dt><code>-c</code></dt>
-  <dd>新しくアーカイブファイルを作成する</dd>
-  <dt><code>-v</code></dt>
-  <dd>処理の進行しているファイル名を表示する</dd>
-  <dt><code>-z</code></dt>
-  <dd>gzipで圧縮または展開を同時に行う</dd>
-  <dt><code>-f</code></dt>
-  <dd>アーカイブファイル名をパラメータで指定する。これを指定しないと標準入力
-または標準出力が使われる</dd>
-</dl>
-
-<p><code>-z</code> を使う場合は、アーカイブファイルの拡張子として .tar.gz または .tgz がよく使われる。<code>-z</code> を使わない場合は、.tar がよく使われる。</p>
-
-<h3 id="section-10">基本操作 <span class="article-date">2013/04/04</span></h3>
-
-<pre><code># 圧縮
-tar cvzf tarファイル名 圧縮対象ディレクトリ
-
-# 解凍
-tar xvzf tarファイル名
-</code></pre>
-
-<h3 id="tar-20130403">tarファイルの中にあるファイルの一覧を見るには <span class="article-date">2013/04/03</span></h3>
-
-<pre><code>tar tzf tarファイル名
-</code></pre>
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./tar.html">tar コマンド</a></i>  </p>
 
 <h2 id="top">top</h2>
 
@@ -681,21 +653,21 @@ tar xvzf tarファイル名
 
 <h2 id="tr">tr</h2>
 
-<h3 id="section-11">ファイルの特定の文字を改行に全置換するには <span class="article-date">2013/04/03</span></h3>
+<h3 id="section-10">ファイルの特定の文字を改行に全置換するには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h3 id="section-12">ファイルの特定の文字を削除するには <span class="article-date">2013/04/03</span></h3>
+<h3 id="section-11">ファイルの特定の文字を削除するには <span class="article-date">2013/04/03</span></h3>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
 </code></pre>
 
 <p>この例だと、改行をすべて削除する。</p>
 
-<h3 id="section-13">連続したスペースを単一のスペースに変換するには <span class="article-date">2013/04/18</span></h3>
+<h3 id="section-12">連続したスペースを単一のスペースに変換するには <span class="article-date">2013/04/18</span></h3>
 
 <pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名
 </code></pre>

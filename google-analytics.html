@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Google Analytics | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
+#side-menu {
+  float: left;
+  width: 150px;
+}
+#side-menu-attention {
+  margin: 10px;
+  font-size: 80%;
+}
+#content {
+
+  margin: 0 40px 0px 150px;
+
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 30px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+  font-size: 32px;
+}
+#content h2 {
+  margin: 30px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+  font-size: 24px;
+}
+#content h3 {
+  margin: 30px 0 20px 0;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 20px 0 20px 0;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 20px 0 20px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 20px 0 20px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 20px 0 20px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="./">Home</a> &gt; Google Analytics
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="google-analytics">Google Analytics</h1>
+
+<p><a href="http://www.google.co.jp/intl/ja/analytics/" target="_blank">http://www.google.co.jp/intl/ja/analytics/</a></p>
+
+<h2 id="api-20130613">API <span class="article-date">2013/06/13</span></h2>
+
+<p>集計結果を取得できるAPIが提供されている。</p>
+
+<p>APIアクセスのための、PHP, Ruby, JavaなどのライブラリやサンプルコードをGoogleが提供している。</p>
+
+<p><a href="https://developers.google.com/analytics/devguides/reporting/core/v3/gdataLibraries" target="_blank">https://developers.google.com/analytics/devguides/reporting/core/v3/gdataLibraries</a></p>
+
+<p>APIの認証は、OAuth2.0。</p>
+
+<p>期間、dimensions, metrics を指定して集計結果を取得できる。dimensionsとして、日付、URL、参照元、ブラウザの種類など、 metricsとして、訪問数、PVなどが使える。</p>
+
+<p><a href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets" target="_blank">https://developers.google.com/analytics/devguides/reporting/core/dimsmets</a></p>
+
+<h3 id="google-apis-explorer-20130617">Google APIs Explorer <span class="article-date">2013/06/17</span></h3>
+
+<p><a href="https://developers.google.com/apis-explorer/#p/" target="_blank">https://developers.google.com/apis-explorer/#p/</a></p>
+
+<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./google.html">google</a> &gt; <a href="./google.html#api-explorer">Google APIs Explorer</a></i>  </p>
+
+<h3 id="section">制限 <span class="article-date">2013/06/13</span></h3>
+
+<ul>
+  <li>1ユーザ毎秒1リクエストまで (設定で変更可能)</li>
+  <li>全ユーザ合計毎日5万リクエストまで (Quota Request Form あり)</li>
+</ul>
+
+<h3 id="api-20130613-1">APIにアクセスする準備 <span class="article-date">2013/06/13</span></h3>
+
+<p>Google API console<br />
+<a href="https://developers.google.com/console/" target="_blank">https://developers.google.com/console/</a></p>
+
+<p>Google API console のページで “Create project …” ボタンを押して、プロジェクトを作成して、いろいろ設定する。</p>
+
+<h3 id="ruby-20130617">Rubyでのサンプルコード <span class="article-date">2013/06/17</span></h3>
+
+<p>phase1.rb</p>
+
+<pre><code># -*- coding: utf-8 -*-
+require 'google/api_client'
+
+client = Google::APIClient.new
+
+# API console
+# https://developers.google.com/console/
+# で取得できる Client ID, Client secret をここに書く
+# 
+# このRubyのライブラリでは、
+# Web Application として登録が必要みたい
+
+# Client ID
+client.authorization.client_id = '999999999999-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com'
+
+# Client secret
+client.authorization.client_secret = 'xxxxxxxxxxxxxxxxxxxxxxxx'
+
+# 自分のアプリ側でコールバックを受けるURLをここに書く。
+# 実際にコールバックを受けるときにはこのURLの後ろに
+# ?code=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# というようなパラメータが渡される。
+client.authorization.redirect_uri = 'http://myapp.example.com/callback'
+
+# OAuthでGoogleアカウントのどんな権限を必要とするのかを以下に書く。
+# 
+# Analyticsのレポート取得で必要な権限の説明は以下に書いてある。
+# https://developers.google.com/analytics/devguides/reporting/core/v3/gdataAuthorization#OAuth2Scope
+# 
+client.authorization.scope = 'https://www.googleapis.com/auth/analytics.readonly'
+
+redirect_uri = client.authorization.authorization_uri
+puts redirect_uri
+# 
+# ブラウザでGoogleアカウントにログインしておいて、
+# ここで表示されたURLにブラウザアクセスすると、
+# 認可の画面が表示されるので、"アクセスを許可" のボタンを押す。
+# 
+# すると、client.authorization.redirect_uri に設定したURLにリダイレクトされるが、
+# そのときに code というパラメータを渡されるので、
+# その値を次の phase2.rb に書く。
+</code></pre>
+
+<p>phase2.rb</p>
+
+<pre><code># -*- coding: utf-8 -*-
+require 'google/api_client'
+
+client = Google::APIClient.new
+
+client.authorization.client_id = '999999999999-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com'
+client.authorization.client_secret = 'xxxxxxxxxxxxxxxxxxxxxxxx'
+client.authorization.redirect_uri = 'http://myapp.example.com/callback'
+client.authorization.scope = 'https://www.googleapis.com/auth/analytics.readonly'
+
+# phase1.rb で取得したcodeをここに書く
+client.authorization.code = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
+p client.authorization.fetch_access_token!
+# ここでaccess_tokenなどがHashで表示されるので、
+# それを次の phase3.rb に書く
+</code></pre>
+
+<p>phase3.rb</p>
+
+<pre><code># -*- coding: utf-8 -*-
+require 'google/api_client'
+
+client = Google::APIClient.new
+
+# phase2.rb で取得したHashをここに書く
+client.authorization.update_token!({"access_token"=&gt;"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "token_type"=&gt;"Bearer", "expires_in"=&gt;3600, "refresh_token"=&gt;"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+
+analytics = client.discovered_api('analytics', 'v3')
+
+result = client.execute(
+  :api_method =&gt; analytics.management.profiles.list,
+  :parameters =&gt; {'accountId' =&gt; '~all', 'webPropertyId' =&gt; '~all'}
+)
+p result.data
+# ここでいろいろ表示されるが、idの値(8桁の数字の)を拾って、
+# それを次の phase4.rb に書く
+</code></pre>
+
+<p>phase4.rb</p>
+
+<pre><code># -*- coding: utf-8 -*-
+require 'google/api_client'
+
+client = Google::APIClient.new
+
+# phase2.rb で取得したHashをここに書く
+client.authorization.update_token!({"access_token"=&gt;"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "token_type"=&gt;"Bearer", "expires_in"=&gt;3600, "refresh_token"=&gt;"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+
+analytics = client.discovered_api('analytics', 'v3')
+
+# idsのところには、phase3.rb で取得した8桁の数字のidに 'ga:' を付けて書く
+result = client.execute(
+  :api_method =&gt; analytics.data.ga.get,
+  :parameters =&gt; {'ids' =&gt; 'ga:99999999', # Unique table ID
+                                          # for retrieving Analytics data.
+                                          # Table ID is of the form ga:XXXX,
+                                          # where XXXX is the Analytics profile ID.
+                  'start-date' =&gt; '2013-06-01',
+                  'end-date' =&gt; '2013-06-10',
+                  'dimensions' =&gt; 'ga:date,ga:pagePath',
+                  'metrics' =&gt; 'ga:visitors,ga:pageviews'})
+p result.data.rows
+</code></pre>
+
+
+</div>
+
+  <footer>
+    <a href="./">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>
