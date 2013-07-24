@@ -617,14 +617,18 @@ def split(regex: String, limit: Int): Array[String]
 
 <h2 id="compare">比較</h2>
 
-<h3 id="java-20130714">Java <span class="article-date">2013/07/14</span></h3>
+<h3 id="java-20130724">Java <span class="article-date">2013/07/24</span></h3>
 
 <dl>
   <dt><code>==</code>, <code>!=</code></dt>
-  <dd>プリミティブ型の場合は値を比較できる。参照型の場合は同じインスタンスかどうかを判別できる。</dd>
+  <dd>プリミティブ型の場合は値を比較する。参照型の場合は同じインスタンスかどうかを判別する。</dd>
   <dt><code>obj1.equals(obj2)</code> (参照型に対して)</dt>
   <dd>値を比較する。</dd>
 </dl>
+
+<h3 id="scala-20130724">Scala <span class="article-date">2013/07/24</span></h3>
+
+<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。プリミティブ型に対してはJavaと同じで、参照型に対してはJavaの <code>equals</code> を呼び出している。</p>
 
 <h3 id="ruby-20130714">Ruby <span class="article-date">2013/07/14</span></h3>
 
