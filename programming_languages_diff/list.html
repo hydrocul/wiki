@@ -148,6 +148,7 @@ footer {
   <li><a href="#fill">fill</a></li>
   <li><a href="#product">product</a></li>
   <li><a href="#sum">sum</a></li>
+  <li><a href="#in-groups-of">in_groups_of</a></li>
 </ul>
 
 <h2 id="literal">リスト(配列)の書き方</h2>
@@ -1068,6 +1069,21 @@ Seq.fill[A](n1: Int, n2: Int, n3: Int)(elem: =&gt; A): Seq[Seq[Seq[A]]]
 <pre><code>def sum(arr)
   arr.inject(0, :+)
 end
+</code></pre>
+
+<h2 id="in-groups-of">in_groups_of</h2>
+
+<h3 id="ruby-20130724">Ruby <span class="article-date">2013/07/24</span></h3>
+
+<p>Railsの拡張で</p>
+
+<pre><code>%w(abc def ghi jkl mno pqr).in_groups_of(2).each do |pair|
+  p pair
+end
+# 出力結果
+# ['abc', 'def']
+# ['ghi', 'jkl']
+# ['mno', 'pqr']
 </code></pre>
 
 

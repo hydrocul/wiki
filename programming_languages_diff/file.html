@@ -116,7 +116,7 @@ footer {
   <li><a href="#ls">ディレクトリの中のファイル一覧を取得</a></li>
   <li><a href="#file-size">ファイルサイズを取得</a></li>
   <li><a href="#mkdir">ディレクトリを作成</a></li>
-  <li><a href="#exists">ファイルが存在するかどうかを取得</a></li>
+  <li><a href="#exists">ファイルまたはディレクトリが存在するかどうかを取得</a></li>
   <li><a href="#is-file">ファイルかどうかを調べる</a></li>
   <li><a href="#is-directory">ディレクトリかどうかを調べる</a></li>
   <li><a href="#is-symbolic-link">シンボリックリンクかどうかを調べる</a></li>
@@ -220,7 +220,16 @@ end
 FileUtils::mkdir_p(dirname)
 </code></pre>
 
-<h2 id="exists">ファイルが存在するかどうかを取得</h2>
+<h2 id="exists">ファイルまたはディレクトリが存在するかどうかを取得</h2>
+
+<h3 id="php-20130724">PHP <span class="article-date">2013/07/24</span></h3>
+
+<pre><code>file_exists('/home/foo/testfile')
+</code></pre>
+
+<p>シンボリックリンクの場合は、シンボリックリンクの指す先が存在するかどうかをチェックする。</p>
+
+<p><a href="http://www.php.net/manual/ja/function.file-exists.php" target="_blank">http://www.php.net/manual/ja/function.file-exists.php</a></p>
 
 <h3 id="ruby-20130429">Ruby <span class="article-date">2013/04/29</span></h3>
 

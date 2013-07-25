@@ -154,6 +154,13 @@ SHOW FULL PROCESSLIST;
 
 <p><i>-&gt; <a href="./">Home</a> &gt; <a href="./less.html">less コマンド</a></i>  </p>
 
+<h2 id="mysqlselect-20130724">mysqlコマンドでSELECTの結果を表形式ではなくレコードごとに縦に表示させるには <span class="article-date">2013/07/24</span></h2>
+
+<p>最後のセミコロンのかわりに <code>\G</code> を付けると、縦に表示してくれる。</p>
+
+<pre><code>SELECT * FROM hoge\G
+</code></pre>
+
 <h2 id="mysql-20130423">MySQLは正規表現が使える <span class="article-date">2013/04/23</span></h2>
 
 <p>正規表現 | MySQL 5.1 リファレンスマニュアル<br />

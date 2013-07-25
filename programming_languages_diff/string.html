@@ -124,6 +124,7 @@ footer {
   <li><a href="#join">join / implode</a></li>
   <li><a href="#compare">比較</a></li>
   <li><a href="#upper-lower">大文字小文字変換</a></li>
+  <li><a href="#random">ランダム文字列</a></li>
 </ul>
 
 <h2 id="literal">文字列の書き方</h2>
@@ -660,6 +661,33 @@ String#downcase
 
 <pre><code>string.toUpperCase()
 string.toLowerCase()
+</code></pre>
+
+<h2 id="random">ランダム文字列</h2>
+
+<h3 id="php-20130724">PHP <span class="article-date">2013/07/24</span></h3>
+
+<p>サンプル</p>
+
+<pre><code>function createpasswd(){
+  $data = 'abcdefghkmnprstuvwxyzABCDEFGHJKLMNPRSTUVWXYZ2345678';
+  $n = strlen($data);
+  $ret = '';
+  for($ii=0;$ii&lt;8;$ii++){
+    $ret .= $data[rand(0, $n-1)];
+  }
+  return $ret;
+}
+
+function createpasswd_num(){
+  $data = '1234567890';
+  $n = strlen($data);
+  $ret = '';
+  for($ii=0;$ii&lt;8;$ii++){
+    $ret .= $data[rand(0, $n-1)];
+  }
+  return $ret;
+}
 </code></pre>
 
 
