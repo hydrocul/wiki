@@ -205,33 +205,6 @@ else
 <pre><code>val max = if(a &gt; b) a else b;
 </code></pre>
 
-<h3 id="perl-20130718">perl <span class="article-date">2013/07/18</span></h3>
-
-<pre><code>if(...){
-  ...;
-} elsif(...){
-  ...;
-} else {
-  ...;
-}
-</code></pre>
-
-<p>本体の文が1つだけの場合でも <code>{}</code> で囲むことが必要。</p>
-
-<p>else節がなく、本体の文が1つだけの場合は以下の修飾子の書き方も可能。</p>
-
-<pre><code>... if ...;
-</code></pre>
-
-<p>ifの反対で条件が満たされなかった場合にのみ実行するunlessもある。</p>
-
-<pre><code>unless(...){
-  ...;
-}
-
-... unless ...;
-</code></pre>
-
 <h3 id="php-20130619">PHP <span class="article-date">2013/06/19</span></h3>
 
 <pre><code>if(...){
@@ -301,6 +274,33 @@ elif ...:
     ...
 else:
     ...
+</code></pre>
+
+<h3 id="perl-20130718">Perl <span class="article-date">2013/07/18</span></h3>
+
+<pre><code>if(...){
+  ...;
+} elsif(...){
+  ...;
+} else {
+  ...;
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合でも <code>{}</code> で囲むことが必要。</p>
+
+<p>else節がなく、本体の文が1つだけの場合は以下の修飾子の書き方も可能。</p>
+
+<pre><code>... if ...;
+</code></pre>
+
+<p>ifの反対で条件が満たされなかった場合にのみ実行するunlessもある。</p>
+
+<pre><code>unless(...){
+  ...;
+}
+
+... unless ...;
 </code></pre>
 
 <h3 id="sh-20130410">sh <span class="article-date">2013/04/10</span></h3>
@@ -437,13 +437,6 @@ else ...
 }
 </code></pre>
 
-<h3 id="perl-20130719">Perl <span class="article-date">2013/07/19</span></h3>
-
-<pre><code>while (...) {
-  ...;
-}
-</code></pre>
-
 <h3 id="ruby-20130621">Ruby <span class="article-date">2013/06/21</span></h3>
 
 <pre><code>while ... do
@@ -465,6 +458,13 @@ end
 <pre><code>while ...:
     ...
     ...
+</code></pre>
+
+<h3 id="perl-20130719">Perl <span class="article-date">2013/07/19</span></h3>
+
+<pre><code>while (...) {
+  ...;
+}
 </code></pre>
 
 <h3 id="coffeescript-20130624">CoffeeScript <span class="article-date">2013/06/24</span></h3>
@@ -517,15 +517,6 @@ while(式2){
 }
 </code></pre>
 
-<h3 id="perl-20130719-1">Perl <span class="article-date">2013/07/19</span></h3>
-
-<p>C言語ライクのfor文を使える。</p>
-
-<pre><code>for(my $i = 0; $i &lt; 10; $i++){
-    ...;
-}
-</code></pre>
-
 <h3 id="php-20130714">PHP <span class="article-date">2013/07/14</span></h3>
 
 <p>C言語ライクのfor文を使える。</p>
@@ -563,6 +554,15 @@ end
 <pre><code>for i in (n-1).downto(0) do
   ...
 end
+</code></pre>
+
+<h3 id="perl-20130719-1">Perl <span class="article-date">2013/07/19</span></h3>
+
+<p>C言語ライクのfor文を使える。</p>
+
+<pre><code>for(my $i = 0; $i &lt; 10; $i++){
+    ...;
+}
 </code></pre>
 
 <h3 id="sh">sh</h3>
