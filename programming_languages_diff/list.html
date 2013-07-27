@@ -121,11 +121,7 @@ footer {
   <li><a href="#take">take</a></li>
   <li><a href="#drop">drop</a></li>
   <li><a href="#reverse">reverse</a></li>
-  <li><a href="#foreach">foreach</a>
-    <ul>
-      <li><a href="#foreach-sh">sh</a></li>
-    </ul>
-  </li>
+  <li><a href="#foreach">foreach</a></li>
   <li><a href="#map">map</a></li>
   <li><a href="#flatmap">flatMap</a></li>
   <li><a href="#filter">filter</a></li>
@@ -238,6 +234,18 @@ arr = %w(abc def ghi) # =&gt; ['abc', 'def', 'ghi'] と同じ
 <p>インデックスで参照するには</p>
 
 <pre><code>arr.index(idx)
+</code></pre>
+
+<h3 id="perl-20130726">Perl <span class="article-date">2013/07/26</span></h3>
+
+<p>配列そのものは変数名が <code>@</code> で始まり、要素を参照するには <code>$</code> で始める。</p>
+
+<pre><code>my @lst = ('abc', 'def', 'ghi');
+</code></pre>
+
+<p>インデックスで参照するには</p>
+
+<pre><code>$lst[0];
 </code></pre>
 
 <h3 id="javascript-20130410">JavaScript <span class="article-date">2013/04/10</span></h3>
@@ -524,15 +532,9 @@ Array#reverse!
 def foreach(f: A =&gt; Unit): Unit
 </code></pre>
 
-<h3 id="perl-20130719">Perl <span class="article-date">2013/07/19</span></h3>
+<h3 id="php-20130727">PHP <span class="article-date">2013/07/27</span></h3>
 
-<pre><code>my @lst = ('abc', 'def', 'ghi');
-foreach my @elem (@lst) {
-  ...;
-}
-</code></pre>
-
-<h3 id="php-20130421">PHP <span class="article-date">2013/04/21</span></h3>
+<p>配列をループ。</p>
 
 <pre><code>for(int $i = 0; $i &lt; $arr.length; $i++){
   ...
@@ -567,7 +569,15 @@ end
 # =&gt; 1 2
 </code></pre>
 
-<h3 id="foreach-sh">sh <span class="article-date">2013/06/21</span></h3>
+<h3 id="perl-20130719">Perl <span class="article-date">2013/07/19</span></h3>
+
+<pre><code>my @lst = ('abc', 'def', 'ghi');
+foreach my @elem (@lst) {
+  ...;
+}
+</code></pre>
+
+<h3 id="sh-20130621">sh <span class="article-date">2013/06/21</span></h3>
 
 <p>例1</p>
 
@@ -594,6 +604,14 @@ hoge
 </code></pre>
 
 <p><i>-&gt; <a href="../">Home</a> &gt; <a href="../oneliner.html">ワンライナー</a> &gt; <a href="../oneliner.html#count-files-each-day">ファイル名に日付が入っているファイルがたくさんあって、日付ごとにファイル数を調べるには</a></i>  </p>
+
+<h3 id="javascript-20130727">JavaScript <span class="article-date">2013/07/27</span></h3>
+
+<pre><code>for(index in arr){
+  var elem = arr[index];
+  ....;
+}
+</code></pre>
 
 <h3 id="coffeescript-20130419">CoffeeScript <span class="article-date">2013/04/19</span></h3>
 

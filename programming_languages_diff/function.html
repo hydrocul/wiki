@@ -180,7 +180,29 @@ end
   <li>メソッド呼び出しは引数のカッコを省略可</li>
 </ul>
 
-<h3 id="sh-20130701">sh <span class="article-date">2013/07/01</span></h3>
+<h3 id="perl-20130727">Perl <span class="article-date">2013/07/27</span></h3>
+
+<p>サブルーチンの定義。</p>
+
+<pre><code>sub f {
+  my ($arg1, $arg2) = @_;
+  ...;
+}
+</code></pre>
+
+<p>サブルーチンの呼び出し。</p>
+
+<pre><code>f($a1, $a2);
+</code></pre>
+
+<ul>
+  <li>サブルーチン定義の中では引数は、<code>@_</code>, <code>$_[...]</code> などで参照する</li>
+  <li>サブルーチン呼び出しは、引数がない場合に限り、カッコを省略できる</li>
+</ul>
+
+<h3 id="sh-20130729">sh <span class="article-date">2013/07/29</span></h3>
+
+<p>関数の定義。</p>
 
 <pre><code>f()
 {
@@ -188,9 +210,14 @@ end
 }
 </code></pre>
 
+<p>関数の呼び出し。</p>
+
+<pre><code>f a1 a2
+</code></pre>
+
 <ul>
-  <li>関数呼び出しは通常の外部コマンドの実行と同じくカッコを付けずに引数を並べる</li>
   <li>関数定義の中では引数は <code>$@</code>, <code>$1</code>, <code>$2</code>,,, などを使う</li>
+  <li>関数呼び出しは通常の外部コマンドの実行と同じくカッコを付けずに引数を並べる</li>
 </ul>
 
 <h3 id="javascript-20130609">JavaScript <span class="article-date">2013/06/09</span></h3>
