@@ -201,7 +201,7 @@ footer {
 '''
 </code></pre>
 
-<h3 id="perl-20130424">Perl <span class="article-date">2013/04/24</span></h3>
+<h3 id="perl-20130727">Perl <span class="article-date">2013/07/27</span></h3>
 
 <pre><code># 単一行コメント
 =comment
@@ -209,6 +209,8 @@ footer {
   複数行コメント
 =cut
 </code></pre>
+
+<p>すべての <code>#</code> の後ろがコメントになるわけではなく、 <code>$#arr</code> のような別の意味の <code>#</code> もある。</p>
 
 <h3 id="javascript-20130422">JavaScript <span class="article-date">2013/04/22</span></h3>
 
@@ -279,6 +281,13 @@ footer {
   <li>行末のセミコロンは省略可(省略推奨)</li>
 </ul>
 
+<h3 id="perl-20130727-1">Perl <span class="article-date">2013/07/27</span></h3>
+
+<ul>
+  <li>ブロックはC言語ライクに {} で表現</li>
+  <li>行末のセミコロンは省略不可</li>
+</ul>
+
 <h3 id="coffeescript-20130422-1">CoffeeScript <span class="article-date">2013/04/22</span></h3>
 
 <ul>
@@ -304,6 +313,13 @@ footer {
 <p><code>ENV</code>という変数を利用する。</p>
 
 <pre><code>ENV['HOME']
+</code></pre>
+
+<h3 id="perl-20130727-2">Perl <span class="article-date">2013/07/27</span></h3>
+
+<p><code>@ENV</code>という変数を利用する。</p>
+
+<pre><code>$ENV{'HOME'}
 </code></pre>
 
 <h2 id="command-line-arguments">コマンドライン引数の取得</h2>
@@ -341,6 +357,20 @@ http://php.net/manual/ja/reserved.variables.argv.php</dd>
 <pre><code>if __FILE__ == $PROGRAM_NAME
     # 何らかの処理
 end
+</code></pre>
+
+<h2 id="section-1">プロセスを終了するには</h2>
+
+<h3 id="perl-20130727-3">Perl <span class="article-date">2013/07/27</span></h3>
+
+<p>正常終了の場合</p>
+
+<pre><code>exit(0);
+</code></pre>
+
+<p>異常終了の場合(0以外を終了コードにする)</p>
+
+<pre><code>exit(1);
 </code></pre>
 
 

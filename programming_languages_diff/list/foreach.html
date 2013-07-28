@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>foreach | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
+#side-menu {
+  float: left;
+  width: 150px;
+}
+#side-menu-attention {
+  margin: 10px;
+  font-size: 80%;
+}
+#content {
+
+  margin: 0 40px 0px 150px;
+
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 30px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+  font-size: 32px;
+}
+#content h2 {
+  margin: 30px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+  font-size: 24px;
+}
+#content h3 {
+  margin: 30px 0 20px 0;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 20px 0 20px 0;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 20px 0 20px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 20px 0 20px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 20px 0 20px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; foreach
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="foreach">foreach</h1>
+
+<h2 id="java-20130718">Java <span class="article-date">2013/07/18</span></h2>
+
+<p>配列をループ。</p>
+
+<pre><code>for(int i = 0; i &lt; arr.length; i++){
+  ...
+}
+</code></pre>
+
+<p>Java5からは、以下の拡張for文の利用が可能。(foreach構文)</p>
+
+<pre><code>for(String str: str_arr){
+  ...
+}
+</code></pre>
+
+<p><code>str_arr</code> は配列であるか、java.lang.Iterable を実装しているオブジェクトであることが必要。</p>
+
+<h2 id="scala-20130506">Scala <span class="article-date">2013/05/06</span></h2>
+
+<pre><code>// Seq[A]
+def foreach(f: A =&gt; Unit): Unit
+</code></pre>
+
+<h2 id="php-20130727">PHP <span class="article-date">2013/07/27</span></h2>
+
+<p>配列をループ。</p>
+
+<pre><code>for(int $i = 0; $i &lt; $arr.length; $i++){
+  ...
+}
+
+foreach($arr as $value){
+  ...
+}
+</code></pre>
+
+<h2 id="ruby-20130421">Ruby <span class="article-date">2013/04/21</span></h2>
+
+<pre><code>for value in arr do
+  ...
+end
+</code></pre>
+
+<p><code>value</code> の部分には複数の値が入る場合に複数の変数が使える。例：</p>
+
+<pre><code>for i, str in [[1, 'abc'], [2, 'def'], [3, 'ghi']]
+  ...
+end
+</code></pre>
+
+<p>配列の <code>each</code> メソッドも使える。
+<code>break</code> でのループの中断は、上記の <code>for</code> 文以外にこの <code>each</code> メソッドでも使える。例：</p>
+
+<pre><code>[1, 2, 3].each do |i|
+  p i
+  break if i == 2
+end
+# =&gt; 1 2
+</code></pre>
+
+<h2 id="perl-20130719">Perl <span class="article-date">2013/07/19</span></h2>
+
+<pre><code>my @lst = ('abc', 'def', 'ghi');
+foreach my @elem (@lst) {
+  ...;
+}
+</code></pre>
+
+<h2 id="sh-20130621">sh <span class="article-date">2013/06/21</span></h2>
+
+<p>例1</p>
+
+<pre><code>for v in foo bar hoge
+do
+  echo $v
+done
+</code></pre>
+
+<p>例2</p>
+
+<pre><code>list="foo bar hoge"
+for v in $list
+do
+  echo $v
+done
+</code></pre>
+
+<p>出力結果(どちらも同じ)</p>
+
+<pre><code>foo
+bar
+hoge
+</code></pre>
+
+<p><i>-&gt; <a href="../../">Home</a> &gt; <a href="../../oneliner.html">ワンライナー</a> &gt; <a href="../../oneliner.html#count-files-each-day">ファイル名に日付が入っているファイルがたくさんあって、日付ごとにファイル数を調べるには</a></i>  </p>
+
+<h2 id="javascript-20130727">JavaScript <span class="article-date">2013/07/27</span></h2>
+
+<pre><code>for(index in arr){
+  var elem = arr[index];
+  ....;
+}
+</code></pre>
+
+<h2 id="coffeescript-20130419">CoffeeScript <span class="article-date">2013/04/19</span></h2>
+
+<pre><code>for elem in arr
+  ....
+</code></pre>
+
+
+</div>
+
+  <footer>
+    <a href="../../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

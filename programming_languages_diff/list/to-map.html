@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>プログラミング言語の比較 | hydrocul のメモ</title>
+<title>toMap | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 code, kbd, pre, samp {
@@ -97,7 +97,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a>
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; toMap
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -106,15 +106,36 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="section">プログラミング言語の比較</h1>
+  <h1 id="tomap-20130506">toMap <span class="article-date">2013/05/06</span></h1>
 
-<p><a href="../programming_languages_diff/overview.html">Overview</a> <a href="../programming_languages_diff/control_flow.html">制御構文</a> <a href="../programming_languages_diff/function.html">関数・メソッド</a> <a href="../programming_languages_diff/operator.html">演算子</a> <a href="../programming_languages_diff/data_type.html">データ型</a> <a href="../programming_languages_diff/string.html">文字列処理</a> <a href="../programming_languages_diff/regexp.html">正規表現</a> <a href="../programming_languages_diff/list/">リスト(配列)</a> <a href="../programming_languages_diff/map/">マップ(連想配列)</a> <a href="../programming_languages_diff/datetime.html">日付と時刻</a> <a href="../programming_languages_diff/file.html">ファイル操作</a> <a href="../programming_languages_diff/exception.html">例外処理</a> </p>
+<p>リストからマップに変換する方法。</p>
+
+<h2 id="scala-20130506">Scala <span class="article-date">2013/05/06</span></h2>
+
+<p>タプルのリストをマップに変換する方法。</p>
+
+<pre><code>def Seq[A]#toMap[T, U]: Map[T, U]
+</code></pre>
+
+<p>例</p>
+
+<pre><code>val list = List(("a", 1), ("b", 2));
+list.toMap; // =&gt; Map("a" -&gt; 1, "b" -&gt; 2)
+</code></pre>
+
+<h2 id="ruby-20130506">Ruby <span class="article-date">2013/05/06</span></h2>
+
+<p>偶数個の要素を持つ配列をハッシュに変換する方法。</p>
+
+<pre><code>arr = ['a', 1, 'b', 2]
+Hash[*arr] # =&gt; {'a' =&gt; 1, 'b' =&gt; 2}
+</code></pre>
 
 
 </div>
 
   <footer>
-    <a href="../">目次</a>
+    <a href="../../">目次</a>
     <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
   </footer>
 

@@ -112,6 +112,7 @@ footer {
   <li><a href="#literal">文字列の書き方</a></li>
   <li><a href="#heredoc">ヒアドキュメント</a></li>
   <li><a href="#escape">エスケープ処理</a></li>
+  <li><a href="#strcat">連結</a></li>
   <li><a href="#substr">substr</a></li>
   <li><a href="#charat">charAt</a></li>
   <li><a href="#trim">trim</a></li>
@@ -270,6 +271,36 @@ echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
 
 <p><code>'</code> で囲めば、エスケープ処理が不要になるが、 <code>'</code> を含めることができなくなる。</p>
 
+<h2 id="strcat">連結</h2>
+
+<h3 id="java--scala-20130727">Java / Scala <span class="article-date">2013/07/27</span></h3>
+
+<p>例</p>
+
+<pre><code>"abc" + "def"
+</code></pre>
+
+<h3 id="php-20130727">PHP <span class="article-date">2013/07/27</span></h3>
+
+<p>例</p>
+
+<pre><code>'abc' . 'def'
+</code></pre>
+
+<h3 id="ruby-20130727">Ruby <span class="article-date">2013/07/27</span></h3>
+
+<p>例</p>
+
+<pre><code>'abc' + 'def'
+</code></pre>
+
+<h3 id="perl-20130727">Perl <span class="article-date">2013/07/27</span></h3>
+
+<p>例</p>
+
+<pre><code>'abc' . 'def'
+</code></pre>
+
 <h2 id="substr">substr</h2>
 
 <h3 id="java--scala-20130410">Java / Scala <span class="article-date">2013/04/10</span></h3>
@@ -382,6 +413,13 @@ String#chomp!(str)
 </code></pre>
 
 <p><a href="http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html" target="_blank">http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html</a></p>
+
+<h3 id="perl-20130727-1">Perl <span class="article-date">2013/07/27</span></h3>
+
+<p>いったん変数に入れた文字列に以下のようにして両端の空白を取り除く。</p>
+
+<pre><code>$str =~ s/^\s*(.*?)\s*$/$1/;
+</code></pre>
 
 <h3 id="javascript-20130410-1">JavaScript <span class="article-date">2013/04/10</span></h3>
 
@@ -609,6 +647,15 @@ def split(regex: String, limit: Int): Array[String]
 <h3 id="ruby-20130410-5">Ruby <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>Array#join(separator)
+</code></pre>
+
+<h3 id="perl-20130727-2">Perl <span class="article-date">2013/07/27</span></h3>
+
+<pre><code>my @arr = ('abc', 'def', 'ghi');
+print @arr;            # =&gt; abcdefghi
+print "@arr";          # =&gt; abc def ghi
+print join(' ', @arr); # =&gt; abc def ghi
+print join(',', @arr); # =&gt; abc,def,ghi
 </code></pre>
 
 <h3 id="javascript-20130410-4">JavaScript <span class="article-date">2013/04/10</span></h3>

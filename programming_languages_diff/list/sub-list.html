@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>プログラミング言語の比較 | hydrocul のメモ</title>
+<title>subList | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 code, kbd, pre, samp {
@@ -97,7 +97,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a>
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; subList
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -106,15 +106,51 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="section">プログラミング言語の比較</h1>
+  <h1 id="sublist">subList</h1>
 
-<p><a href="../programming_languages_diff/overview.html">Overview</a> <a href="../programming_languages_diff/control_flow.html">制御構文</a> <a href="../programming_languages_diff/function.html">関数・メソッド</a> <a href="../programming_languages_diff/operator.html">演算子</a> <a href="../programming_languages_diff/data_type.html">データ型</a> <a href="../programming_languages_diff/string.html">文字列処理</a> <a href="../programming_languages_diff/regexp.html">正規表現</a> <a href="../programming_languages_diff/list/">リスト(配列)</a> <a href="../programming_languages_diff/map/">マップ(連想配列)</a> <a href="../programming_languages_diff/datetime.html">日付と時刻</a> <a href="../programming_languages_diff/file.html">ファイル操作</a> <a href="../programming_languages_diff/exception.html">例外処理</a> </p>
+<h2 id="java-20130506">Java <span class="article-date">2013/05/06</span></h2>
+
+<pre><code>List&lt;E&gt; List&lt;E&gt;#subList(int from, int until)
+</code></pre>
+
+<p><code>subList</code> で返されたリストを変更すると、元のリストにも反映される。</p>
+
+<h2 id="scala-20130506">Scala <span class="article-date">2013/05/06</span></h2>
+
+<pre><code>def Seq[A]#slice(from: Int, until: Int): Seq[A]
+</code></pre>
+
+<h2 id="php-20130427">PHP <span class="article-date">2013/04/27</span></h2>
+
+<pre><code>array array_slice($arr, $from [, $length])
+</code></pre>
+
+<h2 id="ruby-20130412">Ruby <span class="article-date">2013/04/12</span></h2>
+
+<pre><code>Array#slice(index)
+Array#slice(from, length)
+</code></pre>
+
+<p>lengthを省略したら、from以降の部分配列ではなく、その場所の要素を返す(<code>[]</code> と同じ)。</p>
+
+<h2 id="perl-20130727">Perl <span class="article-date">2013/07/27</span></h2>
+
+<pre><code>my @arr = ('abc', 'def', 'ghi');
+print "@arr[0..1]";     # =&gt; abc def
+print "@arr[0,2]";      # =&gt; abc ghi
+print "@arr[1..$#arr]"; # =&gt; def ghi
+</code></pre>
+
+<h2 id="javascript-20130420">JavaScript <span class="article-date">2013/04/20</span></h2>
+
+<pre><code>Array#slice(start[, end])
+</code></pre>
 
 
 </div>
 
   <footer>
-    <a href="../">目次</a>
+    <a href="../../">目次</a>
     <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
   </footer>
 

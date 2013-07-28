@@ -236,6 +236,20 @@ FileUtils::mkdir_p(dirname)
 <pre><code>File.exists?('/home/foo/testfile')
 </code></pre>
 
+<h3 id="perl-20130727">Perl <span class="article-date">2013/07/27</span></h3>
+
+<pre><code>if( -e '/home/foo/testfile' ){
+    ...;
+}
+</code></pre>
+
+<h3 id="sh-20130727">sh <span class="article-date">2013/07/27</span></h3>
+
+<pre><code>if [ -e /home/foo/testfile ]; then
+    ...
+fi
+</code></pre>
+
 <h2 id="is-file">ファイルかどうかを調べる</h2>
 
 <p>ディレクトリでなくてファイルかどうかを調べるには</p>
@@ -245,6 +259,20 @@ FileUtils::mkdir_p(dirname)
 <pre><code>File.ftype('/home/foo/testfile') == 'file'
 </code></pre>
 
+<h3 id="perl-20130727-1">Perl <span class="article-date">2013/07/27</span></h3>
+
+<pre><code>if( -f '/home/foo/testfile' ){
+    ...;
+}
+</code></pre>
+
+<h3 id="sh-20130727-1">sh <span class="article-date">2013/07/27</span></h3>
+
+<pre><code>if [ -f /home/foo/testfile ]; then
+    ...
+fi
+</code></pre>
+
 <h2 id="is-directory">ディレクトリかどうかを調べる</h2>
 
 <h3 id="ruby-20130430-1">Ruby <span class="article-date">2013/04/30</span></h3>
@@ -252,11 +280,39 @@ FileUtils::mkdir_p(dirname)
 <pre><code>File.ftype('/home/foo/testfile') == 'directory'
 </code></pre>
 
+<h3 id="perl-20130727-2">Perl <span class="article-date">2013/07/27</span></h3>
+
+<pre><code>if( -d '/home/foo/testfile' ){
+    ...;
+}
+</code></pre>
+
+<h3 id="sh-20130727-2">sh <span class="article-date">2013/07/27</span></h3>
+
+<pre><code>if [ -d /home/foo/testfile ]; then
+    ...
+fi
+</code></pre>
+
 <h2 id="is-symbolic-link">シンボリックリンクかどうかを調べる</h2>
 
 <h3 id="ruby-20130430-2">Ruby <span class="article-date">2013/04/30</span></h3>
 
 <pre><code>File.ftype('/home/foo/testfile') == 'link'
+</code></pre>
+
+<h3 id="perl-20130727-3">Perl <span class="article-date">2013/07/27</span></h3>
+
+<pre><code>if( -l '/home/foo/testfile' ){
+    ...;
+}
+</code></pre>
+
+<h3 id="sh-20130727-3">sh <span class="article-date">2013/07/27</span></h3>
+
+<pre><code>if [ -L /home/foo/testfile ]; then
+    ...
+fi
 </code></pre>
 
 <h2 id="get-symbolic-link-target">シンボリックリンクのリンク先を取得する</h2>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>リスト(配列)の書き方 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
+#side-menu {
+  float: left;
+  width: 150px;
+}
+#side-menu-attention {
+  margin: 10px;
+  font-size: 80%;
+}
+#content {
+
+  margin: 0 40px 0px 150px;
+
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 30px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+  font-size: 32px;
+}
+#content h2 {
+  margin: 30px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+  font-size: 24px;
+}
+#content h3 {
+  margin: 30px 0 20px 0;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 20px 0 20px 0;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 20px 0 20px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 20px 0 20px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 20px 0 20px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; リスト(配列)の書き方
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="section">リスト(配列)の書き方</h1>
+
+<h2 id="java-20130417">Java <span class="article-date">2013/04/17</span></h2>
+
+<p>配列</p>
+
+<pre><code>arr = {1, 2, 3};
+arr = new int[]{1, 2, 3};
+</code></pre>
+
+<p>インデックスで参照するには</p>
+
+<pre><code>arr[index];
+</code></pre>
+
+<h2 id="scala-20130417">Scala <span class="article-date">2013/04/17</span></h2>
+
+<pre><code>arr = Array(1, 2, 3);
+list = List(1, 2, 3);
+</code></pre>
+
+<p>これは以下と同じ意味。</p>
+
+<pre><code>arr = scala.Array.apply(1, 2, 3);
+list = scala.collection.immutable.List.apply(1, 2, 3);
+</code></pre>
+
+<p>インデックスで参照するには</p>
+
+<pre><code>arr(index);
+list(index);
+</code></pre>
+
+<p>これは以下と同じ意味。</p>
+
+<pre><code>arr.apply(index);
+list.apply(index);
+</code></pre>
+
+<h2 id="php-20130422">PHP <span class="article-date">2013/04/22</span></h2>
+
+<pre><code>arr = array(1, 2, 3);
+</code></pre>
+
+<p>PHP 5.4からは以下のようにも書ける。</p>
+
+<pre><code>arr = [1, 2, 3];
+</code></pre>
+
+<p>インデックスで参照するには</p>
+
+<pre><code>arr[index]
+</code></pre>
+
+<p>配列 | PHP Manual<br />
+<a href="http://jp2.php.net/manual/ja/language.types.array.php" target="_blank">http://jp2.php.net/manual/ja/language.types.array.php</a></p>
+
+<p>配列関係の関数 | PHP Manual<br />
+<a href="http://jp2.php.net/manual/ja/book.array.php" target="_blank">http://jp2.php.net/manual/ja/book.array.php</a></p>
+
+<h2 id="ruby-20130508">Ruby <span class="article-date">2013/05/08</span></h2>
+
+<pre><code>arr = [1, 2, 3]
+arr = %w(abc def ghi) # =&gt; ['abc', 'def', 'ghi'] と同じ
+</code></pre>
+
+<p>%w の記法は、カッコは比較的なんでもよくて、以下はすべて同じ意味になる。</p>
+
+<pre><code>['abc', 'def', 'ghi']
+%w(abc def ghi)
+%w[abc def ghi]
+%w!abc def ghi!
+</code></pre>
+
+<p>インデックスで参照するには</p>
+
+<pre><code>arr[index]
+</code></pre>
+
+<h2 id="python-20130417">Python <span class="article-date">2013/04/17</span></h2>
+
+<pre><code>arr = [1, 2, 3]
+</code></pre>
+
+<p>インデックスで参照するには</p>
+
+<pre><code>arr.index(idx)
+</code></pre>
+
+<h2 id="perl-20130726">Perl <span class="article-date">2013/07/26</span></h2>
+
+<p>配列そのものは変数名が <code>@</code> で始まり、要素を参照するには <code>$</code> で始める。</p>
+
+<pre><code>my @lst = ('abc', 'def', 'ghi');
+</code></pre>
+
+<p>インデックスで参照するには</p>
+
+<pre><code>$lst[0];
+</code></pre>
+
+<h2 id="javascript-20130410">JavaScript <span class="article-date">2013/04/10</span></h2>
+
+<p>下の3つは全部同じ配列を生成する。</p>
+
+<pre><code>arr = [1, 2, 3];
+arr = {0: 1, 1: 2, 2: 3}; arr.__proto__ = Array.prototype;
+arr = {'0': 1, '1': 2, '2': 3}; arr.__proto__ = Array.prototype;
+</code></pre>
+
+<p>JavaScript の配列と連想配列の違い<br />
+<a href="http://d.hatena.ne.jp/amachang/20070202/1170386546" target="_blank">http://d.hatena.ne.jp/amachang/20070202/1170386546</a></p>
+
+<h2 id="coffeescript-20130410">CoffeeScript <span class="article-date">2013/04/10</span></h2>
+
+<pre><code>arr = [1, 2, 3]
+arr = [1, 2, 3, ]
+arr = [
+    1
+    2
+    3
+]
+</code></pre>
+
+
+</div>
+
+  <footer>
+    <a href="../../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>
