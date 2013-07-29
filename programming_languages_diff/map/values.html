@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>clone | hydrocul のメモ</title>
+<title>keys | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -97,7 +97,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; clone
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; keys
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -106,20 +106,19 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="clone">clone</h1>
+  <h1 id="keys">keys</h1>
 
-<h2 id="javascript-20130420">JavaScript <span class="article-date">2013/04/20</span></h2>
+<h2 id="scala-20130728">Scala <span class="article-date">2013/07/28</span></h2>
 
-<p>shallow copy</p>
+<pre><code>// Map[A, B]
+def values: Iterable[B]
+</code></pre>
 
-<pre><code>function clone(src){
-    var dst = {}
-    for(var k in src){
-        dst[k] = src[k];
-    }
-    return dst;
-}
-map_copy = map.clone();
+<h2 id="perl-20130728">Perl <span class="article-date">2013/07/28</span></h2>
+
+<p>例</p>
+
+<pre><code>my @values = values(%arr);
 </code></pre>
 
 
