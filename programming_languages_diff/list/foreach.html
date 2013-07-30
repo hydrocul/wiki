@@ -169,10 +169,18 @@ end
 # =&gt; 1 2
 </code></pre>
 
-<h2 id="perl-20130719">Perl <span class="article-date">2013/07/19</span></h2>
+<h2 id="perl-20130729">Perl <span class="article-date">2013/07/29</span></h2>
 
-<pre><code>my @lst = ('abc', 'def', 'ghi');
-foreach my @elem (@lst) {
+<pre><code>my @arr = ('abc', 'def', 'ghi');
+foreach my @elem (@arr) {
+  ...;
+}
+</code></pre>
+
+<p>変数名を省略した以下の書き方も可能。この場合、ループの中では要素を <code>$_</code> で参照する。</p>
+
+<pre><code>my @arr = ('abc', 'def', 'ghi');
+foreach (@arr) {
   ...;
 }
 </code></pre>

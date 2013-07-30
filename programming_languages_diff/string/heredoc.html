@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>ヒアドキュメント | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
+#side-menu {
+  float: left;
+  width: 150px;
+}
+#side-menu-attention {
+  margin: 10px;
+  font-size: 80%;
+}
+#content {
+
+  margin: 0 40px 0px 150px;
+
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 30px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+  font-size: 32px;
+}
+#content h2 {
+  margin: 30px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+  font-size: 24px;
+}
+#content h3 {
+  margin: 30px 0 20px 0;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 20px 0 20px 0;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 20px 0 20px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 20px 0 20px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 20px 0 20px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; ヒアドキュメント
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="section">ヒアドキュメント</h1>
+
+<h2 id="php-20130616">PHP <span class="article-date">2013/06/16</span></h2>
+
+<p>普通のヒアドキュメントとNowdocというものがある。ヒアドキュメントでは、<code>"</code> で囲んだ文字列リテラルと同じように、<code>$</code> で始まる部分が変数名としてその値に展開がされるのに対して、Nowdocは、<code>'</code> で囲んだ文字列リテラルと同じように、そういった展開がされない。</p>
+
+<p>ヒアドキュメント | PHPマニュアル<br />
+<a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc" target="_blank">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc</a></p>
+
+<p>シングルクオートのヒアドキュメント | PHPマニュアル<br />
+<a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc" target="_blank">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc</a></p>
+
+<h2 id="ruby-20130410">Ruby <span class="article-date">2013/04/10</span></h2>
+
+<p>Ruby 1.9.3 リファレンスマニュアル &gt; ヒアドキュメント<br />
+<a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
+
+<h2 id="python-20130723">Python <span class="article-date">2013/07/23</span></h2>
+
+<p>ダブルクオーテーション3つで囲むと改行を含む文字列を書くことができる。</p>
+
+<pre><code>"""\
+foo
+bar
+"""
+</code></pre>
+
+<p>上記の例で1行目にバックスラッシュがあるのは最初の改行を文字列に含めないようにするため。</p>
+
+<h2 id="sh-20130531">sh <span class="article-date">2013/05/31</span></h2>
+
+<p>例</p>
+
+<pre><code>cat &lt;&lt;EOD
+foo
+bar
+$HOME
+`date`
+EOD
+</code></pre>
+
+<p>ヒアドキュメントの中では <code>\</code>`<code> や </code>$` で始まる変数の展開が使える。それらを使いたくない場合は、以下のようにする。</p>
+
+<pre><code>cat &lt;&lt;\EOD
+foo
+bar
+EOD
+</code></pre>
+
+<h2 id="javascript-20130517">JavaScript <span class="article-date">2013/05/17</span></h2>
+
+<p>標準ではヒアドキュメントの仕組みはないが、似たようなことを実現する工夫はできる。</p>
+
+<p>Javascriptでヒアドキュメント<br />
+<a href="http://www.m-bsys.com/code/javascript-heredoc" target="_blank">http://www.m-bsys.com/code/javascript-heredoc</a></p>
+
+
+</div>
+
+  <footer>
+    <a href="../../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

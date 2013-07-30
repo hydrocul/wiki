@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>trim | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
+#side-menu {
+  float: left;
+  width: 150px;
+}
+#side-menu-attention {
+  margin: 10px;
+  font-size: 80%;
+}
+#content {
+
+  margin: 0 40px 0px 150px;
+
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 30px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+  font-size: 32px;
+}
+#content h2 {
+  margin: 30px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+  font-size: 24px;
+}
+#content h3 {
+  margin: 30px 0 20px 0;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 20px 0 20px 0;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 20px 0 20px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 20px 0 20px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 20px 0 20px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; trim
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="trim">trim</h1>
+
+<h2 id="java--scala-20130410">Java / Scala <span class="article-date">2013/04/10</span></h2>
+
+<pre><code>String String#trim()
+</code></pre>
+
+<h2 id="php-20130611">PHP <span class="article-date">2013/06/11</span></h2>
+
+<pre><code>string trim(string $str [, string $charlist])
+</code></pre>
+
+<p><a href="http://php.net/manual/ja/function.trim.php" target="_blank">http://php.net/manual/ja/function.trim.php</a></p>
+
+<blockquote>
+  <p>2番目のパラメータを指定しない場合、 trim()は以下の文字を削除します。<br />
+“ “ (ASCII 32 (0x20)), 通常の空白。<br />
+“\t” (ASCII 9 (0x09)), タブ。<br />
+“\n” (ASCII 10 (0x0A)), リターン。<br />
+“\r” (ASCII 13 (0x0D)), 改行。<br />
+“\0” (ASCII 0 (0x00)), NULバイト<br />
+“\x0B” (ASCII 11 (0x0B)), 垂直タブ  </p>
+</blockquote>
+
+<pre><code># 改行コードのみを削除
+trim($str, "\r\n")
+</code></pre>
+
+<h2 id="ruby-20130410">Ruby <span class="article-date">2013/04/10</span></h2>
+
+<pre><code>String#strip
+String#strip!
+</code></pre>
+
+<p><a href="http://doc.ruby-lang.org/ja/2.0.0/method/String/i/strip.html" target="_blank">http://doc.ruby-lang.org/ja/2.0.0/method/String/i/strip.html</a></p>
+
+<blockquote>
+  <p>空白文字の定義は <code>" \t\r\n\f\v"</code> です。 また、文字列右側からは <code>"\0"</code> も取り除きますが、 左側の <code>"\0"</code> は取り除きません。</p>
+</blockquote>
+
+<p>最後の改行のみを削除するのは <code>chomp</code>。</p>
+
+<pre><code>String#chomp(str)
+String#chomp!(str)
+</code></pre>
+
+<p><a href="http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html" target="_blank">http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html</a></p>
+
+<h2 id="perl-20130727">Perl <span class="article-date">2013/07/27</span></h2>
+
+<p>いったん変数に入れた文字列に以下のようにして両端の空白を取り除く。</p>
+
+<pre><code>$str =~ s/^\s*(.*?)\s*$/$1/;
+</code></pre>
+
+<h2 id="javascript-20130410">JavaScript <span class="article-date">2013/04/10</span></h2>
+
+<pre><code>jQuery.trim(str)
+</code></pre>
+
+<p><a href="http://api.jquery.com/jQuery.trim/" target="_blank">http://api.jquery.com/jQuery.trim/</a><br />
+<a href="http://semooh.jp/jquery/api/utilities/jQuery.trim/str/" target="_blank">http://semooh.jp/jquery/api/utilities/jQuery.trim/str/</a></p>
+
+
+</div>
+
+  <footer>
+    <a href="../../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

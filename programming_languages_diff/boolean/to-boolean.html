@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>toMap | hydrocul のメモ</title>
+<title>論理値への変換 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -97,7 +97,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; toMap
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/boolean/">論理型</a> &gt; 論理値への変換
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -106,41 +106,34 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="tomap-20130506">toMap <span class="article-date">2013/05/06</span></h1>
+  <h1 id="section">論理値への変換</h1>
 
-<p>リストからマップに変換する方法。</p>
+<h2 id="java-20130410">Java <span class="article-date">2013/04/10</span></h2>
 
-<h2 id="scala-20130506">Scala <span class="article-date">2013/05/06</span></h2>
+<p><code>boolean</code>型以外が暗黙のうちに <code>boolean</code> に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。</p>
 
-<p>タプルのリストをマップに変換する方法。</p>
+<h2 id="scala-20130410">Scala <span class="article-date">2013/04/10</span></h2>
 
-<pre><code>//  Seq[A]
-def toMap[T, U]: Map[T, U]
-</code></pre>
+<p><code>Boolean</code>型以外が暗黙のうちに <code>Boolean</code> に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。</p>
 
-<p>例</p>
+<h2 id="php-20130514">PHP <span class="article-date">2013/05/14</span></h2>
 
-<pre><code>val list = List(("a", 1), ("b", 2));
-list.toMap; // =&gt; Map("a" -&gt; 1, "b" -&gt; 2)
-</code></pre>
+<p><code>false</code>, <code>null</code>, <code>0</code>, <code>0.0</code>, <code>''</code>, <code>'0'</code>, <code>array()</code> が <code>false</code> になり、それ以外は <code>true</code> になる。文字列 <code>'0'</code> は <code>false</code> だが、文字列 <code>'false'</code> や <code>'0.0'</code> は <code>true</code> になる。</p>
 
-<h2 id="ruby-20130506">Ruby <span class="article-date">2013/05/06</span></h2>
+<p><a href="http://php.net/manual/ja/types.comparisons.php" target="_blank">http://php.net/manual/ja/types.comparisons.php</a></p>
 
-<p>偶数個の要素を持つ配列をハッシュに変換する方法。</p>
+<h2 id="ruby-20130410">Ruby <span class="article-date">2013/04/10</span></h2>
 
-<pre><code>arr = ['a', 1, 'b', 2]
-Hash[*arr] # =&gt; {'a' =&gt; 1, 'b' =&gt; 2}
-</code></pre>
+<p><code>false</code>, <code>nil</code> が <code>false</code> になり、それ以外は <code>true</code> になる。<code>0</code> も <code>''</code> も <code>true</code>。</p>
 
 <h2 id="perl-20130730">Perl <span class="article-date">2013/07/30</span></h2>
 
-<p>偶数個の要素を持つ配列をハッシュに変換する方法。単にハッシュに代入すればいいだけ。</p>
+<p>Perlには <code>false</code> や <code>true</code> という値はない。if文などの条件式には、
+<code>0</code>, <code>'0'</code>, <code>''</code>, <code>undef</code> が入ると <code>false</code> の扱いになり、それ以外は <code>true</code> の扱いになる。</p>
 
-<pre><code>my @arr = ('a', 'abc', 'd', 'def');
-my %map = @arr;
-print $map{d};
-# =&gt; def
-</code></pre>
+<h2 id="javascript-20130410">JavaScript <span class="article-date">2013/04/10</span></h2>
+
+<p><code>false</code>, <code>0</code>, <code>''</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code> が <code>false</code> になり、それ以外は <code>true</code> になる。</p>
 
 
 </div>

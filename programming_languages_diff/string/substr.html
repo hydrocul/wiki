@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>データ型 | hydrocul のメモ</title>
+<title>substr | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 code, kbd, pre, samp {
@@ -97,7 +97,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; データ型
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; substr
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -106,57 +106,53 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="section">データ型</h1>
+  <h1 id="substr">substr</h1>
 
-<ul>
-  <li><a href="#is-a">データ型の判定</a></li>
-  <li><a href="#to-boolean">論理値への変換</a></li>
-  <li><a href="#str-to-int">文字列を整数に変換</a></li>
-  <li><a href="#str-to-date">文字列を日付に変換</a></li>
-</ul>
+<h2 id="java--scala-20130410">Java / Scala <span class="article-date">2013/04/10</span></h2>
 
-<h2 id="is-a">データ型の判定</h2>
-
-<h3 id="ruby-20130618">Ruby <span class="article-date">2013/06/18</span></h3>
-
-<pre><code>num.is_a?(Integer)
-str.is_a?(String)
-arr.is_a?(Array)
-hash.is_a?(Hash)
+<pre><code>String String#substring(int from)
+String String#substring(int from, int to)
 </code></pre>
 
-<h3 id="javascript">JavaScript</h3>
+<h2 id="php-20130723">PHP <span class="article-date">2013/07/23</span></h2>
 
-<p>undefined かどうかを判定するには</p>
-
-<pre><code>typeof a === 'undefined'
+<pre><code>string substr(string $string, int $start [, int $length])
 </code></pre>
 
-<p>undefined値のさまざまな判定方法<br />
-<a href="http://blog.tojiru.net/article/205007468.html" target="_blank">http://blog.tojiru.net/article/205007468.html</a></p>
+<p><a href="http://www.php.net/manual/ja/function.substr.php" target="_blank">http://www.php.net/manual/ja/function.substr.php</a></p>
 
-<p>配列かどうかを判定するには</p>
+<blockquote>
+  <p>start が負の場合、返される文字列は、 stringの後ろから数えて start番目から始まる文字列となります。<br />
+string の長さが start 文字以下の場合は FALSE が返されます。<br />
+length が指定され、かつ負である場合、 string の終端から多くの文字が省略されます
+(start が負の場合は、開始位置を算出したあとで)。 もし start が切り出し位置を超える場合、 false が返されます。<br />
+length が指定され、かつ 0 である場合は、 空文字列なら NULL、そうでなければ FALSE を返します。<br />
+length を省略した場合は、 start の位置から文字列の最後までの部分文字列を返します。  </p>
+</blockquote>
 
-<pre><code> a instanceof Array
+<p><code>$length</code>が<code>$string</code>に比べ長すぎる場合は、エラーにならずに<code>$string</code>の最後までを返す。</p>
+
+<h2 id="ruby-20130412">Ruby <span class="article-date">2013/04/12</span></h2>
+
+<pre><code>String#slice(index)
+String#slice(from, length)
 </code></pre>
 
-<h2 id="to-boolean">論理値への変換</h2>
+<p>lengthを省略したら、from以降の文字列ではなく、その場所の1文字を返す。</p>
 
-<p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/boolean/">論理型</a> &gt; <a href="../programming_languages_diff/boolean/to-boolean.html">論理値への変換</a></i>  </p>
+<p>配列に対しても同じように <code>slice</code> が使える。</p>
 
-<h2 id="str-to-int">文字列を整数に変換</h2>
+<h2 id="javascript-20130410">JavaScript <span class="article-date">2013/04/10</span></h2>
 
-<p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/string/">文字列</a> &gt; <a href="../programming_languages_diff/string/to-int.html">文字列を整数に変換</a></i>  </p>
-
-<h2 id="str-to-date">文字列を日付に変換</h2>
-
-<p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/datetime.html">日付と時刻</a> &gt; <a href="../programming_languages_diff/datetime.html#strptime">文字列を日付に変換</a></i>  </p>
+<pre><code>string.substring(from [, to])
+string.substr(from [, len])
+</code></pre>
 
 
 </div>
 
   <footer>
-    <a href="../">目次</a>
+    <a href="../../">目次</a>
     <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
   </footer>
 

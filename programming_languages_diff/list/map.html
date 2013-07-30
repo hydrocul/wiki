@@ -127,6 +127,16 @@ def map[B](f: A =&gt; B): Seq[B]
 <pre><code>arr.map{|elem| ...}
 </code></pre>
 
+<h2 id="perl-20130730">Perl <span class="article-date">2013/07/30</span></h2>
+
+<p>例</p>
+
+<pre><code>my @arr = (1, 2, 3);
+my @arr2 = map { $_ * 2; } @arr;
+print "@arr2";
+# =&gt; 2 4 6
+</code></pre>
+
 <h2 id="coffeescript-20130419">CoffeeScript <span class="article-date">2013/04/19</span></h2>
 
 <p>配列の内包表記</p>

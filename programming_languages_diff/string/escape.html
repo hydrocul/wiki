@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>エスケープ処理 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<style>
+code, kbd, pre, samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
+#side-menu {
+  float: left;
+  width: 150px;
+}
+#side-menu-attention {
+  margin: 10px;
+  font-size: 80%;
+}
+#content {
+
+  margin: 0 40px 0px 150px;
+
+  word-wrap: break-word;
+}
+#content h1 {
+  margin: 30px 0 20px 0;
+  border-bottom: 2px #CCC solid;
+  padding-bottom: 4px
+  font-size: 32px;
+}
+#content h2 {
+  margin: 30px 0 20px 0;
+  border-bottom: 1px #CCC solid;
+  padding-bottom: 2px
+  font-size: 24px;
+}
+#content h3 {
+  margin: 30px 0 20px 0;
+  font-size: 20px;
+}
+#content h4 {
+  margin: 20px 0 20px 0;
+  font-size: 16px;
+}
+#content .article-date {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
+}
+#content p,
+#content ul,
+#content dl {
+  margin: 20px 0 20px 40px;
+}
+#content ul {
+  padding-left: 2em
+}
+#content pre {
+  margin: 20px 0 20px 60px;
+  border: 1px #CCC solid;
+  padding: 4px;
+}
+#content blockquote {
+  margin: 20px 0 20px 60px;
+  border-left: 2px #CCC solid;
+  padding-left: 8px;
+}
+footer {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: 1px solid #888;
+  padding-top: 10px;
+  text-align: right;
+  font-size: 80%;
+}
+</style>
+<script type="text/javascript">
+
+  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5853773-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  }
+
+</script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; エスケープ処理
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="section">エスケープ処理</h1>
+
+<h2 id="java-20130520">Java <span class="article-date">2013/05/20</span></h2>
+
+<p>以下ののエスケープが使える。</p>
+
+<dl>
+  <dt><code>\uxxxx</code></dt>
+  <dd>Unicodeで文字を表現(Unicodeエスケープ)</dd>
+  <dt><code>\\</code>数字(1ケタ〜3ケタ)</dt>
+  <dd>8進数で文字を表現 (\u0000 〜 \u00FF までしか表現できない)</dd>
+  <dt><code>\b</code></dt>
+  <dd>0x08</dd>
+  <dt><code>\t</code></dt>
+  <dd>0x09 タブ</dd>
+  <dt><code>\n</code></dt>
+  <dd>0x0a LF</dd>
+  <dt><code>\f</code></dt>
+  <dd>0x0c</dd>
+  <dt><code>\r</code></dt>
+  <dd>0x0d CR</dd>
+  <dt><code>\"</code></dt>
+  <dd><code>"</code></dd>
+  <dt><code>\'</code></dt>
+  <dd><code>'</code></dd>
+  <dt><code>\\</code></dt>
+  <dd><code>\</code></dd>
+</dl>
+
+<p>Unicodeエスケープは、文字列リテラルの機能ではなく、Javaソースコードをコンパイラがトークンに分割する前の処理として機能する。</p>
+
+<h2 id="php-20130616">PHP <span class="article-date">2013/06/16</span></h2>
+
+<p><code>'</code> で囲めば、エスケープが必要になるのは <code>'</code>, <code>\</code> のみになる。<code>'\n'</code> などと書いても <code>\n</code> そのものになって改行にはならない。
+<code>'</code> で囲まれている場合、 <code>\</code> の次に <code>'</code>, <code>\</code> 以外が来ても特別な意味にはならない。</p>
+
+<pre><code>echo 'aaa\nttt'; // =&gt; aaa\nttt // \n は改行にはならない
+echo 'aaa\'ttt'; // =&gt; aaa'ttt
+echo 'aaa\ttt'; // =&gt; aaa\ttt // \t はタブにはならずに \t のまま
+echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
+</code></pre>
+
+<p><code>"</code> で囲んだ場合は、以下のエスケープが使える。</p>
+
+<dl>
+  <dt><code>\\</code>数字(1ケタ〜3ケタ)</dt>
+  <dd>8進数で文字を表現</dd>
+  <dt><code>\\x</code>数字(1ケタ〜2ケタ)</dt>
+  <dd>16進数で文字を表現</dd>
+  <dt><code>\t</code></dt>
+  <dd>0x09 タブ</dd>
+  <dt><code>\n</code></dt>
+  <dd>0x0a LF</dd>
+  <dt><code>\f</code></dt>
+  <dd>0x0c</dd>
+  <dt><code>\r</code></dt>
+  <dd>0x0d CR</dd>
+  <dt><code>\e</code></dt>
+  <dd>0x1B ESC</dd>
+  <dt><code>\$</code></dt>
+  <dd><code>$</code></dd>
+  <dt><code>\"</code></dt>
+  <dd><code>"</code></dd>
+  <dt><code>\\</code></dt>
+  <dd><code>\</code></dd>
+</dl>
+
+<h2 id="sh-20130520">sh <span class="article-date">2013/05/20</span></h2>
+
+<p>いくつかの記号はシェルで特別な意味を持つので <code>\</code> でエスケープが必要。</p>
+
+<p><code>"</code> で囲めば、エスケープが必要になるのは <code>"</code>, <code>$</code>,  <code>\</code>,  <code>`</code> のみになる。</p>
+
+<p><code>'</code> で囲めば、エスケープ処理が不要になるが、 <code>'</code> を含めることができなくなる。</p>
+
+
+</div>
+
+  <footer>
+    <a href="../../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

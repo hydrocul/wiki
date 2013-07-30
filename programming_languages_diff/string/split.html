@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>データ型 | hydrocul のメモ</title>
+<title>split / explode | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <style>
 code, kbd, pre, samp {
@@ -97,7 +97,7 @@ footer {
 <body>
 
   <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; データ型
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; split / explode
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -106,57 +106,45 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="section">データ型</h1>
+  <h1 id="split--explode">split / explode</h1>
 
-<ul>
-  <li><a href="#is-a">データ型の判定</a></li>
-  <li><a href="#to-boolean">論理値への変換</a></li>
-  <li><a href="#str-to-int">文字列を整数に変換</a></li>
-  <li><a href="#str-to-date">文字列を日付に変換</a></li>
-</ul>
+<h2 id="java-20130704">Java <span class="article-date">2013/07/04</span></h2>
 
-<h2 id="is-a">データ型の判定</h2>
-
-<h3 id="ruby-20130618">Ruby <span class="article-date">2013/06/18</span></h3>
-
-<pre><code>num.is_a?(Integer)
-str.is_a?(String)
-arr.is_a?(Array)
-hash.is_a?(Hash)
+<pre><code>String[] String#split(String regex)
+String[] String#split(String regex, int limit)
 </code></pre>
 
-<h3 id="javascript">JavaScript</h3>
+<h2 id="scala-20130704">Scala <span class="article-date">2013/07/04</span></h2>
 
-<p>undefined かどうかを判定するには</p>
+<pre><code>// scala.collection.immutable.StringLike
+def split(separator: Char): Array[String]
+def split(separators: Array[Char]): Array[String]
 
-<pre><code>typeof a === 'undefined'
+// java.lang.String
+def split(regex: String): Array[String]
+def split(regex: String, limit: Int): Array[String]
 </code></pre>
 
-<p>undefined値のさまざまな判定方法<br />
-<a href="http://blog.tojiru.net/article/205007468.html" target="_blank">http://blog.tojiru.net/article/205007468.html</a></p>
+<h2 id="php-20130505">PHP <span class="article-date">2013/05/05</span></h2>
 
-<p>配列かどうかを判定するには</p>
-
-<pre><code> a instanceof Array
+<pre><code>explode($separator, $str [, $limit])
 </code></pre>
 
-<h2 id="to-boolean">論理値への変換</h2>
+<p><a href="http://jp2.php.net/manual/ja/function.explode.php" target="_blank">http://jp2.php.net/manual/ja/function.explode.php</a></p>
 
-<p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/boolean/">論理型</a> &gt; <a href="../programming_languages_diff/boolean/to-boolean.html">論理値への変換</a></i>  </p>
+<h2 id="ruby-20130504">Ruby <span class="article-date">2013/05/04</span></h2>
 
-<h2 id="str-to-int">文字列を整数に変換</h2>
+<pre><code>String#split(pattern [, limit]))
+</code></pre>
 
-<p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/string/">文字列</a> &gt; <a href="../programming_languages_diff/string/to-int.html">文字列を整数に変換</a></i>  </p>
-
-<h2 id="str-to-date">文字列を日付に変換</h2>
-
-<p><i>-&gt; <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../programming_languages_diff/datetime.html">日付と時刻</a> &gt; <a href="../programming_languages_diff/datetime.html#strptime">文字列を日付に変換</a></i>  </p>
+<p><code>pattern</code> には文字列または正規表現を使える。
+<code>pattern</code> に空文字列 <code>''</code> を指定すると、1文字ずつに分割した配列を返す。</p>
 
 
 </div>
 
   <footer>
-    <a href="../">目次</a>
+    <a href="../../">目次</a>
     <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
   </footer>
 
