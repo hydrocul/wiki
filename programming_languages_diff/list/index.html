@@ -4,95 +4,9 @@
 <meta charset="UTF-8" />
 <title>リスト(配列) | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<style>
-code, kbd, pre, samp {
-  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
-}
-#side-menu {
-  float: left;
-  width: 150px;
-}
-#side-menu-attention {
-  margin: 10px;
-  font-size: 80%;
-}
-#content {
-
-  margin: 0 40px 0px 150px;
-
-  word-wrap: break-word;
-}
-#content h1 {
-  margin: 30px 0 20px 0;
-  border-bottom: 2px #CCC solid;
-  padding-bottom: 4px
-  font-size: 32px;
-}
-#content h2 {
-  margin: 30px 0 20px 0;
-  border-bottom: 1px #CCC solid;
-  padding-bottom: 2px
-  font-size: 24px;
-}
-#content h3 {
-  margin: 30px 0 20px 0;
-  font-size: 20px;
-}
-#content h4 {
-  margin: 20px 0 20px 0;
-  font-size: 16px;
-}
-#content .article-date {
-  font-weight: normal;
-  font-size: 12px;
-  color: #666;
-}
-#content p,
-#content ul,
-#content dl {
-  margin: 20px 0 20px 40px;
-}
-#content ul {
-  padding-left: 2em
-}
-#content pre {
-  margin: 20px 0 20px 60px;
-  border: 1px #CCC solid;
-  padding: 4px;
-}
-#content blockquote {
-  margin: 20px 0 20px 60px;
-  border-left: 2px #CCC solid;
-  padding-left: 8px;
-}
-footer {
-  margin-left: 40px;
-  margin-right: 40px;
-  border-top: 1px solid #888;
-  padding-top: 10px;
-  text-align: right;
-  font-size: 80%;
-}
-</style>
-<script type="text/javascript">
-
-  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5853773-6']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  }
-
-</script>
+<script src="../../common/js/page.js"></script>
 </head>
 <body>
 
@@ -106,9 +20,14 @@ footer {
   </div>
 
 <div id="content">
-  <h1 id="section">リスト(配列)</h1>
+  <h1 id="section">リスト(配列) <span class="article-date">2013/07/30</span></h1>
 
-<p><a href="../../programming_languages_diff/list/clone.html">clone</a> <a href="../../programming_languages_diff/list/contains.html">contains</a> <a href="../../programming_languages_diff/list/drop.html">drop</a> <a href="../../programming_languages_diff/list/fill.html">fill</a> <a href="../../programming_languages_diff/list/filter.html">filter</a> <a href="../../programming_languages_diff/list/filter-count.html">filter-count</a> <a href="../../programming_languages_diff/list/find.html">find</a> <a href="../../programming_languages_diff/list/flat-map.html">flatMap</a> <a href="../../programming_languages_diff/list/flatten.html">flatten</a> <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a> <a href="../../programming_languages_diff/list/foreach.html">foreach</a> <a href="../../programming_languages_diff/list/group-by.html">groupBy</a> <a href="../../programming_languages_diff/list/grouped.html">grouped</a> <a href="../../programming_languages_diff/list/head.html">head</a> <a href="../../programming_languages_diff/list/index-of.html">indexOf</a> <a href="../../programming_languages_diff/list/is-empty.html">isEmpty</a> <a href="../../programming_languages_diff/list/last.html">last</a> <a href="../../programming_languages_diff/list/literal.html">リスト(配列)の書き方</a> <a href="../../programming_languages_diff/list/map.html">map</a> <a href="../../programming_languages_diff/list/plusplus.html"><code>++</code></a> <a href="../../programming_languages_diff/list/product.html">product</a> <a href="../../programming_languages_diff/list/push.html">push</a> <a href="../../programming_languages_diff/list/remove.html">remove</a> <a href="../../programming_languages_diff/list/reverse.html">reverse</a> <a href="../../programming_languages_diff/list/shift.html">shift</a> <a href="../../programming_languages_diff/list/size.html">size</a> <a href="../../programming_languages_diff/list/sort.html">sort</a> <a href="../../programming_languages_diff/list/sub-list.html">subList</a> <a href="../../programming_languages_diff/list/sum.html">sum</a> <a href="../../programming_languages_diff/list/tail.html">tail</a> <a href="../../programming_languages_diff/list/take.html">take</a> <a href="../../programming_languages_diff/list/to-map.html">toMap</a> <a href="../../programming_languages_diff/list/unshift.html">unshift</a> <a href="../../programming_languages_diff/list/zip.html">zip</a> </p>
+<p>Java, PHP, Ruby, Perlには配列がある。</p>
+
+<p>Javaでは配列のほかにリスト <code>java.util.List</code> がある。Scalaでは配列、
+Javaのリストの他に、 <code>scala.collection.List</code> などがある。</p>
+
+<p><a href="../../programming_languages_diff/list/clone.html">clone</a> <a href="../../programming_languages_diff/list/contains.html">contains</a> <a href="../../programming_languages_diff/list/drop.html">drop</a> <a href="../../programming_languages_diff/list/fill.html">fill</a> <a href="../../programming_languages_diff/list/filter.html">filter</a> <a href="../../programming_languages_diff/list/filter-count.html">filter-count</a> <a href="../../programming_languages_diff/list/find.html">find</a> <a href="../../programming_languages_diff/list/flat-map.html">flatMap</a> <a href="../../programming_languages_diff/list/flatten.html">flatten</a> <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a> <a href="../../programming_languages_diff/list/foreach.html">foreach</a> <a href="../../programming_languages_diff/list/group-by.html">groupBy</a> <a href="../../programming_languages_diff/list/grouped.html">grouped</a> <a href="../../programming_languages_diff/list/head.html">head</a> <a href="../../programming_languages_diff/list/index-of.html">indexOf</a> <a href="../../programming_languages_diff/list/is-empty.html">isEmpty</a> <a href="../../programming_languages_diff/list/last.html">last</a> <a href="../../programming_languages_diff/list/literal.html">書き方</a> <a href="../../programming_languages_diff/list/map.html">map</a> <a href="../../programming_languages_diff/list/plusplus.html"><code>++</code></a> <a href="../../programming_languages_diff/list/pop.html">pop</a> <a href="../../programming_languages_diff/list/product.html">product</a> <a href="../../programming_languages_diff/list/push.html">push</a> <a href="../../programming_languages_diff/list/remove.html">remove</a> <a href="../../programming_languages_diff/list/reverse.html">reverse</a> <a href="../../programming_languages_diff/list/shift.html">shift</a> <a href="../../programming_languages_diff/list/size.html">size</a> <a href="../../programming_languages_diff/list/sort.html">sort</a> <a href="../../programming_languages_diff/list/sub-list.html">subList</a> <a href="../../programming_languages_diff/list/sum.html">sum</a> <a href="../../programming_languages_diff/list/tail.html">tail</a> <a href="../../programming_languages_diff/list/take.html">take</a> <a href="../../programming_languages_diff/list/to-map.html">toMap</a> <a href="../../programming_languages_diff/list/to-set.html">toSet</a> <a href="../../programming_languages_diff/list/unshift.html">unshift</a> <a href="../../programming_languages_diff/list/zip.html">zip</a> </p>
 
 
 </div>

@@ -4,95 +4,9 @@
 <meta charset="UTF-8" />
 <title>正規表現 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="../common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<style>
-code, kbd, pre, samp {
-  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
-}
-#side-menu {
-  float: left;
-  width: 150px;
-}
-#side-menu-attention {
-  margin: 10px;
-  font-size: 80%;
-}
-#content {
-
-  margin: 0 40px 0px 150px;
-
-  word-wrap: break-word;
-}
-#content h1 {
-  margin: 30px 0 20px 0;
-  border-bottom: 2px #CCC solid;
-  padding-bottom: 4px
-  font-size: 32px;
-}
-#content h2 {
-  margin: 30px 0 20px 0;
-  border-bottom: 1px #CCC solid;
-  padding-bottom: 2px
-  font-size: 24px;
-}
-#content h3 {
-  margin: 30px 0 20px 0;
-  font-size: 20px;
-}
-#content h4 {
-  margin: 20px 0 20px 0;
-  font-size: 16px;
-}
-#content .article-date {
-  font-weight: normal;
-  font-size: 12px;
-  color: #666;
-}
-#content p,
-#content ul,
-#content dl {
-  margin: 20px 0 20px 40px;
-}
-#content ul {
-  padding-left: 2em
-}
-#content pre {
-  margin: 20px 0 20px 60px;
-  border: 1px #CCC solid;
-  padding: 4px;
-}
-#content blockquote {
-  margin: 20px 0 20px 60px;
-  border-left: 2px #CCC solid;
-  padding-left: 8px;
-}
-footer {
-  margin-left: 40px;
-  margin-right: 40px;
-  border-top: 1px solid #888;
-  padding-top: 10px;
-  text-align: right;
-  font-size: 80%;
-}
-</style>
-<script type="text/javascript">
-
-  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5853773-6']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  }
-
-</script>
+<script src="../common/js/page.js"></script>
 </head>
 <body>
 
@@ -129,7 +43,7 @@ footer {
 
 <h2 id="special-chars">マッチング後に使える特殊な記号</h2>
 
-<h3 id="ruby">Ruby</h3>
+<h3 id="ruby-20130515">Ruby <span class="article-date">2013/05/15</span></h3>
 
 <dl>
   <dt><code>$&amp;</code></dt>
@@ -139,7 +53,7 @@ footer {
 
 <h2 id="match">パターンマッチング</h2>
 
-<h3 id="ruby-1">Ruby</h3>
+<h3 id="ruby-20130504">Ruby <span class="article-date">2013/05/04</span></h3>
 
 <p><code>=~</code> という演算子で、正規表現にマッチしていたら、そのインデックスを返し、マッチしなければ <code>nil</code> を返す。</p>
 
@@ -157,7 +71,19 @@ footer {
 /x./ !~ "abc\nabc\n" # =&gt; true
 </code></pre>
 
-<h3 id="javascript">JavaScript</h3>
+<h3 id="perl-20130730">Perl <span class="article-date">2013/07/30</span></h3>
+
+<p><code>=~</code> という演算子で、正規表現にマッチしているかどうかを返す。マッチしていれば <code>'1'</code> を返し、マッチしていなければ <code>''</code> を返す。</p>
+
+<pre><code>print "abc\nabc\n" =~ /a./;
+# =&gt; 1
+print "abc\nabc\n" =~ /a$/;
+# =&gt; なにも出力しない
+</code></pre>
+
+<p><code>!=</code> という演算子は <code>=~</code> の反対で、マッチしていれば <code>''</code> を返し、マッチしていなければ <code>'1'</code> を返す。</p>
+
+<h3 id="javascript-20130419">JavaScript <span class="article-date">2013/04/19</span></h3>
 
 <pre><code>"abc\nabc\n".match(/a./); // =&gt; ["ab"]
 "abc\nabc\n".match(/a(.)(.*)/); // =&gt; ["abc", "b", "c"]
@@ -167,7 +93,7 @@ footer {
 
 <h2 id="replace">全置換</h2>
 
-<h3 id="php">PHP</h3>
+<h3 id="php-20130418">PHP <span class="article-date">2013/04/18</span></h3>
 
 <pre><code>preg_replace($pattern, $replacement, $str);
 </code></pre>
@@ -212,7 +138,7 @@ footer {
 <p>パターン修飾子 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/reference.pcre.pattern.modifiers.php" target="_blank">http://www.php.net/manual/ja/reference.pcre.pattern.modifiers.php</a></p>
 
-<h3 id="ruby-2">Ruby</h3>
+<h3 id="ruby-20130410">Ruby <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>"abc\nabc\n".gsub(/\n/, "&lt;br /&gt;")
 </code></pre>
@@ -227,7 +153,7 @@ footer {
 <pre><code>"abac".gsub(/a(.)/) { $1 * 2 } # =&gt; "bbcc"
 </code></pre>
 
-<h3 id="javascript-1">JavaScript</h3>
+<h3 id="javascript-20130418">JavaScript <span class="article-date">2013/04/18</span></h3>
 
 <pre><code>"abc\nabc\n".replace(/\n/g, '&lt;br /&gt;');
 </code></pre>
@@ -248,7 +174,7 @@ footer {
 
 <h2 id="section-2">備考</h2>
 
-<h3 id="php-1">PHP</h3>
+<h3 id="php-20130606">PHP <span class="article-date">2013/06/06</span></h3>
 
 <p>PHPにある正規表現のライブラリは、ereg, preg, mb_ereg の3つあるが、eregはバイナリセーフではないので、セキュリティ上問題があり、非推奨になっている。</p>
 
