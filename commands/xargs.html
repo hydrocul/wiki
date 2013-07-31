@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>xargs | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="../commands/">commands</a> &gt; xargs
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="xargs-20130611">xargs <span class="article-date">2013/06/11</span></h1>
+
+<p>ファイルの一覧を標準入力から受け取って、そのファイル一覧を任意のコマンドに引数として渡すコマンド。</p>
+
+<p>以下のようにすると、例えば <code>find</code> で <code>a.txt b.txt dir/c.txt dir/d.txt</code> が出力されるとすると、それがそのまま <code>cat</code> に引数として渡され、
+<code>cat a.txt b.txt dir/c.txt dir/d.txt</code> が実行される。
+<code>find</code> の結果が多すぎて一度に引数として渡しきれない場合は、引数が分割され、<code>cat</code> が複数回実行される。</p>
+
+<pre><code>find . -type f | xargs cat
+</code></pre>
+
+<h2 id="mv--20130611"><code>mv</code> に渡す場合は要注意 <span class="article-date">2013/06/11</span></h2>
+
+<p>xargsは、コマンドの最後にファイル名を引数として渡すため、
+<code>mv</code> に渡すには <code>mv -t</code> とする必要がある。</p>
+
+<pre><code>find . -type f | xargs mv -t ~/dst
+</code></pre>
+
+<p><code>-t</code> を与えないと <code>mv ~/dst a.txt b.txt dir/c.txt dir/d.txt</code> のようになって、
+dir/d.txt に移動することになってしまい、ほとんどのファイルの中身が破壊されてしまう。</p>
+
+
+</div>
+
+  <footer>
+    <a href="../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

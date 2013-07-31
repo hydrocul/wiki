@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>grep | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="../commands/">コマンドリファレンス</a> &gt; grep
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="grep-20130731">grep <span class="article-date">2013/07/31</span></h1>
+
+<dl>
+  <dt><code>-r</code></dt>
+  <dd>ディレクトリを再帰的にたどって検索する。</dd>
+  <dt><code>-n</code></dt>
+  <dd>検索結果の出力に行番号をつける。</dd>
+  <dt><code>-i</code></dt>
+  <dd>大文字小文字を区別せずにマッチングをする。</dd>
+  <dt><code>-v</code></dt>
+  <dd>通常とは逆に、マッチしない行を出力する。</dd>
+  <dt><code>-l</code></dt>
+  <dd>マッチしたファイルのファイル名のみを出力する。</dd>
+  <dt><code>-L</code></dt>
+  <dd>マッチしなかったファイルのファイル名を出力する。</dd>
+  <dt><code>-E</code></dt>
+  <dd>拡張正規表現を使う。 <code>(foo|bar)</code> のような表記の正規表現を使うには、
+<code>-E</code> が必要。</dd>
+  <dt><code>--line-buffered</code></dt>
+  <dd>行ごとのバッファリングにする。<code>tail -f</code> などからパイプで受け取るときに便利。</dd>
+</dl>
+
+<h2 id="tail--f-grep-20130703">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには <span class="article-date">2013/07/03</span></h2>
+
+<pre><code>tail -f access_log | grep --line-buffered hogehoge
+</code></pre>
+
+<p><code>--line-buffered</code> を付けないとgrepがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
+
+
+</div>
+
+  <footer>
+    <a href="../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

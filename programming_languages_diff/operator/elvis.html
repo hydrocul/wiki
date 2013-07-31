@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>エルビス演算子 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/operator/">演算子</a> &gt; エルビス演算子
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="section">エルビス演算子 <span class="article-date">2013/05/14</span></h1>
+
+<p>三項演算子の2項目が省略されたもので、 <code>?:</code> を顔文字として見たときに「エルビス演算子」という名前の由来がわかる。デフォルト値を設定する場合などに便利。</p>
+
+<h2 id="groovy-20130514">Groovy <span class="article-date">2013/05/14</span></h2>
+
+<pre><code>a ?: b
+</code></pre>
+
+<p>という表現で</p>
+
+<pre><code>a ? a : b
+</code></pre>
+
+<p>という意味になる。<code>a</code> が <code>null</code> だったらデフォルトの値にする、という使い方などに便利。</p>
+
+<h2 id="php-20130514">PHP <span class="article-date">2013/05/14</span></h2>
+
+<p>PHP5.3以降でエルビス演算子を使える。</p>
+
+<pre><code>$a ?: $b
+</code></pre>
+
+<p>は</p>
+
+<pre><code>$a ? $a : $b
+</code></pre>
+
+<p>と同じ意味になる。<code>$a</code> が <code>null</code> や空文字列だった場合などにデフォルトの値にする、という使い方などに便利。</p>
+
+<p>PHPの三項演算子<br />
+<a href="http://www.php.net/manual/ja/language.operators.comparison.php#language.operators.comparison.ternary" target="_blank">http://www.php.net/manual/ja/language.operators.comparison.php#language.operators.comparison.ternary</a></p>
+
+<p><code>$a</code> が <code>false</code>, <code>null</code>, <code>0</code>, <code>0.0</code>, <code>''</code>, <code>'0'</code>, <code>array()</code>
+の場合に <code>$b</code> になり、それ以外の場合は、<code>$a</code> になる。</p>
+
+<p><a href="http://php.net/manual/ja/types.comparisons.php" target="_blank">http://php.net/manual/ja/types.comparisons.php</a></p>
+
+
+</div>
+
+  <footer>
+    <a href="../../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>cat | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="../commands/">commands</a> &gt; cat
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="cat-20130602">cat <span class="article-date">2013/06/02</span></h1>
+
+<dl>
+  <dt><code>-n</code></dt>
+  <dd>行番号を付加して出力する。</dd>
+  <dt><code>-E</code></dt>
+  <dd>各行末に <code>$</code> を追加して出力する。</dd>
+  <dt><code>-T</code></dt>
+  <dd>タブを <code>^I</code> として出力する。</dd>
+</dl>
+
+<h2 id="cat--bash-zsh--20130604">cat を使ったファイルの作成と bash, zsh での機能 <span class="article-date">2013/06/04</span></h2>
+
+<p>シェルから <code>cat</code> を使ってファイルを作成するには、以下のような方法がある。</p>
+
+<pre><code>$ cat &gt; foo.txt
+hogehoge
+# ここで Ctrl+D を押せば、標準入力が閉じられて、
+# 入力した内容がファイルに書きだされる。
+</code></pre>
+
+<p>ただ、これは zsh では <code>cat</code> を使わなくても以下のようにできる。</p>
+
+<pre><code># zshの場合
+
+$ &gt; foo.txt
+hogehoge
+# ここで Ctrl+D を押せば、標準入力が閉じられて、
+# 入力した内容がファイルに書きだされる。
+</code></pre>
+
+<p>bash では標準入力を端末で入力させてもらえずに、空っぽのファイルが書きだされる。ファイルが既存だった場合は、内容が削除され、強制的に空っぽのファイルになってしまう。</p>
+
+<p>bash での動きは <code>touch</code> に似ているが、 <code>touch</code> は、ファイルが既存だった場合は、内容を削除せずにタイムスタンプだけ新しくする。</p>
+
+
+</div>
+
+  <footer>
+    <a href="../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

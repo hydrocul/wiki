@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>cp コマンド | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="../commands/">commands</a> &gt; cp コマンド
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="cp--20130603">cp コマンド <span class="article-date">2013/06/03</span></h1>
+
+<dl>
+  <dt><code>-i</code></dt>
+  <dd>コピー先にすでにファイルが存在する場合は、上書きするかどうかを聞いてくる</dd>
+  <dt><code>-p</code></dt>
+  <dd>パーミッション、ユーザ・グループ、タイムスタンプもコピーする</dd>
+  <dt><code>-r</code>, <code>-R</code></dt>
+  <dd>ディレクトリの中を再帰的にコピーする</dd>
+  <dt><code>-u</code></dt>
+  <dd>コピー先にすでにコピー元よりも新しいか同じタイムスタンプのファイルがあった場合はコピーをしない</dd>
+  <dt><code>-v</code></dt>
+  <dd>ファイル名を表示しながらコピーする</dd>
+</dl>
+
+<h2 id="section">ディレクトリ名も含めてファイルをコピーするには <span class="article-date">2013/04/03</span></h2>
+
+<pre><code>cp --parents abc/def/ghi.dat /home/who/
+</code></pre>
+
+<p>この場合、コピー先には <code>/home/who/ghi.dat</code> ではなく <code>/home/who/abc/def/ghi.dat</code> という名前でコピーされる。コピー先にディレクトリが存在しない場合は自動で作成される。</p>
+
+<p><code>rsync</code> での同じ役割をはたすのは <code>-R</code>。</p>
+
+
+</div>
+
+  <footer>
+    <a href="../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

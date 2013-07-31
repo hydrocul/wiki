@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>source-highlight | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="../commands/">commands</a> &gt; source-highlight
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="source-highlight">source-highlight</h1>
+
+<p>基本的な使い方</p>
+
+<pre><code>source-highlight --falesafe --infer-lang -f esc --line-number -i ファイル名
+</code></pre>
+
+<p><code>--infer-lang</code> を付けると、拡張子やコマンドラインオプションからの指定よりも、ファイルの中身からファイルの種類を推定するほうを優先してくれる。中身と行っても、バージョン2.5の段階ではshebangからの推定のみのよう。詳しくは<br />
+<a href="http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_36.html#How-the-input-language-is-discovered" target="_blank">http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_36.html#How-the-input-language-is-discovered</a></p>
+
+<p><code>-i ファイル名</code> を付けないと、標準入力からソースを読もうとする。その場合、拡張子からのファイル種類の推定ができなが、 <code>-s java</code> などとすると、ファイル種類を指定できる。 <code>-s</code> で指定できるファイル種類は 
+<code>source-highlight --lang-list | less</code> で確認できる。</p>
+
+<p><code>-f esc</code> はエスケープシーケンスを使って色付きで出力してくれるので、端末で直接見るのに便利。<code>-f html</code> とすると、HTMLフォーマットで出力される。</p>
+
+<p><code>--line-number</code> は行番号をつけてくれる。</p>
+
+<p>GNU Source-highlight のマニュアルの和訳<br />
+<a href="http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_toc.html" target="_blank">http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_toc.html</a></p>
+
+
+</div>
+
+  <footer>
+    <a href="../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

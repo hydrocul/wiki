@@ -4,95 +4,9 @@
 <meta charset="UTF-8" />
 <title>比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<style>
-code, kbd, pre, samp {
-  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
-}
-#side-menu {
-  float: left;
-  width: 150px;
-}
-#side-menu-attention {
-  margin: 10px;
-  font-size: 80%;
-}
-#content {
-
-  margin: 0 40px 0px 150px;
-
-  word-wrap: break-word;
-}
-#content h1 {
-  margin: 30px 0 20px 0;
-  border-bottom: 2px #CCC solid;
-  padding-bottom: 4px
-  font-size: 32px;
-}
-#content h2 {
-  margin: 30px 0 20px 0;
-  border-bottom: 1px #CCC solid;
-  padding-bottom: 2px
-  font-size: 24px;
-}
-#content h3 {
-  margin: 30px 0 20px 0;
-  font-size: 20px;
-}
-#content h4 {
-  margin: 20px 0 20px 0;
-  font-size: 16px;
-}
-#content .article-date {
-  font-weight: normal;
-  font-size: 12px;
-  color: #666;
-}
-#content p,
-#content ul,
-#content dl {
-  margin: 20px 0 20px 40px;
-}
-#content ul {
-  padding-left: 2em
-}
-#content pre {
-  margin: 20px 0 20px 60px;
-  border: 1px #CCC solid;
-  padding: 4px;
-}
-#content blockquote {
-  margin: 20px 0 20px 60px;
-  border-left: 2px #CCC solid;
-  padding-left: 8px;
-}
-footer {
-  margin-left: 40px;
-  margin-right: 40px;
-  border-top: 1px solid #888;
-  padding-top: 10px;
-  text-align: right;
-  font-size: 80%;
-}
-</style>
-<script type="text/javascript">
-
-  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5853773-6']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  }
-
-</script>
+<script src="../../common/js/page.js"></script>
 </head>
 <body>
 
@@ -108,24 +22,28 @@ footer {
 <div id="content">
   <h1 id="section">比較</h1>
 
-<h2 id="java-20130724">Java <span class="article-date">2013/07/24</span></h2>
+<h2 id="java-20130731">Java <span class="article-date">2013/07/31</span></h2>
 
-<dl>
-  <dt><code>==</code>, <code>!=</code></dt>
-  <dd>プリミティブ型の場合は値を比較する。参照型の場合は同じインスタンスかどうかを判別する。</dd>
-  <dt><code>obj1.equals(obj2)</code> (参照型に対して)</dt>
-  <dd>値を比較する。</dd>
-</dl>
+<p><code>obj1.equals(obj2)</code> で値を比較する。</p>
 
-<h2 id="scala-20130724">Scala <span class="article-date">2013/07/24</span></h2>
+<p><code>==</code> は同じインスタンスかどうかをチェックするもので同じ文字列かどうかはわからない。</p>
 
-<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。プリミティブ型に対してはJavaと同じで、参照型に対してはJavaの <code>equals</code> を呼び出している。</p>
+<h2 id="scala-20130731">Scala <span class="article-date">2013/07/31</span></h2>
+
+<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。
+Javaの <code>equals</code> を呼び出している。</p>
 
 <h2 id="ruby-20130714">Ruby <span class="article-date">2013/07/14</span></h2>
 
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
 
 <p><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&gt;</code>, <code>&lt;=&gt;</code> で文字列の辞書順の比較ができる。</p>
+
+<h2 id="perl-20130731">Perl <span class="article-date">2013/07/31</span></h2>
+
+<p><code>eq</code> は等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>ne</code> はその反対。</p>
+
+<p><code>==</code> は数値として比較してしまう。</p>
 
 
 </div>

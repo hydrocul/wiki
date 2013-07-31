@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>wget コマンド | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="../commands/">commands</a> &gt; wget コマンド
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="wget--20130403">wget コマンド <span class="article-date">2013/04/03</span></h1>
+
+<p>GNU Wget 1.12 Manual<br />
+<a href="http://www.gnu.org/software/wget/manual/wget.html" target="_blank">http://www.gnu.org/software/wget/manual/wget.html</a></p>
+
+<p>GNU Wget 1.9 Manual 日本語<br />
+<a href="http://www.bookshelf.jp/texi/wget/wget-ja.html" target="_blank">http://www.bookshelf.jp/texi/wget/wget-ja.html</a></p>
+
+<h3 id="basic-20130412">BASIC認証のあるサイトをダウンロードするには <span class="article-date">2013/04/12</span></h3>
+
+<pre><code>wget --http-user=user --http-passwd=password URL
+</code></pre>
+
+<h3 id="section">ウェブサイトを丸ごとダウンロードするには  <span class="article-date">2013/04/10</span></h3>
+
+<p>ウェブサイトを第3階層までリンクをたどりダウンロードする。</p>
+
+<pre><code>wget -r -l3 URL
+</code></pre>
+
+<p>ウェブサイトを第5階層までリンクをたどりダウンロードする。かつローカルでサイトを閲覧できるように、パスを相対パスに書き換える。</p>
+
+<pre><code>wget -r -l5 --convert-links URL
+</code></pre>
+
+<h3 id="section-1">標準出力に吐き出すには <span class="article-date">2013/05/03</span></h3>
+
+<pre><code>wget -q -O - URL
+</code></pre>
+
+<p><code>-O -</code> で結果を標準出力に出す。 <code>-q</code> は結果以外の進捗の表示などを無効にする。</p>
+
+<h3 id="section-2">レスポンスヘッダを確認するには <span class="article-date">2013/07/16</span></h3>
+
+<p><code>-S</code> を付けると、レスポンスヘッダが表示される。</p>
+
+
+</div>
+
+  <footer>
+    <a href="../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

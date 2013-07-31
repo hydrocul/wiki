@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>比較演算子 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/operator/">演算子</a> &gt; 比較演算子
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="section">比較演算子</h1>
+
+<h2 id="java-20130724">Java <span class="article-date">2013/07/24</span></h2>
+
+<dl>
+  <dt><code>==</code>, <code>!=</code></dt>
+  <dd>プリミティブ型の場合は値を比較する。参照型の場合は同じインスタンスかどうかを判別する。</dd>
+  <dt><code>obj1.equals(obj2)</code> (参照型に対して)</dt>
+  <dd>値を比較する。</dd>
+</dl>
+
+<h2 id="scala-20130724">Scala <span class="article-date">2013/07/24</span></h2>
+
+<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。プリミティブ型に対してはJavaと同じで、参照型に対してはJavaの <code>equals</code> を呼び出している。</p>
+
+<h2 id="ruby-20130731">Ruby <span class="article-date">2013/07/31</span></h2>
+
+<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
+
+<p>ソートに便利な比較の演算子</p>
+
+<pre><code>a &lt;=&gt; b
+</code></pre>
+
+<p><code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。</p>
+
+<p>参考：<a href="../string/compare.html">文字列の比較</a></p>
+
+
+</div>
+
+  <footer>
+    <a href="../../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>cut コマンド | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="../commands/">commands</a> &gt; cut コマンド
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="cut--20130624">cut コマンド <span class="article-date">2013/06/24</span></h1>
+
+<p>タブ区切りでフィールドを選択して出力する。または文字単位・バイト単位で1行の中の場所を選択して出力する。</p>
+
+<p>例</p>
+
+<pre><code># タブ区切りで最初の列と3列目だけを抽出して、タブ区切りで出力する
+cat ファイル名 | cut -f1,3
+
+# 以下のようにしても列の順番は入れ替えてくれない
+cat ファイル名 | cut -f3,1
+</code></pre>
+
+<h2 id="section">スペース区切りを処理するには <span class="article-date">2013/06/17</span></h2>
+
+<pre><code>cat ファイル名 | cut -d' ' -f1,3
+</code></pre>
+
+<h2 id="section-1">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには <span class="article-date">2013/06/17</span></h2>
+
+<pre><code>cat ファイル名 | sed -E '/[\t ]+/ /g' | cut -d' ' -f1,3
+</code></pre>
+
+<h2 id="section-2">タブをコマンドラインから指定するには <span class="article-date">2013/06/17</span></h2>
+
+<p><code>cut</code> は <code>-f</code> でフィールドを指定した場合、デフォルトでタブ区切りだが、コマンドラインからどうしてもタブ区切りであることを指定したい場合は、以下のように書けなくもない。</p>
+
+<pre><code># 最初のカラムだけを表示
+cut -d$'\t' -f1
+</code></pre>
+
+<p><code>sort</code> でも似たような書き方でできる。</p>
+
+
+</div>
+
+  <footer>
+    <a href="../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

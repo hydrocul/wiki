@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>du | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="../commands/">commands</a> &gt; du
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="du-20130609">du <span class="article-date">2013/06/09</span></h1>
+
+<p>カレントディレクトリの中のファイル・ディレクトリの容量一覧を表示させる例</p>
+
+<pre><code>du -sh *
+</code></pre>
+
+<p>ディレクトリはサブディレクトリも含めて再帰的に容量を計算して合計が表示される。</p>
+
+<dl>
+  <dt><code>-x</code></dt>
+  <dd>別のファイルシステムのディレクトリは除外する</dd>
+  <dt><code>-m</code></dt>
+  <dd>MB単位で表示する</dd>
+  <dt><code>-k</code></dt>
+  <dd>KB単位で表示する</dd>
+  <dt><code>-h</code></dt>
+  <dd>大きさに応じてMB単位だったり、KB単位だったり、人間にとって読みやすい単位で表示する</dd>
+  <dt><code>-s</code></dt>
+  <dd>サブディレクトリをたどってそれぞれを表示するのではなく、引数に与えられた
+ディレクトリの容量合計のみを表示する</dd>
+</dl>
+
+
+</div>
+
+  <footer>
+    <a href="../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

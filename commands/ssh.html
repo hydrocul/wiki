@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>SSH | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="../commands/">コマンドリファレンス</a> &gt; SSH
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="ssh">SSH</h1>
+
+<h2 id="section">基本の使い方 <span class="article-date">2013/06/11</span></h2>
+
+<pre><code>ssh &lt;ID&gt;@&lt;IP&gt;
+</code></pre>
+
+<p>moshは</p>
+
+<pre><code>mosh &lt;ID&gt;@&lt;IP&gt;
+</code></pre>
+
+<p>sshfsは</p>
+
+<pre><code>sshfs &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
+</code></pre>
+
+<p>rsyncは</p>
+
+<pre><code>rsync &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
+</code></pre>
+
+<p><code>&lt;IP&gt;</code> と書いてある箇所はホスト名でも可。</p>
+
+<p><code>&lt;ID&gt;@</code> の部分はローカルホストのログインユーザ名と同じであるか、
+<code>~/.ssh/config</code> にユーザ名が指定してあれば、省略可。</p>
+
+<h2 id="ssh-20130528">ポートが22以外のSSHサーバに接続するには <span class="article-date">2013/05/28</span></h2>
+
+<pre><code>ssh -p &lt;port&gt; &lt;ID&gt;@&lt;IP&gt;
+</code></pre>
+
+<p>moshは</p>
+
+<pre><code>mosh --ssh="ssh -p &lt;port&gt;" &lt;ID&gt;@&lt;IP&gt;
+</code></pre>
+
+<p>sshfsは</p>
+
+<pre><code>sshfs -p &lt;port&gt; &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
+</code></pre>
+
+<p>rsyncは</p>
+
+<pre><code>rsync -e "ssh -p &lt;port&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
+</code></pre>
+
+<h2 id="section-1">秘密鍵を個別に指定して接続するには <span class="article-date">2013/05/28</span></h2>
+
+<pre><code>ssh -i &lt;private_key_file&gt; &lt;ID&gt;@&lt;IP&gt;
+</code></pre>
+
+<p>moshは</p>
+
+<pre><code>mosh --ssh="ssh -i &lt;private_key_file&gt;" &lt;ID&gt;@&lt;IP&gt;
+</code></pre>
+
+<p>sshfsは</p>
+
+<pre><code>sshfs -oIdentityFile=&lt;private_key_file&gt; &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
+</code></pre>
+
+<p>rsyncは</p>
+
+<pre><code>rsync -e "ssh -i &lt;private_key_file&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
+</code></pre>
+
+<h2 id="tar--20130403">サーバにある大量のファイルを tar しながら、ローカルにダウンロードするには <span class="article-date">2013/04/03</span></h2>
+
+<pre><code>ssh &lt;ID&gt;@&lt;IP&gt; tar cvzf - リモートのバックアップ対象ディレクトリ &gt; ローカルの保存先tarファイル名
+</code></pre>
+
+<p>リモートでtarを実行してファイルに書き出すのではなく標準出力に出して、それをsshでそのままローカルに転送し、ローカルでファイルに書き出している。</p>
+
+<h2 id="ssh-20130403">SSHが勝手に切断されないようにするには <span class="article-date">2013/04/03</span></h2>
+
+<p>クライアント側の ~/.ssh/config に以下を記述する。</p>
+
+<pre><code>Host *
+  ServerAliveInterval 60
+</code></pre>
+
+<h2 id="section-2">秘密鍵・公開鍵のペアを作るには <span class="article-date">2013/04/03</span></h2>
+
+<p>以下のコマンドで <code>~/.ssh/id_rsa</code>, <code>~/.ssh/id_rsa.pub</code> にできる。</p>
+
+<pre><code>ssh-keygen -t rsa
+</code></pre>
+
+<h2 id="section-3">公開鍵をリモートのサーバに簡単に設置するには <span class="article-date">2013/04/03</span></h2>
+
+<pre><code>cat ~/.ssh/id_rsa.pub | ssh &lt;ID&gt;@&lt;IP&gt; "bash -c \"if [ ! -d ~/.ssh ] ; then mkdir ~/.ssh; fi; if [ -f ~/.ssh/authorized_keys ] ; then cat &gt;&gt; ~/.ssh/authorized_keys; else cat &gt;&gt; ~/.ssh/authorized_keys2; fi\""
+</code></pre>
+
+<p>このコマンドを実行すると、公開鍵がリモートのサーバに設置される。リモートのサーバにとって初めての公開鍵であれば、パーミッションとかを調整する必要があるかもしれない。ファイル名が <code>authorized_keys</code> だったり <code>authorized_keys2</code> だったりするのはよくわからない。</p>
+
+<p>sshのオプションの中で bash を起動しているのは、FreeBSDのサーバなどでデフォルトのシェルがcshの場合に、ifの構文が違っていて動かないので、bashを強制するため。</p>
+
+<h2 id="autossh-20130422">autossh <span class="article-date">2013/04/22</span></h2>
+
+<p>sshセッションが切れたときに自動で再接続してくれるツール。
+moshを使っていれば問題ないが、SSH port forwarding を使っている場合は、
+moshが対応していないので、このツールが便利かもしれない。</p>
+
+<h2 id="section-4">ポートフォワードの待ち受けポートに外部から接続できるようにするには <span class="article-date">2013/04/27</span></h2>
+
+<p>ポートを待ち受ける方のホストの <code>/etc/ssh/sshd_config</code> に以下を書いておく。</p>
+
+<pre><code>GatewayPorts yes
+</code></pre>
+
+<p>外部からファイアウォールの内側にあるローカルホストの22番に接続できるようにしようと思って、以下のコマンドを実行しても、上記の設定がリモートホスト
+(remoteA)にないと、8022番ポートに接続できるのは、リモートホスト(remoteA)の中からのみで、第三のホスト(remoteB)からはremoteAの8022番ポートに接続できない。</p>
+
+<pre><code>ssh -R 8022:localhost:22 remoteA
+</code></pre>
+
+<p>イメージ図</p>
+
+<pre><code>/------------\  /-----------\
+|  remoteA   |  |  remoteB  |
+|            |  |           |
+|  port:8022 |  |           |
+\-----||-----/  \-----------/
+      ||
+      ||
+/-----||-----\
+|  port:22   |
+|            |
+|  Local     |
+\------------/
+</code></pre>
+
+<h2 id="mosh">mosh</h2>
+
+<p>モバイル環境に強くしたssh。</p>
+
+<p><i>-&gt; <a href="../">Home</a> &gt; <a href="../mosh.html">mosh</a></i>  </p>
+
+
+</div>
+
+  <footer>
+    <a href="../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

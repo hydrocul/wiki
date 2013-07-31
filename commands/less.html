@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>less コマンド | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="../commands/">commands</a> &gt; less コマンド
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="less--20130604">less コマンド <span class="article-date">2013/06/04</span></h1>
+
+<dl>
+  <dt><code>-X</code></dt>
+  <dd>less 終了時に画面をクリアしない。</dd>
+  <dt><code>-F</code></dt>
+  <dd>行数が短くて位置画面に収まる場合は less がすぐに終了する。</dd>
+  <dt><code>-R</code></dt>
+  <dd>色などのエスケープシーケンスをそのとおりに解釈して
+色付きで表示する。 <code>ls</code> は <code>--color</code> を付け、 <code>grep</code> は <code>--color=always</code> を
+付けると色付きで出力される。</dd>
+  <dt><code>-S</code></dt>
+  <dd>長い行を折り返さずに横方向にもページングできるようにする。</dd>
+</dl>
+
+<h2 id="ls--less--20130604">ls を色付きで less で見るには <span class="article-date">2013/06/04</span></h2>
+
+<pre><code>ls -alF --color | less -X -R
+</code></pre>
+
+<h2 id="grep--less--20130606">grep を色付きで less で見るには <span class="article-date">2013/06/06</span></h2>
+
+<pre><code>grep -rni --color=always abc . | less -X -R
+</code></pre>
+
+<h2 id="tail--f--20130423"><code>tail -f</code> みたいにするには <span class="article-date">2013/04/23</span></h2>
+
+<p><code>less +F ファイル名</code> とすると、<code>tail -f</code> みたいな動きになる。Ctrl+C を押すと、普通の less に戻り、Shift+F を押すと、また <code>tail -f</code> に戻る。</p>
+
+<p><a href="http://www.commandlinefu.com/commands/view/1024/make-less-behave-like-tail-f." target="_blank">http://www.commandlinefu.com/commands/view/1024/make-less-behave-like-tail-f.</a></p>
+
+<h2 id="utf-8euc-jpless-20130628">UTF-8のターミナルからEUC-JPなサーバに接続してlessで文字化けしてしまう場合 <span class="article-date">2013/06/28</span></h2>
+
+<p><code>less hoge.txt</code> で日本語が <code>?</code> とかに化けてしまい、
+<code>nkf -Ew hoge.txt | less</code> で日本語が <code>[3m&lt;9A&gt;</code> みたいなコードで表示されてしまう場合、
+<code>-r</code> をつけることでうまく表示できる。</p>
+
+<pre><code>nkf -Ew hoge.txt | less -r
+</code></pre>
+
+<p>たぶん、<code>[3m&lt;9A&gt;</code> とかはlessコマンドがUTF-8を扱えないために変換しちゃうのだと思う。<code>-r</code> は文字を解釈せずにそのままスルーするオプションで、端末がUTF-8で動いていれば、結果的にうまく表示できる。</p>
+
+
+</div>
+
+  <footer>
+    <a href="../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

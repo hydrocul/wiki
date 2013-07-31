@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>rsync | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="../commands/">commands</a> &gt; rsync
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="rsync-20130614">rsync <span class="article-date">2013/06/14</span></h1>
+
+<pre><code># リモートホストからローカルにダウンロードする
+rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+
+# ポート番号が22以外の場合
+rsync -e "ssh -p ポート番号" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+
+# 秘密鍵のファイルを指定する場合
+rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+</code></pre>
+
+<ul>
+  <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
+</ul>
+
+<h2 id="section">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには <span class="article-date">2013/04/03</span></h2>
+
+<pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
+</code></pre>
+
+<p>この場合、リモートには <code>/home/who/ghi.dat</code> ではなく <code>/home/who/abc/def/ghi.dat</code> 
+という名前でアップロードされる。リモートにディレクトリが存在しない場合は自動で作成される。</p>
+
+<p><code>cp</code> での同じ役割をはたすのは <code>--parents</code>。</p>
+
+<h2 id="excludeinclude-20130606">excludeオプションとincludeオプション <span class="article-date">2013/06/06</span></h2>
+
+<p>rsync の複雑怪奇な exclude と include の適用手順を理解しよう<br />
+<a href="http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/" target="_blank">http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/</a></p>
+
+
+</div>
+
+  <footer>
+    <a href="../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>
