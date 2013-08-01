@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>書き方 | hydrocul のメモ</title>
+<title>マップ(連想配列)書き方 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
   <div id="breadcrumb">
-    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; 書き方
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; マップ(連想配列)書き方
   </div>
   <div id="side-menu">
     <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
 
 <div id="content">
-  <h1 id="section">書き方</h1>
+  <h1 id="section">マップ(連想配列)書き方</h1>
 
 <h2 id="java-20130417">Java <span class="article-date">2013/04/17</span></h2>
 
@@ -94,25 +94,51 @@ map.put("b", 2);
 <pre><code>map = {'a': 1, 'b': 2}
 </code></pre>
 
-<h2 id="perl-20130727">Perl <span class="article-date">2013/07/27</span></h2>
+<h2 id="perl-20130731">Perl <span class="article-date">2013/07/31</span></h2>
 
-<pre><code>my %map = (a =&gt; 1, b =&gt; 2);
+<p>ハッシュそのものは変数名が <code>%</code> で始まり、要素を参照するには <code>$</code> で始める。</p>
+
+<p>以下の2つはまったく同じ意味で、どちらもハッシュを <code>%hash</code> に代入している。</p>
+
+<pre><code>my %hash = (a =&gt; 1, b =&gt; 2);
+my %hash = ('a', 1, 'b', 2);
 </code></pre>
 
-<p>ハッシュへのレファレンスは</p>
+<p>上記の <code>(...)</code> の表記をリストという。偶数個の要素のリストを <code>%</code> で始まる変数に代入するとハッシュになる。</p>
 
-<pre><code>my $map = {a =&gt; 1, b =&gt; 2};
+<p>リストの中の <code>=&gt;</code> は <code>,</code> とまったく同じ意味で、以下のように書いても差支えない。こんな書き方は普通はしないが。</p>
+
+<pre><code>my %hash = ('a', 1 =&gt; 'b', 2);
+</code></pre>
+
+<p>最後に余計なカンマがあっても問題ない。</p>
+
+<pre><code>my %hash = (
+           a =&gt; 1,
+           b =&gt; 2,
+          );
+</code></pre>
+
+<p>キーで要素を参照するには、以下のように <code>{}</code> でキーを指定し、先頭は <code>$</code> を使う。</p>
+
+<pre><code>$hash{a} # =&gt; 1
+$hash{'a'} # =&gt; 1
+</code></pre>
+
+<h3 id="section-1">ハッシュへのレファレンス <span class="article-date">2013/07/31</span></h3>
+
+<pre><code>my $hash = {a =&gt; 1, b =&gt; 2};
 </code></pre>
 
 <p>で、これは以下と同じ。</p>
 
-<pre><code>my %m = (a =&gt; 1, b =&gt; 2);
-my $map = \%m;
+<pre><code>my %h = (a =&gt; 1, b =&gt; 2);
+my $hash = \%m;
 </code></pre>
 
 <p>レファレンスの実体を取り出すには、</p>
 
-<pre><code>%$map;
+<pre><code>%$hash;
 </code></pre>
 
 <h2 id="javascript-20130415">JavaScript <span class="article-date">2013/04/15</span></h2>

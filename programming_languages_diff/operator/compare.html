@@ -22,6 +22,8 @@
 <div id="content">
   <h1 id="section">比較演算子</h1>
 
+<p>参考：<a href="../string/compare.html">文字列の比較</a></p>
+
 <h2 id="java-20130724">Java <span class="article-date">2013/07/24</span></h2>
 
 <dl>
@@ -39,14 +41,29 @@
 
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
 
-<p>ソートに便利な比較の演算子</p>
+<h3 id="section-1">ソートに便利な比較の演算子 <code>&lt;=&gt;</code> <span class="article-date">2013/07/31</span></h3>
 
 <pre><code>a &lt;=&gt; b
 </code></pre>
 
 <p><code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。</p>
 
-<p>参考：<a href="../string/compare.html">文字列の比較</a></p>
+<h2 id="perl-20130731">Perl <span class="article-date">2013/07/31</span></h2>
+
+<p><code>eq</code> は文字列として等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>ne</code> はその反対。</p>
+
+<p><code>==</code> は数値として等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>!=</code> はその反対。</p>
+
+<p><code>'10a' == '10b'</code> は無理やり数値にして、同じ <code>10</code> になるため、<code>1</code> を返す。ただ、 <code>use warnings;</code> を使っていると、警告を表示してくれる。</p>
+
+<p>数値は <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
+
+<h3 id="section-2">ソートに便利な比較の演算子 <code>&lt;=&gt;</code> <span class="article-date">2013/07/31</span></h3>
+
+<pre><code>a &lt;=&gt; b
+</code></pre>
+
+<p><code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。</p>
 
 
 </div>
