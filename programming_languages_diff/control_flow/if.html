@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>if文 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/control_flow/">control_flow</a> &gt; if文
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="if">if文</h1>
+
+<h2 id="c-c-20130619">C言語, C++ <span class="article-date">2013/06/19</span></h2>
+
+<pre><code>if(...){
+  ...;
+} else if(...){
+  ...;
+} else {
+  ...;
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合は <code>{}</code> を省略可。</p>
+
+<pre><code>if(...)
+  ...;
+else
+  ...;
+</code></pre>
+
+<p>いずれの構文でも <code>else</code> で実行する文がなければ、<code>else</code> を省略可。</p>
+
+<h2 id="go-20130619">Go言語 <span class="article-date">2013/06/19</span></h2>
+
+<pre><code>if ... {
+  ...
+} else if ... {
+  ...
+} else {
+  ...
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合でも <code>{}</code> を省略不可。</p>
+
+<p><code>else</code> で実行する文がなければ、<code>else</code> を省略可。</p>
+
+<p>条件を書くの部分にセミコロンで区切って変数初期化の文を書くことができる。</p>
+
+<pre><code>if a := f(); a &lt; 0 {
+  return 0
+} else {
+  return a
+}
+</code></pre>
+
+<h2 id="java-20130707">Java <span class="article-date">2013/07/07</span></h2>
+
+<pre><code>if(...){
+  ...;
+} else if(...){
+  ...;
+} else {
+  ...;
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合はC言語と同様に <code>{}</code> を省略可。</p>
+
+<pre><code>if(...)
+  ...;
+else
+  ...;
+</code></pre>
+
+<h2 id="scala-20130707">Scala <span class="article-date">2013/07/07</span></h2>
+
+<pre><code>if(...){
+  ...;
+} else if(...){
+  ...;
+} else {
+  ...;
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合はC言語と同様に <code>{}</code> を省略可。</p>
+
+<pre><code>if(...)
+  ...;
+else
+  ...;
+</code></pre>
+
+<p>Scalaではifは式であり、結果を返すことができるので以下のように三項演算子の代わりとしても使える。</p>
+
+<pre><code>val max = if(a &gt; b) a else b;
+</code></pre>
+
+<h2 id="php-20130619">PHP <span class="article-date">2013/06/19</span></h2>
+
+<pre><code>if(...){
+  ...;
+} else if(...){
+  ...;
+} else {
+  ...;
+}
+</code></pre>
+
+<p><code>else if</code> はつなげて <code>elseif</code> でも可。</p>
+
+<p>本体の文が1つだけの場合はC言語と同様に <code>{}</code> を省略可。</p>
+
+<pre><code>if(...)
+  ...;
+else
+  ...;
+</code></pre>
+
+<p>コロンを使った以下の記法も可能。</p>
+
+<pre><code>if(...):
+  ...;
+elseif(...):
+  ...;
+else:
+  ...;
+endif;
+</code></pre>
+
+<p>いずれの構文でも <code>else</code> で実行する文がなければ、<code>else</code> を省略可。</p>
+
+<h2 id="ruby-20130718">Ruby <span class="article-date">2013/07/18</span></h2>
+
+<pre><code>if ... then
+  ...
+elsif ... then
+  ...
+else
+  ...
+end
+</code></pre>
+
+<p><code>then</code> は省略可能。</p>
+
+<p>elseの節がなく、本体の文が1つだけの場合は以下の修飾子の書き方も可能。</p>
+
+<pre><code>... if ...
+</code></pre>
+
+<p>ifの反対で条件が満たされなかった場合にのみ実行するunlessもある。</p>
+
+<pre><code>unless(...){
+  ...
+}
+
+... unless ...
+</code></pre>
+
+<h2 id="python-20130630">Python <span class="article-date">2013/06/30</span></h2>
+
+<pre><code>if ...:
+    ...
+elif ...:
+    ...
+else:
+    ...
+</code></pre>
+
+<h2 id="perl-20130718">Perl <span class="article-date">2013/07/18</span></h2>
+
+<pre><code>if(...){
+    ...;
+} elsif(...){
+    ...;
+} else {
+    ...;
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合でも <code>{}</code> で囲むことが必要。</p>
+
+<p>else節がなく、本体の文が1つだけの場合は以下の修飾子の書き方も可能。</p>
+
+<pre><code>... if ...;
+</code></pre>
+
+<p>ifの反対で条件が満たされなかった場合にのみ実行するunlessもある。</p>
+
+<pre><code>unless(...){
+    ...;
+}
+
+... unless ...;
+</code></pre>
+
+<h2 id="sh-20130410">sh <span class="article-date">2013/04/10</span></h2>
+
+<pre><code>if [ ... ]; then
+    ...
+elif [ ... ]; then
+    ...
+else
+    ...
+fi
+</code></pre>
+
+<h2 id="coffeescript-20130630">CoffeeScript <span class="article-date">2013/06/30</span></h2>
+
+<pre><code>if ...
+    ...
+else if ...
+    ...
+else
+    ...
+</code></pre>
+
+<p>または単一行で書く場合</p>
+
+<pre><code>if ... then ... else ...
+</code></pre>
+
+<p>elseだけを1行にまとめることができる。</p>
+
+<pre><code>if ...
+    ...
+else if ...
+    ...
+else ...
+</code></pre>
+
+<p>3項演算子としても使える。</p>
+
+<pre><code>a = if ... then ... else ...
+</code></pre>
+
+<p>Rubyの用に修飾子としても使える。</p>
+
+<pre><code>alert "hoge" if condition
+</code></pre>
+
+
+</div>
+
+  <footer>
+    <a href="../../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

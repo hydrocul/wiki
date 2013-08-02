@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>while文 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/control_flow/">control_flow</a> &gt; while文
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="while">while文</h1>
+
+<h2 id="c-c-20130714">C言語, C++ <span class="article-date">2013/07/14</span></h2>
+
+<pre><code>while(...){
+  ...
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合は <code>{}</code> を省略可。</p>
+
+<pre><code>while(...)
+  ...
+</code></pre>
+
+<p>永久ループは</p>
+
+<pre><code>while(true){
+  ...
+}
+</code></pre>
+
+<p>または</p>
+
+<pre><code>for(;;){
+  ...
+}
+</code></pre>
+
+<h2 id="go-20130621">Go言語 <span class="article-date">2013/06/21</span></h2>
+
+<pre><code>for ... {
+  ...
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合でも <code>{}</code> を省略不可。</p>
+
+<p>永久ループは</p>
+
+<pre><code>for {
+  ...
+}
+</code></pre>
+
+<h2 id="java-20130714">Java <span class="article-date">2013/07/14</span></h2>
+
+<pre><code>while(...){
+  ...;
+}
+</code></pre>
+
+<p>本体が式1つだけの場合は <code>{}</code> を省略可</p>
+
+<pre><code>while(...)
+  ...;
+</code></pre>
+
+<p>永久ループは</p>
+
+<pre><code>while(true){
+  ...;
+}
+</code></pre>
+
+<h2 id="scala-20130714">Scala <span class="article-date">2013/07/14</span></h2>
+
+<pre><code>while(...){
+  ...;
+}
+</code></pre>
+
+<p>本体が式1つだけの場合は <code>{}</code> を省略可</p>
+
+<pre><code>while(...)
+  ...;
+</code></pre>
+
+<p>Scalaのif式などと違い、whileは常に <code>Unit</code> を返す。</p>
+
+<p><code>break</code> や <code>continue</code> は存在しない。再帰関数を使うなどする。</p>
+
+<p>永久ループは</p>
+
+<pre><code>while(true){
+  ...;
+}
+</code></pre>
+
+<h2 id="ruby-20130621">Ruby <span class="article-date">2013/06/21</span></h2>
+
+<pre><code>while ... do
+  ...
+end
+</code></pre>
+
+<p><code>do</code> は省略可能。</p>
+
+<p>永久ループは</p>
+
+<pre><code>while true do
+  ...
+end
+</code></pre>
+
+<h2 id="python-20130630">Python <span class="article-date">2013/06/30</span></h2>
+
+<pre><code>while ...:
+    ...
+    ...
+</code></pre>
+
+<h2 id="perl-20130801">Perl <span class="article-date">2013/08/01</span></h2>
+
+<pre><code>while (...) {
+    ...;
+}
+</code></pre>
+
+<p>条件が否定になった以下の形式もある。</p>
+
+<pre><code>until (...) {
+    ...;
+}
+</code></pre>
+
+<p>doループも使える。</p>
+
+<pre><code>do {
+    ...;
+} while (...);
+
+do {
+    ...;
+} until (...);
+</code></pre>
+
+<p>修飾子の書き方も可能。</p>
+
+<pre><code>... while ...;
+... until ...;
+</code></pre>
+
+<h2 id="coffeescript-20130624">CoffeeScript <span class="article-date">2013/06/24</span></h2>
+
+<pre><code>while ...
+  ...
+</code></pre>
+
+<p>または1行にまとめて</p>
+
+<pre><code>... while ...
+</code></pre>
+
+<p>ループの中では <code>break</code> や <code>continue</code> が使える。</p>
+
+
+</div>
+
+  <footer>
+    <a href="../../">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>

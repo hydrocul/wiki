@@ -25,7 +25,8 @@
 <ul>
   <li><a href="#comment">コメント</a></li>
   <li><a href="#semicolon">インデント / セミコロン</a></li>
-  <li><a href="#variable">変数</a></li>
+  <li><a href="#variable-declare">変数の宣言</a></li>
+  <li><a href="#variable-name">変数名</a></li>
   <li><a href="#environment">環境変数の取得</a></li>
   <li><a href="#command-line-arguments">コマンドライン引数の取得</a></li>
   <li><a href="#source-file-name">ソースファイル名と行番号をソースコード中で取得するには</a></li>
@@ -209,20 +210,32 @@
   <li>行末のセミコロンは省略可</li>
 </ul>
 
-<h2 id="variable">変数</h2>
+<h2 id="variable-declare">変数の宣言</h2>
 
-<h3 id="perl-20130730">Perl <span class="article-date">2013/07/30</span></h3>
+<h3 id="php-20130801">PHP <span class="article-date">2013/08/01</span></h3>
+
+<p>変数の宣言なしにいきなり使うことができる。</p>
+
+<p>関数の中で使用している変数のスコープは関数の中で、関数の外で使用している変数のスコープはグローバルになる。</p>
+
+<p>グローバル変数を関数の中から使用するには、その関数の中で <code>global</code> でグローバル変数を宣言する必要がある。</p>
+
+<h3 id="perl-20130801">Perl <span class="article-date">2013/08/01</span></h3>
+
+<p>変数宣言をせずにいきなり値を代入するとグローバル変数になる。<br />
+<code>my</code> で宣言すると、ローカル変数になる。</p>
+
+<p>ローカル変数では、<code>{}</code> のブロックの中で宣言すると、ブロックの中のスコープを持つ。</p>
+
+<h2 id="variable-name">変数名</h2>
+
+<h3 id="perl-20130801-1">Perl <span class="article-date">2013/08/01</span></h3>
 
 <p><code>$</code> で始まる変数は、配列やハッシュ(連想配列 or マップ)以外のアトミックな値を保存する変数。<br />
 <code>@</code> で始まる変数は、配列を保存する変数。要素にアクセスするには <code>$...[..]</code> とする。<br />
 <code>%</code> で始まる変数は、ハッシュを保存する変数。要素にアクセスするには <code>$...{..}</code> とする。  </p>
 
 <p><code>$</code>, <code>@</code>, <code>%</code> の3つはシジル(sigil)という。</p>
-
-<p>変数宣言をせずにいきなり値を代入するとグローバル変数になる。<br />
-<code>my</code> で宣言すると、ローカル変数になる。</p>
-
-<p>ローカル変数では、<code>{}</code> のブロックの中で宣言すると、ブロックの中のスコープを持つ。</p>
 
 <h2 id="environment">環境変数の取得</h2>
 
@@ -303,7 +316,7 @@ end
 
 <h2 id="section-2">おまじない</h2>
 
-<h3 id="perl-20130730-1">Perl <span class="article-date">2013/07/30</span></h3>
+<h3 id="perl-20130730">Perl <span class="article-date">2013/07/30</span></h3>
 
 <p>以下を付けることで、バグになりやすい古い仕様の表記などに対して警告を出してくれるようになる。</p>
 
