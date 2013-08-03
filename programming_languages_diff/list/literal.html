@@ -22,17 +22,40 @@
 <div id="content">
   <h1 id="section">リスト(配列)の書き方</h1>
 
-<h2 id="java-20130417">Java <span class="article-date">2013/04/17</span></h2>
+<h2 id="java">Java</h2>
 
-<p>配列</p>
+<h3 id="section-1">配列 <span class="article-date">2013/04/17</span></h3>
 
-<pre><code>arr = {1, 2, 3};
-arr = new int[]{1, 2, 3};
+<pre><code>int[] arr = {1, 2, 3};
+
+int[] arr = new int[]{1, 2, 3};
 </code></pre>
 
 <p>インデックスで参照するには</p>
 
-<pre><code>arr[index];
+<pre><code>arr[index]
+</code></pre>
+
+<h3 id="javautillist-20130802"><code>java.util.List</code> <span class="article-date">2013/08/02</span></h3>
+
+<pre><code>import java.util.List;
+import java.util.ArrayList;
+
+List&lt;String&gt; lst = new ArrayList&lt;String&gt;();
+lst.add("a");
+lst.add("b");
+lst.add("c");
+</code></pre>
+
+<p>インデックスで参照するには</p>
+
+<pre><code>lst.get(index)
+</code></pre>
+
+<p><code>java.util.List</code> のインスタンスを配列に変換するには</p>
+
+<pre><code>String[] arr = new String[lst.size()];
+lst.toArray(arr);
 </code></pre>
 
 <h2 id="scala-20130417">Scala <span class="article-date">2013/04/17</span></h2>

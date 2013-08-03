@@ -47,7 +47,7 @@ map.put("b", 2);
 <pre><code>Collections.&lt;String, Integer&gt;singletonMap(key, value)
 </code></pre>
 
-<h2 id="scala-20130506">Scala <span class="article-date">2013/05/06</span></h2>
+<h2 id="scala-20130802">Scala <span class="article-date">2013/08/02</span></h2>
 
 <pre><code>map = Map("a" -&gt; 1, "b" -&gt; 2);
 </code></pre>
@@ -67,6 +67,13 @@ map.put("b", 2);
 
 <pre><code>map.get("a")
 </code></pre>
+
+<p>要素が存在しない場合のデフォルト値を設定して、要素を取得するには</p>
+
+<pre><code>map.getOrElse("a", 0);
+</code></pre>
+
+<p>2つ目の引数がデフォルト値となる。要素が存在する場合には、2つ目の引数が評価されないので、計算に時間のかかるデフォルト値を設定してもよい。</p>
 
 <h2 id="php-20130508">PHP <span class="article-date">2013/05/08</span></h2>
 
