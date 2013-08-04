@@ -25,7 +25,7 @@
 <ul>
   <li><a href="#comment">コメント</a></li>
   <li><a href="#semicolon">インデント / セミコロン</a></li>
-  <li><a href="#variable-declare">変数の宣言</a></li>
+  <li><a href="#variable-declare">変数の宣言とスコープ</a></li>
   <li><a href="#variable-name">変数名</a></li>
   <li><a href="#environment">環境変数の取得</a></li>
   <li><a href="#command-line-arguments">コマンドライン引数の取得</a></li>
@@ -210,7 +210,7 @@
   <li>行末のセミコロンは省略可</li>
 </ul>
 
-<h2 id="variable-declare">変数の宣言</h2>
+<h2 id="variable-declare">変数の宣言とスコープ</h2>
 
 <h3 id="php-20130801">PHP <span class="article-date">2013/08/01</span></h3>
 
@@ -220,6 +220,45 @@
 
 <p>グローバル変数を関数の中から使用するには、その関数の中で <code>global</code> でグローバル変数を宣言する必要がある。</p>
 
+<h3 id="ruby-20130804">Ruby <span class="article-date">2013/08/04</span></h3>
+
+<p>変数の宣言なしにいきなり使うことができる。</p>
+
+<p><code>$</code> で始まる名前の変数がグローバル変数となる。ローカル変数と名前が衝突することはない。</p>
+
+<p>例</p>
+
+<pre><code>a = 1;
+# この a はローカル変数
+
+def f1
+  # p a
+  # ここから外側にある a を参照することはできない
+
+  a = 2
+  # このaは関数の中のローカル変数で、外側の a とは無関係
+
+  p a # =&gt; 2
+end
+
+f1
+p a # =&gt; 1
+# f1 が呼び出されていても f1 の外側の a は変更されない
+
+$a = 10;
+def f2
+  p $a # =&gt; 10
+  # $a はどこからでも参照できる
+
+  $a = 20
+
+  p $a # =&gt; 20
+end
+
+f2
+p $a # =&gt; 20
+</code></pre>
+
 <h3 id="perl-20130801">Perl <span class="article-date">2013/08/01</span></h3>
 
 <p>変数宣言をせずにいきなり値を代入するとグローバル変数になる。<br />
@@ -228,6 +267,12 @@
 <p>ローカル変数では、<code>{}</code> のブロックの中で宣言すると、ブロックの中のスコープを持つ。</p>
 
 <h2 id="variable-name">変数名</h2>
+
+<h3 id="ruby-20130804-1">Ruby <span class="article-date">2013/08/04</span></h3>
+
+<p><code>$</code> で始まる変数は、グローバル変数。</p>
+
+<p>アルファベット大文字で始まる名前は、定数。</p>
 
 <h3 id="perl-20130801-1">Perl <span class="article-date">2013/08/01</span></h3>
 
