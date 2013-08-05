@@ -28,12 +28,12 @@
 <p>GNU Wget 1.9 Manual 日本語<br />
 <a href="http://www.bookshelf.jp/texi/wget/wget-ja.html" target="_blank">http://www.bookshelf.jp/texi/wget/wget-ja.html</a></p>
 
-<h3 id="basic-20130412">BASIC認証のあるサイトをダウンロードするには <span class="article-date">2013/04/12</span></h3>
+<h2 id="basic-20130412">BASIC認証のあるサイトをダウンロードするには <span class="article-date">2013/04/12</span></h2>
 
 <pre><code>wget --http-user=user --http-passwd=password URL
 </code></pre>
 
-<h3 id="section">ウェブサイトを丸ごとダウンロードするには  <span class="article-date">2013/04/10</span></h3>
+<h2 id="section">ウェブサイトを丸ごとダウンロードするには  <span class="article-date">2013/04/10</span></h2>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする。</p>
 
@@ -45,16 +45,31 @@
 <pre><code>wget -r -l5 --convert-links URL
 </code></pre>
 
-<h3 id="section-1">標準出力に吐き出すには <span class="article-date">2013/05/03</span></h3>
+<h2 id="section-1">標準出力に吐き出すには <span class="article-date">2013/08/04</span></h2>
 
 <pre><code>wget -q -O - URL
 </code></pre>
 
-<p><code>-O -</code> で結果を標準出力に出す。 <code>-q</code> は結果以外の進捗の表示などを無効にする。</p>
+<p><code>-O -</code> (大文字オー)で結果を標準出力に出す。 <code>-q</code> は結果以外の進捗の表示などを無効にする。</p>
 
-<h3 id="section-2">レスポンスヘッダを確認するには <span class="article-date">2013/07/16</span></h3>
+<h2 id="section-2">レスポンスヘッダを確認するには <span class="article-date">2013/07/16</span></h2>
 
 <p><code>-S</code> を付けると、レスポンスヘッダが表示される。</p>
+
+<h2 id="section-3">再帰的なダウンロードを途中から再開できるようにするには <span class="article-date">2013/08/05</span></h2>
+
+<p>再帰的なダウンロード <code>-r</code> とともに <code>-nc</code> を付けると、すでにダウンロード済みのファイルがあれば、それを利用し、改めてダウンロードすることはない。</p>
+
+<h2 id="section-4">再帰的なダウンロード中のダウンロードのインターバルを指定するには <span class="article-date">2013/08/05</span></h2>
+
+<p><code>--wait=10</code> とすると、10秒のインターバルを設ける。小数点も使用可能で、
+<code>--wait=0.5</code> で0.5秒の間がおかれる。</p>
+
+<p>さらに <code>--random-wait</code> を付けると、指定したインターバルの0.5倍から1.5倍の間のランダムなインターバルになる。</p>
+
+<h2 id="section-5">再帰的なダウンロードの時にホスト名のディレクトリを作らずに済ますには <span class="article-date">2013/08/05</span></h2>
+
+<p><code>--no-host-directories</code> を付ける。</p>
 
 
 </div>

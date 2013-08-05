@@ -20,9 +20,23 @@
   </div>
 
 <div id="content">
-  <h1 id="wc-20130608">wc <span class="article-date">2013/06/08</span></h1>
+  <h1 id="wc-20130805">wc <span class="article-date">2013/08/05</span></h1>
 
-<p><code>wc -l</code> は行数を数える。実際にあh改行の数を数えるだけなので、<code>"1\n2\n"</code> は2行と数えるが、<code>"1\n2"</code> は1行と数える。</p>
+<p><code>wc オプション ファイル名</code> またはパイプの形式で <code>cat ファイル名 | wc オプション</code> 
+のような形式で、行数や文字数などを数える。</p>
+
+<dl>
+  <dt><code>wc -l</code></dt>
+  <dd>行数を数える。実際にあh改行の数を数えるだけなので、<code>"1\n2\n"</code> は2行と
+数えるが、<code>"1\n2"</code> は1行と数える。</dd>
+  <dt><code>wc -m</code></dt>
+  <dd>文字数を数える。マルチバイトな文字もあくまで文字単位で数える。
+文字コードがUTF-8じゃない場合の挙動はどうなんだろう？
+最後に改行がある場合はそれも数える。
+改行コードがCRLFの場合の挙動はどうなんだろう？</dd>
+  <dt><code>wc -c</code></dt>
+  <dd>バイト数を数える。最後に改行がある場合はそれも数える。</dd>
+</dl>
 
 
 </div>

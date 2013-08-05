@@ -36,6 +36,7 @@
   <li><a href="#is-symbolic-link">シンボリックリンクかどうかを調べる</a></li>
   <li><a href="#get-symbolic-link-target">シンボリックリンクのリンク先を取得する</a></li>
   <li><a href="#recursive">ディレクトリの中をを再帰的にたどってすべて削除するには</a></li>
+  <li><a href="#flush">flush</a></li>
 </ul>
 
 <h2 id="file-get-contents">ファイルの中身を1つの文字列として取得するには</h2>
@@ -285,6 +286,15 @@ end
   rmdir($dir);
   echo "delete $dir&lt;br /&gt;";
 }
+</code></pre>
+
+<h2 id="flush">flush</h2>
+
+<h3 id="ruby-20130804">Ruby <span class="article-date">2013/08/04</span></h3>
+
+<p>標準出力をflushする例</p>
+
+<pre><code>STDOUT.flush
 </code></pre>
 
 
