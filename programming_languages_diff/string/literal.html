@@ -4,95 +4,9 @@
 <meta charset="UTF-8" />
 <title>文字列の書き方 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="../../common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<style>
-code, kbd, pre, samp {
-  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
-}
-#side-menu {
-  float: left;
-  width: 150px;
-}
-#side-menu-attention {
-  margin: 10px;
-  font-size: 80%;
-}
-#content {
-
-  margin: 0 40px 0px 150px;
-
-  word-wrap: break-word;
-}
-#content h1 {
-  margin: 30px 0 20px 0;
-  border-bottom: 2px #CCC solid;
-  padding-bottom: 4px
-  font-size: 32px;
-}
-#content h2 {
-  margin: 30px 0 20px 0;
-  border-bottom: 1px #CCC solid;
-  padding-bottom: 2px
-  font-size: 24px;
-}
-#content h3 {
-  margin: 30px 0 20px 0;
-  font-size: 20px;
-}
-#content h4 {
-  margin: 20px 0 20px 0;
-  font-size: 16px;
-}
-#content .article-date {
-  font-weight: normal;
-  font-size: 12px;
-  color: #666;
-}
-#content p,
-#content ul,
-#content dl {
-  margin: 20px 0 20px 40px;
-}
-#content ul {
-  padding-left: 2em
-}
-#content pre {
-  margin: 20px 0 20px 60px;
-  border: 1px #CCC solid;
-  padding: 4px;
-}
-#content blockquote {
-  margin: 20px 0 20px 60px;
-  border-left: 2px #CCC solid;
-  padding-left: 8px;
-}
-footer {
-  margin-left: 40px;
-  margin-right: 40px;
-  border-top: 1px solid #888;
-  padding-top: 10px;
-  text-align: right;
-  font-size: 80%;
-}
-</style>
-<script type="text/javascript">
-
-  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5853773-6']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  }
-
-</script>
+<script src="../../common/js/page.js"></script>
 </head>
 <body>
 
@@ -108,9 +22,13 @@ footer {
 <div id="content">
   <h1 id="section">文字列の書き方</h1>
 
-<h2 id="java-20130520">Java <span class="article-date">2013/05/20</span></h2>
+<h2 id="c-20130806">C言語 <span class="article-date">2013/08/06</span></h2>
 
-<p><code>"</code> で囲んで文字列を表す。 <code>'</code> で囲むと文字列ではなく文字になる。</p>
+<p><code>"</code> で囲んで文字列(char[]型)を表す。 <code>'</code> で囲むと文字列ではなく文字(char型)になる。</p>
+
+<h2 id="java--scala-20130806">Java / Scala <span class="article-date">2013/08/06</span></h2>
+
+<p><code>"</code> で囲んで文字列(String型)を表す。 <code>'</code> で囲むと文字列ではなく文字(char型)になる。</p>
 
 <h2 id="php-20130616">PHP <span class="article-date">2013/06/16</span></h2>
 
@@ -118,7 +36,15 @@ footer {
 
 <p><code>"</code> で囲んだ場合とヒアドキュメントでは <code>$</code> で始まる部分が変数名として値に展開される。</p>
 
+<h2 id="python-20130806">Python <span class="article-date">2013/08/06</span></h2>
+
+<p><code>'</code> または <code>"</code> で囲む。</p>
+
 <h2 id="perl-20130730">Perl <span class="article-date">2013/07/30</span></h2>
+
+<p><code>'</code> または <code>"</code> で囲む。</p>
+
+<h2 id="ruby-20130806">Ruby <span class="article-date">2013/08/06</span></h2>
 
 <p><code>'</code> または <code>"</code> で囲む。</p>
 
