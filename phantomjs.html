@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>phantomjs | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="./common/js/page.js"></script>
+</head>
+<body>
+
+  <div id="breadcrumb">
+    <a href="./">Home</a> &gt; phantomjs
+  </div>
+  <div id="side-menu">
+    <div id="side-menu-attention">
+      このサイトは筆者(hydrocul)の個人メモの集合です。
+    </div>
+  </div>
+
+<div id="content">
+  <h1 id="phantomjs">phantomjs</h1>
+
+<h2 id="quick-start-20130808">Quick Start <span class="article-date">2013/08/08</span></h2>
+
+<p><a href="https://github.com/ariya/phantomjs/wiki/Quick-Start" target="_blank">https://github.com/ariya/phantomjs/wiki/Quick-Start</a></p>
+
+<h2 id="section">インストール <span class="article-date">2013/07/12</span></h2>
+
+<p>CentOS 6.4にインストールした時の記録。</p>
+
+<pre><code># IPAフォントをインストール。
+# 日本語フォントがないとスクリーンキャプチャの際に日本語が化ける
+wget http://ipafont.ipa.go.jp/ipaexfont/IPAexfont00201.php
+unzip IPAexfont00201.zip
+sudo mkdir -p /usr/share/fonts/japanese/ipa
+sudo cp IPAexfont00201/*.ttf /usr/share/fonts/japanese/ipa
+fc-cache -fv
+
+wget https://phantomjs.googlecode.com/files/phantomjs-1.9.1-linux-x86_64.tar.bz2
+tar xvjf phantomjs-1.9.1-linux-x86_64.tar.bz2
+
+# あとは ./phantomjs-1.9.1-linux-x86_64/bin をPATHに追加するなりする
+</code></pre>
+
+<h2 id="phantomjs-capybara-webkit--20130808">PhantomJSでやるのはつらいので capybara-webkit を使います <span class="article-date">2013/08/08</span></h2>
+
+<p><a href="http://blog.uu59.org/2012-09-19-capybara-webkit-crawler.html" target="_blank">http://blog.uu59.org/2012-09-19-capybara-webkit-crawler.html</a></p>
+
+
+</div>
+
+  <footer>
+    <a href="./">目次</a>
+    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  </footer>
+
+</body>
+</html>
