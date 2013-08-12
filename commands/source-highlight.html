@@ -20,14 +20,16 @@
   </div>
 
 <div id="content">
-  <h1 id="source-highlight">source-highlight</h1>
+  <h1 id="source-highlight-20130614">source-highlight <span class="article-date">2013/06/14</span></h1>
 
 <p>基本的な使い方</p>
 
 <pre><code>source-highlight --falesafe --infer-lang -f esc --line-number -i ファイル名
 </code></pre>
 
-<p><code>--infer-lang</code> を付けると、拡張子やコマンドラインオプションからの指定よりも、ファイルの中身からファイルの種類を推定するほうを優先してくれる。中身と行っても、バージョン2.5の段階ではshebangからの推定のみのよう。詳しくは<br />
+<p><code>--infer-lang</code> を付けると、拡張子やコマンドラインオプションからの指定よりも、ファイルの中身からファイルの種類を推定するほうを優先してくれる。中身と行っても、バージョン2.5の段階ではshebangからの推定のみのよう。</p>
+
+<p>詳しくは<br />
 <a href="http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_36.html#How-the-input-language-is-discovered" target="_blank">http://www.geocities.jp/harddiskdive/source-highlight/source-highlight_36.html#How-the-input-language-is-discovered</a></p>
 
 <p><code>-i ファイル名</code> を付けないと、標準入力からソースを読もうとする。その場合、拡張子からのファイル種類の推定ができなが、 <code>-s java</code> などとすると、ファイル種類を指定できる。 <code>-s</code> で指定できるファイル種類は 
