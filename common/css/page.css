@@ -9,6 +9,16 @@ code, kbd, pre, samp {
   margin: 10px;
   font-size: 80%;
 }
+#side-menu-ls {
+  margin: 10px;
+  font-size: 80%;
+}
+#side-menu-ls ul {
+  padding-left: 0;
+}
+#side-menu-ls li {
+  list-style-type: none;
+}
 #content {
   margin: 0 40px 0px 150px;
   word-wrap: break-word;
