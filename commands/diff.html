@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>diff | hydrocul のメモ</title>
+<title>diff | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,19 +10,70 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../commands/">コマンドリファレンス</a> &gt; diff
+<div id="breadcrumb">
+  <a href="../commands/">コマンドリファレンス</a> &gt; diff
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="../commands/ack-grep.html">ack-grep</a></li>
+  <li>&gt; <a href="../commands/awk.html">awk</a></li>
+  <li>&gt; <a href="../commands/base64.html">base64</a></li>
+  <li>&gt; <a href="../commands/cat.html">cat</a></li>
+  <li>&gt; <a href="../commands/cp.html">cp コマンド</a></li>
+  <li>&gt; <a href="../commands/crontab.html">crontab</a></li>
+  <li>&gt; <a href="../commands/cut.html">cut コマンド</a></li>
+  <li>&gt; <a href="../commands/date.html">date</a></li>
+  <li>&gt; diff</li>
+  <li>&gt; <a href="../commands/du.html">du</a></li>
+  <li>&gt; <a href="../commands/echo.html">echo</a></li>
+  <li>&gt; <a href="../commands/find.html">find コマンド</a></li>
+  <li>&gt; <a href="../commands/git.html">git コマンド</a></li>
+  <li>&gt; <a href="../commands/grep.html">grep</a></li>
+  <li>&gt; <a href="../commands/incron.html">incron (inotify cron)</a></li>
+  <li>&gt; <a href="../commands/less.html">less コマンド</a></li>
+  <li>&gt; <a href="../commands/lftp.html">lftp</a></li>
+  <li>&gt; <a href="../commands/ls.html">ls コマンド</a></li>
+  <li>&gt; <a href="../commands/lsof.html">lsof</a></li>
+  <li>&gt; <a href="../commands/netstat.html">netstat</a></li>
+  <li>&gt; <a href="../commands/nkf.html">nkf コマンド</a></li>
+  <li>&gt; <a href="../commands/od.html">od</a></li>
+  <li>&gt; <a href="../commands/openssl.html">openssl</a></li>
+  <li>&gt; <a href="../commands/pandoc.html">pandoc</a></li>
+  <li>&gt; <a href="../commands/ps.html">ps</a></li>
+  <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
+  <li>&gt; <a href="../commands/rsync.html">rsync</a></li>
+  <li>&gt; <a href="../commands/scala.html">scala</a></li>
+  <li>&gt; <a href="../commands/sdiff.html">sdiff</a></li>
+  <li>&gt; <a href="../commands/sed.html">sed コマンド</a></li>
+  <li>&gt; <a href="../commands/sort.html">sort</a></li>
+  <li>&gt; <a href="../commands/source-highlight.html">source-highlight</a></li>
+  <li>&gt; <a href="../commands/sqlite.html">sqlite</a></li>
+  <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
+  <li>&gt; <a href="../commands/sshfs.html">sshfs</a></li>
+  <li>&gt; <a href="../commands/tac.html">tac</a></li>
+  <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
+  <li>&gt; <a href="../commands/top.html">top</a></li>
+  <li>&gt; <a href="../commands/touch.html">touch</a></li>
+  <li>&gt; <a href="../commands/tr.html">tr</a></li>
+  <li>&gt; <a href="../commands/watch.html">watch</a></li>
+  <li>&gt; <a href="../commands/wc.html">wc</a></li>
+  <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
+  <li>&gt; <a href="../commands/xargs.html">xargs</a></li>
+  <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
   <h1 id="diff">diff</h1>
 
-<h2 id="section">2つのコマンドの出力を比較するには <span class="article-date">2013/06/04</span></h2>
+<h2 id="66259e4">2つのコマンドの出力を比較するには <span class="article-date">2013/06/04</span></h2>
 
 <p>以下のようにすることで、2つのコマンドの出力を diff にかけることができる。</p>
 
@@ -37,14 +88,14 @@
 <p>とすると、<code>/proc/self/fd/11 /proc/self/fd/12</code> のように出力される。
 (bash, zsh で動作確認済み)</p>
 
-<h2 id="section-1">コマンドの出力とファイルを比較するには <span class="article-date">2013/06/04</span></h2>
+<h2 id="8dff685">コマンドの出力とファイルを比較するには <span class="article-date">2013/06/04</span></h2>
 
 <p>以下のように、 <code>-</code> を使うと、比較対象の片方を標準入力にすることができる。</p>
 
 <pre><code>cat foo.txt | diff bar.txt -
 </code></pre>
 
-<h2 id="section-2">2つのファイルを左右に並べて表示するには <span class="article-date">2013/06/14</span></h2>
+<h2 id="66b917e">2つのファイルを左右に並べて表示するには <span class="article-date">2013/06/14</span></h2>
 
 <pre><code>diff --side-by-side foo.txt bar.txt
 </code></pre>
@@ -54,7 +105,7 @@
 <pre><code>sdiff foo.txt bar.txt
 </code></pre>
 
-<h2 id="section-3">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには <span class="article-date">2013/07/03</span></h2>
+<h2 id="1f69732">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには <span class="article-date">2013/07/03</span></h2>
 
 <p>diff は同じだったかどうかによって終了コードが異なるので、以下のように書ける。</p>
 
@@ -68,10 +119,10 @@ fi
 
 </div>
 
-  <footer>
-    <a href="../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

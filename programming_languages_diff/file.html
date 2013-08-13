@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ファイル操作 | hydrocul のメモ</title>
+<title>ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,37 +10,40 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; ファイル操作
+<div id="breadcrumb">
+  <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; ファイル操作
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../programming_languages_diff/boolean.html">boolean</a></li>
+  <li>&gt; <a href="../programming_languages_diff/data_type.html">データ型</a></li>
+  <li>&gt; <a href="../programming_languages_diff/datetime.html">日付と時刻</a></li>
+  <li>&gt; <a href="../programming_languages_diff/exception.html">例外処理</a></li>
+  <li>&gt; ファイル操作</li>
+  <li>&gt; <a href="../programming_languages_diff/function.html">関数・メソッド</a></li>
+  <li>&gt; <a href="../programming_languages_diff/list.html">list</a></li>
+  <li>&gt; <a href="../programming_languages_diff/map.html">map</a></li>
+  <li>&gt; <a href="../programming_languages_diff/number.html">number</a></li>
+  <li>&gt; <a href="../programming_languages_diff/operator.html">operator</a></li>
+  <li>&gt; <a href="../programming_languages_diff/overview.html">Overview</a></li>
+  <li>&gt; <a href="../programming_languages_diff/regexp.html">正規表現</a></li>
+  <li>&gt; <a href="../programming_languages_diff/string.html">string</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="section">ファイル操作</h1>
-
-<ul>
-  <li><a href="#file-get-contents">ファイルの中身を1つの文字列として取得するには</a></li>
-  <li><a href="#each-line">ファイルの中身を1行ずつテキスト処理するには</a></li>
-  <li><a href="#append">ファイルに追記するには</a></li>
-  <li><a href="#rm">ファイルを削除するには</a></li>
-  <li><a href="#ls">ディレクトリの中のファイル一覧を取得</a></li>
-  <li><a href="#file-size">ファイルサイズを取得</a></li>
-  <li><a href="#mkdir">ディレクトリを作成</a></li>
-  <li><a href="#exists">ファイルまたはディレクトリが存在するかどうかを取得</a></li>
-  <li><a href="#is-file">ファイルかどうかを調べる</a></li>
-  <li><a href="#is-directory">ディレクトリかどうかを調べる</a></li>
-  <li><a href="#is-symbolic-link">シンボリックリンクかどうかを調べる</a></li>
-  <li><a href="#get-symbolic-link-target">シンボリックリンクのリンク先を取得する</a></li>
-  <li><a href="#recursive">ディレクトリの中をを再帰的にたどってすべて削除するには</a></li>
-</ul>
+  <h1 id="file">ファイル操作</h1>
 
 <h2 id="file-get-contents">ファイルの中身を1つの文字列として取得するには</h2>
 
-<h3 id="php-20130801">PHP <span class="article-date">2013/08/01</span></h3>
+<h3 id="76305d2">PHP <span class="article-date">2013/08/01</span></h3>
 
 <pre><code>str = file_get_contents('./hoge.txt');
 </code></pre>
@@ -49,12 +52,12 @@
 
 <p><a href="http://php.net/manual/ja/function.file-get-contents.php" target="_blank">http://php.net/manual/ja/function.file-get-contents.php</a></p>
 
-<h3 id="ruby-20130504">Ruby <span class="article-date">2013/05/04</span></h3>
+<h3 id="b3648d9">Ruby <span class="article-date">2013/05/04</span></h3>
 
 <pre><code>str = File.open('./hoge.txt').read
 </code></pre>
 
-<h3 id="perl-20130730">Perl <span class="article-date">2013/07/30</span></h3>
+<h3 id="b578fc2">Perl <span class="article-date">2013/07/30</span></h3>
 
 <p>手抜きでcatコマンドを使う方法</p>
 
@@ -63,7 +66,7 @@
 
 <h2 id="each-line">ファイルの中身を1行ずつテキスト処理するには</h2>
 
-<h3 id="php-20130718">PHP <span class="article-date">2013/07/18</span></h3>
+<h3 id="ab0dced">PHP <span class="article-date">2013/07/18</span></h3>
 
 <pre><code>$fh = fopen('./hoge.txt', 'r');
 if($fh){
@@ -76,7 +79,7 @@ if($fh){
 }
 </code></pre>
 
-<h3 id="ruby-20130717">Ruby <span class="article-date">2013/07/17</span></h3>
+<h3 id="a24219c">Ruby <span class="article-date">2013/07/17</span></h3>
 
 <pre><code>IO.foreach('./hoge.txt') do |line|
   ...
@@ -93,7 +96,7 @@ end
 end
 </code></pre>
 
-<h3 id="perl-20130730-1">Perl <span class="article-date">2013/07/30</span></h3>
+<h3 id="eb212d3">Perl <span class="article-date">2013/07/30</span></h3>
 
 <pre><code>open(FH, '&lt;', 'test2.pl') or die "Cannot open";
 while(my $line = &lt;FH&gt;){
@@ -105,14 +108,14 @@ close FH;
 
 <h2 id="append">ファイルに追記するには</h2>
 
-<h3 id="php-20130611">PHP <span class="article-date">2013/06/11</span></h3>
+<h3 id="0042ddf">PHP <span class="article-date">2013/06/11</span></h3>
 
 <pre><code>$handle = fopen($file_path, 'a');
 fwrite($handle, $data);
 fclose($handle);
 </code></pre>
 
-<h3 id="ruby-20130716">Ruby <span class="article-date">2013/07/16</span></h3>
+<h3 id="5a0ecc4">Ruby <span class="article-date">2013/07/16</span></h3>
 
 <pre><code>File.open(file_path, 'a') do |handle|
   handle.puts($data)
@@ -121,28 +124,39 @@ end
 
 <h2 id="rm">ファイルを削除するには</h2>
 
-<h3 id="ruby-20130504-1">Ruby <span class="article-date">2013/05/04</span></h3>
+<h3 id="4bbb844">Ruby <span class="article-date">2013/05/04</span></h3>
 
 <pre><code>File.unlink('./hoge.txt')
 </code></pre>
 
+<h3 id="86e2a82">Perl <span class="article-date">2013/08/13</span></h3>
+
+<pre><code>unlink('./hoge.txt');
+</code></pre>
+
+<p>複数まとめて削除することもできる。</p>
+
+<pre><code>unlink('./hoge.txt', './foo.txt');
+unlink(@files);
+</code></pre>
+
 <h2 id="ls">ディレクトリの中のファイル一覧を取得</h2>
 
-<h3 id="ruby-20130410">Ruby <span class="article-date">2013/04/10</span></h3>
+<h3 id="65aee80">Ruby <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>Dir::entries('/home/foo')
 </code></pre>
 
 <h2 id="file-size">ファイルサイズを取得</h2>
 
-<h3 id="ruby-20130528">Ruby <span class="article-date">2013/05/28</span></h3>
+<h3 id="6fc1164">Ruby <span class="article-date">2013/05/28</span></h3>
 
 <pre><code>File::stat('./hoge.txt').size
 </code></pre>
 
 <h2 id="mkdir">ディレクトリを作成</h2>
 
-<h3 id="ruby-20130624">Ruby <span class="article-date">2013/06/24</span></h3>
+<h3 id="f8d27d0">Ruby <span class="article-date">2013/06/24</span></h3>
 
 <pre><code>Dir::mkdir(dirname)
 </code></pre>
@@ -155,7 +169,7 @@ FileUtils::mkdir_p(dirname)
 
 <h2 id="exists">ファイルまたはディレクトリが存在するかどうかを取得</h2>
 
-<h3 id="php-20130724">PHP <span class="article-date">2013/07/24</span></h3>
+<h3 id="c715f78">PHP <span class="article-date">2013/07/24</span></h3>
 
 <pre><code>file_exists('/home/foo/testfile')
 </code></pre>
@@ -164,19 +178,19 @@ FileUtils::mkdir_p(dirname)
 
 <p><a href="http://www.php.net/manual/ja/function.file-exists.php" target="_blank">http://www.php.net/manual/ja/function.file-exists.php</a></p>
 
-<h3 id="ruby-20130429">Ruby <span class="article-date">2013/04/29</span></h3>
+<h3 id="ddb684e">Ruby <span class="article-date">2013/04/29</span></h3>
 
 <pre><code>File.exists?('/home/foo/testfile')
 </code></pre>
 
-<h3 id="perl-20130727">Perl <span class="article-date">2013/07/27</span></h3>
+<h3 id="59e28b2">Perl <span class="article-date">2013/07/27</span></h3>
 
 <pre><code>if( -e '/home/foo/testfile' ){
     ...;
 }
 </code></pre>
 
-<h3 id="sh-20130727">sh <span class="article-date">2013/07/27</span></h3>
+<h3 id="1ca39a0">sh <span class="article-date">2013/07/27</span></h3>
 
 <pre><code>if [ -e /home/foo/testfile ]; then
     ...
@@ -187,19 +201,19 @@ fi
 
 <p>ディレクトリでなくてファイルかどうかを調べるには</p>
 
-<h3 id="ruby-20130430">Ruby <span class="article-date">2013/04/30</span></h3>
+<h3 id="8a1a4c0">Ruby <span class="article-date">2013/04/30</span></h3>
 
 <pre><code>File.ftype('/home/foo/testfile') == 'file'
 </code></pre>
 
-<h3 id="perl-20130727-1">Perl <span class="article-date">2013/07/27</span></h3>
+<h3 id="59238dc">Perl <span class="article-date">2013/07/27</span></h3>
 
 <pre><code>if( -f '/home/foo/testfile' ){
     ...;
 }
 </code></pre>
 
-<h3 id="sh-20130727-1">sh <span class="article-date">2013/07/27</span></h3>
+<h3 id="c4f72fa">sh <span class="article-date">2013/07/27</span></h3>
 
 <pre><code>if [ -f /home/foo/testfile ]; then
     ...
@@ -208,19 +222,19 @@ fi
 
 <h2 id="is-directory">ディレクトリかどうかを調べる</h2>
 
-<h3 id="ruby-20130430-1">Ruby <span class="article-date">2013/04/30</span></h3>
+<h3 id="e67be1a">Ruby <span class="article-date">2013/04/30</span></h3>
 
 <pre><code>File.ftype('/home/foo/testfile') == 'directory'
 </code></pre>
 
-<h3 id="perl-20130727-2">Perl <span class="article-date">2013/07/27</span></h3>
+<h3 id="5fd0f05">Perl <span class="article-date">2013/07/27</span></h3>
 
 <pre><code>if( -d '/home/foo/testfile' ){
     ...;
 }
 </code></pre>
 
-<h3 id="sh-20130727-2">sh <span class="article-date">2013/07/27</span></h3>
+<h3 id="aaa365a">sh <span class="article-date">2013/07/27</span></h3>
 
 <pre><code>if [ -d /home/foo/testfile ]; then
     ...
@@ -229,19 +243,19 @@ fi
 
 <h2 id="is-symbolic-link">シンボリックリンクかどうかを調べる</h2>
 
-<h3 id="ruby-20130430-2">Ruby <span class="article-date">2013/04/30</span></h3>
+<h3 id="222ee47">Ruby <span class="article-date">2013/04/30</span></h3>
 
 <pre><code>File.ftype('/home/foo/testfile') == 'link'
 </code></pre>
 
-<h3 id="perl-20130727-3">Perl <span class="article-date">2013/07/27</span></h3>
+<h3 id="fd6e1c8">Perl <span class="article-date">2013/07/27</span></h3>
 
 <pre><code>if( -l '/home/foo/testfile' ){
     ...;
 }
 </code></pre>
 
-<h3 id="sh-20130727-3">sh <span class="article-date">2013/07/27</span></h3>
+<h3 id="f8ab44d">sh <span class="article-date">2013/07/27</span></h3>
 
 <pre><code>if [ -L /home/foo/testfile ]; then
     ...
@@ -250,7 +264,7 @@ fi
 
 <h2 id="get-symbolic-link-target">シンボリックリンクのリンク先を取得する</h2>
 
-<h3 id="ruby-20130430-3">Ruby <span class="article-date">2013/04/30</span></h3>
+<h3 id="c64bd4c">Ruby <span class="article-date">2013/04/30</span></h3>
 
 <p><code>path</code> がシンボリックリンクの場合に、<code>path</code> をリンク先に書き換える。</p>
 
@@ -262,7 +276,7 @@ end
 
 <h2 id="recursive">ディレクトリの中をを再帰的にたどってすべて削除するには</h2>
 
-<h3 id="php-20111013">PHP <span class="article-date">2011/10/13</span></h3>
+<h3 id="2613e07">PHP <span class="article-date">2011/10/13</span></h3>
 
 <pre><code>function rmdir_all($dir) {
   if (!file_exists($dir)) {
@@ -290,10 +304,10 @@ end
 
 </div>
 
-  <footer>
-    <a href="../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

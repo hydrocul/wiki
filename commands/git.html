@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>git コマンド | hydrocul のメモ</title>
+<title>git コマンド | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,35 +10,68 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../commands/">コマンドリファレンス</a> &gt; git コマンド
+<div id="breadcrumb">
+  <a href="../commands/">コマンドリファレンス</a> &gt; git コマンド
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="../commands/ack-grep.html">ack-grep</a></li>
+  <li>&gt; <a href="../commands/awk.html">awk</a></li>
+  <li>&gt; <a href="../commands/base64.html">base64</a></li>
+  <li>&gt; <a href="../commands/cat.html">cat</a></li>
+  <li>&gt; <a href="../commands/cp.html">cp コマンド</a></li>
+  <li>&gt; <a href="../commands/crontab.html">crontab</a></li>
+  <li>&gt; <a href="../commands/cut.html">cut コマンド</a></li>
+  <li>&gt; <a href="../commands/date.html">date</a></li>
+  <li>&gt; <a href="../commands/diff.html">diff</a></li>
+  <li>&gt; <a href="../commands/du.html">du</a></li>
+  <li>&gt; <a href="../commands/echo.html">echo</a></li>
+  <li>&gt; <a href="../commands/find.html">find コマンド</a></li>
+  <li>&gt; git コマンド</li>
+  <li>&gt; <a href="../commands/grep.html">grep</a></li>
+  <li>&gt; <a href="../commands/incron.html">incron (inotify cron)</a></li>
+  <li>&gt; <a href="../commands/less.html">less コマンド</a></li>
+  <li>&gt; <a href="../commands/lftp.html">lftp</a></li>
+  <li>&gt; <a href="../commands/ls.html">ls コマンド</a></li>
+  <li>&gt; <a href="../commands/lsof.html">lsof</a></li>
+  <li>&gt; <a href="../commands/netstat.html">netstat</a></li>
+  <li>&gt; <a href="../commands/nkf.html">nkf コマンド</a></li>
+  <li>&gt; <a href="../commands/od.html">od</a></li>
+  <li>&gt; <a href="../commands/openssl.html">openssl</a></li>
+  <li>&gt; <a href="../commands/pandoc.html">pandoc</a></li>
+  <li>&gt; <a href="../commands/ps.html">ps</a></li>
+  <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
+  <li>&gt; <a href="../commands/rsync.html">rsync</a></li>
+  <li>&gt; <a href="../commands/scala.html">scala</a></li>
+  <li>&gt; <a href="../commands/sdiff.html">sdiff</a></li>
+  <li>&gt; <a href="../commands/sed.html">sed コマンド</a></li>
+  <li>&gt; <a href="../commands/sort.html">sort</a></li>
+  <li>&gt; <a href="../commands/source-highlight.html">source-highlight</a></li>
+  <li>&gt; <a href="../commands/sqlite.html">sqlite</a></li>
+  <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
+  <li>&gt; <a href="../commands/sshfs.html">sshfs</a></li>
+  <li>&gt; <a href="../commands/tac.html">tac</a></li>
+  <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
+  <li>&gt; <a href="../commands/top.html">top</a></li>
+  <li>&gt; <a href="../commands/touch.html">touch</a></li>
+  <li>&gt; <a href="../commands/tr.html">tr</a></li>
+  <li>&gt; <a href="../commands/watch.html">watch</a></li>
+  <li>&gt; <a href="../commands/wc.html">wc</a></li>
+  <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
+  <li>&gt; <a href="../commands/xargs.html">xargs</a></li>
+  <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="git-">git コマンド</h1>
-
-<ul>
-  <li><a href="#color">カラフルにログを見るには</a></li>
-  <li><a href="#diff-not-display-rename">diffでリネームされたファイルを表示されないようにするには</a></li>
-  <li><a href="#checkout-remote">リモートにあってローカルにはないブランチをチェックアウトするには</a></li>
-  <li><a href="#remove-remote-branch">ローカルにはすでに存在せずリモートに残っているブランチを削除するには</a></li>
-  <li><a href="#remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには</a></li>
-  <li><a href="#stash">まだコミットしていない修正を一時保存しておいて、最後のコミットの状態に戻すには</a></li>
-  <li><a href="#undo">いろいろと元に戻す方法</a></li>
-  <li><a href="#assume-unchanged">既に git で管理しているファイルの変更を git に無視させるには</a></li>
-  <li><a href="#add-ignore-space-change">gitで空白の違いだけの行を除いてaddするには</a></li>
-  <li><a href="#diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには</a></li>
-  <li><a href="#git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには</a></li>
-  <li><a href="#gitignore-recursive"><code>.gitignore</code> のへぇ〜</a></li>
-  <li><a href="#introductory-book">入門</a></li>
-  <li><a href="#gitlab">GitLab</a></li>
-  <li><a href="#gitignore-only-me">無視するファイルをみんなで共有せずに自分のディレクトリにだけ設定するには</a></li>
-</ul>
+  <h1 id="git">git コマンド</h1>
 
 <h2 id="color">カラフルにログを見るには <span class="article-date">2013/04/03</span></h2>
 
@@ -135,7 +168,7 @@
 <h2 id="undo">いろいろと元に戻す方法 <span class="article-date">2013/08/12</span></h2>
 
 <p>Git のさまざまなツール - 歴史の書き換え<br />
-http://git-scm.com/book/ja/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E6%AD%B4%E5%8F%B2%E3%81%AE%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88<br />
+<a href="http://git-scm.com/book/ja/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E6%AD%B4%E5%8F%B2%E3%81%AE%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88" target="_blank">http://git-scm.com/book/ja/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E6%AD%B4%E5%8F%B2%E3%81%AE%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88</a><br />
 <code>git rebase</code>, <code>git filter-branch</code> について</p>
 
 <p>gitでアレを元に戻す108の方法<br />
@@ -157,7 +190,7 @@ http://git-scm.com/book/ja/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%
 <a href="http://d.hatena.ne.jp/mickey24/20081022/1224668137" target="_blank">http://d.hatena.ne.jp/mickey24/20081022/1224668137</a></p>
 
 <p>前回のコミットを取り消す方法<br />
-<a href="http://es.sourceforge.jp/projects/setucocms/wiki/Git_%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28--soft.29.20HEAD.EF.BC.89" target="_blank">http://es.sourceforge.jp/projects/setucocms/wiki/Git_%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28–soft.29.20HEAD.EF.BC.89</a></p>
+[http://es.sourceforge.jp/projects/setucocms/wiki/Git<em>%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28–soft.29.20HEAD.EF.BC.89](http://es.sourceforge.jp/projects/setucocms/wiki/Git</em>%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28–soft.29.20HEAD.EF.BC.89)</p>
 
 <h2 id="assume-unchanged">既に git で管理しているファイルの変更を git に無視させるには <span class="article-date">2013/04/03</span></h2>
 
@@ -198,15 +231,15 @@ rm patch.patch
 
 <p>これで hoge というディレクトリが作られる。</p>
 
-<h2 id="gitignore--20130804"><code>.gitignore</code> のサンプルファイル <span class="article-date">2013/08/04</span></h2>
+<h2 id="229b44a"><code>.gitignore</code> のサンプルファイル <span class="article-date">2013/08/04</span></h2>
 
-<h3 id="java">Java</h3>
+<h3 id="1e286db">Java</h3>
 
 <pre><code># Maven2で生成されるファイル
 /target
 </code></pre>
 
-<h3 id="ruby">Ruby</h3>
+<h3 id="5a23a11">Ruby</h3>
 
 <pre><code># bundle install --path vendor/bundle
 # で生成されるファイル
@@ -214,7 +247,7 @@ rm patch.patch
 /vendor/bundle
 </code></pre>
 
-<h3 id="section">その他</h3>
+<h3 id="052d247">その他</h3>
 
 <pre><code># Windowsで勝手に作られる隠しファイル
 Thumbs.db
@@ -223,7 +256,7 @@ Thumbs.db
 .DS_Store
 </code></pre>
 
-<h3 id="gitignore--20130416"><code>.gitignore</code> のサンプル集 <span class="article-date">2013/04/16</span></h3>
+<h3 id="38619fd"><code>.gitignore</code> のサンプル集 <span class="article-date">2013/04/16</span></h3>
 
 <p><a href="https://github.com/github/gitignore" target="_blank">https://github.com/github/gitignore</a></p>
 
@@ -241,13 +274,13 @@ Thumbs.db
 
 <h2 id="gitlab">GitLab</h2>
 
-<p>-&gt; &lt; no title &gt;  </p>
+<p>-&gt; ../gitlab.md</p>
 
 <h2 id="gitignore-only-me">無視するファイルをみんなで共有せずに自分のディレクトリにだけ設定するには <span class="article-date">2013/04/19</span></h2>
 
 <p><code>.git/info/exclude</code> に <code>.gitignore</code> と同じフォーマットで書けば、自分のワーキングディレクトリにだけ無視ファイルを設定できる。自分のディレクトリにだけ一時的に何かファイルを置きたい場合などに使える。</p>
 
-<h2 id="gituri-20130423">GitのURI <span class="article-date">2013/04/23</span></h2>
+<h2 id="cb5a927">GitのURI <span class="article-date">2013/04/23</span></h2>
 
 <p>プロトコルを省略した以下の記法はSSHプロトコルとみなされる。pathの先頭に <code>/</code> がつかない。</p>
 
@@ -264,13 +297,13 @@ Thumbs.db
 <pre><code>ssh://username@hostname:port/path/foo/bar.git
 </code></pre>
 
-<h2 id="sshconfig-git-20130423"><code>~/.ssh/config</code> をgit専用に設定するには <span class="article-date">2013/04/23</span></h2>
+<h2 id="16c33eb"><code>~/.ssh/config</code> をgit専用に設定するには <span class="article-date">2013/04/23</span></h2>
 
 <p>環境変数 <code>GIT_SSH</code> を使用する。</p>
 
 <p><a href="http://qiita.com/items/c397370862095c305cbe" target="_blank">http://qiita.com/items/c397370862095c305cbe</a></p>
 
-<h2 id="git-20130429">gitの過去のログから特定の名前のファイルを削除するには <span class="article-date">2013/04/29</span></h2>
+<h2 id="bbbe768">gitの過去のログから特定の名前のファイルを削除するには <span class="article-date">2013/04/29</span></h2>
 
 <p>拡張子が <code>.pw</code> のファイルをすべて削除する例</p>
 
@@ -282,7 +315,7 @@ Thumbs.db
 <pre><code>git filter-branch --tree-filter 'find . -name "*.pw" -exec rm -f {} \;' HEAD
 </code></pre>
 
-<h2 id="git-add--git-reset--20130430">初めてコミットする前に間違って <code>git add</code> してしまったファイルをもとに戻そうと <code>git reset</code> しようとしてもエラーになってしまう場合 <span class="article-date">2013/04/30</span></h2>
+<h2 id="25f2553">初めてコミットする前に間違って <code>git add</code> してしまったファイルをもとに戻そうと <code>git reset</code> しようとしてもエラーになってしまう場合 <span class="article-date">2013/04/30</span></h2>
 
 <pre><code>fatal: Failed to resolve 'HEAD' as a valid ref.
 </code></pre>
@@ -299,11 +332,11 @@ Thumbs.db
 
 <p>とする。</p>
 
-<h2 id="gitblit-20130505">Gitblit <span class="article-date">2013/05/05</span></h2>
+<h2 id="a7de0af">Gitblit <span class="article-date">2013/05/05</span></h2>
 
 <p>Javaで実装されたGitレポジトリ管理ツール。リポジトリの pull request をWeb上ですることはできない。コミットログをグラフィカルに表示することはできない。WikiやIssueの機能がない。Hookのスクリプトを Groovy で書ける。</p>
 
-<h2 id="section-1">過去のログが不要な場合 <span class="article-date">2013/05/08</span></h2>
+<h2 id="4128fbc">過去のログが不要な場合 <span class="article-date">2013/05/08</span></h2>
 
 <pre><code>git clone --depth 1 リポジトリURL
 </code></pre>
@@ -319,7 +352,7 @@ fatal: The remote end hung up unexpectedly
 
 <p>shallow repository には <code>.git/shallow</code> というファイルがあり、省略された過去のコミットが参照されていて、このファイルにより shallow repository であることを示している。このファイルを削除すると、ローカルではcloneすることができるが、リモートへのcloneでは過去のコミットが見つからない、というエラーが出て、やっぱりcloneできない。</p>
 
-<h2 id="section-2">エンバグしたコミットを探すには <span class="article-date">2013/05/08</span></h2>
+<h2 id="eb99612">エンバグしたコミットを探すには <span class="article-date">2013/05/08</span></h2>
 
 <p><code>git-bisect</code> は、エンバグしたコミットを二分探索して探す支援をするコマンド。</p>
 
@@ -343,7 +376,7 @@ fatal: The remote end hung up unexpectedly
 
 <p>として、<code>bisect</code> を終了させる。</p>
 
-<h2 id="git-push--warning-pushdefault-is-unset--20130529"><code>git push</code> したときに warning: push.default is unset などと表示された場合 <span class="article-date">2013/05/29</span></h2>
+<h2 id="ad8627c"><code>git push</code> したときに warning: push.default is unset などと表示された場合 <span class="article-date">2013/05/29</span></h2>
 
 <pre><code>warning: push.default is unset; its implicit value is changing in Git 2.0 from 'matching' to 'simple'.
 </code></pre>
@@ -359,14 +392,14 @@ matching から simple に変わる予定とのこと。simple にする場合�
 <pre><code>git config --global push.default matching
 </code></pre>
 
-<h2 id="git-clone--20130615">git clone するときにディレクトリを作成するのではなく、カレントディレクトリにそのまま展開させるには <span class="article-date">2013/06/15</span></h2>
+<h2 id="880ae7e">git clone するときにディレクトリを作成するのではなく、カレントディレクトリにそのまま展開させるには <span class="article-date">2013/06/15</span></h2>
 
 <p>uriの次にclone先のディレクトリを指定できる。</p>
 
 <pre><code>git clone &lt;remote-repository-uri&gt; .
 </code></pre>
 
-<h2 id="zshgit-20130710">zshのプロンプトにgitのメールアドレスを表示させるには <span class="article-date">2013/07/10</span></h2>
+<h2 id="3fd8e1d">zshのプロンプトにgitのメールアドレスを表示させるには <span class="article-date">2013/07/10</span></h2>
 
 <p>~/.zshrc に以下のような記述をしている。ブランチ名をプロンプトに表示させるところまではよくある例だが、その中に無理やり <code>git config user.email</code> という記述を入れて、メールアドレスも追加で表示させている。プライベートのレポジトリと会社のレポジトリとが混在していて、会社のレポジトリに間違ってプライベートのメールアドレスでコミットしちゃわないようにするためのものである。</p>
 
@@ -383,7 +416,7 @@ export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
 <p>svnなどgit以外のワーキングディレクトリではメールアドレスを表示できないので、
 <code>git config user.email</code> する前にif文で分岐させている。</p>
 
-<h2 id="git-add--20130719">ファイル単位ではなくファイルの中の差分ごとに git add するには <span class="article-date">2013/07/19</span></h2>
+<h2 id="814c3ed">ファイル単位ではなくファイルの中の差分ごとに git add するには <span class="article-date">2013/07/19</span></h2>
 
 <p>以下のコマンドで差分を1つずつインタラクティブに確認しながら git add できる。</p>
 
@@ -400,10 +433,10 @@ export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
 
 </div>
 
-  <footer>
-    <a href="../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

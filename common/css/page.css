@@ -3,7 +3,7 @@ code, kbd, pre, samp {
 }
 #side-menu {
   float: left;
-  width: 150px;
+  width: 230px;
 }
 #side-menu-attention {
   margin: 10px;
@@ -20,7 +20,7 @@ code, kbd, pre, samp {
   list-style-type: none;
 }
 #content {
-  margin: 0 40px 0px 150px;
+  margin: 0 40px 0px 230px;
   word-wrap: break-word;
 }
 #content h1 {

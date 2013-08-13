@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>find コマンド | hydrocul のメモ</title>
+<title>find コマンド | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,19 +10,70 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../commands/">コマンドリファレンス</a> &gt; find コマンド
+<div id="breadcrumb">
+  <a href="../commands/">コマンドリファレンス</a> &gt; find コマンド
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="../commands/ack-grep.html">ack-grep</a></li>
+  <li>&gt; <a href="../commands/awk.html">awk</a></li>
+  <li>&gt; <a href="../commands/base64.html">base64</a></li>
+  <li>&gt; <a href="../commands/cat.html">cat</a></li>
+  <li>&gt; <a href="../commands/cp.html">cp コマンド</a></li>
+  <li>&gt; <a href="../commands/crontab.html">crontab</a></li>
+  <li>&gt; <a href="../commands/cut.html">cut コマンド</a></li>
+  <li>&gt; <a href="../commands/date.html">date</a></li>
+  <li>&gt; <a href="../commands/diff.html">diff</a></li>
+  <li>&gt; <a href="../commands/du.html">du</a></li>
+  <li>&gt; <a href="../commands/echo.html">echo</a></li>
+  <li>&gt; find コマンド</li>
+  <li>&gt; <a href="../commands/git.html">git コマンド</a></li>
+  <li>&gt; <a href="../commands/grep.html">grep</a></li>
+  <li>&gt; <a href="../commands/incron.html">incron (inotify cron)</a></li>
+  <li>&gt; <a href="../commands/less.html">less コマンド</a></li>
+  <li>&gt; <a href="../commands/lftp.html">lftp</a></li>
+  <li>&gt; <a href="../commands/ls.html">ls コマンド</a></li>
+  <li>&gt; <a href="../commands/lsof.html">lsof</a></li>
+  <li>&gt; <a href="../commands/netstat.html">netstat</a></li>
+  <li>&gt; <a href="../commands/nkf.html">nkf コマンド</a></li>
+  <li>&gt; <a href="../commands/od.html">od</a></li>
+  <li>&gt; <a href="../commands/openssl.html">openssl</a></li>
+  <li>&gt; <a href="../commands/pandoc.html">pandoc</a></li>
+  <li>&gt; <a href="../commands/ps.html">ps</a></li>
+  <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
+  <li>&gt; <a href="../commands/rsync.html">rsync</a></li>
+  <li>&gt; <a href="../commands/scala.html">scala</a></li>
+  <li>&gt; <a href="../commands/sdiff.html">sdiff</a></li>
+  <li>&gt; <a href="../commands/sed.html">sed コマンド</a></li>
+  <li>&gt; <a href="../commands/sort.html">sort</a></li>
+  <li>&gt; <a href="../commands/source-highlight.html">source-highlight</a></li>
+  <li>&gt; <a href="../commands/sqlite.html">sqlite</a></li>
+  <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
+  <li>&gt; <a href="../commands/sshfs.html">sshfs</a></li>
+  <li>&gt; <a href="../commands/tac.html">tac</a></li>
+  <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
+  <li>&gt; <a href="../commands/top.html">top</a></li>
+  <li>&gt; <a href="../commands/touch.html">touch</a></li>
+  <li>&gt; <a href="../commands/tr.html">tr</a></li>
+  <li>&gt; <a href="../commands/watch.html">watch</a></li>
+  <li>&gt; <a href="../commands/wc.html">wc</a></li>
+  <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
+  <li>&gt; <a href="../commands/xargs.html">xargs</a></li>
+  <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="find-">find コマンド</h1>
+  <h1 id="find">find コマンド</h1>
 
-<h2 id="yyyy-mm-dd-hhmmss--20130403">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには <span class="article-date">2013/04/03</span></h2>
+<h2 id="2f6638f">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n"
 </code></pre>
@@ -32,24 +83,24 @@
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n" | sort -r -k6,7
 </code></pre>
 
-<h2 id="ht--htexample--20130416">カレントディレクトリ以下にある <code>.ht</code> で始まるファイルをそれぞれ <code>.ht*.example</code> というファイルにコピーするには <span class="article-date">2013/04/16</span></h2>
+<h2 id="941f1de">カレントディレクトリ以下にある <code>.ht</code> で始まるファイルをそれぞれ <code>.ht*.example</code> というファイルにコピーするには <span class="article-date">2013/04/16</span></h2>
 
 <pre><code>find . -name ".ht*" | awk '{print "cp " $1 " " $1 ".example"}' | sh
 </code></pre>
 
-<h2 id="section">カレントディレクトリ以下にあるすべてのシンボリックリンクを探すには <span class="article-date">2013/04/23</span></h2>
+<h2 id="956fddd">カレントディレクトリ以下にあるすべてのシンボリックリンクを探すには <span class="article-date">2013/04/23</span></h2>
 
 <pre><code>find . -type l -exec ls -l {} \;
 </code></pre>
 
-<h2 id="permission-denied--20130611"><code>Permission denied</code> を表示しないようにするには <span class="article-date">2013/06/11</span></h2>
+<h2 id="c43b3b7"><code>Permission denied</code> を表示しないようにするには <span class="article-date">2013/06/11</span></h2>
 
 <p><code>find</code> で <code>/</code> などを検索すると、 <code>Permission denied</code> というエラーメッセージが大量に出力されてしまう。それを抑制するには以下のようにする。</p>
 
 <pre><code>find / ... 2&gt;/dev/null
 </code></pre>
 
-<h2 id="section-1">別のマウント領域の中は探索しないようにするには <span class="article-date">2013/06/25</span></h2>
+<h2 id="749379d">別のマウント領域の中は探索しないようにするには <span class="article-date">2013/06/25</span></h2>
 
 <p><code>-mount</code> を使う。</p>
 
@@ -58,7 +109,7 @@
 find / -mount -name "hoge" 2&gt;/dev/null
 </code></pre>
 
-<h2 id="uid-20130703">UIDからそのユーザのホームディレクトリを調べる簡単な方法 <span class="article-date">2013/07/03</span></h2>
+<h2 id="ee89339">UIDからそのユーザのホームディレクトリを調べる簡単な方法 <span class="article-date">2013/07/03</span></h2>
 
 <pre><code># UIDが1000のユーザのホームディレクトリ
 find /home -maxdepth 1 -uid 1000
@@ -66,7 +117,7 @@ find /home -maxdepth 1 -uid 1000
 
 <p>ただし、これはホームディレクトリが <code>/home</code> 直下にあることを決め打ちしている。</p>
 
-<h2 id="section-2">ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法 <span class="article-date">2013/08/08</span></h2>
+<h2 id="b7960b1">ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法 <span class="article-date">2013/08/08</span></h2>
 
 <p><a href="http://d.hatena.ne.jp/hydrocul/20111211/1323595015" target="_blank">http://d.hatena.ne.jp/hydrocul/20111211/1323595015</a></p>
 
@@ -75,7 +126,7 @@ find /home -maxdepth 1 -uid 1000
 <pre><code>find . -name "*.txt" -exec sed -i 's/ABC/DEF/g' {} \;
 </code></pre>
 
-<h2 id="section-3">リンク集 <span class="article-date">2013/04/03</span></h2>
+<h2 id="a94538c">リンク集 <span class="article-date">2013/04/03</span></h2>
 
 <p>特定の日に更新したファイルの一覧を表示するコマンド<br />
 <a href="http://hydrocul.seesaa.net/article/134240824.html" target="_blank">http://hydrocul.seesaa.net/article/134240824.html</a></p>
@@ -92,10 +143,10 @@ find /home -maxdepth 1 -uid 1000
 
 </div>
 
-  <footer>
-    <a href="../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

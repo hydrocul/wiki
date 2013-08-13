@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>関数・メソッド | hydrocul のメモ</title>
+<title>関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,29 +10,40 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; 関数・メソッド
+<div id="breadcrumb">
+  <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; 関数・メソッド
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../programming_languages_diff/boolean.html">boolean</a></li>
+  <li>&gt; <a href="../programming_languages_diff/data_type.html">データ型</a></li>
+  <li>&gt; <a href="../programming_languages_diff/datetime.html">日付と時刻</a></li>
+  <li>&gt; <a href="../programming_languages_diff/exception.html">例外処理</a></li>
+  <li>&gt; <a href="../programming_languages_diff/file.html">ファイル操作</a></li>
+  <li>&gt; 関数・メソッド</li>
+  <li>&gt; <a href="../programming_languages_diff/list.html">list</a></li>
+  <li>&gt; <a href="../programming_languages_diff/map.html">map</a></li>
+  <li>&gt; <a href="../programming_languages_diff/number.html">number</a></li>
+  <li>&gt; <a href="../programming_languages_diff/operator.html">operator</a></li>
+  <li>&gt; <a href="../programming_languages_diff/overview.html">Overview</a></li>
+  <li>&gt; <a href="../programming_languages_diff/regexp.html">正規表現</a></li>
+  <li>&gt; <a href="../programming_languages_diff/string.html">string</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="section">関数・メソッド</h1>
-
-<ul>
-  <li><a href="#method-definition">メソッド定義</a></li>
-  <li><a href="#closure">クロージャ</a></li>
-  <li><a href="#override">メソッドのオーバーライド</a></li>
-  <li><a href="#multi-return">複数の返り値</a></li>
-  <li><a href="#recursive">末尾再帰の最適化</a></li>
-</ul>
+  <h1 id="function">関数・メソッド</h1>
 
 <h2 id="method-definition">メソッド定義</h2>
 
-<h3 id="java-20130710">Java <span class="article-date">2013/07/10</span></h3>
+<h3 id="e03ebba">Java <span class="article-date">2013/07/10</span></h3>
 
 <pre><code>public String f(String arg1, int arg2){
   ...;
@@ -51,7 +62,7 @@
   <li>メソッド呼び出しは、引数のカッコを省略不可</li>
 </ul>
 
-<h3 id="scala-20130710">Scala <span class="article-date">2013/07/10</span></h3>
+<h3 id="3b1ddd6">Scala <span class="article-date">2013/07/10</span></h3>
 
 <pre><code>def f(arg1: String, arg2: Int): String = {
   ...;
@@ -70,7 +81,7 @@
   <li>関数本体の最後の式が返り値になり <code>return</code> を省略可</li>
 </ul>
 
-<h3 id="php-20130609">PHP <span class="article-date">2013/06/09</span></h3>
+<h3 id="b1d6e8b">PHP <span class="article-date">2013/06/09</span></h3>
 
 <pre><code>function f($arg1, $arg2){
   ...;
@@ -82,7 +93,7 @@
   <li>関数定義と呼び出しでは引数のカッコを省略不可</li>
 </ul>
 
-<h3 id="ruby-20130410">Ruby <span class="article-date">2013/04/10</span></h3>
+<h3 id="6559433">Ruby <span class="article-date">2013/04/10</span></h3>
 
 <pre><code>def f(arg1, arg2)
   ...
@@ -94,7 +105,7 @@ end
   <li>メソッド呼び出しは引数のカッコを省略可</li>
 </ul>
 
-<h3 id="perl-20130727">Perl <span class="article-date">2013/07/27</span></h3>
+<h3 id="90c9a87">Perl <span class="article-date">2013/08/12</span></h3>
 
 <p>サブルーチンの定義。</p>
 
@@ -111,10 +122,10 @@ end
 
 <ul>
   <li>サブルーチン定義の中では引数は、<code>@_</code>, <code>$_[...]</code> などで参照する</li>
-  <li>サブルーチン呼び出しは、引数がない場合に限り、カッコを省略できる(?)</li>
+  <li>サブルーチン呼び出しは、引数がない場合に限り、カッコを省略できる</li>
 </ul>
 
-<h3 id="sh-20130729">sh <span class="article-date">2013/07/29</span></h3>
+<h3 id="876381d">sh <span class="article-date">2013/07/29</span></h3>
 
 <p>関数の定義。</p>
 
@@ -134,7 +145,7 @@ end
   <li>関数呼び出しは通常の外部コマンドの実行と同じくカッコを付けずに引数を並べる</li>
 </ul>
 
-<h3 id="javascript-20130609">JavaScript <span class="article-date">2013/06/09</span></h3>
+<h3 id="19f3d00">JavaScript <span class="article-date">2013/06/09</span></h3>
 
 <pre><code>function f(arg1, arg2){
     ...;
@@ -154,7 +165,7 @@ end
   <li>関数定義と呼び出しでは引数のカッコを省略不可</li>
 </ul>
 
-<h3 id="coffeescript-20130428">CoffeeScript <span class="article-date">2013/04/28</span></h3>
+<h3 id="63fbb86">CoffeeScript <span class="article-date">2013/04/28</span></h3>
 
 <pre><code>(arg1, arg2) -&gt;
   ...
@@ -174,7 +185,7 @@ end
 
 <h2 id="closure">クロージャ</h2>
 
-<h3 id="ruby-20130609">Ruby <span class="article-date">2013/06/09</span></h3>
+<h3 id="a713240">Ruby <span class="article-date">2013/06/09</span></h3>
 
 <pre><code>def builder
   i = 0
@@ -194,7 +205,7 @@ f1.call # 2
 
 <p>Procオブジェクトは、その外側の変数を読み書きできる。</p>
 
-<h3 id="javascript-20130609-1">JavaScript <span class="article-date">2013/06/09</span></h3>
+<h3 id="669b748">JavaScript <span class="article-date">2013/06/09</span></h3>
 
 <pre><code>var builder = function(){
     var i = 0;
@@ -213,7 +224,7 @@ f1(); // 2
 
 <h2 id="override">メソッドのオーバーライド</h2>
 
-<h3 id="java-20130705">Java <span class="article-date">2013/07/05</span></h3>
+<h3 id="6e7e160">Java <span class="article-date">2013/07/05</span></h3>
 
 <ul>
   <li>メソッドをオーバーライドする場合は、サブクラスのメソッド定義の方に 
@@ -221,7 +232,7 @@ f1(); // 2
 スペルミスなどでオーバーライドできていない場合にコンパイルエラーになってくれる</li>
 </ul>
 
-<h3 id="scala-20130705">Scala <span class="article-date">2013/07/05</span></h3>
+<h3 id="4a7062d">Scala <span class="article-date">2013/07/05</span></h3>
 
 <ul>
   <li>メソッドをオーバーライドする場合は、サブクラスのメソッド定義の方に 
@@ -229,15 +240,29 @@ f1(); // 2
   <li>抽象メソッドをサブクラスで定義する場合は、<code>override</code> を付けても付けなくてもよい</li>
 </ul>
 
-<h3 id="php-20130718">PHP <span class="article-date">2013/07/18</span></h3>
+<h3 id="408e7e2">PHP <span class="article-date">2013/07/18</span></h3>
 
 <ul>
   <li>メソッドをオーバーライドするときにつけるキーワードはない。</li>
 </ul>
 
+<h2 id="b0fc331">関数呼び出し時に引数が足りない場合</h2>
+
+<h3 id="2cb4a4f">Ruby <span class="article-date">2013/08/13</span></h3>
+
+<p>実行時にエラーが起きる。</p>
+
+<h3 id="7d6588d">Python <span class="article-date">2013/08/13</span></h3>
+
+<p>実行時にエラーが起きる。</p>
+
+<h3 id="d25a0d9">JavaScript <span class="article-date">2013/08/13</span></h3>
+
+<p>不足した引数には <code>undefined</code> が割り当てられる。</p>
+
 <h2 id="multi-return">複数の返り値</h2>
 
-<h3 id="php-20130422">PHP <span class="article-date">2013/04/22</span></h3>
+<h3 id="b4f2c71">PHP <span class="article-date">2013/04/22</span></h3>
 
 <p>配列を使って無理やりやろうと思えばできなくもない。</p>
 
@@ -247,7 +272,7 @@ f1(); // 2
 list($num, $str) = f();
 </code></pre>
 
-<h3 id="ruby-20130422">Ruby <span class="article-date">2013/04/22</span></h3>
+<h3 id="30f0340">Ruby <span class="article-date">2013/04/22</span></h3>
 
 <p><code>return</code> にカンマ区切りで複数の値を書けば、配列を返すことができ、受け取り側は配列の多重代入を使う。</p>
 
@@ -259,11 +284,11 @@ num, str = f
 
 <h2 id="recursive">末尾再帰の最適化</h2>
 
-<h3 id="java-20130705-1">Java <span class="article-date">2013/07/05</span></h3>
+<h3 id="ab2aab5">Java <span class="article-date">2013/07/05</span></h3>
 
 <p>末尾再帰の最適化はしてくれない。</p>
 
-<h3 id="scala-20130705-1">Scala <span class="article-date">2013/07/05</span></h3>
+<h3 id="ebe28e0">Scala <span class="article-date">2013/07/05</span></h3>
 
 <p>末尾再帰の最適化ができるばあいは、コンパイラが自動でそのようにしてくれる。</p>
 
@@ -275,10 +300,10 @@ num, str = f
 
 </div>
 
-  <footer>
-    <a href="../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>
