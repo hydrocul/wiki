@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>コメント | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; コメント
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../programming_languages_diff/boolean.html">boolean</a></li>
+  <li>&gt; <a href="../programming_languages_diff/data_type.html">データ型</a></li>
+  <li>&gt; <a href="../programming_languages_diff/datetime.html">日付と時刻</a></li>
+  <li>&gt; <a href="../programming_languages_diff/exception.html">例外処理</a></li>
+  <li>&gt; <a href="../programming_languages_diff/file.html">ファイル操作</a></li>
+  <li>&gt; <a href="../programming_languages_diff/function.html">関数・メソッド</a></li>
+  <li>&gt; <a href="../programming_languages_diff/list.html">list</a></li>
+  <li>&gt; <a href="../programming_languages_diff/map.html">map</a></li>
+  <li>&gt; <a href="../programming_languages_diff/number.html">number</a></li>
+  <li>&gt; <a href="../programming_languages_diff/operator.html">operator</a></li>
+  <li>&gt; <a href="../programming_languages_diff/overview.html">Overview</a></li>
+  <li>&gt; <a href="../programming_languages_diff/regexp.html">正規表現</a></li>
+  <li>&gt; <a href="../programming_languages_diff/string.html">string</a></li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="comment">コメント</h1>
+
+<h2 id="741fded">C言語, C++ <span class="article-date">2013/04/22</span></h2>
+
+<pre><code>// 単一行コメント
+/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<p>複数行コメントはネスト不可。</p>
+
+<p>C言語では、単一行コメントは正式にはC99以降の規格。</p>
+
+<h2 id="ec7213f">Go言語 <span class="article-date">2013/06/19</span></h2>
+
+<pre><code>// 単一行コメント
+/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<p>複数行コメントはネスト不可。</p>
+
+<h2 id="03270d7">PHP <span class="article-date">2013/04/22</span></h2>
+
+<pre><code>// 単一行コメント
+# 単一行コメント
+/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<p>複数行コメントはネスト不可。</p>
+
+<p><a href="http://php.net/manual/ja/language.basic-syntax.comments.php" target="_blank">http://php.net/manual/ja/language.basic-syntax.comments.php</a></p>
+
+<h2 id="76e0200">コメントアウトを一時的に簡単に解除するようにしておくには <span class="article-date">2013/04/24</span></h2>
+
+<p>以下のようにすると、1行目を <code>// /*</code> にすることで、コメントアウトの一時的な解除を簡単にできる。</p>
+
+<pre><code>/*
+  コメントアウトされたコード
+  コメントアウトされたコード
+// */
+</code></pre>
+
+<p>以下のようにすると、1行目を <code>// /*</code> にすることで、コメントアウトのコードと生きているコードを簡単に入れ替えできる。</p>
+
+<pre><code>/*
+  コメントアウトされたコード
+  コメントアウトされたコード
+/*/
+  生きているコード
+  生きているコード
+// */
+</code></pre>
+
+<h2 id="45f3bb8">Python <span class="article-date">2013/04/22</span></h2>
+
+<pre><code># 単一行コメント
+</code></pre>
+
+<p>複数行のコメントはない。そのかわり、文字列を置いてもプログラムの意味が変わらない箇所で、複数行の文字列リテラルを置くことで、複数行コメントの代わりにすることができる。</p>
+
+<pre><code>'''
+複数行コメント
+複数行コメント
+'''
+</code></pre>
+
+<h2 id="47b14a8">Ruby <span class="article-date">2013/04/22</span></h2>
+
+<pre><code># 単一行コメント
+=begin
+  複数行コメント
+  複数行コメント
+=end
+</code></pre>
+
+<h2 id="f1fb1bd">Perl <span class="article-date">2013/07/27</span></h2>
+
+<pre><code># 単一行コメント
+=comment
+  複数行コメント
+  複数行コメント
+=cut
+</code></pre>
+
+<p>すべての <code>#</code> の後ろがコメントになるわけではなく、 <code>$#arr</code> のような別の意味の <code>#</code> もある。</p>
+
+<h2 id="a2e3153">JavaScript <span class="article-date">2013/04/22</span></h2>
+
+<pre><code>// 単一行コメント
+/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<h2 id="574fbfc">CoffeeScript <span class="article-date">2013/04/22</span></h2>
+
+<pre><code># 単一行コメント
+###
+  複数行コメント
+  複数行コメント
+###
+</code></pre>
+
+
+</div>
+
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

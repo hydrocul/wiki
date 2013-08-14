@@ -89,9 +89,11 @@ cat ファイル名 | cut -f3,1
 <pre><code>cat ファイル名 | cut -d' ' -f1,3
 </code></pre>
 
-<h2 id="c71ad07">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには <span class="article-date">2013/06/17</span></h2>
+<h2 id="c71ad07">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには <span class="article-date">2013/08/13</span></h2>
 
-<pre><code>cat ファイル名 | sed -E '/[\t ]+/ /g' | cut -d' ' -f1,3
+<p>例</p>
+
+<pre><code>cat hoge.txt | sed 's/[\t ]\+/ /g' | cut -d' ' -f1,3
 </code></pre>
 
 <h2 id="1826176">タブをコマンドラインから指定するには <span class="article-date">2013/06/17</span></h2>

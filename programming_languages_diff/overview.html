@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Overview | hydrocul のメモ</title>
+<title>Overview | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,271 +10,46 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; Overview
+<div id="breadcrumb">
+  <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; Overview
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../programming_languages_diff/boolean.html">boolean</a></li>
+  <li>&gt; <a href="../programming_languages_diff/data_type.html">データ型</a></li>
+  <li>&gt; <a href="../programming_languages_diff/datetime.html">日付と時刻</a></li>
+  <li>&gt; <a href="../programming_languages_diff/exception.html">例外処理</a></li>
+  <li>&gt; <a href="../programming_languages_diff/file.html">ファイル操作</a></li>
+  <li>&gt; <a href="../programming_languages_diff/function.html">関数・メソッド</a></li>
+  <li>&gt; <a href="../programming_languages_diff/list.html">list</a></li>
+  <li>&gt; <a href="../programming_languages_diff/map.html">map</a></li>
+  <li>&gt; <a href="../programming_languages_diff/number.html">number</a></li>
+  <li>&gt; <a href="../programming_languages_diff/operator.html">operator</a></li>
+  <li>&gt; Overview</li>
+  <li>&gt; <a href="../programming_languages_diff/regexp.html">正規表現</a></li>
+  <li>&gt; <a href="../programming_languages_diff/string.html">string</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
   <h1 id="overview">Overview</h1>
 
-<ul>
-  <li><a href="#comment">コメント</a></li>
-  <li><a href="#semicolon">インデント / セミコロン</a></li>
-  <li><a href="#variable-declare">変数の宣言とスコープ</a></li>
-  <li><a href="#variable-name">変数名</a></li>
-  <li><a href="#environment">環境変数の取得</a></li>
-  <li><a href="#command-line-arguments">コマンドライン引数の取得</a></li>
-  <li><a href="#source-file-name">ソースファイル名と行番号をソースコード中で取得するには</a></li>
-  <li><a href="#main-function">そのソースファイルが他からの参照ではなく、直接実行された場合にのみ何らかの処理をするには</a></li>
-</ul>
-
-<h2 id="comment">コメント</h2>
-
-<h3 id="c-c-20130422">C言語, C++ <span class="article-date">2013/04/22</span></h3>
-
-<pre><code>// 単一行コメント
-/*
-  複数行コメント
-  複数行コメント
-*/
-</code></pre>
-
-<p>複数行コメントはネスト不可。</p>
-
-<p>C言語では、単一行コメントは正式にはC99以降の規格。</p>
-
-<h3 id="go-20130619">Go言語 <span class="article-date">2013/06/19</span></h3>
-
-<pre><code>// 単一行コメント
-/*
-  複数行コメント
-  複数行コメント
-*/
-</code></pre>
-
-<p>複数行コメントはネスト不可。</p>
-
-<h3 id="php-20130422">PHP <span class="article-date">2013/04/22</span></h3>
-
-<pre><code>// 単一行コメント
-# 単一行コメント
-/*
-  複数行コメント
-  複数行コメント
-*/
-</code></pre>
-
-<p>複数行コメントはネスト不可。</p>
-
-<p><a href="http://php.net/manual/ja/language.basic-syntax.comments.php" target="_blank">http://php.net/manual/ja/language.basic-syntax.comments.php</a></p>
-
-<h4 id="section">コメントアウトを一時的に簡単に解除するようにしておくには <span class="article-date">2013/04/24</span></h4>
-
-<p>以下のようにすると、1行目を <code>// /*</code> にすることで、コメントアウトの一時的な解除を簡単にできる。</p>
-
-<pre><code>/*
-  コメントアウトされたコード
-  コメントアウトされたコード
-// */
-</code></pre>
-
-<p>以下のようにすると、1行目を <code>// /*</code> にすることで、コメントアウトのコードと生きているコードを簡単に入れ替えできる。</p>
-
-<pre><code>/*
-  コメントアウトされたコード
-  コメントアウトされたコード
-/*/
-  生きているコード
-  生きているコード
-// */
-</code></pre>
-
-<h3 id="ruby-20130422">Ruby <span class="article-date">2013/04/22</span></h3>
-
-<pre><code># 単一行コメント
-=begin
-  複数行コメント
-  複数行コメント
-=end
-</code></pre>
-
-<h3 id="python-20130422">Python <span class="article-date">2013/04/22</span></h3>
-
-<pre><code># 単一行コメント
-</code></pre>
-
-<p>複数行のコメントはない。そのかわり、文字列を置いてもプログラムの意味が変わらない箇所で、複数行の文字列リテラルを置くことで、複数行コメントの代わりにすることができる。</p>
-
-<pre><code>'''
-複数行コメント
-複数行コメント
-'''
-</code></pre>
-
-<h3 id="perl-20130727">Perl <span class="article-date">2013/07/27</span></h3>
-
-<pre><code># 単一行コメント
-=comment
-  複数行コメント
-  複数行コメント
-=cut
-</code></pre>
-
-<p>すべての <code>#</code> の後ろがコメントになるわけではなく、 <code>$#arr</code> のような別の意味の <code>#</code> もある。</p>
-
-<h3 id="javascript-20130422">JavaScript <span class="article-date">2013/04/22</span></h3>
-
-<pre><code>// 単一行コメント
-/*
-  複数行コメント
-  複数行コメント
-*/
-</code></pre>
-
-<h3 id="coffeescript-20130422">CoffeeScript <span class="article-date">2013/04/22</span></h3>
-
-<pre><code># 単一行コメント
-###
-  複数行コメント
-  複数行コメント
-###
-</code></pre>
-
-<h2 id="semicolon">インデント / セミコロン</h2>
-
-<h3 id="c-c-20130422-1">C言語, C++ <span class="article-date">2013/04/22</span></h3>
-
-<ul>
-  <li>ブロックは {} で表現</li>
-  <li>行末のセミコロンは省略不可</li>
-</ul>
-
-<h3 id="go-20130619-1">Go言語 <span class="article-date">2013/06/19</span></h3>
-
-<ul>
-  <li>ブロックは {} で表現</li>
-  <li>行末のセミコロンは省略可</li>
-</ul>
-
-<h3 id="java-20130707">Java <span class="article-date">2013/07/07</span></h3>
-
-<ul>
-  <li>ブロックはC言語ライクに {} で表現</li>
-  <li>行末のセミコロンは省略可</li>
-</ul>
-
-<h3 id="scala-20130422">Scala <span class="article-date">2013/04/22</span></h3>
-
-<ul>
-  <li>ブロックはC言語ライクに {} で表現</li>
-  <li>行末のセミコロンは省略可</li>
-</ul>
-
-<h3 id="php-20130422-1">PHP <span class="article-date">2013/04/22</span></h3>
-
-<ul>
-  <li>ブロックはC言語ライクに {} で表現</li>
-  <li>行末のセミコロンは省略不可</li>
-</ul>
-
-<h3 id="ruby-20130422-1">Ruby <span class="article-date">2013/04/22</span></h3>
-
-<ul>
-  <li>ブロックはブロック開始のキーワード(def, do などの開始キーワードと end)で表現</li>
-  <li>行末のセミコロンは省略可</li>
-</ul>
-
-<h3 id="python-20130630">Python <span class="article-date">2013/06/30</span></h3>
-
-<ul>
-  <li>ブロックをインデントで表現</li>
-  <li>行末のセミコロンは省略可(省略推奨)</li>
-</ul>
-
-<h3 id="perl-20130727-1">Perl <span class="article-date">2013/07/27</span></h3>
-
-<ul>
-  <li>ブロックはC言語ライクに {} で表現</li>
-  <li>行末のセミコロンは省略不可</li>
-</ul>
-
-<h3 id="coffeescript-20130422-1">CoffeeScript <span class="article-date">2013/04/22</span></h3>
-
-<ul>
-  <li>ブロックをインデントで表現</li>
-  <li>行末のセミコロンは省略可</li>
-</ul>
-
-<h2 id="variable-declare">変数の宣言とスコープ</h2>
-
-<h3 id="php-20130801">PHP <span class="article-date">2013/08/01</span></h3>
-
-<p>変数の宣言なしにいきなり使うことができる。</p>
-
-<p>関数の中で使用している変数のスコープは関数の中で、関数の外で使用している変数のスコープはグローバルになる。</p>
-
-<p>グローバル変数を関数の中から使用するには、その関数の中で <code>global</code> でグローバル変数を宣言する必要がある。</p>
-
-<h3 id="ruby-20130804">Ruby <span class="article-date">2013/08/04</span></h3>
-
-<p>変数の宣言なしにいきなり使うことができる。</p>
-
-<p><code>$</code> で始まる名前の変数がグローバル変数となる。ローカル変数と名前が衝突することはない。</p>
-
-<p>例</p>
-
-<pre><code>a = 1;
-# この a はローカル変数
-
-def f1
-  # p a
-  # ここから外側にある a を参照することはできない
-
-  a = 2
-  # このaは関数の中のローカル変数で、外側の a とは無関係
-
-  p a # =&gt; 2
-end
-
-f1
-p a # =&gt; 1
-# f1 が呼び出されていても f1 の外側の a は変更されない
-
-$a = 10;
-def f2
-  p $a # =&gt; 10
-  # $a はどこからでも参照できる
-
-  $a = 20
-
-  p $a # =&gt; 20
-end
-
-f2
-p $a # =&gt; 20
-</code></pre>
-
-<h3 id="perl-20130801">Perl <span class="article-date">2013/08/01</span></h3>
-
-<p>変数宣言をせずにいきなり値を代入するとグローバル変数になる。<br />
-<code>my</code> で宣言すると、ローカル変数になる。</p>
-
-<p>ローカル変数では、<code>{}</code> のブロックの中で宣言すると、ブロックの中のスコープを持つ。</p>
-
 <h2 id="variable-name">変数名</h2>
 
-<h3 id="ruby-20130804-1">Ruby <span class="article-date">2013/08/04</span></h3>
+<h3 id="38d1079">Ruby <span class="article-date">2013/08/04</span></h3>
 
 <p><code>$</code> で始まる変数は、グローバル変数。</p>
 
 <p>アルファベット大文字で始まる名前は、定数。</p>
 
-<h3 id="perl-20130801-1">Perl <span class="article-date">2013/08/01</span></h3>
+<h3 id="08960cd">Perl <span class="article-date">2013/08/01</span></h3>
 
 <p><code>$</code> で始まる変数は、配列やハッシュ(連想配列 or マップ)以外のアトミックな値を保存する変数。<br />
 <code>@</code> で始まる変数は、配列を保存する変数。要素にアクセスするには <code>$...[..]</code> とする。<br />
@@ -284,14 +59,14 @@ p $a # =&gt; 20
 
 <h2 id="environment">環境変数の取得</h2>
 
-<h3 id="ruby">Ruby</h3>
+<h3 id="8a79924">Ruby</h3>
 
 <p><code>ENV</code>という変数を利用する。</p>
 
 <pre><code>ENV['HOME']
 </code></pre>
 
-<h3 id="perl-20130727-2">Perl <span class="article-date">2013/07/27</span></h3>
+<h3 id="eaa2143">Perl <span class="article-date">2013/07/27</span></h3>
 
 <p><code>@ENV</code>という変数を利用する。</p>
 
@@ -300,54 +75,54 @@ p $a # =&gt; 20
 
 <h2 id="command-line-arguments">コマンドライン引数の取得</h2>
 
-<h3 id="php-20130517">PHP <span class="article-date">2013/05/17</span></h3>
+<h3 id="ede3e44">PHP <span class="article-date">2013/05/17</span></h3>
 
 <dl>
   <dt><code>$argc</code></dt>
   <dd>引数の数。PHPスクリプトのファイル名が最初の引数になるので、これが0になることはない。<br />
-http://www.php.net/manual/ja/reserved.variables.argc.php</dd>
+<a href="http://www.php.net/manual/ja/reserved.variables.argc.php" target="_blank">http://www.php.net/manual/ja/reserved.variables.argc.php</a></dd>
   <dt><code>$argv</code></dt>
   <dd>引数が配列で入っている。<code>$argv[0]</code> はPHPスクリプトのファイル名になる。<br />
-http://php.net/manual/ja/reserved.variables.argv.php</dd>
+<a href="http://php.net/manual/ja/reserved.variables.argv.php" target="_blank">http://php.net/manual/ja/reserved.variables.argv.php</a></dd>
 </dl>
 
-<h3 id="ruby-20130517">Ruby <span class="article-date">2013/05/17</span></h3>
+<h3 id="3370028">Ruby <span class="article-date">2013/05/17</span></h3>
 
 <p><code>ARGV</code> という定数に引数が配列で入っている。スクリプトファイル名は含まれておらず、先頭から本当の引数が入っている。</p>
 
-<h3 id="perl-20130731">Perl <span class="article-date">2013/07/31</span></h3>
+<h3 id="c386cab">Perl <span class="article-date">2013/07/31</span></h3>
 
 <p><code>@ARGV</code>, <code>$ARGV[..]</code> で引数を取得できる。</p>
 
 <h2 id="source-file-name">ソースファイル名と行番号をソースコード中で取得するには</h2>
 
-<h3 id="ruby-20130526">Ruby <span class="article-date">2013/05/26</span></h3>
+<h3 id="9a278b4">Ruby <span class="article-date">2013/05/26</span></h3>
 
 <pre><code>__FILE__
 </code></pre>
 
-<h3 id="sh-20130705">sh <span class="article-date">2013/07/05</span></h3>
+<h3 id="cdb1a4c">sh <span class="article-date">2013/07/05</span></h3>
 
 <p>bashでは、行番号は <code>$LINENO</code> という変数で取得できる。</p>
 
 <h2 id="main-function">そのソースファイルが他からの参照ではなく、直接実行された場合にのみ何らかの処理をするには</h2>
 
-<h3 id="ruby-20130526-1">Ruby <span class="article-date">2013/05/26</span></h3>
+<h3 id="fd98f18">Ruby <span class="article-date">2013/05/26</span></h3>
 
 <pre><code>if __FILE__ == $PROGRAM_NAME
     # 何らかの処理
 end
 </code></pre>
 
-<h3 id="python-20130730">Python <span class="article-date">2013/07/30</span></h3>
+<h3 id="e03cfe6">Python <span class="article-date">2013/07/30</span></h3>
 
 <pre><code>if __name__ =='__main__':
     # 何らかの処理
 </code></pre>
 
-<h2 id="section-1">プロセスを終了するには</h2>
+<h2 id="30e1edb">プロセスを終了するには</h2>
 
-<h3 id="perl-20130727-3">Perl <span class="article-date">2013/07/27</span></h3>
+<h3 id="1294360">Perl <span class="article-date">2013/07/27</span></h3>
 
 <p>正常終了の場合</p>
 
@@ -359,9 +134,9 @@ end
 <pre><code>exit(1);
 </code></pre>
 
-<h2 id="section-2">おまじない</h2>
+<h2 id="4ac2d86">おまじない</h2>
 
-<h3 id="perl-20130730">Perl <span class="article-date">2013/07/30</span></h3>
+<h3 id="00993ed">Perl <span class="article-date">2013/07/30</span></h3>
 
 <p>以下を付けることで、バグになりやすい古い仕様の表記などに対して警告を出してくれるようになる。</p>
 
@@ -372,10 +147,10 @@ use warnings;
 
 </div>
 
-  <footer>
-    <a href="../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>
