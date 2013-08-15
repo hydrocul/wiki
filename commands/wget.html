@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>wget コマンド | hydrocul のメモ</title>
+<title>wget コマンド | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,17 +10,62 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../commands/">コマンドリファレンス</a> &gt; wget コマンド
+<div id="breadcrumb">
+  <a href="../commands/">コマンドリファレンス</a> &gt; wget コマンド
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="../commands/ack-grep.html">ack-grep</a></li>
+  <li>&gt; <a href="../commands/awk.html">awk</a></li>
+  <li>&gt; <a href="../commands/base64.html">base64</a></li>
+  <li>&gt; <a href="../commands/cat.html">cat</a></li>
+  <li>&gt; <a href="../commands/cp.html">cp コマンド</a></li>
+  <li>&gt; <a href="../commands/cut.html">cut コマンド</a></li>
+  <li>&gt; <a href="../commands/date.html">date</a></li>
+  <li>&gt; <a href="../commands/diff.html">diff</a></li>
+  <li>&gt; <a href="../commands/du.html">du</a></li>
+  <li>&gt; <a href="../commands/find.html">find コマンド</a></li>
+  <li>&gt; <a href="../commands/git.html">git コマンド</a></li>
+  <li>&gt; <a href="../commands/grep.html">grep</a></li>
+  <li>&gt; <a href="../commands/incron.html">incron (inotify cron)</a></li>
+  <li>&gt; <a href="../commands/less.html">less コマンド</a></li>
+  <li>&gt; <a href="../commands/lftp.html">lftp</a></li>
+  <li>&gt; <a href="../commands/ls.html">ls コマンド</a></li>
+  <li>&gt; <a href="../commands/netstat.html">netstat</a></li>
+  <li>&gt; <a href="../commands/nkf.html">nkf コマンド</a></li>
+  <li>&gt; <a href="../commands/od.html">od</a></li>
+  <li>&gt; <a href="../commands/openssl.html">openssl</a></li>
+  <li>&gt; <a href="../commands/ps.html">ps</a></li>
+  <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
+  <li>&gt; <a href="../commands/rsync.html">rsync</a></li>
+  <li>&gt; <a href="../commands/sdiff.html">sdiff</a></li>
+  <li>&gt; <a href="../commands/sed.html">sed コマンド</a></li>
+  <li>&gt; <a href="../commands/sort.html">sort</a></li>
+  <li>&gt; <a href="../commands/source-highlight.html">source-highlight</a></li>
+  <li>&gt; <a href="../commands/sqlite.html">sqlite</a></li>
+  <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
+  <li>&gt; <a href="../commands/tac.html">tac</a></li>
+  <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
+  <li>&gt; <a href="../commands/top.html">top</a></li>
+  <li>&gt; <a href="../commands/touch.html">touch</a></li>
+  <li>&gt; <a href="../commands/tr.html">tr</a></li>
+  <li>&gt; <a href="../commands/watch.html">watch</a></li>
+  <li>&gt; <a href="../commands/wc.html">wc</a></li>
+  <li>&gt; wget コマンド</li>
+  <li>&gt; <a href="../commands/xargs.html">xargs</a></li>
+  <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="wget--20130403">wget コマンド <span class="article-date">2013/04/03</span></h1>
+  <h1 id="wget">wget コマンド <span class="article-date">2013/04/03</span></h1>
 
 <p>GNU Wget 1.12 Manual<br />
 <a href="http://www.gnu.org/software/wget/manual/wget.html" target="_blank">http://www.gnu.org/software/wget/manual/wget.html</a></p>
@@ -28,12 +73,12 @@
 <p>GNU Wget 1.9 Manual 日本語<br />
 <a href="http://www.bookshelf.jp/texi/wget/wget-ja.html" target="_blank">http://www.bookshelf.jp/texi/wget/wget-ja.html</a></p>
 
-<h2 id="basic-20130412">BASIC認証のあるサイトをダウンロードするには <span class="article-date">2013/04/12</span></h2>
+<h2 id="db78ca0">BASIC認証のあるサイトをダウンロードするには <span class="article-date">2013/04/12</span></h2>
 
 <pre><code>wget --http-user=user --http-passwd=password URL
 </code></pre>
 
-<h2 id="section">ウェブサイトを丸ごとダウンロードするには  <span class="article-date">2013/04/10</span></h2>
+<h2 id="14ce742">ウェブサイトを丸ごとダウンロードするには  <span class="article-date">2013/04/10</span></h2>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする。</p>
 
@@ -45,39 +90,39 @@
 <pre><code>wget -r -l5 --convert-links URL
 </code></pre>
 
-<h2 id="section-1">標準出力に吐き出すには <span class="article-date">2013/08/04</span></h2>
+<h2 id="31a24df">標準出力に吐き出すには <span class="article-date">2013/08/04</span></h2>
 
 <pre><code>wget -q -O - URL
 </code></pre>
 
 <p><code>-O -</code> (大文字オー)で結果を標準出力に出す。 <code>-q</code> は結果以外の進捗の表示などを無効にする。</p>
 
-<h2 id="section-2">レスポンスヘッダを確認するには <span class="article-date">2013/07/16</span></h2>
+<h2 id="56b8ad1">レスポンスヘッダを確認するには <span class="article-date">2013/07/16</span></h2>
 
 <p><code>-S</code> を付けると、レスポンスヘッダが表示される。</p>
 
-<h2 id="section-3">再帰的なダウンロードを途中から再開できるようにするには <span class="article-date">2013/08/05</span></h2>
+<h2 id="d5b5608">再帰的なダウンロードを途中から再開できるようにするには <span class="article-date">2013/08/05</span></h2>
 
 <p>再帰的なダウンロード <code>-r</code> とともに <code>-nc</code> を付けると、すでにダウンロード済みのファイルがあれば、それを利用し、改めてダウンロードすることはない。</p>
 
-<h2 id="section-4">再帰的なダウンロード中のダウンロードのインターバルを指定するには <span class="article-date">2013/08/05</span></h2>
+<h2 id="d180793">再帰的なダウンロード中のダウンロードのインターバルを指定するには <span class="article-date">2013/08/05</span></h2>
 
 <p><code>--wait=10</code> とすると、10秒のインターバルを設ける。小数点も使用可能で、
 <code>--wait=0.5</code> で0.5秒の間がおかれる。</p>
 
 <p>さらに <code>--random-wait</code> を付けると、指定したインターバルの0.5倍から1.5倍の間のランダムなインターバルになる。</p>
 
-<h2 id="section-5">再帰的なダウンロードの時にホスト名のディレクトリを作らずに済ますには <span class="article-date">2013/08/05</span></h2>
+<h2 id="2a0fd4d">再帰的なダウンロードの時にホスト名のディレクトリを作らずに済ますには <span class="article-date">2013/08/05</span></h2>
 
 <p><code>--no-host-directories</code> を付ける。</p>
 
 
 </div>
 
-  <footer>
-    <a href="../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

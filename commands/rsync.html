@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>rsync | hydrocul のメモ</title>
+<title>rsync | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,17 +10,62 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../commands/">コマンドリファレンス</a> &gt; rsync
+<div id="breadcrumb">
+  <a href="../commands/">コマンドリファレンス</a> &gt; rsync
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="../commands/ack-grep.html">ack-grep</a></li>
+  <li>&gt; <a href="../commands/awk.html">awk</a></li>
+  <li>&gt; <a href="../commands/base64.html">base64</a></li>
+  <li>&gt; <a href="../commands/cat.html">cat</a></li>
+  <li>&gt; <a href="../commands/cp.html">cp コマンド</a></li>
+  <li>&gt; <a href="../commands/cut.html">cut コマンド</a></li>
+  <li>&gt; <a href="../commands/date.html">date</a></li>
+  <li>&gt; <a href="../commands/diff.html">diff</a></li>
+  <li>&gt; <a href="../commands/du.html">du</a></li>
+  <li>&gt; <a href="../commands/find.html">find コマンド</a></li>
+  <li>&gt; <a href="../commands/git.html">git コマンド</a></li>
+  <li>&gt; <a href="../commands/grep.html">grep</a></li>
+  <li>&gt; <a href="../commands/incron.html">incron (inotify cron)</a></li>
+  <li>&gt; <a href="../commands/less.html">less コマンド</a></li>
+  <li>&gt; <a href="../commands/lftp.html">lftp</a></li>
+  <li>&gt; <a href="../commands/ls.html">ls コマンド</a></li>
+  <li>&gt; <a href="../commands/netstat.html">netstat</a></li>
+  <li>&gt; <a href="../commands/nkf.html">nkf コマンド</a></li>
+  <li>&gt; <a href="../commands/od.html">od</a></li>
+  <li>&gt; <a href="../commands/openssl.html">openssl</a></li>
+  <li>&gt; <a href="../commands/ps.html">ps</a></li>
+  <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
+  <li>&gt; rsync</li>
+  <li>&gt; <a href="../commands/sdiff.html">sdiff</a></li>
+  <li>&gt; <a href="../commands/sed.html">sed コマンド</a></li>
+  <li>&gt; <a href="../commands/sort.html">sort</a></li>
+  <li>&gt; <a href="../commands/source-highlight.html">source-highlight</a></li>
+  <li>&gt; <a href="../commands/sqlite.html">sqlite</a></li>
+  <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
+  <li>&gt; <a href="../commands/tac.html">tac</a></li>
+  <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
+  <li>&gt; <a href="../commands/top.html">top</a></li>
+  <li>&gt; <a href="../commands/touch.html">touch</a></li>
+  <li>&gt; <a href="../commands/tr.html">tr</a></li>
+  <li>&gt; <a href="../commands/watch.html">watch</a></li>
+  <li>&gt; <a href="../commands/wc.html">wc</a></li>
+  <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
+  <li>&gt; <a href="../commands/xargs.html">xargs</a></li>
+  <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="rsync-20130614">rsync <span class="article-date">2013/06/14</span></h1>
+  <h1 id="rsync">rsync <span class="article-date">2013/06/14</span></h1>
 
 <pre><code># リモートホストからローカルにダウンロードする
 rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
@@ -36,7 +81,7 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
   <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
 </ul>
 
-<h2 id="section">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには <span class="article-date">2013/04/03</span></h2>
+<h2 id="9fdbbfe">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
 </code></pre>
@@ -46,7 +91,7 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 <p><code>cp</code> での同じ役割をはたすのは <code>--parents</code>。</p>
 
-<h2 id="excludeinclude-20130606">excludeオプションとincludeオプション <span class="article-date">2013/06/06</span></h2>
+<h2 id="5609052">excludeオプションとincludeオプション <span class="article-date">2013/06/06</span></h2>
 
 <p>rsync の複雑怪奇な exclude と include の適用手順を理解しよう<br />
 <a href="http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/" target="_blank">http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/</a></p>
@@ -54,10 +99,10 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 </div>
 
-  <footer>
-    <a href="../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>
