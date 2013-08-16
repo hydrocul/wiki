@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>変数名 | 変数・束縛 | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/vars/">変数・束縛</a> &gt; 変数名
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/vars/">変数・束縛</a></li>
+  <li>&gt;&gt; 変数名</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/scope.html">変数の宣言とスコープ</a></li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="name">変数名</h1>
+
+<h2 id="451fb75">C言語, C++ <span class="article-date">2013/08/15</span></h2>
+
+<p>識別子として、半角英数字または <code>_</code>(アンダースコア)を使うことができる。半角数字を途中や最後に含めることはできるが、先頭で使うことはできない。</p>
+
+<p><code>int</code>, <code>if</code> などの予約されているキーワードは識別子として使えない。</p>
+
+<p>マルチバイトの文字を使うことのできる実装もあるらしい。
+<code>\uHHHH</code> の形式が使える、という規格もあるらしい。
+<code>$</code> を使うことのできる実装もあるらしい。これらは未確認。</p>
+
+<p>大文字と小文字は区別される。大文字と小文字に文法上の違いはないが、慣例として、識別子の途中にある単語の先頭(キャメルケース)やクラス名の先頭などだけを大文字にして、その他を小文字にする。同じく慣例として、定数は全部大文字にする。</p>
+
+<h2 id="033d0f9">Java <span class="article-date">2013/08/15</span></h2>
+
+<p>識別子のルールは、C言語とよく似ているが、マルチバイトの文字も使うことができる点が違う。</p>
+
+<p>識別子として、マルチバイトの文字を含めほとんどのUnicodeにある文字を使うことができる。記号は使えないが、<code>$</code>, <code>＄</code>(全角も), <code>_</code>, <code>＿</code>(全角も) は使える。数字(半角でも全角でも)を途中や最後に含めることはできるが、先頭で使うことはできない。</p>
+
+<p>Javaのライブラリに、文字がJavaの識別子として使うことができるかどうかをチェックする以下のメソッドがある。</p>
+
+<dl>
+  <dt><code>Character#isJavaIdentifierStart</code></dt>
+  <dd>識別子の先頭として使えるかどうか。数字は <code>false</code> を返す。</dd>
+  <dt><code>Character#isJavaIdentifierPart</code></dt>
+  <dd>識別子の2文字目以降として使えるかどうか</dd>
+</dl>
+
+<p><code>int</code>, <code>if</code> などの予約されているキーワードは識別子として使えない。</p>
+
+<p><code>$</code> は使えるが、機械生成の識別子でよく使われるので、人間が書くコードには使わないほうがよい。よくある機械生成の識別子としては、内部クラス、無名クラスなどでJavaコンパイラが生成するものがある。Scalaのコンパイラもあらゆるところで <code>$</code> を含む識別子を生成している。</p>
+
+<p>大文字と小文字は区別される。大文字と小文字に文法上の違いはないが、慣例として、識別子の途中にある単語の先頭(キャメルケース)やクラス名の先頭などだけを大文字にして、その他を小文字にする。同じく慣例として、定数は全部大文字にする。</p>
+
+<h2 id="36d0735">Scala <span class="article-date">2013/08/15</span></h2>
+
+<p>3つの形式が使える。</p>
+
+<h3 id="10cc4d2">Javaと同じ形式 <span class="article-date">2013/08/15</span></h3>
+
+<p>Javaと同じルールの識別子が使える。</p>
+
+<p><code>$</code> も使えるが、Scalaのコンパイラが自動生成する内部の識別子でも大量に使われているので、使わないほうがよい。</p>
+
+<p><code>_</code> という1文字の識別子も使えるが、無名関数の暗黙の引数として使われるので、普通は使わない。</p>
+
+<p>大文字と小文字は区別される。大文字と小文字に文法上の違いはほとんどないが、
+match式で扱いに違いがある。慣例として、識別子の途中にある単語の先頭(キャメルケース)やクラス名の先頭などだけを大文字にして、その他を小文字にする。同じく慣例として、定数は全部大文字にする。</p>
+
+<h3 id="4463c9a">演算子っぽい形式 <span class="article-date">2013/08/15</span></h3>
+
+<p>演算子で使われるような記号だけで構成される識別子が使える。</p>
+
+<p>Javaで演算子とされるものもScalaでは識別子としてその識別子が示すメソッドの呼び出しになる。新しい演算子っぽい名前のメソッドを定義することもできる。</p>
+
+<h3 id="5d0f74b">バッククオートで囲んだ任意の形式 <span class="article-date">2013/08/15</span></h3>
+
+<p>バッククオートで囲むことでバッククオート以外の任意の文字の識別子を作ることができる。数字だけの識別子も作れる。バッククオートがなくても上記2つの形式のいずれかの識別子として成立するものであれば、バッククオートがあるのとないのとで同じ識別子になる。つまり <code>\</code>%%%`<code> という名前の変数を作ったら、
+</code>%%%` という表記でも参照できる。</p>
+
+<p>以下のように予約語と同じ名前の識別子も使えるが、わかりにくいので、わざわざこのようなことはしない。</p>
+
+<p>例</p>
+
+<pre><code>val `int` = "abc";
+</code></pre>
+
+<p><code>Thread#yield</code> メソッドを呼び出したい場合、 <code>yield</code> がScalaの予約語なので、
+<code>Thread.yield()</code> と書くことができず、<code>Thread.\</code>yield`()` と書くことになる。</p>
+
+<h2 id="4ac29c2">Ruby <span class="article-date">2013/08/04</span></h2>
+
+<p><code>$</code> で始まる変数は、グローバル変数。</p>
+
+<p>アルファベット大文字で始まる名前は、定数。</p>
+
+<h2 id="6c223b7">Perl <span class="article-date">2013/08/01</span></h2>
+
+<p><code>$</code> で始まる変数は、配列やハッシュ(連想配列 or マップ)以外のアトミックな値を保存する変数。<br />
+<code>@</code> で始まる変数は、配列を保存する変数。要素にアクセスするには <code>$...[..]</code> とする。<br />
+<code>%</code> で始まる変数は、ハッシュを保存する変数。要素にアクセスするには <code>$...{..}</code> とする。  </p>
+
+<p><code>$</code>, <code>@</code>, <code>%</code> の3つはシジル(sigil)という。</p>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

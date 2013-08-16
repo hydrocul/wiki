@@ -10,24 +10,68 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="./">Home</a> &gt; Ruby
+<div id="breadcrumb">
+  Ruby
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="./">Home</a></li>
+  <li>&gt; <a href="./apache.html">Apache</a></li>
+  <li>&gt; <a href="./codeigniter.html">CodeIgniter</a></li>
+  <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="./css.html">CSS</a></li>
+  <li>&gt; <a href="./emacs.html">Emacs</a></li>
+  <li>&gt; <a href="./google.html">google</a></li>
+  <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
+  <li>&gt; <a href="./html.html">HTML</a></li>
+  <li>&gt; <a href="./incron.html">incron (inotify cron)</a></li>
+  <li>&gt; <a href="./iptables.html">iptables</a></li>
+  <li>&gt; <a href="./java.html">Java</a></li>
+  <li>&gt; <a href="./jquery.html">jQuery</a></li>
+  <li>&gt; <a href="./linux.html">Linux</a></li>
+  <li>&gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
+  <li>&gt; <a href="./mac.html">Mac</a></li>
+  <li>&gt; <a href="./markdown.html">Markdown</a></li>
+  <li>&gt; <a href="./mechanize.html">mechanize</a></li>
+  <li>&gt; <a href="./memcached.html">memcached</a></li>
+  <li>&gt; <a href="./misc.html">misc</a></li>
+  <li>&gt; <a href="./mosh.html">mosh</a></li>
+  <li>&gt; <a href="./mysql.html">MySQL</a></li>
+  <li>&gt; <a href="./oneliner.html">ワンライナー</a></li>
+  <li>&gt; <a href="./paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+  <li>&gt; <a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
+  <li>&gt; <a href="./phantomjs.html">phantomjs</a></li>
+  <li>&gt; <a href="./php.html">PHP</a></li>
+  <li>&gt; <a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="./rails.html">Ruby on Rails</a></li>
+  <li>&gt; Ruby</li>
+  <li>&gt; <a href="./sh.html">シェルスクリプト</a></li>
+  <li>&gt; <a href="./svn.html">Subversion (svn)</a></li>
+  <li>&gt; <a href="./tmux.html">tmux</a></li>
+  <li>&gt; <a href="./ubuntu.html">Ubuntu</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
   <h1 id="ruby">Ruby</h1>
 
-<h2 id="api-20130415">るりまサーチ (APIレファレンス) <span class="article-date">2013/04/15</span></h2>
+<h2 id="a00cd18">APIレファレンス <span class="article-date">2013/08/16</span></h2>
 
-<p><a href="http://doc.ruby-lang.org/ja/search/" target="_blank">http://doc.ruby-lang.org/ja/search/</a><br />
+<p>るりまサーチ<br />
+<a href="http://doc.ruby-lang.org/ja/search/" target="_blank">http://doc.ruby-lang.org/ja/search/</a><br />
 Rubyリファレンスマニュアル検索！</p>
 
-<h2 id="section">正規表現で全角文字をマッチさせるには <span class="article-date">2013/04/03</span></h2>
+<p>Ruby Reference Index<br />
+<a href="http://rbref.heroku.com/" target="_blank">http://rbref.heroku.com/</a><br />
+Rubyの組み込みクラスの全メソッドの一覧</p>
+
+<h2 id="8a6e4c5">正規表現で全角文字をマッチさせるには <span class="article-date">2013/04/03</span></h2>
 
 <p>以下のgemを入れると簡単。</p>
 
@@ -41,7 +85,7 @@ Rubyリファレンスマニュアル検索！</p>
 str.gsub(/#{Moji.zen}/, "")
 </code></pre>
 
-<h2 id="encodingundefinedconversionerror-20130403"><code>Encoding::UndefinedConversionError</code> <span class="article-date">2013/04/03</span></h2>
+<h2 id="b05ae39"><code>Encoding::UndefinedConversionError</code> <span class="article-date">2013/04/03</span></h2>
 
 <p><code>String#encode</code> で文字コードを変換したときに、変換できない文字があって
 <code>Encoding::UndefinedConversionError</code> が発生した場合は、以下のようにオプションを付ける。</p>
@@ -54,7 +98,7 @@ str.gsub(/#{Moji.zen}/, "")
 <p>instance method String#encode<br />
 <a href="http://doc.ruby-lang.org/ja/1.9.3/method/String/i/encode.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/method/String/i/encode.html</a></p>
 
-<h2 id="section-1">ワンライナー <span class="article-date">2013/04/03</span></h2>
+<h2 id="43b31cc">ワンライナー <span class="article-date">2013/04/03</span></h2>
 
 <p><code>-ne</code> をつけると、行ごとに処理するコードをコマンドラインで指定できる。コードの中で <code>$_</code> は行の文字列が最後の改行付きで入る。以下はなにもせずに、データを聞き流すコード。</p>
 
@@ -71,23 +115,23 @@ str.gsub(/#{Moji.zen}/, "")
 <pre><code>cat src.txt | tr -d '\n'
 </code></pre>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./oneliner.html">ワンライナー</a> &gt; <a href="./oneliner.html#unicode-escape-decode">Unicodeエスケープをデコードするには</a></i>  </p>
+<p>-&gt; oneliner.md#unicode-escape-decode</p>
 
-<h2 id="rake">Rake</h2>
+<h2 id="3572413">Rake</h2>
 
-<h3 id="rubyrake-20130403">RubyによるビルドツールRakeの覚え書き。興に乗ったので詳しく書いてみた <span class="article-date">2013/04/03</span></h3>
+<h3 id="e58ae9a">RubyによるビルドツールRakeの覚え書き。興に乗ったので詳しく書いてみた <span class="article-date">2013/04/03</span></h3>
 
 <p><a href="http://www2s.biglobe.ne.jp/~idesaku/sss/tech/rake/" target="_blank">http://www2s.biglobe.ne.jp/~idesaku/sss/tech/rake/</a></p>
 
-<h2 id="mechanize">mechanize</h2>
+<h2 id="26ef6e8">mechanize</h2>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./mechanize.html">mechanize</a></i>  </p>
+<p>-&gt; mechanize.md</p>
 
-<h2 id="api">かな漢字変換のAPI</h2>
+<h2 id="082a71d">かな漢字変換のAPI</h2>
 
-<p>-&gt; &lt; no title &gt;  </p>
+<p>-&gt; kanji.md#ruby-api</p>
 
-<h2 id="url-20130617">URLエンコード <span class="article-date">2013/06/17</span></h2>
+<h2 id="b02338c">URLエンコード <span class="article-date">2013/06/17</span></h2>
 
 <p><a href="http://d.hatena.ne.jp/gan2/20070601/1180677149" target="_blank">http://d.hatena.ne.jp/gan2/20070601/1180677149</a></p>
 
@@ -103,7 +147,7 @@ CGI.escape はURLとしての意味を持たせたくない文字をエスケー
 URI.escape &lt;-&gt; URI.unescape<br />
 URI.encode &lt;-&gt; URI.decode  </p>
 
-<h2 id="ruby-20130412">Rubyソースコード完全解説 <span class="article-date">2013/04/12</span></h2>
+<h2 id="dc103b5">Rubyソースコード完全解説 <span class="article-date">2013/04/12</span></h2>
 
 <p><a href="http://loveruby.net/ja/rhg/book/" target="_blank">http://loveruby.net/ja/rhg/book/</a></p>
 
@@ -117,11 +161,11 @@ URI.encode &lt;-&gt; URI.decode  </p>
 
 <h2 id="rbenv">rbenv <span class="article-date">2013/04/11</span></h2>
 
-<h3 id="rbenvruby">rbenvを使ってシステムワイドにrubyをインストールする方法</h3>
+<h3 id="61f8d8c">rbenvを使ってシステムワイドにrubyをインストールする方法</h3>
 
 <p><a href="http://qiita.com/items/8e973a544b592376a07e" target="_blank">http://qiita.com/items/8e973a544b592376a07e</a></p>
 
-<h3 id="rbenvruby-1">rbenvで複数のバージョンのrubyを使用する環境を整える</h3>
+<h3 id="74bafaa">rbenvで複数のバージョンのrubyを使用する環境を整える</h3>
 
 <p><a href="http://memo.yomukaku.net/entries/ApoFwmf" target="_blank">http://memo.yomukaku.net/entries/ApoFwmf</a></p>
 
@@ -129,7 +173,7 @@ URI.encode &lt;-&gt; URI.decode  </p>
 
 <p><a href="https://rubygems.org/" target="_blank">https://rubygems.org/</a></p>
 
-<h3 id="section-2">基本操作 <span class="article-date">2013/07/15</span></h3>
+<h3 id="96ed821">基本操作 <span class="article-date">2013/07/15</span></h3>
 
 <pre><code># パッケージを検索
 gem search -r キーワード
@@ -144,11 +188,11 @@ sudo gem unsintall パッケージ名
 gem list
 </code></pre>
 
-<h3 id="gem-rubygem-20130412">gemの作り方 Rubyのオブジェクトをグンマー県が制圧するgem書いた <span class="article-date">2013/04/12</span></h3>
+<h3 id="92c16b0">gemの作り方 Rubyのオブジェクトをグンマー県が制圧するgem書いた <span class="article-date">2013/04/12</span></h3>
 
 <p><a href="http://soplana.hateblo.jp/entry/2012/06/01/234259" target="_blank">http://soplana.hateblo.jp/entry/2012/06/01/234259</a></p>
 
-<h3 id="gem-20130412">gemインストールする際にドキュメントはインストールしないようにするには <span class="article-date">2013/04/12</span></h3>
+<h3 id="df64298">gemインストールする際にドキュメントはインストールしないようにするには <span class="article-date">2013/04/12</span></h3>
 
 <pre><code>gem install パッケージ名 --no-ri --no-rdoc
 </code></pre>
@@ -156,7 +200,7 @@ gem list
 <p>ドキュメントの除外をデフォルトの動作にするには<br />
 <a href="http://blog.ruedap.com/entry/20110514/ruby_gem_install_no_ri_no_rdoc_gemrc" target="_blank">http://blog.ruedap.com/entry/20110514/ruby_gem_install_no_ri_no_rdoc_gemrc</a></p>
 
-<h3 id="ruby-187-gem-20130617">Ruby 1.8.7 以下でgemのライブラリを使うには <span class="article-date">2013/06/17</span></h3>
+<h3 id="75785f2">Ruby 1.8.7 以下でgemのライブラリを使うには <span class="article-date">2013/06/17</span></h3>
 
 <p>1.8.7以下では、gemのライブラリをrequireする前に</p>
 
@@ -173,7 +217,7 @@ gem list
 # =&gt; "1.8.7" や "1.9.3" などの文字列
 </code></pre>
 
-<h2 id="require--requirerelative"><code>require</code> と <code>require_relative</code></h2>
+<h2 id="fdbef45"><code>require</code> と <code>require_relative</code> <span class="article-date">2013/04/12</span></h2>
 
 <p>Ruby 1.9.2 より前は require で相対パスを指定すれば、カレントディレクトリからたどってファイルを require できたが、
 1.9.2 以降はそれができなくなった。require のサーチパスに以前は
@@ -190,14 +234,14 @@ requireの呼び出し元のファイルの場所ではない。</p>
 <p><code>Kernel.#require_relative(relative_feature)</code><br />
 <a href="http://rurema.clear-code.com/version:1.9.3/query:Kernel.%23require_relative/" target="_blank">http://rurema.clear-code.com/version:1.9.3/query:Kernel.%23require_relative/</a></p>
 
-<h2 id="shebang">シェルスクリプトとして利用するときの shebang</h2>
+<h2 id="2130170">シェルスクリプトとして利用するときの shebang</h2>
 
 <p>以下のようにすると、rubyのパスに依存せずに済むらしい。</p>
 
 <pre><code>#!/usr/bin/env ruby
 </code></pre>
 
-<h2 id="require--20130429"><code>require</code> されたのではなく、そのファイルが直接実行されたときにだけ特定の処理をさせるには <span class="article-date">2013/04/29</span></h2>
+<h2 id="3d0d900"><code>require</code> されたのではなく、そのファイルが直接実行されたときにだけ特定の処理をさせるには <span class="article-date">2013/04/29</span></h2>
 
 <p>以下のように書く。</p>
 
@@ -206,17 +250,17 @@ requireの呼び出し元のファイルの場所ではない。</p>
 end
 </code></pre>
 
-<h2 id="rvm">rvm</h2>
+<h2 id="bd84539">rvm</h2>
 
 <p>複数のバージョンのRuby環境を管理するツール。</p>
 
 
 </div>
 
-  <footer>
-    <a href="./">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="./">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

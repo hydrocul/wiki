@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>例外処理 | hydrocul のメモ</title>
+<title>例外処理 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,21 +10,42 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; 例外処理
+<div id="breadcrumb">
+  <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; 例外処理
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../programming_languages_diff/boolean/">論理型</a></li>
+  <li>&gt; <a href="../programming_languages_diff/comment.html">コメント</a></li>
+  <li>&gt; <a href="../programming_languages_diff/data_type.html">データ型</a></li>
+  <li>&gt; <a href="../programming_languages_diff/datetime.html">日付と時刻</a></li>
+  <li>&gt; 例外処理</li>
+  <li>&gt; <a href="../programming_languages_diff/file.html">ファイル操作</a></li>
+  <li>&gt; <a href="../programming_languages_diff/function.html">関数・メソッド</a></li>
+  <li>&gt; <a href="../programming_languages_diff/indent.html">インデント / セミコロン</a></li>
+  <li>&gt; <a href="../programming_languages_diff/list/">リスト(配列)</a></li>
+  <li>&gt; <a href="../programming_languages_diff/map/">マップ(連想配列)</a></li>
+  <li>&gt; <a href="../programming_languages_diff/number/">数値型</a></li>
+  <li>&gt; <a href="../programming_languages_diff/operator/">演算子</a></li>
+  <li>&gt; <a href="../programming_languages_diff/overview.html">Overview</a></li>
+  <li>&gt; <a href="../programming_languages_diff/string/">文字列</a></li>
+  <li>&gt; <a href="../programming_languages_diff/vars/">変数・束縛</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="section">例外処理</h1>
+  <h1 id="exception">例外処理</h1>
 
-<h2 id="section-1">書き方</h2>
+<h2 id="aed1eb8">書き方</h2>
 
-<h3 id="java-20130625">Java <span class="article-date">2013/06/25</span></h3>
+<h3 id="ac90f67">Java <span class="article-date">2013/06/25</span></h3>
 
 <pre><code>try {
   ...
@@ -50,7 +71,7 @@
 }
 </code></pre>
 
-<h3 id="scala-20130705">Scala <span class="article-date">2013/07/05</span></h3>
+<h3 id="dfa3a81">Scala <span class="article-date">2013/07/05</span></h3>
 
 <pre><code>try {
   ...
@@ -65,7 +86,7 @@
 }
 </code></pre>
 
-<h3 id="ruby-20130804">Ruby <span class="article-date">2013/08/04</span></h3>
+<h3 id="363ec0d">Ruby <span class="article-date">2013/08/04</span></h3>
 
 <pre><code>begin
   ...
@@ -100,7 +121,7 @@ end
 raise ZeroDivisionError, "message ..."
 </code></pre>
 
-<h3 id="python-20130417">Python <span class="article-date">2013/04/17</span></h3>
+<h3 id="3197edd">Python <span class="article-date">2013/04/17</span></h3>
 
 <pre><code>try:
   ...
@@ -120,7 +141,7 @@ finally:
 
 <p><code>except</code> の中で同じ例外を再スローするには <code>raise</code> とだけ書く。</p>
 
-<h3 id="javascript-20130416">JavaScript <span class="article-date">2013/04/16</span></h3>
+<h3 id="b4b11a1">JavaScript <span class="article-date">2013/04/16</span></h3>
 
 <pre><code>try {
   ...
@@ -133,7 +154,7 @@ finally:
 }
 </code></pre>
 
-<h3 id="coffeescript-20130416">CoffeeScript <span class="article-date">2013/04/16</span></h3>
+<h3 id="3f60b6b">CoffeeScript <span class="article-date">2013/04/16</span></h3>
 
 <pre><code>try
   ...
@@ -145,23 +166,23 @@ finally
   ...
 </code></pre>
 
-<h2 id="section-2">チェック例外と非チェック例外</h2>
+<h2 id="f200b63">チェック例外と非チェック例外</h2>
 
-<h3 id="java-20130718">Java <span class="article-date">2013/07/18</span></h3>
+<h3 id="b16de65">Java <span class="article-date">2013/07/18</span></h3>
 
 <p>チェック例外をスローする可能性のあるメソッドには、メソッドシグニチャにthrowsが必要。チェック例外は Exception でかつ RuntimeException でないもの。非チェック例外は Error または RuntimeException。</p>
 
-<h3 id="scala-20130718">Scala <span class="article-date">2013/07/18</span></h3>
+<h3 id="2c0dc39">Scala <span class="article-date">2013/07/18</span></h3>
 
 <p>Javaのチェック例外も含めすべての例外が非チェック例外の扱いになる。</p>
 
 
 </div>
 
-  <footer>
-    <a href="../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>変数の宣言とスコープ | 変数・束縛 | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/vars/">変数・束縛</a> &gt; 変数の宣言とスコープ
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/vars/">変数・束縛</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/name.html">変数名</a></li>
+  <li>&gt;&gt; 変数の宣言とスコープ</li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="scope">変数の宣言とスコープ</h1>
+
+<h2 id="973c2d9">C言語, C++ <span class="article-date">2013/08/13</span></h2>
+
+<p>変数には必ず宣言が必要で、静的スコープのローカル変数になる。</p>
+
+<h2 id="e9961aa">Java <span class="article-date">2013/08/13</span></h2>
+
+<p>変数には必ず宣言が必要で、静的スコープのローカル変数になる。</p>
+
+<h2 id="6c6f6ab">PHP <span class="article-date">2013/08/01</span></h2>
+
+<p>変数の宣言なしにいきなり使うことができる。</p>
+
+<p>関数の中で使用している変数のスコープは関数の中で、関数の外で使用している変数のスコープはグローバルになる。</p>
+
+<p>グローバル変数を関数の中から使用するには、その関数の中で <code>global</code> でグローバル変数を宣言する必要がある。</p>
+
+<h2 id="0a70502">Python <span class="article-date">2013/08/13</span></h2>
+
+<p>変数の宣言というのはなく、変数への代入があるとローカル変数が作られる。</p>
+
+<p>外側のスコープの変数にも参照できるが、外側の変数への代入はできない。代入しようとするとローカル変数が作成されてしまう。</p>
+
+<p>ローカル変数は代入の存在するスコープで作成されるが、作成されるのは代入の時点ではなくスコープに入ったタイミングであるので、代入より前に外側の同じ名前の変数を参照しようとしても、初期化が行われていないとしてエラーが発生する。</p>
+
+<p>Python 3では、<code>nonlocal</code> を使うことで、ローカルスコープに新たな変数を作成するのではなく、外側にある変数を使用することを宣言できる。</p>
+
+<p>関数定義では新しいスコープが作成されるが、
+<code>if</code> や <code>for</code> などの制御構文ではスコープが作成されない。</p>
+
+<h2 id="eb6228a">Ruby <span class="article-date">2013/08/13</span></h2>
+
+<p><code>$</code> で始まる名前の変数がグローバル変数となる。ローカル変数と名前が衝突することはない。</p>
+
+<p>変数の宣言というのはなく、変数への代入でローカル変数が作られる。</p>
+
+<p>メソッド定義やクラス定義では、その外側のスコープの変数を参照することはできない。ブロックの中から外側のスコープの変数を参照・代入することはできる。</p>
+
+<p>メソッド定義・ブロックやクラス定義では新しいスコープが作成されるが、
+<code>if</code> や <code>for</code> などの制御構文ではスコープが作成されない。</p>
+
+<p>例</p>
+
+<pre><code>a = 1;
+# この a はローカル変数
+
+def f1
+  # p a
+  # ここから外側にある a を参照することはできない
+
+  a = 2
+  # このaは関数の中のローカル変数で、外側の a とは無関係
+
+  p a # =&gt; 2
+end
+
+f1
+p a # =&gt; 1
+# f1 が呼び出されていても f1 の外側の a は変更されない
+
+$a = 10;
+def f2
+  p $a # =&gt; 10
+  # $a はどこからでも参照できる
+
+  $a = 20
+
+  p $a # =&gt; 20
+end
+
+f2
+p $a # =&gt; 20
+</code></pre>
+
+<h2 id="6670d7f">Perl <span class="article-date">2013/08/13</span></h2>
+
+<p>宣言なしに変数を使うとグローバル変数になる。</p>
+
+<p><code>local</code> で宣言すると、動的スコープのローカル変数になる。</p>
+
+<p><code>my</code> で宣言すると、静的スコープのローカル変数になる。</p>
+
+<p>最初のPerlはグローバル変数のみだったが、Perl 4から <code>local</code> (動的スコープ)が導入され、Perl 5から <code>my</code> (静的スコープ)が導入された。</p>
+
+<p><code>{}</code> のブロックでスコープが作成される。</p>
+
+<h2 id="a4b9d69">JavaScript <span class="article-date">2013/08/13</span></h2>
+
+<p>宣言なしに変数を使うとグローバル変数になる。</p>
+
+<p><code>var</code> で宣言すると、静的スコープのローカル変数になる。</p>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
