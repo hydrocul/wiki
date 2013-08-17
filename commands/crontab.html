@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>base64 | コマンドリファレンス | hydrocul のメモ</title>
+<title>crontab | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; base64
+  <a href="../commands/">コマンドリファレンス</a> &gt; crontab
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   <li><a href="../commands/">コマンドリファレンス</a></li>
   <li>&gt; <a href="../commands/ack-grep.html">ack-grep</a></li>
   <li>&gt; <a href="../commands/awk.html">awk</a></li>
-  <li>&gt; base64</li>
+  <li>&gt; <a href="../commands/base64.html">base64</a></li>
   <li>&gt; <a href="../commands/cat.html">cat</a></li>
   <li>&gt; <a href="../commands/cp.html">cp コマンド</a></li>
   <li>&gt; <a href="../commands/cut.html">cut コマンド</a></li>
@@ -65,30 +65,20 @@
 </div>
 
 <div id="content">
-  <h1 id="base64">base64 <span class="article-date">2013/05/11</span></h1>
+  <h1 id="crontab">crontab <span class="article-date">2013/04/22</span></h1>
 
-<p>標準入力のデータをBASE64でエンコードまたはデコードして標準出力する。</p>
+<p><code>-r</code> は設定をすべて削除してしまうので要注意。<code>r</code> は <code>e</code> の隣。</p>
 
-<pre><code>base64 -e # エンコード
-base64 -d # デコード
-</code></pre>
+<p>オプションをなにも付けずに標準入力に設定内容のテキストを入力すると、その設定に置き換える。</p>
 
-<p><code>openssl</code> コマンドでも同じことができる。</p>
-
-<pre><code>openssl enc -e -base64 # エンコード。-e は省略可。
-openssl enc -d -base64 # デコード
-</code></pre>
-
-<p>変なところに改行があったりしてうまくデコードできない場合は</p>
-
-<pre><code>cat src.txt | tr -d '\n' | base64 -d | dst.txt
-</code></pre>
-
-<h2 id="5be0c4f">ワンライナーでBASE64を扱ういろいろな方法 <span class="article-date">2013/07/31</span></h2>
-
-<p><a href="http://dharry.hatenablog.com/entry/20120701/1341113739" target="_blank">http://dharry.hatenablog.com/entry/20120701/1341113739</a></p>
-
-<p>{keywd: oneliner}</p>
+<dl>
+  <dt><code>-l</code></dt>
+  <dd>設定内容を表示する</dd>
+  <dt><code>-e</code></dt>
+  <dd>設定内容をエディタを起動して編集する</dd>
+  <dt><code>-r</code></dt>
+  <dd>設定をすべて削除する</dd>
+</dl>
 
 
 </div>

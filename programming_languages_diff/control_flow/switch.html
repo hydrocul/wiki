@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>switch文 | hydrocul のメモ</title>
+<title>switch文 | 制御構文 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,19 +10,30 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/control_flow/">control_flow</a> &gt; switch文
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/control_flow/">制御構文</a> &gt; switch文
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/control_flow/">制御構文</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/control_flow/for.html">for文(繰り返し)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/control_flow/if.html">if文</a></li>
+  <li>&gt;&gt; switch文</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/control_flow/while.html">while文</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
   <h1 id="switch">switch文</h1>
 
-<h2 id="c-c-20130515">C言語, C++ <span class="article-date">2013/05/15</span></h2>
+<h2 id="b790aec">C言語, C++ <span class="article-date">2013/05/15</span></h2>
 
 <pre><code>switch(x){
 case 1:
@@ -39,7 +50,7 @@ default:
 
 <p><code>break</code> を書かないとswitch文から脱出せずに次のラベルを引き続き実行してしまう。(fall through)</p>
 
-<h2 id="java-20130714">Java <span class="article-date">2013/07/14</span></h2>
+<h2 id="ab591a6">Java <span class="article-date">2013/07/14</span></h2>
 
 <p>C言語ライクのswitch文を使える。</p>
 
@@ -68,7 +79,7 @@ defaultに飛んでくれたりはしない。
 
 <p><code>Byte</code>, <code>Short</code>, <code>Character</code>, <code>Integer</code> が使えるのは、たぶん autoboxing が導入された Java SE 5 から。</p>
 
-<h2 id="scala-20130515">Scala <span class="article-date">2013/05/15</span></h2>
+<h2 id="1e30bd5">Scala <span class="article-date">2013/05/15</span></h2>
 
 <pre><code>x match {
   case 1 =&gt;
@@ -82,7 +93,7 @@ defaultに飛んでくれたりはしない。
 
 <p>C言語やJavaのように fall through することはない。</p>
 
-<h2 id="php-20130714">PHP <span class="article-date">2013/07/14</span></h2>
+<h2 id="9183a7d">PHP <span class="article-date">2013/07/14</span></h2>
 
 <p>C言語ライクのswitch文を使える。</p>
 
@@ -101,7 +112,7 @@ default:
 
 <p><code>break</code> を書かないとswitch文から脱出せずに次のラベルを引き続き実行してしまう。(fall through)</p>
 
-<h2 id="ruby-20130605">Ruby <span class="article-date">2013/06/05</span></h2>
+<h2 id="c771e83">Ruby <span class="article-date">2013/06/05</span></h2>
 
 <pre><code>case x
 when 1
@@ -116,10 +127,10 @@ end
 
 </div>
 
-  <footer>
-    <a href="../../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

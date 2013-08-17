@@ -43,71 +43,6 @@
 <div id="content">
   <h1 id="file">ファイル操作</h1>
 
-<h2 id="file-get-contents">ファイルの中身を1つの文字列として取得するには</h2>
-
-<h3 id="76305d2">PHP <span class="article-date">2013/08/01</span></h3>
-
-<pre><code>str = file_get_contents('./hoge.txt');
-</code></pre>
-
-<p>失敗した場合は <code>FALSE</code> を返される。</p>
-
-<p><a href="http://php.net/manual/ja/function.file-get-contents.php" target="_blank">http://php.net/manual/ja/function.file-get-contents.php</a></p>
-
-<h3 id="b3648d9">Ruby <span class="article-date">2013/05/04</span></h3>
-
-<pre><code>str = File.open('./hoge.txt').read
-</code></pre>
-
-<h3 id="b578fc2">Perl <span class="article-date">2013/07/30</span></h3>
-
-<p>手抜きでcatコマンドを使う方法</p>
-
-<pre><code>my $str = `cat ./hoge.txt`;
-</code></pre>
-
-<h2 id="each-line">ファイルの中身を1行ずつテキスト処理するには</h2>
-
-<h3 id="ab0dced">PHP <span class="article-date">2013/07/18</span></h3>
-
-<pre><code>$fh = fopen('./hoge.txt', 'r');
-if($fh){
-  while (!feof($fh)) {
-    $line = fgets($fh);
-    // $line には最後の改行を含む
-    ...;
-  }
-  fclose($fh);
-}
-</code></pre>
-
-<h3 id="a24219c">Ruby <span class="article-date">2013/07/17</span></h3>
-
-<pre><code>IO.foreach('./hoge.txt') do |line|
-  ...
-end
-</code></pre>
-
-<p>または</p>
-
-<pre><code>open(script_name) do |fh|
-  while line = fh.gets
-    // line には最後の改行を含む
-    ...
-  end
-end
-</code></pre>
-
-<h3 id="eb212d3">Perl <span class="article-date">2013/07/30</span></h3>
-
-<pre><code>open(FH, '&lt;', 'test2.pl') or die "Cannot open";
-while(my $line = &lt;FH&gt;){
-    # $line には最後の改行を含む
-    ...;
-}
-close FH;
-</code></pre>
-
 <h2 id="append">ファイルに追記するには</h2>
 
 <h3 id="0042ddf">PHP <span class="article-date">2013/06/11</span></h3>
@@ -164,19 +99,6 @@ unlink(@files);
 <h3 id="6fc1164">Ruby <span class="article-date">2013/05/28</span></h3>
 
 <pre><code>File::stat('./hoge.txt').size
-</code></pre>
-
-<h2 id="mkdir">ディレクトリを作成</h2>
-
-<h3 id="f8d27d0">Ruby <span class="article-date">2013/06/24</span></h3>
-
-<pre><code>Dir::mkdir(dirname)
-</code></pre>
-
-<p>または、<code>mkdir -p</code> に相当する方法として</p>
-
-<pre><code>require 'fileutls'
-FileUtils::mkdir_p(dirname)
 </code></pre>
 
 <h2 id="exists">ファイルまたはディレクトリが存在するかどうかを取得</h2>

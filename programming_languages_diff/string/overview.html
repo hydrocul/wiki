@@ -68,6 +68,20 @@
 <p><code>java.lang.String</code> はimmutableであるが、<code>java.lang.StringBuilder</code>,
 <code>java.lang.StringBuffer</code> はmutableである。</p>
 
+<h2 id="47edd3b">Python <span class="article-date">2013/08/17</span></h2>
+
+<p>単なるバイト列の文字列とUnicode文字列の2種類ある。</p>
+
+<p>Python 2ではデフォルトはバイト列になる。<code>u"..."</code> と書くとUnicode文字列になる。</p>
+
+<p>Python 3ではデフォルトはUnicode文字列になる。<code>b"..."</code> と書くとバイト列になる。</p>
+
+<p>Python 2では、バイト列とUnicode文字列を混ぜて連結しようとすると、バイト列がASCIIの範囲内であればASCIIコードとみなしてUnicodeに変換してから連結する。範囲外のバイトが含まれていれば実行時にエラーになる。</p>
+
+<p>Python 3では、2種類を混ぜて連結しようとすると、内容によらずエラーになる。</p>
+
+<p>Unicode文字列はencodeメソッドでバイト列に変換でき、バイト列はdecodeメソッドでUnicode文字列に変換できる。</p>
+
 <h2 id="7775f98">Ruby <span class="article-date">2013/08/14</span></h2>
 
 <p>Ruby 1.8以前と1.9以降とでは文字列の扱いが大きく異なる。</p>
