@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>openssl | コマンドリファレンス | hydrocul のメモ</title>
+<title>mosh | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; openssl
+  <a href="../commands/">コマンドリファレンス</a> &gt; mosh
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -39,7 +39,7 @@
   <li>&gt; <a href="../commands/netstat.html">netstat</a></li>
   <li>&gt; <a href="../commands/nkf.html">nkf コマンド</a></li>
   <li>&gt; <a href="../commands/od.html">od</a></li>
-  <li>&gt; openssl</li>
+  <li>&gt; <a href="../commands/openssl.html">openssl</a></li>
   <li>&gt; <a href="../commands/ps.html">ps</a></li>
   <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
   <li>&gt; <a href="../commands/rsync.html">rsync</a></li>
@@ -65,11 +65,31 @@
 </div>
 
 <div id="content">
-  <h1 id="openssl">openssl</h1>
+  <h1 id="mosh">mosh <span class="article-date">2013/05/28</span></h1>
 
-<p>-&gt; <a href="../apache.html#create-csr">SSLのCSRの作成方法</a><br />
--&gt; <a href="../apache.html#openssl">openssl</a><br />
--&gt; <a href="base64.html">base64</a></p>
+<p>モバイル環境など頻繁にネットが切断されたり、ノートPCを開いたり閉じたりしても、ネットが復活したときに自動でsshを再接続し、しかも切断される前のセッションの状態を維持してくれる高機能sshクライアント。ネットが復活したときにIPが変わってしまってもセッションの維持に問題ない。</p>
+
+<p>ただし、ポートフォワードの機能がない。</p>
+
+<p>moshの実装はsshの機能に依存しているので、sshで接続できることが前提でさらにサーバ側とクライアント側の両方にmoshのインストールが必要。</p>
+
+<h2 id="6117d70">インストール方法 <span class="article-date">2013/05/28</span></h2>
+
+<p><a href="http://mosh.mit.edu/#getting" target="_blank">http://mosh.mit.edu/#getting</a></p>
+
+<h3 id="0ac4361">ソースからmoshをインストールしたサーバに接続しようとして発生するエラー <code>mosh-server: error while loading shared libraries: libprotobuf.so.8: cannot open shared object file: No such file or directory</code> <span class="article-date">2013/07/01</span></h3>
+
+<p>ぐぐるとと、<code>.bashrc</code> に <code>LD_LIBRARY_PATH</code> の設定を書くんだとか、接続するときの 
+mosh のオプションパラメータに <code>LD_LIBRARY_PATH</code> のパスを書く方法が出てくるが、自分の環境ではどの方法でも解決せず、最終的には以下のコマンドで解決した。
+(CentOS 6.4で確認)</p>
+
+<pre><code>sudo sh -c "echo /usr/local/lib &gt; /etc/ld.so.conf.d/local.conf"
+sudo ldconfig
+</code></pre>
+
+<h2 id="30877d0">SSHトンネルを通してmoshするのは難しい <span class="article-date">2013/07/18</span></h2>
+
+<p><a href="http://shogo82148.github.io/blog/2012/12/28/tunneling-udp-via-ssh/" target="_blank">http://shogo82148.github.io/blog/2012/12/28/tunneling-udp-via-ssh/</a></p>
 
 
 </div>
