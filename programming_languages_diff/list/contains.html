@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>contains | hydrocul のメモ</title>
+<title>contains | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,42 +10,86 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; contains
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; contains
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/add-all.html">addAll</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/clone.html">clone</a></li>
+  <li>&gt;&gt; contains</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/drop.html">drop</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/fill.html">fill</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/filter.html">filter</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/filter-count.html">filter-count</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/find.html">find</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/foreach.html">foreach</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">groupBy</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">grouped</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">head</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-of.html">indexOf</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">IndexOutOfBoundsException</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/is-empty.html">isEmpty</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/last.html">last</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/literal.html">リスト(配列)の書き方</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/map.html">map</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/pop.html">pop</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/product.html">product</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/push.html">push</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/remove.html">remove</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/shift.html">shift</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/size.html">size</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/sort.html">sort</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/sub-list.html">subList</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/sum.html">sum</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/tail.html">tail</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/take.html">take</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/unshift.html">unshift</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/zip.html">zip</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="contains-20130730">contains <span class="article-date">2013/07/30</span></h1>
+  <h1 id="contains">contains <span class="article-date">2013/07/30</span></h1>
 
 <p>リストに要素が含まれているかどうかをチェックする方法。</p>
 
-<h2 id="java-20130730">Java <span class="article-date">2013/07/30</span></h2>
+<h2 id="6af67ff">Java <span class="article-date">2013/07/30</span></h2>
 
 <pre><code>boolean List&lt;E&gt;#contains(Object elem)
 </code></pre>
 
-<h2 id="scala-20130730">Scala <span class="article-date">2013/07/30</span></h2>
+<h2 id="928b469">Scala <span class="article-date">2013/07/30</span></h2>
 
 <pre><code>// Seq[A]
 def contains(elem: Any): Boolean
 </code></pre>
 
-<h2 id="php-20130730">PHP <span class="article-date">2013/07/30</span></h2>
+<h2 id="7e80472">PHP <span class="article-date">2013/07/30</span></h2>
 
 <pre><code>bool in_array($elem, $arr)
 </code></pre>
 
-<h2 id="ruby-20130730">Ruby <span class="article-date">2013/07/30</span></h2>
+<h2 id="6939363">Ruby <span class="article-date">2013/07/30</span></h2>
 
 <pre><code>arr.include?(elem)
 </code></pre>
 
-<h2 id="python-20130730">Python <span class="article-date">2013/07/30</span></h2>
+<h2 id="6d7a8d0">Python <span class="article-date">2013/07/30</span></h2>
 
 <p>例</p>
 
@@ -53,13 +97,21 @@ def contains(elem: Any): Boolean
     ...
 </code></pre>
 
+<h2 id="9bddd39">Perl <span class="article-date">2013/08/09</span></h2>
+
+<p>例</p>
+
+<pre><code>if (grep {$_ eq $elem} @arr) {
+  ...;
+}
+</code></pre>
 
 </div>
 
-  <footer>
-    <a href="../../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

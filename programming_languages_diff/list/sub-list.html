@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>subList | hydrocul のメモ</title>
+<title>subList | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,36 +10,80 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; subList
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; subList
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/add-all.html">addAll</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/clone.html">clone</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/contains.html">contains</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/drop.html">drop</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/fill.html">fill</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/filter.html">filter</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/filter-count.html">filter-count</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/find.html">find</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/foreach.html">foreach</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">groupBy</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">grouped</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">head</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-of.html">indexOf</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">IndexOutOfBoundsException</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/is-empty.html">isEmpty</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/last.html">last</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/literal.html">リスト(配列)の書き方</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/map.html">map</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/pop.html">pop</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/product.html">product</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/push.html">push</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/remove.html">remove</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/shift.html">shift</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/size.html">size</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/sort.html">sort</a></li>
+  <li>&gt;&gt; subList</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/sum.html">sum</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/tail.html">tail</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/take.html">take</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/unshift.html">unshift</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/zip.html">zip</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="sublist">subList</h1>
+  <h1 id="sub-list">subList</h1>
 
-<h2 id="java-20130506">Java <span class="article-date">2013/05/06</span></h2>
+<h2 id="c3289bd">Java <span class="article-date">2013/05/06</span></h2>
 
 <pre><code>List&lt;E&gt; List&lt;E&gt;#subList(int from, int until)
 </code></pre>
 
 <p><code>subList</code> で返されたリストを変更すると、元のリストにも反映される。</p>
 
-<h2 id="scala-20130506">Scala <span class="article-date">2013/05/06</span></h2>
+<h2 id="0095f9a">Scala <span class="article-date">2013/05/06</span></h2>
 
 <pre><code>def Seq[A]#slice(from: Int, until: Int): Seq[A]
 </code></pre>
 
-<h2 id="php-20130427">PHP <span class="article-date">2013/04/27</span></h2>
+<h2 id="6f4a37a">PHP <span class="article-date">2013/04/27</span></h2>
 
 <pre><code>array array_slice($arr, $from [, $length])
 </code></pre>
 
-<h2 id="ruby-20130412">Ruby <span class="article-date">2013/04/12</span></h2>
+<h2 id="5d079d0">Ruby <span class="article-date">2013/04/12</span></h2>
 
 <pre><code>Array#slice(index)
 Array#slice(from, length)
@@ -47,7 +91,7 @@ Array#slice(from, length)
 
 <p>lengthを省略したら、from以降の部分配列ではなく、その場所の要素を返す(<code>[]</code> と同じ)。</p>
 
-<h2 id="perl-20130727">Perl <span class="article-date">2013/07/27</span></h2>
+<h2 id="4ab0a73">Perl <span class="article-date">2013/07/27</span></h2>
 
 <pre><code>my @arr = ('abc', 'def', 'ghi');
 print "@arr[0..1]";     # =&gt; abc def
@@ -55,7 +99,7 @@ print "@arr[0,2]";      # =&gt; abc ghi
 print "@arr[1..$#arr]"; # =&gt; def ghi
 </code></pre>
 
-<h2 id="javascript-20130420">JavaScript <span class="article-date">2013/04/20</span></h2>
+<h2 id="6d6e4d2">JavaScript <span class="article-date">2013/04/20</span></h2>
 
 <pre><code>Array#slice(start[, end])
 </code></pre>
@@ -63,10 +107,10 @@ print "@arr[1..$#arr]"; # =&gt; def ghi
 
 </div>
 
-  <footer>
-    <a href="../../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>
