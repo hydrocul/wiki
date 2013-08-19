@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>比較演算子 | hydrocul のメモ</title>
+<title>比較演算子 | 演算子 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,21 +10,32 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/operator/">演算子</a> &gt; 比較演算子
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/operator/">演算子</a> &gt; 比較演算子
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/operator/">演算子</a></li>
+  <li>&gt;&gt; 比較演算子</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/operator/elvis.html">エルビス演算子</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/operator/increment.html">インクリメント・デクリメント演算子</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/operator/ternary.html">三項演算子</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="section">比較演算子</h1>
+  <h1 id="compare">比較演算子</h1>
 
 <p>参考：<a href="../string/compare.html">文字列の比較</a></p>
 
-<h2 id="java-20130724">Java <span class="article-date">2013/07/24</span></h2>
+<h2 id="d013132">Java <span class="article-date">2013/07/24</span></h2>
 
 <dl>
   <dt><code>==</code>, <code>!=</code></dt>
@@ -33,22 +44,22 @@
   <dd>値を比較する。</dd>
 </dl>
 
-<h2 id="scala-20130724">Scala <span class="article-date">2013/07/24</span></h2>
+<h2 id="e1f6e81">Scala <span class="article-date">2013/07/24</span></h2>
 
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。プリミティブ型に対してはJavaと同じで、参照型に対してはJavaの <code>equals</code> を呼び出している。</p>
 
-<h2 id="ruby-20130731">Ruby <span class="article-date">2013/07/31</span></h2>
+<h2 id="f7bccce">Ruby <span class="article-date">2013/07/31</span></h2>
 
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
 
-<h3 id="section-1">ソートに便利な比較の演算子 <code>&lt;=&gt;</code> <span class="article-date">2013/07/31</span></h3>
+<h3 id="68c5ec3">ソートに便利な比較の演算子 <code>&lt;=&gt;</code> <span class="article-date">2013/07/31</span></h3>
 
 <pre><code>a &lt;=&gt; b
 </code></pre>
 
 <p><code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。</p>
 
-<h2 id="perl-20130731">Perl <span class="article-date">2013/07/31</span></h2>
+<h2 id="8880b80">Perl <span class="article-date">2013/07/31</span></h2>
 
 <p><code>eq</code> は文字列として等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>ne</code> はその反対。</p>
 
@@ -58,7 +69,7 @@
 
 <p>数値は <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
 
-<h3 id="section-2">ソートに便利な比較の演算子 <code>&lt;=&gt;</code> <span class="article-date">2013/07/31</span></h3>
+<h3 id="5aeffa9">ソートに便利な比較の演算子 <code>&lt;=&gt;</code> <span class="article-date">2013/07/31</span></h3>
 
 <pre><code>a &lt;=&gt; b
 </code></pre>
@@ -68,10 +79,10 @@
 
 </div>
 
-  <footer>
-    <a href="../../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>
