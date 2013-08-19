@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>foreach | hydrocul のメモ</title>
+<title>foreach | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,19 +10,36 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; foreach
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; foreach
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/clone.html">clone</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/contains-key.html">containsKey</a></li>
+  <li>&gt;&gt; foreach</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/is-empty.html">isEmpty</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/keys.html">keys</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/literal.html">マップ(連想配列)書き方</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/put-all.html">putAll</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/remove.html">remove</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/size.html">size</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/values.html">keys</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
   <h1 id="foreach">foreach</h1>
 
-<h2 id="java-20130801">Java <span class="article-date">2013/08/01</span></h2>
+<h2 id="93f5f96">Java <span class="article-date">2013/08/01</span></h2>
 
 <p>Java5からは、以下の拡張for文の利用が可能。(foreach構文)</p>
 
@@ -32,14 +49,14 @@
 }
 </code></pre>
 
-<h2 id="php-20130427">PHP <span class="article-date">2013/04/27</span></h2>
+<h2 id="f9a8f84">PHP <span class="article-date">2013/04/27</span></h2>
 
 <pre><code>foreach($arr as $key =&gt; $value){
   ...
 }
 </code></pre>
 
-<h2 id="ruby-20130506">Ruby <span class="article-date">2013/05/06</span></h2>
+<h2 id="031dbcb">Ruby <span class="article-date">2013/05/06</span></h2>
 
 <p>ハッシュの全エントリに対してキーのみを引数としてブロックを実行</p>
 
@@ -62,7 +79,7 @@ end
 end
 </code></pre>
 
-<h2 id="coffeescript-20130421">CoffeeScript <span class="article-date">2013/04/21</span></h2>
+<h2 id="a764629">CoffeeScript <span class="article-date">2013/04/21</span></h2>
 
 <pre><code>for value in arr
   ...
@@ -74,10 +91,10 @@ for key, value of map
 
 </div>
 
-  <footer>
-    <a href="../../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

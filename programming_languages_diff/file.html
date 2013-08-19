@@ -59,48 +59,6 @@ fclose($handle);
 end
 </code></pre>
 
-<h2 id="rm">ファイルを削除するには</h2>
-
-<h3 id="4bbb844">Ruby <span class="article-date">2013/05/04</span></h3>
-
-<pre><code>File.unlink('./hoge.txt')
-</code></pre>
-
-<h3 id="86e2a82">Perl <span class="article-date">2013/08/13</span></h3>
-
-<pre><code>unlink('./hoge.txt');
-</code></pre>
-
-<p>複数まとめて削除することもできる。</p>
-
-<pre><code>unlink('./hoge.txt', './foo.txt');
-unlink(@files);
-</code></pre>
-
-<h2 id="ls">ディレクトリの中のファイル一覧を取得</h2>
-
-<h3 id="65aee80">Ruby <span class="article-date">2013/04/10</span></h3>
-
-<pre><code>Dir::entries('/home/foo')
-</code></pre>
-
-<h3 id="2b1af4e">Perl <span class="article-date">2013/08/14</span></h3>
-
-<p>例</p>
-
-<pre><code>my @files = glob('/home/foo/*');
-@files = map { if ( /\/([^\/]+)\Z/ ){ $1; } else { $_; } } @files;
-</code></pre>
-
-<p>1行目だけだと、フルパスでファイル一覧が取得される。</p>
-
-<h2 id="file-size">ファイルサイズを取得</h2>
-
-<h3 id="6fc1164">Ruby <span class="article-date">2013/05/28</span></h3>
-
-<pre><code>File::stat('./hoge.txt').size
-</code></pre>
-
 <h2 id="exists">ファイルまたはディレクトリが存在するかどうかを取得</h2>
 
 <h3 id="c715f78">PHP <span class="article-date">2013/07/24</span></h3>

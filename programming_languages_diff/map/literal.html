@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>マップ(連想配列)書き方 | hydrocul のメモ</title>
+<title>マップ(連想配列)書き方 | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,19 +10,36 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; マップ(連想配列)書き方
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; マップ(連想配列)書き方
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/clone.html">clone</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/contains-key.html">containsKey</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/foreach.html">foreach</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/is-empty.html">isEmpty</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/keys.html">keys</a></li>
+  <li>&gt;&gt; マップ(連想配列)書き方</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/put-all.html">putAll</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/remove.html">remove</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/size.html">size</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/values.html">keys</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="section">マップ(連想配列)書き方</h1>
+  <h1 id="literal">マップ(連想配列)書き方</h1>
 
-<h2 id="java-20130801">Java <span class="article-date">2013/08/01</span></h2>
+<h2 id="cadffc1">Java <span class="article-date">2013/08/01</span></h2>
 
 <p>マップは一発では作れない。</p>
 
@@ -47,7 +64,7 @@ map.put("b", 2);
 <pre><code>Collections.&lt;String, Integer&gt;singletonMap(key, value)
 </code></pre>
 
-<h2 id="scala-20130802">Scala <span class="article-date">2013/08/02</span></h2>
+<h2 id="2386483">Scala <span class="article-date">2013/08/02</span></h2>
 
 <pre><code>map = Map("a" -&gt; 1, "b" -&gt; 2);
 </code></pre>
@@ -75,7 +92,7 @@ map.put("b", 2);
 
 <p>2つ目の引数がデフォルト値となる。要素が存在する場合には、2つ目の引数が評価されないので、計算に時間のかかるデフォルト値を設定してもよい。</p>
 
-<h2 id="php-20130508">PHP <span class="article-date">2013/05/08</span></h2>
+<h2 id="1723886">PHP <span class="article-date">2013/05/08</span></h2>
 
 <pre><code>arr = array('a' =&gt; 1, 'b' =&gt; 2);
 </code></pre>
@@ -96,7 +113,7 @@ map.put("b", 2);
 <p>配列関係の関数 | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/book.array.php" target="_blank">http://jp2.php.net/manual/ja/book.array.php</a></p>
 
-<h2 id="ruby-20130506">Ruby <span class="article-date">2013/05/06</span></h2>
+<h2 id="9a1a61e">Ruby <span class="article-date">2013/05/06</span></h2>
 
 <pre><code>hash = {'a' =&gt; 1, 'b' =&gt; 2}
 </code></pre>
@@ -106,12 +123,12 @@ map.put("b", 2);
 <pre><code>hash['a']
 </code></pre>
 
-<h2 id="python-20130417">Python <span class="article-date">2013/04/17</span></h2>
+<h2 id="934b7c7">Python <span class="article-date">2013/04/17</span></h2>
 
 <pre><code>map = {'a': 1, 'b': 2}
 </code></pre>
 
-<h2 id="perl-20130731">Perl <span class="article-date">2013/07/31</span></h2>
+<h2 id="850c73e">Perl <span class="article-date">2013/07/31</span></h2>
 
 <p>ハッシュそのものは変数名が <code>%</code> で始まり、要素を参照するには <code>$</code> で始める。</p>
 
@@ -142,7 +159,7 @@ my %hash = ('a', 1, 'b', 2);
 $hash{'a'} # =&gt; 1
 </code></pre>
 
-<h3 id="section-1">ハッシュへのレファレンス <span class="article-date">2013/07/31</span></h3>
+<h3 id="ce62b01">ハッシュへのレファレンス <span class="article-date">2013/07/31</span></h3>
 
 <pre><code>my $hash = {a =&gt; 1, b =&gt; 2};
 </code></pre>
@@ -158,7 +175,7 @@ my $hash = \%m;
 <pre><code>%$hash;
 </code></pre>
 
-<h2 id="javascript-20130415">JavaScript <span class="article-date">2013/04/15</span></h2>
+<h2 id="1cda197">JavaScript <span class="article-date">2013/04/15</span></h2>
 
 <p>下の2つは全部同じ連想配列を生成する。</p>
 
@@ -166,7 +183,7 @@ my $hash = \%m;
 map = {'a': 1, 'b': 2}
 </code></pre>
 
-<h2 id="coffeescript-20130415">CoffeeScript <span class="article-date">2013/04/15</span></h2>
+<h2 id="df01cd6">CoffeeScript <span class="article-date">2013/04/15</span></h2>
 
 <pre><code>map = {a: 1, b: 2}
 map = a: 1, b: 2
@@ -178,10 +195,10 @@ map =
 
 </div>
 
-  <footer>
-    <a href="../../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

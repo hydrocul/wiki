@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>containsKey | hydrocul のメモ</title>
+<title>containsKey | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -10,29 +10,46 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; containsKey
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; containsKey
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/clone.html">clone</a></li>
+  <li>&gt;&gt; containsKey</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/foreach.html">foreach</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/is-empty.html">isEmpty</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/keys.html">keys</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/literal.html">マップ(連想配列)書き方</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/put-all.html">putAll</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/remove.html">remove</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/size.html">size</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/values.html">keys</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="containskey">containsKey</h1>
+  <h1 id="contains-key">containsKey</h1>
 
-<h2 id="java-20130506">Java <span class="article-date">2013/05/06</span></h2>
+<h2 id="4ba698c">Java <span class="article-date">2013/05/06</span></h2>
 
 <pre><code>boolean Map&lt;K, V&gt;#containsKey(Object key)
 </code></pre>
 
-<h2 id="scala-20130506">Scala <span class="article-date">2013/05/06</span></h2>
+<h2 id="88f4284">Scala <span class="article-date">2013/05/06</span></h2>
 
 <pre><code>def Map[A, B]#contains(key: A): Boolean
 </code></pre>
 
-<h2 id="php-20130422">PHP <span class="article-date">2013/04/22</span></h2>
+<h2 id="888ff9b">PHP <span class="article-date">2013/04/22</span></h2>
 
 <pre><code>array_key_exists($key, $map)
 </code></pre>
@@ -45,7 +62,7 @@
 一方、 array_key_exists() は TRUE を返します。</p>
 </blockquote>
 
-<h2 id="ruby-20130506">Ruby <span class="article-date">2013/05/06</span></h2>
+<h2 id="a677ac3">Ruby <span class="article-date">2013/05/06</span></h2>
 
 <p>以下の4つはすべて同じ意味。</p>
 
@@ -58,10 +75,10 @@ Hash#member?(key)
 
 </div>
 
-  <footer>
-    <a href="../../">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>
