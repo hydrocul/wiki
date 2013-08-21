@@ -22,12 +22,14 @@
   <li><a href="../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../programming_languages_diff/boolean/">論理型</a></li>
   <li>&gt; <a href="../programming_languages_diff/comment.html">コメント</a></li>
+  <li>&gt; <a href="../programming_languages_diff/control_flow/">制御構文</a></li>
   <li>&gt; <a href="../programming_languages_diff/data_type.html">データ型</a></li>
   <li>&gt; <a href="../programming_languages_diff/datetime.html">日付と時刻</a></li>
   <li>&gt; <a href="../programming_languages_diff/exception.html">例外処理</a></li>
   <li>&gt; ファイル操作</li>
   <li>&gt; <a href="../programming_languages_diff/function.html">関数・メソッド</a></li>
   <li>&gt; <a href="../programming_languages_diff/indent.html">インデント / セミコロン</a></li>
+  <li>&gt; <a href="../programming_languages_diff/io/">入出力・ファイル操作</a></li>
   <li>&gt; <a href="../programming_languages_diff/list/">リスト(配列)</a></li>
   <li>&gt; <a href="../programming_languages_diff/map/">マップ(連想配列)</a></li>
   <li>&gt; <a href="../programming_languages_diff/number/">数値型</a></li>
@@ -57,36 +59,6 @@ fclose($handle);
 <pre><code>File.open(file_path, 'a') do |handle|
   handle.puts($data)
 end
-</code></pre>
-
-<h2 id="exists">ファイルまたはディレクトリが存在するかどうかを取得</h2>
-
-<h3 id="c715f78">PHP <span class="article-date">2013/07/24</span></h3>
-
-<pre><code>file_exists('/home/foo/testfile')
-</code></pre>
-
-<p>シンボリックリンクの場合は、シンボリックリンクの指す先が存在するかどうかをチェックする。</p>
-
-<p><a href="http://www.php.net/manual/ja/function.file-exists.php" target="_blank">http://www.php.net/manual/ja/function.file-exists.php</a></p>
-
-<h3 id="ddb684e">Ruby <span class="article-date">2013/04/29</span></h3>
-
-<pre><code>File.exists?('/home/foo/testfile')
-</code></pre>
-
-<h3 id="59e28b2">Perl <span class="article-date">2013/07/27</span></h3>
-
-<pre><code>if( -e '/home/foo/testfile' ){
-    ...;
-}
-</code></pre>
-
-<h3 id="1ca39a0">sh <span class="article-date">2013/07/27</span></h3>
-
-<pre><code>if [ -e /home/foo/testfile ]; then
-    ...
-fi
 </code></pre>
 
 <h2 id="is-file">ファイルかどうかを調べる</h2>

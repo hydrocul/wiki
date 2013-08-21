@@ -21,6 +21,8 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../../programming_languages_diff/control_flow/">制御構文</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/control_flow/break.html">break文</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/control_flow/continue.html">continue文</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/control_flow/for.html">for文(繰り返し)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/control_flow/if.html">if文</a></li>
   <li>&gt;&gt; switch文</li>
@@ -50,7 +52,7 @@ default:
 
 <p><code>break</code> を書かないとswitch文から脱出せずに次のラベルを引き続き実行してしまう。(fall through)</p>
 
-<h2 id="ab591a6">Java <span class="article-date">2013/07/14</span></h2>
+<h2 id="ab591a6">Java <span class="article-date">2013/08/20</span></h2>
 
 <p>C言語ライクのswitch文を使える。</p>
 
@@ -73,8 +75,8 @@ default:
 <code>enum</code>, <code>String</code> が使える。</p>
 
 <p><code>String</code> が使えるのは、Java SE 7 から。ただ、<code>String</code> の場合、 <code>null</code> だと
-<code>NullPointerException</code> が発生してしまい、caseで <code>null</code> を指定したり、
-defaultに飛んでくれたりはしない。
+<code>NullPointerException</code> が発生してしまい、 <code>case null</code> と書けたり、
+<code>default</code> に飛んでくれたりはしない。
 <code>Integer</code> の場合も、<code>NullPointerException</code> が発生しうるのは同様。</p>
 
 <p><code>Byte</code>, <code>Short</code>, <code>Character</code>, <code>Integer</code> が使えるのは、たぶん autoboxing が導入された Java SE 5 から。</p>

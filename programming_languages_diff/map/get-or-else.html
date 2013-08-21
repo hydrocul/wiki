@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>containsKey | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>getOrElse | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; containsKey
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; getOrElse
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/clone.html">clone</a></li>
-  <li>&gt;&gt; containsKey</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/contains-key.html">containsKey</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/foreach.html">foreach</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/is-empty.html">isEmpty</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/keys.html">keys</a></li>
@@ -37,40 +37,28 @@
 </div>
 
 <div id="content">
-  <h1 id="contains-key">containsKey</h1>
+  <h1 id="get-or-else">getOrElse <span class="article-date">2013/08/21</span></h1>
 
-<h2 id="4ba698c">Java <span class="article-date">2013/05/06</span></h2>
+<p>要素をキーで取得する際に、該当する要素がない場合に特定の値をデフォルト値とさせるには。</p>
 
-<pre><code>boolean Map&lt;K, V&gt;#containsKey(Object key)
-</code></pre>
-
-<h2 id="88f4284">Scala <span class="article-date">2013/08/20</span></h2>
+<h2 id="scala">Scala <span class="article-date">2013/08/20</span></h2>
 
 <pre><code>// Map[A, B]
-def contains(key: A): Boolean
+def getOrElse(key: A, default: =&gt; B): B
 </code></pre>
 
-<h2 id="888ff9b">PHP <span class="article-date">2013/04/22</span></h2>
+<h2 id="ruby">Ruby <span class="article-date">2013/08/20</span></h2>
 
-<pre><code>array_key_exists($key, $map)
-</code></pre>
+<p><code>fetch</code> はハッシュの要素をキーで取得するが、該当する要素がない場合に、第2引数を返すか、ブロックを評価した結果を返す。</p>
 
-<p>array_key_exists | PHP Manual<br />
-<a href="http://jp2.php.net/manual/ja/function.array-key-exists.php" target="_blank">http://jp2.php.net/manual/ja/function.array-key-exists.php</a></p>
+<p>例</p>
 
-<blockquote>
-  <p>isset() は NULL 値を持つ配列キーに対して TRUE を返しません。
-一方、 array_key_exists() は TRUE を返します。</p>
-</blockquote>
+<pre><code>m = {'a' =&gt; 1}
 
-<h2 id="a677ac3">Ruby <span class="article-date">2013/05/06</span></h2>
-
-<p>以下の4つはすべて同じ意味。</p>
-
-<pre><code>Hash#has_key?(key)
-Hash#key?(key)
-Hash#include?(key)
-Hash#member?(key)
+p m.fetch('a') # =&gt; 1
+p m.fetch('a', 2) # =&gt; 1
+p m.fetch('b', 2) # =&gt; 2
+p m.fetch('b') { 2 } # =&gt; 2
 </code></pre>
 
 

@@ -92,6 +92,8 @@ map.put("b", 2);
 
 <p>2つ目の引数がデフォルト値となる。要素が存在する場合には、2つ目の引数が評価されないので、計算に時間のかかるデフォルト値を設定してもよい。</p>
 
+<p>-&gt; <a href="get-or-else.html#scala">getOrElse</a></p>
+
 <h2 id="1723886">PHP <span class="article-date">2013/05/08</span></h2>
 
 <pre><code>arr = array('a' =&gt; 1, 'b' =&gt; 2);
@@ -113,7 +115,7 @@ map.put("b", 2);
 <p>配列関係の関数 | PHP Manual<br />
 <a href="http://jp2.php.net/manual/ja/book.array.php" target="_blank">http://jp2.php.net/manual/ja/book.array.php</a></p>
 
-<h2 id="9a1a61e">Ruby <span class="article-date">2013/05/06</span></h2>
+<h2 id="9a1a61e">Ruby <span class="article-date">2013/08/20</span></h2>
 
 <pre><code>hash = {'a' =&gt; 1, 'b' =&gt; 2}
 </code></pre>
@@ -122,6 +124,18 @@ map.put("b", 2);
 
 <pre><code>hash['a']
 </code></pre>
+
+<p>または</p>
+
+<pre><code>hash.fetch('a')
+</code></pre>
+
+<p>存在しない要素を取得しようとすると <code>[]</code> は <code>nil</code> が返ってくるが、
+<code>fetch</code> は <code>KeyError</code> の例外が発生する。</p>
+
+<p><code>fetch</code> は第2引数かブロックを与えることができ、要素が存在しない場合に、第2引数を返すか、ブロックを評価した結果を返す。</p>
+
+<p>-&gt; <a href="get-or-else.html#ruby">fetch</a></p>
 
 <h2 id="934b7c7">Python <span class="article-date">2013/04/17</span></h2>
 

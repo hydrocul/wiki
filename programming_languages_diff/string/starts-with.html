@@ -76,13 +76,15 @@ String String#endsWith(String suffix)
 String#end_with?(suffix)
 </code></pre>
 
-<h2 id="c034ca0">Perl <span class="article-date">2013/08/11</span></h2>
+<h2 id="c034ca0">Perl <span class="article-date">2013/08/21</span></h2>
 
 <p>文字列の先頭にマッチする正規表現の <code>\A</code>、または最後にマッチする <code>\Z</code> を使う。</p>
 
 <p>例</p>
 
-<pre><code>print "abc" =~ /bc\Z/; # =&gt; 1
+<pre><code>print "abc" =~ /\Aab/; # =&gt; 1
+
+print "abc" =~ /bc\Z/; # =&gt; 1
 </code></pre>
 
 <h2 id="a4f7aec">JavaScript <span class="article-date">2013/04/10</span></h2>
