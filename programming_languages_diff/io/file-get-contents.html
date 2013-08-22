@@ -39,7 +39,8 @@
 <div id="content">
   <h1 id="file-get-contents">ファイルの中身を1つの文字列として取得するには</h1>
 
-<h2 id="4eaee76">PHP <span class="article-date">2013/08/01</span></h2>
+<h2 id="4eaee76">PHP
+<span class="article-date">2013/08/01</span></h2>
 
 <pre><code>str = file_get_contents('./hoge.txt');
 </code></pre>
@@ -48,12 +49,19 @@
 
 <p><a href="http://php.net/manual/ja/function.file-get-contents.php" target="_blank">http://php.net/manual/ja/function.file-get-contents.php</a></p>
 
-<h2 id="2fc1d34">Ruby <span class="article-date">2013/05/04</span></h2>
+<h2 id="2fc1d34">Ruby
+<span class="article-date">2013/08/21</span></h2>
+
+<pre><code>str = File.read('./hoge.txt')
+</code></pre>
+
+<p>または</p>
 
 <pre><code>str = File.open('./hoge.txt').read
 </code></pre>
 
-<h2 id="bde6302">Perl <span class="article-date">2013/07/30</span></h2>
+<h2 id="bde6302">Perl
+<span class="article-date">2013/07/30</span></h2>
 
 <p>手抜きでcatコマンドを使う方法</p>
 

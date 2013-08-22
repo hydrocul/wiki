@@ -25,6 +25,7 @@
   <li>&gt; <a href="../commands/base64.html">base64</a></li>
   <li>&gt; <a href="../commands/cat.html">cat</a></li>
   <li>&gt; <a href="../commands/cp.html">cp コマンド</a></li>
+  <li>&gt; <a href="../commands/crontab.html">crontab</a></li>
   <li>&gt; <a href="../commands/cut.html">cut コマンド</a></li>
   <li>&gt; <a href="../commands/date.html">date</a></li>
   <li>&gt; <a href="../commands/diff.html">diff</a></li>
@@ -36,6 +37,7 @@
   <li>&gt; <a href="../commands/less.html">less コマンド</a></li>
   <li>&gt; <a href="../commands/lftp.html">lftp</a></li>
   <li>&gt; <a href="../commands/ls.html">ls コマンド</a></li>
+  <li>&gt; <a href="../commands/mosh.html">mosh</a></li>
   <li>&gt; <a href="../commands/netstat.html">netstat</a></li>
   <li>&gt; <a href="../commands/nkf.html">nkf コマンド</a></li>
   <li>&gt; <a href="../commands/od.html">od</a></li>
@@ -51,6 +53,7 @@
   <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
   <li>&gt; <a href="../commands/tac.html">tac</a></li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
+  <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
   <li>&gt; <a href="../commands/top.html">top</a></li>
   <li>&gt; <a href="../commands/touch.html">touch</a></li>
   <li>&gt; <a href="../commands/tr.html">tr</a></li>
@@ -65,7 +68,8 @@
 </div>
 
 <div id="content">
-  <h1 id="rsync">rsync <span class="article-date">2013/06/14</span></h1>
+  <h1 id="rsync">rsync
+<span class="article-date">2013/06/14</span></h1>
 
 <pre><code># リモートホストからローカルにダウンロードする
 rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
@@ -81,7 +85,8 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
   <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
 </ul>
 
-<h2 id="9fdbbfe">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには <span class="article-date">2013/04/03</span></h2>
+<h2 id="9fdbbfe">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには
+<span class="article-date">2013/04/03</span></h2>
 
 <pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
 </code></pre>
@@ -91,7 +96,8 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 <p><code>cp</code> での同じ役割をはたすのは <code>--parents</code>。</p>
 
-<h2 id="5609052">excludeオプションとincludeオプション <span class="article-date">2013/06/06</span></h2>
+<h2 id="5609052">excludeオプションとincludeオプション
+<span class="article-date">2013/06/06</span></h2>
 
 <p>rsync の複雑怪奇な exclude と include の適用手順を理解しよう<br />
 <a href="http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/" target="_blank">http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/</a></p>

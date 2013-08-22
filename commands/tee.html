@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>cut コマンド | コマンドリファレンス | hydrocul のメモ</title>
+<title>tee コマンド | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; cut コマンド
+  <a href="../commands/">コマンドリファレンス</a> &gt; tee コマンド
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -26,7 +26,7 @@
   <li>&gt; <a href="../commands/cat.html">cat</a></li>
   <li>&gt; <a href="../commands/cp.html">cp コマンド</a></li>
   <li>&gt; <a href="../commands/crontab.html">crontab</a></li>
-  <li>&gt; cut コマンド</li>
+  <li>&gt; <a href="../commands/cut.html">cut コマンド</a></li>
   <li>&gt; <a href="../commands/date.html">date</a></li>
   <li>&gt; <a href="../commands/diff.html">diff</a></li>
   <li>&gt; <a href="../commands/du.html">du</a></li>
@@ -53,7 +53,7 @@
   <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
   <li>&gt; <a href="../commands/tac.html">tac</a></li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
-  <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
+  <li>&gt; tee コマンド</li>
   <li>&gt; <a href="../commands/top.html">top</a></li>
   <li>&gt; <a href="../commands/touch.html">touch</a></li>
   <li>&gt; <a href="../commands/tr.html">tr</a></li>
@@ -68,44 +68,25 @@
 </div>
 
 <div id="content">
-  <h1 id="cut">cut コマンド
-<span class="article-date">2013/06/24</span></h1>
+  <h1 id="tee">tee コマンド
+<span class="article-date">2013/08/21</span></h1>
 
-<p>タブ区切りでフィールドを選択して出力する。または文字単位・バイト単位で1行の中の場所を選択して出力する。</p>
+<p>標準入力からの読み込みを標準出力にそのまま出力しつつ、ファイルにも書き出す。</p>
 
-<p>例</p>
+<p>以下のようにすると、<code>hogecommand</code> の標準出力を、<code>hogeresult.txt</code> に書き出しながら標準出力にもそのまま出力する。出力を2つに分岐するイメージ。</p>
 
-<pre><code># タブ区切りで最初の列と3列目だけを抽出して、タブ区切りで出力する
-cat ファイル名 | cut -f1,3
-
-# 以下のようにしても列の順番は入れ替えてくれない
-cat ファイル名 | cut -f3,1
+<pre><code>hogecommand | tee hogeresult.txt
 </code></pre>
 
-<h2 id="bf5d3a4">スペース区切りを処理するには
-<span class="article-date">2013/06/17</span></h2>
+<p>ファイル名を複数書いたら、それらすべてに同時に書き出す。</p>
 
-<pre><code>cat ファイル名 | cut -d' ' -f1,3
-</code></pre>
+<h2 id="0c8674f">オプション
+<span class="article-date">2013/08/21</span></h2>
 
-<h2 id="c71ad07">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには
-<span class="article-date">2013/08/13</span></h2>
-
-<p>例</p>
-
-<pre><code>cat hoge.txt | sed 's/[\t ]\+/ /g' | cut -d' ' -f1,3
-</code></pre>
-
-<h2 id="1826176">タブをコマンドラインから指定するには
-<span class="article-date">2013/06/17</span></h2>
-
-<p><code>cut</code> は <code>-f</code> でフィールドを指定した場合、デフォルトでタブ区切りだが、コマンドラインからどうしてもタブ区切りであることを指定したい場合は、以下のように書けなくもない。</p>
-
-<pre><code># 最初のカラムだけを表示
-cut -d$'\t' -f1
-</code></pre>
-
-<p><code>sort</code> でも似たような書き方でできる。</p>
+<dl>
+  <dt><code>-a</code></dt>
+  <dd>書き出し先ファイルがすでに存在すれば、追記モードで書き出す。</dd>
+</dl>
 
 
 </div>

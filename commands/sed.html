@@ -25,6 +25,7 @@
   <li>&gt; <a href="../commands/base64.html">base64</a></li>
   <li>&gt; <a href="../commands/cat.html">cat</a></li>
   <li>&gt; <a href="../commands/cp.html">cp コマンド</a></li>
+  <li>&gt; <a href="../commands/crontab.html">crontab</a></li>
   <li>&gt; <a href="../commands/cut.html">cut コマンド</a></li>
   <li>&gt; <a href="../commands/date.html">date</a></li>
   <li>&gt; <a href="../commands/diff.html">diff</a></li>
@@ -36,6 +37,7 @@
   <li>&gt; <a href="../commands/less.html">less コマンド</a></li>
   <li>&gt; <a href="../commands/lftp.html">lftp</a></li>
   <li>&gt; <a href="../commands/ls.html">ls コマンド</a></li>
+  <li>&gt; <a href="../commands/mosh.html">mosh</a></li>
   <li>&gt; <a href="../commands/netstat.html">netstat</a></li>
   <li>&gt; <a href="../commands/nkf.html">nkf コマンド</a></li>
   <li>&gt; <a href="../commands/od.html">od</a></li>
@@ -51,6 +53,7 @@
   <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
   <li>&gt; <a href="../commands/tac.html">tac</a></li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
+  <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
   <li>&gt; <a href="../commands/top.html">top</a></li>
   <li>&gt; <a href="../commands/touch.html">touch</a></li>
   <li>&gt; <a href="../commands/tr.html">tr</a></li>
@@ -65,7 +68,8 @@
 </div>
 
 <div id="content">
-  <h1 id="sed">sed コマンド <span class="article-date">2013/06/17</span></h1>
+  <h1 id="sed">sed コマンド
+<span class="article-date">2013/06/17</span></h1>
 
 <p>文字列を全置換したり、行単位で削除したり、いろいろできるコマンド。</p>
 
@@ -89,13 +93,15 @@ sed "s/x\\\{4\\\}/XXXX/g" # =&gt; NG
 # =&gt; c acc
 </code></pre>
 
-<h2 id="0d00817">タブ文字を全置換するには <span class="article-date">2013/06/17</span></h2>
+<h2 id="0d00817">タブ文字を全置換するには
+<span class="article-date">2013/06/17</span></h2>
 
 <pre><code># タブ文字をスペースに全置換
 sed '/\t/ /g'
 </code></pre>
 
-<h2 id="848c054">正規表現にマッチする行を削除するには <span class="article-date">2013/06/17</span></h2>
+<h2 id="848c054">正規表現にマッチする行を削除するには
+<span class="article-date">2013/06/17</span></h2>
 
 <pre><code># '2013' が含まれる行を削除
 sed '/^2013/d'
@@ -104,7 +110,8 @@ sed '/^2013/d'
 sed '/^$/d'
 </code></pre>
 
-<h2 id="7776465">正規表現にマッチする行を抽出するには <span class="article-date">2013/06/17</span></h2>
+<h2 id="7776465">正規表現にマッチする行を抽出するには
+<span class="article-date">2013/06/17</span></h2>
 
 <pre><code># '2013' が含まれる行のみを出力
 sed '/^2013/!d'
@@ -113,13 +120,15 @@ sed '/^2013/!d'
 sed '/^$/!d' | wc -l
 </code></pre>
 
-<h2 id="7b24614">1つ以上の連続するスペースまたはタブ文字を1つのスペースに全置換するには <span class="article-date">2013/06/17</span></h2>
+<h2 id="7b24614">1つ以上の連続するスペースまたはタブ文字を1つのスペースに全置換するには
+<span class="article-date">2013/06/17</span></h2>
 
 <pre><code># タブ文字をスペースに全置換
 sed -E '/[\t ]+/ /g'
 </code></pre>
 
-<h2 id="b24b8ad">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには <span class="article-date">2013/06/17</span></h2>
+<h2 id="b24b8ad">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには
+<span class="article-date">2013/06/17</span></h2>
 
 <pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
 </code></pre>
@@ -128,14 +137,16 @@ sed -E '/[\t ]+/ /g'
 
 <p><code>-e</code> はどういう意味だろう？</p>
 
-<h2 id="f691fd9">2つ以上の全置換を一括で実行するには <span class="article-date">2013/06/17</span></h2>
+<h2 id="f691fd9">2つ以上の全置換を一括で実行するには
+<span class="article-date">2013/06/17</span></h2>
 
 <p><code>-e</code> で2つ以上の全置換を実行できる。</p>
 
 <pre><code>cat ファイル名 | sed -e 's/置換前/置換後/g' -e 's/別の置換前/別の置換後/g'
 </code></pre>
 
-<h2 id="26276d0">行番号で指定する範囲のみを抽出するには <span class="article-date">2013/06/14</span></h2>
+<h2 id="26276d0">行番号で指定する範囲のみを抽出するには
+<span class="article-date">2013/06/14</span></h2>
 
 <pre><code># 2行目から4行目を抽出(4行目を含む)
 cat ファイル名 | sed -n 2,4p
@@ -149,7 +160,8 @@ cat ファイル名 | sed -n '2,$p'
 cat ファイル名 | sed -n 2,\$p
 </code></pre>
 
-<h2 id="0fa713a">行番号で指定する範囲のみを削除するには <span class="article-date">2013/06/14</span></h2>
+<h2 id="0fa713a">行番号で指定する範囲のみを削除するには
+<span class="article-date">2013/06/14</span></h2>
 
 <pre><code># 2行目から4行目を削除(4行目も削除)
 cat ファイル名 | sed -e 2,4d
@@ -168,7 +180,8 @@ cat ファイル名 | head -n 1
 cat ファイル名 | sed -e \$d
 </code></pre>
 
-<h2 id="242cace">パスなどを全置換する際にスラッシュをエスケープするのが面倒な場合 <span class="article-date">2013/06/18</span></h2>
+<h2 id="242cace">パスなどを全置換する際にスラッシュをエスケープするのが面倒な場合
+<span class="article-date">2013/06/18</span></h2>
 
 <p><code>s/.../..../g</code> の記法のスラッシュは記号なら比較的なんでもよくて、3つ同じ記号を使っていることに意味があるので、<code>s@...@...@g</code> のようにも書ける。</p>
 
@@ -177,7 +190,8 @@ cat ファイル名 | sed -e \$d
 <pre><code>cat ファイル名 | sed -e 's@/etc/foo/bar@/home/my/etc/foo/bar@g'
 </code></pre>
 
-<h3 id="1ba9ca7">ログファイルなどの <code>tail -f</code> の出力をsedで処理しながら表示するには <span class="article-date">2013/07/09</span></h3>
+<h3 id="1ba9ca7">ログファイルなどの <code>tail -f</code> の出力をsedで処理しながら表示するには
+<span class="article-date">2013/07/09</span></h3>
 
 <pre><code>tail -f access_log | sed --unbuffered ...
 </code></pre>

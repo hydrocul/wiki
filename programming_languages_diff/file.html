@@ -47,79 +47,40 @@
 
 <h2 id="append">ファイルに追記するには</h2>
 
-<h3 id="0042ddf">PHP <span class="article-date">2013/06/11</span></h3>
+<h3 id="0042ddf">PHP
+<span class="article-date">2013/06/11</span></h3>
 
 <pre><code>$handle = fopen($file_path, 'a');
 fwrite($handle, $data);
 fclose($handle);
 </code></pre>
 
-<h3 id="5a0ecc4">Ruby <span class="article-date">2013/07/16</span></h3>
+<h3 id="5a0ecc4">Ruby
+<span class="article-date">2013/07/16</span></h3>
 
 <pre><code>File.open(file_path, 'a') do |handle|
   handle.puts($data)
 end
 </code></pre>
 
-<h2 id="is-file">ファイルかどうかを調べる</h2>
-
-<p>ディレクトリでなくてファイルかどうかを調べるには</p>
-
-<h3 id="8a1a4c0">Ruby <span class="article-date">2013/04/30</span></h3>
-
-<pre><code>File.ftype('/home/foo/testfile') == 'file'
-</code></pre>
-
-<h3 id="59238dc">Perl <span class="article-date">2013/07/27</span></h3>
-
-<pre><code>if( -f '/home/foo/testfile' ){
-    ...;
-}
-</code></pre>
-
-<h3 id="c4f72fa">sh <span class="article-date">2013/07/27</span></h3>
-
-<pre><code>if [ -f /home/foo/testfile ]; then
-    ...
-fi
-</code></pre>
-
-<h2 id="is-directory">ディレクトリかどうかを調べる</h2>
-
-<h3 id="e67be1a">Ruby <span class="article-date">2013/04/30</span></h3>
-
-<pre><code>File.ftype('/home/foo/testfile') == 'directory'
-</code></pre>
-
-<h3 id="5fd0f05">Perl <span class="article-date">2013/07/27</span></h3>
-
-<pre><code>if( -d '/home/foo/testfile' ){
-    ...;
-}
-</code></pre>
-
-<h3 id="aaa365a">sh <span class="article-date">2013/07/27</span></h3>
-
-<pre><code>if [ -d /home/foo/testfile ]; then
-    ...
-fi
-</code></pre>
-
 <h2 id="is-symbolic-link">シンボリックリンクかどうかを調べる</h2>
 
-<h3 id="222ee47">Ruby <span class="article-date">2013/04/30</span></h3>
+<h3 id="222ee47">Ruby
+<span class="article-date">2013/04/30</span></h3>
 
 <pre><code>File.ftype('/home/foo/testfile') == 'link'
 </code></pre>
 
-<h3 id="fd6e1c8">Perl <span class="article-date">2013/07/27</span></h3>
+<h3 id="fd6e1c8">Perl
+<span class="article-date">2013/07/27</span></h3>
 
 <pre><code>if( -l '/home/foo/testfile' ){
     ...;
 }
 </code></pre>
 
-<h3 id="f8ab44d">sh <span class="article-date">2013/07/27</span></h3>
+<h3 id="f8ab44d">sh
+<span class="article-date">2013/07/27</span></h3>
 
 <pre><code>if [ -L /home/foo/testfile ]; then
     ...
@@ -128,7 +89,8 @@ fi
 
 <h2 id="get-symbolic-link-target">シンボリックリンクのリンク先を取得する</h2>
 
-<h3 id="c64bd4c">Ruby <span class="article-date">2013/04/30</span></h3>
+<h3 id="c64bd4c">Ruby
+<span class="article-date">2013/04/30</span></h3>
 
 <p><code>path</code> がシンボリックリンクの場合に、<code>path</code> をリンク先に書き換える。</p>
 
@@ -140,7 +102,8 @@ end
 
 <h2 id="recursive">ディレクトリの中をを再帰的にたどってすべて削除するには</h2>
 
-<h3 id="2613e07">PHP <span class="article-date">2011/10/13</span></h3>
+<h3 id="2613e07">PHP
+<span class="article-date">2011/10/13</span></h3>
 
 <pre><code>function rmdir_all($dir) {
   if (!file_exists($dir)) {

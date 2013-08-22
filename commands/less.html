@@ -25,6 +25,7 @@
   <li>&gt; <a href="../commands/base64.html">base64</a></li>
   <li>&gt; <a href="../commands/cat.html">cat</a></li>
   <li>&gt; <a href="../commands/cp.html">cp コマンド</a></li>
+  <li>&gt; <a href="../commands/crontab.html">crontab</a></li>
   <li>&gt; <a href="../commands/cut.html">cut コマンド</a></li>
   <li>&gt; <a href="../commands/date.html">date</a></li>
   <li>&gt; <a href="../commands/diff.html">diff</a></li>
@@ -36,6 +37,7 @@
   <li>&gt; less コマンド</li>
   <li>&gt; <a href="../commands/lftp.html">lftp</a></li>
   <li>&gt; <a href="../commands/ls.html">ls コマンド</a></li>
+  <li>&gt; <a href="../commands/mosh.html">mosh</a></li>
   <li>&gt; <a href="../commands/netstat.html">netstat</a></li>
   <li>&gt; <a href="../commands/nkf.html">nkf コマンド</a></li>
   <li>&gt; <a href="../commands/od.html">od</a></li>
@@ -51,6 +53,7 @@
   <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
   <li>&gt; <a href="../commands/tac.html">tac</a></li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
+  <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
   <li>&gt; <a href="../commands/top.html">top</a></li>
   <li>&gt; <a href="../commands/touch.html">touch</a></li>
   <li>&gt; <a href="../commands/tr.html">tr</a></li>
@@ -65,7 +68,8 @@
 </div>
 
 <div id="content">
-  <h1 id="less">less コマンド <span class="article-date">2013/08/06</span></h1>
+  <h1 id="less">less コマンド
+<span class="article-date">2013/08/06</span></h1>
 
 <dl>
   <dt><code>-N</code></dt>
@@ -82,23 +86,27 @@
   <dd>長い行を折り返さずに横方向にもページングできるようにする。</dd>
 </dl>
 
-<h2 id="7bcfbb2">ls を色付きで less で見るには <span class="article-date">2013/06/04</span></h2>
+<h2 id="7bcfbb2">ls を色付きで less で見るには
+<span class="article-date">2013/06/04</span></h2>
 
 <pre><code>ls -alF --color | less -X -R
 </code></pre>
 
-<h2 id="2b77fe1">grep を色付きで less で見るには <span class="article-date">2013/06/06</span></h2>
+<h2 id="2b77fe1">grep を色付きで less で見るには
+<span class="article-date">2013/06/06</span></h2>
 
 <pre><code>grep -rni --color=always abc . | less -X -R
 </code></pre>
 
-<h2 id="ddf682e"><code>tail -f</code> みたいにするには <span class="article-date">2013/04/23</span></h2>
+<h2 id="ddf682e"><code>tail -f</code> みたいにするには
+<span class="article-date">2013/04/23</span></h2>
 
 <p><code>less +F ファイル名</code> とすると、<code>tail -f</code> みたいな動きになる。Ctrl+C を押すと、普通の less に戻り、Shift+F を押すと、また <code>tail -f</code> に戻る。</p>
 
 <p><a href="http://www.commandlinefu.com/commands/view/1024/make-less-behave-like-tail-f." target="_blank">http://www.commandlinefu.com/commands/view/1024/make-less-behave-like-tail-f.</a></p>
 
-<h2 id="262e821">UTF-8のターミナルからEUC-JPなサーバに接続してlessで文字化けしてしまう場合 <span class="article-date">2013/06/28</span></h2>
+<h2 id="262e821">UTF-8のターミナルからEUC-JPなサーバに接続してlessで文字化けしてしまう場合
+<span class="article-date">2013/06/28</span></h2>
 
 <p><code>less hoge.txt</code> で日本語が <code>?</code> とかに化けてしまい、
 <code>nkf -Ew hoge.txt | less</code> で日本語が <code>[3m&lt;9A&gt;</code> みたいなコードで表示されてしまう場合、

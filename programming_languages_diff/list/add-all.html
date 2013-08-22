@@ -66,7 +66,8 @@
 <div id="content">
   <h1 id="add-all">addAll</h1>
 
-<h2 id="c79b5e3">Scala <span class="article-date">2013/07/30</span></h2>
+<h2 id="c79b5e3">Scala
+<span class="article-date">2013/07/30</span></h2>
 
 <pre><code>// Seq[A]
 def ++(arr2: A): Seq[A]
@@ -74,7 +75,8 @@ def ++(arr2: A): Seq[A]
 
 <p>追加した結果のリストを返し、自身は変更しない。</p>
 
-<h2 id="930402f">PHP <span class="article-date">2013/07/17</span></h2>
+<h2 id="930402f">PHP
+<span class="article-date">2013/07/17</span></h2>
 
 <pre><code>array_merge($arr1, $arr2);
 </code></pre>
@@ -82,12 +84,35 @@ def ++(arr2: A): Seq[A]
 <p>array_merge | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.array-merge.php" target="_blank">http://www.php.net/manual/ja/function.array-merge.php</a></p>
 
-<h2 id="9c0f26c">Perl <span class="article-date">2013/08/13</span></h2>
+<h2 id="c4ff7d0">Python
+<span class="article-date">2013/08/21</span></h2>
 
-<p><code>push</code> に配列を渡すことができる。</p>
+<pre><code>arr1.extend(arr2)
+</code></pre>
+
+<p>破壊的メソッド</p>
+
+<h2 id="9c0f26c">Perl
+<span class="article-date">2013/08/21</span></h2>
+
+<p><a href="push.html#perl"><code>push</code></a> に配列を渡すことができる。</p>
 
 <pre><code>push(@arr1, @arr2);
 </code></pre>
+
+<p>破壊的メソッド</p>
+
+<h2 id="650b153">JavaScript
+<span class="article-date">2013/08/21</span></h2>
+
+<p>例</p>
+
+<pre><code>var arr1 = [1, 2, 3];
+var arr2 = [1, 2, 3];
+var new_arr = arr1.concat(arr2)
+</code></pre>
+
+<p><code>arr1</code> 自身は変更されない。</p>
 
 
 </div>

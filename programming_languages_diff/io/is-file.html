@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ディレクトリを作成するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>ファイルかどうかを調べる | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; ディレクトリを作成するには
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; ファイルかどうかを調べる
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -29,7 +29,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/flush.html">フラッシュするには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得</a></li>
-  <li>&gt;&gt; ディレクトリを作成するには</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには</a></li>
 </ul>
 
@@ -37,40 +37,32 @@
 </div>
 
 <div id="content">
-  <h1 id="mkdir">ディレクトリを作成するには</h1>
+  <h1 id="is-file">ファイルかどうかを調べる
+<span class="article-date">2013/04/30</span></h1>
 
-<h2 id="680d431">Java
-<span class="article-date">2013/08/21</span></h2>
+<p>ディレクトリでなくてファイルかどうかを調べるには</p>
 
-<dl>
-  <dt><code>boolean java.io.File#mkdir()</code></dt>
-  <dd>ディレクトリを作成する。作成するパスの <code>File</code> オブジェクトを先に生成してから
-このメソッドを呼び出す。作成できたら <code>true</code> を返す。</dd>
-  <dt><code>boolean java.io.File#mkdirs()</code></dt>
-  <dd>上の <code>mkdir</code> とほぼ同等だが、<code>mkdir -p</code> に相当する。</dd>
-</dl>
+<h2 id="876d2e5">Ruby
+<span class="article-date">2013/04/30</span></h2>
 
-<h2 id="e5943fd">Ruby
-<span class="article-date">2013/06/24</span></h2>
-
-<pre><code>Dir::mkdir(dirname)
+<pre><code>File.ftype('/home/foo/testfile') == 'file'
 </code></pre>
 
-<p>または、<code>mkdir -p</code> に相当する方法として</p>
+<h2 id="0a8f21e">Perl
+<span class="article-date">2013/07/27</span></h2>
 
-<pre><code>require 'fileutls'
-FileUtils::mkdir_p(dirname)
+<pre><code>if( -f '/home/foo/testfile' ){
+    ...;
+}
 </code></pre>
 
-<h2 id="890a2be">Perl
-<span class="article-date">2013/08/17</span></h2>
+<h2 id="7b19e26">sh
+<span class="article-date">2013/07/27</span></h2>
 
-<p>例</p>
-
-<pre><code>mkdir(dirname)
+<pre><code>if [ -f /home/foo/testfile ]; then
+    ...
+fi
 </code></pre>
-
-<p><code>use ...</code> はなにもいらない。</p>
 
 
 </div>
