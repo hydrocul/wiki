@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>例外クラス階層 | 例外処理 | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exception/">例外処理</a> &gt; 例外クラス階層
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/exception/">例外処理</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/exception/checked.html">チェック例外と非チェック例外</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/exception/throw.html">例外をスローする構文</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/exception/try.html">例外を補足する構文</a></li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="class-hierarchy">例外クラス階層</h1>
+
+<h2 id="java">Java
+<span class="article-date">2013/08/22</span></h2>
+
+<pre><code>Throwable            (チェック例外)
+  Exception          (チェック例外)
+    RuntimeException (非チェック例外)
+      ...            (非チェック例外)
+    ...              (チェック例外)
+  Error              (非チェック例外)
+    ...              (非チェック例外)
+</code></pre>
+
+<p>すべての例外クラスの親クラスは <code>Throwable</code> で、その直接のサブクラスは <code>Exception</code> と <code>Error</code> のみ。</p>
+
+<p><code>Exception</code> のサブクラスは <code>RuntimeException</code> だけではない。
+<code>Exception</code> とそのサブクラスはチェック例外だが、
+<code>RuntimeException</code> とそのサブクラスは例外的に非チェック例外になる。</p>
+
+<p><code>Error</code> とそのサブクラスも非チェック例外で、
+<code>NoClassDefFoundError</code>, <code>NoSuchMethodError</code>, <code>StackOverflowError</code>,
+<code>OutOfMemoryError</code> などがある。</p>
+
+<p>ユーザ定義のクラスは、<code>Exception</code> のサブクラス(<code>RuntimeException</code> のサブクラスを含む)とするのが推奨。</p>
+
+<h2 id="c72dab7">Scala
+<span class="article-date">2013/08/22</span></h2>
+
+<p>Javaと同じだが、Javaのチェック例外も含めてすべて非チェック例外になる、という違いがある。</p>
+
+<h2 id="7206aa0">Ruby
+<span class="article-date">2013/08/22</span></h2>
+
+<pre><code>Exception
+  StandardError
+    ...
+  ...
+</code></pre>
+
+<p>すべての例外クラスの親クラスは <code>Exception</code> で、ユーザ定義のクラスは
+<code>StandardError</code> のサブクラスとするのが推奨。</p>
+
+<p><code>rescue</code>節でクラス名を省略すると <code>StandardError</code> が指定されたとみなされ、それ以外の <code>Exception</code> は補足してくれない。
+<code>StandardError</code> 以外の <code>Exception</code> は、例えばメモリ不足、スクリプトの文法違反など。</p>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

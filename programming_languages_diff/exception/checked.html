@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>チェック例外と非チェック例外 | 例外処理 | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exception/">例外処理</a> &gt; チェック例外と非チェック例外
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/exception/">例外処理</a></li>
+  <li>&gt;&gt; チェック例外と非チェック例外</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/exception/throw.html">例外をスローする構文</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/exception/try.html">例外を補足する構文</a></li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="checked">チェック例外と非チェック例外
+<span class="article-date">2013/08/20</span></h1>
+
+<p>ほとんどの言語ではチェック例外というのはなく、宣言なしに例外をスローすることができる。例外をスローするメソッドに修飾子を付けないといけないのはJavaくらいか。</p>
+
+<h2 id="java">Java
+<span class="article-date">2013/08/22</span></h2>
+
+<p>チェック例外をスローする可能性のあるメソッドには、メソッドシグニチャにthrowsが必要。チェック例外は <code>Exception</code> でかつ <code>RuntimeException</code> でないもの。非チェック例外は <code>Error</code> または <code>RuntimeException</code>。</p>
+
+<p>-&gt; <a href="class-hierarchy.html#java">Javaの例外クラス階層</a></p>
+
+<h2 id="9d5e34d">Scala
+<span class="article-date">2013/07/18</span></h2>
+
+<p>Javaのチェック例外も含めすべての例外が非チェック例外の扱いになる。</p>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

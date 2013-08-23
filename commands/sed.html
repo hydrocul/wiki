@@ -190,13 +190,23 @@ cat ファイル名 | sed -e \$d
 <pre><code>cat ファイル名 | sed -e 's@/etc/foo/bar@/home/my/etc/foo/bar@g'
 </code></pre>
 
-<h3 id="1ba9ca7">ログファイルなどの <code>tail -f</code> の出力をsedで処理しながら表示するには
-<span class="article-date">2013/07/09</span></h3>
+<h2 id="5a9ef7a">ログファイルなどの <code>tail -f</code> の出力をsedで処理しながら表示するには
+<span class="article-date">2013/07/09</span></h2>
 
 <pre><code>tail -f access_log | sed --unbuffered ...
 </code></pre>
 
 <p><code>--unbuffered</code> を付けないとsedがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
+
+<h2 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法
+<span class="article-date">2013/08/08</span></h2>
+
+<p><a href="http://d.hatena.ne.jp/hydrocul/20111211/1323595015" target="_blank">http://d.hatena.ne.jp/hydrocul/20111211/1323595015</a></p>
+
+<p>例</p>
+
+<pre><code>find . -name "*.txt" -exec sed -i 's/ABC/DEF/g' {} \;
+</code></pre>
 
 
 </div>

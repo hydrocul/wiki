@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>例外をスローする構文 | 例外処理 | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exception/">例外処理</a> &gt; 例外をスローする構文
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/exception/">例外処理</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/exception/checked.html">チェック例外と非チェック例外</a></li>
+  <li>&gt;&gt; 例外をスローする構文</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/exception/try.html">例外を補足する構文</a></li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="throw">例外をスローする構文</h1>
+
+<h2 id="eaabe5b">Java
+<span class="article-date">2013/08/22</span></h2>
+
+<pre><code>throw ...;
+</code></pre>
+
+<h2 id="7de8052">Scala
+<span class="article-date">2013/08/22</span></h2>
+
+<pre><code>throw ...;
+</code></pre>
+
+<h2 id="cff09eb">Ruby
+<span class="article-date">2013/08/22</span></h2>
+
+<p>例外をスローするには、以下のような書き方がある。</p>
+
+<pre><code>raise "exception message ..."
+
+raise ZeroDivisionError, "message ..."
+</code></pre>
+
+<h2 id="1ca3786">Python
+<span class="article-date">2013/08/22</span></h2>
+
+<p>例外をスローするには、以下のような書き方がある。</p>
+
+<pre><code>raise "message ..."
+
+raise HogeException()
+</code></pre>
+
+<p>except節で補足した例外を再スローするには、以下のようにシンプルに書ける。</p>
+
+<pre><code>raise
+</code></pre>
+
+<h2 id="78f5776">JavaScript
+<span class="article-date">2013/08/22</span></h2>
+
+<pre><code>throw "message ...";
+</code></pre>
+
+<h2 id="1b2ef11">CoffeeScript
+<span class="article-date">2013/08/22</span></h2>
+
+<pre><code>throw("message")
+</code></pre>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

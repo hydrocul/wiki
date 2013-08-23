@@ -22,12 +22,14 @@
   <li><a href="../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../programming_languages_diff/boolean/">論理型</a></li>
   <li>&gt; <a href="../programming_languages_diff/comment.html">コメント</a></li>
+  <li>&gt; <a href="../programming_languages_diff/control_flow/">制御構文</a></li>
   <li>&gt; <a href="../programming_languages_diff/data_type.html">データ型</a></li>
   <li>&gt; <a href="../programming_languages_diff/datetime.html">日付と時刻</a></li>
   <li>&gt; <a href="../programming_languages_diff/exception.html">例外処理</a></li>
   <li>&gt; <a href="../programming_languages_diff/file.html">ファイル操作</a></li>
   <li>&gt; <a href="../programming_languages_diff/function.html">関数・メソッド</a></li>
   <li>&gt; <a href="../programming_languages_diff/indent.html">インデント / セミコロン</a></li>
+  <li>&gt; <a href="../programming_languages_diff/io/">入出力・ファイル操作</a></li>
   <li>&gt; <a href="../programming_languages_diff/list/">リスト(配列)</a></li>
   <li>&gt; <a href="../programming_languages_diff/map/">マップ(連想配列)</a></li>
   <li>&gt; <a href="../programming_languages_diff/number/">数値型</a></li>
@@ -52,7 +54,8 @@
 <pre><code>ENV['HOME']
 </code></pre>
 
-<h3 id="eaa2143">Perl <span class="article-date">2013/07/27</span></h3>
+<h3 id="eaa2143">Perl
+<span class="article-date">2013/07/27</span></h3>
 
 <p><code>@ENV</code>という変数を利用する。</p>
 
@@ -61,7 +64,8 @@
 
 <h2 id="command-line-arguments">コマンドライン引数の取得</h2>
 
-<h3 id="ede3e44">PHP <span class="article-date">2013/05/17</span></h3>
+<h3 id="ede3e44">PHP
+<span class="article-date">2013/05/17</span></h3>
 
 <dl>
   <dt><code>$argc</code></dt>
@@ -72,35 +76,51 @@
 <a href="http://php.net/manual/ja/reserved.variables.argv.php" target="_blank">http://php.net/manual/ja/reserved.variables.argv.php</a></dd>
 </dl>
 
-<h3 id="3370028">Ruby <span class="article-date">2013/05/17</span></h3>
+<h3 id="3370028">Ruby
+<span class="article-date">2013/05/17</span></h3>
 
 <p><code>ARGV</code> という定数に引数が配列で入っている。スクリプトファイル名は含まれておらず、先頭から本当の引数が入っている。</p>
 
-<h3 id="c386cab">Perl <span class="article-date">2013/07/31</span></h3>
+<h3 id="c386cab">Perl
+<span class="article-date">2013/07/31</span></h3>
 
 <p><code>@ARGV</code>, <code>$ARGV[..]</code> で引数を取得できる。</p>
 
 <h2 id="source-file-name">ソースファイル名と行番号をソースコード中で取得するには</h2>
 
-<h3 id="9a278b4">Ruby <span class="article-date">2013/05/26</span></h3>
+<h3 id="7e68998">PHP
+<span class="article-date">2013/08/23</span></h3>
+
+<pre><code>__FILE__
+__DIR__
+__LINE__
+</code></pre>
+
+<p><code>__DIR__</code> はPHP 5.3.0以降。</p>
+
+<h3 id="9a278b4">Ruby
+<span class="article-date">2013/05/26</span></h3>
 
 <pre><code>__FILE__
 </code></pre>
 
-<h3 id="cdb1a4c">sh <span class="article-date">2013/07/05</span></h3>
+<h3 id="cdb1a4c">sh
+<span class="article-date">2013/07/05</span></h3>
 
 <p>bashでは、行番号は <code>$LINENO</code> という変数で取得できる。</p>
 
 <h2 id="main-function">そのソースファイルが他からの参照ではなく、直接実行された場合にのみ何らかの処理をするには</h2>
 
-<h3 id="fd98f18">Ruby <span class="article-date">2013/05/26</span></h3>
+<h3 id="fd98f18">Ruby
+<span class="article-date">2013/05/26</span></h3>
 
 <pre><code>if __FILE__ == $PROGRAM_NAME
     # 何らかの処理
 end
 </code></pre>
 
-<h3 id="e03cfe6">Python <span class="article-date">2013/07/30</span></h3>
+<h3 id="e03cfe6">Python
+<span class="article-date">2013/07/30</span></h3>
 
 <pre><code>if __name__ =='__main__':
     # 何らかの処理
@@ -108,7 +128,8 @@ end
 
 <h2 id="30e1edb">プロセスを終了するには</h2>
 
-<h3 id="5c7926d">Ruby <span class="article-date">2013/08/19</span></h3>
+<h3 id="5c7926d">Ruby
+<span class="article-date">2013/08/19</span></h3>
 
 <p>正常終了の場合</p>
 
@@ -120,7 +141,8 @@ end
 <pre><code>exit(1);
 </code></pre>
 
-<h3 id="1294360">Perl <span class="article-date">2013/07/27</span></h3>
+<h3 id="1294360">Perl
+<span class="article-date">2013/07/27</span></h3>
 
 <p>正常終了の場合</p>
 
@@ -134,7 +156,8 @@ end
 
 <h2 id="4ac2d86">おまじない</h2>
 
-<h3 id="00993ed">Perl <span class="article-date">2013/07/30</span></h3>
+<h3 id="00993ed">Perl
+<span class="article-date">2013/07/30</span></h3>
 
 <p>以下を付けることで、バグになりやすい古い仕様の表記などに対して警告を出してくれるようになる。</p>
 
