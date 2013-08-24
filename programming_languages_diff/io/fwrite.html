@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ファイルに書きこんでいくには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>ファイルに書き込んでいくには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; ファイルに書きこんでいくには
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; ファイルに書き込んでいくには
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,10 +24,16 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-is-empty.html">ファイルサイズが0かどうかを取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/flush.html">フラッシュするには</a></li>
+  <li>&gt;&gt; ファイルに書き込んでいくには</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べる</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べる</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには</a></li>
@@ -37,10 +43,20 @@
 </div>
 
 <div id="content">
-  <h1 id="fwrite">ファイルに書きこんでいくには</h1>
+  <h1 id="fwrite">ファイルに書き込んでいくには</h1>
 
-<h2 id="63306ec">Ruby
-<span class="article-date">2013/08/22</span></h2>
+<h2 id="6c79706">PHP
+<span class="article-date">2013/08/23</span></h2>
+
+<pre><code>$fh = fopen('./hoge.txt', 'w');
+fwrite($fh, $data);
+fclose($fh);
+</code></pre>
+
+<p><code>'w'</code> は通常の書き込みモード。<code>'a'</code> は追記モード。</p>
+
+<h2 id="0b72bbb">Ruby
+<span class="article-date">2013/08/23</span></h2>
 
 <pre><code>list = ... # 文字列の配列
 File.open('./hoge.txt', 'w') do |fh|
@@ -48,6 +64,74 @@ File.open('./hoge.txt', 'w') do |fh|
     fh.write(line + "\n")
   end
 end
+</code></pre>
+
+<p><code>'w'</code> は通常の書き込みモードでのオープンで、すでにファイルが存在していれば、最初に大きさを0にする。</p>
+
+<p><code>'a'</code> にすると追記モードでのオープンで、すでにファイルが存在していれば、最初にポインタをファイルの最後に移動する。</p>
+
+<h3 id="ce38d5b"><code>puts</code> と <code>write</code> の違い
+<span class="article-date">2013/08/23</span></h3>
+
+<p><code>write</code> は出力だけを行うプリミティブなメソッドで、他のほとんどの出力メソッドは最終的に <code>write</code> メソッドを呼び出している。</p>
+
+<p><code>puts</code> は任意の数の引数を受け付け、各引数ごとに、文字列に変換して後ろに改行を付けたものを出力する。文字列に変換した結果最後に改行が付いていれば、さらに改行を付けることはしない。</p>
+
+<p>例：</p>
+
+<pre><code>puts "a", "b\n", "c", "d\n\n", "e"
+</code></pre>
+
+<p>出力結果：</p>
+
+<pre><code>a
+b
+c
+d
+
+e
+</code></pre>
+
+<p>引数に配列が含まれる場合は、その要素ごとに出力する。改行を付けるかどうかのルールは同じ。</p>
+
+<p>例：</p>
+
+<pre><code>puts "a", ["b1", "b2"], ["c1\n", "c2"]
+</code></pre>
+
+<p>出力結果：</p>
+
+<pre><code>a
+b1
+b2
+c1
+c2
+</code></pre>
+
+<p><code>nil</code> の場合は空行を出力する。</p>
+
+<p>例：</p>
+
+<pre><code>puts "a", nil, "b"
+</code></pre>
+
+<p>出力結果：</p>
+
+<pre><code>a
+
+b
+</code></pre>
+
+<p>文字列でないものを渡した場合は、<code>to_s</code> で文字列にした上で出力する。</p>
+
+<p>例：</p>
+
+<pre><code>puts({'a' =&gt; 1})
+</code></pre>
+
+<p>出力結果：</p>
+
+<pre><code>{"a"=&gt;1}
 </code></pre>
 
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ファイルの中身を1行ずつテキスト処理するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>シンボリックリンクかどうかを取得 | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; ファイルの中身を1行ずつテキスト処理するには
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; シンボリックリンクかどうかを取得
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -23,7 +23,7 @@
   <li>&gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには</a></li>
-  <li>&gt;&gt; ファイルの中身を1行ずつテキスト処理するには</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
@@ -33,7 +33,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べる</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べる</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを取得</a></li>
+  <li>&gt;&gt; シンボリックリンクかどうかを取得</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには</a></li>
@@ -43,60 +43,31 @@
 </div>
 
 <div id="content">
-  <h1 id="each-line">ファイルの中身を1行ずつテキスト処理するには</h1>
+  <h1 id="is-symbolic-link">シンボリックリンクかどうかを取得</h1>
 
-<h2 id="ef41454">PHP
-<span class="article-date">2013/07/18</span></h2>
+<h2 id="7a42cdd">Ruby
+<span class="article-date">2013/04/30</span></h2>
 
-<pre><code>$fh = fopen('./hoge.txt', 'r');
-if($fh){
-  while (!feof($fh)) {
-    $line = fgets($fh);
-    // $line には最後の改行を含む
-    ...;
-  }
-  fclose($fh);
-}
+<pre><code>File.ftype('/home/foo/testfile') == 'link'
 </code></pre>
 
-<h2 id="8495e6f">Ruby
-<span class="article-date">2013/08/22</span></h2>
+<h2 id="80f3726">Perl
+<span class="article-date">2013/07/27</span></h2>
 
-<pre><code>IO.foreach('./hoge.txt') do |line|
-  ...
-end
-</code></pre>
-
-<p>または</p>
-
-<pre><code>open('./hoge.txt') do |fh|
-  fh.each do |line|
-    // line には最後の改行を含む
-    ...
-  end
-end
-</code></pre>
-
-<p>または</p>
-
-<pre><code>open('./hoge.txt') do |fh|
-  while line = fh.gets
-    // line には最後の改行を含む
-    ...
-  end
-end
-</code></pre>
-
-<h2 id="325a8ac">Perl
-<span class="article-date">2013/07/30</span></h2>
-
-<pre><code>open(FH, '&lt;', 'test2.pl') or die "Cannot open";
-while(my $line = &lt;FH&gt;){
-    # $line には最後の改行を含む
+<pre><code>if( -l '/home/foo/testfile' ){
     ...;
 }
-close FH;
 </code></pre>
+
+<h2 id="f78a127">sh
+<span class="article-date">2013/07/27</span></h2>
+
+<pre><code>if [ -L /home/foo/testfile ]; then
+    ...
+fi
+</code></pre>
+
+<p>-&gt; <a href="../../sh.html#operator">シェルスクリプトの演算子</a></p>
 
 
 </div>

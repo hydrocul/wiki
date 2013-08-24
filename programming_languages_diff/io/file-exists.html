@@ -24,10 +24,16 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには</a></li>
+  <li>&gt;&gt; ファイルまたはディレクトリが存在するかどうかを取得</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-is-empty.html">ファイルサイズが0かどうかを取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/flush.html">フラッシュするには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込んでいくには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べる</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べる</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには</a></li>
@@ -39,7 +45,8 @@
 <div id="content">
   <h1 id="file-exists">ファイルまたはディレクトリが存在するかどうかを取得</h1>
 
-<h2 id="6f21918">PHP <span class="article-date">2013/07/24</span></h2>
+<h2 id="6f21918">PHP
+<span class="article-date">2013/07/24</span></h2>
 
 <pre><code>file_exists('/home/foo/testfile')
 </code></pre>
@@ -48,19 +55,22 @@
 
 <p><a href="http://www.php.net/manual/ja/function.file-exists.php" target="_blank">http://www.php.net/manual/ja/function.file-exists.php</a></p>
 
-<h2 id="32a0400">Ruby <span class="article-date">2013/04/29</span></h2>
+<h2 id="32a0400">Ruby
+<span class="article-date">2013/04/29</span></h2>
 
 <pre><code>File.exists?('/home/foo/testfile')
 </code></pre>
 
-<h2 id="c5e7e44">Perl <span class="article-date">2013/07/27</span></h2>
+<h2 id="c5e7e44">Perl
+<span class="article-date">2013/07/27</span></h2>
 
 <pre><code>if( -e '/home/foo/testfile' ){
     ...;
 }
 </code></pre>
 
-<h2 id="f468d10">sh <span class="article-date">2013/07/27</span></h2>
+<h2 id="f468d10">sh
+<span class="article-date">2013/07/27</span></h2>
 
 <pre><code>if [ -e /home/foo/testfile ]; then
     ...
