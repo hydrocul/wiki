@@ -57,6 +57,17 @@
 }
 </code></pre>
 
+<p>同じくJava7からの機能では、catch節のカッコの中に複数の例外クラスを書ける。</p>
+
+<pre><code>try {
+  ...;
+} catch (IllegalArgumentException | IOException e) {
+  ...;
+}
+</code></pre>
+
+<p><code>IOException | FileNotFoundException</code> のような一方が他方に含まれるような書き方はできないし、意味がない。</p>
+
 <h2 id="ace161c">Scala
 <span class="article-date">2013/08/22</span></h2>
 

@@ -47,7 +47,8 @@
 
 <h2 id="method-definition">メソッド定義</h2>
 
-<h3 id="e03ebba">Java <span class="article-date">2013/07/10</span></h3>
+<h3 id="e03ebba">Java
+<span class="article-date">2013/07/10</span></h3>
 
 <pre><code>public String f(String arg1, int arg2){
   ...;
@@ -66,7 +67,8 @@
   <li>メソッド呼び出しは、引数のカッコを省略不可</li>
 </ul>
 
-<h3 id="3b1ddd6">Scala <span class="article-date">2013/07/10</span></h3>
+<h3 id="3b1ddd6">Scala
+<span class="article-date">2013/07/10</span></h3>
 
 <pre><code>def f(arg1: String, arg2: Int): String = {
   ...;
@@ -85,7 +87,8 @@
   <li>関数本体の最後の式が返り値になり <code>return</code> を省略可</li>
 </ul>
 
-<h3 id="b1d6e8b">PHP <span class="article-date">2013/06/09</span></h3>
+<h3 id="b1d6e8b">PHP
+<span class="article-date">2013/06/09</span></h3>
 
 <pre><code>function f($arg1, $arg2){
   ...;
@@ -97,7 +100,8 @@
   <li>関数定義と呼び出しでは引数のカッコを省略不可</li>
 </ul>
 
-<h3 id="6559433">Ruby <span class="article-date">2013/04/10</span></h3>
+<h3 id="6559433">Ruby
+<span class="article-date">2013/04/10</span></h3>
 
 <pre><code>def f(arg1, arg2)
   ...
@@ -109,7 +113,8 @@ end
   <li>メソッド呼び出しは引数のカッコを省略可</li>
 </ul>
 
-<h3 id="90c9a87">Perl <span class="article-date">2013/08/12</span></h3>
+<h3 id="90c9a87">Perl
+<span class="article-date">2013/08/12</span></h3>
 
 <p>サブルーチンの定義。</p>
 
@@ -129,7 +134,8 @@ end
   <li>サブルーチン呼び出しは、引数がない場合に限り、カッコを省略できる</li>
 </ul>
 
-<h3 id="876381d">sh <span class="article-date">2013/07/29</span></h3>
+<h3 id="876381d">sh
+<span class="article-date">2013/08/24</span></h3>
 
 <p>関数の定義。</p>
 
@@ -149,7 +155,10 @@ end
   <li>関数呼び出しは通常の外部コマンドの実行と同じくカッコを付けずに引数を並べる</li>
 </ul>
 
-<h3 id="19f3d00">JavaScript <span class="article-date">2013/06/09</span></h3>
+<p><code>return 0</code> のように書くと関数の処理から戻り値を指定して脱出できる。</p>
+
+<h3 id="19f3d00">JavaScript
+<span class="article-date">2013/06/09</span></h3>
 
 <pre><code>function f(arg1, arg2){
     ...;
@@ -169,7 +178,8 @@ end
   <li>関数定義と呼び出しでは引数のカッコを省略不可</li>
 </ul>
 
-<h3 id="63fbb86">CoffeeScript <span class="article-date">2013/04/28</span></h3>
+<h3 id="63fbb86">CoffeeScript
+<span class="article-date">2013/04/28</span></h3>
 
 <pre><code>(arg1, arg2) -&gt;
   ...
@@ -189,7 +199,8 @@ end
 
 <h2 id="closure">クロージャ</h2>
 
-<h3 id="a713240">Ruby <span class="article-date">2013/06/09</span></h3>
+<h3 id="a713240">Ruby
+<span class="article-date">2013/06/09</span></h3>
 
 <pre><code>def builder
   i = 0
@@ -209,7 +220,8 @@ f1.call # 2
 
 <p>Procオブジェクトは、その外側の変数を読み書きできる。</p>
 
-<h3 id="669b748">JavaScript <span class="article-date">2013/06/09</span></h3>
+<h3 id="669b748">JavaScript
+<span class="article-date">2013/06/09</span></h3>
 
 <pre><code>var builder = function(){
     var i = 0;
@@ -228,7 +240,8 @@ f1(); // 2
 
 <h2 id="override">メソッドのオーバーライド</h2>
 
-<h3 id="6e7e160">Java <span class="article-date">2013/07/05</span></h3>
+<h3 id="6e7e160">Java
+<span class="article-date">2013/07/05</span></h3>
 
 <ul>
   <li>メソッドをオーバーライドする場合は、サブクラスのメソッド定義の方に 
@@ -236,7 +249,8 @@ f1(); // 2
 スペルミスなどでオーバーライドできていない場合にコンパイルエラーになってくれる</li>
 </ul>
 
-<h3 id="4a7062d">Scala <span class="article-date">2013/07/05</span></h3>
+<h3 id="4a7062d">Scala
+<span class="article-date">2013/07/05</span></h3>
 
 <ul>
   <li>メソッドをオーバーライドする場合は、サブクラスのメソッド定義の方に 
@@ -244,7 +258,8 @@ f1(); // 2
   <li>抽象メソッドをサブクラスで定義する場合は、<code>override</code> を付けても付けなくてもよい</li>
 </ul>
 
-<h3 id="408e7e2">PHP <span class="article-date">2013/07/18</span></h3>
+<h3 id="408e7e2">PHP
+<span class="article-date">2013/07/18</span></h3>
 
 <ul>
   <li>メソッドをオーバーライドするときにつけるキーワードはない。</li>
@@ -252,21 +267,25 @@ f1(); // 2
 
 <h2 id="b0fc331">関数呼び出し時に引数が足りない場合</h2>
 
-<h3 id="2cb4a4f">Ruby <span class="article-date">2013/08/13</span></h3>
+<h3 id="2cb4a4f">Ruby
+<span class="article-date">2013/08/13</span></h3>
 
 <p>実行時にエラーが起きる。</p>
 
-<h3 id="7d6588d">Python <span class="article-date">2013/08/13</span></h3>
+<h3 id="7d6588d">Python
+<span class="article-date">2013/08/13</span></h3>
 
 <p>実行時にエラーが起きる。</p>
 
-<h3 id="d25a0d9">JavaScript <span class="article-date">2013/08/13</span></h3>
+<h3 id="d25a0d9">JavaScript
+<span class="article-date">2013/08/13</span></h3>
 
 <p>不足した引数には <code>undefined</code> が割り当てられる。</p>
 
 <h2 id="multi-return">複数の返り値</h2>
 
-<h3 id="b4f2c71">PHP <span class="article-date">2013/04/22</span></h3>
+<h3 id="b4f2c71">PHP
+<span class="article-date">2013/04/22</span></h3>
 
 <p>配列を使って無理やりやろうと思えばできなくもない。</p>
 
@@ -276,7 +295,8 @@ f1(); // 2
 list($num, $str) = f();
 </code></pre>
 
-<h3 id="30f0340">Ruby <span class="article-date">2013/04/22</span></h3>
+<h3 id="30f0340">Ruby
+<span class="article-date">2013/04/22</span></h3>
 
 <p><code>return</code> にカンマ区切りで複数の値を書けば、配列を返すことができ、受け取り側は配列の多重代入を使う。</p>
 
@@ -288,11 +308,13 @@ num, str = f
 
 <h2 id="recursive">末尾再帰の最適化</h2>
 
-<h3 id="ab2aab5">Java <span class="article-date">2013/07/05</span></h3>
+<h3 id="ab2aab5">Java
+<span class="article-date">2013/07/05</span></h3>
 
 <p>末尾再帰の最適化はしてくれない。</p>
 
-<h3 id="ebe28e0">Scala <span class="article-date">2013/07/05</span></h3>
+<h3 id="ebe28e0">Scala
+<span class="article-date">2013/07/05</span></h3>
 
 <p>末尾再帰の最適化ができるばあいは、コンパイラが自動でそのようにしてくれる。</p>
 

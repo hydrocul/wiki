@@ -21,6 +21,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../../programming_languages_diff/boolean/">論理型</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/boolean/overview.html">概要</a></li>
   <li>&gt;&gt; 論理値への変換</li>
 </ul>
 
@@ -28,32 +29,49 @@
 </div>
 
 <div id="content">
-  <h1 id="to-boolean">論理値への変換</h1>
+  <h1 id="to-boolean">論理値への変換
+<span class="article-date">2013/08/24</span></h1>
 
-<h2 id="649a0b6">Java <span class="article-date">2013/04/10</span></h2>
+<p><code>if</code>文の条件式など、論理値を必要とされる場所に任意の型を入れたときにどう評価されるか。</p>
 
-<p><code>boolean</code>型以外が暗黙のうちに <code>boolean</code> に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。</p>
+<h2 id="dd18c8b">C言語
+<span class="article-date">2013/08/24</span></h2>
 
-<h2 id="668c698">Scala <span class="article-date">2013/04/10</span></h2>
+<p>C言語には <code>true</code> や <code>false</code> という値はない。if文などの条件式には、
+<code>0</code> が入ると <code>false</code> の扱いになり、それ以外は <code>true</code> の扱いになる。</p>
 
-<p><code>Boolean</code>型以外が暗黙のうちに <code>Boolean</code> に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。</p>
+<h2 id="649a0b6">Java
+<span class="article-date">2013/08/24</span></h2>
 
-<h2 id="c87612a">PHP <span class="article-date">2013/05/14</span></h2>
+<p><code>boolean</code>型以外が暗黙のうちに <code>boolean</code> に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。
+<code>if</code>文などの条件式には<code>boolean</code>以外を置くことはできない。</p>
+
+<h2 id="668c698">Scala
+<span class="article-date">2013/08/24</span></h2>
+
+<p><code>Boolean</code>型以外が暗黙のうちに <code>Boolean</code> に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。
+<code>if</code>文などの条件式には<code>boolean</code>以外を置くことはできない。</p>
+
+<h2 id="c87612a">PHP
+<span class="article-date">2013/05/14</span></h2>
 
 <p><code>false</code>, <code>null</code>, <code>0</code>, <code>0.0</code>, <code>''</code>, <code>'0'</code>, <code>array()</code> が <code>false</code> になり、それ以外は <code>true</code> になる。文字列 <code>'0'</code> は <code>false</code> だが、文字列 <code>'false'</code> や <code>'0.0'</code> は <code>true</code> になる。</p>
 
 <p><a href="http://php.net/manual/ja/types.comparisons.php" target="_blank">http://php.net/manual/ja/types.comparisons.php</a></p>
 
-<h2 id="3d2a2cd">Ruby <span class="article-date">2013/04/10</span></h2>
+<h2 id="3d2a2cd">Ruby
+<span class="article-date">2013/04/10</span></h2>
 
 <p><code>false</code>, <code>nil</code> が <code>false</code> になり、それ以外は <code>true</code> になる。<code>0</code> も <code>''</code> も <code>true</code>。</p>
 
-<h2 id="bd39cc7">Perl <span class="article-date">2013/07/30</span></h2>
+<h2 id="bd39cc7">Perl
+<span class="article-date">2013/08/24</span></h2>
 
-<p>Perlには <code>false</code> や <code>true</code> という値はない。if文などの条件式には、
+<p>Perlには <code>true</code> や <code>false</code> という値はない。if文などの条件式には、
 <code>0</code>, <code>'0'</code>, <code>''</code>, <code>undef</code> が入ると <code>false</code> の扱いになり、それ以外は <code>true</code> の扱いになる。</p>
 
-<h2 id="9695dc8">JavaScript <span class="article-date">2013/04/10</span></h2>
+<h2 id="9695dc8">JavaScript
+<span class="article-date">2013/04/10</span></h2>
 
 <p><code>false</code>, <code>0</code>, <code>''</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code> が <code>false</code> になり、それ以外は <code>true</code> になる。</p>
 

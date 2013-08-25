@@ -109,6 +109,25 @@ tar xvzf tarファイル名
 <p>-&gt; <a href="ssh.html#backup-remot-to-local">サーバにある大量のファイルを tar しながら、ローカルにダウンロードするには</a><br />
 -&gt; <a href="ssh.html#backup-local-to-remote">ローカルにある大量のファイルを tar しながら、リモートにアップロードするには</a></p>
 
+<h2 id="91bba42">findの結果をバックアップ対象にするには
+<span class="article-date">2013/08/24</span></h2>
+
+<p>以下のようにする。</p>
+
+<pre><code>find .... -print0 | tar cvzf hoge.tar.gz --null -T -
+</code></pre>
+
+<p><code>find</code>のオプション <code>-print0</code> は該当ファイル名をNULL区切りで出力し、
+<code>tar</code>のオプション <code>--null -T -</code> は標準入力からアーカイブ対象のファイル名をNULL区切りでパースして取得する。 <code>-T -</code> の2つ目の <code>-</code> は標準入力を意味し、ここにファイル名を書けば、そのファイルからアーカイブ対象のファイル名を取得することになる。</p>
+
+<p><code>-print0</code> のハイフンは1つで、 <code>--null</code> のハイフンは2つ。</p>
+
+<p><code>--null</code> を <code>-T -</code> のあとに置くと、<code>tar: -: file name read contains nul character</code>
+というエラーが発生した。</p>
+
+<p><code>find</code>と<code>tar</code>の間に<code>xargs</code>を使ってしまうと、アーカイブするファイル数が多い場合に
+<code>tar</code>が複数回起動されてしまい、すべてのファイルが含まれたアーカイブファイルを作れない。</p>
+
 
 </div>
 

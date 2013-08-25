@@ -55,16 +55,29 @@
 </code></pre>
 
 <h2 id="22e3881">Perl
-<span class="article-date">2013/08/17</span></h2>
+<span class="article-date">2013/08/24</span></h2>
 
 <p>例</p>
 
 <pre><code>use File::Basename qw/dirname/;
 
 print dirname("/aaa/bbb") . "\n"; # =&gt; /aaa
-print dirname("/aaa/") . "\n"; # =&gt; /
-print dirname("/aaa") . "\n"; # =&gt; /
-print dirname("aaa") . "\n"; # =&gt; ./
+print dirname("/aaa/") . "\n";    # =&gt; /
+print dirname("/aaa") . "\n";     # =&gt; /
+print dirname("aaa") . "\n";      # =&gt; .
+</code></pre>
+
+<h2 id="5b18eec">sh
+<span class="article-date">2013/08/24</span></h2>
+
+<p><code>dirname</code>コマンドは引数で与えられたパスのディレクトリ名を標準出力に出力する。</p>
+
+<p>例</p>
+
+<pre><code>dirname /aaa/bbb # =&gt; /aaa
+dirname /aaa/    # =&gt; /
+dirname /aaa     # =&gt; /
+dirname aaa      # =&gt; .
 </code></pre>
 
 
