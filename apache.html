@@ -10,21 +10,61 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="./">Home</a> &gt; Apache
+<div id="breadcrumb">
+  Apache
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="./">Home</a></li>
+  <li>&gt; Apache</li>
+  <li>&gt; <a href="./codeigniter.html">CodeIgniter</a></li>
+  <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="./css.html">CSS</a></li>
+  <li>&gt; <a href="./emacs.html">Emacs</a></li>
+  <li>&gt; <a href="./google.html">google</a></li>
+  <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
+  <li>&gt; <a href="./html.html">HTML</a></li>
+  <li>&gt; <a href="./incron.html">incron (inotify cron)</a></li>
+  <li>&gt; <a href="./iptables.html">iptables</a></li>
+  <li>&gt; <a href="./java.html">Java</a></li>
+  <li>&gt; <a href="./jquery.html">jQuery</a></li>
+  <li>&gt; <a href="./linux.html">Linux</a></li>
+  <li>&gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
+  <li>&gt; <a href="./mac.html">Mac</a></li>
+  <li>&gt; <a href="./markdown.html">Markdown</a></li>
+  <li>&gt; <a href="./mechanize.html">mechanize</a></li>
+  <li>&gt; <a href="./memcached.html">memcached</a></li>
+  <li>&gt; <a href="./misc.html">misc</a></li>
+  <li>&gt; <a href="./mosh.html">mosh</a></li>
+  <li>&gt; <a href="./mysql.html">MySQL</a></li>
+  <li>&gt; <a href="./oneliner.html">ワンライナー</a></li>
+  <li>&gt; <a href="./paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+  <li>&gt; <a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
+  <li>&gt; <a href="./phantomjs.html">phantomjs</a></li>
+  <li>&gt; <a href="./php.html">PHP</a></li>
+  <li>&gt; <a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="./rails.html">Ruby on Rails</a></li>
+  <li>&gt; <a href="./ruby.html">Ruby</a></li>
+  <li>&gt; <a href="./sh.html">シェルスクリプト</a></li>
+  <li>&gt; <a href="./svn.html">Subversion (svn)</a></li>
+  <li>&gt; <a href="./tmux.html">tmux</a></li>
+  <li>&gt; <a href="./ubuntu.html">Ubuntu</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
   <h1 id="apache">Apache</h1>
 
-<h2 id="os-20130425">OS別のディレクトリ構成 <span class="article-date">2013/04/25</span></h2>
+<h2 id="64dc291">OS別のディレクトリ構成
+<span class="article-date">2013/04/25</span></h2>
 
-<h3 id="ubuntu">Ubuntu</h3>
+<h3 id="1516153">Ubuntu</h3>
 
 <p>設定ファイルは以下にある。</p>
 
@@ -41,7 +81,7 @@
 
 <p>(Ubuntu 12.04 Server で確認)</p>
 
-<h3 id="mac-os-x">Mac OS X</h3>
+<h3 id="3dfb5b2">Mac OS X</h3>
 
 <p>設定ファイルは以下にある。</p>
 
@@ -60,7 +100,8 @@
 
 <p>(OS X 10.6 で確認)</p>
 
-<h2 id="section">リバースプロキシ <span class="article-date">2013/04/03</span></h2>
+<h2 id="12fa470">リバースプロキシ
+<span class="article-date">2013/04/03</span></h2>
 
 <p>RailsなどWEBrickを動かす場合で、80番ポートでWEBrickにアクセスできるようにするには、Apacheにリバースプロキシを設定すると簡単。passengerを入れるほどでもない場合に。</p>
 
@@ -68,14 +109,15 @@
 
 <p>Apacheの VirtualHost の設定の中に以下のように書く。</p>
 
-<pre><code>ProxyPass / http://127.0.0.1:3000/
-ProxyPassReverse / http://127.0.0.1:3000/
+<pre><code>ProxyPass / [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
+ProxyPassReverse / [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
 ProxyPreserveHost On
 </code></pre>
 
-<h2 id="httaccess"><code>.httaccess</code></h2>
+<h2 id="0ce1f7e"><code>.httaccess</code></h2>
 
-<h3 id="php-htaccess-20130424">ファイルが存在しない場合に限り特定のPHPなどで処理する <code>.htaccess</code> <span class="article-date">2013/04/24</span></h3>
+<h3 id="9a963f7">ファイルが存在しない場合に限り特定のPHPなどで処理する <code>.htaccess</code>
+<span class="article-date">2013/04/24</span></h3>
 
 <pre><code>RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -83,7 +125,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule  (.*) index.php/$1 [L]
 </code></pre>
 
-<h3 id="urlbasic-htaccess-20130403">特定のURLを除外してBASIC認証をかける <code>.htaccess</code> <span class="article-date">2013/04/03</span></h3>
+<h3 id="8c573d9">特定のURLを除外してBASIC認証をかける <code>.htaccess</code>
+<span class="article-date">2013/04/03</span></h3>
 
 <p>例</p>
 
@@ -103,7 +146,8 @@ Allow from env=excludeauth
 
 <p>BASIC認証をかけつつ、 <code>SetEnfIf</code> で特定のURLのときに変数を設定して、 <code>Allow</code> でその変数が設定されているときのアクセスを許可する。 <code>Satisfy Any</code> の指定は <code>require</code> と <code>Allow</code> のいずれかが満たされれば、アクセスが許可される、という意味。</p>
 
-<h3 id="ipbasic-htaccess-20130409">特定のIPからのアクセスは無条件に許可して、それ以外のアクセスにはBASIC認証をかける <code>.htaccess</code> <span class="article-date">2013/04/09</span></h3>
+<h3 id="87e0974">特定のIPからのアクセスは無条件に許可して、それ以外のアクセスにはBASIC認証をかける <code>.htaccess</code>
+<span class="article-date">2013/04/09</span></h3>
 
 <p>例</p>
 
@@ -120,7 +164,8 @@ Allow from 99.99.99.99
 Deny from all
 </code></pre>
 
-<h3 id="htaccess-20130403">メンテナンス画面に切り替えるための <code>.htaccess</code> <span class="article-date">2013/04/03</span></h3>
+<h3 id="0355c28">メンテナンス画面に切り替えるための <code>.htaccess</code>
+<span class="article-date">2013/04/03</span></h3>
 
 <p>.htaccess の RewriteEngine On の直後に以下を書く</p>
 
@@ -135,7 +180,8 @@ RewriteRule ^(.*) /maintenance.html [R,L]
 <pre><code>RewriteRule ^maintenance.html$ / [R,L]
 </code></pre>
 
-<h3 id="url-html--php--htaccess-20130423">URLの拡張子を .html としたまま、 .php で動かす <code>.htaccess</code> <span class="article-date">2013/04/23</span></h3>
+<h3 id="bb20744">URLの拡張子を .html としたまま、 .php で動かす <code>.htaccess</code>
+<span class="article-date">2013/04/23</span></h3>
 
 <pre><code>RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -143,7 +189,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)\.html /$1.php
 </code></pre>
 
-<h2 id="create-csr">SSLのCSRの作成方法 <span class="article-date">2013/04/03</span></h2>
+<h2 id="create-csr">SSLのCSRの作成方法
+<span class="article-date">2013/04/03</span></h2>
 
 <pre><code>$ ps aux | openssl md5 &gt; rand.dat
 $ openssl genrsa -rand rand.dat -des3 2048 &gt; 2012key.pem
@@ -203,7 +250,8 @@ EAUvkvx4rxqGKbYSr1fyPGWrTU+JSjEAlqz1QU4HPgrL1639qMroMggf8A==
 
 <h2 id="openssl">openssl</h2>
 
-<h3 id="ssl-20130511">SSLサーバ証明書ファイルと秘密鍵の組み合わせが正しいことを確認するには <span class="article-date">2013/05/11</span></h3>
+<h3 id="80a3081">SSLサーバ証明書ファイルと秘密鍵の組み合わせが正しいことを確認するには
+<span class="article-date">2013/05/11</span></h3>
 
 <p><a href="http://www.webimpact.co.jp/banchoblog/?p=624" target="_blank">http://www.webimpact.co.jp/banchoblog/?p=624</a></p>
 
@@ -216,17 +264,20 @@ openssl x509 -noout -modulus -in サーバ証明書ファイル(CRT) | openssl m
 
 <p>もし違う場合は、Apacheが起動しない。</p>
 
-<h3 id="ssl-20130511-1">SSLサーバ証明書の期限を確認するには <span class="article-date">2013/05/11</span></h3>
+<h3 id="d145129">SSLサーバ証明書の期限を確認するには
+<span class="article-date">2013/05/11</span></h3>
 
 <pre><code>openssl x509 -in サーバ証明書ファイル(CRT) -noout -dates
 </code></pre>
 
-<h3 id="ssl-20130511-2">SSLサーバ証明書の内容を確認するには <span class="article-date">2013/05/11</span></h3>
+<h3 id="25f2e41">SSLサーバ証明書の内容を確認するには
+<span class="article-date">2013/05/11</span></h3>
 
 <pre><code>openssl x509 -in サーバ証明書ファイル(CRT) -noout -text
 </code></pre>
 
-<h3 id="ssl-20130511-3">SSLサーバ証明書と中間証明書の組み合わせが正しいことを確認するには <span class="article-date">2013/05/11</span></h3>
+<h3 id="25ec030">SSLサーバ証明書と中間証明書の組み合わせが正しいことを確認するには
+<span class="article-date">2013/05/11</span></h3>
 
 <pre><code>openssl verify -CAfile 中間証明書ファイル サーバ証明書ファイル
 </code></pre>
@@ -234,10 +285,10 @@ openssl x509 -noout -modulus -in サーバ証明書ファイル(CRT) | openssl m
 
 </div>
 
-  <footer>
-    <a href="./">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="./">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>メソッド定義 | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; メソッド定義
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a></li>
+  <li>&gt;&gt; メソッド定義</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/multi-return.html">複数の返り値</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/name-binding.html">関数が外側のスコープの変数にアクセスできるかどうか</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="method-definition">メソッド定義</h1>
+
+<h2 id="4c24e6c">Java
+<span class="article-date">2013/07/10</span></h2>
+
+<pre><code>public String f(String arg1, int arg2){
+  ...;
+  return ...;
+}
+</code></pre>
+
+<p>返り値がない場合</p>
+
+<pre><code>public void f(String arg1, int arg2){
+  ...;
+}
+</code></pre>
+
+<ul>
+  <li>メソッド呼び出しは、引数のカッコを省略不可</li>
+</ul>
+
+<h2 id="028763a">Scala
+<span class="article-date">2013/07/10</span></h2>
+
+<pre><code>def f(arg1: String, arg2: Int): String = {
+  ...;
+}
+</code></pre>
+
+<p>返り値が <code>Unit</code> の場合(返り値がない場合)は、以下でも可。</p>
+
+<pre><code>def f(arg1: String, arg2: Int){
+  ...;
+}
+</code></pre>
+
+<ul>
+  <li>メソッド呼び出しは、引数がない場合に限り、カッコを省略できる</li>
+  <li>関数本体の最後の式が返り値になり <code>return</code> を省略可</li>
+</ul>
+
+<h2 id="7f61bc7">PHP
+<span class="article-date">2013/06/09</span></h2>
+
+<pre><code>function f($arg1, $arg2){
+  ...;
+  return ...;
+}
+</code></pre>
+
+<ul>
+  <li>関数定義と呼び出しでは引数のカッコを省略不可</li>
+</ul>
+
+<h2 id="be2489b">Ruby
+<span class="article-date">2013/04/10</span></h2>
+
+<pre><code>def f(arg1, arg2)
+  ...
+  return ...
+end
+</code></pre>
+
+<ul>
+  <li>メソッド呼び出しは引数のカッコを省略可</li>
+</ul>
+
+<h2 id="73d7d80">Perl
+<span class="article-date">2013/08/12</span></h2>
+
+<p>サブルーチンの定義。</p>
+
+<pre><code>sub f {
+  my ($arg1, $arg2) = @_;
+  ...;
+}
+</code></pre>
+
+<p>サブルーチンの呼び出し。</p>
+
+<pre><code>f($a1, $a2);
+</code></pre>
+
+<ul>
+  <li>サブルーチン定義の中では引数は、<code>@_</code>, <code>$_[...]</code> などで参照する</li>
+  <li>サブルーチン呼び出しは、引数がない場合に限り、カッコを省略できる</li>
+</ul>
+
+<h2 id="25e34c3">sh
+<span class="article-date">2013/08/24</span></h2>
+
+<p>関数の定義。</p>
+
+<pre><code>f()
+{
+    ...
+}
+</code></pre>
+
+<p>関数の呼び出し。</p>
+
+<pre><code>f a1 a2
+</code></pre>
+
+<ul>
+  <li>関数定義の中では引数は <code>$@</code>, <code>$1</code>, <code>$2</code>,,, などを使う</li>
+  <li>関数呼び出しは通常の外部コマンドの実行と同じくカッコを付けずに引数を並べる</li>
+</ul>
+
+<p><code>return 0</code> のように書くと関数の処理から戻り値を指定して脱出できる。</p>
+
+<h2 id="7f65290">JavaScript
+<span class="article-date">2013/06/09</span></h2>
+
+<pre><code>function f(arg1, arg2){
+    ...;
+    return ...;
+}
+</code></pre>
+
+<p>または</p>
+
+<pre><code>var f = function(arg1, arg2){
+    ...;
+    return ...;
+}
+</code></pre>
+
+<ul>
+  <li>関数定義と呼び出しでは引数のカッコを省略不可</li>
+</ul>
+
+<h2 id="8e36048">CoffeeScript
+<span class="article-date">2013/04/28</span></h2>
+
+<pre><code>(arg1, arg2) -&gt;
+  ...
+  ...
+</code></pre>
+
+<p>引数がない場合</p>
+
+<pre><code>-&gt;
+  ...
+  ...
+</code></pre>
+
+<ul>
+  <li>関数呼び出しは、引数がある場合はカッコを省略可。引数がない場合はカッコを省略できない。</li>
+</ul>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

@@ -10,41 +10,81 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="./">Home</a> &gt; CodeIgniter
+<div id="breadcrumb">
+  CodeIgniter
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="./">Home</a></li>
+  <li>&gt; <a href="./apache.html">Apache</a></li>
+  <li>&gt; CodeIgniter</li>
+  <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="./css.html">CSS</a></li>
+  <li>&gt; <a href="./emacs.html">Emacs</a></li>
+  <li>&gt; <a href="./google.html">google</a></li>
+  <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
+  <li>&gt; <a href="./html.html">HTML</a></li>
+  <li>&gt; <a href="./incron.html">incron (inotify cron)</a></li>
+  <li>&gt; <a href="./iptables.html">iptables</a></li>
+  <li>&gt; <a href="./java.html">Java</a></li>
+  <li>&gt; <a href="./jquery.html">jQuery</a></li>
+  <li>&gt; <a href="./linux.html">Linux</a></li>
+  <li>&gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
+  <li>&gt; <a href="./mac.html">Mac</a></li>
+  <li>&gt; <a href="./markdown.html">Markdown</a></li>
+  <li>&gt; <a href="./mechanize.html">mechanize</a></li>
+  <li>&gt; <a href="./memcached.html">memcached</a></li>
+  <li>&gt; <a href="./misc.html">misc</a></li>
+  <li>&gt; <a href="./mosh.html">mosh</a></li>
+  <li>&gt; <a href="./mysql.html">MySQL</a></li>
+  <li>&gt; <a href="./oneliner.html">ワンライナー</a></li>
+  <li>&gt; <a href="./paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+  <li>&gt; <a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
+  <li>&gt; <a href="./phantomjs.html">phantomjs</a></li>
+  <li>&gt; <a href="./php.html">PHP</a></li>
+  <li>&gt; <a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="./rails.html">Ruby on Rails</a></li>
+  <li>&gt; <a href="./ruby.html">Ruby</a></li>
+  <li>&gt; <a href="./sh.html">シェルスクリプト</a></li>
+  <li>&gt; <a href="./svn.html">Subversion (svn)</a></li>
+  <li>&gt; <a href="./tmux.html">tmux</a></li>
+  <li>&gt; <a href="./ubuntu.html">Ubuntu</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
   <h1 id="codeigniter">CodeIgniter</h1>
 
-<h2 id="codeigniter--">CodeIgniter ユーザガイド 日本語版</h2>
+<h2 id="5b1d20f">CodeIgniter ユーザガイド 日本語版</h2>
 
 <p><a href="http://codeigniter.jp/user_guide_ja/toc.html" target="_blank">http://codeigniter.jp/user_guide_ja/toc.html</a></p>
 
-<h2 id="section">デバッグログを書き出す方法 <span class="article-date">2013/04/09</span></h2>
+<h2 id="1af6bba">デバッグログを書き出す方法
+<span class="article-date">2013/04/09</span></h2>
 
-<pre><code>log_message('debug', 'ログメッセージ');
-</code></pre>
+<p>log_message(‘debug’, ‘ログメッセージ’);</p>
 
 <p>エラーの処理 | CodeIgniter ユーザガイド 日本語版<br />
 <a href="http://codeigniter.jp/user_guide_ja/general/errors.html" target="_blank">http://codeigniter.jp/user_guide_ja/general/errors.html</a></p>
 
-<h2 id="section-1">複数行の一時的なデバッグログを出す方法 <span class="article-date">2013/04/09</span></h2>
+<h2 id="a792eb5">複数行の一時的なデバッグログを出す方法
+<span class="article-date">2013/04/09</span></h2>
 
-<pre><code>log_message('debug', "DEBUG xxx " . __FILE__ . ':' . __LINE__ . ' ' . str_replace("\n", "\nDEBUG xxx ", var_export($data, true)));
-</code></pre>
+<p>log_message(‘debug’, “DEBUG xxx “ . <strong>FILE</strong> . ‘:’ . <strong>LINE</strong> . ‘ ‘ . str_replace(“\n”, “\nDEBUG xxx “, var_export($data, true)));</p>
 
 <p>以下のようなコマンドで、この一時的なデバッグログだけをフィルタリングして表示させられる。</p>
 
 <pre><code>tail -f application/logs/log-yyyy-mm-dd.php | grep 'DEBUG xxx'
 </code></pre>
 
-<h2 id="configphp--20130409">config.php の中の値を取得するには <span class="article-date">2013/04/09</span></h2>
+<h2 id="cc7ef98">config.php の中の値を取得するには
+<span class="article-date">2013/04/09</span></h2>
 
 <p>コントローラの中からの場合</p>
 
@@ -65,10 +105,10 @@ $config_value = $CI-&gt;config-&gt;item('item_name');
 
 </div>
 
-  <footer>
-    <a href="./">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="./">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

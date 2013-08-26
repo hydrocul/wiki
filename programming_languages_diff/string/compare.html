@@ -48,24 +48,45 @@
 <div id="content">
   <h1 id="compare">比較</h1>
 
-<h2 id="d36eb35">Java <span class="article-date">2013/07/31</span></h2>
+<h2 id="d36eb35">Java
+<span class="article-date">2013/07/31</span></h2>
 
 <p><code>obj1.equals(obj2)</code> で値を比較する。</p>
 
 <p><code>==</code> は同じインスタンスかどうかをチェックするもので同じ文字列かどうかはわからない。</p>
 
-<h2 id="bd3d06c">Scala <span class="article-date">2013/07/31</span></h2>
+<h2 id="bd3d06c">Scala
+<span class="article-date">2013/07/31</span></h2>
 
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。
 Javaの <code>equals</code> を呼び出している。</p>
 
-<h2 id="7b0e4a9">Ruby <span class="article-date">2013/07/14</span></h2>
+<h2 id="2c69604">PHP
+<span class="article-date">2013/08/26</span></h2>
+
+<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。または <code>strcmp</code> も使える。</p>
+
+<pre><code>if (strcmp($str1, $str2) === 0) {
+  // $str1 と $str2 が等しい場合の処理
+}
+</code></pre>
+
+<p>大文字と小文字を区別せずに比較するには <code>strcasecmp</code> を使う。</p>
+
+<pre><code>if (strcasecmp($str1, $str2) === 0) {
+  // $str1 と $str2 が等しい場合の処理
+}
+</code></pre>
+
+<h2 id="7b0e4a9">Ruby
+<span class="article-date">2013/07/14</span></h2>
 
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
 
 <p><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&gt;</code>, <code>&lt;=&gt;</code> で文字列の辞書順の比較ができる。</p>
 
-<h2 id="5f675aa">Perl <span class="article-date">2013/07/31</span></h2>
+<h2 id="5f675aa">Perl
+<span class="article-date">2013/07/31</span></h2>
 
 <p><code>eq</code> は等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>ne</code> はその反対。</p>
 
