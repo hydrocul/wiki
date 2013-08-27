@@ -10,17 +10,56 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="./">Home</a> &gt; incron (inotify cron)
+<div id="breadcrumb">
+  incron (inotify cron)
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="./">Home</a></li>
+  <li>&gt; <a href="./apache.html">Apache</a></li>
+  <li>&gt; <a href="./codeigniter.html">CodeIgniter</a></li>
+  <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="./css.html">CSS</a></li>
+  <li>&gt; <a href="./emacs.html">Emacs</a></li>
+  <li>&gt; <a href="./google.html">google</a></li>
+  <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
+  <li>&gt; <a href="./html.html">HTML</a></li>
+  <li>&gt; incron (inotify cron)</li>
+  <li>&gt; <a href="./iptables.html">iptables</a></li>
+  <li>&gt; <a href="./java.html">Java</a></li>
+  <li>&gt; <a href="./jquery.html">jQuery</a></li>
+  <li>&gt; <a href="./linux.html">Linux</a></li>
+  <li>&gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
+  <li>&gt; <a href="./mac.html">Mac</a></li>
+  <li>&gt; <a href="./markdown.html">Markdown</a></li>
+  <li>&gt; <a href="./mechanize.html">mechanize</a></li>
+  <li>&gt; <a href="./memcached.html">memcached</a></li>
+  <li>&gt; <a href="./misc.html">misc</a></li>
+  <li>&gt; <a href="./mysql.html">MySQL</a></li>
+  <li>&gt; <a href="./oneliner.html">ワンライナー</a></li>
+  <li>&gt; <a href="./paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+  <li>&gt; <a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
+  <li>&gt; <a href="./phantomjs.html">phantomjs</a></li>
+  <li>&gt; <a href="./php.html">PHP</a></li>
+  <li>&gt; <a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="./rails.html">Ruby on Rails</a></li>
+  <li>&gt; <a href="./ruby.html">Ruby</a></li>
+  <li>&gt; <a href="./sh.html">シェルスクリプト</a></li>
+  <li>&gt; <a href="./svn.html">Subversion (svn)</a></li>
+  <li>&gt; <a href="./tmux.html">tmux</a></li>
+  <li>&gt; <a href="./ubuntu.html">Ubuntu</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="incron-inotify-cron-20130512">incron (inotify cron) <span class="article-date">2013/05/12</span></h1>
+  <h1 id="incron">incron (inotify cron)
+<span class="article-date">2013/05/12</span></h1>
 
 <p>cronが一定の時間ごとにジョブを実行させるためのものに対して、
 incronはファイルの変更などのイベント時に特定のジョブを実行させるもの。</p>
@@ -29,14 +68,17 @@ incronはファイルの変更などのイベント時に特定のジョブを�
 
 <p>使い方はcronとよく似ていて、incrontabというコマンドを使う。</p>
 
-<h2 id="section">インストール <span class="article-date">2013/05/12</span></h2>
+<h2 id="153496c">インストール
+<span class="article-date">2013/05/12</span></h2>
 
-<h3 id="centos-20130512">CentOSの場合 <span class="article-date">2013/05/12</span></h3>
+<h3 id="e3e3d79">CentOSの場合
+<span class="article-date">2013/05/12</span></h3>
 
 <pre><code>sudo yum install incron
 </code></pre>
 
-<h3 id="ubuntu-20130512">Ubuntuの場合 <span class="article-date">2013/05/12</span></h3>
+<h3 id="f48a820">Ubuntuの場合
+<span class="article-date">2013/05/12</span></h3>
 
 <pre><code>sudo apt-get install incron
 </code></pre>
@@ -45,7 +87,8 @@ incronはファイルの変更などのイベント時に特定のジョブを�
 
 <p>(Ubuntu 12.04で確認)</p>
 
-<h2 id="incrontab-20130512">incrontabコマンド <span class="article-date">2013/05/12</span></h2>
+<h2 id="4350973">incrontabコマンド
+<span class="article-date">2013/05/12</span></h2>
 
 <p><code>incrontab</code> コマンドの使い方は <code>crontab</code> と同じ。</p>
 
@@ -64,7 +107,8 @@ incrontab -r
 
 <p><code>-r</code> は <code>crontab</code> と同じく、確認なしに設定を削除するので、要注意。</p>
 
-<h2 id="section-1">ジョブの設定のフォーマット <span class="article-date">2013/05/12</span></h2>
+<h2 id="310f555">ジョブの設定のフォーマット
+<span class="article-date">2013/05/12</span></h2>
 
 <pre><code>監視対象ファイル 監視対象イベント コマンド
 </code></pre>
@@ -98,7 +142,8 @@ incrontab -r
 
 <p>コマンドの中にcrontabと同じ要領で ‘&gt;’ を使ってファイルに出力しようとしてもできないみたい。</p>
 
-<h2 id="section-2">イベントの一覧 <span class="article-date">2013/05/12</span></h2>
+<h2 id="081b61d">イベントの一覧
+<span class="article-date">2013/05/12</span></h2>
 
 <p>以下のコマンドで使用できるイベントの一覧を確認できる。
 (<code>-t</code> というオプションはcrontabにはなく、incrontab特有)</p>
@@ -149,12 +194,14 @@ incrontab -r
 
 <p><code>man inotify</code> にもイベントの説明が書いてある。</p>
 
-<h2 id="section-3">ログ <span class="article-date">2013/05/13</span></h2>
+<h2 id="89ebeef">ログ
+<span class="article-date">2013/05/13</span></h2>
 
 <p>実行されたコマンドのログは <code>/var/log/syslog</code> に書きだされる
 (Ubuntuのデフォルトの設定で確認、他のOSでは違うかもしれない)。</p>
 
-<h2 id="section-4">他との比較 <span class="article-date">2013/05/12</span></h2>
+<h2 id="28b942b">他との比較
+<span class="article-date">2013/05/12</span></h2>
 
 <p>他にLinuxで使える仕組みとして、fanotifyというものがあるらしい。</p>
 
@@ -164,10 +211,10 @@ incrontab -r
 
 </div>
 
-  <footer>
-    <a href="./">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="./">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

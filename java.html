@@ -4,130 +4,85 @@
 <meta charset="UTF-8" />
 <title>Java | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<style>
-#side-menu {
-  float: left;
-  width: 150px;
-}
-#side-menu-attention {
-  margin: 10px;
-  font-size: 80%;
-}
-#content {
-
-  margin: 0 40px 0px 150px;
-
-  word-wrap: break-word;
-}
-#content h1 {
-  margin: 30px 0 20px 0;
-  border-bottom: 2px #CCC solid;
-  padding-bottom: 4px
-  font-size: 32px;
-}
-#content h2 {
-  margin: 30px 0 20px 0;
-  border-bottom: 1px #CCC solid;
-  padding-bottom: 2px
-  font-size: 24px;
-}
-#content h3 {
-  margin: 30px 0 20px 40px;
-  font-size: 20px;
-}
-#content h4 {
-  margin: 20px 0 10px 40px;
-  font-size: 16px;
-}
-#content .article-date {
-  font-weight: normal;
-  font-size: 12px;
-  color: #666;
-}
-#content p,
-#content ul,
-#content dl {
-  margin: 10px 0 10px 40px;
-}
-#content ul {
-  padding-left: 2em
-}
-#content pre {
-  margin: 10px 0 10px 60px;
-  border: 1px #CCC solid;
-  padding: 4px;
-}
-#content blockquote {
-  margin: 10px 0 10px 60px;
-  border-left: 2px #CCC solid;
-  padding-left: 8px;
-}
-footer {
-  margin-left: 40px;
-  margin-right: 40px;
-  border-top: 1px solid #888;
-  padding-top: 10px;
-  text-align: right;
-  font-size: 80%;
-}
-</style>
-<script type="text/javascript">
-
-  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5853773-6']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  }
-
-</script>
+<script src="./common/js/page.js"></script>
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="./">Home</a> &gt; Java
+<div id="breadcrumb">
+  Java
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="./">Home</a></li>
+  <li>&gt; <a href="./apache.html">Apache</a></li>
+  <li>&gt; <a href="./codeigniter.html">CodeIgniter</a></li>
+  <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="./css.html">CSS</a></li>
+  <li>&gt; <a href="./emacs.html">Emacs</a></li>
+  <li>&gt; <a href="./google.html">google</a></li>
+  <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
+  <li>&gt; <a href="./html.html">HTML</a></li>
+  <li>&gt; <a href="./incron.html">incron (inotify cron)</a></li>
+  <li>&gt; <a href="./iptables.html">iptables</a></li>
+  <li>&gt; Java</li>
+  <li>&gt; <a href="./jquery.html">jQuery</a></li>
+  <li>&gt; <a href="./linux.html">Linux</a></li>
+  <li>&gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
+  <li>&gt; <a href="./mac.html">Mac</a></li>
+  <li>&gt; <a href="./markdown.html">Markdown</a></li>
+  <li>&gt; <a href="./mechanize.html">mechanize</a></li>
+  <li>&gt; <a href="./memcached.html">memcached</a></li>
+  <li>&gt; <a href="./misc.html">misc</a></li>
+  <li>&gt; <a href="./mysql.html">MySQL</a></li>
+  <li>&gt; <a href="./oneliner.html">ワンライナー</a></li>
+  <li>&gt; <a href="./paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+  <li>&gt; <a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
+  <li>&gt; <a href="./phantomjs.html">phantomjs</a></li>
+  <li>&gt; <a href="./php.html">PHP</a></li>
+  <li>&gt; <a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="./rails.html">Ruby on Rails</a></li>
+  <li>&gt; <a href="./ruby.html">Ruby</a></li>
+  <li>&gt; <a href="./sh.html">シェルスクリプト</a></li>
+  <li>&gt; <a href="./svn.html">Subversion (svn)</a></li>
+  <li>&gt; <a href="./tmux.html">tmux</a></li>
+  <li>&gt; <a href="./ubuntu.html">Ubuntu</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
   <h1 id="java">Java</h1>
 
-<h2 id="java-se-">Java SE ダウンロード</h2>
+<h2 id="ce77464">Java SE ダウンロード</h2>
 
 <p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
 
-<h2 id="jvm">高速にJVMを起動するには</h2>
+<h2 id="de75f08">高速にJVMを起動するには</h2>
 
-<h3 id="javajruby">Javaアプリを高速起動する方法「JRubyテク」</h3>
+<h3 id="c8dc99e">Javaアプリを高速起動する方法「JRubyテク」</h3>
 
 <p><a href="http://news.mynavi.jp/news/2010/03/04/009/index.html" target="_blank">http://news.mynavi.jp/news/2010/03/04/009/index.html</a></p>
 
-<h3 id="groovyserv">GroovyServ</h3>
+<h3 id="17bec9a">GroovyServ</h3>
 
 <p><a href="http://kobo.github.io/groovyserv/" target="_blank">http://kobo.github.io/groovyserv/</a></p>
 
-<h4 id="groovyserv-groovy--infoq">GroovyServ —高速起動Groovy— | InfoQ</h4>
+<h4 id="a6f6160">GroovyServ —高速起動Groovy— | InfoQ</h4>
 
 <p><a href="http://www.infoq.com/jp/articles/groovyserv" target="_blank">http://www.infoq.com/jp/articles/groovyserv</a></p>
 
-<h3 id="nailgun">Nailgun</h3>
+<h3 id="4e78ea1">Nailgun</h3>
 
 <p><a href="http://www.martiansoftware.com/nailgun/" target="_blank">http://www.martiansoftware.com/nailgun/</a></p>
 
-<h2 id="jenv">jenv</h2>
+<h2 id="36e5242">jenv</h2>
 
 <p><a href="http://jenv.mvnsearch.org/" target="_blank">http://jenv.mvnsearch.org/</a></p>
 
@@ -143,10 +98,10 @@ removing and listing Candidates.</p>
 
 </div>
 
-  <footer>
-    <a href="./">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="./">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

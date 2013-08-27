@@ -4,111 +4,64 @@
 <meta charset="UTF-8" />
 <title>Mac | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
-<link rel="stylesheet" href="./common/css/common.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<style>
-code, kbd, pre, samp {
-  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
-}
-#side-menu {
-  float: left;
-  width: 150px;
-}
-#side-menu-attention {
-  margin: 10px;
-  font-size: 80%;
-}
-#content {
-
-  margin: 0 40px 0px 150px;
-
-  word-wrap: break-word;
-}
-#content h1 {
-  margin: 30px 0 20px 0;
-  border-bottom: 2px #CCC solid;
-  padding-bottom: 4px
-  font-size: 32px;
-}
-#content h2 {
-  margin: 30px 0 20px 0;
-  border-bottom: 1px #CCC solid;
-  padding-bottom: 2px
-  font-size: 24px;
-}
-#content h3 {
-  margin: 30px 0 20px 0;
-  font-size: 20px;
-}
-#content h4 {
-  margin: 20px 0 20px 0;
-  font-size: 16px;
-}
-#content .article-date {
-  font-weight: normal;
-  font-size: 12px;
-  color: #666;
-}
-#content p,
-#content ul,
-#content dl {
-  margin: 20px 0 20px 40px;
-}
-#content ul {
-  padding-left: 2em
-}
-#content pre {
-  margin: 20px 0 20px 60px;
-  border: 1px #CCC solid;
-  padding: 4px;
-}
-#content blockquote {
-  margin: 20px 0 20px 60px;
-  border-left: 2px #CCC solid;
-  padding-left: 8px;
-}
-footer {
-  margin-left: 40px;
-  margin-right: 40px;
-  border-top: 1px solid #888;
-  padding-top: 10px;
-  text-align: right;
-  font-size: 80%;
-}
-</style>
-<script type="text/javascript">
-
-  if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.io'){
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5853773-6']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  }
-
-</script>
+<script src="./common/js/page.js"></script>
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="./">Home</a> &gt; Mac
+<div id="breadcrumb">
+  Mac
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="./">Home</a></li>
+  <li>&gt; <a href="./apache.html">Apache</a></li>
+  <li>&gt; <a href="./codeigniter.html">CodeIgniter</a></li>
+  <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="./css.html">CSS</a></li>
+  <li>&gt; <a href="./emacs.html">Emacs</a></li>
+  <li>&gt; <a href="./google.html">google</a></li>
+  <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
+  <li>&gt; <a href="./html.html">HTML</a></li>
+  <li>&gt; <a href="./incron.html">incron (inotify cron)</a></li>
+  <li>&gt; <a href="./iptables.html">iptables</a></li>
+  <li>&gt; <a href="./java.html">Java</a></li>
+  <li>&gt; <a href="./jquery.html">jQuery</a></li>
+  <li>&gt; <a href="./linux.html">Linux</a></li>
+  <li>&gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
+  <li>&gt; Mac</li>
+  <li>&gt; <a href="./markdown.html">Markdown</a></li>
+  <li>&gt; <a href="./mechanize.html">mechanize</a></li>
+  <li>&gt; <a href="./memcached.html">memcached</a></li>
+  <li>&gt; <a href="./misc.html">misc</a></li>
+  <li>&gt; <a href="./mysql.html">MySQL</a></li>
+  <li>&gt; <a href="./oneliner.html">ワンライナー</a></li>
+  <li>&gt; <a href="./paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+  <li>&gt; <a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
+  <li>&gt; <a href="./phantomjs.html">phantomjs</a></li>
+  <li>&gt; <a href="./php.html">PHP</a></li>
+  <li>&gt; <a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="./rails.html">Ruby on Rails</a></li>
+  <li>&gt; <a href="./ruby.html">Ruby</a></li>
+  <li>&gt; <a href="./sh.html">シェルスクリプト</a></li>
+  <li>&gt; <a href="./svn.html">Subversion (svn)</a></li>
+  <li>&gt; <a href="./tmux.html">tmux</a></li>
+  <li>&gt; <a href="./ubuntu.html">Ubuntu</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
   <h1 id="mac">Mac</h1>
 
-<h2 id="section">パッケージ管理ツール <span class="article-date">2013/05/03</span></h2>
+<h2 id="e8ff46b">パッケージ管理ツール
+<span class="article-date">2013/05/03</span></h2>
 
 <ul>
   <li>Macports
@@ -145,21 +98,22 @@ footer {
 
 <p>どれも Xcode が必須。</p>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></i></p>
+<p>-&gt; ../linux-pkg-manager.md</p>
 
-<h3 id="homebrew">Homebrew</h3>
+<h3 id="1fff401">Homebrew</h3>
 
 <p><a href="http://mxcl.github.io/homebrew/" target="_blank">http://mxcl.github.io/homebrew/</a></p>
 
-<h3 id="online-package-browser-for-homebrew">online package browser for Homebrew</h3>
+<h3 id="03d072d">online package browser for Homebrew</h3>
 
 <p><a href="http://braumeister.org/" target="_blank">http://braumeister.org/</a></p>
 
-<h3 id="mac-os-x-">Mac OS X のパッケージ管理紹介/比較</h3>
+<h3 id="dbaa88d">Mac OS X のパッケージ管理紹介/比較</h3>
 
 <p><a href="http://www.slideshare.net/TomohikoHimura/ss-20115472" target="_blank">http://www.slideshare.net/TomohikoHimura/ss-20115472</a></p>
 
-<h2 id="phone-disk--macfuse-file-system-is-not-available--1--20130601">Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー <span class="article-date">2013/06/01</span></h2>
+<h2 id="1aaf721">Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー
+<span class="article-date">2013/06/01</span></h2>
 
 <pre><code>MacFUSE file system is not available (-1)
 </code></pre>
@@ -171,22 +125,26 @@ MacFUSE がインストールされていないことになっていたので、
 
 <p>つい先日まではなにもしなくてもマウントで着ていたはずなのに、なぜだろう？</p>
 
-<h2 id="section-1">スクリーンキャプチャ</h2>
+<h2 id="36a5472">スクリーンキャプチャ</h2>
 
-<h3 id="mac-os-xcommandshift4-20130306">Mac OS Xスクリーンキャプチャ(command+shift+4)の保存先を変更する方法 <span class="article-date">2013/03/06</span></h3>
+<h3 id="eb0c7b1">Mac OS Xスクリーンキャプチャ(command+shift+4)の保存先を変更する方法
+<span class="article-date">2013/03/06</span></h3>
 
 <p><a href="http://blog.pc-logon.com/?p=1234" target="_blank">http://blog.pc-logon.com/?p=1234</a></p>
 
-<h3 id="mac-20130306">Macのスクリーンキャプチャ機能で撮影したウインドウの影をなくす方法 <span class="article-date">2013/03/06</span></h3>
+<h3 id="6fc20b7">Macのスクリーンキャプチャ機能で撮影したウインドウの影をなくす方法
+<span class="article-date">2013/03/06</span></h3>
 
 <p><a href="http://inforati.jp/apple/mac-tips-techniques/system-hints/how-to-disable-shadow-effect-of-macos-screen-capture.html" target="_blank">http://inforati.jp/apple/mac-tips-techniques/system-hints/how-to-disable-shadow-effect-of-macos-screen-capture.html</a></p>
 
-<h2 id="microsoft-remote-desktop-connection-kill-20130404">Microsoftの Remote Desktop Connection が固まったときに一発でkillするには <span class="article-date">2013/04/04</span></h2>
+<h2 id="35dfb5c">Microsoftの Remote Desktop Connection が固まったときに一発でkillするには
+<span class="article-date">2013/04/04</span></h2>
 
 <pre><code>kill `ps aux | grep Remote | grep -v grep | tr -s ' ' | cut -d ' ' -f2`
 </code></pre>
 
-<h2 id="sfx-20130408">拡張子sfxのファイルを解凍するには <span class="article-date">2013/04/08</span></h2>
+<h2 id="550516b">拡張子sfxのファイルを解凍するには
+<span class="article-date">2013/04/08</span></h2>
 
 <p>自己解凍書庫ファイルで、単に実行権限を与えて実行すればよい。</p>
 
@@ -194,7 +152,8 @@ MacFUSE がインストールされていないことになっていたので、
 ./ファイル名.sfx
 </code></pre>
 
-<h2 id="mac-osxpath-20130506">最近のMac OSXで、PATHをスマート(?)に管理するやり方 <span class="article-date">2013/05/06</span></h2>
+<h2 id="7d35d10">最近のMac OSXで、PATHをスマート(?)に管理するやり方
+<span class="article-date">2013/05/06</span></h2>
 
 <p><a href="http://koseki.hatenablog.com/entry/20081201/macportPath" target="_blank">http://koseki.hatenablog.com/entry/20081201/macportPath</a></p>
 
@@ -205,10 +164,10 @@ MacFUSE がインストールされていないことになっていたので、
 
 </div>
 
-  <footer>
-    <a href="./">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="./">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

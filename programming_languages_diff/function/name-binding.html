@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>関数が外側のスコープの変数にアクセスできるかどうか | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>関数の内側から外側のスコープの変数にアクセスできるかどうか | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; 関数が外側のスコープの変数にアクセスできるかどうか
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; 関数の内側から外側のスコープの変数にアクセスできるかどうか
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -33,9 +33,20 @@
 </div>
 
 <div id="content">
-  <h1 id="name-binding">関数が外側のスコープの変数にアクセスできるかどうか</h1>
+  <h1 id="name-binding">関数の内側から外側のスコープの変数にアクセスできるかどうか</h1>
 
-<h2 id="cfe3181">Ruby
+<h2 id="a30abd4">Java
+<span class="article-date">2013/08/26</span></h2>
+
+<p>匿名クラスからはその外側のスコープの変数にアクセスできるが、変数の書き換えをすることはできない。</p>
+
+<p>Java7までは、その変数が <code>final</code> で指定されている必要がある。</p>
+
+<p>Java8からは、<code>final</code> 指定がなくてもよいが、実質 <code>final</code> である必要がある。つまり、その変数がどこからも書き換えられていないこと。</p>
+
+<p>Java8からのラムダ式でも同じである。</p>
+
+<h2 id="3b99671">Ruby
 <span class="article-date">2013/06/09</span></h2>
 
 <pre><code>def builder
@@ -56,7 +67,7 @@ f1.call # 2
 
 <p>Procオブジェクトは、その外側の変数を読み書きできる。</p>
 
-<h2 id="92fc9c4">JavaScript
+<h2 id="800f78c">JavaScript
 <span class="article-date">2013/06/09</span></h2>
 
 <pre><code>var builder = function(){
