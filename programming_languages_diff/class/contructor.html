@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>コンストラクタとデストラクタ | クラス | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラス</a> &gt; コンストラクタとデストラクタ
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/class/">クラス</a></li>
+  <li>&gt;&gt; コンストラクタとデストラクタ</li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="contructor">コンストラクタとデストラクタ</h1>
+
+<h2 id="4eef775">C++
+<span class="article-date">2013/08/25</span></h2>
+
+<p>コンストラクタは、クラス名と同じ名前のメソッドとして定義する。デストラクタは、クラス名の頭に <code>~</code> を付け加えた名前のメソッドとして定義する。コンストラクタもデストラクタも、返り値型は書かず返り値がない。<code>void</code>でもない。デストラクタは引数を持てない。コンストラクタは引数を持てる。引数のないコンストラクタをデフォルトコンストラクタと言う。</p>
+
+<h2 id="4632619">Java
+<span class="article-date">2013/08/25</span></h2>
+
+<p>コンストラクタは、クラス名と同じ名前のメソッドとして定義する。デストラクタはJavaには存在しない。<code>finalize()</code> というメソッドがファイナライザと呼ばれるが、これはいつ呼び出されるか制御できず、デストラクタとは言わない。</p>
+
+<p>コンストラクタは、返り値型は書かず返り値がない。<code>void</code>でもない。</p>
+
+<h2 id="da175fb">Ruby
+<span class="article-date">2013/08/27</span></h2>
+
+<p><code>initialize</code> というメソッドがインスタンス初期化のために<code>new</code>メソッドから呼び出されるので、初期化時のコードを書くには、<code>initialize</code>メソッドをオーバーライドする。クラスメソッドである<code>new</code>メソッドをオーバーライドすることは推奨されていない。</p>
+
+<p><code>initialize</code> というメソッドは特に指定をしなくても自動で <code>private</code> になる。</p>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

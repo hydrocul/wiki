@@ -108,8 +108,8 @@
 
 <p>Apacheの VirtualHost の設定の中に以下のように書く。</p>
 
-<pre><code>ProxyPass / [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
-ProxyPassReverse / [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
+<pre><code>ProxyPass / http://127.0.0.1:3000/
+ProxyPassReverse / http://127.0.0.1:3000/
 ProxyPreserveHost On
 </code></pre>
 

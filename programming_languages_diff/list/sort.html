@@ -66,7 +66,15 @@
 <div id="content">
   <h1 id="sort">sort</h1>
 
-<h2 id="3b1af1b">Scala <span class="article-date">2013/07/30</span></h2>
+<h2 id="60f4ea9">Java
+<span class="article-date">2013/08/28</span></h2>
+
+<pre><code>void java.util.Collections.&lt;T extends java.util.Comparable&lt;? super T&gt;&gt;sort(List&lt;T&gt; list);
+void java.util.Collections.&lt;T&gt;sort(List&lt;T&gt; list, java.util.Comparator&lt;? super T&gt; comparator);
+</code></pre>
+
+<h2 id="3b1af1b">Scala
+<span class="article-date">2013/07/30</span></h2>
 
 <pre><code>// Seq[A]
 def sorted: Seq[A]
@@ -75,7 +83,8 @@ def sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 
 <p>ソート結果のリストを返し、自身は変更しない。</p>
 
-<h2 id="4822fb4">Ruby <span class="article-date">2013/05/10</span></h2>
+<h2 id="4822fb4">Ruby
+<span class="article-date">2013/05/10</span></h2>
 
 <pre><code>Array#sort
 
@@ -90,7 +99,8 @@ arr.sort {|a, b| a.num &lt;=&gt; b.num}  # 非破壊的
 arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
 </code></pre>
 
-<h2 id="e37fa1c">Perl <span class="article-date">2013/07/29</span></h2>
+<h2 id="e37fa1c">Perl
+<span class="article-date">2013/07/29</span></h2>
 
 <pre><code>sort(@arr)
 </code></pre>

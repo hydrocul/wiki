@@ -10,28 +10,67 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="./">Home</a> &gt; PHP
+<div id="breadcrumb">
+  PHP
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="./">Home</a></li>
+  <li>&gt; <a href="./apache.html">Apache</a></li>
+  <li>&gt; <a href="./codeigniter.html">CodeIgniter</a></li>
+  <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="./css.html">CSS</a></li>
+  <li>&gt; <a href="./emacs.html">Emacs</a></li>
+  <li>&gt; <a href="./google.html">google</a></li>
+  <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
+  <li>&gt; <a href="./html.html">HTML</a></li>
+  <li>&gt; <a href="./incron.html">incron (inotify cron)</a></li>
+  <li>&gt; <a href="./iptables.html">iptables</a></li>
+  <li>&gt; <a href="./java.html">Java</a></li>
+  <li>&gt; <a href="./jquery.html">jQuery</a></li>
+  <li>&gt; <a href="./linux.html">Linux</a></li>
+  <li>&gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
+  <li>&gt; <a href="./mac.html">Mac</a></li>
+  <li>&gt; <a href="./markdown.html">Markdown</a></li>
+  <li>&gt; <a href="./mechanize.html">mechanize</a></li>
+  <li>&gt; <a href="./memcached.html">memcached</a></li>
+  <li>&gt; <a href="./misc.html">misc</a></li>
+  <li>&gt; <a href="./mysql.html">MySQL</a></li>
+  <li>&gt; <a href="./oneliner.html">ワンライナー</a></li>
+  <li>&gt; <a href="./paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+  <li>&gt; <a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
+  <li>&gt; <a href="./phantomjs.html">phantomjs</a></li>
+  <li>&gt; PHP</li>
+  <li>&gt; <a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="./rails.html">Ruby on Rails</a></li>
+  <li>&gt; <a href="./ruby.html">Ruby</a></li>
+  <li>&gt; <a href="./sh.html">シェルスクリプト</a></li>
+  <li>&gt; <a href="./svn.html">Subversion (svn)</a></li>
+  <li>&gt; <a href="./tmux.html">tmux</a></li>
+  <li>&gt; <a href="./ubuntu.html">Ubuntu</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
   <h1 id="php">PHP</h1>
 
-<p><i>-&gt; <a href="./">Home</a> &gt; <a href="./codeigniter.html">CodeIgniter</a></i>  </p>
+<p>-&gt; codeigniter.md</p>
 
-<h2 id="mail">mail関数でメールを送るときに、長い日本語のサブジェクトが途中から文字化けする件</h2>
+<h2 id="cf72c60">mail関数でメールを送るときに、長い日本語のサブジェクトが途中から文字化けする件</h2>
 
 <p>mb_encode_mimeheader を呼び出す際には内部エンコードがJISである必要がある。  </p>
 
 <p>参考：<br />
 <a href="http://www.onecreation.jp/blog/?p=1132" target="_blank">http://www.onecreation.jp/blog/?p=1132</a></p>
 
-<h2 id="mpdf-htmlpdf-20130409">mPDF: HTMLをPDFに変換するライブラリ <span class="article-date">2013/04/09</span></h2>
+<h2 id="26d7148">mPDF: HTMLをPDFに変換するライブラリ
+<span class="article-date">2013/04/09</span></h2>
 
 <p>例：</p>
 
@@ -55,17 +94,19 @@ $mpdf-&gt;Output(date('YmdHis').'.pdf', 'I');
 HTTPスキーマとポート番号なしを決め打ちしてしまって、
 SSLや独自ポート番号には対応していない模様。ホスト名はたぶん <code>$_SERVER['SERVER_NAME']</code> を参照している。</p>
 
-<h3 id="error-parsing-image-file---image-type-not-recognised-and-not-supported-by-gd-imagecreate--20130409">Error parsing image file - image type not recognised, and not supported by GD imagecreate というエラー <span class="article-date">2013/04/09</span></h3>
+<h3 id="685a3d5">Error parsing image file - image type not recognised, and not supported by GD imagecreate というエラー
+<span class="article-date">2013/04/09</span></h3>
 
 <p>このエラーが表示されて原因がわからなくなったときに調べる方法</p>
 
 <p><a href="http://stackoverflow.com/questions/6730076/mdpf-library-generate-blank-page-no-error-even-i-set-debug-mode#answer-6768688" target="_blank">http://stackoverflow.com/questions/6730076/mdpf-library-generate-blank-page-no-error-even-i-set-debug-mode#answer-6768688</a></p>
 
-<h2 id="php-1">PHPのバージョン間の非互換性</h2>
+<h2 id="22e8016">PHPのバージョン間の非互換性</h2>
 
 <p><a href="http://www.php.net/manual/ja/appendices.php" target="_blank">http://www.php.net/manual/ja/appendices.php</a></p>
 
-<h2 id="ubuntu-phpini--20130625">Ubuntuでの php.ini の場所 <span class="article-date">2013/06/25</span></h2>
+<h2 id="f9445b6">Ubuntuでの php.ini の場所
+<span class="article-date">2013/06/25</span></h2>
 
 <p>apt-get でインストールした場合、Apacheで動くPHPの php.ini は 
 /etc/php5/apache2/php.ini にある。この場所は <code>phpinfo();</code> で確認できる。</p>
@@ -84,10 +125,10 @@ SSLや独自ポート番号には対応していない模様。ホスト名は�
 
 </div>
 
-  <footer>
-    <a href="./">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="./">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>

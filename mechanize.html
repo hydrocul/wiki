@@ -10,17 +10,56 @@
 </head>
 <body>
 
-  <div id="breadcrumb">
-    <a href="./">Home</a> &gt; mechanize
+<div id="breadcrumb">
+  mechanize
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
   </div>
-  <div id="side-menu">
-    <div id="side-menu-attention">
-      このサイトは筆者(hydrocul)の個人メモの集合です。
-    </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="./">Home</a></li>
+  <li>&gt; <a href="./apache.html">Apache</a></li>
+  <li>&gt; <a href="./codeigniter.html">CodeIgniter</a></li>
+  <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
+  <li>&gt; <a href="./css.html">CSS</a></li>
+  <li>&gt; <a href="./emacs.html">Emacs</a></li>
+  <li>&gt; <a href="./google.html">google</a></li>
+  <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
+  <li>&gt; <a href="./html.html">HTML</a></li>
+  <li>&gt; <a href="./incron.html">incron (inotify cron)</a></li>
+  <li>&gt; <a href="./iptables.html">iptables</a></li>
+  <li>&gt; <a href="./java.html">Java</a></li>
+  <li>&gt; <a href="./jquery.html">jQuery</a></li>
+  <li>&gt; <a href="./linux.html">Linux</a></li>
+  <li>&gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
+  <li>&gt; <a href="./mac.html">Mac</a></li>
+  <li>&gt; <a href="./markdown.html">Markdown</a></li>
+  <li>&gt; mechanize</li>
+  <li>&gt; <a href="./memcached.html">memcached</a></li>
+  <li>&gt; <a href="./misc.html">misc</a></li>
+  <li>&gt; <a href="./mysql.html">MySQL</a></li>
+  <li>&gt; <a href="./oneliner.html">ワンライナー</a></li>
+  <li>&gt; <a href="./paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+  <li>&gt; <a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
+  <li>&gt; <a href="./phantomjs.html">phantomjs</a></li>
+  <li>&gt; <a href="./php.html">PHP</a></li>
+  <li>&gt; <a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="./rails.html">Ruby on Rails</a></li>
+  <li>&gt; <a href="./ruby.html">Ruby</a></li>
+  <li>&gt; <a href="./sh.html">シェルスクリプト</a></li>
+  <li>&gt; <a href="./svn.html">Subversion (svn)</a></li>
+  <li>&gt; <a href="./tmux.html">tmux</a></li>
+  <li>&gt; <a href="./ubuntu.html">Ubuntu</a></li>
+</ul>
+
   </div>
+</div>
 
 <div id="content">
-  <h1 id="mechanize-20130603">mechanize <span class="article-date">2013/06/03</span></h1>
+  <h1 id="mechanize">mechanize
+<span class="article-date">2013/06/03</span></h1>
 
 <p>ウェブサイトのスクレイピングを楽にするRubyのライブラリ。同じ名前の同様のライブラリがPerlやPythonにもあるらしい。</p>
 
@@ -34,10 +73,11 @@
 <a href="http://d.hatena.ne.jp/kitamomonga/20081209/kaisetsu_for_ver_0_9_ruby_www_mechanize" target="_blank">http://d.hatena.ne.jp/kitamomonga/20081209/kaisetsu_for_ver_0_9_ruby_www_mechanize</a></p>
 
 <p>Nokogiri<br />
-http://nokogiri.org/<br />
+<a href="http://nokogiri.org/" target="_blank">http://nokogiri.org/</a><br />
 Mechanizeが利用しているHTMLを解析するライブラリ</p>
 
-<h2 id="nokogirigem-20130617">Nokogiriをインストールするにはgem以外のパッケージも必要 <span class="article-date">2013/06/17</span></h2>
+<h2 id="1a41413">Nokogiriをインストールするにはgem以外のパッケージも必要
+<span class="article-date">2013/06/17</span></h2>
 
 <p>自分の環境では <code>gem install</code> する前に apt-get でいくつかのパッケージをインストールすることが必要だった。</p>
 
@@ -52,7 +92,8 @@ sudo gem install -v 1.5.9 nokogiri
 <p>詳しくは以下の公式ドキュメントを参照。<br />
 <a href="http://nokogiri.org/tutorials/installing_nokogiri.html" target="_blank">http://nokogiri.org/tutorials/installing_nokogiri.html</a></p>
 
-<h2 id="section">コードの例 <span class="article-date">2013/04/15</span></h2>
+<h2 id="6e1f488">コードの例
+<span class="article-date">2013/04/15</span></h2>
 
 <pre><code>require 'mechanize'
 
@@ -68,7 +109,8 @@ link = agent.page.link_with(:text =&gt; 'ヘルプ'.toutf8) # リンクを探す
 link.click if link != nil リンクをクリック
 </code></pre>
 
-<h2 id="section-1">フォームに関するコードの例 <span class="article-date">2013/05/18</span></h2>
+<h2 id="ef81567">フォームに関するコードの例
+<span class="article-date">2013/05/18</span></h2>
 
 <pre><code>form = agent.page.forms[0] # フォームを取得
 # または
@@ -80,7 +122,8 @@ form['password'] = pw # input要素に値を設定
 form.click_button # submitを実行
 </code></pre>
 
-<h2 id="basic-20130617">BASIC認証のあるページにアクセスするには <span class="article-date">2013/06/17</span></h2>
+<h2 id="e604883">BASIC認証のあるページにアクセスするには
+<span class="article-date">2013/06/17</span></h2>
 
 <p>リクエストする前にid, pwをauthメソッドに渡す。</p>
 
@@ -89,7 +132,8 @@ form.click_button # submitを実行
 <pre><code>agent.auth('user_hoge', 'passwd')
 </code></pre>
 
-<h2 id="useragentalias--20130620">user_agent_alias で使えるエイリアス <span class="article-date">2013/06/20</span></h2>
+<h2 id="982ac79">user_agent_alias で使えるエイリアス
+<span class="article-date">2013/06/20</span></h2>
 
 <p>サーバへのリクエスト時に送信される User-Agent をmechanizeデフォルトのものから以下のようなコードで変更できる。</p>
 
@@ -129,10 +173,10 @@ form.click_button # submitを実行
 
 </div>
 
-  <footer>
-    <a href="./">目次</a>
-    <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
-  </footer>
+<footer>
+  <a href="./">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
 
 </body>
 </html>
