@@ -46,11 +46,13 @@
 </div>
 
 <div id="content">
-  <h1 id="split">split / explode <span class="article-date">2013/08/02</span></h1>
+  <h1 id="split">split / explode
+<span class="article-date">2013/08/02</span></h1>
 
 <p>文字列を特定の文字やパターンで配列などに分割する方法。</p>
 
-<h2 id="cd33e58">Java <span class="article-date">2013/08/02</span></h2>
+<h2 id="cd33e58">Java
+<span class="article-date">2013/08/02</span></h2>
 
 <pre><code>String[] String#split(String regex)
 String[] String#split(String regex, int limit)
@@ -58,7 +60,8 @@ String[] String#split(String regex, int limit)
 
 <p>空文字列をsplitすると空文字列1つだけの配列を返す。</p>
 
-<h2 id="baaa1ab">Scala <span class="article-date">2013/08/02</span></h2>
+<h2 id="baaa1ab">Scala
+<span class="article-date">2013/08/02</span></h2>
 
 <pre><code>// scala.collection.immutable.StringLike
 def split(separator: Char): Array[String]
@@ -71,14 +74,16 @@ def split(regex: String, limit: Int): Array[String]
 
 <p>いずれのメソッドも空文字列をsplitすると空文字列1つだけの配列を返す。</p>
 
-<h2 id="7b38a11">PHP <span class="article-date">2013/05/05</span></h2>
+<h2 id="7b38a11">PHP
+<span class="article-date">2013/05/05</span></h2>
 
 <pre><code>explode($separator, $str [, $limit])
 </code></pre>
 
-<p><a href="http://jp2.php.net/manual/ja/function.explode.php" target="_blank">http://jp2.php.net/manual/ja/function.explode.php</a></p>
+<p><a href="http://www.php.net/manual/ja/function.explode.php" target="_blank">http://www.php.net/manual/ja/function.explode.php</a></p>
 
-<h2 id="d639246">Ruby <span class="article-date">2013/08/02</span></h2>
+<h2 id="d639246">Ruby
+<span class="article-date">2013/08/02</span></h2>
 
 <pre><code>String#split(pattern [, limit]))
 </code></pre>
@@ -108,7 +113,8 @@ def split(regex: String, limit: Int): Array[String]
 # =&gt; ["", "b"]
 </code></pre>
 
-<h2 id="282d99a">Perl <span class="article-date">2013/08/02</span></h2>
+<h2 id="282d99a">Perl
+<span class="article-date">2013/08/02</span></h2>
 
 <pre><code>my @arr = split(/[bd]/, "abcdef");
 print "@arr";

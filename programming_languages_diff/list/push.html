@@ -72,15 +72,17 @@
 <p>先頭への追加は<a href="unshift.html">unshift</a>。最後の要素の削除は<a href="pop.html">pop</a>。</p>
 
 <h2 id="dd49663">PHP
-<span class="article-date">2013/04/22</span></h2>
+<span class="article-date">2013/08/28</span></h2>
 
 <pre><code>$arr[] = $obj;
 </code></pre>
 
+<p>配列自身を変更する破壊的な方法。</p>
+
 <p><code>array_push</code> でも同じ。</p>
 
 <p>array_push | PHP Manual<br />
-<a href="http://jp2.php.net/manual/ja/function.array-push.php" target="_blank">http://jp2.php.net/manual/ja/function.array-push.php</a></p>
+<a href="http://www.php.net/manual/ja/function.array-push.php" target="_blank">http://www.php.net/manual/ja/function.array-push.php</a></p>
 
 <h2 id="a6780da">Python
 <span class="article-date">2013/08/21</span></h2>
@@ -91,19 +93,37 @@
 <p>破壊的メソッド</p>
 
 <h2 id="25cb3c2">Ruby
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2013/08/28</span></h2>
 
 <pre><code>Array#push(obj)
 </code></pre>
 
-<p>破壊的メソッド</p>
+<p>例</p>
 
-<p>複数の要素を最後に追加したい、つまり配列を連結させるには、</p>
+<pre><code>arr.push(obj1)
+</code></pre>
+
+<p>これは配列自身を変更する破壊的メソッドで、配列自身を返す。以下のように、複数の要素を追加することもできる。</p>
+
+<pre><code>arr.push(obj1, obj2, obj3)
+</code></pre>
+
+<p><code>Array#&lt;&lt;</code> を使うこともできる。このメソッドは引数1つしか使えないが、配列自身を返すので、連続して書くことができる。</p>
+
+<pre><code>arr &lt;&lt; obj1 &lt;&lt; obj2 &lt;&lt; obj3
+</code></pre>
+
+<p>配列を連結させるには、</p>
 
 <pre><code>Array#concat(other_array)
 </code></pre>
 
-<p><code>concat</code> は、破壊的メソッド。非破壊的メソッドは <code>Array#+</code> 。</p>
+<p>これは破壊的メソッドである。これに対応する非破壊的メソッドは <code>Array#+</code> 。</p>
+
+<p>例</p>
+
+<pre><code>arr1 + arr2
+</code></pre>
 
 <h2 id="perl">Perl
 <span class="article-date">2013/08/21</span></h2>

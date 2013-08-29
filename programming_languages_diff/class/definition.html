@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>クラスの定義 | クラス | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラス</a> &gt; クラスの定義
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/class/">クラス</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+  <li>&gt;&gt; クラスの定義</li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="definition">クラスの定義</h1>
+
+<h2 id="f34d610">C++
+<span class="article-date">2013/08/28</span></h2>
+
+<p>例</p>
+
+<pre><code>class FooClass : public SuperFooClass {
+
+private:
+    // フィールド宣言
+    int field1;
+    int field2;
+
+public:
+    // コンストラクタ宣言
+    FooClass();
+
+    // デストラクタ宣言
+    ~FooClass();
+
+    // メンバ関数(メソッド)宣言
+    void method1();
+
+}
+
+// メソッド定義
+void FooClass::method1(){
+    ...;
+}
+</code></pre>
+
+<p><a href="modifier.html">アクセス修飾子</a>(<code>public</code> や <code>private</code>)は、メンバごとに付けるのではなく、上記のようにグループ分けして書く。</p>
+
+<p>またクラス宣言の中にはメンバ関数(メソッド)はシグニチャの宣言のみを書いて、メンバ関数の定義はクラス宣言の外側に書く。普通はクラス宣言はヘッダファイルに書き、メンバ関数定義はソースファイルに書く。</p>
+
+<h2 id="8be1939">Ruby
+<span class="article-date">2013/08/27</span></h2>
+
+<p>例</p>
+
+<pre><code>class FooClass &lt; SuperFooClass
+
+  # インスタンス初期化メソッド
+  def initialize
+    @field1 = ... # インスタンス変数
+  end
+
+  # メソッド定義
+  def method1
+    ...
+  end
+
+  # フィールドへの読み取り専用アクセッサ
+  attr_reader :field1, :field2
+
+  # フィールドへの読み書きアクセッサ
+  attr_accessor :field3, :field4
+
+end
+</code></pre>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
