@@ -69,16 +69,17 @@
 
 <div id="content">
   <h1 id="watch">watch
-<span class="article-date">2013/06/04</span></h1>
+<span class="article-date">2013/08/29</span></h1>
 
-<p><code>ls -al</code> を1秒ごとに実行</p>
+<p>コマンドを1秒ごとなど定期的に実行して結果を端末にスクロールせずに固定で表示してくれるコマンド。</p>
 
-<pre><code>watch -n 1 ls -al
-</code></pre>
+<p>例</p>
 
-<p>ファイルの数を1秒ごとに監視</p>
+<pre><code># `ls -al` を1秒ごとに実行
+watch -n 1 ls -al
 
-<pre><code>watch -n 1 "ls | wc -l"
+# ファイルの数を3秒ごとに監視
+watch -n 3 "ls | wc -l"
 </code></pre>
 
 <p><code>-d</code> を付けると、変化した部分が強調して表示される。</p>

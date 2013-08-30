@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>プログラミング言語の比較 | hydrocul のメモ</title>
+<title>マジックコメント | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  プログラミング言語の比較
+  <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; マジックコメント
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -19,7 +19,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>プログラミング言語の比較</li>
+  <li><a href="../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../programming_languages_diff/boolean/">論理型</a></li>
   <li>&gt; <a href="../programming_languages_diff/class/">クラス</a></li>
   <li>&gt; <a href="../programming_languages_diff/comment.html">コメント</a></li>
@@ -31,7 +31,7 @@
   <li>&gt; <a href="../programming_languages_diff/indent.html">インデント / セミコロン</a></li>
   <li>&gt; <a href="../programming_languages_diff/io/">入出力・ファイル操作</a></li>
   <li>&gt; <a href="../programming_languages_diff/list/">リスト(配列)</a></li>
-  <li>&gt; <a href="../programming_languages_diff/magic-comment.html">マジックコメント</a></li>
+  <li>&gt; マジックコメント</li>
   <li>&gt; <a href="../programming_languages_diff/map/">マップ(連想配列)</a></li>
   <li>&gt; <a href="../programming_languages_diff/number/">数値型</a></li>
   <li>&gt; <a href="../programming_languages_diff/operator/">演算子</a></li>
@@ -44,9 +44,42 @@
 </div>
 
 <div id="content">
-  <h1 id="programming_languages_diff">プログラミング言語の比較</h1>
+  <h1 id="magic-comment">マジックコメント
+<span class="article-date">2013/08/30</span></h1>
 
-<p><a href="../programming_languages_diff/boolean/">論理型</a> <a href="../programming_languages_diff/class/">クラス</a> <a href="../programming_languages_diff/comment.html">コメント</a> <a href="../programming_languages_diff/control_flow/">制御構文</a> <a href="../programming_languages_diff/data_type.html">データ型</a> <a href="../programming_languages_diff/datetime.html">日付と時刻</a> <a href="../programming_languages_diff/exception/">例外処理</a> <a href="../programming_languages_diff/function/">関数・メソッド</a> <a href="../programming_languages_diff/indent.html">インデント / セミコロン</a> <a href="../programming_languages_diff/io/">入出力・ファイル操作</a> <a href="../programming_languages_diff/list/">リスト(配列)</a> <a href="../programming_languages_diff/magic-comment.html">マジックコメント</a> <a href="../programming_languages_diff/map/">マップ(連想配列)</a> <a href="../programming_languages_diff/number/">数値型</a> <a href="../programming_languages_diff/operator/">演算子</a> <a href="../programming_languages_diff/overview.html">Overview</a> <a href="../programming_languages_diff/string/">文字列</a> <a href="../programming_languages_diff/vars/">変数・束縛</a></p>
+<h2 id="f68c710">Python
+<span class="article-date">2013/08/30</span></h2>
+
+<p>1行目に以下のように書く。シェバングがあれば、その次の行でもよい。</p>
+
+<pre><code># -*- coding: UTF-8 -*-
+</code></pre>
+
+<p>非ASCIIコードがあるのにこのマジックコメントがなかった場合にエラーになる。</p>
+
+<h2 id="ruby">Ruby
+<span class="article-date">2013/08/30</span></h2>
+
+<p>ソースコードの文字符号化方式(文字コード)は、1行目に以下のように指定する。シェバングがあれば、その次の行でもよい。</p>
+
+<p>Emacs派:</p>
+
+<pre><code># -*- coding: utf-8 -*-
+</code></pre>
+
+<p>vi派:</p>
+
+<pre><code># vim:fileencoding=utf-8
+</code></pre>
+
+<p>非ASCIIコードがあるのにこのマジックコメントがなかった場合は、Ruby 1.9からはエラーになる。</p>
+
+<p>ソースコード中の文字列リテラルは、このマジックコメントの文字符号化形式でエンコードされた文字列になる。</p>
+
+<pre><code># -*- coding: UTF-8 -*-
+p "abc".encoding         # =&gt; #&lt;Encoding:UTF-8&gt;
+p "あいうえお".encoding  # =&gt; #&lt;Encoding:UTF-8&gt;
+</code></pre>
 
 </div>
 
