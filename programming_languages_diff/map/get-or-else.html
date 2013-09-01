@@ -24,6 +24,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/clone.html">clone</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/contains-key.html">containsKey</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/foreach.html">foreach</a></li>
+  <li>&gt;&gt; getOrElse</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/is-empty.html">isEmpty</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/keys.html">keys</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/literal.html">マップ(連想配列)書き方</a></li>
@@ -37,17 +38,20 @@
 </div>
 
 <div id="content">
-  <h1 id="get-or-else">getOrElse <span class="article-date">2013/08/21</span></h1>
+  <h1 id="get-or-else">getOrElse
+<span class="article-date">2013/08/21</span></h1>
 
 <p>要素をキーで取得する際に、該当する要素がない場合に特定の値をデフォルト値とさせるには。</p>
 
-<h2 id="scala">Scala <span class="article-date">2013/08/20</span></h2>
+<h2 id="scala">Scala
+<span class="article-date">2013/08/20</span></h2>
 
 <pre><code>// Map[A, B]
 def getOrElse(key: A, default: =&gt; B): B
 </code></pre>
 
-<h2 id="ruby">Ruby <span class="article-date">2013/08/20</span></h2>
+<h2 id="ruby">Ruby
+<span class="article-date">2013/08/20</span></h2>
 
 <p><code>fetch</code> はハッシュの要素をキーで取得するが、該当する要素がない場合に、第2引数を返すか、ブロックを評価した結果を返す。</p>
 

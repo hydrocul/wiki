@@ -24,6 +24,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/clone.html">clone</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/contains-key.html">containsKey</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/foreach.html">foreach</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/get-or-else.html">getOrElse</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/is-empty.html">isEmpty</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/keys.html">keys</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/literal.html">マップ(連想配列)書き方</a></li>
@@ -37,11 +38,13 @@
 </div>
 
 <div id="content">
-  <h1 id="remove">remove <span class="article-date">2013/07/30</span></h1>
+  <h1 id="remove">remove
+<span class="article-date">2013/07/30</span></h1>
 
 <p>特定のキーを削除する方法。</p>
 
-<h2 id="69ae27f">Scala <span class="article-date">2013/07/30</span></h2>
+<h2 id="69ae27f">Scala
+<span class="article-date">2013/07/30</span></h2>
 
 <pre><code>// Map[A, B]
 def -(key: A): Map[A, B]
@@ -49,7 +52,8 @@ def -(key: A): Map[A, B]
 
 <p>削除した結果のマップを返し、自身は変更しない。</p>
 
-<h2 id="6106e9b">PHP <span class="article-date">2013/07/30</span></h2>
+<h2 id="6106e9b">PHP
+<span class="article-date">2013/07/30</span></h2>
 
 <pre><code>unset($arr[$key]);
 </code></pre>

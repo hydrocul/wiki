@@ -23,11 +23,13 @@
   <li>&gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには</a></li>
   <li>&gt;&gt; パスからディレクトリ名を取得するには</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/flush.html">フラッシュするには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込んでいくには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べる</a></li>
@@ -47,6 +49,14 @@
 <span class="article-date">2013/08/17</span></h1>
 
 <p>ディレクトリの部分を取り出す方法。ファイルパスからファイル名の部分を取り出す方法は<a href="basename.html">basename</a>。</p>
+
+<h2 id="3a71511">Python
+<span class="article-date">2013/09/01</span></h2>
+
+<pre><code>import os
+
+print os.path.dirname(path)
+</code></pre>
 
 <h2 id="4fc5ba5">Ruby
 <span class="article-date">2013/08/21</span></h2>

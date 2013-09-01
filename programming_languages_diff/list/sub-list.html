@@ -23,6 +23,7 @@
   <li>&gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/add-all.html">addAll</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/clone.html">clone</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/compare.html">比較</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/contains.html">contains</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/drop.html">drop</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/fill.html">fill</a></li>
@@ -66,24 +67,28 @@
 <div id="content">
   <h1 id="sub-list">subList</h1>
 
-<h2 id="c3289bd">Java <span class="article-date">2013/05/06</span></h2>
+<h2 id="c3289bd">Java
+<span class="article-date">2013/05/06</span></h2>
 
 <pre><code>List&lt;E&gt; List&lt;E&gt;#subList(int from, int until)
 </code></pre>
 
 <p><code>subList</code> で返されたリストを変更すると、元のリストにも反映される。</p>
 
-<h2 id="0095f9a">Scala <span class="article-date">2013/05/06</span></h2>
+<h2 id="0095f9a">Scala
+<span class="article-date">2013/05/06</span></h2>
 
 <pre><code>def Seq[A]#slice(from: Int, until: Int): Seq[A]
 </code></pre>
 
-<h2 id="6f4a37a">PHP <span class="article-date">2013/04/27</span></h2>
+<h2 id="6f4a37a">PHP
+<span class="article-date">2013/04/27</span></h2>
 
 <pre><code>array array_slice($arr, $from [, $length])
 </code></pre>
 
-<h2 id="5d079d0">Ruby <span class="article-date">2013/04/12</span></h2>
+<h2 id="5d079d0">Ruby
+<span class="article-date">2013/04/12</span></h2>
 
 <pre><code>Array#slice(index)
 Array#slice(from, length)
@@ -91,7 +96,8 @@ Array#slice(from, length)
 
 <p>lengthを省略したら、from以降の部分配列ではなく、その場所の要素を返す(<code>[]</code> と同じ)。</p>
 
-<h2 id="4ab0a73">Perl <span class="article-date">2013/07/27</span></h2>
+<h2 id="4ab0a73">Perl
+<span class="article-date">2013/07/27</span></h2>
 
 <pre><code>my @arr = ('abc', 'def', 'ghi');
 print "@arr[0..1]";     # =&gt; abc def
@@ -99,7 +105,8 @@ print "@arr[0,2]";      # =&gt; abc ghi
 print "@arr[1..$#arr]"; # =&gt; def ghi
 </code></pre>
 
-<h2 id="6d6e4d2">JavaScript <span class="article-date">2013/04/20</span></h2>
+<h2 id="6d6e4d2">JavaScript
+<span class="article-date">2013/04/20</span></h2>
 
 <pre><code>Array#slice(start[, end])
 </code></pre>
