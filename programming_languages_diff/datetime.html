@@ -21,16 +21,17 @@
     <ul>
   <li><a href="../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../programming_languages_diff/boolean/">論理型</a></li>
+  <li>&gt; <a href="../programming_languages_diff/class/">クラス</a></li>
   <li>&gt; <a href="../programming_languages_diff/comment.html">コメント</a></li>
   <li>&gt; <a href="../programming_languages_diff/control_flow/">制御構文</a></li>
   <li>&gt; <a href="../programming_languages_diff/data_type.html">データ型</a></li>
   <li>&gt; 日付と時刻</li>
-  <li>&gt; <a href="../programming_languages_diff/exception.html">例外処理</a></li>
-  <li>&gt; <a href="../programming_languages_diff/file.html">ファイル操作</a></li>
-  <li>&gt; <a href="../programming_languages_diff/function.html">関数・メソッド</a></li>
+  <li>&gt; <a href="../programming_languages_diff/exception/">例外処理</a></li>
+  <li>&gt; <a href="../programming_languages_diff/function/">関数・メソッド</a></li>
   <li>&gt; <a href="../programming_languages_diff/indent.html">インデント / セミコロン</a></li>
   <li>&gt; <a href="../programming_languages_diff/io/">入出力・ファイル操作</a></li>
   <li>&gt; <a href="../programming_languages_diff/list/">リスト(配列)</a></li>
+  <li>&gt; <a href="../programming_languages_diff/magic-comment.html">マジックコメント</a></li>
   <li>&gt; <a href="../programming_languages_diff/map/">マップ(連想配列)</a></li>
   <li>&gt; <a href="../programming_languages_diff/number/">数値型</a></li>
   <li>&gt; <a href="../programming_languages_diff/operator/">演算子</a></li>
@@ -45,15 +46,18 @@
 <div id="content">
   <h1 id="datetime">日付と時刻</h1>
 
-<h2 id="13a7407">今日の日付を取得するには／現在時刻を取得するには <span class="article-date">2013/06/19</span></h2>
+<h2 id="13a7407">今日の日付を取得するには／現在時刻を取得するには
+<span class="article-date">2013/06/19</span></h2>
 
-<h3 id="08a7cd3">PHP <span class="article-date">2013/06/11</span></h3>
+<h3 id="08a7cd3">PHP
+<span class="article-date">2013/06/11</span></h3>
 
 <pre><code># 現在日時を YYYY/MM/DD hh:mm:ss の書式の文字列で取得する
 date('Y/m/d H:i:s');
 </code></pre>
 
-<h3 id="00f8266">Ruby <span class="article-date">2013/06/19</span></h3>
+<h3 id="00f8266">Ruby
+<span class="article-date">2013/06/19</span></h3>
 
 <pre><code>require 'date'
 # DateTime を使う場合でも require は date だけでよい
@@ -67,7 +71,8 @@ DateTime.now
 
 <h2 id="04941c9">日付オブジェクト・日時オブジェクトの各フィールドを取得するには</h2>
 
-<h3 id="a3065d6">Ruby <span class="article-date">2013/06/19</span></h3>
+<h3 id="a3065d6">Ruby
+<span class="article-date">2013/06/19</span></h3>
 
 <pre><code>date.year
 date.month
@@ -85,7 +90,8 @@ datetime.sec
 
 <h2 id="f4619e3">日付オブジェクト・日時オブジェクトを比較するには</h2>
 
-<h3 id="7c98122">Ruby <span class="article-date">2013/08/08</span></h3>
+<h3 id="7c98122">Ruby
+<span class="article-date">2013/08/08</span></h3>
 
 <pre><code>require 'date'
 
@@ -98,7 +104,8 @@ p (b &lt; a) # =&gt; false
 
 <h2 id="8f7aea9">日付単位の計算</h2>
 
-<h3 id="ce98819">Ruby <span class="article-date">2013/05/06</span></h3>
+<h3 id="ce98819">Ruby
+<span class="article-date">2013/05/06</span></h3>
 
 <pre><code>date + 3       # 3日後の日付
 date1 - date2  # 日付の差
@@ -106,7 +113,8 @@ date1 - date2  # 日付の差
 
 <h2 id="strptime">文字列を日付に変換</h2>
 
-<h3 id="c761233">PHP <span class="article-date">2013/06/16</span></h3>
+<h3 id="c761233">PHP
+<span class="article-date">2013/06/16</span></h3>
 
 <pre><code>var_export(strptime('2013/06/16', '%Y/%m/%d'));
 // =&gt; array (
@@ -131,7 +139,8 @@ date1 - date2  # 日付の差
   <p>%Y%m%dを取る場合は、strptime任せにせず自分でフォーマットのチェックもしておかないと危険ですね。もしくは、おとなしくデリミタ挟むか。</p>
 </blockquote>
 
-<h3 id="63e6e6b">Ruby <span class="article-date">2013/06/16</span></h3>
+<h3 id="63e6e6b">Ruby
+<span class="article-date">2013/06/16</span></h3>
 
 <pre><code>require 'date'
 date = Date.strptime('2013/03/17', '%Y/%m/%d')
@@ -146,6 +155,22 @@ p [date.year, date.month, date.day, date.wday]
 <blockquote>
   <p>%Y%m%dを取る場合は、strptime任せにせず自分でフォーマットのチェックもしておかないと危険ですね。もしくは、おとなしくデリミタ挟むか。</p>
 </blockquote>
+
+<h2 id="8ca7e4a">ミリ秒・マイクロ秒単位で処理時間を計測するには</h2>
+
+<h3 id="0615a57">Perl
+<span class="article-date">2013/08/30</span></h3>
+
+<pre><code>use Time::HiRes qw/gettimeofday/;
+
+my ($start_sec, $start_microsec) = gettimeofday();
+
+# ここでなんらかの処理
+
+my ($end_sec, $end_microsec) = gettimeofday();
+my $interval = ($end_sec - $start_sec) * 1000000 + $end_microsec - $start_microsec;
+print encode('utf-8', $interval . "マイクロ秒\n");
+</code></pre>
 
 
 </div>

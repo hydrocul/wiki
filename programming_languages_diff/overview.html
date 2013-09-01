@@ -21,16 +21,17 @@
     <ul>
   <li><a href="../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../programming_languages_diff/boolean/">論理型</a></li>
+  <li>&gt; <a href="../programming_languages_diff/class/">クラス</a></li>
   <li>&gt; <a href="../programming_languages_diff/comment.html">コメント</a></li>
   <li>&gt; <a href="../programming_languages_diff/control_flow/">制御構文</a></li>
   <li>&gt; <a href="../programming_languages_diff/data_type.html">データ型</a></li>
   <li>&gt; <a href="../programming_languages_diff/datetime.html">日付と時刻</a></li>
-  <li>&gt; <a href="../programming_languages_diff/exception.html">例外処理</a></li>
-  <li>&gt; <a href="../programming_languages_diff/file.html">ファイル操作</a></li>
-  <li>&gt; <a href="../programming_languages_diff/function.html">関数・メソッド</a></li>
+  <li>&gt; <a href="../programming_languages_diff/exception/">例外処理</a></li>
+  <li>&gt; <a href="../programming_languages_diff/function/">関数・メソッド</a></li>
   <li>&gt; <a href="../programming_languages_diff/indent.html">インデント / セミコロン</a></li>
   <li>&gt; <a href="../programming_languages_diff/io/">入出力・ファイル操作</a></li>
   <li>&gt; <a href="../programming_languages_diff/list/">リスト(配列)</a></li>
+  <li>&gt; <a href="../programming_languages_diff/magic-comment.html">マジックコメント</a></li>
   <li>&gt; <a href="../programming_languages_diff/map/">マップ(連想配列)</a></li>
   <li>&gt; <a href="../programming_languages_diff/number/">数値型</a></li>
   <li>&gt; <a href="../programming_languages_diff/operator/">演算子</a></li>
@@ -44,30 +45,6 @@
 
 <div id="content">
   <h1 id="overview">Overview</h1>
-
-<h2 id="command-line-arguments">コマンドライン引数の取得</h2>
-
-<h3 id="ede3e44">PHP
-<span class="article-date">2013/05/17</span></h3>
-
-<dl>
-  <dt><code>$argc</code></dt>
-  <dd>引数の数。PHPスクリプトのファイル名が最初の引数になるので、これが0になることはない。<br />
-<a href="http://www.php.net/manual/ja/reserved.variables.argc.php" target="_blank">http://www.php.net/manual/ja/reserved.variables.argc.php</a></dd>
-  <dt><code>$argv</code></dt>
-  <dd>引数が配列で入っている。<code>$argv[0]</code> はPHPスクリプトのファイル名になる。<br />
-<a href="http://www.php.net/manual/ja/reserved.variables.argv.php" target="_blank">http://www.php.net/manual/ja/reserved.variables.argv.php</a></dd>
-</dl>
-
-<h3 id="3370028">Ruby
-<span class="article-date">2013/05/17</span></h3>
-
-<p><code>ARGV</code> という定数に引数が配列で入っている。スクリプトファイル名は含まれておらず、先頭から本当の引数が入っている。</p>
-
-<h3 id="c386cab">Perl
-<span class="article-date">2013/07/31</span></h3>
-
-<p><code>@ARGV</code>, <code>$ARGV[..]</code> で引数を取得できる。</p>
 
 <h2 id="source-file-name">ソースファイル名と行番号をソースコード中で取得するには</h2>
 

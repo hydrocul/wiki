@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>コマンドライン引数の取得 | 変数・束縛 | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/vars/">変数・束縛</a> &gt; コマンドライン引数の取得
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/vars/">変数・束縛</a></li>
+  <li>&gt;&gt; コマンドライン引数の取得</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/env.html">環境変数の取得</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/name.html">変数名</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/scope.html">変数の宣言とスコープ</a></li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="argv">コマンドライン引数の取得</h1>
+
+<h2 id="8a23a8b">PHP
+<span class="article-date">2013/05/17</span></h2>
+
+<dl>
+  <dt><code>$argc</code></dt>
+  <dd>引数の数。PHPスクリプトのファイル名が最初の引数になるので、これが0になることはない。<br />
+<a href="http://www.php.net/manual/ja/reserved.variables.argc.php" target="_blank">http://www.php.net/manual/ja/reserved.variables.argc.php</a></dd>
+  <dt><code>$argv</code></dt>
+  <dd>引数が配列で入っている。<code>$argv[0]</code> はPHPスクリプトのファイル名になる。<br />
+<a href="http://www.php.net/manual/ja/reserved.variables.argv.php" target="_blank">http://www.php.net/manual/ja/reserved.variables.argv.php</a></dd>
+</dl>
+
+<h2 id="df68a8e">Python
+<span class="article-date">2013/08/30</span></h2>
+
+<p>例</p>
+
+<pre><code>import sys
+
+# 1つ目の引数
+arg1 = sys.argv[1]
+
+# 2つ目の引数
+arg2 = sys.argv[2]
+</code></pre>
+
+<h2 id="a1b820b">Ruby
+<span class="article-date">2013/05/17</span></h2>
+
+<p><code>ARGV</code> という定数に引数が配列で入っている。スクリプトファイル名は含まれておらず、先頭から本当の引数が入っている。</p>
+
+<h2 id="e40e7c8">Perl
+<span class="article-date">2013/07/31</span></h2>
+
+<p><code>@ARGV</code>, <code>$ARGV[..]</code> で引数を取得できる。</p>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
