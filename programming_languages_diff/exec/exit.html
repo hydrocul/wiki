@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>プロセス管理 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>プロセスを終了するには | プロセス管理 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; プロセス管理
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exec/">プロセス管理</a> &gt; プロセスを終了するには
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,9 +20,8 @@
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; プロセス管理</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/exec/exit.html">プロセスを終了するには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/exec/sleep.html">sleep: スレッドを一定時間停止する</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/exec/">プロセス管理</a></li>
+  <li>&gt;&gt; プロセスを終了するには</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/exec/system.html">外部コマンドを実行してその出力をそのまま出力するには</a></li>
 </ul>
 
@@ -30,9 +29,34 @@
 </div>
 
 <div id="content">
-  <h1 id="exec">プロセス管理</h1>
+  <h1 id="exit">プロセスを終了するには</h1>
 
-<p><a href="../../programming_languages_diff/exec/exit.html">プロセスを終了するには</a> <a href="../../programming_languages_diff/exec/sleep.html">sleep: スレッドを一定時間停止する</a> <a href="../../programming_languages_diff/exec/system.html">外部コマンドを実行してその出力をそのまま出力するには</a></p>
+<h2 id="e9c9cc4">Ruby
+<span class="article-date">2013/08/19</span></h2>
+
+<p>正常終了の場合</p>
+
+<pre><code>exit(0);
+</code></pre>
+
+<p>異常終了の場合(0以外を終了コードにする)</p>
+
+<pre><code>exit(1);
+</code></pre>
+
+<h2 id="7dcc4c9">Perl
+<span class="article-date">2013/07/27</span></h2>
+
+<p>正常終了の場合</p>
+
+<pre><code>exit(0);
+</code></pre>
+
+<p>異常終了の場合(0以外を終了コードにする)</p>
+
+<pre><code>exit(1);
+</code></pre>
+
 
 </div>
 

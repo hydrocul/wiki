@@ -27,6 +27,7 @@
   <li>&gt; <a href="../programming_languages_diff/data_type.html">データ型</a></li>
   <li>&gt; <a href="../programming_languages_diff/datetime.html">日付と時刻</a></li>
   <li>&gt; <a href="../programming_languages_diff/exception/">例外処理</a></li>
+  <li>&gt; <a href="../programming_languages_diff/exec/">プロセス管理</a></li>
   <li>&gt; <a href="../programming_languages_diff/function/">関数・メソッド</a></li>
   <li>&gt; <a href="../programming_languages_diff/indent.html">インデント / セミコロン</a></li>
   <li>&gt; <a href="../programming_languages_diff/io/">入出力・ファイル操作</a></li>
@@ -35,7 +36,6 @@
   <li>&gt; <a href="../programming_languages_diff/map/">マップ(連想配列)</a></li>
   <li>&gt; <a href="../programming_languages_diff/number/">数値型</a></li>
   <li>&gt; <a href="../programming_languages_diff/operator/">演算子</a></li>
-  <li>&gt; <a href="../programming_languages_diff/overview.html">Overview</a></li>
   <li>&gt; <a href="../programming_languages_diff/string/">文字列</a></li>
   <li>&gt; <a href="../programming_languages_diff/vars/">変数・束縛</a></li>
 </ul>
@@ -79,6 +79,15 @@
 <pre><code># -*- coding: UTF-8 -*-
 p "abc".encoding         # =&gt; #&lt;Encoding:UTF-8&gt;
 p "あいうえお".encoding  # =&gt; #&lt;Encoding:UTF-8&gt;
+</code></pre>
+
+<h2 id="3a7460b">Perl
+<span class="article-date">2013/09/01</span></h2>
+
+<p>マジックコメントではないが、以下を付けることで、バグになりやすい古い仕様の表記などに対して警告を出してくれるようになるので、原則としてこれを書くことになっている。</p>
+
+<pre><code>use strict;
+use warnings;
 </code></pre>
 
 </div>

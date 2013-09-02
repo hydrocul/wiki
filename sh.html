@@ -142,7 +142,9 @@ fi
 </code></pre>
 
 <h2 id="operator">演算子
-<span class="article-date">2013/08/23</span></h2>
+<span class="article-date">2013/09/02</span></h2>
+
+<p><code>test</code>コマンドの演算子</p>
 
 <dl>
   <dt>文字列1 <code>=</code> 文字列2</dt>
@@ -191,6 +193,37 @@ Perlでも同じ。</dd>
   <dt>ファイル名1 <code>-ot</code> ファイル名2</dt>
   <dd>ファイル1のほうが古い場合</dd>
 </dl>
+
+<h2 id="boolean-operator">論理演算子
+<span class="article-date">2013/09/02</span></h2>
+
+<p><code>test</code>コマンドの演算子</p>
+
+<dl>
+  <dt><code>!</code></dt>
+  <dd>否定</dd>
+  <dt><code>-o</code></dt>
+  <dd>論理和(OR)</dd>
+  <dt><code>-a</code></dt>
+  <dd>論理積(AND)</dd>
+</dl>
+
+<p>論理和・論理積は、シェルスクリプトの文法での <code>&amp;&amp;</code>, <code>||</code> も使える。</p>
+
+<pre><code># 否定の例
+if [ ! "$a" -eq "$b" ]; then
+    ...
+fi
+
+# 論理和の例
+if [ "$a" -eq "$b" or "$c" -eq "$d" ]; then
+    ...
+fi
+# または
+if [ "$a" -eq "$b" ] || [ "$c" -eq "$d" ]; then
+    ...
+fi
+</code></pre>
 
 <h2 id="205a015">特殊な変数
 <span class="article-date">2013/04/25</span></h2>

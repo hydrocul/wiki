@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>日付と時刻のデータ型 | 日付と時刻 | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/datetime/">日付と時刻</a> &gt; 日付と時刻のデータ型
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/datetime/">日付と時刻</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/calc_date.html">日付単位の計算</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/calc_time.html">時刻の計算</a></li>
+  <li>&gt;&gt; 日付と時刻のデータ型</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/compare.html">日時オブジェクトを比較するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/now.html">今日の日付を取得するには／現在時刻を取得するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/parse.html">文字列を日付に変換</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/timer.html">ミリ秒・マイクロ秒単位で処理時間を計測するには</a></li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="class">日付と時刻のデータ型</h1>
+
+<h2 id="2cad14a">Ruby
+<span class="article-date">2013/09/01</span></h2>
+
+<p><code>Time</code>クラス、<code>Date</code>クラス、<code>DateTime</code>クラスがある。<code>Date</code>クラスまたは
+<code>DateTime</code>クラスを使うには <code>require 'date'</code> する必要がある。</p>
+
+<h3 id="0ecb341">日付オブジェクト・日時オブジェクトの各フィールドを取得するには
+<span class="article-date">2013/09/01</span></h3>
+
+<pre><code># Timeクラス
+time.year
+time.month
+time.day    # その月の中での日付(1-31)
+time.wday   # 曜日(0-6)。日曜日が0
+time.hour
+time.min
+time.sec
+
+# DateTimeクラス
+datetime.year
+datetime.month
+datetime.day    # その月の中での日付(1-31)
+datetime.wday   # 曜日(0-6)。日曜日が0
+datetime.hour
+datetime.min
+datetime.sec
+
+# Dateクラス
+date.year
+date.month
+date.day    # その月の中での日付(1-31)
+date.wday   # 曜日(0-6)。日曜日が0
+</code></pre>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

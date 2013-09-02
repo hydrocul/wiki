@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>文字列を日付に変換 | 日付と時刻 | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/datetime/">日付と時刻</a> &gt; 文字列を日付に変換
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/datetime/">日付と時刻</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/calc_date.html">日付単位の計算</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/calc_time.html">時刻の計算</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/class.html">日付と時刻のデータ型</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/compare.html">日時オブジェクトを比較するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/now.html">今日の日付を取得するには／現在時刻を取得するには</a></li>
+  <li>&gt;&gt; 文字列を日付に変換</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/timer.html">ミリ秒・マイクロ秒単位で処理時間を計測するには</a></li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="parse">文字列を日付に変換</h1>
+
+<h2 id="6fdd20f">PHP
+<span class="article-date">2013/06/16</span></h2>
+
+<pre><code>var_export(strptime('2013/06/16', '%Y/%m/%d'));
+// =&gt; array (
+//   'tm_sec' =&gt; 0,
+//   'tm_min' =&gt; 0,
+//   'tm_hour' =&gt; 0,
+//   'tm_mday' =&gt; 16,
+//   'tm_mon' =&gt; 5,
+//   'tm_year' =&gt; 113,
+//   'tm_wday' =&gt; 0,
+//   'tm_yday' =&gt; 166,
+//   'unparsed' =&gt; '',
+// )
+</code></pre>
+
+<p><a href="http://www.php.net/manual/ja/function.strptime.php" target="_blank">http://www.php.net/manual/ja/function.strptime.php</a></p>
+
+<p>本当は怖いstrptimeと%Y%m%dの関係<br />
+<a href="http://nekoya.github.io/blog/2013/06/10/strptime-ymd/" target="_blank">http://nekoya.github.io/blog/2013/06/10/strptime-ymd/</a></p>
+
+<blockquote>
+  <p>%Y%m%dを取る場合は、strptime任せにせず自分でフォーマットのチェックもしておかないと危険ですね。もしくは、おとなしくデリミタ挟むか。</p>
+</blockquote>
+
+<h2 id="ced0349">Ruby
+<span class="article-date">2013/06/16</span></h2>
+
+<pre><code>require 'date'
+date = Date.strptime('2013/03/17', '%Y/%m/%d')
+p [date.year, date.month, date.day, date.wday]
+</code></pre>
+
+<p>date.wday で曜日を整数で取得でき、日曜日が0。</p>
+
+<p>本当は怖いstrptimeと%Y%m%dの関係<br />
+<a href="http://nekoya.github.io/blog/2013/06/10/strptime-ymd/" target="_blank">http://nekoya.github.io/blog/2013/06/10/strptime-ymd/</a></p>
+
+<blockquote>
+  <p>%Y%m%dを取る場合は、strptime任せにせず自分でフォーマットのチェックもしておかないと危険ですね。もしくは、おとなしくデリミタ挟むか。</p>
+</blockquote>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>ミリ秒・マイクロ秒単位で処理時間を計測するには | 日付と時刻 | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/datetime/">日付と時刻</a> &gt; ミリ秒・マイクロ秒単位で処理時間を計測するには
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/datetime/">日付と時刻</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/calc_date.html">日付単位の計算</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/calc_time.html">時刻の計算</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/class.html">日付と時刻のデータ型</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/compare.html">日時オブジェクトを比較するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/now.html">今日の日付を取得するには／現在時刻を取得するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/datetime/parse.html">文字列を日付に変換</a></li>
+  <li>&gt;&gt; ミリ秒・マイクロ秒単位で処理時間を計測するには</li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="timer">ミリ秒・マイクロ秒単位で処理時間を計測するには
+<span class="article-date">2013/09/01</span></h1>
+
+<p>単純に処理前と処理後の時刻を取得して引き算する方法。</p>
+
+<h2 id="5d587e9">Java
+<span class="article-date">2013/09/01</span></h2>
+
+<pre><code>long start = System.currentTimeMillis();
+
+// ここでなんらかの処理
+
+long end = System.currentTimeMillis();
+long interval = end - start;
+System.out.println(interval + "ミリ秒");
+</code></pre>
+
+<p>以下の方法はナノ秒単位で取得するJava5以降の方法。</p>
+
+<pre><code>long start = System.nanoTime();
+
+// ここでなんらかの処理
+
+long end = System.nanoTime();
+long interval = end - start;
+System.out.println(interval + "ナノ秒");
+</code></pre>
+
+<h2 id="b41dd1a">Ruby
+<span class="article-date">2013/09/01</span></h2>
+
+<pre><code>starttime = Time.now
+
+# ここでなんらかの処理
+
+endtime = Time.now
+interval = endtime - starttime
+print "#{interval}秒"
+</code></pre>
+
+<p>秒単位だが浮動小数点数で表示される。</p>
+
+<h2 id="83e9ae7">Perl
+<span class="article-date">2013/08/30</span></h2>
+
+<pre><code>use Time::HiRes qw/gettimeofday/;
+
+my ($start_sec, $start_microsec) = gettimeofday();
+
+# ここでなんらかの処理
+
+my ($end_sec, $end_microsec) = gettimeofday();
+my $interval = ($end_sec - $start_sec) * 1000000 + $end_microsec - $start_microsec;
+print encode('utf-8', $interval . "マイクロ秒\n");
+</code></pre>
+
+<h2 id="189a5d5">sh
+<span class="article-date">2013/09/01</span></h2>
+
+<p><code>time</code> コマンドを使う。-&gt; <a href="../../commands/time.html">timeコマンド</a></p>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
