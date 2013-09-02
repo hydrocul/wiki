@@ -21,6 +21,9 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../../programming_languages_diff/vars/">変数・束縛</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/argv.html">コマンドライン引数の取得</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/env.html">環境変数の取得</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/file_line.html">ソースファイル名と行番号をソースコード中で取得するには</a></li>
   <li>&gt;&gt; 変数名</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/vars/scope.html">変数の宣言とスコープ</a></li>
 </ul>
@@ -31,7 +34,8 @@
 <div id="content">
   <h1 id="name">変数名</h1>
 
-<h2 id="451fb75">C言語, C++ <span class="article-date">2013/08/15</span></h2>
+<h2 id="451fb75">C言語, C++
+<span class="article-date">2013/08/15</span></h2>
 
 <p>識別子として、半角英数字または <code>_</code>(アンダースコア)を使うことができる。半角数字を途中や最後に含めることはできるが、先頭で使うことはできない。</p>
 
@@ -43,7 +47,8 @@
 
 <p>大文字と小文字は区別される。大文字と小文字に文法上の違いはないが、慣例として、識別子の途中にある単語の先頭(キャメルケース)やクラス名の先頭などだけを大文字にして、その他を小文字にする。同じく慣例として、定数は全部大文字にする。</p>
 
-<h2 id="033d0f9">Java <span class="article-date">2013/08/15</span></h2>
+<h2 id="033d0f9">Java
+<span class="article-date">2013/08/15</span></h2>
 
 <p>識別子のルールは、C言語とよく似ているが、マルチバイトの文字も使うことができる点が違う。</p>
 
@@ -64,11 +69,13 @@
 
 <p>大文字と小文字は区別される。大文字と小文字に文法上の違いはないが、慣例として、識別子の途中にある単語の先頭(キャメルケース)やクラス名の先頭などだけを大文字にして、その他を小文字にする。同じく慣例として、定数は全部大文字にする。</p>
 
-<h2 id="36d0735">Scala <span class="article-date">2013/08/15</span></h2>
+<h2 id="36d0735">Scala
+<span class="article-date">2013/08/15</span></h2>
 
 <p>3つの形式が使える。</p>
 
-<h3 id="10cc4d2">Javaと同じ形式 <span class="article-date">2013/08/15</span></h3>
+<h3 id="10cc4d2">Javaと同じ形式
+<span class="article-date">2013/08/15</span></h3>
 
 <p>Javaと同じルールの識別子が使える。</p>
 
@@ -79,13 +86,15 @@
 <p>大文字と小文字は区別される。大文字と小文字に文法上の違いはほとんどないが、
 match式で扱いに違いがある。慣例として、識別子の途中にある単語の先頭(キャメルケース)やクラス名の先頭などだけを大文字にして、その他を小文字にする。同じく慣例として、定数は全部大文字にする。</p>
 
-<h3 id="4463c9a">演算子っぽい形式 <span class="article-date">2013/08/15</span></h3>
+<h3 id="4463c9a">演算子っぽい形式
+<span class="article-date">2013/08/15</span></h3>
 
 <p>演算子で使われるような記号だけで構成される識別子が使える。</p>
 
 <p>Javaで演算子とされるものもScalaでは識別子としてその識別子が示すメソッドの呼び出しになる。新しい演算子っぽい名前のメソッドを定義することもできる。</p>
 
-<h3 id="5d0f74b">バッククオートで囲んだ任意の形式 <span class="article-date">2013/08/15</span></h3>
+<h3 id="5d0f74b">バッククオートで囲んだ任意の形式
+<span class="article-date">2013/08/15</span></h3>
 
 <p>バッククオートで囲むことでバッククオート以外の任意の文字の識別子を作ることができる。数字だけの識別子も作れる。バッククオートがなくても上記2つの形式のいずれかの識別子として成立するものであれば、バッククオートがあるのとないのとで同じ識別子になる。つまり <code>\</code>%%%`<code> という名前の変数を作ったら、
 </code>%%%` という表記でも参照できる。</p>
@@ -100,13 +109,15 @@ match式で扱いに違いがある。慣例として、識別子の途中にあ
 <p><code>Thread#yield</code> メソッドを呼び出したい場合、 <code>yield</code> がScalaの予約語なので、
 <code>Thread.yield()</code> と書くことができず、<code>Thread.\</code>yield`()` と書くことになる。</p>
 
-<h2 id="4ac29c2">Ruby <span class="article-date">2013/08/04</span></h2>
+<h2 id="4ac29c2">Ruby
+<span class="article-date">2013/08/04</span></h2>
 
 <p><code>$</code> で始まる変数は、グローバル変数。</p>
 
 <p>アルファベット大文字で始まる名前は、定数。</p>
 
-<h2 id="6c223b7">Perl <span class="article-date">2013/08/01</span></h2>
+<h2 id="6c223b7">Perl
+<span class="article-date">2013/08/01</span></h2>
 
 <p><code>$</code> で始まる変数は、配列やハッシュ(連想配列 or マップ)以外のアトミックな値を保存する変数。<br />
 <code>@</code> で始まる変数は、配列を保存する変数。要素にアクセスするには <code>$...[..]</code> とする。<br />

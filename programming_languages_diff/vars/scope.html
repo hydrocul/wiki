@@ -21,6 +21,9 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../../programming_languages_diff/vars/">変数・束縛</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/argv.html">コマンドライン引数の取得</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/env.html">環境変数の取得</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/file_line.html">ソースファイル名と行番号をソースコード中で取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/vars/name.html">変数名</a></li>
   <li>&gt;&gt; 変数の宣言とスコープ</li>
 </ul>
@@ -31,15 +34,18 @@
 <div id="content">
   <h1 id="scope">変数の宣言とスコープ</h1>
 
-<h2 id="973c2d9">C言語, C++ <span class="article-date">2013/08/13</span></h2>
+<h2 id="973c2d9">C言語, C++
+<span class="article-date">2013/08/13</span></h2>
 
 <p>変数には必ず宣言が必要で、静的スコープのローカル変数になる。</p>
 
-<h2 id="e9961aa">Java <span class="article-date">2013/08/13</span></h2>
+<h2 id="e9961aa">Java
+<span class="article-date">2013/08/13</span></h2>
 
 <p>変数には必ず宣言が必要で、静的スコープのローカル変数になる。</p>
 
-<h2 id="6c6f6ab">PHP <span class="article-date">2013/08/01</span></h2>
+<h2 id="6c6f6ab">PHP
+<span class="article-date">2013/08/01</span></h2>
 
 <p>変数の宣言なしにいきなり使うことができる。</p>
 
@@ -47,7 +53,8 @@
 
 <p>グローバル変数を関数の中から使用するには、その関数の中で <code>global</code> でグローバル変数を宣言する必要がある。</p>
 
-<h2 id="0a70502">Python <span class="article-date">2013/08/13</span></h2>
+<h2 id="0a70502">Python
+<span class="article-date">2013/08/13</span></h2>
 
 <p>変数の宣言というのはなく、変数への代入があるとローカル変数が作られる。</p>
 
@@ -60,7 +67,8 @@
 <p>関数定義では新しいスコープが作成されるが、
 <code>if</code> や <code>for</code> などの制御構文ではスコープが作成されない。</p>
 
-<h2 id="eb6228a">Ruby <span class="article-date">2013/08/13</span></h2>
+<h2 id="eb6228a">Ruby
+<span class="article-date">2013/08/13</span></h2>
 
 <p><code>$</code> で始まる名前の変数がグローバル変数となる。ローカル変数と名前が衝突することはない。</p>
 
@@ -104,7 +112,8 @@ f2
 p $a # =&gt; 20
 </code></pre>
 
-<h2 id="6670d7f">Perl <span class="article-date">2013/08/13</span></h2>
+<h2 id="6670d7f">Perl
+<span class="article-date">2013/08/13</span></h2>
 
 <p>宣言なしに変数を使うとグローバル変数になる。</p>
 
@@ -116,7 +125,8 @@ p $a # =&gt; 20
 
 <p><code>{}</code> のブロックでスコープが作成される。</p>
 
-<h2 id="a4b9d69">JavaScript <span class="article-date">2013/08/13</span></h2>
+<h2 id="a4b9d69">JavaScript
+<span class="article-date">2013/08/13</span></h2>
 
 <p>宣言なしに変数を使うとグローバル変数になる。</p>
 
