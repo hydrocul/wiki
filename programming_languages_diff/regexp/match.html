@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>パターンマッチング | 正規表現 | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/regexp/">正規表現</a> &gt; パターンマッチング
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/regexp/">正規表現</a></li>
+  <li>&gt;&gt; パターンマッチング</li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="match">パターンマッチング</h1>
+
+<h2 id="d8e5c92">Ruby
+<span class="article-date">2013/05/04</span></h2>
+
+<p><code>=~</code> という演算子で、正規表現にマッチしていたら、そのインデックスを返し、マッチしなければ <code>nil</code> を返す。</p>
+
+<pre><code>/a./ =~ "abc\nabc\n" # =&gt; 0
+/x./ =~ "abc\nabc\n" # =&gt; nil
+</code></pre>
+
+<p>Rubyでは <code>0</code> も <code>if</code> の条件の中に入れたら <code>true</code> とみなされる。</p>
+
+<p>-&gt; data_type.md#to-boolean</p>
+
+<p><code>!~</code> という演算子は <code>=~</code> の反対で、正規表現にマッチしていたら <code>false</code> を返し、マッチしなければ <code>true</code> を返す。</p>
+
+<pre><code>/a./ !~ "abc\nabc\n" # =&gt; false
+/x./ !~ "abc\nabc\n" # =&gt; true
+</code></pre>
+
+<h2 id="5741346">Perl
+<span class="article-date">2013/08/11</span></h2>
+
+<p><code>=~</code> という演算子で、正規表現にマッチしているかどうかを返す。マッチしていれば <code>'1'</code> を返し、マッチしていなければ <code>''</code> を返す。</p>
+
+<pre><code>print "abc\nabc\n" =~ /a./;
+# =&gt; 1
+print "abc\nabc\n" =~ /a$/;
+# =&gt; なにも出力しない
+</code></pre>
+
+<p><code>!~</code> という演算子は <code>=~</code> の反対で、マッチしていれば <code>''</code> を返し、マッチしていなければ <code>'1'</code> を返す。</p>
+
+<p>正規表現の中にカッコで囲んだグループがあれば、マッチした場合、
+<code>$1</code>, <code>$2</code>, <code>$3</code>, … にマッチした文字列が入る。</p>
+
+<h2 id="d743a57">JavaScript
+<span class="article-date">2013/04/19</span></h2>
+
+<pre><code>"abc\nabc\n".match(/a./); // =&gt; ["ab"]
+"abc\nabc\n".match(/a(.)(.*)/); // =&gt; ["abc", "b", "c"]
+</code></pre>
+
+<p>マッチしない場合は <code>null</code> を返す。マッチした場合は最初にマッチした部分の文字列を配列で返す。パターンにカッコを使った部分があれば配列の2つ目以降としてそれらの部分を返す。</p>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

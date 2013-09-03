@@ -24,7 +24,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/clone.html">clone</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/contains-key.html">containsKey</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/foreach.html">foreach</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/map/get-or-else.html">getOrElse</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/get.html">キーで参照するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/is-empty.html">isEmpty</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/keys.html">keys</a></li>
   <li>&gt;&gt; マップ(連想配列)書き方</li>
@@ -41,7 +41,7 @@
   <h1 id="literal">マップ(連想配列)書き方</h1>
 
 <h2 id="cadffc1">Java
-<span class="article-date">2013/08/01</span></h2>
+<span class="article-date">2013/09/03</span></h2>
 
 <p>マップは一発では作れない。</p>
 
@@ -49,11 +49,6 @@
 HashMap&lt;String, Integer&gt; map = new HashMap&lt;String, Integer&gt;();
 map.put("a", 1);
 map.put("b", 2);
-</code></pre>
-
-<p>キーで参照するには</p>
-
-<pre><code>map.get("a");
 </code></pre>
 
 <p>空のマップを作るには</p>
@@ -67,7 +62,7 @@ map.put("b", 2);
 </code></pre>
 
 <h2 id="2386483">Scala
-<span class="article-date">2013/08/02</span></h2>
+<span class="article-date">2013/09/03</span></h2>
 
 <pre><code>map = Map("a" -&gt; 1, "b" -&gt; 2);
 </code></pre>
@@ -78,27 +73,8 @@ map.put("b", 2);
                                            scala.Predef.any2ArrowAssoc("a").-&gt;(2));
 </code></pre>
 
-<p>キーで参照するには</p>
-
-<pre><code>map("a")
-</code></pre>
-
-<p><code>Option</code> で取得するには</p>
-
-<pre><code>map.get("a")
-</code></pre>
-
-<p>要素が存在しない場合のデフォルト値を設定して、要素を取得するには</p>
-
-<pre><code>map.getOrElse("a", 0);
-</code></pre>
-
-<p>2つ目の引数がデフォルト値となる。要素が存在する場合には、2つ目の引数が評価されないので、計算に時間のかかるデフォルト値を設定してもよい。</p>
-
-<p>-&gt; <a href="get-or-else.html#scala">getOrElse</a></p>
-
 <h2 id="1723886">PHP
-<span class="article-date">2013/05/08</span></h2>
+<span class="article-date">2013/09/03</span></h2>
 
 <pre><code>arr = array('a' =&gt; 1, 'b' =&gt; 2);
 </code></pre>
@@ -108,11 +84,6 @@ map.put("b", 2);
 <pre><code>arr = ['a' =&gt; 1, 'b' =&gt; 2];
 </code></pre>
 
-<p>キーで参照するには</p>
-
-<pre><code>arr['a']
-</code></pre>
-
 <p>配列 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.types.array.php" target="_blank">http://www.php.net/manual/ja/language.types.array.php</a></p>
 
@@ -120,27 +91,10 @@ map.put("b", 2);
 <a href="http://www.php.net/manual/ja/book.array.php" target="_blank">http://www.php.net/manual/ja/book.array.php</a></p>
 
 <h2 id="9a1a61e">Ruby
-<span class="article-date">2013/08/20</span></h2>
+<span class="article-date">2013/09/03</span></h2>
 
 <pre><code>hash = {'a' =&gt; 1, 'b' =&gt; 2}
 </code></pre>
-
-<p>キーで参照するには</p>
-
-<pre><code>hash['a']
-</code></pre>
-
-<p>または</p>
-
-<pre><code>hash.fetch('a')
-</code></pre>
-
-<p>存在しない要素を取得しようとすると <code>[]</code> は <code>nil</code> が返ってくるが、
-<code>fetch</code> は <code>KeyError</code> の例外が発生する。</p>
-
-<p><code>fetch</code> は第2引数かブロックを与えることができ、要素が存在しない場合に、第2引数を返すか、ブロックを評価した結果を返す。</p>
-
-<p>-&gt; <a href="get-or-else.html#ruby">fetch</a></p>
 
 <h2 id="934b7c7">Python
 <span class="article-date">2013/04/17</span></h2>
