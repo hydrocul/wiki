@@ -103,6 +103,24 @@ p m.fetch('b', 2) # =&gt; 2
 p m.fetch('b') { 2 } # =&gt; 2
 </code></pre>
 
+<h2 id="a1fefad">Perl
+<span class="article-date">2013/09/03</span></h2>
+
+<p>以下のように <code>{}</code> でキーを指定し、先頭は <code>$</code> を使う。</p>
+
+<pre><code>my %hash = (a =&gt; 1, b =&gt; 2);
+
+$hash{a} # =&gt; 1
+$hash{'a'} # =&gt; 1
+</code></pre>
+
+<p>ハッシュへのレファレンスから要素を取り出すには</p>
+
+<pre><code>my $hash = {a =&gt; 1, b =&gt; 2};
+
+$hash-&gt;{a} # =&gt; 1
+</code></pre>
+
 
 </div>
 

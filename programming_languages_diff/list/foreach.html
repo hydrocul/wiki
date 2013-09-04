@@ -107,6 +107,33 @@ foreach($arr as $value){
 }
 </code></pre>
 
+<h2 id="cf3cbde">Smarty
+<span class="article-date">2013/09/04</span></h2>
+
+<pre><code>{foreach $arr as $value}
+  ...
+{foreachelse}
+  &lt;!-- $arr に要素がひとつもなかった場合 --&gt;
+  ...
+{/foreach}
+</code></pre>
+
+<p>ループの最初と最後にだけ特別な処理を入れたい場合、<code>foreach</code>の中で 
+<code>name=hoge</code> のように書くと <code>$smarty.foreach.hoge</code> を使って、処理を振り分けられる。</p>
+
+<pre><code>{foreach $arr as $value name=item}
+  {if $smarty.foreach.item.first}
+    &lt;!-- 最初の要素の場合 --&gt;
+    ...
+  {/if}
+  ...
+  {if $smarty.foreach.item.last}
+    &lt;!-- 最後の要素の場合 --&gt;
+    ...
+  {/if}
+{/foreach}
+</code></pre>
+
 <h2 id="031dbcb">Ruby
 <span class="article-date">2013/04/21</span></h2>
 

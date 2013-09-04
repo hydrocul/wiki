@@ -54,6 +54,7 @@
   <li>&gt; <a href="../commands/tac.html">tac</a></li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
   <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
+  <li>&gt; <a href="../commands/time.html">time</a></li>
   <li>&gt; <a href="../commands/top.html">top</a></li>
   <li>&gt; <a href="../commands/touch.html">touch</a></li>
   <li>&gt; <a href="../commands/tr.html">tr</a></li>
@@ -91,6 +92,17 @@ date --date "1 day ago" "+%Y-%m-%d"
 date --date "1 days ago" "+%Y-%m-%d" # 単数形複数形が間違っていても大丈夫
 date --date "1 month" "+%Y-%m-%d"
 </code></pre>
+
+<h2 id="3ea5365">日時を設定するには
+<span class="article-date">2013/09/04</span></h2>
+
+<p>例</p>
+
+<pre><code># 9月4日12時17分に設定
+sudo date -s "2013/09/04 12:17:00"
+</code></pre>
+
+<p>あらかじめ <code>sudo</code> なしで実行してみて、日時のフォーマットが合っているかを確認するとよい。</p>
 
 
 </div>
