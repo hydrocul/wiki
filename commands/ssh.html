@@ -48,17 +48,18 @@
   <li>&gt; <a href="../commands/sdiff.html">sdiff</a></li>
   <li>&gt; <a href="../commands/sed.html">sed コマンド</a></li>
   <li>&gt; <a href="../commands/sort.html">sort</a></li>
-  <li>&gt; <a href="../commands/source-highlight.html">source-highlight</a></li>
-  <li>&gt; <a href="../commands/sqlite.html">sqlite</a></li>
+  <li>&gt; <a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
+  <li>&gt; <a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
   <li>&gt; SSH</li>
-  <li>&gt; <a href="../commands/tac.html">tac</a></li>
+  <li>&gt; <a href="../commands/tac.html">tac コマンド</a></li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
   <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
-  <li>&gt; <a href="../commands/top.html">top</a></li>
-  <li>&gt; <a href="../commands/touch.html">touch</a></li>
-  <li>&gt; <a href="../commands/tr.html">tr</a></li>
-  <li>&gt; <a href="../commands/watch.html">watch</a></li>
-  <li>&gt; <a href="../commands/wc.html">wc</a></li>
+  <li>&gt; <a href="../commands/time.html">time コマンド</a></li>
+  <li>&gt; <a href="../commands/top.html">top コマンド</a></li>
+  <li>&gt; <a href="../commands/touch.html">touch コマンド</a></li>
+  <li>&gt; <a href="../commands/tr.html">tr コマンド</a></li>
+  <li>&gt; <a href="../commands/watch.html">watch コマンド</a></li>
+  <li>&gt; <a href="../commands/wc.html">wc コマンド</a></li>
   <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
   <li>&gt; <a href="../commands/xargs.html">xargs</a></li>
   <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
@@ -137,6 +138,14 @@
 
 <pre><code>rsync -e "ssh -i &lt;private_key_file&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
 </code></pre>
+
+<h2 id="688bfa5">強制的に切断するには
+<span class="article-date">2013/09/05</span></h2>
+
+<p>エンターを押した直後に <code>~.</code> と入力と切断される。エンターを押した直後の <code>~</code> は
+ssh接続自体へのコマンドのプレフィックスとなる。エンターの直後に <code>~</code> 自体を端末に入力するには <code>~~</code> と入力する。</p>
+
+<p>moshでは、 <code>Ctrl+^ .</code> と入れると、エンターの直後でなくても強制切断される。</p>
 
 <h2 id="backup-remot-to-local">サーバにある大量のファイルを tar しながら、ローカルにダウンロードするには
 <span class="article-date">2013/04/03</span></h2>

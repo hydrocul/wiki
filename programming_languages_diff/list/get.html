@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>インデックスで参照するには | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; リスト(配列)
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; インデックスで参照するには
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; リスト(配列)</li>
+  <li>&gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/add-all.html">addAll</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/clone.html">clone</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/compare.html">比較</a></li>
@@ -34,7 +34,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/foreach.html">foreach</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a></li>
+  <li>&gt;&gt; インデックスで参照するには</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">groupBy</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">grouped</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">head</a></li>
@@ -66,17 +66,37 @@
 </div>
 
 <div id="content">
-  <h1 id="list">リスト(配列)
-<span class="article-date">2013/07/31</span></h1>
+  <h1 id="get">インデックスで参照するには</h1>
 
-<p>Java, PHP, Ruby, Perlには配列がある。</p>
+<h2 id="d7ff22e">Java</h2>
 
-<p>Perlは、リストという用語は配列とは異なる意味を持ち、 <code>(..., ..., ...)</code> のようなソースコード上の表現で、それを配列の変数に代入すると配列になり、ハッシュの変数に代入するとハッシュになる。</p>
+<h3 id="2a5c8d6">配列
+<span class="article-date">2013/09/04</span></h3>
 
-<p>Javaでは配列のほかにリスト <code>java.util.List</code> がある。Scalaでは配列、
-Javaの配列・リストの他に、 <code>scala.collection.List</code> などがある。</p>
+<pre><code>arr[index]
+</code></pre>
 
-<p><a href="../../programming_languages_diff/list/add-all.html">addAll</a> <a href="../../programming_languages_diff/list/clone.html">clone</a> <a href="../../programming_languages_diff/list/compare.html">比較</a> <a href="../../programming_languages_diff/list/contains.html">contains</a> <a href="../../programming_languages_diff/list/drop.html">drop</a> <a href="../../programming_languages_diff/list/fill.html">fill</a> <a href="../../programming_languages_diff/list/filter.html">filter</a> <a href="../../programming_languages_diff/list/filter-count.html">filter-count</a> <a href="../../programming_languages_diff/list/find.html">find</a> <a href="../../programming_languages_diff/list/flat-map.html">flatMap</a> <a href="../../programming_languages_diff/list/flatten.html">flatten</a> <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a> <a href="../../programming_languages_diff/list/foreach.html">foreach</a> <a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a> <a href="../../programming_languages_diff/list/group-by.html">groupBy</a> <a href="../../programming_languages_diff/list/grouped.html">grouped</a> <a href="../../programming_languages_diff/list/head.html">head</a> <a href="../../programming_languages_diff/list/index-of.html">indexOf</a> <a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">IndexOutOfBoundsException</a> <a href="../../programming_languages_diff/list/is-empty.html">isEmpty</a> <a href="../../programming_languages_diff/list/last.html">last</a> <a href="../../programming_languages_diff/list/literal.html">リスト(配列)の書き方</a> <a href="../../programming_languages_diff/list/map.html">map</a> <a href="../../programming_languages_diff/list/pop.html">pop</a> <a href="../../programming_languages_diff/list/product.html">product</a> <a href="../../programming_languages_diff/list/push.html">push</a> <a href="../../programming_languages_diff/list/remove.html">remove</a> <a href="../../programming_languages_diff/list/reverse.html">reverse</a> <a href="../../programming_languages_diff/list/shift.html">shift</a> <a href="../../programming_languages_diff/list/size.html">size</a> <a href="../../programming_languages_diff/list/sort.html">sort</a> <a href="../../programming_languages_diff/list/sub-list.html">subList</a> <a href="../../programming_languages_diff/list/sum.html">sum</a> <a href="../../programming_languages_diff/list/tail.html">tail</a> <a href="../../programming_languages_diff/list/take.html">take</a> <a href="../../programming_languages_diff/list/to-map.html">toMap</a> <a href="../../programming_languages_diff/list/to-set.html">toSet</a> <a href="../../programming_languages_diff/list/unshift.html">unshift</a> <a href="../../programming_languages_diff/list/zip.html">zip</a></p>
+<h3 id="6698b90"><code>java.util.List</code>
+<span class="article-date">2013/09/04</span></h3>
+
+<pre><code>list.get(index)
+</code></pre>
+
+<h2 id="16fa026">Scala
+<span class="article-date">2013/09/04</span></h2>
+
+<p><code>Array</code> でも <code>List</code> でも同じ。</p>
+
+<pre><code>arr(index);
+list(index);
+</code></pre>
+
+<p>これは以下と同じ意味。</p>
+
+<pre><code>arr.apply(index);
+list.apply(index);
+</code></pre>
+
 
 </div>
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>tr | コマンドリファレンス | hydrocul のメモ</title>
+<title>tr コマンド | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; tr
+  <a href="../commands/">コマンドリファレンス</a> &gt; tr コマンド
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -51,12 +51,13 @@
   <li>&gt; <a href="../commands/source-highlight.html">source-highlight</a></li>
   <li>&gt; <a href="../commands/sqlite.html">sqlite</a></li>
   <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
-  <li>&gt; <a href="../commands/tac.html">tac</a></li>
+  <li>&gt; <a href="../commands/tac.html">tac コマンド</a></li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
   <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
-  <li>&gt; <a href="../commands/top.html">top</a></li>
-  <li>&gt; <a href="../commands/touch.html">touch</a></li>
-  <li>&gt; tr</li>
+  <li>&gt; <a href="../commands/time.html">time コマンド</a></li>
+  <li>&gt; <a href="../commands/top.html">top コマンド</a></li>
+  <li>&gt; <a href="../commands/touch.html">touch コマンド</a></li>
+  <li>&gt; tr コマンド</li>
   <li>&gt; <a href="../commands/watch.html">watch</a></li>
   <li>&gt; <a href="../commands/wc.html">wc</a></li>
   <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
@@ -68,9 +69,9 @@
 </div>
 
 <div id="content">
-  <h1 id="tr">tr</h1>
+  <h1 id="tr">tr コマンド</h1>
 
-<h2 id="8cbfc68">ファイルの特定の文字を改行に全置換するには
+<h2 id="9caba2a">ファイルの特定の文字を改行に全置換するには
 <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
@@ -78,7 +79,7 @@
 
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。trでは <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h2 id="9f61f82">ファイルの特定の文字を削除するには
+<h2 id="1143826">ファイルの特定の文字を削除するには
 <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
@@ -86,7 +87,7 @@
 
 <p>この例だと、改行をすべて削除する。</p>
 
-<h2 id="89d97ef">連続したスペースを単一のスペースに変換するには
+<h2 id="94a67e9">連続したスペースを単一のスペースに変換するには
 <span class="article-date">2013/04/18</span></h2>
 
 <pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名

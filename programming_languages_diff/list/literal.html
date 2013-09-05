@@ -34,6 +34,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/foreach.html">foreach</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">groupBy</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">grouped</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">head</a></li>
@@ -70,40 +71,36 @@
 <h2 id="ebe88f5">Java</h2>
 
 <h3 id="b5b2042">配列
-<span class="article-date">2013/04/17</span></h3>
+<span class="article-date">2013/09/04</span></h3>
 
 <pre><code>int[] arr = {1, 2, 3};
-
-int[] arr = new int[]{1, 2, 3};
 </code></pre>
 
-<p>インデックスで参照するには</p>
+<p>または</p>
 
-<pre><code>arr[index]
+<pre><code>int[] arr = new int[]{1, 2, 3};
 </code></pre>
 
 <h3 id="5339e01"><code>java.util.List</code>
-<span class="article-date">2013/08/12</span></h3>
+<span class="article-date">2013/09/04</span></h3>
 
 <pre><code>import java.util.List;
 import java.util.ArrayList;
 
-List&lt;String&gt; lst = new ArrayList&lt;String&gt;();
-lst.add("a");
-lst.add("b");
-lst.add("c");
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+list.add("a");
+list.add("b");
+list.add("c");
 </code></pre>
 
-<p>インデックスで参照するには</p>
-
-<pre><code>lst.get(index)
-</code></pre>
+<h3 id="f4f92ff">配列と <code>java.util.List</code> の相互変換
+<span class="article-date">2013/09/04</span></h3>
 
 <p><code>java.util.List</code> のインスタンスを配列に変換するには</p>
 
-<pre><code>ArrayList&lt;String&gt; lst = ...;
-String[] arr = new String[lst.size()];
-lst.toArray(arr);
+<pre><code>ArrayList&lt;String&gt; list = ...;
+String[] arr = new String[list.size()];
+list.toArray(arr);
 </code></pre>
 
 <p>逆に配列を <code>java.util.List</code> に変換するには</p>
@@ -111,11 +108,11 @@ lst.toArray(arr);
 <pre><code>import java.util.Arrays;
 
 String[] arr = ...;
-List&lt;String&gt; lst = Arrays.asList(arr);
+List&lt;String&gt; list = Arrays.asList(arr);
 </code></pre>
 
 <h2 id="2501902">Scala
-<span class="article-date">2013/04/17</span></h2>
+<span class="article-date">2013/09/04</span></h2>
 
 <pre><code>arr = Array(1, 2, 3);
 list = List(1, 2, 3);
@@ -125,18 +122,6 @@ list = List(1, 2, 3);
 
 <pre><code>arr = scala.Array.apply(1, 2, 3);
 list = scala.collection.immutable.List.apply(1, 2, 3);
-</code></pre>
-
-<p>インデックスで参照するには</p>
-
-<pre><code>arr(index);
-list(index);
-</code></pre>
-
-<p>これは以下と同じ意味。</p>
-
-<pre><code>arr.apply(index);
-list.apply(index);
 </code></pre>
 
 <h2 id="af204a7">PHP
