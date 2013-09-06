@@ -25,6 +25,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/multi-return.html">複数の返り値</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
@@ -38,11 +39,12 @@
 
 <h2 id="cedc311">Java</h2>
 
-<h3 id="aeab09a">Java8からの機能(ラムダ式)
-<span class="article-date">2013/08/28</span></h3>
+<h3 id="d74ce16">ラムダ式
+<span class="article-date">2013/09/06</span></h3>
 
 <p>抽象メソッド1つだけのインターフェースを関数型インターフェース(SAM Type,
-single abstract method type)といい、関数型インターフェースを継承する匿名クラスのインスタンスを簡単に書けるようになっている。</p>
+single abstract method type)といい、
+Java8からは、関数型インターフェースを継承する匿名クラスのインスタンスをラムダ式のように簡単に書けるようになっている。</p>
 
 <p>Java7までの書き方の例</p>
 
@@ -74,6 +76,21 @@ single abstract method type)といい、関数型インターフェースを継�
 <p>本体部分に式を直接書くと、その式が関数の返り値となる。本体部分を <code>{}</code> で囲むと、メソッド定義と同じように、返り値は<code>return</code>文を書く必要がある。</p>
 
 <p>匿名クラスの中で <code>this</code> と書くと、匿名クラス自体のインスタンスを指すが、ラムダ式の中で <code>this</code> と書くと、その関数の外側のインスタンスを指すことになる。このラムダ式がクラスのようには見えないので、この仕様はソースを見たときの直感通りかもしれない。</p>
+
+<h3 id="38ab12e">メソッド参照
+<span class="article-date">2013/09/06</span></h3>
+
+<p>ラムダ式の代わりにメソッド名でも、関数型インターフェースのインスタンスを生成できる。</p>
+
+<p>例</p>
+
+<pre><code>Object::toString // x -&gt; x.toString() と同じ
+
+Object a = ...;
+a::toString // () -&gt; a.toString() と同じ
+
+StringBuilder::new // () -&gt; new StringBuilder() と同じ
+</code></pre>
 
 <h2 id="c01e70d">Scala
 <span class="article-date">2013/08/26</span></h2>

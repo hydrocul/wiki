@@ -45,22 +45,23 @@
   <li>&gt; <a href="../commands/ps.html">ps</a></li>
   <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
   <li>&gt; <a href="../commands/rsync.html">rsync</a></li>
-  <li>&gt; <a href="../commands/sdiff.html">sdiff</a></li>
+  <li>&gt; <a href="../commands/sdiff.html">sdiff コマンド</a></li>
   <li>&gt; <a href="../commands/sed.html">sed コマンド</a></li>
-  <li>&gt; <a href="../commands/sort.html">sort</a></li>
-  <li>&gt; <a href="../commands/source-highlight.html">source-highlight</a></li>
-  <li>&gt; <a href="../commands/sqlite.html">sqlite</a></li>
-  <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
-  <li>&gt; <a href="../commands/tac.html">tac</a></li>
+  <li>&gt; <a href="../commands/sort.html">sort コマンド</a></li>
+  <li>&gt; <a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
+  <li>&gt; <a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
+  <li>&gt; <a href="../commands/ssh.html">ssh コマンド</a></li>
+  <li>&gt; <a href="../commands/tac.html">tac コマンド</a></li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
   <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
-  <li>&gt; <a href="../commands/top.html">top</a></li>
-  <li>&gt; <a href="../commands/touch.html">touch</a></li>
-  <li>&gt; <a href="../commands/tr.html">tr</a></li>
-  <li>&gt; <a href="../commands/watch.html">watch</a></li>
-  <li>&gt; <a href="../commands/wc.html">wc</a></li>
+  <li>&gt; <a href="../commands/time.html">time コマンド</a></li>
+  <li>&gt; <a href="../commands/top.html">top コマンド</a></li>
+  <li>&gt; <a href="../commands/touch.html">touch コマンド</a></li>
+  <li>&gt; <a href="../commands/tr.html">tr コマンド</a></li>
+  <li>&gt; <a href="../commands/watch.html">watch コマンド</a></li>
+  <li>&gt; <a href="../commands/wc.html">wc コマンド</a></li>
   <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
-  <li>&gt; <a href="../commands/xargs.html">xargs</a></li>
+  <li>&gt; <a href="../commands/xargs.html">xargs コマンド</a></li>
   <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
 </ul>
 
@@ -71,7 +72,7 @@
   <h1 id="incron">incron (inotify cron)
 <span class="article-date">2013/05/12</span></h1>
 
-<p>cronが一定の時間ごとにジョブを実行させるためのものに対して、
+<p><a href="crontab.html">cron</a>が一定の時間ごとにジョブを実行させるためのものに対して、
 incronはファイルの変更などのイベント時に特定のジョブを実行させるもの。</p>
 
 <p>Linuxのinotifyという仕組みを利用しており、Linuxカーネル2.6.13以降で使える。他のOSでは使えない。</p>
@@ -118,14 +119,14 @@ incrontab -r
 <p><code>-r</code> は <code>crontab</code> と同じく、確認なしに設定を削除するので、要注意。</p>
 
 <h2 id="310f555">ジョブの設定のフォーマット
-<span class="article-date">2013/05/12</span></h2>
+<span class="article-date">2013/09/05</span></h2>
 
 <pre><code>監視対象ファイル 監視対象イベント コマンド
 </code></pre>
 
 <p>例</p>
 
-<pre><code>/home/hoge/foo IN_CREATE,IN_DELETE echo $@/$# $% &gt;&gt; ~/.incrontab_log
+<pre><code>/home/hoge/foo IN_CREATE,IN_DELETE /home/hoge/bin/script.sh $@/$# $%
 </code></pre>
 
 <p>監視対象ファイルはディレクトリも指定可能。パスにスペースが含まれる場合はバックスラッシュでエスケープする。</p>
@@ -207,7 +208,7 @@ incrontab -r
 <h2 id="89ebeef">ログ
 <span class="article-date">2013/05/13</span></h2>
 
-<p>実行されたコマンドのログは <code>/var/log/syslog</code> に書きだされる
+<p>実行されたコマンドのログは <code>/var/log/syslog</code> に書き出される。
 (Ubuntuのデフォルトの設定で確認、他のOSでは違うかもしれない)。</p>
 
 <h2 id="28b942b">他との比較

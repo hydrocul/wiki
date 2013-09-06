@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>SSH | コマンドリファレンス | hydrocul のメモ</title>
+<title>ssh コマンド | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; SSH
+  <a href="../commands/">コマンドリファレンス</a> &gt; ssh コマンド
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -45,12 +45,12 @@
   <li>&gt; <a href="../commands/ps.html">ps</a></li>
   <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
   <li>&gt; <a href="../commands/rsync.html">rsync</a></li>
-  <li>&gt; <a href="../commands/sdiff.html">sdiff</a></li>
+  <li>&gt; <a href="../commands/sdiff.html">sdiff コマンド</a></li>
   <li>&gt; <a href="../commands/sed.html">sed コマンド</a></li>
-  <li>&gt; <a href="../commands/sort.html">sort</a></li>
+  <li>&gt; <a href="../commands/sort.html">sort コマンド</a></li>
   <li>&gt; <a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
   <li>&gt; <a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
-  <li>&gt; SSH</li>
+  <li>&gt; ssh コマンド</li>
   <li>&gt; <a href="../commands/tac.html">tac コマンド</a></li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
   <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
@@ -61,7 +61,7 @@
   <li>&gt; <a href="../commands/watch.html">watch コマンド</a></li>
   <li>&gt; <a href="../commands/wc.html">wc コマンド</a></li>
   <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
-  <li>&gt; <a href="../commands/xargs.html">xargs</a></li>
+  <li>&gt; <a href="../commands/xargs.html">xargs コマンド</a></li>
   <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
 </ul>
 
@@ -69,9 +69,9 @@
 </div>
 
 <div id="content">
-  <h1 id="ssh">SSH</h1>
+  <h1 id="ssh">ssh コマンド</h1>
 
-<h2 id="21f07fe">基本の使い方
+<h2 id="6c19005">基本の使い方
 <span class="article-date">2013/06/11</span></h2>
 
 <pre><code>ssh &lt;ID&gt;@&lt;IP&gt;
@@ -97,7 +97,7 @@
 <p><code>&lt;ID&gt;@</code> の部分はローカルホストのログインユーザ名と同じであるか、
 <code>~/.ssh/config</code> にユーザ名が指定してあれば、省略可。</p>
 
-<h2 id="488efec">ポートが22以外のSSHサーバに接続するには
+<h2 id="846237d">ポートが22以外のSSHサーバに接続するには
 <span class="article-date">2013/05/28</span></h2>
 
 <pre><code>ssh -p &lt;port&gt; &lt;ID&gt;@&lt;IP&gt;
@@ -118,7 +118,7 @@
 <pre><code>rsync -e "ssh -p &lt;port&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
 </code></pre>
 
-<h2 id="7acb14e">秘密鍵を個別に指定して接続するには
+<h2 id="d17b7e2">秘密鍵を個別に指定して接続するには
 <span class="article-date">2013/05/28</span></h2>
 
 <pre><code>ssh -i &lt;private_key_file&gt; &lt;ID&gt;@&lt;IP&gt;
@@ -139,7 +139,7 @@
 <pre><code>rsync -e "ssh -i &lt;private_key_file&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
 </code></pre>
 
-<h2 id="688bfa5">強制的に切断するには
+<h2 id="ef0bfbb">強制的に切断するには
 <span class="article-date">2013/09/05</span></h2>
 
 <p>エンターを押した直後に <code>~.</code> と入力と切断される。エンターを押した直後の <code>~</code> は
@@ -166,7 +166,7 @@ ssh接続自体へのコマンドのプレフィックスとなる。エンタ�
 <pre><code>tar czf - ローカルのバックアップ対象ディレクトリ | ssh vps "cat &gt; リモートの一時ファイル名 &amp;&amp; mv リモートの一時ファイル名 リモートの保存先tarファイル名"
 </code></pre>
 
-<h2 id="6007092">SSHが勝手に切断されないようにするには
+<h2 id="a900f4c">SSHが勝手に切断されないようにするには
 <span class="article-date">2013/04/03</span></h2>
 
 <p>クライアント側の ~/.ssh/config に以下を記述する。</p>
@@ -175,7 +175,7 @@ ssh接続自体へのコマンドのプレフィックスとなる。エンタ�
   ServerAliveInterval 60
 </code></pre>
 
-<h2 id="40081b8">秘密鍵・公開鍵のペアを作るには
+<h2 id="375c0ee">秘密鍵・公開鍵のペアを作るには
 <span class="article-date">2013/04/03</span></h2>
 
 <p>以下のコマンドで <code>~/.ssh/id_rsa</code>, <code>~/.ssh/id_rsa.pub</code> にできる。</p>
@@ -183,7 +183,7 @@ ssh接続自体へのコマンドのプレフィックスとなる。エンタ�
 <pre><code>ssh-keygen -t rsa
 </code></pre>
 
-<h2 id="599456c">公開鍵をリモートのサーバに簡単に設置するには
+<h2 id="a04ea0c">公開鍵をリモートのサーバに簡単に設置するには
 <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>cat ~/.ssh/id_rsa.pub | ssh &lt;ID&gt;@&lt;IP&gt; "bash -c \"if [ ! -d ~/.ssh ] ; then mkdir ~/.ssh; fi; if [ -f ~/.ssh/authorized_keys ] ; then cat &gt;&gt; ~/.ssh/authorized_keys; else cat &gt;&gt; ~/.ssh/authorized_keys2; fi\""
@@ -193,14 +193,14 @@ ssh接続自体へのコマンドのプレフィックスとなる。エンタ�
 
 <p>sshのオプションの中で bash を起動しているのは、FreeBSDのサーバなどでデフォルトのシェルがcshの場合に、ifの構文が違っていて動かないので、bashを強制するため。</p>
 
-<h2 id="597810c">autossh
+<h2 id="73215e6">autossh
 <span class="article-date">2013/04/22</span></h2>
 
 <p>sshセッションが切れたときに自動で再接続してくれるツール。
 moshを使っていれば問題ないが、SSH port forwarding を使っている場合は、
 moshが対応していないので、このツールが便利かもしれない。</p>
 
-<h2 id="a61d876">ポートフォワードの待ち受けポートに外部から接続できるようにするには
+<h2 id="01779f9">ポートフォワードの待ち受けポートに外部から接続できるようにするには
 <span class="article-date">2013/04/27</span></h2>
 
 <p>ポートを待ち受ける方のホストの <code>/etc/ssh/sshd_config</code> に以下を書いておく。</p>
@@ -230,7 +230,7 @@ moshが対応していないので、このツールが便利かもしれない�
 \------------/
 </code></pre>
 
-<h2 id="9aa6cc8">mosh</h2>
+<h2 id="7c883ba">mosh</h2>
 
 <p>モバイル環境に強くしたssh。</p>
 

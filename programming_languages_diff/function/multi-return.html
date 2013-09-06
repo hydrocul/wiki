@@ -25,7 +25,9 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a></li>
   <li>&gt;&gt; 複数の返り値</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/return-void.html">関数のなかで返り値が指定されていない場合の扱い</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
 </ul>
@@ -48,9 +50,9 @@ list($num, $str) = f();
 </code></pre>
 
 <h2 id="015e7c5">Ruby
-<span class="article-date">2013/04/22</span></h2>
+<span class="article-date">2013/09/06</span></h2>
 
-<p><code>return</code> にカンマ区切りで複数の値を書けば、配列を返すことができ、受け取り側は配列の多重代入を使う。</p>
+<p><code>return</code> にカンマ区切りで複数の値を書けば、配列を返すことになり、受け取り側は配列の多重代入を使う。</p>
 
 <pre><code>def f
   return 1, "abc"

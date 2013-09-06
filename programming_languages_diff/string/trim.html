@@ -76,6 +76,19 @@
 trim($str, "\r\n")
 </code></pre>
 
+<h2 id="b70da1c">Smarty
+<span class="article-date">2013/09/06</span></h2>
+
+<p>PHPの関数をそのまま修飾子として使えるので、trimして表示したい場合は、以下のように書ける。</p>
+
+<pre><code>{$str|trim}
+</code></pre>
+
+<p><code>{strip}</code> というのがあるが、これは、HTMLタグの間にある改行やスペースを削除してくれるもので、ソースコードのインデントなどを維持したまま、
+HTMLの余計な空白による悪影響を排除するための機能。</p>
+
+<p><a href="http://www.smarty.net/docsv2/ja/language.function.strip.tpl" target="_blank">http://www.smarty.net/docsv2/ja/language.function.strip.tpl</a></p>
+
 <h2 id="8b76696">Ruby
 <span class="article-date">2013/04/10</span></h2>
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>メソッドのオーバーロード | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; 関数・メソッド
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; メソッドのオーバーロード
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,14 +20,13 @@
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; 関数・メソッド</li>
+  <li>&gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/literal.html">関数の書き方</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/multi-return.html">複数の返り値</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
+  <li>&gt;&gt; メソッドのオーバーロード</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/return-void.html">関数のなかで返り値が指定されていない場合の扱い</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
 </ul>
@@ -36,9 +35,23 @@
 </div>
 
 <div id="content">
-  <h1 id="function">関数・メソッド</h1>
+  <h1 id="overload">メソッドのオーバーロード
+<span class="article-date">2013/09/06</span></h1>
 
-<p><a href="../../programming_languages_diff/function/literal.html">関数の書き方</a> <a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a> <a href="../../programming_languages_diff/function/multi-return.html">複数の返り値</a> <a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a> <a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a> <a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a> <a href="../../programming_languages_diff/function/return-void.html">関数のなかで返り値が指定されていない場合の扱い</a> <a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a> <a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></p>
+<p>同じ名前で引数や返り値の型が異なるメソッドを複数定義することをオーバーロードという。</p>
+
+<h2 id="d8934a8">C++
+<span class="article-date">2013/09/06</span></h2>
+
+<p>引数の型や数が異なれば関数のオーバーロードが可能。</p>
+
+<h2 id="8a4dfbf">Java
+<span class="article-date">2013/09/06</span></h2>
+
+<p>引数の型や数が異なれば関数のオーバーロードが可能。</p>
+
+<p>Java5以降では、引数の型がジェネリックス(総称型)の場合で、その型パラメータのみが異なるメソッドは定義できない。オーバーロードがJVMのレベルでのサポートだが、ジェネリックスの機能はJVMではサポートされておらず、コンパイル時に型パラメータが削除されてしまうため。</p>
+
 
 </div>
 

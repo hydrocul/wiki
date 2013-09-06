@@ -68,7 +68,10 @@
 <div id="content">
   <h1 id="literal">リスト(配列)の書き方</h1>
 
-<h2 id="ebe88f5">Java</h2>
+<h2 id="ebe88f5">Java
+<span class="article-date">2013/09/05</span></h2>
+
+<p>配列のほかに、<code>java.util.List</code> インターフェースを実装するクラスも使える。</p>
 
 <h3 id="b5b2042">配列
 <span class="article-date">2013/09/04</span></h3>
@@ -112,10 +115,14 @@ List&lt;String&gt; list = Arrays.asList(arr);
 </code></pre>
 
 <h2 id="2501902">Scala
-<span class="article-date">2013/09/04</span></h2>
+<span class="article-date">2013/09/05</span></h2>
 
-<pre><code>arr = Array(1, 2, 3);
-list = List(1, 2, 3);
+<p>Javaの配列、<code>java.util.List</code> の他に、<code>scala.collection.immutable.List</code> などもある。
+<code>scala.collection.immutable.List</code> やその他のリストや配列のようなScalaのクラスは
+<code>scala.collection.Seq</code> を実装している。</p>
+
+<pre><code>arr = Array(1, 2, 3); // Javaの配列
+list = List(1, 2, 3); // scala.collection.immutable.List
 </code></pre>
 
 <p>これは以下と同じ意味。</p>
@@ -125,28 +132,23 @@ list = scala.collection.immutable.List.apply(1, 2, 3);
 </code></pre>
 
 <h2 id="af204a7">PHP
-<span class="article-date">2013/07/31</span></h2>
+<span class="article-date">2013/09/05</span></h2>
 
-<pre><code>arr = array(1, 2, 3);
+<pre><code>$arr = array(1, 2, 3);
 </code></pre>
 
 <p>最後に余計なカンマがあっても問題ない。</p>
 
-<pre><code>arr = array(
-            1,
-            2,
-            3,
-           );
+<pre><code>$arr = array(
+             1,
+             2,
+             3,
+            );
 </code></pre>
 
 <p>PHP 5.4からは以下のようにも書ける。</p>
 
-<pre><code>arr = [1, 2, 3];
-</code></pre>
-
-<p>インデックスで参照するには</p>
-
-<pre><code>arr[index]
+<pre><code>$arr = [1, 2, 3];
 </code></pre>
 
 <p>配列 | PHP Manual<br />
@@ -156,7 +158,7 @@ list = scala.collection.immutable.List.apply(1, 2, 3);
 <a href="http://www.php.net/manual/ja/book.array.php" target="_blank">http://www.php.net/manual/ja/book.array.php</a></p>
 
 <h2 id="eafdc8b">Ruby
-<span class="article-date">2013/05/08</span></h2>
+<span class="article-date">2013/09/05</span></h2>
 
 <pre><code>arr = [1, 2, 3]
 arr = %w(abc def ghi) # =&gt; ['abc', 'def', 'ghi'] と同じ
@@ -170,24 +172,14 @@ arr = %w(abc def ghi) # =&gt; ['abc', 'def', 'ghi'] と同じ
 %w!abc def ghi!
 </code></pre>
 
-<p>インデックスで参照するには</p>
-
-<pre><code>arr[index]
-</code></pre>
-
 <h2 id="f36da94">Python
-<span class="article-date">2013/04/17</span></h2>
+<span class="article-date">2013/09/05</span></h2>
 
 <pre><code>arr = [1, 2, 3]
 </code></pre>
 
-<p>インデックスで参照するには</p>
-
-<pre><code>arr.index(idx)
-</code></pre>
-
 <h2 id="5120647">Perl
-<span class="article-date">2013/07/31</span></h2>
+<span class="article-date">2013/09/05</span></h2>
 
 <p>配列そのものは変数名が <code>@</code> で始まり、要素を参照するには <code>$</code> で始める。</p>
 
@@ -205,24 +197,7 @@ arr = %w(abc def ghi) # =&gt; ['abc', 'def', 'ghi'] と同じ
           );
 </code></pre>
 
-<p>インデックスで参照するには、要素がスカラのためシジルとして <code>$</code> を使う。</p>
-
-<pre><code>$arr[0];
-</code></pre>
-
-<p>インデックスが最後よりも後ろになってしまうと、<code>undef</code> になり、
-<code>use warnings;</code> を使っていると警告が表示される。</p>
-
-<p>インデックスに負を使うと後ろから数えられる。</p>
-
-<pre><code>$arr[-1]; # 最後の要素
-$arr[-2]; # 最後から2番目の要素
-</code></pre>
-
-<p>負のインデックスが先頭よりも前になってしまうと、<code>undef</code> になり、
-<code>use warnings;</code> を使っていると警告が表示される。</p>
-
-<p>配列をネストすることはできず、ネストして書いても平坦になってしまう。</p>
+<p>配列をネストすることはできず、ネストして書いたつもりでも平坦になってしまう。</p>
 
 <pre><code>my @arr = (1, 2, (3, 4));
 print $arr[2]; # =&gt; 3

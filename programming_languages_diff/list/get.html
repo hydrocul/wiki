@@ -97,6 +97,44 @@ list(index);
 list.apply(index);
 </code></pre>
 
+<h2 id="604380b">PHP
+<span class="article-date">2013/09/05</span></h2>
+
+<pre><code>$arr[$index]
+</code></pre>
+
+<h2 id="27107c7">Ruby
+<span class="article-date">2013/09/05</span></h2>
+
+<pre><code>arr[index]
+</code></pre>
+
+<h2 id="df02f72">Python
+<span class="article-date">2013/09/05</span></h2>
+
+<pre><code>arr.index(idx)
+</code></pre>
+
+<h2 id="7255ccf">Perl
+<span class="article-date">2013/09/05</span></h2>
+
+<p>配列そのもののシジルは <code>@</code> だが、インデックスで参照するには、要素がスカラのためシジルとして <code>$</code> を使う。</p>
+
+<pre><code>$arr[0];
+</code></pre>
+
+<p>インデックスが最後よりも後ろになってしまうと、<code>undef</code> になり、
+<code>use warnings;</code> を使っていると警告が表示される。</p>
+
+<p>インデックスに負を使うと後ろから数えられる。</p>
+
+<pre><code>$arr[-1]; # 最後の要素
+$arr[-2]; # 最後から2番目の要素
+</code></pre>
+
+<p>負のインデックスが先頭よりも前になってしまうと、<code>undef</code> になり、
+<code>use warnings;</code> を使っていると警告が表示される。</p>
+
 
 </div>
 
