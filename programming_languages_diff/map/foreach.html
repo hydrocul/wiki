@@ -24,7 +24,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/clone.html">clone</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/contains-key.html">containsKey</a></li>
   <li>&gt;&gt; foreach</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/map/get-or-else.html">getOrElse</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/get.html">キーで参照するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/is-empty.html">isEmpty</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/keys.html">keys</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/literal.html">マップ(連想配列)書き方</a></li>
@@ -81,6 +81,23 @@ end
 <pre><code>hash.each_pair do |key, value|
   ...
 end
+</code></pre>
+
+<h2 id="0fadab0">Perl
+<span class="article-date">2013/09/06</span></h2>
+
+<p>キーの配列を取得して <code>foreach</code> で回す方法</p>
+
+<pre><code>foreach my @key (keys %hash) {
+  ...;
+}
+</code></pre>
+
+<p>キーと値のペアを <code>each</code> を使って回す方法</p>
+
+<pre><code>while ((my $key, my $value) = each(%hash)) {
+  ...;
+}
 </code></pre>
 
 <h2 id="a764629">CoffeeScript

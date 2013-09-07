@@ -21,6 +21,8 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../../programming_languages_diff/exec/">プロセス管理</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/exec/exit.html">プロセスを終了するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/exec/sleep.html">スレッドを一定時間停止する</a></li>
   <li>&gt;&gt; 外部コマンドを実行してその出力をそのまま出力するには</li>
 </ul>
 
@@ -43,11 +45,31 @@
 <p><a href="http://www.php.net/manual/ja/function.system.php" target="_blank">http://www.php.net/manual/ja/function.system.php</a></p>
 
 <h2 id="2182f3f">Perl
-<span class="article-date">2013/07/27</span></h2>
+<span class="article-date">2013/09/06</span></h2>
 
 <p>例</p>
 
 <pre><code>system('ls -al');
+</code></pre>
+
+<p>この方法だと外部コマンド実行中に Ctrl+C を押しても、外部コマンドが終了するだけで、Perlスクリプトは終了してくれない。</p>
+
+<p>Ctrl+C を押して外部コマンドだけでなくPerlスクリプト自体を終了させるには
+fork, exec, wait を使う。</p>
+
+<pre><code>my $pid = fork;
+if ($pid) {
+    # 親プロセスの場合
+    wait;
+    # waitは子プロセスのうちどれか1つが終了するまで待つ
+} elsif (defined $pid) {
+    # 子プロセスの場合
+    exec('...');
+    # exec呼び出すとそれ以降は実行されない
+} else {
+    # fork失敗の場合
+    ...;
+}
 </code></pre>
 
 

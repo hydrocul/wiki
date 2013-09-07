@@ -22,6 +22,7 @@
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../../programming_languages_diff/exec/">プロセス管理</a></li>
   <li>&gt;&gt; プロセスを終了するには</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/exec/sleep.html">スレッドを一定時間停止する</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/exec/system.html">外部コマンドを実行してその出力をそのまま出力するには</a></li>
 </ul>
 
@@ -45,7 +46,7 @@
 </code></pre>
 
 <h2 id="7dcc4c9">Perl
-<span class="article-date">2013/07/27</span></h2>
+<span class="article-date">2013/09/06</span></h2>
 
 <p>正常終了の場合</p>
 
@@ -56,6 +57,15 @@
 
 <pre><code>exit(1);
 </code></pre>
+
+<p>異常が発生した場合は、以下のように書くと例外を発生させることができ、例外がキャッチされない場合は、0以外の終了コードでPerlスクリプトが終了する。</p>
+
+<pre><code>die "hogehoge error\n";
+</code></pre>
+
+<p>メッセージに改行が含まれていれば、異常終了時にそのメッセージが表示される。</p>
+
+<p>メッセージに改行が含まれていなければ、異常終了時に、メッセージとその場所のスクリプトファイル名・行番号が表示される。</p>
 
 
 </div>

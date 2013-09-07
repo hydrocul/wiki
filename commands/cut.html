@@ -45,22 +45,23 @@
   <li>&gt; <a href="../commands/ps.html">ps</a></li>
   <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
   <li>&gt; <a href="../commands/rsync.html">rsync</a></li>
-  <li>&gt; <a href="../commands/sdiff.html">sdiff</a></li>
+  <li>&gt; <a href="../commands/sdiff.html">sdiff コマンド</a></li>
   <li>&gt; <a href="../commands/sed.html">sed コマンド</a></li>
-  <li>&gt; <a href="../commands/sort.html">sort</a></li>
-  <li>&gt; <a href="../commands/source-highlight.html">source-highlight</a></li>
-  <li>&gt; <a href="../commands/sqlite.html">sqlite</a></li>
-  <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
-  <li>&gt; <a href="../commands/tac.html">tac</a></li>
+  <li>&gt; <a href="../commands/sort.html">sort コマンド</a></li>
+  <li>&gt; <a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
+  <li>&gt; <a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
+  <li>&gt; <a href="../commands/ssh.html">ssh コマンド</a></li>
+  <li>&gt; <a href="../commands/tac.html">tac コマンド</a></li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
   <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
-  <li>&gt; <a href="../commands/top.html">top</a></li>
-  <li>&gt; <a href="../commands/touch.html">touch</a></li>
-  <li>&gt; <a href="../commands/tr.html">tr</a></li>
-  <li>&gt; <a href="../commands/watch.html">watch</a></li>
-  <li>&gt; <a href="../commands/wc.html">wc</a></li>
+  <li>&gt; <a href="../commands/time.html">time コマンド</a></li>
+  <li>&gt; <a href="../commands/top.html">top コマンド</a></li>
+  <li>&gt; <a href="../commands/touch.html">touch コマンド</a></li>
+  <li>&gt; <a href="../commands/tr.html">tr コマンド</a></li>
+  <li>&gt; <a href="../commands/watch.html">watch コマンド</a></li>
+  <li>&gt; <a href="../commands/wc.html">wc コマンド</a></li>
   <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
-  <li>&gt; <a href="../commands/xargs.html">xargs</a></li>
+  <li>&gt; <a href="../commands/xargs.html">xargs コマンド</a></li>
   <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
 </ul>
 
@@ -69,7 +70,7 @@
 
 <div id="content">
   <h1 id="cut">cut コマンド
-<span class="article-date">2013/06/24</span></h1>
+<span class="article-date">2013/09/06</span></h1>
 
 <p>タブ区切りでフィールドを選択して出力する。または文字単位・バイト単位で1行の中の場所を選択して出力する。</p>
 
@@ -81,6 +82,18 @@ cat ファイル名 | cut -f1,3
 # 以下のようにしても列の順番は入れ替えてくれない
 cat ファイル名 | cut -f3,1
 </code></pre>
+
+<dl>
+  <dt><code>-f</code></dt>
+  <dd>抽出するフィールドの番号を指定する。1から始まる番号でハイフンでの範囲指定や
+コンマ区切りで複数指定できる</dd>
+  <dt><code>-d</code></dt>
+  <dd>フィールドのデリミタを指定する</dd>
+  <dt><code>-b</code></dt>
+  <dd>フィールド単位ではなくバイト単位で抽出する範囲を指定する</dd>
+  <dt><code>-c</code></dt>
+  <dd>フィールド単位ではなく文字単位で抽出する範囲を指定する</dd>
+</dl>
 
 <h2 id="bf5d3a4">スペース区切りを処理するには
 <span class="article-date">2013/06/17</span></h2>
