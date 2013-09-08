@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>コマンドリファレンス | hydrocul のメモ</title>
+<title>tail コマンド | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <span>コマンドリファレンス</span>
+  <a href="../commands/">コマンドリファレンス</a> &gt; <span>tail コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -19,7 +19,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>コマンドリファレンス</li>
+  <li><a href="../commands/">コマンドリファレンス</a></li>
   <li>&gt; <a href="../commands/ack-grep.html">ack-grep</a></li>
   <li>&gt; <a href="../commands/awk.html">awk</a></li>
   <li>&gt; <a href="../commands/base64.html">base64</a></li>
@@ -52,7 +52,7 @@
   <li>&gt; <a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
   <li>&gt; <a href="../commands/ssh.html">ssh コマンド</a></li>
   <li>&gt; <a href="../commands/tac.html">tac コマンド</a></li>
-  <li>&gt; <a href="../commands/tail.html">tail コマンド</a></li>
+  <li>&gt; tail コマンド</li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
   <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
   <li>&gt; <a href="../commands/time.html">time コマンド</a></li>
@@ -72,9 +72,29 @@
 </div>
 
 <div id="content">
-  <h1 id="commands">コマンドリファレンス</h1>
+  <h1 id="tail">tail コマンド
+<span class="article-date">2013/09/07</span></h1>
 
-<p><a href="../commands/ack-grep.html">ack-grep</a> <a href="../commands/awk.html">awk</a> <a href="../commands/base64.html">base64</a> <a href="../commands/cat.html">cat</a> <a href="../commands/cp.html">cp コマンド</a> <a href="../commands/crontab.html">crontab</a> <a href="../commands/cut.html">cut コマンド</a> <a href="../commands/date.html">date</a> <a href="../commands/diff.html">diff</a> <a href="../commands/du.html">du</a> <a href="../commands/find.html">find コマンド</a> <a href="../commands/git.html">git コマンド</a> <a href="../commands/grep.html">grep</a> <a href="../commands/incron.html">incron (inotify cron)</a> <a href="../commands/less.html">less コマンド</a> <a href="../commands/lftp.html">lftp</a> <a href="../commands/ls.html">ls コマンド</a> <a href="../commands/mosh.html">mosh</a> <a href="../commands/netstat.html">netstat</a> <a href="../commands/nkf.html">nkf コマンド</a> <a href="../commands/od.html">od</a> <a href="../commands/openssl.html">openssl</a> <a href="../commands/ps.html">ps</a> <a href="../commands/pstree.html">pstree</a> <a href="../commands/rsync.html">rsync</a> <a href="../commands/sdiff.html">sdiff コマンド</a> <a href="../commands/sed.html">sed コマンド</a> <a href="../commands/sort.html">sort コマンド</a> <a href="../commands/source-highlight.html">source-highlight コマンド</a> <a href="../commands/sqlite.html">sqlite3 コマンド</a> <a href="../commands/ssh.html">ssh コマンド</a> <a href="../commands/tac.html">tac コマンド</a> <a href="../commands/tail.html">tail コマンド</a> <a href="../commands/tar.html">tar コマンド</a> <a href="../commands/tee.html">tee コマンド</a> <a href="../commands/time.html">time コマンド</a> <a href="../commands/tmux.html">tmux コマンド</a> <a href="../commands/top.html">top コマンド</a> <a href="../commands/touch.html">touch コマンド</a> <a href="../commands/tr.html">tr コマンド</a> <a href="../commands/watch.html">watch コマンド</a> <a href="../commands/wc.html">wc コマンド</a> <a href="../commands/wget.html">wget コマンド</a> <a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a> <a href="../commands/xargs.html">xargs コマンド</a> <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></p>
+<p>テキストファイルまたはパイプでのテキスト入力の最後のn行を抜き出す。行単位ではなくバイト単位での制御も可能。</p>
+
+<p>例</p>
+
+<pre><code># 最後の10行を表示
+tail -n 10 hoge.txt
+
+# 最後の10行を表示(パイプを使う例)
+cat hoge.txt | tail -n 10
+
+# 最初の9行を除いて10行目からを表示
+tail -n +10 hoge.txt
+
+# 最後の10バイトを表示
+tail -c 10 hoge.txt
+
+# 最初の9バイトを除いて10バイト目からを表示
+tail -c +10 hoge.txt
+</code></pre>
+
 
 </div>
 

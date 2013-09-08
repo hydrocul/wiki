@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>コマンドリファレンス | hydrocul のメモ</title>
+<title>wkhtmltoimage コマンド | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <span>コマンドリファレンス</span>
+  <a href="../commands/">コマンドリファレンス</a> &gt; <span>wkhtmltoimage コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -19,7 +19,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>コマンドリファレンス</li>
+  <li><a href="../commands/">コマンドリファレンス</a></li>
   <li>&gt; <a href="../commands/ack-grep.html">ack-grep</a></li>
   <li>&gt; <a href="../commands/awk.html">awk</a></li>
   <li>&gt; <a href="../commands/base64.html">base64</a></li>
@@ -63,7 +63,7 @@
   <li>&gt; <a href="../commands/watch.html">watch コマンド</a></li>
   <li>&gt; <a href="../commands/wc.html">wc コマンド</a></li>
   <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
-  <li>&gt; <a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
+  <li>&gt; wkhtmltoimage コマンド</li>
   <li>&gt; <a href="../commands/xargs.html">xargs コマンド</a></li>
   <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
 </ul>
@@ -72,9 +72,21 @@
 </div>
 
 <div id="content">
-  <h1 id="commands">コマンドリファレンス</h1>
+  <h1 id="wkhtmltoimage">wkhtmltoimage コマンド
+<span class="article-date">2013/04/09</span></h1>
 
-<p><a href="../commands/ack-grep.html">ack-grep</a> <a href="../commands/awk.html">awk</a> <a href="../commands/base64.html">base64</a> <a href="../commands/cat.html">cat</a> <a href="../commands/cp.html">cp コマンド</a> <a href="../commands/crontab.html">crontab</a> <a href="../commands/cut.html">cut コマンド</a> <a href="../commands/date.html">date</a> <a href="../commands/diff.html">diff</a> <a href="../commands/du.html">du</a> <a href="../commands/find.html">find コマンド</a> <a href="../commands/git.html">git コマンド</a> <a href="../commands/grep.html">grep</a> <a href="../commands/incron.html">incron (inotify cron)</a> <a href="../commands/less.html">less コマンド</a> <a href="../commands/lftp.html">lftp</a> <a href="../commands/ls.html">ls コマンド</a> <a href="../commands/mosh.html">mosh</a> <a href="../commands/netstat.html">netstat</a> <a href="../commands/nkf.html">nkf コマンド</a> <a href="../commands/od.html">od</a> <a href="../commands/openssl.html">openssl</a> <a href="../commands/ps.html">ps</a> <a href="../commands/pstree.html">pstree</a> <a href="../commands/rsync.html">rsync</a> <a href="../commands/sdiff.html">sdiff コマンド</a> <a href="../commands/sed.html">sed コマンド</a> <a href="../commands/sort.html">sort コマンド</a> <a href="../commands/source-highlight.html">source-highlight コマンド</a> <a href="../commands/sqlite.html">sqlite3 コマンド</a> <a href="../commands/ssh.html">ssh コマンド</a> <a href="../commands/tac.html">tac コマンド</a> <a href="../commands/tail.html">tail コマンド</a> <a href="../commands/tar.html">tar コマンド</a> <a href="../commands/tee.html">tee コマンド</a> <a href="../commands/time.html">time コマンド</a> <a href="../commands/tmux.html">tmux コマンド</a> <a href="../commands/top.html">top コマンド</a> <a href="../commands/touch.html">touch コマンド</a> <a href="../commands/tr.html">tr コマンド</a> <a href="../commands/watch.html">watch コマンド</a> <a href="../commands/wc.html">wc コマンド</a> <a href="../commands/wget.html">wget コマンド</a> <a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a> <a href="../commands/xargs.html">xargs コマンド</a> <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></p>
+<p><a href="https://code.google.com/p/wkhtmltopdf/" target="_blank">https://code.google.com/p/wkhtmltopdf/</a></p>
+
+<p>HTMLページをキャプチャして画像に変換するコマンド。webkitで実装されている。同じシリーズでPDFに変換するコマンドもある。</p>
+
+<h2 id="564ac89">BASIC認証のかかったページを画像化するには
+<span class="article-date">2013/04/09</span></h2>
+
+<p>以下のようにオプションでID/PWを指定する。</p>
+
+<pre><code>wkhtmltoimage --username ユーザ名 --password パスワード 対象ページURL 書き出し先画像パス
+</code></pre>
+
 
 </div>
 

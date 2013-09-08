@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/control_flow/">制御構文</a> &gt; if文
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/control_flow/">制御構文</a> &gt; <span>if文</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -34,6 +34,16 @@
 
 <div id="content">
   <h1 id="if">if文</h1>
+
+<h2 id="0309a14">まとめ</h2>
+
+<h3 id="831ae90"><code>else if</code>
+<span class="article-date">2013/09/07</span></h3>
+
+<p><code>else if</code>派: C言語, C++, Go言語, Java, Scala, PHP, JavaScript, CoffeeScript<br />
+<code>elseif</code>派: PHP(コロンを使う構文), Smarty<br />
+<code>elsif</code>派: Ruby, Perl<br />
+<code>elif</code>派: Python, sh</p>
 
 <h2 id="93b168b">C言語, C++
 <span class="article-date">2013/06/19</span></h2>
@@ -252,6 +262,28 @@ else
     ...
 fi
 </code></pre>
+
+<h2 id="853fbc2">JavaScript
+<span class="article-date">2013/09/07</span></h2>
+
+<pre><code>if(...){
+  ...;
+} else if(...){
+  ...;
+} else {
+  ...;
+}
+</code></pre>
+
+<p>本体の文が1つだけの場合は <code>{}</code> を省略可。</p>
+
+<pre><code>if(...)
+  ...;
+else
+  ...;
+</code></pre>
+
+<p>いずれの構文でも <code>else</code> で実行する文がなければ、<code>else</code> を省略可。</p>
 
 <h2 id="985f8d3">CoffeeScript
 <span class="article-date">2013/09/07</span></h2>

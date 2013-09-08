@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; length
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>length</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,8 +24,10 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/char-at.html">charAt</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/compare.html">比較</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/escape.html">エスケープ処理</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/format.html">sprintf</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/index-of.html">indexOf</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込む方法</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/is-empty.html">isEmpty</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/join.html">join / implode</a></li>
   <li>&gt;&gt; length</li>
@@ -46,7 +48,10 @@
 </div>
 
 <div id="content">
-  <h1 id="length">length</h1>
+  <h1 id="length">length
+<span class="article-date">2013/09/07</span></h1>
+
+<p>文字列の長さを取得する方法。</p>
 
 <h2 id="3c65c68">Java / Scala
 <span class="article-date">2013/04/10</span></h2>
@@ -88,6 +93,14 @@ length($str)
 </code></pre>
 
 <p><code>use utf8;</code> としないと、マルチバイトの文字列でもバイト数を数えてしまう。</p>
+
+<h2 id="5233c7b">CoffeeScript
+<span class="article-date">2013/09/07</span></h2>
+
+<p>例</p>
+
+<pre><code>str.length
+</code></pre>
 
 
 </div>

@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; push
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>push</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -34,6 +34,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/foreach.html">foreach</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">groupBy</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">grouped</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">head</a></li>
@@ -66,14 +67,23 @@
 
 <div id="content">
   <h1 id="push">push
-<span class="article-date">2013/07/31</span></h1>
+<span class="article-date">2013/09/07</span></h1>
 
-<p>リストの最後に要素を追加する。</p>
+<p>リストの最後に要素1つまたは複数追加する。</p>
 
 <p>先頭への追加は<a href="unshift.html">unshift</a>。最後の要素の削除は<a href="pop.html">pop</a>。</p>
 
+<h2 id="137d032">Scala
+<span class="article-date">2013/07/30</span></h2>
+
+<pre><code>// Seq[A]
+def ++(arr2: A): Seq[A]
+</code></pre>
+
+<p>追加した結果のリストを返し、自身は変更しない。</p>
+
 <h2 id="dd49663">PHP
-<span class="article-date">2013/08/28</span></h2>
+<span class="article-date">2013/09/07</span></h2>
 
 <pre><code>$arr[] = $obj;
 </code></pre>
@@ -85,13 +95,28 @@
 <p>array_push | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.array-push.php" target="_blank">http://www.php.net/manual/ja/function.array-push.php</a></p>
 
+<p>複数の要素を配列で指定してまとめて追加するには</p>
+
+<pre><code>array_merge($arr1, $arr2);
+</code></pre>
+
+<p>array_merge | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.array-merge.php" target="_blank">http://www.php.net/manual/ja/function.array-merge.php</a></p>
+
 <h2 id="a6780da">Python
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2013/09/07</span></h2>
 
 <pre><code>arr.append(obj)
 </code></pre>
 
 <p>破壊的メソッド</p>
+
+<p>複数の要素を配列で指定してまとめて追加するには</p>
+
+<pre><code>arr1.extend(arr2)
+</code></pre>
+
+<p>これは破壊的メソッド</p>
 
 <h2 id="25cb3c2">Ruby
 <span class="article-date">2013/08/28</span></h2>
@@ -127,15 +152,20 @@
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2013/09/07</span></h2>
 
 <pre><code>push(@arr, $obj);
 </code></pre>
 
 <p>破壊的メソッド</p>
 
+<p>2つ目の引数に配列を渡すことができ、その場合はその配列の要素をすべて追加する。</p>
+
+<pre><code>push(@arr1, @arr2);
+</code></pre>
+
 <h2 id="485f2a7">JavaScript
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2013/09/07</span></h2>
 
 <p>破壊的メソッド</p>
 
@@ -150,6 +180,17 @@
 arr1.push(4, 5, 6);
 console.log(arr1); // =&gt; [1, 2, 3, 4, 5, 6]
 </code></pre>
+
+<p>非破壊的に新しい配列を作成するには以下のようにする。</p>
+
+<p>例</p>
+
+<pre><code>var arr1 = [1, 2, 3];
+var arr2 = [1, 2, 3];
+var new_arr = arr1.concat(arr2)
+</code></pre>
+
+<p><code>arr1</code> 自身は変更されない。</p>
 
 
 </div>
