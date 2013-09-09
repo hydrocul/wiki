@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; マップ(連想配列)書き方
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>マップ(連想配列)書き方</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -146,13 +146,27 @@ my $hash = \%m;
 </code></pre>
 
 <h2 id="1cda197">JavaScript
-<span class="article-date">2013/04/15</span></h2>
+<span class="article-date">2013/09/09</span></h2>
 
 <p>下の2つは全部同じ連想配列を生成する。</p>
 
 <pre><code>map = {a: 1, b: 2}
 map = {'a': 1, 'b': 2}
 </code></pre>
+
+<p>最後に余計なカンマがあっても問題ない。</p>
+
+<pre><code>map = {'a': 1, 'b': 2, }
+</code></pre>
+
+<h3 id="9c86cde">JSON
+<span class="article-date">2013/09/09</span></h3>
+
+<p>JavaScriptのオブジェクトの表記は、ほぼそのままJSONの表記となるが、少し違う点がある。</p>
+
+<ul>
+  <li>キーは文字列のみ</li>
+</ul>
 
 <h2 id="df01cd6">CoffeeScript
 <span class="article-date">2013/04/15</span></h2>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>trim | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>前後の空白を削除するには (trim) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; trim
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>前後の空白を削除するには (trim)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -21,40 +21,43 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../../programming_languages_diff/string/">文字列</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/char-at.html">charAt</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/compare.html">比較</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/escape.html">エスケープ処理</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/ends-with.html">特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/format.html">書式化文字列 (printf / sprintf / format)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/index-of.html">indexOf</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/is-empty.html">isEmpty</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/join.html">join / implode</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/length.html">length</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込む方法</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (join / implode)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/multiplication.html">繰り返し</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/multiplication.html">同じ文字列を繰り返し連結するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/overview.html">概要</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/random.html">ランダム文字列</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/split.html">split / explode</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/starts-with.html">startsWith / endsWith</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/strcat.html">連結</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/substr.html">substr</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換</a></li>
-  <li>&gt;&gt; trim</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字変換</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/starts-with.html">特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
+  <li>&gt;&gt; 前後の空白を削除するには (trim)</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
 </ul>
 
   </div>
 </div>
 
 <div id="content">
-  <h1 id="trim">trim</h1>
+  <h1 id="trim">前後の空白を削除するには (trim)</h1>
 
-<h2 id="3e1266d">Java / Scala
+<h2 id="1a11928">Java / Scala
 <span class="article-date">2013/04/10</span></h2>
 
 <pre><code>String String#trim()
 </code></pre>
 
-<h2 id="8fb709a">PHP
+<h2 id="cd90e98">PHP
 <span class="article-date">2013/06/11</span></h2>
 
 <pre><code>string trim(string $str [, string $charlist])
@@ -76,7 +79,7 @@
 trim($str, "\r\n")
 </code></pre>
 
-<h2 id="b70da1c">Smarty
+<h2 id="18f2dc3">Smarty
 <span class="article-date">2013/09/06</span></h2>
 
 <p>PHPの関数をそのまま修飾子として使えるので、trimして表示したい場合は、以下のように書ける。</p>
@@ -89,7 +92,7 @@ HTMLの余計な空白による悪影響を排除するための機能。</p>
 
 <p><a href="http://www.smarty.net/docsv2/ja/language.function.strip.tpl" target="_blank">http://www.smarty.net/docsv2/ja/language.function.strip.tpl</a></p>
 
-<h2 id="8b76696">Ruby
+<h2 id="bb403db">Ruby
 <span class="article-date">2013/04/10</span></h2>
 
 <pre><code>String#strip
@@ -110,7 +113,7 @@ String#chomp!(str)
 
 <p><a href="http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html" target="_blank">http://doc.ruby-lang.org/ja/2.0.0/method/String/i/chomp.html</a></p>
 
-<h2 id="1027d4b">Perl
+<h2 id="26dd3b1">Perl
 <span class="article-date">2013/07/27</span></h2>
 
 <p>いったん変数に入れた文字列に以下のようにして両端の空白を取り除く。</p>
@@ -118,7 +121,7 @@ String#chomp!(str)
 <pre><code>$str =~ s/^\s*(.*?)\s*$/$1/;
 </code></pre>
 
-<h2 id="d600e77">JavaScript
+<h2 id="243b6bd">JavaScript
 <span class="article-date">2013/04/10</span></h2>
 
 <pre><code>jQuery.trim(str)
