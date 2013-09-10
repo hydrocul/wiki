@@ -145,7 +145,7 @@ my $hash = \%m;
 <pre><code>%$hash;
 </code></pre>
 
-<h2 id="1cda197">JavaScript
+<h2 id="javascript">JavaScript
 <span class="article-date">2013/09/09</span></h2>
 
 <p>下の2つは全部同じ連想配列を生成する。</p>
@@ -166,6 +166,20 @@ map = {'a': 1, 'b': 2}
 
 <ul>
   <li>キーは文字列のみ</li>
+  <li>文字列は <code>"</code> で囲み、 <code>'</code> で囲むのは禁止</li>
+  <li>正数であっても先頭に <code>+</code> を付けるのは禁止</li>
+  <li><code>0.</code> で始まる浮動小数点数は許されるが、先頭の <code>0</code> を省略した表記は禁止</li>
+  <li><code>0</code> で始まる8進数表記や <code>0x</code> で始まる16進数表記の数値は禁止</li>
+  <li>文字列の中のエスケープシーケンスとして <code>\0</code> で始まる8進数表記や <code>\x</code> で
+始まる16新数表記は禁止で、代わりに <code>\u</code> で始まるUnicodeエスケープを使う。</li>
+  <li><code>undefined</code> や <code>NaN</code> は禁止</li>
+</ul>
+
+<p>その他にJSONパーサによっての制約もある。</p>
+
+<ul>
+  <li>PHPのjson_decodeでは、要素の最後の余計なカンマがあるとパースできない
+-&gt; <a href="../json/decode.html#php">PHPでデコードするには</a></li>
 </ul>
 
 <h2 id="df01cd6">CoffeeScript

@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; clone
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>clone</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -34,6 +34,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/foreach.html">foreach</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">groupBy</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">grouped</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">head</a></li>
@@ -74,6 +75,15 @@
 
 <pre><code>Array#clone
 Array#dup
+</code></pre>
+
+<h2 id="96029a6">Perl
+<span class="article-date">2013/09/10</span></h2>
+
+<p>shallow copy の例</p>
+
+<pre><code>my @src = ...;
+my @dst = @src
 </code></pre>
 
 <h2 id="e4f64a7">JavaScript

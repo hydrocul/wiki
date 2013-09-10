@@ -51,18 +51,27 @@ JSONObject data = JSONObject.fromObject(jsonSrc);
 &lt;/dependency&gt;
 </code></pre>
 
-<h2 id="9147c03">PHP
-<span class="article-date">2013/08/23</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2013/09/09</span></h2>
 
-<pre><code> // JSONからオブジェクトにデコード
- $obj = json_decode($json_src);
+<pre><code>// JSONからオブジェクトにデコード
+$obj = json_decode($json_src);
 
- // JSONから連想配列にデコード
- $arr = json_decode($json_src, true);
+// JSONから連想配列にデコード
+$arr = json_decode($json_src, true);
 </code></pre>
 
 <p>PHPマニュアル<br />
 <a href="http://www.php.net/manual/ja/function.json-decode.php" target="_blank">http://www.php.net/manual/ja/function.json-decode.php</a></p>
+
+<p>要素の最後の余計なカンマがあるとパースできない。</p>
+
+<pre><code>{"a": 1, "b": 2}
+// =&gt; OK
+
+{"a": 1, "b": 2, }
+// =&gt; NG
+</code></pre>
 
 <h2 id="bf63e59">Perl
 <span class="article-date">2013/09/07</span></h2>

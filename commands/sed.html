@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; sed コマンド
+  <a href="../commands/">コマンドリファレンス</a> &gt; <span>sed コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -45,22 +45,26 @@
   <li>&gt; <a href="../commands/ps.html">ps</a></li>
   <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
   <li>&gt; <a href="../commands/rsync.html">rsync</a></li>
-  <li>&gt; <a href="../commands/sdiff.html">sdiff</a></li>
+  <li>&gt; <a href="../commands/sdiff.html">sdiff コマンド</a></li>
   <li>&gt; sed コマンド</li>
-  <li>&gt; <a href="../commands/sort.html">sort</a></li>
-  <li>&gt; <a href="../commands/source-highlight.html">source-highlight</a></li>
-  <li>&gt; <a href="../commands/sqlite.html">sqlite</a></li>
-  <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
-  <li>&gt; <a href="../commands/tac.html">tac</a></li>
+  <li>&gt; <a href="../commands/sort.html">sort コマンド</a></li>
+  <li>&gt; <a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
+  <li>&gt; <a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
+  <li>&gt; <a href="../commands/ssh.html">ssh コマンド</a></li>
+  <li>&gt; <a href="../commands/tac.html">tac コマンド</a></li>
+  <li>&gt; <a href="../commands/tail.html">tail コマンド</a></li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
   <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
-  <li>&gt; <a href="../commands/top.html">top</a></li>
-  <li>&gt; <a href="../commands/touch.html">touch</a></li>
-  <li>&gt; <a href="../commands/tr.html">tr</a></li>
-  <li>&gt; <a href="../commands/watch.html">watch</a></li>
-  <li>&gt; <a href="../commands/wc.html">wc</a></li>
+  <li>&gt; <a href="../commands/time.html">time コマンド</a></li>
+  <li>&gt; <a href="../commands/tmux.html">tmux コマンド</a></li>
+  <li>&gt; <a href="../commands/top.html">top コマンド</a></li>
+  <li>&gt; <a href="../commands/touch.html">touch コマンド</a></li>
+  <li>&gt; <a href="../commands/tr.html">tr コマンド</a></li>
+  <li>&gt; <a href="../commands/watch.html">watch コマンド</a></li>
+  <li>&gt; <a href="../commands/wc.html">wc コマンド</a></li>
   <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
-  <li>&gt; <a href="../commands/xargs.html">xargs</a></li>
+  <li>&gt; <a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
+  <li>&gt; <a href="../commands/xargs.html">xargs コマンド</a></li>
   <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
 </ul>
 
@@ -137,6 +141,21 @@ sed -E '/[\t ]+/ /g'
 
 <p><code>-e</code> はどういう意味だろう？</p>
 
+<h3 id="06d2ca7">ディレクトリの中にあるたくさんのファイルの文字列を全置換するには
+<span class="article-date">2013/09/10</span></h3>
+
+<p>置換対象のファイルを <code>find</code> などでリストアップして、 <code>sed</code> を使う。</p>
+
+<pre><code>find . -name "*.txt" | xargs sed -i 's/置換前/置換後/g'
+</code></pre>
+
+<p>または</p>
+
+<pre><code>find . -name "*.txt" -exec sed -i 's/置換前/置換後/g' {} \;
+</code></pre>
+
+<p>-&gt; http://d.hatena.ne.jp/hydrocul/20111211/1323595015</p>
+
 <h2 id="f691fd9">2つ以上の全置換を一括で実行するには
 <span class="article-date">2013/06/17</span></h2>
 
@@ -197,16 +216,6 @@ cat ファイル名 | sed -e \$d
 </code></pre>
 
 <p><code>--unbuffered</code> を付けないとsedがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
-
-<h2 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法
-<span class="article-date">2013/08/08</span></h2>
-
-<p><a href="http://d.hatena.ne.jp/hydrocul/20111211/1323595015" target="_blank">http://d.hatena.ne.jp/hydrocul/20111211/1323595015</a></p>
-
-<p>例</p>
-
-<pre><code>find . -name "*.txt" -exec sed -i 's/ABC/DEF/g' {} \;
-</code></pre>
 
 
 </div>

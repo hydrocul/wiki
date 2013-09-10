@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; メソッド定義
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>メソッド定義</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -25,7 +25,9 @@
   <li>&gt;&gt; メソッド定義</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/multi-return.html">複数の返り値</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/return-void.html">関数のなかで返り値が指定されていない場合の扱い</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
 </ul>
@@ -110,6 +112,7 @@ end
 <pre><code>sub f {
   my ($arg1, $arg2) = @_;
   ...;
+  return ...;
 }
 </code></pre>
 

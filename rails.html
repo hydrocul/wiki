@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  Ruby on Rails
+  <span>Ruby on Rails</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -21,16 +21,14 @@
     <ul>
   <li><a href="./">Home</a></li>
   <li>&gt; <a href="./apache.html">Apache</a></li>
-  <li>&gt; <a href="./codeigniter.html">CodeIgniter</a></li>
   <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
   <li>&gt; <a href="./css.html">CSS</a></li>
   <li>&gt; <a href="./emacs.html">Emacs</a></li>
   <li>&gt; <a href="./google.html">google</a></li>
   <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
   <li>&gt; <a href="./html.html">HTML</a></li>
-  <li>&gt; <a href="./incron.html">incron (inotify cron)</a></li>
-  <li>&gt; <a href="./iptables.html">iptables</a></li>
-  <li>&gt; <a href="./java.html">Java</a></li>
+  <li>&gt; <a href="./ie.html">Internet Explorer</a></li>
+  <li>&gt; <a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li>&gt; <a href="./jquery.html">jQuery</a></li>
   <li>&gt; <a href="./linux.html">Linux</a></li>
   <li>&gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
@@ -60,12 +58,14 @@
 <div id="content">
   <h1 id="rails">Ruby on Rails</h1>
 
-<h2 id="8990ac1">railsでアプリを作るときに最初にやること</h2>
+<h2 id="8990ac1">railsでアプリを作るときに最初にやること
+<span class="article-date">2013/04/03</span></h2>
 
 <pre><code>echo "/.sass-cache/*" &gt;&gt; .gitignore
 </code></pre>
 
-<h2 id="529f268">renderのオプション</h2>
+<h2 id="529f268">renderのオプション
+<span class="article-date">2013/04/05</span></h2>
 
 <dl>
   <dt>file</dt>
@@ -74,12 +74,14 @@
   <dd>テキストを指定して、そのテキストをそのまま出力する</dd>
 </dl>
 
-<h2 id="f329ebd">Railsのアプリケーションが置いてあるディレクトリのパスを取得するには</h2>
+<h2 id="f329ebd">Railsのアプリケーションが置いてあるディレクトリのパスを取得するには
+<span class="article-date">2013/04/05</span></h2>
 
 <pre><code>Rails.root.to_s
 </code></pre>
 
-<h2 id="f68cdcd">少なくとも1つのチェックボックスにチェックが入っているかどうかをチェックするカスタムバリデータ</h2>
+<h2 id="f68cdcd">少なくとも1つのチェックボックスにチェックが入っているかどうかをチェックするカスタムバリデータ
+<span class="article-date">2013/04/09</span></h2>
 
 <p>チェックボックスが複数あって複数選択可の質問に対して1つもチェックがなかった場合にエラーにする方法。</p>
 
@@ -109,11 +111,13 @@
 end
 </code></pre>
 
-<h2 id="acd8070">お問い合わせフォームの作り方</h2>
+<h2 id="acd8070">お問い合わせフォームの作り方
+<span class="article-date">2013/04/03</span></h2>
 
 <p><a href="http://d.hatena.ne.jp/d4-1977/20120414/1334384900" target="_blank">http://d.hatena.ne.jp/d4-1977/20120414/1334384900</a></p>
 
-<h2 id="141e093">任意のパスの階層を特定のアクションに割り当てるルーティング</h2>
+<h2 id="141e093">任意のパスの階層を特定のアクションに割り当てるルーティング
+<span class="article-date">2013/04/05</span></h2>
 
 <pre><code>match 'hoge/:path' =&gt; 'hoge#view'
 </code></pre>
@@ -125,11 +129,8 @@ end
 
 <p>とすると、<code>hoge/foo</code> にも <code>hoge/foo/bar</code> にもマッチし、<code>param[:path]</code> で <code>'foo'</code> や <code>'foo/bar'</code> を受け取れる。</p>
 
-<h2 id="7f25d77">Ruby on Rails が簡単というのはウソ</h2>
-
-<p><a href="http://subtech.g.hatena.ne.jp/secondlife/20120309/1331279496" target="_blank">http://subtech.g.hatena.ne.jp/secondlife/20120309/1331279496</a></p>
-
-<h2 id="734ddad">rake db:migrate を production 環境で実行</h2>
+<h2 id="734ddad">rake db:migrate を production 環境で実行
+<span class="article-date">2013/04/03</span></h2>
 
 <pre><code>rake db:migrate RAILS_ENV=production
 </code></pre>
@@ -142,7 +143,7 @@ end
 
 <h2 id="3279a1d">Passenger</h2>
 
-<p>-&gt; passenger.md</p>
+<p>-&gt; <a href="passenger.html">Passenger</a></p>
 
 
 </div>

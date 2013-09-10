@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; インデックスで参照するには
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>インデックスで参照するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -116,7 +116,7 @@ list.apply(index);
 </code></pre>
 
 <h2 id="7255ccf">Perl
-<span class="article-date">2013/09/05</span></h2>
+<span class="article-date">2013/09/10</span></h2>
 
 <p>配列そのもののシジルは <code>@</code> だが、インデックスで参照するには、要素がスカラのためシジルとして <code>$</code> を使う。</p>
 
@@ -134,6 +134,13 @@ $arr[-2]; # 最後から2番目の要素
 
 <p>負のインデックスが先頭よりも前になってしまうと、<code>undef</code> になり、
 <code>use warnings;</code> を使っていると警告が表示される。</p>
+
+<p>配列へのレファレンスから要素を取り出すには</p>
+
+<pre><code>my $arr = ['a', 'b', 'c'];
+
+$arr-&gt;[0] # =&gt; 'a'
+</code></pre>
 
 
 </div>

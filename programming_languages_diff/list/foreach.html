@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; foreach
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>foreach</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -34,6 +34,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a></li>
   <li>&gt;&gt; foreach</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">groupBy</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">grouped</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">head</a></li>
@@ -65,12 +66,17 @@
 </div>
 
 <div id="content">
-  <h1 id="foreach">foreach</h1>
+  <h1 id="foreach">foreach
+<span class="article-date">2013/09/10</span></h1>
+
+<p>配列やリストの要素に対してではなく、
+0から順番にカウンタを回して繰り返し処理をさせる方法は
+<a href="../control_flow/for.html">for</a>を参照。</p>
 
 <h2 id="93f5f96">Java
-<span class="article-date">2013/08/01</span></h2>
+<span class="article-date">2013/09/10</span></h2>
 
-<p>配列をループ。</p>
+<p>配列を<code>for</code>文でループ。</p>
 
 <pre><code>for(int i = 0; i &lt; arr.length; i++){
   ...;
@@ -202,8 +208,6 @@ done
 bar
 hoge
 </code></pre>
-
-<p>-&gt; ../../oneliner.md#count-files-each-day</p>
 
 <h2 id="6eb1fc3">JavaScript
 <span class="article-date">2013/07/27</span></h2>

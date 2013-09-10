@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; 関数のなかで返り値が指定されていない場合の扱い
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>関数のなかで返り値が指定されていない場合の扱い</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -55,6 +55,14 @@
 
 <p>returnを書くべきか、省略すべきか<br />
 <a href="http://shugo.net/jit/20120229.html" target="_blank">http://shugo.net/jit/20120229.html</a></p>
+
+<h2 id="2b50111">Perl
+<span class="article-date">2013/09/10</span></h2>
+
+<p><code>return</code>文がない場合は、最後に評価された式の結果が返り値となる。変数への代入文が最後だとしてもその代入された値が返り値になる。</p>
+
+<p>本体が何もないサブルーチンや、返り値を指定せずに<code>return</code>だけを書いた場合は、
+<code>undef</code>が返り値となる。</p>
 
 <h2 id="1bf8f69">JavaScript
 <span class="article-date">2013/09/06</span></h2>
