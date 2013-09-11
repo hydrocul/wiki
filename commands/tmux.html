@@ -122,6 +122,24 @@
     
     # 特定の名前のセッションに接続
     tmux attach -t 名前
+
+
+
+
+## 複数のペインで同じ操作をするには
+<span class="article-date">2013/09/11</span> {#87c8f42}
+
+
+1つのウィンドウの中のすべてのペインに対して同じキー入力をさせるには、いずれかのペインで以下のコマンドを実行する。
+
+    tmux set-window-option synchronize-panes on
+
+コマンドを実行した後は、どのペインに入力してもすべてのペインに反映される。
+
+終了するには以下のコマンドを実行する。
+
+    tmux set-window-option synchronize-panes off
+
 </prefix></prefix></prefix></prefix>
 
 </div>

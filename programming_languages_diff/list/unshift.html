@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>unshift | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストの先頭に要素を挿入するには (unshift) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>unshift</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの先頭に要素を挿入するには (unshift)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -46,10 +46,10 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/map.html">map</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/pop.html">pop</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/product.html">product</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/push.html">push</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/push.html">リストの最後に要素1つまたは複数追加するには (push)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/remove.html">remove</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/shift.html">shift</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/sub-list.html">subList</a></li>
@@ -58,7 +58,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取り出すには (take)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
-  <li>&gt;&gt; unshift</li>
+  <li>&gt;&gt; リストの先頭に要素を挿入するには (unshift)</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/zip.html">zip</a></li>
 </ul>
 
@@ -66,14 +66,13 @@
 </div>
 
 <div id="content">
-  <h1 id="unshift">unshift
+  <h1 id="unshift">リストの先頭に要素を挿入するには (unshift)
 <span class="article-date">2013/07/31</span></h1>
 
-<p>リストの先頭に要素を挿入する。</p>
+<p>最後への追加は<a href="push.html">push</a>。<br />
+先頭の要素の削除は<a href="shift.html">shift</a>。</p>
 
-<p>最後への追加は<a href="push.html">push</a>。先頭の要素の削除は<a href="shift.html">shift</a>。</p>
-
-<h2 id="c885078">PHP
+<h2 id="ff98e2a">PHP
 <span class="article-date">2013/08/28</span></h2>
 
 <pre><code>array_unshift($arr, $obj);
@@ -84,7 +83,7 @@
 <p>array_unshift | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.array-unshift.php" target="_blank">http://www.php.net/manual/ja/function.array-unshift.php</a></p>
 
-<h2 id="5f320cd">Python
+<h2 id="428c842">Python
 <span class="article-date">2013/04/22</span></h2>
 
 <pre><code>arr.insert(0, obj)
@@ -95,7 +94,7 @@
 <pre><code>arr.insert(index, obj)
 </code></pre>
 
-<h2 id="ed964e2">Ruby
+<h2 id="a074942">Ruby
 <span class="article-date">2013/08/28</span></h2>
 
 <pre><code>Array#unshift(obj)
@@ -103,13 +102,13 @@
 
 <p>これは配列自身を変更する破壊的メソッドで、配列自身を返す。</p>
 
-<h2 id="f211e59">Perl
+<h2 id="a995ec3">Perl
 <span class="article-date">2013/07/30</span></h2>
 
 <pre><code>unshift(@arr, $obj);
 </code></pre>
 
-<h2 id="d43c6f7">JavaScript
+<h2 id="73a0611">JavaScript
 <span class="article-date">2013/04/22</span></h2>
 
 <pre><code>Array#unshift(obj)

@@ -217,6 +217,19 @@ cat ファイル名 | sed -e \$d
 
 <p><code>--unbuffered</code> を付けないとsedがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
 
+<h2 id="4b273dd">空行を削除するには
+<span class="article-date">2013/09/11</span></h2>
+
+<p><code>^$</code> という正規表現と、<code>d</code>での削除コマンドを使う。</p>
+
+<pre><code>cat ファイル名 | sed '/^$/d'
+</code></pre>
+
+<p>空白文字だけの行も空行とみなして削除するには、</p>
+
+<pre><code>cat ファイル名 | sed '/^[[:blank:]]*$/d'
+</code></pre>
+
 
 </div>
 

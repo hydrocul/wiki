@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>例外を補足する構文 | 例外処理 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>例外を捕捉する構文 | 例外処理 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exception/">例外処理</a> &gt; 例外を補足する構文
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exception/">例外処理</a> &gt; <span>例外を捕捉する構文</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,16 +24,16 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/exception/checked.html">チェック例外と非チェック例外</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/exception/class-hierarchy.html">例外クラス階層</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/exception/throw.html">例外をスローする構文</a></li>
-  <li>&gt;&gt; 例外を補足する構文</li>
+  <li>&gt;&gt; 例外を捕捉する構文</li>
 </ul>
 
   </div>
 </div>
 
 <div id="content">
-  <h1 id="try">例外を補足する構文</h1>
+  <h1 id="try">例外を捕捉する構文</h1>
 
-<h2 id="96c8323">Java
+<h2 id="3cec5d1">Java
 <span class="article-date">2013/08/22</span></h2>
 
 <pre><code>try {
@@ -69,7 +69,7 @@
 
 <p><code>IOException | FileNotFoundException</code> のような一方が他方に含まれるような書き方はできないし、意味がない。</p>
 
-<h2 id="ace161c">Scala
+<h2 id="e66e9ef">Scala
 <span class="article-date">2013/08/22</span></h2>
 
 <pre><code>try {
@@ -83,7 +83,7 @@
 }
 </code></pre>
 
-<h2 id="a6abb3d">PHP
+<h2 id="9ebf3db">PHP
 <span class="article-date">2013/08/22</span></h2>
 
 <pre><code>try {
@@ -97,7 +97,7 @@
 
 <p>finally節が書けるのは PHP 5.5 以降。</p>
 
-<h2 id="663747f">Ruby
+<h2 id="ee9152c">Ruby
 <span class="article-date">2013/08/22</span></h2>
 
 <pre><code>begin
@@ -132,7 +132,7 @@ end
 
 <p>rescue節の中では <code>retry</code> と書くと、beginからやりなおしてくれる。これは他の言語にはあまりない機能である。</p>
 
-<h2 id="c18b388">Python
+<h2 id="1add679">Python
 <span class="article-date">2013/08/22</span></h2>
 
 <pre><code>try:
@@ -150,7 +150,7 @@ finally:
 
 <p>except節の中で同じ例外を再スローするには単に <code>raise</code> とだけ書く。</p>
 
-<h2 id="038e300">JavaScript
+<h2 id="ed3e43f">JavaScript
 <span class="article-date">2013/08/22</span></h2>
 
 <pre><code>try {
@@ -162,7 +162,7 @@ finally:
 }
 </code></pre>
 
-<h2 id="aa2bace">CoffeeScript
+<h2 id="587f858">CoffeeScript
 <span class="article-date">2013/08/22</span></h2>
 
 <pre><code>try

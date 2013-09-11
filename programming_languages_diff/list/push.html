@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>push | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストの最後に要素1つまたは複数追加するには (push) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>push</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの最後に要素1つまたは複数追加するには (push)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -46,10 +46,10 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/map.html">map</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/pop.html">pop</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/product.html">product</a></li>
-  <li>&gt;&gt; push</li>
+  <li>&gt;&gt; リストの最後に要素1つまたは複数追加するには (push)</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/remove.html">remove</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/shift.html">shift</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/sub-list.html">subList</a></li>
@@ -58,7 +58,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取り出すには (take)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/unshift.html">unshift</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/unshift.html">リストの先頭に要素を挿入するには (unshift)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/zip.html">zip</a></li>
 </ul>
 
@@ -66,14 +66,13 @@
 </div>
 
 <div id="content">
-  <h1 id="push">push
+  <h1 id="push">リストの最後に要素1つまたは複数追加するには (push)
 <span class="article-date">2013/09/07</span></h1>
 
-<p>リストの最後に要素1つまたは複数追加する。</p>
+<p>先頭への追加は<a href="unshift.html">unshift</a>。<br />
+最後の要素の削除は<a href="pop.html">pop</a>。</p>
 
-<p>先頭への追加は<a href="unshift.html">unshift</a>。最後の要素の削除は<a href="pop.html">pop</a>。</p>
-
-<h2 id="137d032">Scala
+<h2 id="89c16a2">Scala
 <span class="article-date">2013/07/30</span></h2>
 
 <pre><code>// Seq[A]
@@ -82,7 +81,7 @@ def ++(arr2: A): Seq[A]
 
 <p>追加した結果のリストを返し、自身は変更しない。</p>
 
-<h2 id="dd49663">PHP
+<h2 id="2d71d2a">PHP
 <span class="article-date">2013/09/07</span></h2>
 
 <pre><code>$arr[] = $obj;
@@ -103,7 +102,7 @@ def ++(arr2: A): Seq[A]
 <p>array_merge | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.array-merge.php" target="_blank">http://www.php.net/manual/ja/function.array-merge.php</a></p>
 
-<h2 id="a6780da">Python
+<h2 id="d4fb8fe">Python
 <span class="article-date">2013/09/07</span></h2>
 
 <pre><code>arr.append(obj)
@@ -118,7 +117,7 @@ def ++(arr2: A): Seq[A]
 
 <p>これは破壊的メソッド</p>
 
-<h2 id="25cb3c2">Ruby
+<h2 id="3ae6334">Ruby
 <span class="article-date">2013/08/28</span></h2>
 
 <pre><code>Array#push(obj)
@@ -164,7 +163,7 @@ def ++(arr2: A): Seq[A]
 <pre><code>push(@arr1, @arr2);
 </code></pre>
 
-<h2 id="485f2a7">JavaScript
+<h2 id="18012a1">JavaScript
 <span class="article-date">2013/09/07</span></h2>
 
 <p>破壊的メソッド</p>
