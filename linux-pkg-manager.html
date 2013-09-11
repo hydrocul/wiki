@@ -21,22 +21,17 @@
     <ul>
   <li><a href="./">Home</a></li>
   <li>&gt; <a href="./apache.html">Apache</a></li>
-  <li>&gt; <a href="./codeigniter.html">CodeIgniter</a></li>
   <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
   <li>&gt; <a href="./css.html">CSS</a></li>
   <li>&gt; <a href="./emacs.html">Emacs</a></li>
   <li>&gt; <a href="./google.html">google</a></li>
   <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
-  <li>&gt; <a href="./html.html">HTML</a></li>
   <li>&gt; <a href="./ie.html">Internet Explorer</a></li>
-  <li>&gt; <a href="./incron.html">incron (inotify cron)</a></li>
-  <li>&gt; <a href="./iptables.html">iptables</a></li>
-  <li>&gt; <a href="./java.html">Java</a></li>
+  <li>&gt; <a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li>&gt; <a href="./jquery.html">jQuery</a></li>
   <li>&gt; <a href="./linux.html">Linux</a></li>
   <li>&gt; Linuxでのパッケージ管理</li>
   <li>&gt; <a href="./mac.html">Mac</a></li>
-  <li>&gt; <a href="./markdown.html">Markdown</a></li>
   <li>&gt; <a href="./mechanize.html">mechanize</a></li>
   <li>&gt; <a href="./memcached.html">memcached</a></li>
   <li>&gt; <a href="./misc.html">misc</a></li>
@@ -172,11 +167,36 @@ brew list パッケージ名
 </code></pre>
 
 <h3 id="fecba83">paco
-<span class="article-date">2013/06/27</span></h3>
+<span class="article-date">2013/07/01</span></h3>
 
 <p>パッケージマネージャを通さずにソースからコンパイルしてインストールしたパッケージなどを管理できるツール。</p>
 
 <p>-&gt; <a href="paco.html">paco</a></p>
+
+<pre><code># インストール
+# (カレントディレクトリの名前がパッケージ名になる)
+./configure --hogehoge
+make
+sudo paco -D make install
+
+# パッケージの名前を指定してインストール
+sudo paco -p &lt;packagename&gt; make install
+
+# アンインストール
+sudo paco -r パッケージ名
+
+# パッケージでインストールされるファイルの一覧を見るには
+paco -f パッケージ名
+
+# パッケージでインストールされるファイルとそのサイズの一覧を見るには
+paco -fs パッケージ名
+
+# インストール済みのパッケージ一覧を見るには
+paco -a
+
+# インストール済みのパッケージ一覧を詳細に見るには
+paco -a1Fds
+</code></pre>
 
 
 </div>

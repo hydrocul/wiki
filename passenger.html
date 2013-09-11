@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  Passenger (Ruby on Rails)
+  <span>Passenger (Ruby on Rails)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -21,21 +21,17 @@
     <ul>
   <li><a href="./">Home</a></li>
   <li>&gt; <a href="./apache.html">Apache</a></li>
-  <li>&gt; <a href="./codeigniter.html">CodeIgniter</a></li>
   <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
   <li>&gt; <a href="./css.html">CSS</a></li>
   <li>&gt; <a href="./emacs.html">Emacs</a></li>
   <li>&gt; <a href="./google.html">google</a></li>
   <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
-  <li>&gt; <a href="./html.html">HTML</a></li>
-  <li>&gt; <a href="./incron.html">incron (inotify cron)</a></li>
-  <li>&gt; <a href="./iptables.html">iptables</a></li>
-  <li>&gt; <a href="./java.html">Java</a></li>
+  <li>&gt; <a href="./ie.html">Internet Explorer</a></li>
+  <li>&gt; <a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li>&gt; <a href="./jquery.html">jQuery</a></li>
   <li>&gt; <a href="./linux.html">Linux</a></li>
   <li>&gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li>&gt; <a href="./mac.html">Mac</a></li>
-  <li>&gt; <a href="./markdown.html">Markdown</a></li>
   <li>&gt; <a href="./mechanize.html">mechanize</a></li>
   <li>&gt; <a href="./memcached.html">memcached</a></li>
   <li>&gt; <a href="./misc.html">misc</a></li>
@@ -79,7 +75,8 @@ sudo passenger-install-apache2-module
 <pre><code>sudo apt-get install build-essential libcurl4-openssl-dev libssl-dev zlib1g-dev apache2-threaded-dev libapr1-dev libaprutil1-dev
 </code></pre>
 
-<h2 id="04d3809">環境の切替</h2>
+<h2 id="04d3809">環境の切替
+<span class="article-date">2013/04/03</span></h2>
 
 <p>Passenger のデフォルトだと production 環境での動作となる。
 development または test に切り替えたい場合は、Apacheの設定に以下を書き足す。
@@ -88,14 +85,16 @@ VirtualHostの中に書けばそのバーチャルホストにだけ適用でき
 <pre><code>RailsEnv development
 </code></pre>
 
-<h2 id="1922a06">環境変数</h2>
+<h2 id="1922a06">環境変数
+<span class="article-date">2013/04/03</span></h2>
 
 <p>環境変数を設定したい場合は、Apacheの設定に以下のように書き足す。</p>
 
 <pre><code>SetEnv GEM_HOME /home/hogehoge/.gems
 </code></pre>
 
-<h2 id="393673b">特定のrailsアプリケーションのみ再起動するには</h2>
+<h2 id="393673b">特定のrailsアプリケーションのみ再起動するには
+<span class="article-date">2013/04/05</span></h2>
 
 <p>Passenger で動いているrailsアプリケーションを再起動するには tmp ディレクトリに
 restart.txt というファイルを設置する。ファイル設置後最初のアクセスで、再起動が実行される。</p>

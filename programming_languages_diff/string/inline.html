@@ -61,17 +61,30 @@
 <pre><code>"http://{$host}/{$path}"
 </code></pre>
 
-<h2 id="3842c18">Perl
+<h2 id="ruby">Ruby
+<span class="article-date">2013/09/02</span></h2>
+
+<p><code>"</code> で囲んだ文字列は、 <code>#{...}</code> を使って式を評価した結果を文字列に埋め込むことができる。</p>
+
+<p>例</p>
+
+<pre><code>now = DateTime.now
+puts "It is #{now} now."
+</code></pre>
+
+<h2 id="perl">Perl
 <span class="article-date">2013/09/10</span></h2>
 
 <p><code>"</code> で囲む文字列では中に変数を埋め込むことができる。</p>
+
+<p><code>$</code> または <code>@</code> で始まる変数が展開される。<code>%</code> は展開されないみたい。</p>
 
 <p>例</p>
 
 <pre><code>"http://$host/$path"
 </code></pre>
 
-<h2 id="72cadec">CoffeeScript
+<h2 id="coffeescript">CoffeeScript
 <span class="article-date">2013/09/10</span></h2>
 
 <p><code>"</code> で囲む文字列では中に式を埋め込むことができる。</p>

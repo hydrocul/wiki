@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>reverse | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストを逆順に並び替えるには (reverse) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; reverse
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストを逆順に並び替えるには (reverse)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/add-all.html">addAll</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/clone.html">clone</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/clone.html">リストをコピーするには (clone)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/compare.html">比較</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/contains.html">contains</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/drop.html">drop</a></li>
@@ -34,27 +34,28 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/foreach.html">foreach</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">groupBy</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">grouped</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">head</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-of.html">indexOf</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">IndexOutOfBoundsException</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/is-empty.html">isEmpty</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/last.html">last</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/last.html">リストの最後の要素を取得するには (last)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/literal.html">リスト(配列)の書き方</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/map.html">map</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/pop.html">pop</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/product.html">product</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/push.html">push</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/remove.html">remove</a></li>
-  <li>&gt;&gt; reverse</li>
+  <li>&gt;&gt; リストを逆順に並び替えるには (reverse)</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/shift.html">shift</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/size.html">size</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/sort.html">sort</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/sub-list.html">subList</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/sum.html">sum</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/take.html">take</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取り出すには (take)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/unshift.html">unshift</a></li>
@@ -65,9 +66,9 @@
 </div>
 
 <div id="content">
-  <h1 id="reverse">reverse</h1>
+  <h1 id="reverse">リストを逆順に並び替えるには (reverse)</h1>
 
-<h2 id="4beefc6">Scala
+<h2 id="c0bf85a">Scala
 <span class="article-date">2013/07/30</span></h2>
 
 <pre><code>// Seq[A]
@@ -76,26 +77,28 @@ def reverse: Seq[A]
 
 <p>反転した結果のリストを返し、自身は変更しない。</p>
 
-<h2 id="b1e10eb">PHP
+<h2 id="33fe2af">PHP
 <span class="article-date">2013/04/27</span></h2>
 
 <pre><code>array array_reverse($arr)
 </code></pre>
 
-<h2 id="6b6d4ba">Ruby
+<h2 id="c3fa1c0">Ruby
 <span class="article-date">2013/04/20</span></h2>
 
 <pre><code>Array#reverse
 Array#reverse!
 </code></pre>
 
-<h2 id="736fb1f">Perl
-<span class="article-date">2013/07/29</span></h2>
+<h2 id="5aeb240">Perl
+<span class="article-date">2013/09/11</span></h2>
 
 <pre><code>reverse(@arr)
 </code></pre>
 
-<h2 id="d051b61">JavaScript
+<p>並び替えられた新しい配列を返し、引数の配列自体は変更しない。</p>
+
+<h2 id="9d9f65a">JavaScript
 <span class="article-date">2013/04/20</span></h2>
 
 <pre><code>Array#reverse

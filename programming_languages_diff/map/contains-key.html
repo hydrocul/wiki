@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; containsKey
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>containsKey</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,7 +24,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/clone.html">clone</a></li>
   <li>&gt;&gt; containsKey</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/foreach.html">foreach</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/map/get-or-else.html">getOrElse</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/map/get.html">キーで参照するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/is-empty.html">isEmpty</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/keys.html">keys</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/literal.html">マップ(連想配列)書き方</a></li>
@@ -76,6 +76,16 @@ def contains(key: A): Boolean
 Hash#key?(key)
 Hash#include?(key)
 Hash#member?(key)
+</code></pre>
+
+<h2 id="7d8cf07">Perl
+<span class="article-date">2013/09/10</span></h2>
+
+<p>例</p>
+
+<pre><code>if (defined($hash{$key})) {
+    ...;
+}
 </code></pre>
 
 

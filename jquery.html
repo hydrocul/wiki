@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  jQuery
+  <span>jQuery</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -21,21 +21,17 @@
     <ul>
   <li><a href="./">Home</a></li>
   <li>&gt; <a href="./apache.html">Apache</a></li>
-  <li>&gt; <a href="./codeigniter.html">CodeIgniter</a></li>
   <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
   <li>&gt; <a href="./css.html">CSS</a></li>
   <li>&gt; <a href="./emacs.html">Emacs</a></li>
   <li>&gt; <a href="./google.html">google</a></li>
   <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
-  <li>&gt; <a href="./html.html">HTML</a></li>
-  <li>&gt; <a href="./incron.html">incron (inotify cron)</a></li>
-  <li>&gt; <a href="./iptables.html">iptables</a></li>
-  <li>&gt; <a href="./java.html">Java</a></li>
+  <li>&gt; <a href="./ie.html">Internet Explorer</a></li>
+  <li>&gt; <a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li>&gt; jQuery</li>
   <li>&gt; <a href="./linux.html">Linux</a></li>
   <li>&gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li>&gt; <a href="./mac.html">Mac</a></li>
-  <li>&gt; <a href="./markdown.html">Markdown</a></li>
   <li>&gt; <a href="./mechanize.html">mechanize</a></li>
   <li>&gt; <a href="./memcached.html">memcached</a></li>
   <li>&gt; <a href="./misc.html">misc</a></li>
@@ -63,12 +59,11 @@
 <p><a href="http://api.jquery.com/" target="_blank">http://api.jquery.com/</a></p>
 
 <h2 id="c48b643">jQueryオブジェクトからHTMLソースを取得するには
-<span class="article-date">2013/04/03</span></h2>
+<span class="article-date">2013/09/11</span></h2>
 
-<p><code>$(...).html()</code> だとその要素の内側のHTMLを取得できる。
-<code>$('&lt;img /&gt;').attr('src', src).html()</code> とやってもimgの内側にはなにもないので空の文字列が返ってきてしまう。</p>
+<p><code>$(...).html()</code> だとその要素の内側のHTMLを取得できるが、その要素自体のHTMLは取得できない。<code>$('&lt;img /&gt;').attr('src', src).html()</code> とやってもimgの内側にはなにもないので空の文字列が返ってきてしまう。</p>
 
-<p>以下のように関数を定義しておいて、</p>
+<p>その要素自体を含むHTMLを取得したい場合は、以下のように関数を定義しておいて、</p>
 
 <pre><code>$.fn.outerHtml = function(){
     return $('&lt;div/&gt;').append(this.clone()).html();
@@ -76,12 +71,6 @@
 </code></pre>
 
 <p><code>$(...).outerHtml()</code> とするとその要素自体のHTMLを取得できる。</p>
-
-<h2 id="7bfa009">Cookieを簡単に扱う方法
-<span class="article-date">2013/04/04</span></h2>
-
-<p>jquery.cookie.js<br />
-<a href="https://github.com/carhartl/jquery-cookie" target="_blank">https://github.com/carhartl/jquery-cookie</a></p>
 
 <h2 id="ed49e89">datepicker
 <span class="article-date">2013/03/27</span></h2>
@@ -177,12 +166,6 @@ $('#container').delegate('a', 'click', function(){ ... });
 <p>jQueryのbind/live/delegateの違いまとめ、と新API .on()の使い方<br />
 <a href="http://d.hatena.ne.jp/y-kawaz/20111002/1317489435" target="_blank">http://d.hatena.ne.jp/y-kawaz/20111002/1317489435</a></p>
 
-<h2 id="5f903a3">jQueryプラグインのまとめ
-<span class="article-date">2013/04/08</span></h2>
-
-<p><a href="http://www.skuare.net/test/jQuery.html" target="_blank">http://www.skuare.net/test/jQuery.html</a><br />
-jQueryのライブラリ</p>
-
 <h2 id="fbb16b5">jQuery Splitter
 <span class="article-date">2013/04/18</span></h2>
 
@@ -242,16 +225,6 @@ jQueryのライブラリ</p>
 </code></pre>
 
 <p>引数は閉じるアニメーションの時間の秒数。</p>
-
-<h2 id="9c526fd">jKey: キーボードショートカットを簡単に実現 / Key shortcuts made simple
-<span class="article-date">2013/04/09</span></h2>
-
-<p><a href="https://github.com/OscarGodson/jKey" target="_blank">https://github.com/OscarGodson/jKey</a></p>
-
-<h2 id="3c44dba">jQuery source viewer
-<span class="article-date">2013/04/15</span></h2>
-
-<p><a href="http://james.padolsey.com/jquery/" target="_blank">http://james.padolsey.com/jquery/</a></p>
 
 <h2 id="a7f7df8">改行と <code>text()</code> と <code>html()</code> の関係
 <span class="article-date">2013/04/15</span></h2>

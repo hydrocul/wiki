@@ -78,6 +78,18 @@ echo $str[0][0][0]; // =&gt; a
 
 <p>PHP 5.3までだとなぜか <code>$str[0][0]</code> からはエラーになる。 <code>$str[0]</code> が文字列なのは同じなので、なぜだろう？</p>
 
+<h2 id="19ca901">Perl
+<span class="article-date">2013/09/10</span></h2>
+
+<pre><code>use utf8;
+
+my $s = "あいうえお";
+print substr($s, 2, 1);
+# =&gt; う
+</code></pre>
+
+<p><code>use utf8;</code> がないと、ASCII以外の文字を正しく扱えない。</p>
+
 <h2 id="2038112">CoffeeScript
 <span class="article-date">2013/09/07</span></h2>
 

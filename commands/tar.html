@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; tar コマンド
+  <a href="../commands/">コマンドリファレンス</a> &gt; <span>tar コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -45,22 +45,26 @@
   <li>&gt; <a href="../commands/ps.html">ps</a></li>
   <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
   <li>&gt; <a href="../commands/rsync.html">rsync</a></li>
-  <li>&gt; <a href="../commands/sdiff.html">sdiff</a></li>
+  <li>&gt; <a href="../commands/sdiff.html">sdiff コマンド</a></li>
   <li>&gt; <a href="../commands/sed.html">sed コマンド</a></li>
-  <li>&gt; <a href="../commands/sort.html">sort</a></li>
-  <li>&gt; <a href="../commands/source-highlight.html">source-highlight</a></li>
-  <li>&gt; <a href="../commands/sqlite.html">sqlite</a></li>
-  <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
-  <li>&gt; <a href="../commands/tac.html">tac</a></li>
+  <li>&gt; <a href="../commands/sort.html">sort コマンド</a></li>
+  <li>&gt; <a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
+  <li>&gt; <a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
+  <li>&gt; <a href="../commands/ssh.html">ssh コマンド</a></li>
+  <li>&gt; <a href="../commands/tac.html">tac コマンド</a></li>
+  <li>&gt; <a href="../commands/tail.html">tail コマンド</a></li>
   <li>&gt; tar コマンド</li>
   <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
-  <li>&gt; <a href="../commands/top.html">top</a></li>
-  <li>&gt; <a href="../commands/touch.html">touch</a></li>
-  <li>&gt; <a href="../commands/tr.html">tr</a></li>
-  <li>&gt; <a href="../commands/watch.html">watch</a></li>
-  <li>&gt; <a href="../commands/wc.html">wc</a></li>
+  <li>&gt; <a href="../commands/time.html">time コマンド</a></li>
+  <li>&gt; <a href="../commands/tmux.html">tmux コマンド</a></li>
+  <li>&gt; <a href="../commands/top.html">top コマンド</a></li>
+  <li>&gt; <a href="../commands/touch.html">touch コマンド</a></li>
+  <li>&gt; <a href="../commands/tr.html">tr コマンド</a></li>
+  <li>&gt; <a href="../commands/watch.html">watch コマンド</a></li>
+  <li>&gt; <a href="../commands/wc.html">wc コマンド</a></li>
   <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
-  <li>&gt; <a href="../commands/xargs.html">xargs</a></li>
+  <li>&gt; <a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
+  <li>&gt; <a href="../commands/xargs.html">xargs コマンド</a></li>
   <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
 </ul>
 
@@ -88,19 +92,26 @@
 <p><code>-z</code> を使う場合は、アーカイブファイルの拡張子として .tar.gz または .tgz がよく使われる。<code>-z</code> を使わない場合は、.tar がよく使われる。</p>
 
 <h2 id="351c740">基本操作
-<span class="article-date">2013/04/04</span></h2>
+<span class="article-date">2013/09/10</span></h2>
 
-<pre><code># 圧縮
-tar cvzf tarファイル名 圧縮対象ディレクトリ
+<pre><code># アーカイブ
+tar cvf tarファイル名 アーカイブ対象ディレクトリ
 
-# 解凍
-tar xvzf tarファイル名
-</code></pre>
+# 圧縮してアーカイブ
+tar cvzf tgzファイル名 圧縮対象ディレクトリ
 
-<h2 id="20377cd">tarファイルの中にあるファイルの一覧を見るには
-<span class="article-date">2013/04/03</span></h2>
+# 展開
+tar xvf tarファイル名
 
-<pre><code>tar tzf tarファイル名
+# 解凍して展開
+tar xvzf tgzファイル名
+
+
+# アーカイブされているファイルの一覧
+tar tf tarファイル名
+
+# 圧縮してアーカイブされているファイルの一覧
+tar tzf tgzファイル名
 </code></pre>
 
 <h2 id="0d6e99f">リモートにtarでバックアップ、またはリモートからローカルにtarでバックアップ

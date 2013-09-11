@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>アクセス修飾子 | クラス | プログラミング言語の比較 | hydrocul のメモ</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラス</a> &gt; <span>アクセス修飾子</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li>&gt; <a href="../../programming_languages_diff/class/">クラス</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
+  <li>&gt;&gt; アクセス修飾子</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="modifier">アクセス修飾子</h1>
+
+<h2 id="edd2465">C++
+<span class="article-date">2013/08/28</span></h2>
+
+<p>クラスメンバー</p>
+
+<dl>
+  <dt><code>public</code></dt>
+  <dd>クラスの外からでも可視</dd>
+  <dt><code>protected</code></dt>
+  <dd>クラスの中とそのクラスを継承する派生クラス(サブクラス)の中からのみ可視</dd>
+  <dt><code>private</code> (指定しない場合のデフォルト)</dt>
+  <dd>クラスの中からのみ可視</dd>
+</dl>
+
+<h2 id="60a7d56">Scala
+<span class="article-date">2013/08/25</span></h2>
+
+<p>クラスメンバー</p>
+
+<dl>
+  <dt><code>public</code> (指定しない場合のデフォルト)</dt>
+  <dd>どのクラス・パッケージからでも可視</dd>
+  <dt><code>protected</code></dt>
+  <dd>同じクラス/トレイトの中またはそのクラス/トレイトを継承しているサブクラスの
+中からは可視。その中では他のインスタンスからのアクセスも可能。
+Javaと違って同じパッケージの中でも継承関係がなければ可視にはならない。</dd>
+  <dt><code>protected[</code>パッケージ名/クラス名<code>]</code></dt>
+  <dd>同じクラス/トレイトの中またはそのクラス/トレイトを継承しているサブクラスの
+中からは可視。その中では他のインスタンスからのアクセスも可能。
+それ以外にもその指定のパッケージ/クラスからも可視。
+Javaにはこの修飾子はない。</dd>
+  <dt><code>protected[this]</code></dt>
+  <dd>同じクラス/トレイトの中またはそのクラス/トレイトを継承しているサブクラスの
+中からは可視。他のインスタンスからのアクセスは不可。
+Javaにはこの修飾子はない。</dd>
+  <dt><code>private</code></dt>
+  <dd>同じクラス/トレイトの中からのみ可視。
+同じクラス/トレイトの中では他のインスタンスからのアクセスも可能。</dd>
+  <dt><code>private[</code>パッケージ名/クラス名<code>]</code></dt>
+  <dd>同じクラス/トレイトの中からのみ可視。
+同じクラス/トレイトの中では他のインスタンスからのアクセスも可能。
+それ以外にもその指定のパッケージ/クラスからも可視。
+Javaにはこの修飾子はない。</dd>
+  <dt><code>private[this]</code></dt>
+  <dd>同じクラス/トレイトの中からのみ可視。
+同じクラス/トレイトの中でも他のインスタンスからのアクセスは不可。
+Javaにはこの修飾子はない。</dd>
+</dl>
+
+<p><code>protected[</code>パッケージ名/クラス名<code>]</code> または <code>private[</code>パッケージ名/クラス名<code>]</code>
+では、パッケージ名/クラス名にはドットを含むフルネームを書くことはできず、名前のみを書く。パッケージ名は階層の途中でもよく、例えば <code>com.example.app1.foo</code> というパッケージの中のクラスで、<code>private[example]</code>
+と書けば、<code>com.example</code> とそのサブクラスの中のどこからでもアクセスできる。
+Javaにはこの機能はないが、階層の途中ではなく末端のパッケージで、
+<code>protected</code> ではなく <code>private</code> であれば、Javaのパッケージプライベートと同じになる。</p>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; キーで参照するには
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>キーで参照するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -105,7 +105,7 @@ p m.fetch('b') { 2 } # =&gt; 2
 </code></pre>
 
 <h2 id="a1fefad">Perl
-<span class="article-date">2013/09/03</span></h2>
+<span class="article-date">2013/09/10</span></h2>
 
 <p>以下のように <code>{}</code> でキーを指定し、先頭は <code>$</code> を使う。</p>
 
@@ -114,6 +114,9 @@ p m.fetch('b') { 2 } # =&gt; 2
 $hash{a} # =&gt; 1
 $hash{'a'} # =&gt; 1
 </code></pre>
+
+<p>存在しない要素を取得しようとすると <code>undef</code> になり、
+<code>use warnings;</code> が宣言されていれば、警告が表示される。</p>
 
 <p>ハッシュへのレファレンスから要素を取り出すには</p>
 

@@ -89,7 +89,7 @@ String#slice(from, length)
 <p>配列に対しても同じように <code>slice</code> が使える。</p>
 
 <h2 id="621d373">Perl
-<span class="article-date">2013/08/15</span></h2>
+<span class="article-date">2013/09/10</span></h2>
 
 <p>例</p>
 
@@ -98,6 +98,8 @@ String#slice(from, length)
 my $s = "あいうえお";
 print substr($s, 0, 3);
 # =&gt; あいう
+print substr($s, 1);
+# =&gt; いうえお
 </code></pre>
 
 <p><code>use utf8;</code> がないと、バイト数で数えてしまって、<code>あ</code> しか表示されない。</p>
