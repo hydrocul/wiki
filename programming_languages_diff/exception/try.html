@@ -33,6 +33,18 @@
 <div id="content">
   <h1 id="try">例外を捕捉する構文</h1>
 
+<h2 id="e680606">C++
+<span class="article-date">2013/09/11</span></h2>
+
+<pre><code>try {
+  ...;
+} catch (FooClass e) {
+  ...;
+} catch (BarClass e) {
+  ...;
+}
+</code></pre>
+
 <h2 id="3cec5d1">Java
 <span class="article-date">2013/08/22</span></h2>
 
@@ -149,6 +161,18 @@ finally:
 または <code>except HogeException, ex:</code> のように書く。</p>
 
 <p>except節の中で同じ例外を再スローするには単に <code>raise</code> とだけ書く。</p>
+
+<h2 id="2ff895b">Perl
+<span class="article-date">2013/09/11</span></h2>
+
+<pre><code>eval {
+    ...;
+};
+if ($@) {
+    # 例外が発生した場合の処理
+    ...;
+}
+</code></pre>
 
 <h2 id="ed3e43f">JavaScript
 <span class="article-date">2013/08/22</span></h2>

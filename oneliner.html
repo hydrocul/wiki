@@ -129,6 +129,12 @@ echo %E3%81%82 | tr % = | nkf -WmQ
 2013-06-29 0
 </code></pre>
 
+<h2 id="069144c">2つのHTTPレスポンスが改行・空白・文字コードの違いを無視して、差分を表示させるワンライナー
+<span class="article-date">2013/09/12</span></h2>
+
+<pre><code>diff -uw &lt;(curl -s "http://www.example.com/a/" | nkf -Sw -Lu | sed '/^[[:blank:]]*$/d') &lt;(curl -s "http://www.example.com/b/" | nkf -Lu | sed '/^[[:blank:]]*$/d') | less
+</code></pre>
+
 </div>
 
 <footer>

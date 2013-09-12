@@ -38,6 +38,11 @@
 <div id="content">
   <h1 id="shortage-of-argument">関数呼び出し時に引数が足りない場合</h1>
 
+<h2 id="db6873b">Java
+<span class="article-date">2013/09/11</span></h2>
+
+<p>コンパイルエラーになる。</p>
+
 <h2 id="9a4a262">Ruby
 <span class="article-date">2013/08/13</span></h2>
 
@@ -47,6 +52,18 @@
 <span class="article-date">2013/08/13</span></h2>
 
 <p>実行時にエラーが起きる。</p>
+
+<h2 id="bb9f211">Perl
+<span class="article-date">2013/09/11</span></h2>
+
+<p>以下のようにした場合、<code>$b</code>, <code>$c</code> は<code>undef</code>になる。</p>
+
+<pre><code>sub f {
+    my ($a, $b, $c) = @_;
+    ...;
+}
+f(1);
+</code></pre>
 
 <h2 id="12211db">JavaScript
 <span class="article-date">2013/08/13</span></h2>

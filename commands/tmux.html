@@ -77,70 +77,68 @@
 <h2 id="564cf29">キーバインド
 <span class="article-date">2013/07/24</span></h2>
 
-<p>以下で <prefix> は Ctrl+b など、tmuxのプリフィックキーで、設定によって変わる。</prefix></p>
+<p>以下で &lt;prefix&gt; は Ctrl+b など、tmuxのプリフィックキーで、設定によって変わる。</p>
 
-<prefix> `x`
-: ペインを閉じる
+<dl>
+  <dt>&lt;prefix&gt; <code>x</code></dt>
+  <dd>ペインを閉じる</dd>
+  <dt>&lt;prefix&gt; <code>&amp;</code></dt>
+  <dd>ウィンドウを閉じる</dd>
+  <dt>&lt;prefix&gt; <code>w</code></dt>
+  <dd>ウィンドウ一覧を表示して選択する</dd>
+  <dt>&lt;prefix&gt; <code>o</code>  (小文字のオー)</dt>
+  <dd>ペインの間を移動する</dd>
+</dl>
 
-<prefix> `&amp;`
-: ウィンドウを閉じる
+<h2 id="4dea0c7">用語の説明
+<span class="article-date">2013/07/24</span></h2>
 
-<prefix> `w`
-: ウィンドウ一覧を表示して選択する
+<dl>
+  <dt>セッション</dt>
+  <dd>タブブラウザに例えると1つのウィンドウ。1つ以上のウィンドウが含まれる。</dd>
+  <dt>ウィンドウ</dt>
+  <dd>タブブラウザに例えると1つのタブ。1つ以上のペインが含まれる。</dd>
+  <dt>ペイン</dt>
+  <dd>ウィンドウの中の1つの端末で、ウィンドウの中を水平や垂直に区切って複数並べることができる。</dd>
+</dl>
 
-<prefix> `o`  (小文字のオー)
-: ペインの間を移動する
+<h2 id="7a0b3ac">コマンドラインでのコマンド
+<span class="article-date">2013/07/24</span></h2>
 
+<pre><code># セッション一覧
+tmux ls
 
+# 名前をつけてセッションを開始
+tmux new -s hoge
 
+# 特定の名前のセッションに接続
+tmux attach -t 名前
+</code></pre>
 
-## 用語の説明
-<span class="article-date">2013/07/24</span> {#4dea0c7}
+<h2 id="87c8f42">複数のペインで同じ操作をするには
+<span class="article-date">2013/09/11</span></h2>
 
+<p>1つのウィンドウの中のすべてのペインに対して同じキー入力をさせるには、いずれかのペインで以下のコマンドを実行する。</p>
 
-セッション
-: タブブラウザに例えると1つのウィンドウ。1つ以上のウィンドウが含まれる。
+<pre><code>tmux set-window-option synchronize-panes on
+</code></pre>
 
-ウィンドウ
-: タブブラウザに例えると1つのタブ。1つ以上のペインが含まれる。
+<p>コマンドを実行した後は、どのペインに入力してもすべてのペインに反映される。</p>
 
-ペイン
-: ウィンドウの中の1つの端末で、ウィンドウの中を水平や垂直に区切って複数並べることができる。
+<p>終了するには以下のコマンドを実行する。</p>
 
+<pre><code>tmux set-window-option synchronize-panes off
+</code></pre>
 
+<p>それぞれのペインで別々のホストにSSH接続してから、同じ操作をするには、
+SSH接続してからではこのtmuxコマンドをキックできないので、
+&lt;prefix&gt;を押した後に、<code>:set-window-option synchronize-panes on</code> と入力し、エンターを押すことで、この機能を有効にする。
+<code>:</code>のあとのコマンド入力ではタブで補完が効くので、それほど面倒ではないが、私は .tmux.conf に以下のように書いている。</p>
 
+<pre><code>bind S setw synchronize-panes on
+bind s setw synchronize-panes off
+</code></pre>
 
-## コマンドラインでのコマンド
-<span class="article-date">2013/07/24</span> {#7a0b3ac}
-
-
-    # セッション一覧
-    tmux ls
-    
-    # 名前をつけてセッションを開始
-    tmux new -s hoge
-    
-    # 特定の名前のセッションに接続
-    tmux attach -t 名前
-
-
-
-
-## 複数のペインで同じ操作をするには
-<span class="article-date">2013/09/11</span> {#87c8f42}
-
-
-1つのウィンドウの中のすべてのペインに対して同じキー入力をさせるには、いずれかのペインで以下のコマンドを実行する。
-
-    tmux set-window-option synchronize-panes on
-
-コマンドを実行した後は、どのペインに入力してもすべてのペインに反映される。
-
-終了するには以下のコマンドを実行する。
-
-    tmux set-window-option synchronize-panes off
-
-</prefix></prefix></prefix></prefix>
 
 </div>
 

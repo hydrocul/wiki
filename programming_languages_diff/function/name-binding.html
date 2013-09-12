@@ -27,7 +27,7 @@
   <li>&gt;&gt; 関数の内側から外側のスコープの変数にアクセスできるかどうか</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/return-void.html">関数のなかで返り値が指定されていない場合の扱い</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
 </ul>
@@ -71,7 +71,9 @@ f1.call # 2
 <p>Procオブジェクトは、その外側の変数を読み書きできる。</p>
 
 <h2 id="800f78c">JavaScript
-<span class="article-date">2013/06/09</span></h2>
+<span class="article-date">2013/09/12</span></h2>
+
+<p>関数の中から外にある変数を読み書きできる。</p>
 
 <pre><code>var builder = function(){
     var i = 0;

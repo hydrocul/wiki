@@ -27,7 +27,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/return-void.html">関数のなかで返り値が指定されていない場合の扱い</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
 </ul>
@@ -59,7 +59,7 @@
 </ul>
 
 <h2 id="028763a">Scala
-<span class="article-date">2013/07/10</span></h2>
+<span class="article-date">2013/09/12</span></h2>
 
 <pre><code>def f(arg1: String, arg2: Int): String = {
   ...;
@@ -74,8 +74,7 @@
 </code></pre>
 
 <ul>
-  <li>メソッド呼び出しは、引数がない場合に限り、カッコを省略できる</li>
-  <li>関数本体の最後の式が返り値になり <code>return</code> を省略可</li>
+  <li>メソッド呼び出しは、引数がないか、引数が1つの場合は、カッコを省略できる</li>
 </ul>
 
 <h2 id="7f61bc7">PHP

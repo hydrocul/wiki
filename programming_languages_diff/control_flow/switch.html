@@ -84,7 +84,7 @@ default:
 <p><code>Byte</code>, <code>Short</code>, <code>Character</code>, <code>Integer</code> が使えるのは、たぶん autoboxing が導入された Java SE 5 から。</p>
 
 <h2 id="1e30bd5">Scala
-<span class="article-date">2013/05/15</span></h2>
+<span class="article-date">2013/09/11</span></h2>
 
 <pre><code>x match {
   case 1 =&gt;
@@ -97,6 +97,15 @@ default:
 </code></pre>
 
 <p>C言語やJavaのように fall through することはない。</p>
+
+<p>関数本体がswitch式のみの場合は以下のように省略した書き方ができる。</p>
+
+<pre><code>val f: Int =&gt; Int = {
+  case 1 =&gt; ...;
+  case 2 =&gt; ...;
+  case _ =&gt; ...;
+}
+</code></pre>
 
 <h2 id="9183a7d">PHP
 <span class="article-date">2013/07/14</span></h2>

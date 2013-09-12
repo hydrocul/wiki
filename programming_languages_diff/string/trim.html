@@ -122,13 +122,23 @@ String#chomp!(str)
 </code></pre>
 
 <h2 id="243b6bd">JavaScript
-<span class="article-date">2013/04/10</span></h2>
+<span class="article-date">2013/09/11</span></h2>
+
+<p>以前のJavaScriptには trim をする関数がなかったので、以下のjQueryの関数などを使っていた。</p>
 
 <pre><code>jQuery.trim(str)
 </code></pre>
 
 <p><a href="http://api.jquery.com/jQuery.trim/" target="_blank">http://api.jquery.com/jQuery.trim/</a><br />
 <a href="http://semooh.jp/jquery/api/utilities/jQuery.trim/str/" target="_blank">http://semooh.jp/jquery/api/utilities/jQuery.trim/str/</a></p>
+
+<p>だが、最近は文字列のメソッドとして存在するらしい。</p>
+
+<pre><code>var str = "  abc  ";
+console.log(str.trim());
+</code></pre>
+
+<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/trim" target="_blank">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/trim</a></p>
 
 
 </div>
