@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>プロセスを終了するには | プロセス管理 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>自身のプロセスを終了するには | プロセス管理 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exec/">プロセス管理</a> &gt; プロセスを終了するには
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exec/">プロセス管理</a> &gt; <span>自身のプロセスを終了するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -21,7 +21,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../../programming_languages_diff/exec/">プロセス管理</a></li>
-  <li>&gt;&gt; プロセスを終了するには</li>
+  <li>&gt;&gt; 自身のプロセスを終了するには</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/exec/sleep.html">スレッドを一定時間停止する</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/exec/system.html">外部コマンドを実行してその出力をそのまま出力するには</a></li>
 </ul>
@@ -30,9 +30,17 @@
 </div>
 
 <div id="content">
-  <h1 id="exit">プロセスを終了するには</h1>
+  <h1 id="exit">自身のプロセスを終了するには</h1>
 
-<h2 id="e9c9cc4">Ruby
+<h2 id="0cd6c25">Java
+<span class="article-date">2013/09/13</span></h2>
+
+<p>以下のメソッドを呼び出すとスレッドが残っていてもプロセスが終了し、終了時のステータスを指定できる。</p>
+
+<pre><code>System.exit(status);
+</code></pre>
+
+<h2 id="6a02ffb">Ruby
 <span class="article-date">2013/08/19</span></h2>
 
 <p>正常終了の場合</p>
@@ -40,12 +48,12 @@
 <pre><code>exit(0);
 </code></pre>
 
-<p>異常終了の場合(0以外を終了コードにする)</p>
+<p>異常終了の場合(0以外を終了ステータスにする)</p>
 
 <pre><code>exit(1);
 </code></pre>
 
-<h2 id="7dcc4c9">Perl
+<h2 id="00bad96">Perl
 <span class="article-date">2013/09/06</span></h2>
 
 <p>正常終了の場合</p>
@@ -53,12 +61,12 @@
 <pre><code>exit(0);
 </code></pre>
 
-<p>異常終了の場合(0以外を終了コードにする)</p>
+<p>異常終了の場合(0以外を終了ステータスにする)</p>
 
 <pre><code>exit(1);
 </code></pre>
 
-<p>異常が発生した場合は、以下のように書くと例外を発生させることができ、例外がキャッチされない場合は、0以外の終了コードでPerlスクリプトが終了する。</p>
+<p>異常が発生した場合は、以下のように書くと例外を発生させることができ、例外がキャッチされない場合は、0以外の終了ステータスでPerlスクリプトが終了する。</p>
 
 <pre><code>die "hogehoge error\n";
 </code></pre>

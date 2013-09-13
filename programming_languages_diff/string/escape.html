@@ -124,13 +124,19 @@ echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
 <p><code>"</code> で囲んだ文字列の中では <code>@</code> も配列として展開されてしまうので要注意。</p>
 
 <h2 id="21ecba8">sh
-<span class="article-date">2013/05/20</span></h2>
+<span class="article-date">2013/09/12</span></h2>
 
 <p>いくつかの記号はシェルで特別な意味を持つので <code>\</code> でエスケープが必要。</p>
 
 <p><code>"</code> で囲めば、エスケープが必要になるのは <code>"</code>, <code>$</code>,  <code>\</code>,  <code>`</code> のみになる。</p>
 
-<p><code>'</code> で囲めば、エスケープ処理が不要になるが、 <code>'</code> を含めることができなくなる。</p>
+<p><code>'</code> で囲めば、エスケープ処理が不要になるが、 <code>'</code> を含めることができなくなる。どうしても含めたい場合は以下のようにする。</p>
+
+<pre><code>echo 'o'\''clock'
+# =&gt; o'clock
+</code></pre>
+
+<p>いったん、<code>''</code>の文字列を閉じて、それに続けて単独の <code>'</code> を引用符と区別するためにエスケープを前置して入れ、その後にまた続けて後続の文字列を書く。</p>
 
 
 </div>
