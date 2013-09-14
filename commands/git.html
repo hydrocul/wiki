@@ -464,6 +464,18 @@ export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
 <pre><code>git branch -m newbranchname
 </code></pre>
 
+<h2 id="7103a90">特定のディレクトリだけをチェックアウトするには
+<span class="article-date">2013/09/13</span></h2>
+
+<p>いったんチェックアウトしたディレクトリにて以下を実行する。</p>
+
+<pre><code>git config core.sparsecheckout true
+echo hoge &gt; .git/info/sparse-checkout
+git read-tree -m -u HEAD
+</code></pre>
+
+<p>こうすると、<code>hoge</code>ディレクトリのみになる。<code>hoge</code>ディレクトリ自体がチェックアウトしたディレクトリのルートになるわけではなく、単にその他のディレクトリが削除されるだけである。おそらく<code>.git</code>ディレクトリにはすべてのファイルが保存されたままである。</p>
+
 
 </div>
 
