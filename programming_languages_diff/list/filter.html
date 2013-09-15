@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>filter | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストから特定の条件にマッチする要素のみを取り出すには (filter) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>filter</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストから特定の条件にマッチする要素のみを取り出すには (filter)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -25,18 +25,18 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/clone.html">リストをコピーするには (clone)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/compare.html">比較</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/contains.html">contains</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/drop.html">drop</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素のみを取り出すには (drop)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/fill.html">同じ値を並べたリストを作成するには (fill)</a></li>
-  <li>&gt;&gt; filter</li>
+  <li>&gt;&gt; リストから特定の条件にマッチする要素のみを取り出すには (filter)</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/filter-count.html">filter-count</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/find.html">find</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/flatten.html">リストのリストを平坦化するには flatten</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/foreach.html">foreach</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">groupBy</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">grouped</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">head</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-of.html">indexOf</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">IndexOutOfBoundsException</a></li>
@@ -66,12 +66,12 @@
 </div>
 
 <div id="content">
-  <h1 id="filter">filter
+  <h1 id="filter">リストから特定の条件にマッチする要素のみを取り出すには (filter)
 <span class="article-date">2013/08/21</span></h1>
 
 <p>リストから特定の条件にマッチする要素のみを取り出したリストを作成する方法、または特定の条件にマッチする要素のみのリストとマッチしない要素のみのリストに分ける方法。</p>
 
-<h2 id="3fa5067">Scala
+<h2 id="b8f90bf">Scala
 <span class="article-date">2013/08/21</span></h2>
 
 <pre><code>// Seq[A]
@@ -86,7 +86,7 @@ def partition(p: A =&gt; Boolean): (Seq[A], Seq[A])
 
 <p>返り値の1つ目は条件にマッチする要素のみのリストで、2つ目はマッチしない要素のみのリスト。</p>
 
-<h2 id="5dd26d1">Ruby
+<h2 id="56269d3">Ruby
 <span class="article-date">2013/08/21</span></h2>
 
 <pre><code>Array#select
@@ -106,7 +106,7 @@ Array#partition
 positive, negative_or_zero = arr.partition {|elem| elem &gt; 0}
 </code></pre>
 
-<h2 id="88c8178">Perl
+<h2 id="8e6ffa4">Perl
 <span class="article-date">2013/07/30</span></h2>
 
 <p>例</p>
@@ -117,7 +117,7 @@ print "@arr2";
 # =&gt; 1 3 5
 </code></pre>
 
-<h2 id="f104530">CoffeeScript
+<h2 id="3a533f4">CoffeeScript
 <span class="article-date">2013/04/19</span></h2>
 
 <p>配列の内包表記</p>

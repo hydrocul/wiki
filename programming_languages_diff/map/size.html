@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>size | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>マップの要素の数を取得するには (size) | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>size</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>マップの要素の数を取得するには (size)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -30,7 +30,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/literal.html">マップ(連想配列)書き方</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/put-all.html">putAll</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/remove.html">remove</a></li>
-  <li>&gt;&gt; size</li>
+  <li>&gt;&gt; マップの要素の数を取得するには (size)</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/map/values.html">keys</a></li>
 </ul>
 
@@ -38,25 +38,35 @@
 </div>
 
 <div id="content">
-  <h1 id="size">size</h1>
+  <h1 id="size">マップの要素の数を取得するには (size)</h1>
 
-<h2 id="2eb9f4a">Java
+<h2 id="5ebcdfb">Java
 <span class="article-date">2013/05/06</span></h2>
 
-<pre><code>int Map&lt;K, V&gt;#size()
+<pre><code>// Map&lt;K, V&gt;
+int size();
 </code></pre>
 
-<h2 id="292698e">Scala
+<h2 id="0a7baab">Scala
 <span class="article-date">2013/05/06</span></h2>
 
 <pre><code>// Map[A, B]
 def size(): Int
 </code></pre>
 
-<h2 id="3922a82">PHP
+<h2 id="53920e1">PHP
 <span class="article-date">2013/04/22</span></h2>
 
 <pre><code>count($map)
+</code></pre>
+
+<h2 id="c6db40b">Perl
+<span class="article-date">2013/09/14</span></h2>
+
+<p>キーの配列をスカラコンテキストで参照すると、要素の数を取得できる。</p>
+
+<pre><code>my %hash = (a =&gt; 1, b =&gt; 2);
+print scalar keys %hash;
 </code></pre>
 
 
