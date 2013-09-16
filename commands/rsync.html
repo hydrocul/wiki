@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; rsync
+  <a href="../commands/">コマンドリファレンス</a> &gt; <span>rsync</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -45,23 +45,26 @@
   <li>&gt; <a href="../commands/ps.html">ps</a></li>
   <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
   <li>&gt; rsync</li>
-  <li>&gt; <a href="../commands/sdiff.html">sdiff</a></li>
+  <li>&gt; <a href="../commands/sdiff.html">sdiff コマンド</a></li>
   <li>&gt; <a href="../commands/sed.html">sed コマンド</a></li>
-  <li>&gt; <a href="../commands/sort.html">sort</a></li>
+  <li>&gt; <a href="../commands/sort.html">sort コマンド</a></li>
   <li>&gt; <a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
   <li>&gt; <a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
-  <li>&gt; <a href="../commands/ssh.html">SSH</a></li>
+  <li>&gt; <a href="../commands/ssh.html">ssh コマンド</a></li>
   <li>&gt; <a href="../commands/tac.html">tac コマンド</a></li>
+  <li>&gt; <a href="../commands/tail.html">tail コマンド</a></li>
   <li>&gt; <a href="../commands/tar.html">tar コマンド</a></li>
   <li>&gt; <a href="../commands/tee.html">tee コマンド</a></li>
   <li>&gt; <a href="../commands/time.html">time コマンド</a></li>
+  <li>&gt; <a href="../commands/tmux.html">tmux コマンド</a></li>
   <li>&gt; <a href="../commands/top.html">top コマンド</a></li>
   <li>&gt; <a href="../commands/touch.html">touch コマンド</a></li>
   <li>&gt; <a href="../commands/tr.html">tr コマンド</a></li>
   <li>&gt; <a href="../commands/watch.html">watch コマンド</a></li>
   <li>&gt; <a href="../commands/wc.html">wc コマンド</a></li>
   <li>&gt; <a href="../commands/wget.html">wget コマンド</a></li>
-  <li>&gt; <a href="../commands/xargs.html">xargs</a></li>
+  <li>&gt; <a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
+  <li>&gt; <a href="../commands/xargs.html">xargs コマンド</a></li>
   <li>&gt; <a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
 </ul>
 
@@ -82,9 +85,21 @@ rsync -e "ssh -p ポート番号" リモートユーザ名@リモートホスト
 rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
 
-<ul>
-  <li>オプション <code>-u</code> は、タイムスタンプが新しいファイルのみをコピーする。</li>
-</ul>
+<h2 id="b39bf91">オプション
+<span class="article-date">2013/09/16</span></h2>
+
+<dl>
+  <dt><code>-r</code></dt>
+  <dd>ディレクトリの場合はその中を再帰的にコピー</dd>
+  <dt><code>-v</code></dt>
+  <dd>コピーの進捗を表示</dd>
+  <dt><code>-t</code></dt>
+  <dd>タイムスタンプも保存</dd>
+  <dt><code>-p</code></dt>
+  <dd>パーミッションも保存</dd>
+  <dt><code>-u</code></dt>
+  <dd>タイムスタンプが新しいファイルのみをコピー</dd>
+</dl>
 
 <h2 id="9fdbbfe">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには
 <span class="article-date">2013/04/03</span></h2>

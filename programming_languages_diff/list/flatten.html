@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストのリストを平坦化するには flatten | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストのリストをリストに平坦化するには (flatten) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストのリストを平坦化するには flatten</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストのリストをリストに平坦化するには (flatten)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -31,15 +31,15 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/filter-count.html">filter-count</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
-  <li>&gt;&gt; リストのリストを平坦化するには flatten</li>
+  <li>&gt;&gt; リストのリストをリストに平坦化するには (flatten)</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/foreach.html">foreach</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">head</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">リストの先頭の要素を取得するには (head)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-of.html">indexOf</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">IndexOutOfBoundsException</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外のインデックスにアクセスしたときにどうなるか</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/is-empty.html">isEmpty</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/last.html">リストの最後の要素を取得するには (last)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/literal.html">リスト(配列)の書き方</a></li>
@@ -47,14 +47,13 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/pop.html">pop</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/product.html">product</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/push.html">リストの最後に要素1つまたは複数追加するには (push)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/remove.html">remove</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/sub-list.html">subList</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/tail.html">tail</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の要素のリストを取得するには (tail)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取り出すには (take)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
@@ -66,9 +65,9 @@
 </div>
 
 <div id="content">
-  <h1 id="flatten">リストのリストを平坦化するには flatten</h1>
+  <h1 id="flatten">リストのリストをリストに平坦化するには (flatten)</h1>
 
-<h2 id="b789532">Scala
+<h2 id="cb037ba">Scala
 <span class="article-date">2013/07/30</span></h2>
 
 <pre><code>// Seq[A]
@@ -77,7 +76,7 @@ def flatten[B]: Seq[B]
 
 <p>処理結果のリストを返し、自身は変更しない。</p>
 
-<h2 id="92a0262">Ruby
+<h2 id="fca4da4">Ruby
 <span class="article-date">2013/05/06</span></h2>
 
 <pre><code>Array#flatten
