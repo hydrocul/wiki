@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ファイルサイズが0かどうかを取得 | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>ファイルサイズが0かどうかを取得するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイルサイズが0かどうかを取得</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイルサイズが0かどうかを取得するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -32,12 +32,13 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/flush.html">フラッシュするには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込んでいくには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べる</a></li>
-  <li>&gt;&gt; ファイルサイズが0かどうかを取得</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
+  <li>&gt;&gt; ファイルサイズが0かどうかを取得するには</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べる</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを取得</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべて削除するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには</a></li>
 </ul>
 
@@ -45,9 +46,11 @@
 </div>
 
 <div id="content">
-  <h1 id="is-empty">ファイルサイズが0かどうかを取得</h1>
+  <h1 id="is-empty">ファイルサイズが0かどうかを取得するには</h1>
 
-<h2 id="1356bdb">Perl
+<p>-&gt; <a href="file-size.html">ファイルサイズを得</a></p>
+
+<h2 id="0e0f6a5">Perl
 <span class="article-date">2013/08/19</span></h2>
 
 <p><code>-s</code> という演算子でファイルサイズを整数で取得できるので、</p>
@@ -57,7 +60,7 @@
 }
 </code></pre>
 
-<h2 id="3720564">sh
+<h2 id="66027a3">sh
 <span class="article-date">2013/08/19</span></h2>
 
 <pre><code>if [ ! -s ./hoge.txt ]; then
