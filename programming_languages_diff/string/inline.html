@@ -35,10 +35,10 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/multiplication.html">同じ文字列を繰り返し連結するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/overview.html">概要</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/plus.html">文字列の連結をするには (plus)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/starts-with.html">特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim)</a></li>
@@ -82,6 +82,19 @@ puts "It is #{now} now."
 <p>例</p>
 
 <pre><code>"http://$host/$path"
+</code></pre>
+
+<h2 id="add49da">sh
+<span class="article-date">2013/09/17</span></h2>
+
+<p><code>"</code> で囲む文字列では中に変数を埋め込むことができる。</p>
+
+<p><code>$</code> で始まる部分が変数に展開される。変数名の後ろに変数名になりうる文字が続く場合は <code>$</code> のあとに <code>{ }</code> で変数名を囲む。</p>
+
+<p>例</p>
+
+<pre><code>"$VAR/hoge"
+"${VAR}_hoge"
 </code></pre>
 
 <h2 id="coffeescript">CoffeeScript

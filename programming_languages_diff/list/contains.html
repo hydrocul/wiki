@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>contains | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストに特定の要素が含まれているかどうかを判定するには (contains) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>contains</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストに特定の要素が含まれているかどうかを判定するには (contains)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,79 +24,77 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/add-all.html">addAll</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/clone.html">リストをコピーするには (clone)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/compare.html">比較</a></li>
-  <li>&gt;&gt; contains</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/drop.html">drop</a></li>
+  <li>&gt;&gt; リストに特定の要素が含まれているかどうかを判定するには (contains)</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/convert.html">リストの種類を相互に変換するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素のみを取り出すには (drop)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/fill.html">同じ値を並べたリストを作成するには (fill)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/filter.html">filter</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/filter-count.html">filter-count</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/find.html">find</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/filter-count.html">リストから特定の条件にマッチする要素の数を数えるには (filter-count)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/fold-left.html">foldLeft</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/foreach.html">foreach</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">groupBy</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">grouped</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">head</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-of.html">indexOf</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">IndexOutOfBoundsException</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/is-empty.html">isEmpty</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/head.html">リストの先頭の要素を取得するには (head)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外のインデックスにアクセスしたときにどうなるか</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/is-empty.html">リストが空かどうかを判定するには (isEmpty)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/last.html">リストの最後の要素を取得するには (last)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/literal.html">リスト(配列)の書き方</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/map.html">map</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/pop.html">pop</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/product.html">product</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/overview.html">概要</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/pop.html">リストの最後から要素を1つ取得してリストから削除するには (pop)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/push.html">リストの最後に要素1つまたは複数追加するには (push)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/remove.html">remove</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/sub-list.html">subList</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/tail.html">tail</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の要素のリストを取得するには (tail)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取り出すには (take)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-map.html">リストからマップを生成する方法 (toMap)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/list/unshift.html">リストの先頭に要素を挿入するには (unshift)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/list/zip.html">zip</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
 </ul>
 
   </div>
 </div>
 
 <div id="content">
-  <h1 id="contains">contains
-<span class="article-date">2013/07/30</span></h1>
+  <h1 id="contains">リストに特定の要素が含まれているかどうかを判定するには (contains)</h1>
 
-<p>リストに要素が含まれているかどうかをチェックする方法。</p>
-
-<h2 id="6af67ff">Java
+<h2 id="2f837db">Java
 <span class="article-date">2013/07/30</span></h2>
 
 <pre><code>boolean List&lt;E&gt;#contains(Object elem)
 </code></pre>
 
-<h2 id="928b469">Scala
+<h2 id="c470846">Scala
 <span class="article-date">2013/07/30</span></h2>
 
 <pre><code>// Seq[A]
 def contains(elem: Any): Boolean
 </code></pre>
 
-<h2 id="7e80472">PHP
+<h2 id="ca7089a">PHP
 <span class="article-date">2013/07/30</span></h2>
 
 <pre><code>bool in_array($elem, $arr)
 </code></pre>
 
-<h2 id="6939363">Ruby
+<h2 id="dba9c2d">Ruby
 <span class="article-date">2013/07/30</span></h2>
 
 <pre><code>arr.include?(elem)
 </code></pre>
 
-<h2 id="6d7a8d0">Python
+<h2 id="9d4e0d6">Python
 <span class="article-date">2013/07/30</span></h2>
 
 <p>例</p>
@@ -105,7 +103,7 @@ def contains(elem: Any): Boolean
     ...
 </code></pre>
 
-<h2 id="9bddd39">Perl
+<h2 id="52ff9e7">Perl
 <span class="article-date">2013/08/09</span></h2>
 
 <p>例</p>

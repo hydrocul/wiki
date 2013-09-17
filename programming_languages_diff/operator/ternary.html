@@ -21,7 +21,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../../programming_languages_diff/operator/">演算子</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/operator/compare.html">比較演算子</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/operator/compare.html">オブジェクトの比較演算子</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/operator/elvis.html">エルビス演算子</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/operator/increment.html">インクリメント・デクリメント演算子</a></li>
   <li>&gt;&gt; 三項演算子</li>
@@ -34,11 +34,16 @@
   <h1 id="ternary">三項演算子</h1>
 
 <h2 id="06e1905">C言語, C++
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2013/09/17</span></h2>
 
 <p>例</p>
 
 <pre><code>count == 1 ? "foot" : "feet"
+</code></pre>
+
+<p>右結合であるので以下のような書き方が可能。</p>
+
+<pre><code>count == 0 ? "zero" : count == 1 ? "one" : "many"
 </code></pre>
 
 <h2 id="bc63dad">Java
@@ -52,9 +57,18 @@
 <h2 id="b586a56">Scala
 <span class="article-date">2013/08/21</span></h2>
 
-<p>三項演算子がなく、代わりにif式を使う。Scalaではifは文ではなく、値を返す式。</p>
+<p>三項演算子がなく、代わりに<a href="../control_flow/if.html#scala">if式</a>を使う。
+Scalaではifは文ではなく、値を返す式。</p>
 
 <pre><code>if(count == 1) "foot" else "feet";
+</code></pre>
+
+<h2 id="19476ba">PHP
+<span class="article-date">2013/09/18</span></h2>
+
+<p>C言語ライクの三項演算子を使える。</p>
+
+<pre><code>count == 1 ? "foot" : "feet"
 </code></pre>
 
 <h2 id="e4ace4d">Perl

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>mosh | コマンドリファレンス | hydrocul のメモ</title>
+<title>mosh コマンド | コマンドリファレンス | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; <span>mosh</span>
+  <a href="../commands/">コマンドリファレンス</a> &gt; <span>mosh コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -37,12 +37,12 @@
   <li>&gt; <a href="../commands/less.html">less コマンド</a></li>
   <li>&gt; <a href="../commands/lftp.html">lftp</a></li>
   <li>&gt; <a href="../commands/ls.html">ls コマンド</a></li>
-  <li>&gt; mosh</li>
+  <li>&gt; mosh コマンド</li>
   <li>&gt; <a href="../commands/netstat.html">netstat</a></li>
   <li>&gt; <a href="../commands/nkf.html">nkf コマンド</a></li>
   <li>&gt; <a href="../commands/od.html">od</a></li>
-  <li>&gt; <a href="../commands/openssl.html">openssl</a></li>
-  <li>&gt; <a href="../commands/ps.html">ps</a></li>
+  <li>&gt; <a href="../commands/openssl.html">openssl コマンド</a></li>
+  <li>&gt; <a href="../commands/ps.html">ps コマンド</a></li>
   <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
   <li>&gt; <a href="../commands/rsync.html">rsync コマンド</a></li>
   <li>&gt; <a href="../commands/sdiff.html">sdiff コマンド</a></li>
@@ -72,8 +72,8 @@
 </div>
 
 <div id="content">
-  <h1 id="mosh">mosh
-<span class="article-date">2013/05/28</span></h1>
+  <h1 id="mosh">mosh コマンド
+<span class="article-date">2013/09/17</span></h1>
 
 <p>モバイル環境など頻繁にネットが切断されたり、ノートPCを開いたり閉じたりしても、ネットが復活したときに自動でsshを再接続し、しかも切断される前のセッションの状態を維持してくれる高機能sshクライアント。ネットが復活したときにIPが変わってしまってもセッションの維持に問題ない。</p>
 
@@ -81,12 +81,14 @@
 
 <p>moshの実装はsshの機能に依存しているので、sshで接続できることが前提でさらにサーバ側とクライアント側の両方にmoshのインストールが必要。</p>
 
-<h2 id="6117d70">インストール方法
+<p><a href="#ssh-udp-tunnel">SSHでトンネルを貼ってmoshの通信を通すのは難しいらしい</a>。</p>
+
+<h2 id="54ae7d3">インストール方法
 <span class="article-date">2013/05/28</span></h2>
 
 <p><a href="http://mosh.mit.edu/#getting" target="_blank">http://mosh.mit.edu/#getting</a></p>
 
-<h3 id="0ac4361">ソースからmoshをインストールしたサーバに接続しようとして発生するエラー <code>mosh-server: error while loading shared libraries: libprotobuf.so.8: cannot open shared object file: No such file or directory</code>
+<h3 id="383fc58">ソースからmoshをインストールしたサーバに接続しようとして発生するエラー <code>mosh-server: error while loading shared libraries: libprotobuf.so.8: cannot open shared object file: No such file or directory</code>
 <span class="article-date">2013/07/01</span></h3>
 
 <p>ぐぐるとと、<code>.bashrc</code> に <code>LD_LIBRARY_PATH</code> の設定を書くんだとか、接続するときの 
@@ -97,10 +99,12 @@ mosh のオプションパラメータに <code>LD_LIBRARY_PATH</code> のパス
 sudo ldconfig
 </code></pre>
 
-<h2 id="30877d0">SSHトンネルを通してmoshするのは難しい
-<span class="article-date">2013/07/18</span></h2>
+<h2 id="ssh-udp-tunnel">SSHトンネルを通してmoshするのは難しい
+<span class="article-date">2013/09/17</span></h2>
 
 <p><a href="http://shogo82148.github.io/blog/2012/12/28/tunneling-udp-via-ssh/" target="_blank">http://shogo82148.github.io/blog/2012/12/28/tunneling-udp-via-ssh/</a></p>
+
+<p>UDPをトンネルさせてmoshの通信を通しても、通信がとても不安定らしい。</p>
 
 
 </div>

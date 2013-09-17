@@ -37,12 +37,12 @@
   <li>&gt; <a href="../commands/less.html">less コマンド</a></li>
   <li>&gt; <a href="../commands/lftp.html">lftp</a></li>
   <li>&gt; <a href="../commands/ls.html">ls コマンド</a></li>
-  <li>&gt; <a href="../commands/mosh.html">mosh</a></li>
+  <li>&gt; <a href="../commands/mosh.html">mosh コマンド</a></li>
   <li>&gt; <a href="../commands/netstat.html">netstat</a></li>
   <li>&gt; <a href="../commands/nkf.html">nkf コマンド</a></li>
   <li>&gt; <a href="../commands/od.html">od</a></li>
-  <li>&gt; <a href="../commands/openssl.html">openssl</a></li>
-  <li>&gt; <a href="../commands/ps.html">ps</a></li>
+  <li>&gt; <a href="../commands/openssl.html">openssl コマンド</a></li>
+  <li>&gt; <a href="../commands/ps.html">ps コマンド</a></li>
   <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
   <li>&gt; rsync コマンド</li>
   <li>&gt; <a href="../commands/sdiff.html">sdiff コマンド</a></li>
@@ -73,7 +73,7 @@
 
 <div id="content">
   <h1 id="rsync">rsync コマンド
-<span class="article-date">2013/06/14</span></h1>
+<span class="article-date">2013/09/17</span></h1>
 
 <pre><code># リモートホストからローカルにダウンロードする
 rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
@@ -84,6 +84,8 @@ rsync -e "ssh -p ポート番号" リモートユーザ名@リモートホスト
 # 秘密鍵のファイルを指定する場合
 rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
 </code></pre>
+
+<p>リモートからローカルへのダウンロード、またはローカルからリモートへのアップロードが可能だが、リモートから別のリモートへの転送はできない。</p>
 
 <h2 id="4d442c3">オプション
 <span class="article-date">2013/09/16</span></h2>
