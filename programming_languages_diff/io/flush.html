@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>フラッシュするには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>出力をフラッシュするには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>フラッシュするには</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>出力をフラッシュするには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -30,14 +30,15 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
-  <li>&gt;&gt; フラッシュするには</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込んでいくには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べる</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得</a></li>
+  <li>&gt;&gt; 出力をフラッシュするには</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べる</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを取得</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべて削除するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには</a></li>
 </ul>
 
@@ -45,7 +46,7 @@
 </div>
 
 <div id="content">
-  <h1 id="flush">フラッシュするには
+  <h1 id="flush">出力をフラッシュするには
 <span class="article-date">2013/08/17</span></h1>
 
 <p>プログラムが出力したものの、OSなどがバッファリングをしていて実際にはまだ出力されていないものを出力させる方法。</p>

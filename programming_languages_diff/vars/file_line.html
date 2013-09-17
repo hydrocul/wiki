@@ -52,11 +52,17 @@ __LINE__
 </code></pre>
 
 <h2 id="12342b6">Perl
-<span class="article-date">2013/09/10</span></h2>
+<span class="article-date">2013/09/16</span></h2>
 
 <pre><code>__FILE__
-__DIR__
 __LINE__
+</code></pre>
+
+<p><code>Dir::Self</code> を使えば、<code>__DIR__</code> も利用可能だが、たぶん 
+<a href="../io/dirname.html#perl"><code>dirname(__FILE__)</code></a> と同じ。</p>
+
+<pre><code>use Dir::Self;
+__DIR__
 </code></pre>
 
 <h2 id="028e4b1">sh

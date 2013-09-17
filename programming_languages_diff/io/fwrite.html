@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ファイルに書き込んでいくには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>ファイルに書き込むには (fwrite) | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイルに書き込んでいくには</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイルに書き込むには (fwrite)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -30,14 +30,15 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/flush.html">フラッシュするには</a></li>
-  <li>&gt;&gt; ファイルに書き込んでいくには</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べる</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには</a></li>
+  <li>&gt;&gt; ファイルに書き込むには (fwrite)</li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べる</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを取得</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべて削除するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには</a></li>
 </ul>
 
@@ -45,9 +46,9 @@
 </div>
 
 <div id="content">
-  <h1 id="fwrite">ファイルに書き込んでいくには</h1>
+  <h1 id="fwrite">ファイルに書き込むには (fwrite)</h1>
 
-<h2 id="6c79706">PHP
+<h2 id="ea836b7">PHP
 <span class="article-date">2013/08/23</span></h2>
 
 <pre><code>$fh = fopen('./hoge.txt', 'w');
@@ -57,7 +58,7 @@ fclose($fh);
 
 <p><code>'w'</code> は通常の書き込みモード。<code>'a'</code> は追記モード。</p>
 
-<h2 id="0b72bbb">Ruby
+<h2 id="b37f825">Ruby
 <span class="article-date">2013/08/23</span></h2>
 
 <pre><code>list = ... # 文字列の配列
@@ -72,7 +73,7 @@ end
 
 <p><code>'a'</code> にすると追記モードでのオープンで、すでにファイルが存在していれば、最初にポインタをファイルの最後に移動する。</p>
 
-<h3 id="ce38d5b"><code>puts</code> と <code>write</code> の違い
+<h3 id="588ca49"><code>puts</code> と <code>write</code> の違い
 <span class="article-date">2013/08/23</span></h3>
 
 <p><code>write</code> は出力だけを行うプリミティブなメソッドで、他のほとんどの出力メソッドは最終的に <code>write</code> メソッドを呼び出している。</p>
