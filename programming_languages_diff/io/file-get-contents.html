@@ -30,8 +30,8 @@
   <li>&gt;&gt; ファイルの中身を1つの文字列として取得するには</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/flush.html">フラッシュするには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込んでいくには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べる</a></li>
@@ -70,7 +70,13 @@
 </code></pre>
 
 <h2 id="bde6302">Perl
-<span class="article-date">2013/07/30</span></h2>
+<span class="article-date">2013/09/18</span></h2>
+
+<pre><code>open(IN, '&lt;', './hoge.txt') or die "Cannot open";
+my @lines = &lt;IN&gt;;
+# @lines には行単位の配列で、各行には最後の改行を含む
+close IN;
+</code></pre>
 
 <p>手抜きでcatコマンドを使う方法</p>
 

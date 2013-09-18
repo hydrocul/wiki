@@ -21,6 +21,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
   <li>&gt; <a href="../../programming_languages_diff/exec/">プロセス管理</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/exec/escape.html">シェルに渡すコマンドの引数のエスケープ処理</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/exec/exit.html">自身のプロセスを終了するには</a></li>
   <li>&gt;&gt; スレッドを一定時間停止する</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/exec/system.html">外部コマンドを実行してその出力をそのまま出力するには</a></li>
@@ -45,7 +46,7 @@
 </code></pre>
 
 <h2 id="087196c">Ruby
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2013/09/18</span></h2>
 
 <p>3秒間停止する例</p>
 
@@ -53,6 +54,10 @@
 </code></pre>
 
 <p>秒数に浮動小数点数も使える。</p>
+
+<p>引数を省略すると永久にスリープする。</p>
+
+<p>PerlのようにSIGALRMを渡しても起きずに、Rubyスクリプト自体が終了してしまうみたい。</p>
 
 <h2 id="c0d4373">Perl
 <span class="article-date">2013/08/14</span></h2>

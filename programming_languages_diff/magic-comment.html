@@ -90,12 +90,17 @@ p "あいうえお".encoding  # =&gt; #&lt;Encoding:UTF-8&gt;
 </code></pre>
 
 <h2 id="3a7460b">Perl
-<span class="article-date">2013/09/01</span></h2>
+<span class="article-date">2013/09/18</span></h2>
 
 <p>以下を付けることで、バグになりやすい古い仕様の表記などに対して警告を出してくれるようになるので、原則としてこれを書くことになっている。</p>
 
 <pre><code>use strict;
 use warnings;
+</code></pre>
+
+<p>日本語を扱う場合は以下も書いておいたほうがたぶん無難。</p>
+
+<pre><code>use utf8;
 </code></pre>
 
 </div>

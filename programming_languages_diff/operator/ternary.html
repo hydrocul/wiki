@@ -47,12 +47,14 @@
 </code></pre>
 
 <h2 id="bc63dad">Java
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2013/09/17</span></h2>
 
 <p>C言語ライクの三項演算子を使える。</p>
 
 <pre><code>count == 1 ? "foot" : "feet"
 </code></pre>
+
+<p>C言語と同じく右結合。</p>
 
 <h2 id="b586a56">Scala
 <span class="article-date">2013/08/21</span></h2>
@@ -63,13 +65,20 @@ Scalaではifは文ではなく、値を返す式。</p>
 <pre><code>if(count == 1) "foot" else "feet";
 </code></pre>
 
-<h2 id="19476ba">PHP
-<span class="article-date">2013/09/18</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2013/09/17</span></h2>
 
 <p>C言語ライクの三項演算子を使える。</p>
 
 <pre><code>count == 1 ? "foot" : "feet"
 </code></pre>
+
+<p>2項目を省略して<a href="elvis.html#php">エルビス演算子</a>として使うこともできる。</p>
+
+<p>他の言語と違いPHPでは左結合なので、三項演算子を入れ子にして使うのはやめたほうがよさそう。</p>
+
+<p>PHPの三項演算子が左結合なのは、PHP言語仕様のバグだ<br />
+<a href="http://d.hatena.ne.jp/RepsolFireBlade/20130220/1361332690" target="_blank">http://d.hatena.ne.jp/RepsolFireBlade/20130220/1361332690</a></p>
 
 <h2 id="e4ace4d">Perl
 <span class="article-date">2013/07/31</span></h2>

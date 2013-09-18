@@ -30,8 +30,8 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/flush.html">フラッシュするには</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込んでいくには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べる</a></li>
@@ -91,14 +91,14 @@ end
 </code></pre>
 
 <h2 id="325a8ac">Perl
-<span class="article-date">2013/07/30</span></h2>
+<span class="article-date">2013/09/18</span></h2>
 
-<pre><code>open(FH, '&lt;', 'test2.pl') or die "Cannot open";
-while(my $line = &lt;FH&gt;){
+<pre><code>open(IN, '&lt;', './hoge.txt') or die "Cannot open";
+while (my $line = &lt;IN&gt;) {
     # $line には最後の改行を含む
     ...;
 }
-close FH;
+close IN;
 </code></pre>
 
 

@@ -44,9 +44,10 @@ var_export(preg_match("/x./", "abc\nabc")); // =&gt; 0
 <a href="http://www.php.net/manual/ja/function.preg-match.php" target="_blank">http://www.php.net/manual/ja/function.preg-match.php</a></p>
 
 <h2 id="d8e5c92">Ruby
-<span class="article-date">2013/05/04</span></h2>
+<span class="article-date">2013/09/18</span></h2>
 
-<p><code>=~</code> という演算子で、正規表現にマッチしていたら、そのインデックスを返し、マッチしなければ <code>nil</code> を返す。</p>
+<p><code>=~</code> という演算子で、正規表現にマッチしていたら、そのインデックスを返し、マッチしなければ <code>nil</code> を返す。
+<code>=~</code> の左右がPerlと逆。</p>
 
 <pre><code>/a./ =~ "abc\nabc\n" # =&gt; 0
 /x./ =~ "abc\nabc\n" # =&gt; nil
@@ -63,9 +64,10 @@ var_export(preg_match("/x./", "abc\nabc")); // =&gt; 0
 </code></pre>
 
 <h2 id="5741346">Perl
-<span class="article-date">2013/09/10</span></h2>
+<span class="article-date">2013/09/18</span></h2>
 
-<p><code>=~</code> という演算子で、正規表現にマッチしているかどうかを返す。マッチしていれば <code>'1'</code> を返し、マッチしていなければ <code>''</code> を返す。</p>
+<p><code>=~</code> という演算子で、正規表現にマッチしていれば <code>'1'</code> を返し、マッチしていなければ <code>''</code> を返す。
+<code>=~</code> の左右がRubyと逆。</p>
 
 <pre><code>print "abc\nabc\n" =~ /a./;
 # =&gt; 1

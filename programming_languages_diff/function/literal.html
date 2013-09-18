@@ -41,7 +41,7 @@
 <h2 id="cedc311">Java</h2>
 
 <h3 id="d74ce16">ラムダ式
-<span class="article-date">2013/09/06</span></h3>
+<span class="article-date">2013/09/18</span></h3>
 
 <p>抽象メソッド1つだけのインターフェースを関数型インターフェース(SAM Type,
 single abstract method type)といい、
@@ -76,7 +76,15 @@ Java8からは、関数型インターフェースを継承する匿名クラス
 
 <p>本体部分に式を直接書くと、その式が関数の返り値となる。本体部分を <code>{}</code> で囲むと、メソッド定義と同じように、返り値は<code>return</code>文を書く必要がある。</p>
 
-<p>匿名クラスの中で <code>this</code> と書くと、匿名クラス自体のインスタンスを指すが、ラムダ式の中で <code>this</code> と書くと、その関数の外側のインスタンスを指すことになる。このラムダ式がクラスのようには見えないので、この仕様はソースを見たときの直感通りかもしれない。</p>
+<p>匿名クラスの中で <code>this</code> と書くと、匿名クラス自体のインスタンスを指すが、ラムダ式の中で <code>this</code> と書くと、その関数の外側のインスタンスを指すことになる。このラムダ式の見た目が一見クラスのようには見えないので、この仕様のほうが確かに直感通りかもしれない。</p>
+
+<h3 id="3fb7df7">ラムダ式が動作する仕組み
+<span class="article-date">2013/09/18</span></h3>
+
+<p>ラムダ式のクラス(SAM Type のサブクラス)は、コンパイル時にはクラスファイルが生成されず、属する外側のクラスの1メソッドとしてコンパイルされる。そのラムダ式を初めて生成するときにJVMの中で動的にクラスファイルが生成されてロードされる。その際にinvokedynamicが使われている。ラムダ式ごとに事前にクラスファイルを生成しては、クラスローディングが重くなって実行時のパフォーマンスに影響するからだと思われる。</p>
+
+<p>詳しくはこちらにある(全部は読めてないが)<br />
+<a href="http://www.myexpospace.com/JavaOne2012/SessionFiles/CON6080_PDF_6080_0001.pdf" target="_blank">http://www.myexpospace.com/JavaOne2012/SessionFiles/CON6080_PDF_6080_0001.pdf</a></p>
 
 <h3 id="38ab12e">メソッド参照
 <span class="article-date">2013/09/06</span></h3>
@@ -118,6 +126,19 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 </code></pre>
 
 <p>式の中のそれぞれの <code>_</code> が引数になるので、上記の場合は2引数の関数となる。この書き方だと各引数は1回しか式の中に登場できず、引数の順番は、式の中の <code>_</code> と同じ順番になる。</p>
+
+<h2 id="9bb8787">PHP
+<span class="article-date">2013/09/17</span></h2>
+
+<p>例</p>
+
+<pre><code>$f = function ($str1, $str2) {
+    return strcmp($str1, $str2);
+}
+</code></pre>
+
+<p>無名関数 | PHPマニュアル<br />
+<a href="http://www.php.net/manual/ja/functions.anonymous.php" target="_blank">http://www.php.net/manual/ja/functions.anonymous.php</a></p>
 
 
 </div>
