@@ -23,10 +23,10 @@
   <li>&gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/literal.html">関数の書き方</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/multi-return.html">複数の返り値</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
   <li>&gt;&gt; メソッドのオーバーロード</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
@@ -42,16 +42,20 @@
 <p>同じ名前で引数や返り値の型が異なるメソッドを複数定義することをオーバーロードという。</p>
 
 <h2 id="d8934a8">C++
-<span class="article-date">2013/09/06</span></h2>
+<span class="article-date">2013/09/20</span></h2>
 
 <p>引数の型や数が異なれば関数のオーバーロードが可能。</p>
+
+<p>返り値の方だけが異なる関数のオーバーロードはできない。</p>
 
 <h2 id="8a4dfbf">Java
-<span class="article-date">2013/09/06</span></h2>
+<span class="article-date">2013/09/20</span></h2>
 
 <p>引数の型や数が異なれば関数のオーバーロードが可能。</p>
 
-<p>Java5以降では、引数の型がジェネリックス(総称型)の場合で、その型パラメータのみが異なるメソッドは定義できない。オーバーロードがJVMのレベルでのサポートだが、ジェネリックスの機能はJVMではサポートされておらず、コンパイル時に型パラメータが削除されてしまうため。</p>
+<p>返り値の型だけが異なる関数のオーバーロードはできない。</p>
+
+<p>Java5以降でジェネリックス(総称型)が導入されたが、引数の型がジェネリックス(総称型)の場合で、その型パラメータのみが異なるメソッドは定義できない。オーバーロードがJVMのレベルでのサポートだが、ジェネリックスの機能はJVMではサポートされておらず、コンパイル時に型パラメータが削除されてしまうため。</p>
 
 
 </div>

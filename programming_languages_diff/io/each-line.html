@@ -91,7 +91,7 @@ end
 </code></pre>
 
 <h2 id="325a8ac">Perl
-<span class="article-date">2013/09/18</span></h2>
+<span class="article-date">2013/09/20</span></h2>
 
 <pre><code>open(IN, '&lt;', './hoge.txt') or die "Cannot open";
 while (my $line = &lt;IN&gt;) {
@@ -100,6 +100,8 @@ while (my $line = &lt;IN&gt;) {
 }
 close IN;
 </code></pre>
+
+<p><code>open</code>せずに <code>&lt;IN&gt;</code> の代わりに <code>&lt;STDIN&gt;</code> と書けば、標準入力を1行ずつ処理できる。</p>
 
 
 </div>

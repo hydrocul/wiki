@@ -46,7 +46,6 @@
   <li>&gt; <a href="./ruby.html">Ruby</a></li>
   <li>&gt; <a href="./sh.html">シェルスクリプト</a></li>
   <li>&gt; <a href="./svn.html">Subversion (svn)</a></li>
-  <li>&gt; <a href="./tmux.html">tmux</a></li>
   <li>&gt; <a href="./ubuntu.html">Ubuntu</a></li>
 </ul>
 
@@ -134,6 +133,23 @@ echo %E3%81%82 | tr % = | nkf -WmQ
 
 <pre><code>diff -uw &lt;(curl -s "http://www.example.com/a/" | nkf -Sw -Lu | sed '/^[[:blank:]]*$/d') &lt;(curl -s "http://www.example.com/b/" | nkf -Lu | sed '/^[[:blank:]]*$/d') | less
 </code></pre>
+
+<h2 id="7af10f7">Perlで1行ごとになにかをパイプ処理するワンライナー
+<span class="article-date">2013/09/06</span></h2>
+
+<p>例</p>
+
+<pre><code>.... | perl -nle '....'
+</code></pre>
+
+<p>行は <code>$_</code> で参照できる。</p>
+
+<h2 id="8e123e3">commandlinefu.com
+<span class="article-date">2013/04/23</span></h2>
+
+<p><a href="http://www.commandlinefu.com/commands/browse" target="_blank">http://www.commandlinefu.com/commands/browse</a></p>
+
+<p>ワンライナーを共有するサイト</p>
 
 </div>
 
