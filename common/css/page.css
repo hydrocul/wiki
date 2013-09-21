@@ -3,7 +3,7 @@ code, kbd, pre, samp {
 }
 #side-menu {
   float: left;
-  width: 240px;
+  width: 260px;
   margin-top: 30px;
 }
 #side-menu-attention {
@@ -15,13 +15,19 @@ code, kbd, pre, samp {
   font-size: 80%;
 }
 #side-menu-ls ul {
-  padding-left: 0;
+  padding-left: 16px;
 }
 #side-menu-ls li {
+  list-style-type: circle;
+}
+#side-menu-ls > ul {
+  padding-left: 0;
+}
+#side-menu-ls > ul > li {
   list-style-type: none;
 }
 #content {
-  margin: 0 40px 0px 260px;
+  margin: 0 40px 0px 280px;
   word-wrap: break-word;
 }
 #content h1 {

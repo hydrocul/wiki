@@ -66,30 +66,33 @@
 </div>
 
 <div id="content">
-  <h1 id="overview">概要
-<span class="article-date">2013/09/21</span></h1>
+  <h1 id="overview">概要</h1>
 
-<p>Java, PHP, Ruby, Perlには配列がある。</p>
+<h2 id="646fc81">C言語
+<span class="article-date">2013/09/16</span></h2>
 
-<p>Perlは、リストという用語は配列とは異なる意味を持ち、 <code>(..., ..., ...)</code> のようなソースコード上の表現で、それを配列の変数に代入すると配列になり、ハッシュの変数に代入するとハッシュになる。</p>
+<p>配列の仕組みがある。</p>
 
-<p>Javaでは配列のほかにリスト <code>java.util.List</code> などがある。
-Scalaでは配列、Javaの配列・リストの他に、 <code>scala.collection.List</code> などがある。</p>
+<p>インデックスでアクセスする場合は先頭の要素が0になる。</p>
 
 <h2 id="af8eac3">Java
-<span class="article-date">2013/09/16</span></h2>
+<span class="article-date">2013/09/21</span></h2>
 
 <p>言語の組み込み型である配列と、クラスライブラリでサポートされている
 <code>java.util.List</code> インターフェースがある。</p>
 
+<p>配列も <code>java.util.List</code> もインデックスでアクセスする場合は先頭の要素が0になる。</p>
+
 <h2 id="d369087">Scala
-<span class="article-date">2013/09/16</span></h2>
+<span class="article-date">2013/09/21</span></h2>
 
 <p>Javaの組み込み型である配列と、Javaのクラスライブラリでサポートされている 
 <code>java.util.List</code> インターフェースのほかに、Scalaのクラスライブラリにある 
 <code>scala.collection.Seq</code> トレイトなどがある。</p>
 
 <p>Javaの配列は、Scalaでは <code>scala.Array</code> というクラスのインスタンスということになっていて、いくつかのメソッドが存在する。</p>
+
+<p>Javaの配列も Java/Scalaのクラスライブラリでも、インデックスでアクセスする場合は先頭の要素が0になる。</p>
 
 <p>Scalaコレクションのアーキテクチャ<br />
 <a href="http://eed3si9n.github.io/scala-collections-impl-doc-ja/" target="_blank">http://eed3si9n.github.io/scala-collections-impl-doc-ja/</a></p>
@@ -102,16 +105,41 @@ Scalaでは配列、Javaの配列・リストの他に、 <code>scala.collection
 <p>配列 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.types.array.php" target="_blank">http://www.php.net/manual/ja/language.types.array.php</a></p>
 
+<h2 id="python">Python
+<span class="article-date">2013/09/21</span></h2>
+
+<p>リストおよびタプルというデータ型がある。</p>
+
+<p>インデックスでアクセスする場合は先頭の要素が0になる。</p>
+
+<p>Pythonのタプルはイミュータブル(要素の書き換えが不能な)なリストという感じで、
+Scalaなどのタプルとはだいぶイメージが違う気がする。</p>
+
+<p>Pythonのタプルはイミュータブルなので、
+<a href="../map/overview.html#python">ディクショナリ</a>のキーにできる。</p>
+
 <h2 id="7775f98">Ruby
-<span class="article-date">2013/09/16</span></h2>
+<span class="article-date">2013/09/21</span></h2>
 
 <p>Arrayという配列のクラスが存在する。</p>
+
+<p>インデックスでアクセスする場合は先頭の要素が0になる。</p>
 
 <p>class Array | Ruby 1.9.2 リファレンスマニュアル<br />
 <a href="http://doc.ruby-lang.org/ja/1.9.2/class/Array.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.2/class/Array.html</a></p>
 
+<h2 id="b62b8f6">Perl
+<span class="article-date">2013/09/21</span></h2>
+
+<p>配列がある。</p>
+
+<p>Perlは、リストという用語は配列とは厳密には異なる意味を持ち、 
+<code>(..., ..., ...)</code> のようなソースコード上の表現をリストといい、それを配列の変数に代入すると配列になり、ハッシュの変数に代入すると<a href="../map/overview.html">ハッシュ</a>)になる。</p>
+
+<p>インデックスは0から始まる。</p>
+
 <h2 id="2d961c4">JavaScript / CoffeeScript
-<span class="article-date">2013/09/16</span></h2>
+<span class="article-date">2013/09/21</span></h2>
 
 <p>オブジェクトのキーに整数を使って要素を定義し、
 <code>prototype</code> に <code>Array.prototype</code> が指定されたものが配列のように振舞う。</p>
@@ -125,6 +153,8 @@ var arr = {'0': 1, '1': 2, '2': 3}; arr.__proto__ = Array.prototype;
 
 <p>JavaScript の配列と連想配列の違い<br />
 <a href="http://d.hatena.ne.jp/amachang/20070202/1170386546" target="_blank">http://d.hatena.ne.jp/amachang/20070202/1170386546</a></p>
+
+<p>インデックスは0から始まる。</p>
 
 
 </div>

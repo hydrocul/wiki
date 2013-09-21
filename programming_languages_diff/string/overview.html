@@ -43,6 +43,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
 </ul>
 
   </div>
@@ -90,11 +91,11 @@
 <p>Unicode文字列はencodeメソッドでバイト列に変換でき、バイト列はdecodeメソッドでUnicode文字列に変換できる。</p>
 
 <h2 id="7775f98">Ruby
-<span class="article-date">2013/08/30</span></h2>
+<span class="article-date">2013/09/21</span></h2>
 
 <p>Ruby 1.8以前と1.9以降とでは文字列の扱いが大きく異なる。</p>
 
-<p>1.9以降では、1バイトの整数の配列と長さと文字符号化方式(文字コード)の情報を持ったオブジェクトである。</p>
+<p>1.9以降では、1バイトの整数の配列と長さと文字符号化方式(文字コード)の情報を持ったオブジェクトである。内部の文字コードがUnicodeで統一されているわけではなく、例えば入力・出力ともEUC-JPであれば、内部でもEUC-JPのままにして、変換する必要がない。</p>
 
 <p>ソースコード中の文字列リテラルは、このソースコードの文字符号化形式と同じ形式でエンコードされた文字列になる。-&gt; <a href="../magic-comment.html#ruby">マジックコメント</a></p>
 
@@ -102,6 +103,25 @@
 (文字列の途中に <code>\x00</code> を含めた文字列をCで実装された拡張に渡すとおかしなことになるかもしれない。)</p>
 
 <p>文字列のメソッドの中には文字列自身を変更するものがあるため、文字列はmutableなオブジェクトである。</p>
+
+<h2 id="b62b8f6">Perl
+<span class="article-date">2013/09/21</span></h2>
+
+<p>Javaに似ていて、内部ではUnicodeで処理していて、外界との入出力時に必要とする文字符号化方式で変換するのが原則。</p>
+
+<pre><code>use Encode qw/decode encode/;
+
+# 入力時(外界が UTF-8 の場合)
+$input = decode('utf-8', $input);
+
+# 出力時(外界が UTF-8 の場合)
+print encode('utf-8', $str);
+</code></pre>
+
+<p>以下がわかりやすい。</p>
+
+<p>図解: Perl と Unicode 文字列
+<a href="http://d.hatena.ne.jp/dayflower/20080620/1213925271" target="_blank">http://d.hatena.ne.jp/dayflower/20080620/1213925271</a></p>
 
 
 </div>

@@ -43,6 +43,7 @@
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim)</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
+  <li>&gt;&gt; <a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
 </ul>
 
   </div>
@@ -50,6 +51,17 @@
 
 <div id="content">
   <h1 id="heredoc">ヒアドキュメント</h1>
+
+<h2 id="a60f611">Scala
+<span class="article-date">2013/09/21</span></h2>
+
+<p>ダブルクオーテーション3つ連続でヒアドキュメントのようなことができる。</p>
+
+<p>エスケープ処理をせずに改行やダブルクオーテーションなどを含めることができる。ダブルクオーテーション3つ連続は、終端記号になってしまうので、ヒアドキュメントの中にはたぶん含められない。</p>
+
+<pre><code>val str = """foo
+bar""";
+</code></pre>
 
 <h2 id="php">PHP
 <span class="article-date">2013/06/16</span></h2>
