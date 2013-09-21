@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>クラス | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>オブジェクトのクラスを動的に判定するには | クラス | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>クラス</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラス</a> &gt; <span>オブジェクトのクラスを動的に判定するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,10 +20,10 @@
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; クラス</li>
+  <li>&gt; <a href="../../programming_languages_diff/class/">クラス</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
+  <li>&gt;&gt; オブジェクトのクラスを動的に判定するには</li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/class/modifier.html">アクセス修飾子</a></li>
   <li>&gt;&gt; <a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
 </ul>
@@ -32,15 +32,33 @@
 </div>
 
 <div id="content">
-  <h1 id="class">クラス</h1>
+  <h1 id="instance-of">オブジェクトのクラスを動的に判定するには</h1>
 
-<ul>
-  <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
-  <li><a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
-  <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
-  <li><a href="../../programming_languages_diff/class/modifier.html">アクセス修飾子</a></li>
-  <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
-</ul>
+<h3 id="java-20130802">Java [2013/08/02]</h3>
+
+<p>変数に入っているオブジェクトのクラスを動的に判定する例</p>
+
+<pre><code>Object obj = ...;
+if(obj instanceof Integer){
+    ...;
+}
+</code></pre>
+
+<h3 id="ruby-20130618">Ruby [2013/06/18]</h3>
+
+<pre><code>num.is_a?(Integer)
+str.is_a?(String)
+arr.is_a?(Array)
+hash.is_a?(Hash)
+</code></pre>
+
+<h3 id="javascript-20130410">JavaScript [2013/04/10]</h3>
+
+<p>配列かどうかを判定するには</p>
+
+<pre><code> a instanceof Array
+</code></pre>
+
 
 </div>
 

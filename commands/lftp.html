@@ -21,15 +21,15 @@
     <ul>
   <li><a href="../commands/">コマンドリファレンス</a></li>
   <li>&gt; <a href="../commands/ack-grep.html">ack-grep</a></li>
-  <li>&gt; <a href="../commands/awk.html">awk</a></li>
-  <li>&gt; <a href="../commands/base64.html">base64</a></li>
+  <li>&gt; <a href="../commands/base64.html">base64 コマンド</a></li>
   <li>&gt; <a href="../commands/cat.html">cat</a></li>
   <li>&gt; <a href="../commands/cp.html">cp コマンド</a></li>
   <li>&gt; <a href="../commands/crontab.html">crontab</a></li>
+  <li>&gt; <a href="../commands/curl.html">curl コマンド</a></li>
   <li>&gt; <a href="../commands/cut.html">cut コマンド</a></li>
   <li>&gt; <a href="../commands/date.html">date</a></li>
   <li>&gt; <a href="../commands/diff.html">diff</a></li>
-  <li>&gt; <a href="../commands/du.html">du</a></li>
+  <li>&gt; <a href="../commands/du.html">du コマンド</a></li>
   <li>&gt; <a href="../commands/find.html">find コマンド</a></li>
   <li>&gt; <a href="../commands/git.html">git コマンド</a></li>
   <li>&gt; <a href="../commands/grep.html">grep</a></li>
@@ -37,13 +37,13 @@
   <li>&gt; <a href="../commands/less.html">less コマンド</a></li>
   <li>&gt; lftp</li>
   <li>&gt; <a href="../commands/ls.html">ls コマンド</a></li>
-  <li>&gt; <a href="../commands/mosh.html">mosh</a></li>
-  <li>&gt; <a href="../commands/netstat.html">netstat</a></li>
+  <li>&gt; <a href="../commands/mosh.html">mosh コマンド</a></li>
+  <li>&gt; <a href="../commands/netstat.html">netstat コマンド</a></li>
   <li>&gt; <a href="../commands/nkf.html">nkf コマンド</a></li>
-  <li>&gt; <a href="../commands/od.html">od</a></li>
-  <li>&gt; <a href="../commands/openssl.html">openssl</a></li>
-  <li>&gt; <a href="../commands/ps.html">ps</a></li>
-  <li>&gt; <a href="../commands/pstree.html">pstree</a></li>
+  <li>&gt; <a href="../commands/od.html">od コマンド</a></li>
+  <li>&gt; <a href="../commands/openssl.html">openssl コマンド</a></li>
+  <li>&gt; <a href="../commands/ps.html">ps コマンド</a></li>
+  <li>&gt; <a href="../commands/pstree.html">pstree コマンド</a></li>
   <li>&gt; <a href="../commands/rsync.html">rsync コマンド</a></li>
   <li>&gt; <a href="../commands/sdiff.html">sdiff コマンド</a></li>
   <li>&gt; <a href="../commands/sed.html">sed コマンド</a></li>
@@ -89,11 +89,31 @@
   <dd>接続ユーザ名とパスワードをコマンドラインから指定</dd>
 </dl>
 
-<h2 id="13c553e">FTPサーバの中のファイルリストを作成するには
-<span class="article-date">2013/04/03</span></h2>
+<h2 id="e365cf2">インタラクティブモードでのコマンド
+<span class="article-date">2013/09/20</span></h2>
 
-<pre><code>lftp -c "open ユーザ名@ホスト名またはIP; find" | tee filelist.txt
-</code></pre>
+<dl>
+  <dt><code>ls</code></dt>
+  <dd>リモートのファイル一覧</dd>
+  <dt><code>put</code> ファイル名</dt>
+  <dd>ローカルからリモートにファイルをアップロード</dd>
+  <dt><code>get</code> ファイル名</dt>
+  <dd>リモートからローカルにファイルをアップロード</dd>
+  <dt><code>rm</code> ファイル名</dt>
+  <dd>リモートのファイルを削除</dd>
+</dl>
+
+<h2 id="13c553e">FTPサーバの中のファイルリストを作成するには
+<span class="article-date">2013/09/20</span></h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>lftp -c “open ユーザ名@ホスト名またはIP; find”</td>
+      <td>tee filelist.txt</td>
+    </tr>
+  </tbody>
+</table>
 
 
 </div>

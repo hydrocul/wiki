@@ -70,7 +70,7 @@
 </code></pre>
 
 <h2 id="urlencode-urldecode">URLエンコード / URLデコード
-<span class="article-date">2013/05/30</span></h2>
+<span class="article-date">2013/09/20</span></h2>
 
 <pre><code># URLエンコード
 echo あ | ruby -r cgi -ne 'puts CGI.escape $_.chomp' | tr "\n" " " | sed 's/ /%0D%0A/g'
@@ -83,6 +83,9 @@ echo %E3%81%82 | tr % = | nkf -WmQ
 </code></pre>
 
 <p><code>-W</code> はUTF-8を意味し、 <code>-mQ</code> はURLデコードする。</p>
+
+<p>参考<br />
+<a href="programming_languages_diff/string/urlencode-urldecode.html">プログラミング言語の中でURLエンコード/URLデコードするには</a></p>
 
 <h2 id="unicode-escape-decode">Unicodeエスケープをデコードするには
 <span class="article-date">2013/04/16</span></h2>
