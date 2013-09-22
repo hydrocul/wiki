@@ -19,13 +19,19 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; <a href="../../programming_languages_diff/vars/">変数・束縛</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/argv.html">コマンドライン引数の取得</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/env.html">環境変数の取得</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/file_line.html">ソースファイル名と行番号をソースコード中で取得するには</a></li>
-  <li>&gt;&gt; 変数名</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/vars/scope.html">変数の宣言とスコープ</a></li>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/vars/">変数・束縛</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/vars/argv.html">コマンドライン引数の取得</a></li>
+          <li><a href="../../programming_languages_diff/vars/env.html">環境変数の取得</a></li>
+          <li><a href="../../programming_languages_diff/vars/file_line.html">ソースファイル名と行番号をソースコード中で取得するには</a></li>
+          <li>変数名</li>
+          <li><a href="../../programming_languages_diff/vars/scope.html">変数の宣言とスコープ</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
   </div>
@@ -117,11 +123,13 @@ match式で扱いに違いがある。慣例として、識別子の途中にあ
 <p>アルファベット大文字で始まる名前は、定数。</p>
 
 <h2 id="6c223b7">Perl
-<span class="article-date">2013/08/01</span></h2>
+<span class="article-date">2013/09/21</span></h2>
 
-<p><code>$</code> で始まる変数は、配列やハッシュ(連想配列 or マップ)以外のアトミックな値を保存する変数。<br />
-<code>@</code> で始まる変数は、配列を保存する変数。要素にアクセスするには <code>$...[..]</code> とする。<br />
-<code>%</code> で始まる変数は、ハッシュを保存する変数。要素にアクセスするには <code>$...{..}</code> とする。  </p>
+<p><code>$</code> で始まる変数は、配列やハッシュ以外のアトミックな値を保存する変数。配列やハッシュ、関数へのレファレンスも保存できるが、配列やハッシュ自体は保存できない。</p>
+
+<p><code>@</code> で始まる変数は、配列を保存する変数。要素にアクセスするには <code>$...[..]</code> とする。</p>
+
+<p><code>%</code> で始まる変数は、ハッシュを保存する変数。要素にアクセスするには <code>$...{..}</code> とする。</p>
 
 <p><code>$</code>, <code>@</code>, <code>%</code> の3つはシジル(sigil)という。</p>
 

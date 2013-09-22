@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストの最後から要素を1つ取得してリストから削除するには (pop) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>連続した数値のリストを作成するには (range) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの最後から要素を1つ取得してリストから削除するには (pop)</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>連続した数値のリストを作成するには (range)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -47,10 +47,10 @@
           <li><a href="../../programming_languages_diff/list/literal.html">リスト(配列)の書き方</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
-          <li>リストの最後から要素を1つ取得してリストから削除するには (pop)</li>
+          <li><a href="../../programming_languages_diff/list/pop.html">リストの最後から要素を1つ取得してリストから削除するには (pop)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/push.html">リストの最後に要素1つまたは複数追加するには (push)</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
+          <li>連続した数値のリストを作成するには (range)</li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
@@ -73,64 +73,33 @@
 </div>
 
 <div id="content">
-  <h1 id="pop">リストの最後から要素を1つ取得してリストから削除するには (pop)</h1>
+  <h1 id="range">連続した数値のリストを作成するには (range)</h1>
 
-<h2 id="bde0d6c">PHP
-<span class="article-date">2013/04/22</span></h2>
-
-<pre><code>array_pop($arr);
-</code></pre>
-
-<p>array_pop | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.array-pop.php" target="_blank">http://www.php.net/manual/ja/function.array-pop.php</a></p>
-
-<h2 id="5c5a306">Ruby
-<span class="article-date">2013/04/22</span></h2>
-
-<pre><code>Array#pop
-</code></pre>
-
-<p>Python, JavaScriptと同じメソッド名。</p>
-
-<h2 id="e88ff8f">Python
-<span class="article-date">2013/07/31</span></h2>
-
-<pre><code>arr.pop()
-</code></pre>
-
-<p>Ruby, JavaScriptと同じメソッド名。</p>
-
-<p>引数を付けると任意のインデックスの要素を取得し、削除して詰める。(-&gt;<a href="shift.html">pop</a>)</p>
-
-<pre><code>arr.pop(index)
-</code></pre>
-
-<h2 id="47420c3">Perl
+<h2 id="19d33e0">Scala
 <span class="article-date">2013/09/21</span></h2>
 
-<pre><code>my @arr = (1, 2, 3);
-my $last = pop(@arr);
+<pre><code>// 0から9までのリスト
+0 until 10
 
-print "@arr\n";  # =&gt; 1 2
-
-print "$last\n"; # =&gt; 3
+// 1から10までのリスト
+1 to 10
 </code></pre>
 
-<h2 id="60a4d4f">JavaScript
-<span class="article-date">2013/04/22</span></h2>
+<h2 id="6eb5c0d">Python
+<span class="article-date">2013/09/21</span></h2>
 
-<pre><code>Array#pop
+<pre><code># 0から9までのリスト
+range(10)
+
+# 1から10までのリスト
+range(1, 11)
+
+# 2から10までの偶数だけのリスト
+range(2, 12, 2)
+
+# 0から-10までの負の偶数だけのリスト
+range(0, -11, -2)
 </code></pre>
-
-<p>Ruby, Pythonと同じメソッド名。</p>
-
-<h2 id="0ee19fe">CoffeeScript
-<span class="article-date">2013/04/22</span></h2>
-
-<pre><code>Array#pop
-</code></pre>
-
-<p>これはJavaScriptと同じ。</p>
 
 
 </div>

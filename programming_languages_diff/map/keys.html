@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>keys | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>マップのキーをセットまたはリストで取得するには (keys) | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>keys</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>マップのキーをセットまたはリストで取得するには (keys)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -25,14 +25,14 @@
         <ul>
           <li><a href="../../programming_languages_diff/map/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">foreach</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">マップの要素を1つずつ順番に処理するには (foreach)</a></li>
           <li><a href="../../programming_languages_diff/map/get.html">キーで参照するには</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">マップが空かどうかを判定するには (isEmpty)</a></li>
-          <li>keys</li>
+          <li>マップのキーをセットまたはリストで取得するには (keys)</li>
           <li><a href="../../programming_languages_diff/map/literal.html">マップの書き方</a></li>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">remove</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
         </ul>
@@ -45,9 +45,16 @@
 </div>
 
 <div id="content">
-  <h1 id="keys">keys</h1>
+  <h1 id="keys">マップのキーをセットまたはリストで取得するには (keys)</h1>
 
-<h2 id="1659682">Scala
+<h2 id="edd9fd6">Java
+<span class="article-date">2013/09/21</span></h2>
+
+<pre><code>// java.util.Map[K, V]
+java.util.Set&lt;K&gt; keySet();
+</code></pre>
+
+<h2 id="678386f">Scala
 <span class="article-date">2013/07/28</span></h2>
 
 <pre><code>// Map[A, B]
@@ -55,7 +62,7 @@ def keys: Iterable[A]
 def keySet: Set[A]
 </code></pre>
 
-<h2 id="68f4c65">Perl
+<h2 id="deedb13">Perl
 <span class="article-date">2013/09/06</span></h2>
 
 <p>例</p>

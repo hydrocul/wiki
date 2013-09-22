@@ -19,17 +19,23 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a></li>
-  <li>&gt;&gt; 関数の書き方</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/function/">関数・メソッド</a>
+        <ul>
+          <li>関数の書き方</li>
+          <li><a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a></li>
+          <li><a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
+          <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
+          <li><a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
+          <li><a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値</a></li>
+          <li><a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
+          <li><a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
+          <li><a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
   </div>
@@ -141,7 +147,7 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 <a href="http://www.php.net/manual/ja/functions.anonymous.php" target="_blank">http://www.php.net/manual/ja/functions.anonymous.php</a></p>
 
 <h2 id="9116220">Perl
-<span class="article-date">2013/09/20</span></h2>
+<span class="article-date">2013/09/21</span></h2>
 
 <p>無名関数の例</p>
 
@@ -150,6 +156,27 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 };
 
 $f-&gt;(...);
+</code></pre>
+
+<p>クロージャーとして使う例</p>
+
+<pre><code>sub createCounter {
+    my $counter = 0;
+    sub {
+        $counter++;
+        print "$counter\n";
+    }
+}
+
+my $f1 = createCounter;
+$f1-&gt;(); # =&gt; 1
+$f1-&gt;(); # =&gt; 2
+$f1-&gt;(); # =&gt; 3
+
+my $f2 = createCounter;
+$f2-&gt;(); # =&gt; 1
+
+$f1-&gt;(); # =&gt; 4
 </code></pre>
 
 
