@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストの先頭から要素を1つ取得してリストから削除するには (shift) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>特定の値の要素をすべて削除するには (remove-by-value) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの先頭から要素を1つ取得してリストから削除するには (shift)</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>特定の値の要素をすべて削除するには (remove-by-value)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -52,9 +52,9 @@
           <li><a href="../../programming_languages_diff/list/push.html">リストの最後に要素1つまたは複数追加するには (push)</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
           <li><a href="../../programming_languages_diff/list/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
-          <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値の要素をすべて削除するには (remove-by-value)</a></li>
+          <li>特定の値の要素をすべて削除するには (remove-by-value)</li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
-          <li>リストの先頭から要素を1つ取得してリストから削除するには (shift)</li>
+          <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList)</a></li>
@@ -75,68 +75,30 @@
 </div>
 
 <div id="content">
-  <h1 id="shift">リストの先頭から要素を1つ取得してリストから削除するには (shift)
-<span class="article-date">2013/09/11</span></h1>
+  <h1 id="remove-by-value">特定の値の要素をすべて削除するには (remove-by-value)</h1>
 
-<p>最後の要素の削除は<a href="pop.html">pop</a>。<br />
-先頭への追加は<a href="unshift.html">unshift</a>。</p>
-
-<h2 id="be0cc73">PHP
-<span class="article-date">2013/04/22</span></h2>
-
-<pre><code>array_shift($arr);
-</code></pre>
-
-<p>array_shift | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.array-shift.php" target="_blank">http://www.php.net/manual/ja/function.array-shift.php</a></p>
-
-<h2 id="eca730d">Ruby
-<span class="article-date">2013/08/04</span></h2>
-
-<pre><code>Array#shift
-</code></pre>
-
-<p>要素が1つもない場合は、 <code>nil</code> を返す。</p>
-
-<p>JavaScriptと同じメソッド名。</p>
-
-<h2 id="python">Python
+<h2 id="0b28d28">Java
 <span class="article-date">2013/09/21</span></h2>
 
-<pre><code>arr.pop(0)
+<p>以下のメソッドは要素を1つだけ削除する。要素が見つかって削除した場合は 
+<code>true</code> を返し、要素が見つからなかった場合は <code>false</code> を返す。</p>
+
+<pre><code>// java.util.List[E]
+boolean remove(Object obj);
 </code></pre>
 
-<p>引数を指定しないと最後の要素を取得して削除する。(-&gt;<a href="pop.html#python">pop</a>)</p>
+<p>要素の型が整数の <code>List[Integer]</code> という型の場合は、オートボクシングを期待して、
+<code>remove(3)</code> のように呼びだしてしまうと、上記メソッドではなく、
+<a href="remove.html#java"><code>remove(int)</code></a> という別のメソッドを呼び出してしまうので、
+<code>remove(new Integer(3))</code> のようにする必要があるので、要注意。</p>
 
-<p>以下の例は、リストの指定のインデックスの要素を取得し、削除して詰める。(-&gt;<a href="remove.html#python">remove</a>)</p>
-
-<pre><code>arr.pop(index)
-</code></pre>
-
-<h2 id="1bd8e1f">Perl
-<span class="article-date">2013/07/31</span></h2>
-
-<pre><code>shift(@arr);
-</code></pre>
-
-<p>引数を指定しないと、mainモジュールの中では <code>@ARGV</code> を対象とし、
-subの中では <code>@_</code> を対象とする。</p>
-
-<h2 id="7261295">JavaScript
+<h2 id="35db32b">CoffeeScript
 <span class="article-date">2013/04/19</span></h2>
 
-<pre><code>Array#shift
+<p>特定の値をすべて削除するには</p>
+
+<pre><code>arr = (o for o in arr when o != remove_target)
 </code></pre>
-
-<p>Rubyと同じメソッド名。</p>
-
-<h2 id="b823fd3">CoffeeScript
-<span class="article-date">2013/04/22</span></h2>
-
-<pre><code>Array#shift
-</code></pre>
-
-<p>これはJavaScriptと同じ。</p>
 
 
 </div>

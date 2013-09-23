@@ -19,17 +19,23 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/literal.html">関数の書き方</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
-  <li>&gt;&gt; 複数の返り値</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/function/">関数・メソッド</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/function/literal.html">関数の書き方</a></li>
+          <li><a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a></li>
+          <li><a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
+          <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
+          <li><a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
+          <li>複数の返り値</li>
+          <li><a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
+          <li><a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
+          <li><a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
   </div>
@@ -65,6 +71,17 @@ list($num, $str) = f();
   return 1, "abc"
 end
 num, str = f
+</code></pre>
+
+<h2 id="d745f8c">Perl
+<span class="article-date">2013/09/21</span></h2>
+
+<p>リストを返して、受け取り側は多重代入を使う。</p>
+
+<pre><code>sub f {
+    return (1, "abc");
+}
+my ($num, $str) = f;
 </code></pre>
 
 

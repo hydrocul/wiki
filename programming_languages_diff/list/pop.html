@@ -51,6 +51,8 @@
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/push.html">リストの最後に要素1つまたは複数追加するには (push)</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値の要素をすべて削除するには (remove-by-value)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
@@ -92,15 +94,15 @@
 
 <p>Python, JavaScriptと同じメソッド名。</p>
 
-<h2 id="e88ff8f">Python
-<span class="article-date">2013/07/31</span></h2>
+<h2 id="python">Python
+<span class="article-date">2013/09/21</span></h2>
 
 <pre><code>arr.pop()
 </code></pre>
 
 <p>Ruby, JavaScriptと同じメソッド名。</p>
 
-<p>引数を付けると任意のインデックスの要素を取得し、削除して詰める。(-&gt;<a href="shift.html">pop</a>)</p>
+<p>引数を付けると任意のインデックスの要素を取得し、削除して詰める。(-&gt;<a href="shift.html#python">shift</a>)</p>
 
 <pre><code>arr.pop(index)
 </code></pre>
@@ -115,6 +117,9 @@ print "@arr\n";  # =&gt; 1 2
 
 print "$last\n"; # =&gt; 3
 </code></pre>
+
+<p>要素が1つもない場合は <code>pop</code> は <code>undef</code> を返す。ただし、配列の要素として <code>undef</code> を含めることもできるため、
+<code>pop</code> が <code>undef</code> を返した場合に、最後の要素が <code>undef</code> だったのか、要素が1つもなかったのかの区別はできない。</p>
 
 <h2 id="60a4d4f">JavaScript
 <span class="article-date">2013/04/22</span></h2>
