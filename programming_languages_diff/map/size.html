@@ -25,14 +25,14 @@
         <ul>
           <li><a href="../../programming_languages_diff/map/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">foreach</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">マップの要素を1つずつ順番に処理するには (foreach)</a></li>
           <li><a href="../../programming_languages_diff/map/get.html">キーで参照するには</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">マップが空かどうかを判定するには (isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">keys</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/literal.html">マップの書き方</a></li>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">remove</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
           <li>マップの要素の数を取得するには (size)</li>
           <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
         </ul>
@@ -51,7 +51,7 @@
 <span class="article-date">2013/05/06</span></h2>
 
 <pre><code>// Map&lt;K, V&gt;
-int size();
+int size()
 </code></pre>
 
 <h2 id="0a7baab">Scala
@@ -66,6 +66,16 @@ def size(): Int
 
 <pre><code>count($map)
 </code></pre>
+
+<h2 id="ruby">Ruby
+<span class="article-date">2013/09/23</span></h2>
+
+<pre><code>Hash#length
+Hash#size
+</code></pre>
+
+<p>2つのメソッドは全く同じ。<a href="../list/size.html#ruby">配列のサイズ</a>、
+<a href="../string/length.html#ruby">文字列の長さ</a>)も同じ名前の2つのメソッドがある。</p>
 
 <h2 id="c6db40b">Perl
 <span class="article-date">2013/09/14</span></h2>

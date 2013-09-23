@@ -25,14 +25,14 @@
         <ul>
           <li><a href="../../programming_languages_diff/map/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">foreach</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">マップの要素を1つずつ順番に処理するには (foreach)</a></li>
           <li>キーで参照するには</li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">マップが空かどうかを判定するには (isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">keys</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/literal.html">マップの書き方</a></li>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">remove</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
         </ul>
@@ -55,26 +55,44 @@
 
 <p>要素が存在しない場合は <code>null</code> が返される。しかし、<code>null</code> が返されることは必ずしも要素が存在しない場合とは限らず、値として <code>null</code> が入っている場合もあるので注意。</p>
 
-<h2 id="scala">Scala
-<span class="article-date">2013/09/03</span></h2>
+<h2 id="scala">Scala</h2>
+
+<h3 id="9957d77">要素が存在しない場合に参照時に例外をスローさせるには
+<span class="article-date">2013/09/23</span></h3>
+
+<pre><code>// Map[A, B]
+def apply(key: A): B
+</code></pre>
+
+<p>例</p>
 
 <pre><code>map("a")
 </code></pre>
+
+<p>この方法だと要素が存在しない場合は <code>NoSuchElementException</code> がスローされる。</p>
+
+<h3 id="b4cd54d"><code>Option</code> で取得するには
+<span class="article-date">2013/09/23</span></h3>
 
 <p><code>Option</code> で取得するには</p>
 
 <pre><code>map.get("a")
 </code></pre>
 
-<p>要素が存在しない場合のデフォルト値を設定して、要素を取得するには</p>
+<p><code>get</code>は、要素が存在しない場合は<code>None</code>が返され、存在する場合は値を<code>Some</code>で包んだ値が返される。</p>
 
-<pre><code>map.getOrElse("a", 0);
-</code></pre>
+<h3 id="54ba24d">要素が存在しない場合にデフォルト値を返させるには
+<span class="article-date">2013/09/23</span></h3>
 
-<p>シグニチャ</p>
+<p>要素が存在しない場合のデフォルト値をその場で設定して、要素を取得するには</p>
 
 <pre><code>// Map[A, B]
 def getOrElse(key: A, default: =&gt; B): B
+</code></pre>
+
+<p>例</p>
+
+<pre><code>map.getOrElse("a", 0);
 </code></pre>
 
 <p>2つ目の引数がデフォルト値となる。要素が存在する場合には、2つ目の引数が評価されないので、計算に時間のかかるデフォルト値を設定してもよい。</p>

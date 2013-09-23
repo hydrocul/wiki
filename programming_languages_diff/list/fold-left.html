@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft)</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -34,7 +34,7 @@
           <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
-          <li>リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft)</li>
+          <li>リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</li>
           <li><a href="../../programming_languages_diff/list/foreach.html">リストの要素を1つずつ順番に処理するには (foreach)</a></li>
           <li><a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
@@ -75,16 +75,31 @@
 </div>
 
 <div id="content">
-  <h1 id="fold-left">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft)</h1>
+  <h1 id="fold-left">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</h1>
 
-<h2 id="68b2b5a">Scala
-<span class="article-date">2013/05/06</span></h2>
+<h2 id="5610a73">Scala
+<span class="article-date">2013/09/23</span></h2>
 
-<pre><code>// Seq[A]
+<pre><code>// TraversableOnce[A]
 def foldLeft[B](initial: B)(f: (B, A) =&gt; B): B
+def reduceLeft[B &gt;: A](f: (B, A) =&gt; B): B
 </code></pre>
 
-<h2 id="40432d9">Ruby
+<p>例</p>
+
+<pre><code>List(10, 20, 30).foldLeft(0)(f)
+List(10, 20, 30).reduceLeft(f)
+</code></pre>
+
+<p>はそれぞれ</p>
+
+<pre><code>f(f(f(0, 10), 20), 30)
+f(f(10, 20), 30)
+</code></pre>
+
+<p>になる。</p>
+
+<h2 id="3c772df">Ruby
 <span class="article-date">2013/05/07</span></h2>
 
 <pre><code>arr = [1, 2, 3]

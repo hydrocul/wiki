@@ -25,9 +25,9 @@
         <ul>
           <li><a href="../../programming_languages_diff/datetime/calc_date.html">日付単位の計算</a></li>
           <li><a href="../../programming_languages_diff/datetime/calc_time.html">時刻の計算</a></li>
-          <li><a href="../../programming_languages_diff/datetime/class.html">日付と時刻のデータ型</a></li>
           <li>日時オブジェクトを比較するには</li>
           <li><a href="../../programming_languages_diff/datetime/now.html">今日の日付を取得するには／現在時刻を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/datetime/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/datetime/parse.html">文字列を日付に変換するには</a></li>
           <li><a href="../../programming_languages_diff/datetime/timer.html">ミリ秒・マイクロ秒単位で処理時間を計測するには</a></li>
         </ul>
@@ -41,6 +41,22 @@
 
 <div id="content">
   <h1 id="compare">日時オブジェクトを比較するには</h1>
+
+<h2 id="83bab1f">Java
+<span class="article-date">2013/09/23</span></h2>
+
+<pre><code>// java.util.Date
+int compareTo(Date another)
+
+// java.util.Calendar
+int compareTo(Calendar another)
+
+// java.time.LocalDateTime (Java8)
+int compareTo(LocalDateTime another)
+
+// java.time.ZonedDateTime (Java8)
+int compareTo(ZonedDateTime another)
+</code></pre>
 
 <h2 id="ad24a13">Ruby
 <span class="article-date">2013/08/08</span></h2>

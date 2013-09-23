@@ -19,10 +19,16 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; <a href="../../programming_languages_diff/boolean/">論理型</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/boolean/overview.html">概要</a></li>
-  <li>&gt;&gt; 論理値への変換</li>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/boolean/">論理型</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/boolean/overview.html">概要</a></li>
+          <li>論理値への変換</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
   </div>
@@ -91,9 +97,9 @@
 <p>空文字列は、<code>NULL</code>でないので、<code>true</code> になる。</p>
 
 <h2 id="27ecc09">Java / Scala
-<span class="article-date">2013/08/24</span></h2>
+<span class="article-date">2013/09/21</span></h2>
 
-<p><code>boolean</code>型(Scalaは<code>Boolean</code>型)以外が暗黙のうちに <code>boolean</code> に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。
+<p><code>boolean</code>型(Scalaは<code>Boolean</code>型)以外が暗黙のうちに論理値に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。
 <code>if</code>文などの条件式には<code>boolean</code>以外を置くことはできない。</p>
 
 <h2 id="php">PHP

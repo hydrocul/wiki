@@ -19,12 +19,19 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; <a href="../../programming_languages_diff/class/">クラス</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/class/modifier.html">アクセス修飾子</a></li>
-  <li>&gt;&gt; インスタンス生成</li>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/class/">クラス</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+          <li><a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
+          <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
+          <li><a href="../../programming_languages_diff/class/modifier.html">アクセス修飾子</a></li>
+          <li>インスタンス生成</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
   </div>
@@ -54,6 +61,17 @@
 
 <p>引数はコンストラクタに渡されるので、コンストラクタの引数型に合わせて、
 <code>new</code>演算子に引数を渡す必要がある。</p>
+
+<h2 id="9c672b7">Scala
+<span class="article-date">2013/09/23</span></h2>
+
+<p>Javaと同様に <code>new</code> 演算子を使う。</p>
+
+<p>case classに関してはクラスオブジェクトにインスタンスを生成する<code>apply</code>メソッドが自動で定義されていているので、<code>new</code>を省略できる。</p>
+
+<pre><code>val foo = new FooClass(...);
+val bar = BarCaseClass(...);
+</code></pre>
 
 <h2 id="145729d">Ruby
 <span class="article-date">2013/08/27</span></h2>
