@@ -21,7 +21,7 @@
     <ul>
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
-      <li><a href="../commands/ack-grep.html">ack-grep</a></li>
+      <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
       <li><a href="../commands/cp.html">cp コマンド</a></li>
@@ -66,7 +66,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-      <li><a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
+      <li><a href="../commands/zip.html">zip コマンド / unzip コマンド</a></li>
     </ul>
   </li>
 </ul>
@@ -76,7 +76,7 @@
 
 <div id="content">
   <h1 id="cut">cut コマンド
-<span class="article-date">2013/09/06</span></h1>
+<span class="article-date">2013/09/24</span></h1>
 
 <p>タブ区切りでフィールドを選択して出力する。または文字単位・バイト単位で1行の中の場所を選択して出力する。</p>
 
@@ -92,7 +92,9 @@ cat ファイル名 | cut -f3,1
 <dl>
   <dt><code>-f</code></dt>
   <dd>抽出するフィールドの番号を指定する。1から始まる番号でハイフンでの範囲指定や
-コンマ区切りで複数指定できる</dd>
+コンマ区切りで複数指定できる。
+残念なことに <code>-f3,1</code> とやっても <code>-f1,3</code> と同じになり、フィールドの並び替えは
+できない。</dd>
   <dt><code>-d</code></dt>
   <dd>フィールドのデリミタを指定する</dd>
   <dt><code>-b</code></dt>
