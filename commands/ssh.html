@@ -21,7 +21,7 @@
     <ul>
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
-      <li><a href="../commands/ack-grep.html">ack-grep</a></li>
+      <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
       <li><a href="../commands/cp.html">cp コマンド</a></li>
@@ -66,7 +66,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-      <li><a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
+      <li><a href="../commands/zip.html">zip コマンド / unzip コマンド</a></li>
     </ul>
   </li>
 </ul>
@@ -171,6 +171,11 @@ ssh接続自体へのコマンドのプレフィックスとなる。エンタ�
 
 <pre><code>tar czf - ローカルのバックアップ対象ディレクトリ | ssh vps "cat &gt; リモートの一時ファイル名 &amp;&amp; mv リモートの一時ファイル名 リモートの保存先tarファイル名"
 </code></pre>
+
+<h2 id="cd8dfaa">リモートのファイルシステムをあたかもローカルにあるかのように見せかけるには
+<span class="article-date">2013/09/25</span></h2>
+
+<p>sshfsコマンドを使う。このコマンドはリモートのファイルシステムのルートからまたは特定のディレクトリ配下を、ローカルの任意の場所にマウントする。例えば、リモートのファイルをいちいちダウンロード・アップロードしなくても直接ローカルのエディタで編集することできたりする。</p>
 
 <h2 id="a900f4c">SSHが勝手に切断されないようにするには
 <span class="article-date">2013/04/03</span></h2>
