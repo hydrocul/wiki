@@ -19,12 +19,18 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; <a href="../../programming_languages_diff/exec/">プロセス管理</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/exec/escape.html">シェルに渡すコマンドの引数のエスケープ処理</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/exec/exit.html">自身のプロセスを終了するには</a></li>
-  <li>&gt;&gt; スレッドを一定時間停止する</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/exec/system.html">外部コマンドを実行してその出力をそのまま出力するには</a></li>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/exec/">プロセス管理</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/exec/escape.html">シェルに渡すコマンドの引数のエスケープ処理</a></li>
+          <li><a href="../../programming_languages_diff/exec/exit.html">自身のプロセスを終了するには</a></li>
+          <li>スレッドを一定時間停止する</li>
+          <li><a href="../../programming_languages_diff/exec/system.html">外部コマンドを実行してその出力をそのまま出力するには</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
   </div>
@@ -68,6 +74,14 @@
 </code></pre>
 
 <p>引数を省略すると永久にスリープし、SIGALRMを受け取ると再開するようになる。</p>
+
+<h2 id="e83ca6e">sh
+<span class="article-date">2013/09/26</span></h2>
+
+<p>3秒間停止する例</p>
+
+<pre><code>sleep 3;
+</code></pre>
 
 
 </div>

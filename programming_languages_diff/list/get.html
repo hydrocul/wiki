@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>インデックスで参照するには | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>インデックスで要素を参照するには | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>インデックスで参照するには</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>インデックスで要素を参照するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -34,9 +34,9 @@
           <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
-          <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft)</a></li>
-          <li><a href="../../programming_languages_diff/list/foreach.html">foreach</a></li>
-          <li>インデックスで参照するには</li>
+          <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</a></li>
+          <li><a href="../../programming_languages_diff/list/foreach.html">リストの要素を1つずつ順番に処理するには (foreach)</a></li>
+          <li>インデックスで要素を参照するには</li>
           <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
           <li><a href="../../programming_languages_diff/list/head.html">リストの先頭の要素を取得するには (head)</a></li>
@@ -50,6 +50,9 @@
           <li><a href="../../programming_languages_diff/list/pop.html">リストの最後から要素を1つ取得してリストから削除するには (pop)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/push.html">リストの最後に要素1つまたは複数追加するには (push)</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値の要素をすべて削除するには (remove-by-value)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
@@ -72,23 +75,23 @@
 </div>
 
 <div id="content">
-  <h1 id="get">インデックスで参照するには</h1>
+  <h1 id="get">インデックスで要素を参照するには</h1>
 
-<h2 id="d7ff22e">Java</h2>
+<h2 id="30e9517">Java</h2>
 
-<h3 id="2a5c8d6">配列
+<h3 id="0b22ca1">配列
 <span class="article-date">2013/09/04</span></h3>
 
 <pre><code>arr[index]
 </code></pre>
 
-<h3 id="6698b90"><code>java.util.List</code>
+<h3 id="15c77b2"><code>java.util.List</code>
 <span class="article-date">2013/09/04</span></h3>
 
 <pre><code>list.get(index)
 </code></pre>
 
-<h2 id="16fa026">Scala
+<h2 id="07dac44">Scala
 <span class="article-date">2013/09/04</span></h2>
 
 <p><code>Array</code> でも <code>List</code> でも同じ。</p>
@@ -103,25 +106,25 @@ list(index);
 list.apply(index);
 </code></pre>
 
-<h2 id="604380b">PHP
+<h2 id="523fb84">PHP
 <span class="article-date">2013/09/05</span></h2>
 
 <pre><code>$arr[$index]
 </code></pre>
 
-<h2 id="27107c7">Ruby
+<h2 id="f9980b0">Ruby
 <span class="article-date">2013/09/05</span></h2>
 
 <pre><code>arr[index]
 </code></pre>
 
-<h2 id="df02f72">Python
+<h2 id="d40df21">Python
 <span class="article-date">2013/09/05</span></h2>
 
 <pre><code>arr.index(idx)
 </code></pre>
 
-<h2 id="7255ccf">Perl
+<h2 id="ce88ba9">Perl
 <span class="article-date">2013/09/10</span></h2>
 
 <p>配列そのもののシジルは <code>@</code> だが、インデックスで参照するには、要素がスカラのためシジルとして <code>$</code> を使う。</p>
