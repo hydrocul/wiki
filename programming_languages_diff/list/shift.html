@@ -34,9 +34,9 @@
           <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
-          <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft)</a></li>
+          <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</a></li>
           <li><a href="../../programming_languages_diff/list/foreach.html">リストの要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li><a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a></li>
+          <li><a href="../../programming_languages_diff/list/get.html">インデックスで要素を参照するには</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
           <li><a href="../../programming_languages_diff/list/head.html">リストの先頭の要素を取得するには (head)</a></li>
@@ -114,13 +114,15 @@
 </code></pre>
 
 <h2 id="1bd8e1f">Perl
-<span class="article-date">2013/07/31</span></h2>
+<span class="article-date">2013/09/26</span></h2>
 
 <pre><code>shift(@arr);
 </code></pre>
 
 <p>引数を指定しないと、mainモジュールの中では <code>@ARGV</code> を対象とし、
 subの中では <code>@_</code> を対象とする。</p>
+
+<p>リストの先頭の要素を返し、配列自身は先頭が削除される。</p>
 
 <h2 id="7261295">JavaScript
 <span class="article-date">2013/04/19</span></h2>

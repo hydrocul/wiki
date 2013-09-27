@@ -21,7 +21,7 @@
     <ul>
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
-      <li><a href="../commands/ack-grep.html">ack-grep</a></li>
+      <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
       <li>cp コマンド</li>
@@ -66,7 +66,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-      <li><a href="../commands/zip.html">zipコマンド / unzipコマンド</a></li>
+      <li><a href="../commands/zip.html">zip コマンド / unzip コマンド</a></li>
     </ul>
   </li>
 </ul>
@@ -79,6 +79,9 @@
 <span class="article-date">2013/09/09</span></h1>
 
 <p>ファイルをコピーするコマンド。別のホストにファイルをコピーするには<a href="rsync.html">rsync</a>を使う。コピーではなく移動させるにはmvを使う。</p>
+
+<h2 id="ba43644">オプション
+<span class="article-date">2013/09/26</span></h2>
 
 <dl>
   <dt><code>-i</code></dt>
@@ -93,6 +96,10 @@
   <dd>ファイル名を表示しながらコピーする</dd>
   <dt><code>-l</code></dt>
   <dd>ファイルのコピーはハードリンクにする。ディレクトリはハードリンクにはならない。</dd>
+  <dt><code>-d</code></dt>
+  <dd>コピー元にシンボリックリンクがあった場合は、通常はリンク先ファイルをコピーし、
+シンボリックリンクだったという情報が失われるが、
+このオプションを付ければ、シンボリックリンクとしてそのままコピーされる。</dd>
 </dl>
 
 <h2 id="f657790">ディレクトリ名も含めてファイルをコピーするには

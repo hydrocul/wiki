@@ -36,7 +36,7 @@
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
           <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</a></li>
           <li><a href="../../programming_languages_diff/list/foreach.html">リストの要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li><a href="../../programming_languages_diff/list/get.html">インデックスで参照するには</a></li>
+          <li><a href="../../programming_languages_diff/list/get.html">インデックスで要素を参照するには</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
           <li>リストの先頭の要素を取得するには (head)</li>
@@ -87,18 +87,13 @@
 def head: A
 </code></pre>
 
-<h2 id="e2097dc">sed コマンド
-<span class="article-date">2013/09/25</span></h2>
-
-<pre><code># 2行目以降を出力
-sed '1!d'
-</code></pre>
-
-<h2 id="f65a34b">head コマンド
-<span class="article-date">2013/09/25</span></h2>
+<h2 id="0e9be7b">sh
+<span class="article-date">2013/09/26</span></h2>
 
 <pre><code># 最初の1行を出力
-head -n 1
+sed '1!d'
+# または
+head -n1
 </code></pre>
 
 
