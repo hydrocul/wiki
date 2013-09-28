@@ -62,7 +62,7 @@
 <p>この方法だと外部コマンド実行中に Ctrl+C を押しても、外部コマンドが終了するだけで、Perlスクリプトは終了してくれない。</p>
 
 <p>Ctrl+C を押して外部コマンドだけでなくPerlスクリプト自体を終了させるには
-fork, exec, wait を使う。</p>
+<code>fork</code>, <code>exec</code>, <code>wait</code> を使う。</p>
 
 <pre><code>my $pid = fork;
 if ($pid) {
