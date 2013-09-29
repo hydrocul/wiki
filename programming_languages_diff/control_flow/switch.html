@@ -19,14 +19,20 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; <a href="../../programming_languages_diff/control_flow/">制御構文</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/control_flow/break.html">break文</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/control_flow/continue.html">continue文</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/control_flow/for.html">for文(繰り返し)</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/control_flow/if.html">if文</a></li>
-  <li>&gt;&gt; switch文</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/control_flow/while.html">while文</a></li>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/control_flow/">制御構文</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/control_flow/break.html">break文</a></li>
+          <li><a href="../../programming_languages_diff/control_flow/continue.html">continue文</a></li>
+          <li><a href="../../programming_languages_diff/control_flow/for.html">for文(繰り返し)</a></li>
+          <li><a href="../../programming_languages_diff/control_flow/if.html">if文</a></li>
+          <li>switch文</li>
+          <li><a href="../../programming_languages_diff/control_flow/while.html">while文</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
   </div>
@@ -76,7 +82,7 @@ default:
 <p><code>x</code> には、<code>byte</code>, <code>short</code>, <code>char</code>, <code>int</code>, <code>Byte</code>, <code>Short</code>, <code>Character</code>, <code>Integer</code>,
 <code>enum</code>, <code>String</code> が使える。</p>
 
-<p><code>String</code> が使えるのは、Java SE 7 から。ただ、<code>String</code> の場合、 <code>null</code> だと
+<p><code>String</code> が使えるのは、Java7から。ただ、<code>String</code> の場合、 <code>null</code> だと
 <code>NullPointerException</code> が発生してしまい、 <code>case null</code> と書けたり、
 <code>default</code> に飛んでくれたりはしない。
 <code>Integer</code> の場合も、<code>NullPointerException</code> が発生しうるのは同様。</p>
@@ -139,6 +145,23 @@ else
   ...
 end
 </code></pre>
+
+<h2 id="0eed815">Perl
+<span class="article-date">2013/09/28</span></h2>
+
+<pre><code>use Switch;
+
+switch($x) {
+    case 1 { ...; }
+    case 2 { ...; }
+    else { print "Failed"; }
+}
+</code></pre>
+
+<p><code>$x</code>が文字列で<code>case</code>値が数字でもマッチする。その逆でもマッチする。</p>
+
+<p>Switch - Perlのswitch文 | perldoc.jp<br />
+<a href="http://perldoc.jp/docs/modules/Switch-2.09/Switch.pod" target="_blank">http://perldoc.jp/docs/modules/Switch-2.09/Switch.pod</a></p>
 
 
 </div>

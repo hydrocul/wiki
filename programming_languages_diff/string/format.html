@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>書式化文字列 (printf / sprintf / format) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>書式化文字列 (format, printf, sprintf) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>書式化文字列 (printf / sprintf / format)</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>書式化文字列 (format, printf, sprintf)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -27,7 +27,7 @@
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
-          <li>書式化文字列 (printf / sprintf / format)</li>
+          <li>書式化文字列 (format, printf, sprintf)</li>
           <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込む方法</a></li>
@@ -56,12 +56,12 @@
 </div>
 
 <div id="content">
-  <h1 id="format">書式化文字列 (printf / sprintf / format)</h1>
+  <h1 id="format">書式化文字列 (format, printf, sprintf)</h1>
 
 <p>C言語の <code>printf</code> のような書式の使える言語が多い。
 <a href="inline.html">文字列の中に変数を埋め込む書き方</a>を使うことで、細かい書式までは指定できないが <code>printf</code> の代わりに文字列を組み立てることもできる。</p>
 
-<h2 id="4764f06">C言語, C++
+<h2 id="1a1a0b9">C言語, C++
 <span class="article-date">2013/09/08</span></h2>
 
 <pre><code>int sprintf(char *str, const char *format, ...);
@@ -78,7 +78,7 @@ sprintf(dst, "%s %d", str, i);
 snprintf(dst, sizeof(dst), "%s %d", str, i);
 </code></pre>
 
-<h2 id="b8c66a7">Java
+<h2 id="645893a">Java
 <span class="article-date">2013/08/15</span></h2>
 
 <p>例</p>
@@ -89,7 +89,7 @@ snprintf(dst, sizeof(dst), "%s %d", str, i);
 <p>フォーマットのレファレンス<br />
 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax</a></p>
 
-<h2 id="eeca3c7">Scala
+<h2 id="2776ce8">Scala
 <span class="article-date">2013/08/15</span></h2>
 
 <p>例</p>
@@ -100,7 +100,7 @@ snprintf(dst, sizeof(dst), "%s %d", str, i);
 <p>フォーマットのレファレンス<br />
 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax</a></p>
 
-<h2 id="9fa3814">Ruby
+<h2 id="1cb1cf8">Ruby
 <span class="article-date">2013/09/08</span></h2>
 
 <p><code>%</code>演算子でC言語のsprintfと同様のことができる。</p>
@@ -118,7 +118,7 @@ snprintf(dst, sizeof(dst), "%s %d", str, i);
 <p>フォーマットのレファレンス<br />
 <a href="http://doc.ruby-lang.org/ja/1.8.7/doc/print_format.html" target="_blank">http://doc.ruby-lang.org/ja/1.8.7/doc/print_format.html</a></p>
 
-<h2 id="50bd065">Perl
+<h2 id="33f90ef">Perl
 <span class="article-date">2013/09/10</span></h2>
 
 <p>例</p>

@@ -19,34 +19,33 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="./">Home</a></li>
-  <li>&gt; <a href="./apache.html">Apache</a></li>
-  <li>&gt; <a href="./commands/">コマンドリファレンス</a></li>
-  <li>&gt; <a href="./css.html">CSS</a></li>
-  <li>&gt; <a href="./emacs.html">Emacs</a></li>
-  <li>&gt; <a href="./google.html">google</a></li>
-  <li>&gt; <a href="./google-analytics.html">Google Analytics</a></li>
-  <li>&gt; <a href="./ie.html">Internet Explorer</a></li>
-  <li>&gt; <a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
-  <li>&gt; <a href="./jquery.html">jQuery</a></li>
-  <li>&gt; <a href="./linux.html">Linux</a></li>
-  <li>&gt; <a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
-  <li>&gt; <a href="./mac.html">Mac</a></li>
-  <li>&gt; <a href="./mechanize.html">mechanize</a></li>
-  <li>&gt; <a href="./memcached.html">memcached</a></li>
-  <li>&gt; <a href="./misc.html">misc</a></li>
-  <li>&gt; <a href="./mysql.html">MySQL</a></li>
-  <li>&gt; ワンライナー</li>
-  <li>&gt; <a href="./paco.html">Paco (pacKAGE oRGANIZER)</a></li>
-  <li>&gt; <a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
-  <li>&gt; <a href="./phantomjs.html">phantomjs</a></li>
-  <li>&gt; <a href="./php.html">PHP</a></li>
-  <li>&gt; <a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; <a href="./rails.html">Ruby on Rails</a></li>
-  <li>&gt; <a href="./ruby.html">Ruby</a></li>
-  <li>&gt; <a href="./sh.html">シェルスクリプト</a></li>
-  <li>&gt; <a href="./svn.html">Subversion (svn)</a></li>
-  <li>&gt; <a href="./ubuntu.html">Ubuntu</a></li>
+  <li><a href="./apache.html">Apache</a></li>
+  <li><a href="./commands/">コマンドリファレンス</a></li>
+  <li><a href="./css.html">CSS</a></li>
+  <li><a href="./emacs.html">Emacs</a></li>
+  <li><a href="./google.html">google</a></li>
+  <li><a href="./google-analytics.html">Google Analytics</a></li>
+  <li><a href="./ie.html">Internet Explorer</a></li>
+  <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
+  <li><a href="./jquery.html">jQuery</a></li>
+  <li><a href="./linux.html">Linux</a></li>
+  <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
+  <li><a href="./mac.html">Mac</a></li>
+  <li><a href="./mechanize.html">mechanize</a></li>
+  <li><a href="./memcached.html">memcached</a></li>
+  <li><a href="./misc.html">misc</a></li>
+  <li><a href="./mysql.html">MySQL</a></li>
+  <li>ワンライナー</li>
+  <li><a href="./paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+  <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
+  <li><a href="./phantomjs.html">phantomjs</a></li>
+  <li><a href="./php.html">PHP</a></li>
+  <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li><a href="./rails.html">Ruby on Rails</a></li>
+  <li><a href="./ruby.html">Ruby</a></li>
+  <li><a href="./sh.html">シェルスクリプト</a></li>
+  <li><a href="./svn.html">Subversion (svn)</a></li>
+  <li><a href="./ubuntu.html">Ubuntu</a></li>
 </ul>
 
   </div>
@@ -96,14 +95,20 @@ echo %E3%81%82 | tr % = | nkf -WmQ
 </code></pre>
 
 <h2 id="less-many-files">たくさんのファイルをまとめて less で閲覧するには
-<span class="article-date">2013/05/31</span></h2>
+<span class="article-date">2013/09/28</span></h2>
 
 <p>find などのファイル一覧の出力に対して、 less で閲覧するには</p>
 
-<pre><code>find ... | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
+<pre><code>find ... -type f | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
 </code></pre>
 
 <p><code>cat -n</code> は行番号をつけて出力する。</p>
+
+<p>特定のディレクトリ直下にあるファイルを閲覧するには
+(そのディレクトリの中にサブディレクトリが存在しない場合)</p>
+
+<pre><code>ls foo/bar/* | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
+</code></pre>
 
 <h2 id="convert-lf-code">改行コードを変換するには
 <span class="article-date">2013/06/04</span></h2>

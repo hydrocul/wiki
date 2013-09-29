@@ -19,13 +19,19 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; <a href="../../programming_languages_diff/class/">クラス</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
-  <li>&gt;&gt; オブジェクトのクラスを動的に判定するには</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/class/modifier.html">アクセス修飾子</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/class/">クラス</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+          <li><a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
+          <li>オブジェクトのクラスを動的に判定するには</li>
+          <li><a href="../../programming_languages_diff/class/modifier.html">アクセス修飾子</a></li>
+          <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
   </div>
@@ -50,6 +56,29 @@ if(obj instanceof Integer){
 str.is_a?(String)
 arr.is_a?(Array)
 hash.is_a?(Hash)
+</code></pre>
+
+<h3 id="perl-20130928">Perl [2013/09/28]</h3>
+
+<p>レファレンスの種類は <code>ref</code> という関数(?)で判定できる。レファレンスでない場合は <code>''</code> を返し、レファレンスの場合はその指す先のオブジェクトの種類を文字列で返す。</p>
+
+<pre><code>my $num = 1;
+my $str = "abc";
+my @arr = (1, 2, 3);
+my %hash = (a =&gt; 1, b =&gt; 2);
+
+print (ref $num eq ''); # =&gt; 1
+print (ref $str eq ''); # =&gt; 1
+print (ref @arr eq ''); # =&gt; 1
+print (ref %hash eq ''); # =&gt; 1
+
+my $ref_arr = [1, 2, 3];
+my $ref_hash = {a =&gt; 1, b =&gt; 2};
+my $ref_sub = sub { print "Hello\n"; };
+
+print (ref $ref_arr); # =&gt; ARRAY
+print (ref $ref_hash); # =&gt; HASH
+print (ref $ref_sub); # =&gt; CODE
 </code></pre>
 
 <h3 id="javascript-20130410">JavaScript [2013/04/10]</h3>
