@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>文字列を正規表現で全置換するには | 正規表現 | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -55,19 +56,25 @@
 <pre><code>$str =~ s/(\d+)/$1 * 2/eg;
 </code></pre>
 
-<h2 id="c2e63ce">sed
-<span class="article-date">2013/09/24</span></h2>
+<h2 id="f20ef79">sh</h2>
+
+<h3 id="8d37953">sed コマンド
+<span class="article-date">2013/10/01</span></h3>
 
 <pre><code>sed -e 's/abc/ABC/g'
 </code></pre>
 
-<p><code>s</code> で置換を意味し、最後の <code>g</code> はすべてのマッチした文字列を置換することを意味する。</p>
+<p><code>s</code> で置換コマンドを意味し、最後の <code>g</code> はすべてのマッチした文字列を置換することを意味する。
+<code>g</code> がなくても全行で置換を実行するが、1行に2つ以上マッチした場合は
+1つ目しか置換されない。</p>
 
 <p><code>g</code> がなくても全行の置換をするが、1行に複数マッチする場合でも各行の最初のマッチしか置換をしない。</p>
 
 <p>区切り記号の <code>/</code> は他の記号でもよく、パスの置換などで置換対象に <code>/</code> が含まれている場合は、<code>!</code> など他の記号を使ったほうが便利。</p>
 
-<p>上の例では <code>abc</code> が置換前の正規表現、<code>ABC</code> が置換後の文字列。置換後の文字列には <code>&amp;</code> を指定するとマッチした文字列の部分が出力され、
+<p>上の例では <code>abc</code> が置換前の正規表現、<code>ABC</code> が置換後の文字列。</p>
+
+<p><code>-e</code> の代わりに <code>-E</code> を使うと、置換後の文字列には <code>&amp;</code> を指定するとマッチした文字列の部分が出力され、
 <code>\1</code>, <code>\2</code>… を指定するとマッチした文字列のうち正規表現内でカッコでグルーピングされた部分が出力される。</p>
 
 <p>例</p>
@@ -76,7 +83,7 @@
 # =&gt; xx3xx3334
 </code></pre>
 
-<p><code>-n</code>オプションを追加して<code>p</code>フラグを付けると、マッチした行のみを出力する。</p>
+<p><code>-n</code> オプションを追加して<code>p</code>フラグを付けると、マッチした行のみを出力する。</p>
 
 <p><code>s</code>コマンドの前に数字を置くと、その行のみがマッチングの対象になる。(アドレスという)</p>
 
@@ -90,6 +97,8 @@ sed 3,5s/abc/ABC/g
 # 3行目から5行目のみを全置換の対象とする
 sed '3,$s/abc/ABC/g'
 </code></pre>
+
+<p>-&gt; <a href="../../commands/sed.html">sedコマンド</a></p>
 
 
 </div>

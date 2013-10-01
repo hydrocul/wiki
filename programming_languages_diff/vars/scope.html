@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>変数の宣言とスコープ | 変数・束縛 | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -28,6 +29,7 @@
           <li><a href="../../programming_languages_diff/vars/file_line.html">ソースファイル名と行番号をソースコード中で取得するには</a></li>
           <li><a href="../../programming_languages_diff/vars/name.html">変数名</a></li>
           <li>変数の宣言とスコープ</li>
+          <li><a href="../../programming_languages_diff/vars/swapvars.html">2つの変数の内容を入れ替えるには</a></li>
         </ul>
       </li>
     </ul>
@@ -137,7 +139,7 @@ p $a # =&gt; 20
 </code></pre>
 
 <h2 id="6670d7f">Perl
-<span class="article-date">2013/08/13</span></h2>
+<span class="article-date">2013/09/30</span></h2>
 
 <p>宣言なしに変数を使うとグローバル変数になる。</p>
 
@@ -147,7 +149,19 @@ p $a # =&gt; 20
 
 <p>最初のPerlはグローバル変数のみだったが、Perl 4から <code>local</code> (動的スコープ)が導入され、Perl 5から <code>my</code> (静的スコープ)が導入された。</p>
 
-<p><code>{}</code> のブロックでスコープが作成される。</p>
+<p><code>{}</code> のブロックでスコープが作成される。ブロックは入れ子にできる。</p>
+
+<pre><code>my $a = 1;
+{
+    my $a = 2;
+    {
+        my $a = 3;
+        print "$a\n"; # =&gt; 3
+    }
+    print "$a\n"; # =&gt; 2
+}
+print "$a\n"; # =&gt; 1
+</code></pre>
 
 <h2 id="a4b9d69">JavaScript
 <span class="article-date">2013/08/13</span></h2>

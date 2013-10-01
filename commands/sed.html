@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>sed コマンド | コマンドリファレンス | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -81,7 +82,7 @@
 <p>文字列を全置換したり、行単位で削除したり、いろいろできるコマンド。</p>
 
 <h2 id="196241d">基本的な使い方
-<span class="article-date">2013/09/25</span></h2>
+<span class="article-date">2013/10/01</span></h2>
 
 <p>パイプで使う場合の例</p>
 
@@ -93,12 +94,12 @@
 <pre><code>sed -e 's/xxx/XXX/g' ./hoge.txt &gt; ./hoge-new.txt
 </code></pre>
 
-<p>ファイルを書き換えてしまう例</p>
+<p>ファイルを書き換えてしまう例(複数のファイルを指定できる)</p>
 
-<pre><code>sed -i -e 's/xxx/XXX/g' ./hoge.txt
+<pre><code>sed -i -e 's/xxx/XXX/g' ./hoge.txt ./hoge2.txt ./hoge3.txt
 </code></pre>
 
-<p><code>-e</code> のあとにコマンドを指定する。</p>
+<p><code>-e</code> のあとはsedで実行できるコマンドを指定する。</p>
 
 <p><code>-e</code>オプションを複数指定すれば、コマンドを複数実行することができる。またはコマンドを <code>;</code> で区切って複数並べることもできる。</p>
 
@@ -108,6 +109,80 @@
 11行目から20行目以外を削除するコマンドと、
 6行目から15行目のみを抽出するコマンドだが、これは、11行目から20行目以外を削除した結果に対して6行目から15行目を抽出する、つまりトータルでは16行目から20行目のみを抽出する、のではなく、
 11行目から20行目と6行目から15行目が重なる行、つまり11行目から15行目のみを抽出する。</p>
+
+<h3 id="81202ab"><code>s</code>コマンド
+<span class="article-date">2013/10/01</span></h3>
+
+<p><a href="../programming_languages_diff/regexp/replace-all.html#sed">正規表現で置換</a>をする。</p>
+
+<h3 id="0a259cb"><code>d</code>コマンド
+<span class="article-date">2013/10/01</span></h3>
+
+<p>行を削除する。</p>
+
+<p><code>sed d</code> とすると、すべての行が削除されてなにも出力しなくなってしまう。通常は後述のアドレスの機能を使って削除する行を指定して、残りを出力させる。</p>
+
+<pre><code># 1行目から行目を削除して6行目以降を出力
+sed 1,5d
+</code></pre>
+
+<p><code>!</code> を付けると、逆に対象行以外を削除するコマンドになる。</p>
+
+<pre><code># 1行目から行目のみを出力
+# ! はシェルが特別に解釈してしまうので、
+# シングルクオーテーションを付けるか \ でエスケープが必要
+sed '1,5!d'
+sed 1,5\!d
+</code></pre>
+
+<h3 id="a2afeb1"><code>p</code>コマンド
+<span class="article-date">2013/10/01</span></h3>
+
+<p>行を単に出力する。通常は <code>-n</code> オプションと組み合わせる。
+sedコマンドでは処理結果をデフォルトで出力するが、
+<code>-n</code> オプションを付けるとデフォルトの出力がされなくなり、
+<code>p</code>コマンドの出力のみになる。</p>
+
+<h3 id="ed190c1">アドレス
+<span class="article-date">2013/10/01</span></h3>
+
+<p>コマンドの実行対象行を指定する行番号をアドレスという。行番号だけでなくや正規表現で指定することもできる。</p>
+
+<p>以下の例はすべて<code>p</code>コマンドでの例だが、<code>s</code>, <code>y</code>, <code>d</code> コマンドなどでも使える。</p>
+
+<pre><code># 先頭の行のみを出力
+sed -n -e 1p
+
+# 最後の行のみを出力
+# \ はシェルのエスケープ
+sed -n -e \$p
+
+# 6行目から15行目を出力
+sed -n -e 6,15p
+
+# 奇数行のみを出力
+sed -n -e 1~2p
+
+# 1行目、6行目、11行目、16行目、、、を出力
+sed -n -e 1~5p
+
+# 正規表現にマッチする行を出力
+sed -n -e /xxx/p
+
+# 正規表現にマッチする行を出力
+sed -n -e /xxx/p
+
+# 正規表現にマッチする行を出力
+# 先頭に \ を付ければ、正規表現を囲む記号はなんでもよい
+sed -n -e '\%xxx%p'
+
+# 正規表現にマッチする行から3行分を出力
+# 正規表現にマッチするごとに最低3行が出力される
+sed -n -e /xxx/,+3p
+
+# 20行目から23行目までの4行分を出力
+sed -n -e 20,+3p
+</code></pre>
 
 <h2 id="24e9124">正規表現の中で ‘{}’ を使うには
 <span class="article-date">2013/06/17</span></h2>

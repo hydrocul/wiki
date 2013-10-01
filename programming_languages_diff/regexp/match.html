@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>パターンマッチングするには | 正規表現 | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -25,7 +26,7 @@
         <ul>
           <li>パターンマッチングするには</li>
           <li><a href="../../programming_languages_diff/regexp/reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/regexp/replace-all.html">全置換するには</a></li>
+          <li><a href="../../programming_languages_diff/regexp/replace-all.html">文字列を正規表現で全置換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -71,7 +72,7 @@ var_export(preg_match("/x./", "abc\nabc")); // =&gt; 0
 </code></pre>
 
 <h2 id="ab00e48">Perl
-<span class="article-date">2013/09/18</span></h2>
+<span class="article-date">2013/09/30</span></h2>
 
 <p><code>=~</code> という演算子で、正規表現にマッチしていれば <code>'1'</code> を返し、マッチしていなければ <code>''</code> を返す。
 <code>=~</code> の左右がRubyと逆。</p>
@@ -85,7 +86,8 @@ print "abc\nabc\n" =~ /a$/;
 <p><code>!~</code> という演算子は <code>=~</code> の反対で、マッチしていれば <code>''</code> を返し、マッチしていなければ <code>'1'</code> を返す。</p>
 
 <p>正規表現の中にカッコで囲んだグループがあれば、マッチした場合、
-<code>$1</code>, <code>$2</code>, <code>$3</code>, … にマッチした文字列が入る。</p>
+<code>$1</code>, <code>$2</code>, <code>$3</code>, … にマッチした文字列が入る。
+<a href="../vars/argv.html#perl"><code>$0</code></a> は実行されているPerlスクリプトファイル名が入っていて、正規表現とは関係ないので注意。</p>
 
 <p><code>if</code>文の条件式の中に正規表現だけを書いた場合は、その前に <code>$_ =~</code> を付けたのと同じになる。</p>
 
