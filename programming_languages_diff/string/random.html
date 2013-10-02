@@ -85,6 +85,14 @@ function createpasswd_num(){
 }
 </code></pre>
 
+<h2 id="85609e0">sh
+<span class="article-date">2013/10/01</span></h2>
+
+<p><code>/dev/urandom</code> を使う例</p>
+
+<pre><code>cat /dev/urandom | tr -dc 'abcdefghkmnprstuvwxyzABCDEFGHJKLMNPRSTUVWXYZ2345678' | head -c 8
+</code></pre>
+
 
 </div>
 
