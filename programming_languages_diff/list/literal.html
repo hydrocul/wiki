@@ -104,15 +104,22 @@ list.add("c");
 </code></pre>
 
 <h2 id="2501902">Scala
-<span class="article-date">2013/09/16</span></h2>
+<span class="article-date">2013/10/02</span></h2>
 
 <pre><code>arr = Array(1, 2, 3); // Javaの配列
 list = List(1, 2, 3); // scala.collection.immutable.List
+list = Nil; // 空のList
+list = 1 :: 2 :: 3 :: Nil;
 </code></pre>
 
-<p>これは以下と同じ意味。</p>
+<p>2行目の <code>List</code> は3行目のように <code>::</code> で区切って書くことも可能。
+<code>::</code> で区切って書く場合は最後が <code>Nil</code> かなんらかの <code>List</code> であることが必要。</p>
+
+<p>上の4行は以下の4行と同じ意味。</p>
 
 <pre><code>arr = scala.Array.apply(1, 2, 3);
+list = scala.collection.immutable.List.apply(1, 2, 3);
+list = scala.collection.immutable.List.apply();
 list = scala.collection.immutable.List.apply(1, 2, 3);
 </code></pre>
 
