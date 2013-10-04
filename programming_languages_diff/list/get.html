@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>インデックスで要素を参照するには (get) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -32,7 +33,7 @@
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/filter-count.html">リストから特定の条件にマッチする要素の数を数えるには (filter-count)</a></li>
           <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
-          <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
+          <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
           <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</a></li>
           <li><a href="../../programming_languages_diff/list/foreach.html">リストの要素を1つずつ順番に処理するには (foreach)</a></li>
@@ -88,22 +89,22 @@
 <h3 id="05d435d"><code>java.util.List</code>
 <span class="article-date">2013/09/04</span></h3>
 
-<pre><code>list.get(index)
+<pre><code>lst.get(index)
 </code></pre>
 
 <h2 id="af88d93">Scala
-<span class="article-date">2013/09/04</span></h2>
+<span class="article-date">2013/10/03</span></h2>
 
-<p><code>Array</code> でも <code>List</code> でも同じ。</p>
+<p><code>Array</code> でも <code>List</code> などの <code>Seq</code> でも同じ。</p>
 
 <pre><code>arr(index);
-list(index);
+lst(index);
 </code></pre>
 
 <p>これは以下と同じ意味。</p>
 
 <pre><code>arr.apply(index);
-list.apply(index);
+lst.apply(index);
 </code></pre>
 
 <h2 id="03d6a7f">PHP
@@ -112,16 +113,18 @@ list.apply(index);
 <pre><code>$arr[$index]
 </code></pre>
 
+<h2 id="b462188">Python
+<span class="article-date">2013/10/03</span></h2>
+
+<pre><code>lst[index]
+</code></pre>
+
+<p>これはPythonのシーケンスといわれるリスト、タプル、文字列で共通操作。</p>
+
 <h2 id="214376c">Ruby
 <span class="article-date">2013/09/05</span></h2>
 
-<pre><code>arr[index]
-</code></pre>
-
-<h2 id="b462188">Python
-<span class="article-date">2013/09/05</span></h2>
-
-<pre><code>arr.index(idx)
+<pre><code>lst[index]
 </code></pre>
 
 <h2 id="a871e96">Perl
