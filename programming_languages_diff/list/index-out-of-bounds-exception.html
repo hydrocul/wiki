@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>範囲外のインデックスにアクセスしたときにどうなるか? | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -32,7 +33,7 @@
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/filter-count.html">リストから特定の条件にマッチする要素の数を数えるには (filter-count)</a></li>
           <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
-          <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
+          <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
           <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</a></li>
           <li><a href="../../programming_languages_diff/list/foreach.html">リストの要素を1つずつ順番に処理するには (foreach)</a></li>
@@ -57,7 +58,7 @@
           <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList)</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の要素のリストを取得するには (tail)</a></li>
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
@@ -90,18 +91,21 @@ p arr[-3] # =&gt; 1
 p arr[-4] # =&gt; nil
 </code></pre>
 
-<h2 id="3e80b25">Python
-<span class="article-date">2013/08/08</span></h2>
+<h2 id="python">Python
+<span class="article-date">2013/10/04</span></h2>
 
 <p>例外がスローされる。</p>
 
-<h2 id="47ddab2">Perl
-<span class="article-date">2013/09/14</span></h2>
+<p>インデックスを負にすると後ろから数えてくれるが、後ろから数えて先頭よりも前になってしまうと、やはり例外がスローされる。</p>
+
+<h2 id="perl">Perl
+<span class="article-date">2013/10/04</span></h2>
 
 <p><code>undef</code> になり、<code>use warnings;</code> と宣言していると、
 <code>Use of uninitialized value</code> という警告が表示される。</p>
 
-<p>インデックスをマイナスにすると後ろから数えてくれる。</p>
+<p>インデックスを負にすると後ろから数えてくれるが、後ろから数えて先頭よりも前になってしまうと、やはり <code>undef</code> になり、<code>use warnings;</code> と宣言していると、
+<code>Use of uninitialized value</code> という警告が表示される。</p>
 
 <pre><code>my @a = (1, 2, 3);
 print $a[-1]; # =&gt; 3

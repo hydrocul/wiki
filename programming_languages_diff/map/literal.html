@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>マップの書き方 | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -24,9 +25,9 @@
       <li><a href="../../programming_languages_diff/map/">マップ(連想配列)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/clone.html">clone</a></li>
-          <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey</a></li>
+          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">マップの要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li><a href="../../programming_languages_diff/map/get.html">キーで値を参照するには</a></li>
+          <li><a href="../../programming_languages_diff/map/get.html">キーで値を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">マップが空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li>マップの書き方</li>
@@ -97,16 +98,19 @@ map.put("b", 2);
 <p>配列関係の関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/book.array.php" target="_blank">http://www.php.net/manual/ja/book.array.php</a></p>
 
+<h2 id="b465ab3">Python
+<span class="article-date">2013/10/04</span></h2>
+
+<pre><code>map = {'a': 1, 'b': 2}
+
+# 空のリストはdict関数に引数を与えないことでも作れる
+dct = dict()
+</code></pre>
+
 <h2 id="9f14ad3">Ruby
 <span class="article-date">2013/09/03</span></h2>
 
 <pre><code>hash = {'a' =&gt; 1, 'b' =&gt; 2}
-</code></pre>
-
-<h2 id="b465ab3">Python
-<span class="article-date">2013/04/17</span></h2>
-
-<pre><code>map = {'a': 1, 'b': 2}
 </code></pre>
 
 <h2 id="92c4916">Perl

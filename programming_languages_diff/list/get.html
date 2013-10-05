@@ -58,7 +58,7 @@
           <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList)</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の要素のリストを取得するには (tail)</a></li>
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
@@ -114,12 +114,21 @@ lst.apply(index);
 </code></pre>
 
 <h2 id="b462188">Python
-<span class="article-date">2013/10/03</span></h2>
+<span class="article-date">2013/10/04</span></h2>
+
+<p>以下はPythonのシーケンスといわれるリスト、タプル、文字列で共通操作。</p>
 
 <pre><code>lst[index]
+tpl[index]
 </code></pre>
 
-<p>これはPythonのシーケンスといわれるリスト、タプル、文字列で共通操作。</p>
+<p>インデックスに負を使うと後ろから数えられる。</p>
+
+<pre><code>lst[-1]; # 最後の要素
+lst[-2]; # 最後から2番目の要素
+</code></pre>
+
+<p>-&gt; <a href="index-out-of-bounds-exception.html#perl">範囲外のインデックスにアクセスしたときにどうなるか?</a></p>
 
 <h2 id="214376c">Ruby
 <span class="article-date">2013/09/05</span></h2>
@@ -128,15 +137,12 @@ lst.apply(index);
 </code></pre>
 
 <h2 id="a871e96">Perl
-<span class="article-date">2013/09/10</span></h2>
+<span class="article-date">2013/10/04</span></h2>
 
 <p>配列そのもののシジルは <code>@</code> だが、インデックスで参照するには、要素がスカラのためシジルとして <code>$</code> を使う。</p>
 
 <pre><code>$arr[0];
 </code></pre>
-
-<p>インデックスが最後よりも後ろになってしまうと、<code>undef</code> になり、
-<code>use warnings;</code> を使っていると警告が表示される。</p>
 
 <p>インデックスに負を使うと後ろから数えられる。</p>
 
@@ -144,10 +150,11 @@ lst.apply(index);
 $arr[-2]; # 最後から2番目の要素
 </code></pre>
 
-<p>負のインデックスが先頭よりも前になってしまうと、<code>undef</code> になり、
-<code>use warnings;</code> を使っていると警告が表示される。</p>
+<p>インデックスが最後よりも後ろになったり、負のインデックスが先頭よりも前になってしまうと、
+<code>undef</code> になり、<code>use warnings;</code> を使っていると警告が表示される。<br />
+-&gt; <a href="index-out-of-bounds-exception.html#perl">範囲外のインデックスにアクセスしたときにどうなるか?</a></p>
 
-<p>配列へのレファレンスから要素を取り出すには</p>
+<p>配列へのレファレンスから要素を取り出すには <code>-&gt;[]</code> を使う。</p>
 
 <pre><code>my $arr = ['a', 'b', 'c'];
 
