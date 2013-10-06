@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>アクセス修飾子 | クラス | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>クラスメンバーのアクセス修飾子 | クラス | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラス</a> &gt; <span>アクセス修飾子</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラス</a> &gt; <span>クラスメンバーのアクセス修飾子</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -19,39 +20,57 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li>&gt; <a href="../../programming_languages_diff/class/">クラス</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
-  <li>&gt;&gt; アクセス修飾子</li>
-  <li>&gt;&gt; <a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/class/">クラス</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+          <li><a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
+          <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
+          <li>クラスメンバーのアクセス修飾子</li>
+          <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
   </div>
 </div>
 
 <div id="content">
-  <h1 id="modifier">アクセス修飾子</h1>
+  <h1 id="modifier">クラスメンバーのアクセス修飾子</h1>
 
-<h2 id="edd2465">C++
-<span class="article-date">2013/08/28</span></h2>
-
-<p>クラスメンバー</p>
+<h2 id="8afaf49">C++
+<span class="article-date">2013/10/05</span></h2>
 
 <dl>
   <dt><code>public</code></dt>
   <dd>クラスの外からでも可視</dd>
   <dt><code>protected</code></dt>
-  <dd>クラスの中とそのクラスを継承する派生クラス(サブクラス)の中からのみ可視</dd>
+  <dd>同一クラスの中とそのクラスを継承する派生クラス(サブクラス)の中からのみ可視</dd>
   <dt><code>private</code> (指定しない場合のデフォルト)</dt>
-  <dd>クラスの中からのみ可視</dd>
+  <dd>同一クラスの中からのみ可視</dd>
 </dl>
 
-<h2 id="60a7d56">Scala
-<span class="article-date">2013/08/25</span></h2>
+<h2 id="f307c0d">Java
+<span class="article-date">2013/10/05</span></h2>
 
-<p>クラスメンバー</p>
+<dl>
+  <dt><code>public</code></dt>
+  <dd>クラスの外からでも可視</dd>
+  <dt><code>protected</code></dt>
+  <dd>クラスの中とそのクラスを継承するサブクラスの中、
+および同一パッケージの中からのみ可視</dd>
+  <dt>パッケージプライベート (指定しない場合のデフォルト)</dt>
+  <dd>同一パッケージの中からのみ可視。
+この可視性を指定するキーワードはない。</dd>
+  <dt><code>private</code></dt>
+  <dd>同一クラスの中からのみ可視</dd>
+</dl>
+
+<h2 id="862ce74">Scala
+<span class="article-date">2013/10/05</span></h2>
 
 <dl>
   <dt><code>public</code> (指定しない場合のデフォルト)</dt>
@@ -86,8 +105,12 @@ Javaにはこの修飾子はない。</dd>
 <p><code>protected[</code>パッケージ名/クラス名<code>]</code> または <code>private[</code>パッケージ名/クラス名<code>]</code>
 では、パッケージ名/クラス名にはドットを含むフルネームを書くことはできず、名前のみを書く。パッケージ名は階層の途中でもよく、例えば <code>com.example.app1.foo</code> というパッケージの中のクラスで、<code>private[example]</code>
 と書けば、<code>com.example</code> とそのサブクラスの中のどこからでもアクセスできる。
-Javaにはこの機能はないが、階層の途中ではなく末端のパッケージで、
-<code>protected</code> ではなく <code>private</code> であれば、Javaのパッケージプライベートと同じになる。</p>
+<code>private[]</code> でパッケージ階層の途中ではなく末端のパッケージを指定すれば、
+Javaのパッケージプライベートと同じになるが、
+Javaには任意のパッケージを指定することはできないし、
+<code>protected[]</code> を指定することもできない。</p>
+
+<p>フィールドは、<code>private[this]</code> の修飾子をつけたときのみ、フィールドへのアクセスがコンパイル後もフィールドアクセスになるので、フィールドに対しては極力この修飾子を付けたほうがよさそう。他の修飾子だとフィールドアクセスをするメソッドが呼び出される。</p>
 
 
 </div>

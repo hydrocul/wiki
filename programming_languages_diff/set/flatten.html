@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>セットのセットをセットに平坦化するには (flatten) | セット | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">セット</a> &gt; <span>セットのセットをセットに平坦化するには (flatten)</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/set/">セット</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/set/contains.html">セットに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
+          <li>セットのセットをセットに平坦化するには (flatten)</li>
+          <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/set/to-list.html">セットからリストに変換するには (toSet)</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="flatten">セットのセットをセットに平坦化するには (flatten)</h1>
+
+<h2 id="scala">Scala
+<span class="article-date">2013/10/05</span></h2>
+
+<p>Signature:</p>
+
+<pre><code>// Set[A]
+def flatten[B]: Set[B]
+</code></pre>
+
+<p>処理結果のセットを返し、自身は変更しない。<code>A</code> は <code>Seq[B]</code>, <code>Set[B]</code> などである必要がある。</p>
+
+<p><a href="../list/flatten.html#scala"><code>Seq#flatten</code></a> と使い方が同じ。</p>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>セットに特定の要素が含まれているかどうかを判定するには (contains) | セット | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">セット</a> &gt; <span>セットに特定の要素が含まれているかどうかを判定するには (contains)</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/set/">セット</a>
+        <ul>
+          <li>セットに特定の要素が含まれているかどうかを判定するには (contains)</li>
+          <li><a href="../../programming_languages_diff/set/flatten.html">セットのセットをセットに平坦化するには (flatten)</a></li>
+          <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/set/to-list.html">セットからリストに変換するには (toSet)</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="contains">セットに特定の要素が含まれているかどうかを判定するには (contains)</h1>
+
+<h2 id="e13d62c">Java
+<span class="article-date">2013/08/06</span></h2>
+
+<p>Signature:</p>
+
+<pre><code>// java.util.Set&lt;E&gt;
+boolean contains(Object elem)
+</code></pre>
+
+<h2 id="4e8d417">Scala
+<span class="article-date">2013/10/05</span></h2>
+
+<p>Signature:</p>
+
+<pre><code>// scala.collection.Set[A]
+def contains(elem: A): Boolean
+</code></pre>
+
+<h2 id="2aa5679">Python
+<span class="article-date">2013/10/05</span></h2>
+
+<pre><code>elem in set
+</code></pre>
+
+<p><code>elem</code> が <code>set</code> に含まれれば <code>true</code> を返す。</p>
+
+<p>この否定は</p>
+
+<pre><code>elem not in set
+</code></pre>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

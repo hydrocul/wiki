@@ -123,13 +123,14 @@ lst[:]      # 先頭から最後まで
 -&gt; <a href="clone.html#python">リストをコピーするには</a></p>
 
 <h2 id="4ce279c">Ruby
-<span class="article-date">2013/04/12</span></h2>
+<span class="article-date">2013/10/05</span></h2>
 
-<pre><code>Array#slice(index)
-Array#slice(from, length)
+<pre><code>arr.slice(from, length) # from から from + length - 1 まで
+arr.slice(index)        # indexの要素のみを取得
 </code></pre>
 
-<p>lengthを省略したら、from以降の部分配列ではなく、その場所の要素を返す(<code>[]</code> と同じ)。</p>
+<p>lengthを省略したら、from以降の部分配列ではなく、その場所の要素を返す(<code>[]</code> と同じ)。
+arr.slice(index, 1) はその場所の要素だけの配列を返すので、これとも違う。</p>
 
 <h2 id="e99639b">Perl
 <span class="article-date">2013/07/27</span></h2>
