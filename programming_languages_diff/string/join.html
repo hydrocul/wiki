@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列の配列を特定の文字列で連結するには (join / implode) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>文字列のリストを特定の文字列で連結するには (join / implode) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列の配列を特定の文字列で連結するには (join / implode)</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列のリストを特定の文字列で連結するには (join / implode)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -27,12 +28,12 @@
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
-          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (printf / sprintf / format)</a></li>
+          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込む方法</a></li>
           <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
-          <li>文字列の配列を特定の文字列で連結するには (join / implode)</li>
+          <li>文字列のリストを特定の文字列で連結するには (join / implode)</li>
           <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
           <li><a href="../../programming_languages_diff/string/multiplication.html">同じ文字列を繰り返し連結するには</a></li>
@@ -56,10 +57,12 @@
 </div>
 
 <div id="content">
-  <h1 id="join">文字列の配列を特定の文字列で連結するには (join / implode)</h1>
+  <h1 id="join">文字列のリストを特定の文字列で連結するには (join / implode)</h1>
 
-<h2 id="7f23efd">Scala
+<h2 id="a00e261">Scala
 <span class="article-date">2013/09/28</span></h2>
+
+<p>Signature:</p>
 
 <pre><code>// TraversableOnce[A]
 def mkString: String
@@ -69,7 +72,7 @@ def mkString(start: String, separator: String, end: String): String
 
 <p>リストの要素が文字列でなくても要素の <code>toString</code> メソッドが呼び出されてから連結される。</p>
 
-<h2 id="7407905">PHP
+<h2 id="4a1ade1">PHP
 <span class="article-date">2013/04/10</span></h2>
 
 <pre><code>implode($separator, $arr)
@@ -77,13 +80,13 @@ def mkString(start: String, separator: String, end: String): String
 
 <p><a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
 
-<h2 id="802c711">Ruby
+<h2 id="a092bca">Ruby
 <span class="article-date">2013/04/10</span></h2>
 
 <pre><code>Array#join(separator)
 </code></pre>
 
-<h2 id="9a47ab6">Perl
+<h2 id="19d0605">Perl
 <span class="article-date">2013/07/27</span></h2>
 
 <pre><code>my @arr = ('abc', 'def', 'ghi');
@@ -93,7 +96,7 @@ print join(' ', @arr); # =&gt; abc def ghi
 print join(',', @arr); # =&gt; abc,def,ghi
 </code></pre>
 
-<h2 id="add3ed3">JavaScript
+<h2 id="a6296a5">JavaScript
 <span class="article-date">2013/04/10</span></h2>
 
 <pre><code>arr.join(separator)

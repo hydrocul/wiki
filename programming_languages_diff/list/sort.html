@@ -58,7 +58,7 @@
           <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li>リストの要素を並べ替えするには (sort)</li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList)</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の要素のリストを取得するには (tail)</a></li>
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
@@ -81,6 +81,8 @@
 <h2 id="5296b3e">Java
 <span class="article-date">2013/08/28</span></h2>
 
+<p>Signature:</p>
+
 <pre><code>// java.util.Collections
 static void &lt;T extends java.util.Comparable&lt;? super T&gt;&gt; sort(List&lt;T&gt; list)
 static void &lt;T&gt; sort(List&lt;T&gt; list, java.util.Comparator&lt;? super T&gt; comparator)
@@ -89,12 +91,24 @@ static void &lt;T&gt; sort(List&lt;T&gt; list, java.util.Comparator&lt;? super T
 <h2 id="468ef51">Scala
 <span class="article-date">2013/07/30</span></h2>
 
+<p>Signature:</p>
+
 <pre><code>// Seq[A]
 def sorted: Seq[A]
 def sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 </code></pre>
 
 <p>ソート結果のリストを返し、自身は変更しない。</p>
+
+<h2 id="e026d65">Python
+<span class="article-date">2013/10/06</span></h2>
+
+<pre><code># ソート済みのリストを返し、引数のリスト自体は変更しない
+sorted(lst)
+
+# リスト自体をソートしたものに変更する
+lst.sort()
+</code></pre>
 
 <h2 id="81552ae">Ruby
 <span class="article-date">2013/05/10</span></h2>

@@ -33,7 +33,7 @@
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/filter-count.html">リストから特定の条件にマッチする要素の数を数えるには (filter-count)</a></li>
           <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
-          <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
+          <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
           <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</a></li>
           <li><a href="../../programming_languages_diff/list/foreach.html">リストの要素を1つずつ順番に処理するには (foreach)</a></li>
@@ -58,7 +58,7 @@
           <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList)</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の要素のリストを取得するには (tail)</a></li>
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
@@ -81,10 +81,30 @@
 <h2 id="b1f4e8f">Scala
 <span class="article-date">2013/07/30</span></h2>
 
-<p>リストをセットにに変換する方法。</p>
+<p>Signature:</p>
 
 <pre><code>//  Seq[A]
 def toSet: Set[A]
+</code></pre>
+
+<h2 id="b219d11">Python
+<span class="article-date">2013/10/06</span></h2>
+
+<p><code>set</code> という関数でセットに変換したものを返す。</p>
+
+<pre><code>set(lst)
+</code></pre>
+
+<h2 id="093ee45">Ruby
+<span class="article-date">2013/10/06</span></h2>
+
+<p>以下は配列から重複を削除する例</p>
+
+<pre><code># 重複を削除した配列を返し、自身は変更しない
+arr.uniq
+
+# 重複を削除した配列に変更する
+arr.uniq!
 </code></pre>
 
 <h2 id="fffb2f1">Perl

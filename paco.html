@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Paco (pacKAGE oRGANIZER) | hydrocul のメモ</title>
+<title>Paco | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <span>Paco (pacKAGE oRGANIZER)</span>
+  <span>Paco</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -37,12 +37,11 @@
   <li><a href="./misc.html">misc</a></li>
   <li><a href="./mysql.html">MySQL</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
-  <li>Paco (pacKAGE oRGANIZER)</li>
+  <li>Paco</li>
   <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
   <li><a href="./phantomjs.html">phantomjs</a></li>
   <li><a href="./php.html">PHP</a></li>
   <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
-  <li><a href="./rails.html">Ruby on Rails</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
   <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
@@ -53,37 +52,10 @@
 </div>
 
 <div id="content">
-  <h1 id="paco">Paco (pacKAGE oRGANIZER)
-<span class="article-date">2013/06/25</span></h1>
+  <h1 id="paco">Paco
+<span class="article-date">2013/10/07</span></h1>
 
-<p><code>make install</code> したパッケージを管理するためのツール。</p>
-
-<p><a href="http://paco.sourceforge.net/" target="_blank">http://paco.sourceforge.net/</a></p>
-
-<p><code>yum</code>や<code>apt-get</code>などのパッケージ管理ツールに存在せず、ソースからコンパイルしてインストールしたパッケージは、アンインストールができなかったり、そもそもなにがインストールされているかわからなくなったりするが、このツールを使うと、そういうパッケージを管理できるようになる。</p>
-
-<h2 id="2f5f4c8">pacoのインストール
-<span class="article-date">2013/06/27</span></h2>
-
-<pre><code>wget http://downloads.sourceforge.net/project/paco/paco/2.0.7/paco-2.0.7.tar.bz2
-tar xvf paco-2.0.7.tar.bz2
-cd paco-2.0.7
-./configure --disable-gpaco
-make
-sudo make install
-sudo PATH=$PATH make logme
-</code></pre>
-
-<p>sudoのバージョン1.6.9以降では環境変数PATHの仕様が変わったために 
-<code>make logme</code> を実行するときにpacoコマンドが見つからない、というエラーが出てしまう。pacoのMakefileがおかしい気がする。</p>
-
-<p>以下に詳細が書かれている。</p>
-
-<p><a href="http://d.hatena.ne.jp/bannyan/20090813/1250162107" target="_blank">http://d.hatena.ne.jp/bannyan/20090813/1250162107</a></p>
-
-<h2 id="557746f">基本操作</h2>
-
-<p>-&gt; <a href="linux-pkg-manager.html#paco">pacoの基本操作</a></p>
+<p>-&gt; <a href="commands/paco.html">paco</a></p>
 
 
 </div>
