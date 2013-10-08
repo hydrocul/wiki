@@ -24,7 +24,7 @@
     <ul>
       <li><a href="../../programming_languages_diff/map/">マップ(連想配列)</a>
         <ul>
-          <li><a href="../../programming_languages_diff/map/clone.html">clone</a></li>
+          <li><a href="../../programming_languages_diff/map/clone.html">マップをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">マップの要素を1つずつ順番に処理するには (foreach)</a></li>
           <li>キーで値を参照するには (get)</li>
@@ -32,6 +32,7 @@
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/literal.html">マップの書き方</a></li>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/map/put.html">要素を設定するには (put)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
@@ -137,13 +138,14 @@ p m.fetch('b') { 2 } # =&gt; 2
 </code></pre>
 
 <h2 id="3b43c03">Perl
-<span class="article-date">2013/09/10</span></h2>
+<span class="article-date">2013/10/08</span></h2>
 
 <p>以下のように <code>{}</code> でキーを指定し、先頭は <code>$</code> を使う。</p>
 
 <pre><code>my %hash = (a =&gt; 1, b =&gt; 2);
 
-$hash{a} # =&gt; 1
+$hash{a}   # =&gt; 1
+# または
 $hash{'a'} # =&gt; 1
 </code></pre>
 

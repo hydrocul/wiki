@@ -55,6 +55,27 @@
 <div id="content">
   <h1 id="each-line">ファイルの中身を1行ずつテキスト処理するには</h1>
 
+<h2 id="4113b87">Java
+<span class="article-date">2013/10/08</span></h2>
+
+<pre><code>import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
+BufferedReader reader = new BufferedReader(
+    new InputStreamReader(new FileInputStream(tsvFilePath), "UTF-8"));
+while (true) {
+    String line = reader.readLine();
+    if (line == null)
+        break;
+    // line には最後の改行を含まない
+    ...;
+}
+fclose(reader);
+</code></pre>
+
+<p><code>BufferedReader#readLine()</code> は <code>"\n"</code>, <code>"\r"</code>, <code>"\r\n"</code> のいずれかを改行としてみなす。</p>
+
 <h2 id="ef41454">PHP
 <span class="article-date">2013/10/08</span></h2>
 
@@ -69,7 +90,7 @@ if($fh){
 }
 </code></pre>
 
-<p><code>fgets</code> は <code>'\r'</code> を改行としてみなさない。</p>
+<p><code>fgets</code> は <code>'\r'</code>(<code>0x0D</code>) を改行としてみなさない。</p>
 
 <h2 id="8495e6f">Ruby
 <span class="article-date">2013/08/22</span></h2>
