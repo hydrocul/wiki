@@ -24,10 +24,10 @@
     <ul>
       <li><a href="../../programming_languages_diff/exception/">例外処理</a>
         <ul>
-          <li><a href="../../programming_languages_diff/exception/checked.html">チェック例外と非チェック例外</a></li>
-          <li><a href="../../programming_languages_diff/exception/class-hierarchy.html">例外クラス階層</a></li>
-          <li>例外をスローする構文</li>
           <li><a href="../../programming_languages_diff/exception/try.html">例外を捕捉する構文</a></li>
+          <li>例外をスローする構文</li>
+          <li><a href="../../programming_languages_diff/exception/class-hierarchy.html">例外クラス階層</a></li>
+          <li><a href="../../programming_languages_diff/exception/checked.html">チェック例外と非チェック例外</a></li>
         </ul>
       </li>
     </ul>
@@ -72,7 +72,7 @@ raise ZeroDivisionError, "message ..."
 raise HogeException()
 </code></pre>
 
-<p>except節で補足した例外を再スローするには、以下のようにシンプルに書ける。</p>
+<p><code>except</code>節で補足した例外を再スローするには、以下のようにシンプルに書ける。</p>
 
 <pre><code>raise
 </code></pre>

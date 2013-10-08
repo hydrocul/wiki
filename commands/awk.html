@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ps コマンド | コマンドリファレンス | hydrocul のメモ</title>
+<title>awk コマンド | コマンドリファレンス | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; <span>ps コマンド</span>
+  <a href="../commands/">コマンドリファレンス</a> &gt; <span>awk コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -23,7 +23,7 @@
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
-      <li><a href="../commands/awk.html">awk コマンド</a></li>
+      <li>awk コマンド</li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
       <li><a href="../commands/cp.html">cp コマンド</a></li>
@@ -46,7 +46,7 @@
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
       <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
-      <li>ps コマンド</li>
+      <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
@@ -78,56 +78,35 @@
 </div>
 
 <div id="content">
-  <h1 id="ps">ps コマンド</h1>
+  <h1 id="awk">awk コマンド
+<span class="article-date">2013/10/07</span></h1>
 
-<h2 id="c0ef0ea">プロセスの一覧を見るには
-<span class="article-date">2013/04/18</span></h2>
+<p>1つ以上のスペースで区切られた複数列のテキストデータを扱うときに便利なツール。</p>
 
-<pre><code>ps aux
+<p>計算もできる。</p>
+
+<p>例えば以下のようなテキストファイルがあった場合、</p>
+
+<pre><code>1 2
+3 4
 </code></pre>
 
-<h2 id="767bdb5">プロセスの親子関係をツリーで表示するには
-<span class="article-date">2013/10/08</span></h2>
+<p>以下のコマンドを実行すると</p>
 
-<pre><code>ps auxf
+<pre><code>cat ./foo.txt | awk '{print $1 * $2;}'
 </code></pre>
 
-<p><code>f</code> がツリーで表示させるオプション。</p>
+<p>以下のように出力される。</p>
 
-<p>-&gt; <a href="pstree.html">pstree</a></p>
-
-<h2 id="9014753">特定の名前のプロセスをすべてkillするには
-<span class="article-date">2013/04/18</span></h2>
-
-<p>たとえば <code>"ruby"</code> が名前に含まれるプロセスの場合、</p>
-
-<p>まず一覧を表示してkill対象を確認する</p>
-
-<pre><code>ps aux | grep ruby | grep -v grep
+<pre><code>2
+12
 </code></pre>
 
-<p>次にプロセスIDの一覧だけにする</p>
+<h2 id="4de4e0d">タブ区切りで処理するには
+<span class="article-date">2013/06/11</span></h2>
 
-<pre><code>ps aux | grep ruby | grep -v grep | tr -s ' ' | cut -d ' ' -f2
+<pre><code>awk -F'\t' ...
 </code></pre>
-
-<p>それをkillする</p>
-
-<pre><code>kill `ps aux | grep ruby | grep -v grep | tr -s ' ' | cut -d ' ' -f2`
-</code></pre>
-
-<h2 id="dfa6d38">特定のプロセスIDだけを表示するには
-<span class="article-date">2013/07/17</span></h2>
-
-<pre><code>ps プロセス番号
-</code></pre>
-
-<p>は</p>
-
-<pre><code>ps --pid プロセス番号
-</code></pre>
-
-<p>と同じ。</p>
 
 
 </div>

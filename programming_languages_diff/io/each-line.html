@@ -56,7 +56,7 @@
   <h1 id="each-line">ファイルの中身を1行ずつテキスト処理するには</h1>
 
 <h2 id="ef41454">PHP
-<span class="article-date">2013/07/18</span></h2>
+<span class="article-date">2013/10/08</span></h2>
 
 <pre><code>$fh = fopen('./hoge.txt', 'r');
 if($fh){
@@ -68,6 +68,8 @@ if($fh){
   fclose($fh);
 }
 </code></pre>
+
+<p><code>fgets</code> は <code>'\r'</code> を改行としてみなさない。</p>
 
 <h2 id="8495e6f">Ruby
 <span class="article-date">2013/08/22</span></h2>

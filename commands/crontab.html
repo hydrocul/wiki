@@ -23,6 +23,7 @@
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
+      <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
       <li><a href="../commands/cp.html">cp コマンド</a></li>
@@ -78,7 +79,7 @@
 
 <div id="content">
   <h1 id="crontab">crontab
-<span class="article-date">2013/09/23</span></h1>
+<span class="article-date">2013/10/08</span></h1>
 
 <p>コマンドを一定の時間に自動で起動させるためのスケジューラを管理するコマンド。</p>
 
@@ -90,7 +91,8 @@
   <dt><code>-l</code></dt>
   <dd>設定内容を表示する</dd>
   <dt><code>-e</code></dt>
-  <dd>設定内容をエディタを起動して編集する</dd>
+  <dd>設定内容をエディタを起動して編集する。
+エディタ起動ではなく標準入力から一括して設定する場合は <code>-e</code> は不要。</dd>
   <dt><code>-r</code></dt>
   <dd>設定をすべて削除する</dd>
 </dl>

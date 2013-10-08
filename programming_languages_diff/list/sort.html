@@ -101,29 +101,29 @@ def sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 <p>ソート結果のリストを返し、自身は変更しない。</p>
 
 <h2 id="e026d65">Python
-<span class="article-date">2013/10/06</span></h2>
+<span class="article-date">2013/10/08</span></h2>
 
-<pre><code># ソート済みのリストを返し、引数のリスト自体は変更しない
+<pre><code># ソート済みのリストを返し、引数のリストは変更しない
 sorted(lst)
 
-# リスト自体をソートしたものに変更する
+# リスト自体をソートしたものに変更する破壊的メソッド
 lst.sort()
 </code></pre>
 
 <h2 id="81552ae">Ruby
-<span class="article-date">2013/05/10</span></h2>
+<span class="article-date">2013/10/08</span></h2>
 
 <pre><code>Array#sort
 
-# ソートする
+# ソート済みの配列を返し、配列自身は変更しない
 arr.sort
 
-# 破壊的メソッド
+# 配列自体をソートしたものに変更する破壊的メソッド
 arr.sort!
 
 # ソート条件をブロックで指定
 arr.sort  {|a, b| a.num &lt;=&gt; b.num}  # 非破壊的
-arr.sort! {|a, b| a.num &lt;=&gt; b.num} # 破壊的
+arr.sort! {|a, b| a.num &lt;=&gt; b.num}  # 破壊的
 </code></pre>
 
 <h2 id="efd00e1">Perl
