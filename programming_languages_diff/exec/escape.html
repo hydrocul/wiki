@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>シェルに渡すコマンドの引数のエスケープ処理 | プロセス管理 | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -39,32 +40,7 @@
 <div id="content">
   <h1 id="escape">シェルに渡すコマンドの引数のエスケープ処理</h1>
 
-<h2 id="3467a13">PHP
-<span class="article-date">2013/09/17</span></h2>
-
-<p><code>escapeshellarg</code> で外部コマンドに渡す引数のエスケープ処理をする。</p>
-
-<p>escapeshellarg | PHPマニュアル
-<a href="http://www.php.net/manual/ja/function.escapeshellarg.php" target="_blank">http://www.php.net/manual/ja/function.escapeshellarg.php</a></p>
-
-<p>日本語文字列の場合、なぜか <code>setlocale(LC_CTYPE, "en_US.UTF-8");</code> を呼び出さないと日本語部分が削除されてしまう。</p>
-
-<p>例</p>
-
-<pre><code>setlocale(LC_CTYPE, "en_US.UTF-8");
-$cmd = '/home/hoge/bin/foo.sh ' . escapeshellarg($arg);
-passthru($cmd);
-</code></pre>
-
-<p><code>ja_JP.UTF-8</code> でもいいみたい。<br />
-<a href="http://firegoby.jp/archives/1741" target="_blank">http://firegoby.jp/archives/1741</a></p>
-
-<h2 id="116b5de">Ruby
-<span class="article-date">2013/09/16</span></h2>
-
-<pre><code>require 'shellwords'
-`cp #{src.shellescape} #{dst.shellescape}`
-</code></pre>
+<p>-&gt; <a href="../process/escape.html">シェルに渡すコマンドの引数のエスケープ処理</a></p>
 
 
 </div>

@@ -122,6 +122,16 @@ hogehoge
 
 <p>bash での動きは <code>touch</code> に似ているが、 <code>touch</code> は、ファイルが既存だった場合は、内容を削除せずにタイムスタンプだけ新しくする。</p>
 
+<h2 id="20e6ffc">ディレクトリの中にあるすべてのファイルをまとめて閲覧するには
+<span class="article-date">2013/10/08</span></h2>
+
+<p>ディレクトリの中にサブディレクトリが存在しない場合</p>
+
+<pre><code>ls foo/* | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
+</code></pre>
+
+<p>-&gt; <a href="../oneliner.html#less-many-files">たくさんのファイルをまとめて less で閲覧するには</a></p>
+
 
 </div>
 

@@ -23,6 +23,7 @@
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
+      <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
       <li><a href="../commands/cp.html">cp コマンド</a></li>
@@ -44,6 +45,7 @@
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li>od コマンド</li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
+      <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
@@ -77,9 +79,9 @@
 
 <div id="content">
   <h1 id="od">od コマンド
-<span class="article-date">2013/06/17</span></h1>
+<span class="article-date">2013/10/08</span></h1>
 
-<p>バイナリファイルを16進数などでダンプする。ファイル名を指定するとファイルを読み込み、そうでない場合は標準入力を読み込み、標準出力にダンプする。</p>
+<p>バイナリファイルを16進数などでダンプするコマンド。ファイル名を指定するとファイルを読み込み、そうでない場合は標準入力を読み込み、標準出力にダンプする。</p>
 
 <p>例</p>
 
@@ -90,6 +92,9 @@
 
 <pre><code>cat ファイル名 | od -x
 </code></pre>
+
+<h2 id="62b8589">オプション
+<span class="article-date">2013/06/17</span></h2>
 
 <dl>
   <dt><code>-x</code></dt>

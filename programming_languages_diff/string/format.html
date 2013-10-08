@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>書式化文字列 (format, printf, sprintf) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -23,21 +24,21 @@
     <ul>
       <li><a href="../../programming_languages_diff/string/">文字列</a>
         <ul>
+          <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込む方法</a></li>
+          <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
+          <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
+          <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
+          <li>書式化文字列 (format, printf, sprintf)</li>
+          <li><a href="../../programming_languages_diff/string/plus.html">文字列の連結をするには (plus)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
-          <li>書式化文字列 (format, printf, sprintf)</li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
-          <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込む方法</a></li>
-          <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (join / implode)</a></li>
-          <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
-          <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
+          <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/multiplication.html">同じ文字列を繰り返し連結するには</a></li>
-          <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/string/plus.html">文字列の連結をするには (plus)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
@@ -56,10 +57,10 @@
 </div>
 
 <div id="content">
-  <h1 id="format">書式化文字列 (format, printf, sprintf)</h1>
+  <h1 id="format">書式化文字列 (format, printf, sprintf)
+<span class="article-date">2013/10/08</span></h1>
 
-<p>C言語の <code>printf</code> のような書式の使える言語が多い。
-<a href="inline.html">文字列の中に変数を埋め込む書き方</a>を使うことで、細かい書式までは指定できないが <code>printf</code> の代わりに文字列を組み立てることもできる。</p>
+<p>C言語の <code>printf</code> のような書式で文字列を組み立てられる言語が多い。書式化文字列でなくても<a href="inline.html">文字列の中に変数を埋め込む書き方</a>を使うことで、細かい書式までは指定できないが <code>printf</code> の代わりに文字列を組み立てることもできる。</p>
 
 <h2 id="1a1a0b9">C言語, C++
 <span class="article-date">2013/09/08</span></h2>
@@ -90,15 +91,27 @@ snprintf(dst, sizeof(dst), "%s %d", str, i);
 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax</a></p>
 
 <h2 id="2776ce8">Scala
-<span class="article-date">2013/08/15</span></h2>
+<span class="article-date">2013/10/08</span></h2>
 
 <p>例</p>
 
 <pre><code>"%s %d".format(str, i)
 </code></pre>
 
+<p>Javaの <code>String#format</code> と同じ書式が使える。</p>
+
 <p>フォーマットのレファレンス<br />
 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax</a></p>
+
+<h2 id="31c117b">Python
+<span class="article-date">2013/10/08</span></h2>
+
+<p>例</p>
+
+<pre><code>"%s %d" % (str, i)
+</code></pre>
+
+<p>引数が1つの場合はカッコを省略できる。</p>
 
 <h2 id="1cb1cf8">Ruby
 <span class="article-date">2013/09/08</span></h2>

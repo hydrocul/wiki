@@ -24,8 +24,9 @@
     <ul>
       <li><a href="../../programming_languages_diff/regexp/">正規表現</a>
         <ul>
-          <li>パターンマッチングするには</li>
           <li><a href="../../programming_languages_diff/regexp/reference.html">正規表現のレファレンス</a></li>
+          <li>パターンマッチングするには</li>
+          <li><a href="../../programming_languages_diff/regexp/group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
           <li><a href="../../programming_languages_diff/regexp/replace-all.html">文字列を正規表現で全置換するには</a></li>
         </ul>
       </li>
@@ -63,7 +64,7 @@ var_export(preg_match("/x./", "abc\nabc")); // =&gt; 0
 
 <p>Rubyでは <code>0</code> も <code>if</code> の条件の中に入れたら <code>true</code> とみなされる。</p>
 
-<p>-&gt; data_type.md#to-boolean</p>
+<p>-&gt; <a href="../boolean/to-boolean.html#ruby">論理値への変換</a></p>
 
 <p><code>!~</code> という演算子は <code>=~</code> の反対で、正規表現にマッチしていたら <code>false</code> を返し、マッチしなければ <code>true</code> を返す。</p>
 
@@ -72,7 +73,7 @@ var_export(preg_match("/x./", "abc\nabc")); // =&gt; 0
 </code></pre>
 
 <h2 id="ab00e48">Perl
-<span class="article-date">2013/09/30</span></h2>
+<span class="article-date">2013/10/08</span></h2>
 
 <p><code>=~</code> という演算子で、正規表現にマッチしていれば <code>'1'</code> を返し、マッチしていなければ <code>''</code> を返す。
 <code>=~</code> の左右がRubyと逆。</p>
@@ -86,8 +87,8 @@ print "abc\nabc\n" =~ /a$/;
 <p><code>!~</code> という演算子は <code>=~</code> の反対で、マッチしていれば <code>''</code> を返し、マッチしていなければ <code>'1'</code> を返す。</p>
 
 <p>正規表現の中にカッコで囲んだグループがあれば、マッチした場合、
-<code>$1</code>, <code>$2</code>, <code>$3</code>, … にマッチした文字列が入る。
-<a href="../vars/argv.html#perl"><code>$0</code></a> は実行されているPerlスクリプトファイル名が入っていて、正規表現とは関係ないので注意。</p>
+<code>$1</code>, <code>$2</code>, <code>$3</code>, … にマッチした文字列が入る。<br />
+-&gt; <a href="group.html#perl">正規表現のグルーピングにマッチした文字列</a></p>
 
 <p><code>if</code>文の条件式の中に正規表現だけを書いた場合は、その前に <code>$_ =~</code> を付けたのと同じになる。</p>
 
