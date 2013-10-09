@@ -92,6 +92,12 @@ print "abc\nabc\n" =~ /a$/;
 
 <p><code>if</code>文の条件式の中に正規表現だけを書いた場合は、その前に <code>$_ =~</code> を付けたのと同じになる。</p>
 
+<p>正規表現は普通は <code>/</code> で囲むが、文字列として書くこともできる。</p>
+
+<pre><code>print "abc\nabc\n" =~ ('a' . '.');
+# =&gt; 1
+</code></pre>
+
 <h2 id="1d9b4f6">JavaScript
 <span class="article-date">2013/04/19</span></h2>
 

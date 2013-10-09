@@ -23,6 +23,7 @@
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
+      <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
       <li><a href="../commands/cp.html">cp コマンド</a></li>
@@ -82,12 +83,15 @@
 
 <p>行単位で並び替えができる。列は1つ以上のスペースで区切られるようだ。</p>
 
+<h2 id="f7fd873">オプション
+<span class="article-date">2013/10/09</span></h2>
+
 <dl>
   <dt><code>-r</code></dt>
   <dd>逆順に並び替える</dd>
   <dt><code>-k</code></dt>
   <dd>どの列で並び替えるかを指定する。 <code>-k 6,7</code> は、6列目で比較し、6列目が同じ場合は
-7列目で比較する。列番号は1から始まる。</dd>
+7列目で比較する。列番号は1から始まる。<code>-k6 -k7</code> でもよい。</dd>
   <dt><code>-t</code></dt>
   <dd>列の区切り文字を指定する。デフォルトは空白。 <code>-t $'\t'</code> でタブ区切りの
 ファイルを処理できるようになる。</dd>

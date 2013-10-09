@@ -105,6 +105,24 @@
 このオプションを付ければ、シンボリックリンクとしてそのままコピーされる。</dd>
 </dl>
 
+<h2 id="8a587f7">注意！
+<span class="article-date">2013/10/09</span></h2>
+
+<p>複数のファイルをコピーしたくて、ファイル名を入力している途中で間違ってエンターを押しちゃったときに、最後のファイル名がコピー先となってコピーを実行してしまい、ファイルを破壊してしまうので、要注意。</p>
+
+<p><code>target</code>ディレクトリに複数のファイルをコピーしようと、</p>
+
+<pre><code>cp foo.txt bar.txt target
+</code></pre>
+
+<p>のように入れるつもりが、間違って</p>
+
+<pre><code>cp foo.txt bar.txt
+</code></pre>
+
+<p>の段階でエンターを押してしまうと、<code>bar.txt</code> の内容が失われて、
+<code>foo.txt</code> が <code>bar.txt</code> にコピーされてしまう。</p>
+
 <h2 id="f657790">ディレクトリ名も含めてファイルをコピーするには
 <span class="article-date">2013/09/16</span></h2>
 
