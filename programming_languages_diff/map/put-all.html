@@ -24,7 +24,7 @@
     <ul>
       <li><a href="../../programming_languages_diff/map/">マップ(連想配列)</a>
         <ul>
-          <li><a href="../../programming_languages_diff/map/clone.html">clone</a></li>
+          <li><a href="../../programming_languages_diff/map/clone.html">マップをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">マップの要素を1つずつ順番に処理するには (foreach)</a></li>
           <li><a href="../../programming_languages_diff/map/get.html">キーで値を参照するには (get)</a></li>
@@ -32,6 +32,7 @@
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/literal.html">マップの書き方</a></li>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/map/put.html">要素を設定するには (put)</a></li>
           <li>マップにマップで複数の要素を追加するには (putAll)</li>
           <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
@@ -49,11 +50,15 @@
   <h1 id="put-all">マップにマップで複数の要素を追加するには (putAll)</h1>
 
 <h2 id="a420e24">Java
-<span class="article-date">2013/08/07</span></h2>
+<span class="article-date">2013/10/10</span></h2>
 
-<pre><code>// Map&lt;K, V&gt;
-void putAll(Map&lt;? extends K,? extends V&gt; m);
+<p>Signature:</p>
+
+<pre><code>// java.util.Map&lt;K, V&gt;
+void putAll(Map&lt;? extends K,? extends V&gt; m)
 </code></pre>
+
+<p>要素を1つだけ追加するには<a href="put.html#java"><code>put</code></a>を使う。</p>
 
 <h2 id="167b97e">Scala
 <span class="article-date">2013/09/16</span></h2>
