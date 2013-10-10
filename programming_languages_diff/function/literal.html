@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>関数の書き方 | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>関数定義 | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>関数の書き方</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>関数定義</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,16 +24,16 @@
     <ul>
       <li><a href="../../programming_languages_diff/function/">関数・メソッド</a>
         <ul>
-          <li><a href="../../programming_languages_diff/function/call.html">関数呼び出しまたはメソッド呼び出し</a></li>
-          <li>関数の書き方</li>
+          <li>関数定義</li>
           <li><a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a></li>
-          <li><a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
+          <li><a href="../../programming_languages_diff/function/call.html">関数呼び出しまたはメソッド呼び出し</a></li>
           <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
           <li><a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
-          <li><a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値(多値返却)</a></li>
           <li><a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
+          <li><a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値(多値返却)</a></li>
           <li><a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
-          <li><a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
+          <li><a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾最適化 (Tail Call Optimization)</a></li>
+          <li><a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
         </ul>
       </li>
     </ul>
@@ -44,11 +44,16 @@
 </div>
 
 <div id="content">
-  <h1 id="literal">関数の書き方</h1>
+  <h1 id="literal">関数定義
+<span class="article-date">2013/10/09</span></h1>
+
+<p>ここでは式の中に書ける関数リテラル(無名関数)の説明をする。</p>
+
+<p>通常のメソッド定義は<a href="method-definition.html">メソッド定義</a>参照。</p>
 
 <h2 id="java">Java</h2>
 
-<h3 id="d74ce16">ラムダ式
+<h3 id="397d6b1">ラムダ式
 <span class="article-date">2013/09/18</span></h3>
 
 <p>抽象メソッド1つだけのインターフェースを関数型インターフェース(SAM Type,
@@ -86,7 +91,7 @@ Java8からは、関数型インターフェースを継承する匿名クラス
 
 <p>匿名クラスの中で <code>this</code> と書くと、匿名クラス自体のインスタンスを指すが、ラムダ式の中で <code>this</code> と書くと、その関数の外側のインスタンスを指すことになる。このラムダ式の見た目が一見クラスのようには見えないので、この仕様のほうが確かに直感通りかもしれない。</p>
 
-<h3 id="3fb7df7">ラムダ式が動作する仕組み
+<h3 id="63a69ce">ラムダ式が動作する仕組み
 <span class="article-date">2013/09/18</span></h3>
 
 <p>ラムダ式のクラス(SAM Type のサブクラス)は、コンパイル時にはクラスファイルが生成されず、属する外側のクラスの1メソッドとしてコンパイルされる。そのラムダ式を初めて生成するときにJVMの中で動的にクラスファイルが生成されてロードされる。その際にinvokedynamicが使われている。ラムダ式ごとに事前にクラスファイルを生成しては、クラスローディングが重くなって実行時のパフォーマンスに影響するからだと思われる。</p>
@@ -94,7 +99,7 @@ Java8からは、関数型インターフェースを継承する匿名クラス
 <p>詳しくはこちらにある(全部は読めてないが)<br />
 <a href="http://www.myexpospace.com/JavaOne2012/SessionFiles/CON6080_PDF_6080_0001.pdf" target="_blank">http://www.myexpospace.com/JavaOne2012/SessionFiles/CON6080_PDF_6080_0001.pdf</a></p>
 
-<h3 id="38ab12e">メソッド参照
+<h3 id="a3433be">メソッド参照
 <span class="article-date">2013/09/06</span></h3>
 
 <p>ラムダ式の代わりにメソッド名でも、関数型インターフェースのインスタンスを生成できる。</p>
@@ -109,7 +114,7 @@ a::toString // () -&gt; a.toString() と同じ
 StringBuilder::new // () -&gt; new StringBuilder() と同じ
 </code></pre>
 
-<h2 id="c01e70d">Scala
+<h2 id="ad55b7a">Scala
 <span class="article-date">2013/08/26</span></h2>
 
 <p>例</p>
@@ -135,7 +140,7 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 
 <p>式の中のそれぞれの <code>_</code> が引数になるので、上記の場合は2引数の関数となる。この書き方だと各引数は1回しか式の中に登場できず、引数の順番は、式の中の <code>_</code> と同じ順番になる。</p>
 
-<h2 id="9bb8787">PHP
+<h2 id="1d9537e">PHP
 <span class="article-date">2013/09/23</span></h2>
 
 <p>PHP5.3以降で使える無名関数の例</p>
@@ -148,7 +153,7 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 <p>無名関数 | PHPマニュアル<br />
 <a href="http://www.php.net/manual/ja/functions.anonymous.php" target="_blank">http://www.php.net/manual/ja/functions.anonymous.php</a></p>
 
-<h2 id="9116220">Perl
+<h2 id="98a7dd7">Perl
 <span class="article-date">2013/09/21</span></h2>
 
 <p>無名関数の例</p>

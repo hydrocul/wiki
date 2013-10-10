@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>日付をカレンダーから選択できるウィジェット | jquery-tips | hydrocul のメモ</title>
+<title>日付をカレンダーから選択できるウィジェット (jQuery) | HTML(jQuery) の Tips | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../jquery-tips/">jquery-tips</a> &gt; <span>日付をカレンダーから選択できるウィジェット</span>
+  <a href="../html/">HTML(jQuery) の Tips</a> &gt; <span>日付をカレンダーから選択できるウィジェット (jQuery)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,14 +20,19 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../jquery-tips/">jquery-tips</a></li>
+  <li><a href="../html/">HTML(jQuery) の Tips</a>
+    <ul>
+      <li>日付をカレンダーから選択できるウィジェット (jQuery)</li>
+      <li><a href="../html/datepicker-jquery.html">日付をカレンダーから選択できるウィジェット (jQuery)</a></li>
+    </ul>
+  </li>
 </ul>
 
   </div>
 </div>
 
 <div id="content">
-  <h1 id="datepicker">日付をカレンダーから選択できるウィジェット
+  <h1 id="datepicker">日付をカレンダーから選択できるウィジェット (jQuery)
 <span class="article-date">2013/10/07</span></h1>
 
 <p>Datepicker Widget<br />
@@ -36,7 +41,8 @@
 <p>デモ<br />
 <a href="http://jqueryui.com/datepicker/" target="_blank">http://jqueryui.com/datepicker/</a></p>
 
-<h3 id="customize-holiday">日付ごとに選択可能かどうかをカスタマイズするには [2013/03/27]</h3>
+<h2 id="f763ff9">日付ごとに選択可能かどうかをカスタマイズするには
+<span class="article-date">2013/03/27</span></h2>
 
 <pre><code>$('.calendar input[type=text]').datepicker({minDate: 1, beforeShowDay: function(date){
   return [(date.getDay() == 1), ""]; # 月曜日のみ選択可能

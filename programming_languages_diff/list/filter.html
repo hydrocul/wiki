@@ -82,19 +82,42 @@
 <p>リストから特定の条件にマッチする要素のみを取り出したリストを作成する方法、または特定の条件にマッチする要素のみのリストとマッチしない要素のみのリストに分ける方法。</p>
 
 <h2 id="b8f90bf">Scala
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2013/10/09</span></h2>
 
-<pre><code>// Seq[A]
+<p>以下は、フィルター済みのリストを返し、自身は変更しないメソッド。</p>
+
+<p>Signature:</p>
+
+<pre><code>// scala.collection.Seq[A]
 def filter(p: A =&gt; Boolean): Seq[A]
 </code></pre>
 
-<p>フィルター済みのリストを返し、自身は変更しない。</p>
+<p>以下は、条件にマッチする要素のみのリストと、マッチしない要素のみのリストの2つを返すメソッド。</p>
 
-<pre><code>// Seq[A]
+<p>Signature:</p>
+
+<pre><code>// scala.collection.Seq[A]
 def partition(p: A =&gt; Boolean): (Seq[A], Seq[A])
 </code></pre>
 
-<p>返り値の1つ目は条件にマッチする要素のみのリストで、2つ目はマッチしない要素のみのリスト。</p>
+<h2 id="6e38cad">Python
+<span class="article-date">2013/10/09</span></h2>
+
+<p><code>filter</code>関数を使う例</p>
+
+<pre><code>lst = [10, 20, 30, 40, 50]
+
+print filter((lambda x: x &lt; 30), lst)
+# =&gt; [10, 20]
+</code></pre>
+
+<p>リストの内包表記を使う例</p>
+
+<pre><code>lst = [10, 20, 30, 40, 50]
+
+print [x for x in lst if x &lt; 30]
+# =&gt; [10, 20]
+</code></pre>
 
 <h2 id="56269d3">Ruby
 <span class="article-date">2013/08/21</span></h2>

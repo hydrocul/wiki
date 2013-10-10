@@ -26,10 +26,10 @@
   <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google.html">google</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
+  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
   <li><a href="./ie.html">Internet Explorer</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li>jQuery</li>
-  <li><a href="./jquery-tips/">jQuery の Tips</a></li>
   <li><a href="./linux.html">Linux</a></li>
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
@@ -71,50 +71,13 @@
 
 <p><code>$(...).outerHtml()</code> とするとその要素自体のHTMLを取得できる。</p>
 
-<h2 id="ed49e89">datepicker
-<span class="article-date">2013/10/07</span></h2>
+<h2 id="ed49e89">datepicker</h2>
 
-<p>-&gt; <a href="jquery-tips/datepicker.html">日付をカレンダーから選択できるウィジェット</a></p>
+<p>-&gt; <a href="html/datepicker.html">日付をカレンダーから選択できるウィジェット</a></p>
 
-<h3 id="87bd214">日付ごとに選択可能かどうかをカスタマイズするには
-<span class="article-date">2013/03/27</span></h3>
+<h2 id="7ae5804">ツールチップ PowerTip</h2>
 
-<pre><code>$('.calendar input[type=text]').datepicker({minDate: 1, beforeShowDay: function(date){
-  return [(date.getDay() == 1), ""]; # 月曜日のみ選択可能
-}});
-</code></pre>
-
-<p>-&gt; <a href="jquery-tips/datepicker.html#customize-holiday">日付をカレンダーから選択できるウィジェット</a></p>
-
-<h2 id="7ae5804">ツールチップ PowerTip
-<span class="article-date">2013/03/29</span></h2>
-
-<p><a href="http://stevenbenner.github.io/jquery-powertip/" target="_blank">http://stevenbenner.github.io/jquery-powertip/</a></p>
-
-<p>[JS]後発だけに高性能で、実装はシンプルで超軽量のツールチップのスクリプト -jQuery PowerTip<br />
-<a href="http://coliss.com/articles/build-websites/operation/javascript/jquery-plugin-powertip.html" target="_blank">http://coliss.com/articles/build-websites/operation/javascript/jquery-plugin-powertip.html</a></p>
-
-<h3 id="31c3d47">ツールチップを出したい要素に <code>data-powertip</code> 属性を指定するだけ
-<span class="article-date">2013/04/05</span></h3>
-
-<pre><code>$(function(){
-  $('*[data-powertip]').each(function(){
-    var option_str = $(this).data('powertip-opt');
-    var option = {};
-    if(option_str != undefined){
-      option = eval('option = {' + option_str + '};');
-    }
-    if(option['smartPlacement'] == undefined){
-      option['smartPlacement'] = true;
-    }
-    $(this).powerTip(option);
-  });
-});
-
-&lt;div data-powertip="ツールチップの内容" data-powertip-opt="placement:'w'"&gt;
-</code></pre>
-
-<p><code>data-power-opt</code> には要素個別にオプションを指定できる。</p>
+<p>-&gt; <a href="html/powertip-jquery.html">ツールチップを出すには</a></p>
 
 <h2 id="3317ddb">CSSの半透明をjQueryで簡単に実現するには
 <span class="article-date">2013/04/05</span></h2>
