@@ -24,16 +24,17 @@
     <ul>
       <li><a href="../../programming_languages_diff/function/">関数・メソッド</a>
         <ul>
-          <li><a href="../../programming_languages_diff/function/call.html">関数呼び出しまたはメソッド呼び出し</a></li>
-          <li><a href="../../programming_languages_diff/function/literal.html">関数の書き方</a></li>
+          <li><a href="../../programming_languages_diff/function/literal.html">関数定義</a></li>
           <li>メソッド定義</li>
-          <li><a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
+          <li><a href="../../programming_languages_diff/function/call.html">関数呼び出しまたはメソッド呼び出し</a></li>
           <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
           <li><a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
-          <li><a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値(多値返却)</a></li>
           <li><a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
+          <li><a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値(多値返却)</a></li>
+          <li><a href="../../programming_languages_diff/function/var-args.html">可変長引数</a></li>
           <li><a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
-          <li><a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾再帰の最適化</a></li>
+          <li><a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾最適化 (Tail Call Optimization)</a></li>
+          <li><a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
         </ul>
       </li>
     </ul>
@@ -89,6 +90,14 @@
 <ul>
   <li>関数定義・メソッド定義では引数のカッコを省略不可</li>
 </ul>
+
+<h2 id="826599d">Python
+<span class="article-date">2013/10/10</span></h2>
+
+<pre><code>def f(arg1, arg2):
+    ...
+    return ...
+</code></pre>
 
 <h2 id="be2489b">Ruby
 <span class="article-date">2013/04/10</span></h2>
@@ -149,17 +158,9 @@ end
 <p><code>return 0</code> のように書くと関数の処理から戻り値を指定して脱出できる。</p>
 
 <h2 id="7f65290">JavaScript
-<span class="article-date">2013/06/09</span></h2>
+<span class="article-date">2013/10/10</span></h2>
 
 <pre><code>function f(arg1, arg2){
-    ...;
-    return ...;
-}
-</code></pre>
-
-<p>または</p>
-
-<pre><code>var f = function(arg1, arg2){
     ...;
     return ...;
 }
