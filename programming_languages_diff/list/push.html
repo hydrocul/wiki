@@ -55,6 +55,7 @@
           <li><a href="../../programming_languages_diff/list/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値の要素をすべて削除するには (remove-by-value)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
+          <li><a href="../../programming_languages_diff/list/set.html">インデックスで要素を設定するには (set)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
@@ -91,20 +92,20 @@ def ++(arr2: A): Seq[A]
 
 <p>追加した結果のリストを返し、自身は変更しない。</p>
 
-<h2 id="2d71d2a">PHP
-<span class="article-date">2013/09/07</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2013/10/13</span></h2>
+
+<p>以下の構文で配列の最後に要素を追加できる。これは配列自身を変更する破壊的な方法。</p>
 
 <pre><code>$arr[] = $obj;
 </code></pre>
 
-<p>配列自身を変更する破壊的な方法。</p>
-
-<p><code>array_push</code> でも同じ。</p>
+<p><code>array_push</code> でも同じことができる。</p>
 
 <p>array_push | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.array-push.php" target="_blank">http://www.php.net/manual/ja/function.array-push.php</a></p>
 
-<p>複数の要素を配列で指定してまとめて追加するには</p>
+<p>複数の要素を配列で指定してまとめて追加するには以下のようにする。</p>
 
 <pre><code>array_merge($arr1, $arr2);
 </code></pre>

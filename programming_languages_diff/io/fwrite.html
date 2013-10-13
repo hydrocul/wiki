@@ -24,25 +24,25 @@
     <ul>
       <li><a href="../../programming_languages_diff/io/">入出力・ファイル操作</a>
         <ul>
-          <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには</a></li>
-          <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
-          <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
+          <li>ファイルに書き込むには (fwrite)</li>
+          <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
+          <li><a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには</a></li>
+          <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべて削除するには</a></li>
+          <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには</a></li>
-          <li>ファイルに書き込むには (fwrite)</li>
           <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べる</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを取得</a></li>
-          <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
-          <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべて削除するには</a></li>
-          <li><a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには</a></li>
         </ul>
       </li>
     </ul>
@@ -56,14 +56,41 @@
   <h1 id="fwrite">ファイルに書き込むには (fwrite)</h1>
 
 <h2 id="ea836b7">PHP
-<span class="article-date">2013/08/23</span></h2>
+<span class="article-date">2013/10/12</span></h2>
 
-<pre><code>$fh = fopen('./hoge.txt', 'w');
+<pre><code>$fh = fopen('./foo.txt', 'w');
 fwrite($fh, $data);
 fclose($fh);
 </code></pre>
 
-<p><code>'w'</code> は通常の書き込みモード。<code>'a'</code> は追記モード。</p>
+<p><code>fopen</code> の2つ目の引数は mode を指定する。</p>
+
+<p>mode</p>
+
+<dl>
+  <dt><code>'w'</code></dt>
+  <dd>書き込みモード</dd>
+  <dt><code>'a'</code></dt>
+  <dd>追記モード</dd>
+</dl>
+
+<h2 id="944c079">Python
+<span class="article-date">2013/10/12</span></h2>
+
+<pre><code>with open("./foo.txt", "w") as fh:
+    fh.write(data)
+</code></pre>
+
+<p><code>open</code> の2つ目の引数は mode を指定する。</p>
+
+<p>mode</p>
+
+<dl>
+  <dt><code>'w'</code></dt>
+  <dd>書き込みモード</dd>
+  <dt><code>'a'</code></dt>
+  <dd>追記モード</dd>
+</dl>
 
 <h2 id="b37f825">Ruby
 <span class="article-date">2013/08/23</span></h2>

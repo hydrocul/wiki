@@ -26,10 +26,10 @@
   <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google.html">google</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
+  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
   <li><a href="./ie.html">Internet Explorer</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li><a href="./jquery.html">jQuery</a></li>
-  <li><a href="./jquery-tips/">jQuery の Tips</a></li>
   <li><a href="./linux.html">Linux</a></li>
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
@@ -53,9 +53,10 @@
 </div>
 
 <div id="content">
-  <h1 id="passenger">Passenger (Ruby on Rails)</h1>
+  <h1 id="passenger">Passenger (Ruby on Rails)
+<span class="article-date">2013/04/18</span></h1>
 
-<p>Ruby on Rails のアプリをApacheで動かすためのモジュール。GitLabやRedmineでも使われている。</p>
+<p>Ruby on Rails のアプリをApacheで動かすためのモジュール。</p>
 
 <h2 id="bdf223e">インストール
 <span class="article-date">2013/05/29</span></h2>
@@ -77,11 +78,11 @@ sudo passenger-install-apache2-module
 <h2 id="04d3809">環境の切替
 <span class="article-date">2013/09/28</span></h2>
 
-<p>Railsの実行環境として、production, development, test の3種類を選択できる。
-Passenger で動かすときのデフォルトは、production 環境での動作となる。</p>
+<p>Railsの実行環境として、<code>production</code>, <code>development</code>, <code>test</code> の3種類を選択できる。
+Passenger で動かすときのデフォルトは、<code>production</code> 環境での動作となる。</p>
 
-<p>development または test に切り替えたい場合は、Apacheの設定に以下を書き足す。
-VirtualHostの中に書けばそのバーチャルホストにだけ適用できる。</p>
+<p><code>development</code> または <code>test</code> に切り替えたい場合は、Apacheの設定に以下を書き足す。
+<code>VirtualHost</code>の中に書けばそのバーチャルホストにだけ適用できる。</p>
 
 <pre><code>RailsEnv development
 </code></pre>
@@ -97,8 +98,8 @@ VirtualHostの中に書けばそのバーチャルホストにだけ適用でき
 <h2 id="393673b">特定のrailsアプリケーションのみ再起動するには
 <span class="article-date">2013/04/05</span></h2>
 
-<p>Passenger で動いているrailsアプリケーションを再起動するには tmp ディレクトリに
-restart.txt というファイルを設置する。ファイル設置後最初のアクセスで、再起動が実行される。</p>
+<p>Passenger で動いているrailsアプリケーションを再起動するには <code>tmp</code> ディレクトリに
+<code>restart.txt</code> というファイルを設置する。ファイル設置後最初のアクセスで、再起動が実行される。</p>
 
 <pre><code>touch tmp/restart.txt
 </code></pre>

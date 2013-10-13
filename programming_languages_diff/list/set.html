@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストを要素に応じてグルーピングするには (groupBy) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>インデックスで要素を設定するには (set) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストを要素に応じてグルーピングするには (groupBy)</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>インデックスで要素を設定するには (set)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -38,7 +38,7 @@
           <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</a></li>
           <li><a href="../../programming_languages_diff/list/foreach.html">リストの要素を1つずつ順番に処理するには (foreach)</a></li>
           <li><a href="../../programming_languages_diff/list/get.html">インデックスで要素を参照するには (get)</a></li>
-          <li>リストを要素に応じてグルーピングするには (groupBy)</li>
+          <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
           <li><a href="../../programming_languages_diff/list/head.html">リストの先頭の要素を取得するには (head)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
@@ -55,7 +55,7 @@
           <li><a href="../../programming_languages_diff/list/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値の要素をすべて削除するには (remove-by-value)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
-          <li><a href="../../programming_languages_diff/list/set.html">インデックスで要素を設定するには (set)</a></li>
+          <li>インデックスで要素を設定するには (set)</li>
           <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
@@ -77,16 +77,39 @@
 </div>
 
 <div id="content">
-  <h1 id="group-by">リストを要素に応じてグルーピングするには (groupBy)
+  <h1 id="set">インデックスで要素を設定するには (set)
 <span class="article-date">2013/10/13</span></h1>
 
-<p>Scala以外にはこれが簡潔にできる言語はあまりなさそう。</p>
+<p>大抵の言語は<a href="get.html">参照</a>の書式を代入演算子の左辺に置くと、右辺の値を要素として代入してくれる。</p>
 
-<h2 id="199be2d">Scala
-<span class="article-date">2013/05/06</span></h2>
+<h2 id="f8bf11c">Java</h2>
 
-<pre><code>// Seq[A]
-def groupBy(f: A =&gt; K): Map[K, Seq[A]]
+<h3 id="369869d">配列
+<span class="article-date">2013/10/13</span></h3>
+
+<pre><code>arr[index] = value;
+</code></pre>
+
+<h3 id="53cb3eb"><code>java.util.List</code>
+<span class="article-date">2013/10/13</span></h3>
+
+<pre><code>lst.set(index, value);
+</code></pre>
+
+<h2 id="4b05362">PHP
+<span class="article-date">2013/10/13</span></h2>
+
+<pre><code>$arr[$index] = $value;
+</code></pre>
+
+<p><code>$index</code> を省略すると、配列の最後に要素を追加する意味になる。-&gt; <a href="push.html#php">push</a></p>
+
+<h2 id="397bef6">Python
+<span class="article-date">2013/10/13</span></h2>
+
+<p>以下はリストでの操作であり、イミュータブルなオブジェクトであるタプルではできない。</p>
+
+<pre><code>lst[index] = value
 </code></pre>
 
 

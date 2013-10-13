@@ -26,10 +26,10 @@
   <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google.html">google</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
+  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
   <li><a href="./ie.html">Internet Explorer</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li><a href="./jquery.html">jQuery</a></li>
-  <li><a href="./jquery-tips/">jQuery の Tips</a></li>
   <li><a href="./linux.html">Linux</a></li>
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
@@ -245,37 +245,7 @@ EAUvkvx4rxqGKbYSr1fyPGWrTU+JSjEAlqz1QU4HPgrL1639qMroMggf8A==
 
 <h2 id="openssl">openssl</h2>
 
-<h3 id="80a3081">SSLサーバ証明書ファイルと秘密鍵の組み合わせが正しいことを確認するには
-<span class="article-date">2013/05/11</span></h3>
-
-<p><a href="http://www.webimpact.co.jp/banchoblog/?p=624" target="_blank">http://www.webimpact.co.jp/banchoblog/?p=624</a></p>
-
-<p>SSLサーバ証明書ファイルと秘密鍵の組み合わせが正しい場合は、以下のコマンドの出力が全部同じになるはず。</p>
-
-<pre><code>openssl rsa -noout -modulus -in 秘密鍵ファイル | openssl md5
-openssl req -noout -modulus -in CSRファイル | openssl md5
-openssl x509 -noout -modulus -in サーバ証明書ファイル(CRT) | openssl md5
-</code></pre>
-
-<p>もし違う場合は、Apacheが起動しない。</p>
-
-<h3 id="d145129">SSLサーバ証明書の期限を確認するには
-<span class="article-date">2013/05/11</span></h3>
-
-<pre><code>openssl x509 -in サーバ証明書ファイル(CRT) -noout -dates
-</code></pre>
-
-<h3 id="25f2e41">SSLサーバ証明書の内容を確認するには
-<span class="article-date">2013/05/11</span></h3>
-
-<pre><code>openssl x509 -in サーバ証明書ファイル(CRT) -noout -text
-</code></pre>
-
-<h3 id="25ec030">SSLサーバ証明書と中間証明書の組み合わせが正しいことを確認するには
-<span class="article-date">2013/05/11</span></h3>
-
-<pre><code>openssl verify -CAfile 中間証明書ファイル サーバ証明書ファイル
-</code></pre>
+<p>-&gt; <a href="commands/openssl.html"><code>openssl</code>コマンド</a></p>
 
 
 </div>

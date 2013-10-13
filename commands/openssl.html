@@ -39,6 +39,7 @@
       <li><a href="../commands/incron.html">incron (inotify cron)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp</a></li>
+      <li><a href="../commands/lha.html">lha コマンド</a></li>
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
@@ -51,6 +52,7 @@
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
+      <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
@@ -81,8 +83,39 @@
   <h1 id="openssl">openssl コマンド</h1>
 
 <p>-&gt; <a href="../apache.html#create-csr">SSLのCSRの作成方法</a><br />
--&gt; <a href="../apache.html#openssl">openssl</a><br />
 -&gt; <a href="base64.html">base64</a></p>
+
+<h2 id="a2704c9">SSLサーバ証明書ファイルと秘密鍵の組み合わせが正しいことを確認するには
+<span class="article-date">2013/10/12</span></h2>
+
+<p><a href="http://www.webimpact.co.jp/banchoblog/?p=624" target="_blank">http://www.webimpact.co.jp/banchoblog/?p=624</a></p>
+
+<p>SSLサーバ証明書ファイルと秘密鍵の組み合わせが正しい場合は、以下のコマンドの出力が全部同じになるはず。</p>
+
+<pre><code>openssl rsa -noout -modulus -in 秘密鍵ファイル | openssl md5
+openssl req -noout -modulus -in CSRファイル | openssl md5
+openssl x509 -noout -modulus -in サーバ証明書ファイル(CRT) | openssl md5
+</code></pre>
+
+<p>もし違う場合は、SSLが間違っているのでApacheが起動しない。</p>
+
+<h2 id="18aba4e">SSLサーバ証明書の期限を確認するには
+<span class="article-date">2013/05/11</span></h2>
+
+<pre><code>openssl x509 -in サーバ証明書ファイル(CRT) -noout -dates
+</code></pre>
+
+<h2 id="a7e780a">SSLサーバ証明書の内容を確認するには
+<span class="article-date">2013/05/11</span></h2>
+
+<pre><code>openssl x509 -in サーバ証明書ファイル(CRT) -noout -text
+</code></pre>
+
+<h2 id="1a35286">SSLサーバ証明書と中間証明書の組み合わせが正しいことを確認するには
+<span class="article-date">2013/05/11</span></h2>
+
+<pre><code>openssl verify -CAfile 中間証明書ファイル サーバ証明書ファイル
+</code></pre>
 
 
 </div>
