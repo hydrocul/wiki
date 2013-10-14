@@ -24,17 +24,18 @@
     <ul>
       <li><a href="../../programming_languages_diff/map/">マップ(連想配列)</a>
         <ul>
-          <li><a href="../../programming_languages_diff/map/clone.html">clone</a></li>
-          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
-          <li>マップの要素を1つずつ順番に処理するには (foreach)</li>
+          <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/map/literal.html">マップの書き方</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/map/get.html">キーで値を参照するには (get)</a></li>
+          <li><a href="../../programming_languages_diff/map/put.html">要素を設定するには (put)</a></li>
+          <li>マップの要素を1つずつ順番に処理するには (foreach)</li>
+          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
+          <li><a href="../../programming_languages_diff/map/clone.html">マップをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">マップが空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
-          <li><a href="../../programming_languages_diff/map/literal.html">マップの書き方</a></li>
-          <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
         </ul>
       </li>
@@ -51,7 +52,7 @@
 <h2 id="e6f3fc4">Java
 <span class="article-date">2013/08/01</span></h2>
 
-<p>Java5からは、以下の拡張for文の利用が可能。(foreach構文)</p>
+<p>Java5からは、以下の拡張for文(foreach構文)の利用が可能。</p>
 
 <pre><code>for(String key: map.keySet()){
   String value = map.get(key);
@@ -62,7 +63,9 @@
 <h2 id="da88d35">Scala
 <span class="article-date">2013/09/21</span></h2>
 
-<pre><code>// Map[A, B]
+<p>Signature:</p>
+
+<pre><code>// scala.collection.Map[A, B]
 def foreach(f: ((A, B)) =&gt; Unit): Unit
 </code></pre>
 
@@ -116,12 +119,9 @@ end
 </code></pre>
 
 <h2 id="000b7fd">CoffeeScript
-<span class="article-date">2013/04/21</span></h2>
+<span class="article-date">2013/10/14</span></h2>
 
-<pre><code>for value in arr
-  ...
-
-for key, value of map
+<pre><code>for key, value of map
   ...
 </code></pre>
 

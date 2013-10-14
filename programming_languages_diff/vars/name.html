@@ -24,11 +24,11 @@
     <ul>
       <li><a href="../../programming_languages_diff/vars/">変数・束縛</a>
         <ul>
+          <li>変数名</li>
+          <li><a href="../../programming_languages_diff/vars/scope.html">変数の宣言とスコープ</a></li>
           <li><a href="../../programming_languages_diff/vars/argv.html">コマンドライン引数の取得</a></li>
           <li><a href="../../programming_languages_diff/vars/env.html">環境変数の取得</a></li>
           <li><a href="../../programming_languages_diff/vars/file_line.html">ソースファイル名と行番号をソースコード中で取得するには</a></li>
-          <li>変数名</li>
-          <li><a href="../../programming_languages_diff/vars/scope.html">変数の宣言とスコープ</a></li>
           <li><a href="../../programming_languages_diff/vars/swapvars.html">2つの変数の内容を入れ替えるには</a></li>
         </ul>
       </li>
@@ -116,6 +116,14 @@ match式で扱いに違いがある。慣例として、識別子の途中にあ
 
 <p><code>Thread#yield</code> メソッドを呼び出したい場合、 <code>yield</code> がScalaの予約語なので、
 <code>Thread.yield()</code> と書くことができず、<code>Thread.\</code>yield`()` と書くことになる。</p>
+
+<h2 id="1cc05be">Python
+<span class="article-date">2013/10/14</span></h2>
+
+<p>C言語と同じく、識別子として、半角英数字または <code>_</code>(アンダースコア)を使うことができる。半角数字を途中や最後に含めることはできるが、先頭で使うことはできない。</p>
+
+<p><code>for</code>, <code>if</code>, <code>del</code> などの予約されているキーワードは識別子として使えない。
+<code>int</code> はキーワードではないが、デフォルトで関数名として存在するので、使わないほうがよい。</p>
 
 <h2 id="4ac29c2">Ruby
 <span class="article-date">2013/08/04</span></h2>

@@ -24,11 +24,11 @@
     <ul>
       <li><a href="../../programming_languages_diff/class/">クラス</a>
         <ul>
-          <li>コンストラクタとデストラクタ</li>
           <li><a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
-          <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
-          <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
           <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
+          <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
+          <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
+          <li>コンストラクタとデストラクタ</li>
         </ul>
       </li>
     </ul>
@@ -49,9 +49,22 @@
 <h2 id="4632619">Java
 <span class="article-date">2013/08/25</span></h2>
 
-<p>コンストラクタは、クラス名と同じ名前のメソッドとして定義する。デストラクタはJavaには存在しない。<code>finalize()</code> というメソッドがファイナライザと呼ばれるが、これはいつ呼び出されるか制御できず、デストラクタとは言わない。</p>
+<p>コンストラクタは、クラス名と同じ名前のメソッドとして定義する。</p>
+
+<p>デストラクタはJavaには存在しない。<code>finalize()</code> というメソッドがファイナライザと呼ばれるが、これはいつ呼び出されるか制御できず、デストラクタとは言わない。</p>
 
 <p>コンストラクタは、返り値型は書かず返り値がない。<code>void</code>でもない。</p>
+
+<h2 id="4bed297">Scala
+<span class="article-date">2013/10/14</span></h2>
+
+<p>クラス名の後にコンストラクタの引数を書いて、処理内容をクラス定義の中に直接書く。</p>
+
+<p>クラスの中に複数のコンストラクタを定義したい場合は、基本のコンストラクタを上述のように定義して、それ以外のオーバーロードするコンストラクタは、
+<code>this</code> という名前のメソッドで定義する。
+<code>this</code> というメソッドの実装な中で他のコンストラクタを呼び出さないといけない。</p>
+
+<p>Javaと同じく、デストラクタは存在しない。</p>
 
 <h2 id="da175fb">Ruby
 <span class="article-date">2013/08/27</span></h2>

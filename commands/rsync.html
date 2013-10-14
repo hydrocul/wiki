@@ -39,6 +39,7 @@
       <li><a href="../commands/incron.html">incron (inotify cron)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp</a></li>
+      <li><a href="../commands/lha.html">lha コマンド</a></li>
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
@@ -51,6 +52,7 @@
       <li>rsync コマンド</li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
+      <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
@@ -109,8 +111,14 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
   <dd>タイムスタンプが新しいファイルのみをコピー</dd>
 </dl>
 
+<h2 id="3e3933a">excludeオプションとincludeオプション
+<span class="article-date">2013/06/06</span></h2>
+
+<p>rsync の複雑怪奇な exclude と include の適用手順を理解しよう<br />
+<a href="http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/" target="_blank">http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/</a></p>
+
 <h2 id="97e5655">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには
-<span class="article-date">2013/04/03</span></h2>
+<span class="article-date">2013/10/14</span></h2>
 
 <pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
 </code></pre>
@@ -118,13 +126,15 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 <p>この場合、リモートには <code>/home/who/ghi.dat</code> ではなく <code>/home/who/abc/def/ghi.dat</code> 
 という名前でアップロードされる。リモートにディレクトリが存在しない場合は自動で作成される。</p>
 
-<p><code>cp</code> での同じ役割をはたすのは <code>--parents</code>。</p>
+<p><a href="cp.html"><code>cp</code></a> での同じ役割をはたすのは <code>--parents</code>。</p>
 
-<h2 id="3e3933a">excludeオプションとincludeオプション
-<span class="article-date">2013/06/06</span></h2>
+<h2 id="da67027">ポートが22以外のSSHサーバにrsyncで接続するには
+<span class="article-date">2013/10/14</span></h2>
 
-<p>rsync の複雑怪奇な exclude と include の適用手順を理解しよう<br />
-<a href="http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/" target="_blank">http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/</a></p>
+<pre><code>rsync -e "ssh -p &lt;port&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
+</code></pre>
+
+<p>-&gt; <a href="ssh.html#port">ポートが22以外のSSHサーバに接続するには</a></p>
 
 
 </div>
