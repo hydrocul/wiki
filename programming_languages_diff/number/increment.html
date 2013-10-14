@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>インクリメント・デクリメント演算子 | 数値型 | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>インクリメント・デクリメント演算子</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/number/">数値型</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/number/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
+          <li><a href="../../programming_languages_diff/number/compare.html">数値の比較演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
+          <li>インクリメント・デクリメント演算子</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="increment">インクリメント・デクリメント演算子
+<span class="article-date">2013/08/21</span></h1>
+
+<p>整数の変数を1足したり引いたりする演算子。</p>
+
+<h2 id="5d57836">C言語, C++
+<span class="article-date">2013/04/10</span></h2>
+
+<p>ある。</p>
+
+<pre><code>++i;
+--i;
+i++;
+i--;
+i += 1;
+i -= 1;
+</code></pre>
+
+<h2 id="4a36131">Java
+<span class="article-date">2013/04/10</span></h2>
+
+<p>ある。</p>
+
+<pre><code>++i;
+--i;
+i++;
+i--;
+i += 1;
+i -= 1;
+</code></pre>
+
+<h2 id="c296e43">Scala
+<span class="article-date">2013/04/10</span></h2>
+
+<p>ない。</p>
+
+<pre><code>i += 1;
+i -= 1;
+</code></pre>
+
+<p><code>i += 1</code> などは <code>i = i + 1</code> などのシンタックスシュガー。</p>
+
+<p>Scalaでは、なぜインクリメントやデクリメントができないのか？<br />
+<a href="http://d.hatena.ne.jp/xuwei/20110130/1296360331" target="_blank">http://d.hatena.ne.jp/xuwei/20110130/1296360331</a></p>
+
+<h2 id="d6f7f55">PHP
+<span class="article-date">2013/04/10</span></h2>
+
+<p>ある。</p>
+
+<pre><code>++$i;
+--$i;
+$i++;
+$i--;
+$i += 1;
+$i -= 1;
+</code></pre>
+
+<h2 id="a2a90c5">Ruby
+<span class="article-date">2013/08/21</span></h2>
+
+<p>ないが、代入演算子はある。</p>
+
+<pre><code>i += 1
+i -= 1
+</code></pre>
+
+<p>オブジェクトだから、というのはわかるが、 <code>i = i + 1</code> のシンタックスシュガーだ、ということにはできないのかな?</p>
+
+<h2 id="73a0056">Perl
+<span class="article-date">2013/08/19</span></h2>
+
+<p>ある。</p>
+
+<pre><code>++$i;
+--$i;
+$i++;
+$i--;
+$i += 1;
+$i -= 1;
+</code></pre>
+
+<h2 id="927e95a">JavaScript / CoffeeScript
+<span class="article-date">2013/09/17</span></h2>
+
+<p>ある。</p>
+
+<pre><code>++i;
+--i;
+i++;
+i--;
+i += 1;
+i -= 1;
+</code></pre>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

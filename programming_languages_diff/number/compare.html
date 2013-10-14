@@ -28,6 +28,7 @@
           <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
           <li>数値の比較演算子</li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
+          <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
         </ul>
       </li>
     </ul>
@@ -38,51 +39,57 @@
 </div>
 
 <div id="content">
-  <h1 id="compare">数値の比較演算子</h1>
+  <h1 id="compare">数値の比較演算子
+<span class="article-date">2013/10/14</span></h1>
+
+<p><code>==</code>, <code>!=</code> で等値性を判定でき、<code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる言語が多い。</p>
+
+<p>また、 <code>&lt;=&gt;</code> という演算子がある言語もある。大小と等値性を一度に検証できる演算子で、</p>
+
+<pre><code>a &lt;=&gt; b
+</code></pre>
+
+<p>と書くと、 <code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。
+RubyやPerlにある。</p>
 
 <h2 id="df10101">Java
-<span class="article-date">2013/09/17</span></h2>
+<span class="article-date">2013/10/14</span></h2>
 
 <p>プリミティブ型の数値は <code>==</code>, <code>!=</code> で等値性を判定でき、 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
 
+<p>プリミティブ型ではなく数値のオブジェクトの比較は専用のメソッドを使う。</p>
+
+<pre><code>// java.lang.Integer
+int compareTo(Integer another)
+
+// java.lang.Double
+int compareTo(Double another)
+</code></pre>
+
 <h2 id="df12577">Scala
-<span class="article-date">2013/09/17</span></h2>
+<span class="article-date">2013/10/14</span></h2>
 
 <p><code>==</code>, <code>!=</code> で等値性を判定でき、 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
+
+<p>Javaと違い、プリミティブ型というのがなくすべてオブジェクトであるが、数値のオブジェクトはだいたい上記の演算子が使えるようになってる。正確には、演算子ではなく <code>&lt;</code> などの名前のメソッドが定義されている。</p>
 
 <h2 id="a237987">Ruby
-<span class="article-date">2013/09/17</span></h2>
+<span class="article-date">2013/10/14</span></h2>
 
 <p><code>==</code>, <code>!=</code> で等値性を判定でき、 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
 
-<h3 id="0b51a68">ソートに便利な比較の演算子 <code>&lt;=&gt;</code>
-<span class="article-date">2013/08/19</span></h3>
-
-<pre><code>a &lt;=&gt; b
-</code></pre>
-
-<p><code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。</p>
-
-<p>Perlにも同じ演算子がある。</p>
+<p><code>&lt;=&gt;</code> という、<code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す演算子もある。(ページ冒頭参照)</p>
 
 <h2 id="f556beb">Perl
-<span class="article-date">2013/09/17</span></h2>
+<span class="article-date">2013/10/14</span></h2>
 
 <p><code>==</code>, <code>!=</code> で等値性を判定でき、 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
 
-<h3 id="d29547c">ソートに便利な比較の演算子 <code>&lt;=&gt;</code>
-<span class="article-date">2013/08/19</span></h3>
-
-<pre><code>a &lt;=&gt; b
-</code></pre>
-
-<p><code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。</p>
-
-<p>Rubyにも同じ演算子がある。</p>
+<p><code>&lt;=&gt;</code> という、<code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す演算子もある。(ページ冒頭参照)</p>
 
 <h2 id="220d193">JavaScript
 <span class="article-date">2013/09/17</span></h2>

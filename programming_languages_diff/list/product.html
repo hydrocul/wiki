@@ -55,6 +55,7 @@
           <li><a href="../../programming_languages_diff/list/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値の要素をすべて削除するには (remove-by-value)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
+          <li><a href="../../programming_languages_diff/list/set.html">インデックスで要素を設定するには (set)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
@@ -62,7 +63,7 @@
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の要素のリストを取得するには (tail)</a></li>
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">リストからマップを生成する方法 (toMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-map.html">リストからマップを生成するには (toMap)</a></li>
           <li><a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/unshift.html">リストの先頭に要素を挿入するには (unshift)</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
@@ -83,12 +84,24 @@
 <code>[[1, 10], [1, 20], [1, 30], [1, 40], [2, 10], [2, 20], [2, 30], [2, 40], [3, 10], [3, 20], [3, 30], [3, 40]]</code> 
 を作る方法。</p>
 
+<h2 id="e5fd02f">Python
+<span class="article-date">2013/10/14</span></h2>
+
+<p>リストの内包表記を使う例</p>
+
+<pre><code>lst1 = [1, 2, 3]
+lst2 = [10, 20, 30, 40]
+print [[x, y] for x in lst1 for y in lst2]
+# =&gt; [[1, 10], [1, 20], [1, 30], [1, 40], [2, 10], [2, 20], [2, 30], [2, 40], [3, 10], [3, 20], [3, 30], [3, 40]]
+</code></pre>
+
 <h2 id="8e34d51">Ruby
 <span class="article-date">2013/05/07</span></h2>
 
 <p>例</p>
 
-<pre><code>[1, 2, 3].product(['a', 'b']) # =&gt; [[1, "a"], [1, "b"], [2, "a"], [2, "b"], [3, "a"], [3, "b"]]
+<pre><code>[1, 2, 3].product(['a', 'b'])
+# =&gt; [[1, "a"], [1, "b"], [2, "a"], [2, "b"], [3, "a"], [3, "b"]]
 </code></pre>
 
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストからマップを生成する方法 (toMap) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストからマップを生成するには (toMap) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストからマップを生成する方法 (toMap)</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストからマップを生成するには (toMap)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -55,6 +55,7 @@
           <li><a href="../../programming_languages_diff/list/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値の要素をすべて削除するには (remove-by-value)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
+          <li><a href="../../programming_languages_diff/list/set.html">インデックスで要素を設定するには (set)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
@@ -62,7 +63,7 @@
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の要素のリストを取得するには (tail)</a></li>
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
-          <li>リストからマップを生成する方法 (toMap)</li>
+          <li>リストからマップを生成するには (toMap)</li>
           <li><a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/unshift.html">リストの先頭に要素を挿入するには (unshift)</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
@@ -76,14 +77,16 @@
 </div>
 
 <div id="content">
-  <h1 id="to-map">リストからマップを生成する方法 (toMap)</h1>
+  <h1 id="to-map">リストからマップを生成するには (toMap)</h1>
 
-<h2 id="53d310e">Scala
-<span class="article-date">2013/05/06</span></h2>
+<h2 id="905a396">Scala
+<span class="article-date">2013/10/14</span></h2>
 
 <p>タプルのリストをマップに変換する方法。</p>
 
-<pre><code>//  Seq[A]
+<p>Signature:</p>
+
+<pre><code>// scala.collection.Seq[A]
 def toMap[T, U]: Map[T, U]
 </code></pre>
 
@@ -93,7 +96,7 @@ def toMap[T, U]: Map[T, U]
 list.toMap; // =&gt; Map("a" -&gt; 1, "b" -&gt; 2)
 </code></pre>
 
-<h2 id="d1300cb">Ruby
+<h2 id="418c28a">Ruby
 <span class="article-date">2013/05/06</span></h2>
 
 <p>偶数個の要素を持つ配列をハッシュに変換する方法。</p>
@@ -102,7 +105,7 @@ list.toMap; // =&gt; Map("a" -&gt; 1, "b" -&gt; 2)
 Hash[*arr] # =&gt; {'a' =&gt; 1, 'b' =&gt; 2}
 </code></pre>
 
-<h2 id="dad899f">Perl
+<h2 id="2e582a8">Perl
 <span class="article-date">2013/07/30</span></h2>
 
 <p>偶数個の要素を持つ配列をハッシュに変換する方法。単にハッシュに代入すればいいだけ。</p>

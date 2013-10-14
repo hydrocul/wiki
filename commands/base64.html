@@ -81,7 +81,7 @@
 
 <div id="content">
   <h1 id="base64">base64 コマンド
-<span class="article-date">2013/05/11</span></h1>
+<span class="article-date">2013/10/14</span></h1>
 
 <p>標準入力のデータをBASE64でエンコードまたはデコードして標準出力する。</p>
 
@@ -89,16 +89,12 @@
 base64 -d # デコード
 </code></pre>
 
-<p><code>openssl</code> コマンドでも同じことができる。</p>
-
-<pre><code>openssl enc -e -base64 # エンコード。-e は省略可。
-openssl enc -d -base64 # デコード
-</code></pre>
-
 <p>変なところに改行があったりしてうまくデコードできない場合は</p>
 
 <pre><code>cat src.txt | tr -d '\n' | base64 -d | dst.txt
 </code></pre>
+
+<p><a href="openssl.html"><code>openssl</code>コマンド</a>でもBASE64をエンコード/デコードできる。</p>
 
 <h2 id="9993def">ワンライナーでBASE64を扱ういろいろな方法
 <span class="article-date">2013/07/31</span></h2>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>シンボリックリンクかどうかを取得 | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>シンボリックリンクかどうかを調べるには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>シンボリックリンクかどうかを取得</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>シンボリックリンクかどうかを調べるには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -33,7 +33,7 @@
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには</a></li>
-          <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべて削除するには</a></li>
+          <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには</a></li>
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
@@ -41,8 +41,8 @@
           <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには</a></li>
           <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べる</a></li>
-          <li>シンボリックリンクかどうかを取得</li>
+          <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
+          <li>シンボリックリンクかどうかを調べるには</li>
         </ul>
       </li>
     </ul>
@@ -53,15 +53,17 @@
 </div>
 
 <div id="content">
-  <h1 id="is-symbolic-link">シンボリックリンクかどうかを取得</h1>
+  <h1 id="is-symbolic-link">シンボリックリンクかどうかを調べるには</h1>
 
-<h2 id="7a42cdd">Ruby
-<span class="article-date">2013/04/30</span></h2>
+<h2 id="2f575d9">Ruby
+<span class="article-date">2013/10/14</span></h2>
 
-<pre><code>File.ftype('/home/foo/testfile') == 'link'
+<pre><code>if File.ftype('/home/foo/testfile') == 'link'
+  ...
+end
 </code></pre>
 
-<h2 id="80f3726">Perl
+<h2 id="f702efe">Perl
 <span class="article-date">2013/09/26</span></h2>
 
 <pre><code>if( -l '/home/foo/testfile' ){
@@ -71,7 +73,7 @@
 
 <p>Perlは小文字の <code>-l</code> だがシェルスクリプトは大文字の <code>-L</code>。</p>
 
-<h2 id="f78a127">sh
+<h2 id="c30f537">sh
 <span class="article-date">2013/09/17</span></h2>
 
 <pre><code>if [ -L /home/foo/testfile ]; then

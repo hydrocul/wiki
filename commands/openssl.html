@@ -82,8 +82,7 @@
 <div id="content">
   <h1 id="openssl">openssl コマンド</h1>
 
-<p>-&gt; <a href="../apache.html#create-csr">SSLのCSRの作成方法</a><br />
--&gt; <a href="base64.html">base64</a></p>
+<p>-&gt; <a href="../apache.html#create-csr">SSLのCSRの作成方法</a>  </p>
 
 <h2 id="a2704c9">SSLサーバ証明書ファイルと秘密鍵の組み合わせが正しいことを確認するには
 <span class="article-date">2013/10/12</span></h2>
@@ -116,6 +115,18 @@ openssl x509 -noout -modulus -in サーバ証明書ファイル(CRT) | openssl m
 
 <pre><code>openssl verify -CAfile 中間証明書ファイル サーバ証明書ファイル
 </code></pre>
+
+<h2 id="39a17a7">BASE64エンコードまたはBASE64デコードをするには
+<span class="article-date">2013/10/14</span></h2>
+
+<pre><code># エンコード。-e は省略可。
+openssl enc -e -base64
+
+# デコード
+openssl enc -d -base64
+</code></pre>
+
+<p>BASE64は<a href="base64.html"><code>base64</code>コマンド</a>でもできる。</p>
 
 
 </div>
