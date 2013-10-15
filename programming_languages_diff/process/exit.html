@@ -27,6 +27,8 @@
           <li><a href="../../programming_languages_diff/process/escape.html">シェルに渡すコマンドの引数のエスケープ処理</a></li>
           <li>自身のプロセスを終了するには</li>
           <li><a href="../../programming_languages_diff/process/exit_status.html">子プロセスの終了ステータスを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/process/sleep.html">スレッドを一定時間停止する</a></li>
+          <li><a href="../../programming_languages_diff/process/system.html">外部コマンドを実行してその出力をそのまま出力するには</a></li>
         </ul>
       </li>
     </ul>
@@ -46,6 +48,26 @@
 
 <pre><code>System.exit(status);
 </code></pre>
+
+<h2 id="316a280">PHP
+<span class="article-date">2013/10/15</span></h2>
+
+<p>正常終了の場合</p>
+
+<pre><code>exit(0);
+// または
+die(0);
+</code></pre>
+
+<p>異常終了の場合(引数の値を終了ステータスにする)</p>
+
+<pre><code>exit(1);
+// または
+die(1);
+</code></pre>
+
+<p>exit | PHPマニュアル<br />
+<a href="http://www.php.net/manual/ja/function.exit.php" target="_blank">http://www.php.net/manual/ja/function.exit.php</a></p>
 
 <h2 id="6a02ffb">Ruby
 <span class="article-date">2013/08/19</span></h2>

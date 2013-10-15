@@ -26,8 +26,8 @@
         <ul>
           <li><a href="../../programming_languages_diff/datetime/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/datetime/now.html">今日の日付を取得するには／現在時刻を取得するには</a></li>
-          <li><a href="../../programming_languages_diff/datetime/calc_date.html">日付単位の計算</a></li>
-          <li><a href="../../programming_languages_diff/datetime/calc_time.html">時刻の計算</a></li>
+          <li><a href="../../programming_languages_diff/datetime/calc_date.html">日付単位で計算するには</a></li>
+          <li><a href="../../programming_languages_diff/datetime/calc_time.html">時刻を計算するには</a></li>
           <li><a href="../../programming_languages_diff/datetime/compare.html">日時オブジェクトを比較するには</a></li>
           <li>文字列を日付に変換するには</li>
           <li><a href="../../programming_languages_diff/datetime/timer.html">ミリ秒・マイクロ秒単位で処理時間を計測するには</a></li>
@@ -60,7 +60,11 @@
 // )
 </code></pre>
 
-<p><a href="http://www.php.net/manual/ja/function.strptime.php" target="_blank">http://www.php.net/manual/ja/function.strptime.php</a></p>
+<p>strptime | PHPマニュアル
+<a href="http://www.php.net/manual/ja/function.strptime.php" target="_blank">http://www.php.net/manual/ja/function.strptime.php</a></p>
+
+<h3 id="2f60b21">参考
+<span class="article-date">2013/06/16</span></h3>
 
 <p>本当は怖いstrptimeと%Y%m%dの関係<br />
 <a href="http://nekoya.github.io/blog/2013/06/10/strptime-ymd/" target="_blank">http://nekoya.github.io/blog/2013/06/10/strptime-ymd/</a></p>
@@ -77,7 +81,10 @@ date = Date.strptime('2013/03/17', '%Y/%m/%d')
 p [date.year, date.month, date.day, date.wday]
 </code></pre>
 
-<p>date.wday で曜日を整数で取得でき、日曜日が0。</p>
+<p>date.wday で曜日を整数で取得でき、日曜日が0になる。</p>
+
+<h3 id="63b78c1">参考
+<span class="article-date">2013/06/16</span></h3>
 
 <p>本当は怖いstrptimeと%Y%m%dの関係<br />
 <a href="http://nekoya.github.io/blog/2013/06/10/strptime-ymd/" target="_blank">http://nekoya.github.io/blog/2013/06/10/strptime-ymd/</a></p>

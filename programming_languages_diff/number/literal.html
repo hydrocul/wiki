@@ -24,9 +24,11 @@
     <ul>
       <li><a href="../../programming_languages_diff/number/">数値型</a>
         <ul>
-          <li><a href="../../programming_languages_diff/number/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/number/overview.html">数値のデータ型</a></li>
           <li>数値の書き方</li>
           <li><a href="../../programming_languages_diff/number/compare.html">数値の比較演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/divide.html">除算</a></li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
         </ul>
       </li>
@@ -50,15 +52,26 @@
 <p>浮動小数点数は、10進数表記のみである。最後に<code>f</code>または<code>F</code>を付けることで<code>float</code>型になり、それ以外は<code>double</code>型になる。</p>
 
 <h3 id="cbf7725">Java7から使える書き方
-<span class="article-date">2013/09/28</span></h3>
+<span class="article-date">2013/10/15</span></h3>
 
-<p>Java7からの機能では、<code>0b</code>で始まる2進数表記もできる。
+<p>Java7からの機能では、<code>0b</code>または<code>0B</code>で始まる2進数表記もできる。
 2進数表記でも最後に <code>l</code>または<code>L</code>を付けることで<code>long</code>型になる。</p>
 
 <p>同じくJava7からは、整数は3ケタごとの区切りなどとして途中にアンダースコアを入れることができる。
 10進数表記、8進数表記、16進数表記、2進数表記ともに使える。</p>
 
 <p>入れる場所はどこでもよく、コンパイラは単に途中のアンダースコアを無視する。ただし、最初や最後にアンダースコアを置くことはできない。最初に置くと識別子になってしまう。アンダースコアは2つ以上連続させることもできる(使い道がわからないが)。</p>
+
+<h2 id="a27fc6f">Python
+<span class="article-date">2013/10/14</span></h2>
+
+<p>10進数での表記の他、
+<code>0</code>で始まる8進数表記、<code>0x</code>または<code>0X</code>で始まる16進数表記、
+<code>0b</code>または<code>0B</code>で始まる2進数表記を使える。
+C言語やJavaなどと違って、8進数表記は<code>0o</code>または<code>0O</code>で始めることもできる。</p>
+
+<p>数値リテラル | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/reference/lexical_analysis.html#numbers" target="_blank">http://docs.python.jp/2/reference/lexical_analysis.html#numbers</a></p>
 
 <h2 id="253a130">Ruby
 <span class="article-date">2013/08/21</span></h2>
