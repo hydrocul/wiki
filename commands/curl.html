@@ -93,6 +93,30 @@
 
 <p>URLに <code>[]</code> が含まれている場合は、オプションとして <code>-g</code> を付けないといけないみたい。</p>
 
+<h2 id="a29b806">リクエストヘッダやレスポンスヘッダを表示するには
+<span class="article-date">2013/10/16</span></h2>
+
+<p><code>-v</code> を付けると、リクエストヘッダは <code>&gt;</code> で表示され、レスポンスヘッダは <code>&lt;</code> で表示される。</p>
+
+<pre><code>curl -v http://...
+</code></pre>
+
+<p>出力例</p>
+
+<pre><code>&gt; GET /foo/ HTTP/1.1
+&gt; User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+&gt; Host: www.example.com
+&gt; Accept: */*
+&gt;
+&lt; HTTP/1.1 302 Found
+&lt; Date: Wed, 16 Oct 2013 04:34:42 GMT
+&lt; Server: Apache
+&lt; Vary: Accept-Encoding
+&lt; Content-Length: 100
+&lt; Connection: close
+&lt; Content-Type: text/html; charset=UTF-8
+</code></pre>
+
 
 </div>
 

@@ -30,6 +30,7 @@
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
+          <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
           <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
           <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
@@ -37,15 +38,14 @@
           <li><a href="../../programming_languages_diff/string/starts-with.html">特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
+          <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim)</a></li>
+          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/add.html">文字列の連結をするには (add)</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返し連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
           <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim)</a></li>
-          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li>URLエンコード / URLデコードするには</li>
         </ul>
       </li>
@@ -70,17 +70,22 @@ puts CGI.escape "+ =&amp;"
 </code></pre>
 
 <h2 id="54a52b0">Perl
-<span class="article-date">2013/09/20</span></h2>
+<span class="article-date">2013/10/15</span></h2>
 
 <pre><code>use URI::Escape;
 
+# URLエンコード
 print uri_escape("+ =&amp;");
 # =&gt; %2B%20%3D%26
 
-# 日本語がある場合は uri_escape_utf8 を使う必要がある
+# 日本語がある場合は uri_escape_utf8 を使う必要がある。
+# 引数は、UTF8フラグがついていいるUnicode文字列で、
+# UTF8のバイナリをURLエンコードする。
 print uri_escape_utf8('あ');
 # =&gt; %E3%81%82
 
+# URLデコード
+# 結果にはUTF8フラグが付く
 print uri_unescape("%2B+%3D%26%E3%81%82");
 # =&gt; ++=&amp;あ
 

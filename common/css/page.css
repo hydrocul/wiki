@@ -44,10 +44,10 @@ code, kbd, pre, samp {
 }
 #content h3 {
   margin: 30px 0 20px 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 #content h4 {
-  margin: 20px 0 20px 0;
+  margin: 20px 0 20px 40px;
   font-size: 16px;
 }
 #content .article-date {

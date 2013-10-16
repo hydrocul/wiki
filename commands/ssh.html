@@ -213,11 +213,11 @@ ssh接続自体へのコマンドのプレフィックスとなる。エンタ�
 <span class="article-date">2013/04/22</span></h2>
 
 <p>sshセッションが切れたときに自動で再接続してくれるツール。
-moshを使っていれば問題ないが、SSH port forwarding を使っている場合は、
-moshが対応していないので、このツールが便利かもしれない。</p>
+<a href="mosh.html">mosh</a>を使っていれば問題ないが、
+SSH port forwarding を使っている場合は、moshが対応していないので、このツールが便利かもしれない。</p>
 
 <h2 id="01779f9">ポートフォワードの待ち受けポートに外部から接続できるようにするには
-<span class="article-date">2013/04/27</span></h2>
+<span class="article-date">2013/10/16</span></h2>
 
 <p>ポートを待ち受ける方のホストの <code>/etc/ssh/sshd_config</code> に以下を書いておく。</p>
 
@@ -246,7 +246,17 @@ moshが対応していないので、このツールが便利かもしれない�
 \------------/
 </code></pre>
 
-<h2 id="7c883ba">mosh</h2>
+<p>iptablesなどでポートが閉じられていたら当然外部からは接続できないので、
+iptablesの設定も合わせて確認しておくこと。</p>
+
+<p><code>-L</code> を使う場合は、上記を設定しても外部からローカルの待受ポートに接続できない。ローカルの待受ポートはデフォルトではローカルからしか接続できないようになっている。外部からも接続できるようにするには、上記設定に加え、sshコマンドのオプションに 
+<code>-g</code> を付ける必要がある。さらに</p>
+
+<pre><code>ssh -L 8022:localhost:22 -g remoteA
+</code></pre>
+
+<h2 id="7c883ba">mosh
+<span class="article-date">2013/05/29</span></h2>
 
 <p>モバイル環境に強くしたssh。</p>
 
