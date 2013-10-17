@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>部分文字列を検索するには (indexOf / lastIndexOf) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>文字(≠文字列)の文字コードを数字として取得換するには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>部分文字列を検索するには (indexOf / lastIndexOf)</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字(≠文字列)の文字コードを数字として取得換するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -37,7 +37,7 @@
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
-          <li>部分文字列を検索するには (indexOf / lastIndexOf)</li>
+          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/add.html">文字列の連結をするには (add)</a></li>
@@ -46,7 +46,7 @@
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得換するには</a></li>
+          <li>文字(≠文字列)の文字コードを数字として取得換するには</li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
         </ul>
       </li>
@@ -58,78 +58,38 @@
 </div>
 
 <div id="content">
-  <h1 id="index-of">部分文字列を検索するには (indexOf / lastIndexOf)</h1>
+  <h1 id="ord">文字(≠文字列)の文字コードを数字として取得換するには</h1>
 
-<h2 id="47f7d21">Java / Scala
-<span class="article-date">2013/04/27</span></h2>
+<h2 id="dc2b082">Python
+<span class="article-date">2013/10/16</span></h2>
 
-<pre><code>// String
-int indexOf(int ch)
-int indexOf(String str)
+<p><code>ord</code> という関数に長さ1の文字列を渡す。2文字以上渡すとエラーになる。</p>
 
-// String
-int lastIndexOf(int ch)
-int lastIndexOf(String str)
+<p>Python 2.7 の場合</p>
+
+<pre><code>print ord("A")
+# =&gt; 65
+print ord(u"あ")
+# =&gt; 12354
+# u を付けないとエラーになる
 </code></pre>
 
-<p>見つからない場合は <code>-1</code> を返す。</p>
+<p>Python 3.3 の場合</p>
 
-<h2 id="27f78da">PHP
-<span class="article-date">2013/04/27</span></h2>
-
-<pre><code>int strpos($mystring, $str)
+<pre><code>print(ord("A"))
+# =&gt; 65
+print(ord("あ"))
+# =&gt; 12354
 </code></pre>
 
-<p>例：</p>
+<h2 id="eaf00e0">Perl
+<span class="article-date">2013/09/23</span></h2>
 
-<pre><code>strpos('abcabc', 'bc') // =&gt; 1
+<pre><code>use utf8;
+
+print ord("A"); # =&gt; 65
+print ord("あ"); # =&gt; 12354 (0x3042)
 </code></pre>
-
-<p>見つからない場合は <code>FALSE</code> を返す。</p>
-
-<h2 id="295f4b5">Ruby
-<span class="article-date">2013/04/10</span></h2>
-
-<pre><code>String#index(str)
-String#index(str, index)
-
-String#rindex(str)
-String#rindex(str, index)
-</code></pre>
-
-<p>見つからない場合は <code>nil</code> を返す。2つ目の引数を与えると <code>index</code> はその位置以降を探し、<code>rindex</code> はその位置以前を探す。</p>
-
-<pre><code>'abcabc'.index('abc')     # =&gt; 0
-'abcabc'.index('abc', 1)  # =&gt; 3
-'abcabc'.index('abc', 3)  # =&gt; 3
-'abcabc'.index('abc', 4)  # =&gt; nil
-'abcabc'.rindex('abc')    # =&gt; 3
-'abcabc'.rindex('abc', 3) # =&gt; 3
-'abcabc'.rindex('abc', 2) # =&gt; 0
-</code></pre>
-
-<h2 id="05673d5">Perl
-<span class="article-date">2013/10/17</span></h2>
-
-<pre><code>my $str = "abcabc";
-print index($str, 'abc') . "\n";    # =&gt; 0
-print index($str, 'abc', 1) . "\n"; # =&gt; 3
-print index($str, 'abc', 3) . "\n"; # =&gt; 3
-print index($str, 'abc', 4) . "\n"; # =&gt; -1
-</code></pre>
-
-<p>index | perldoc.jp<br />
-<a href="http://perldoc.jp/func/index" target="_blank">http://perldoc.jp/func/index</a></p>
-
-<h2 id="c501a2a">JavaScript / CoffeeScript
-<span class="article-date">2013/09/07</span></h2>
-
-<pre><code>string.indexOf(str)
-
-string.lastIndexOf(str)
-</code></pre>
-
-<p>見つからなかった場合は <code>-1</code> を返す。</p>
 
 
 </div>

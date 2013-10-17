@@ -44,10 +44,12 @@
 <p>正規表現の中にカッコで括られた部分がある場合は、そのカッコの中にマッチした部分だけを取り出す手段が言語によっては存在する。</p>
 
 <h2 id="perl">Perl
-<span class="article-date">2013/10/08</span></h2>
+<span class="article-date">2013/10/17</span></h2>
 
 <p>正規表現に掛けると <code>$1</code>, <code>$2</code>, <code>$3</code>, … にグルーピングにマッチした文字列が入る。
 <a href="../vars/argv.html#perl"><code>$0</code></a> は実行されているPerlスクリプトファイル名が入っていて、正規表現とは関係ないので注意。</p>
+
+<p><code>${^POSTMATCH}</code> にはマッチした部分より後ろの文字列が入る。</p>
 
 
 </div>

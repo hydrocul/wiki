@@ -36,7 +36,7 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li>git コマンド</li>
       <li><a href="../commands/grep.html">grep</a></li>
-      <li><a href="../commands/incron.html">incron (inotify cron)</a></li>
+      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -499,10 +499,18 @@ git read-tree -m -u HEAD
 <h2 id="63a3f86">追跡するリモートブランチを追加するには
 <span class="article-date">2013/09/17</span></h2>
 
-<pre><code>git remote add &lt;remotename&gt; &lt;remote-repository-uri&gt;
+<pre><code>git remote add &lt;remote-name&gt; &lt;remote-repository-uri&gt;
 </code></pre>
 
 <p>&lt;remotename&gt; はワーキングディレクトリの中で通用するリモートブランチの名前。</p>
+
+<h2 id="8d7bf22"><code>clone</code>するときにリモートレポジトリの名前を <code>origin</code> 以外にするには
+<span class="article-date">2013/10/16</span></h2>
+
+<p><code>-o</code> で指定する。</p>
+
+<pre><code>git clone -o &lt;remote-name&gt; &lt;remote-repository-uri&gt;
+</code></pre>
 
 
 </div>

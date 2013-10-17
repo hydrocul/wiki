@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>netstat コマンド | コマンドリファレンス | hydrocul のメモ</title>
+<title>incron (inotify cron) (incrontab コマンド) | コマンドリファレンス | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; <span>netstat コマンド</span>
+  <a href="../commands/">コマンドリファレンス</a> &gt; <span>incron (inotify cron) (incrontab コマンド)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -36,13 +36,13 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep</a></li>
-      <li><a href="../commands/incron.html">incron (inotify cron)</a></li>
+      <li>incron (inotify cron) (incrontab コマンド)</li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
-      <li>netstat コマンド</li>
+      <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
@@ -80,21 +80,33 @@
 </div>
 
 <div id="content">
-  <h1 id="netstat">netstat コマンド
-<span class="article-date">2013/10/16</span></h1>
+  <h1 id="incrontab">incron (inotify cron) (incrontab コマンド)</h1>
 
-<p>ネットワークの状況を調べるコマンド。</p>
+<h2 id="install">インストール</h2>
 
-<p>LISTENしているポートは、<code>netstat -an</code> を実行して、出力の上の方のLISTENと書いてあるレコードが該当する。そのレコードの Local Address の欄が 127.0.0.1 と書かれていると、そのポートは localhost からしか接続できない。 0.0.0.0 と書かれていると、
-(iptablesなどでブロックされていなければ)外部も含めてどこからでもアクセスできる。</p>
+<h3 id="e302de4">CentOSの場合
+<span class="article-date">2013/05/12</span></h3>
 
-<h2 id="e76b186">ポートをLISTENしているプロセスを調べるには
-<span class="article-date">2013/07/31</span></h2>
-
-<pre><code>sudo netstat -anp
+<pre><code>sudo yum install incron
 </code></pre>
 
-<p>PIDの欄がプロセスIDである。root権限でないとプロセスIDが表示されないものがあるよう。</p>
+<h3 id="86ce5eb">Ubuntuの場合
+<span class="article-date">2013/05/12</span></h3>
+
+<pre><code>sudo apt-get install incron
+</code></pre>
+
+<p>このコマンドだけで、勝手に起動して、OS起動時の自動実行にも設定される。</p>
+
+<p>(Ubuntu 12.04で確認)</p>
+
+<h2 id="compare-other">他との比較
+<span class="article-date">2013/05/12</span></h2>
+
+<p>他にLinuxで使える仕組みとして、fanotifyというものがあるらしい。</p>
+
+<p>inotifyとfanotifyの比較<br />
+<a href="http://www.nminoru.jp/~nminoru/programming/file_change_notification.html" target="_blank">http://www.nminoru.jp/~nminoru/programming/file_change_notification.html</a></p>
 
 
 </div>

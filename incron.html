@@ -56,32 +56,18 @@
   <h1 id="incron">incron (inotify cron) (incrontab コマンド)
 <span class="article-date">2013/09/25</span></h1>
 
-<p>cronが一定の時間ごとにジョブを実行させるためのものに対して、
+<p><a href="commands/crontab.html">cron</a>が一定の時間ごとにジョブを実行させるためのものに対して、
 incronはファイルの変更などのイベント時に特定のジョブを実行させるもの。</p>
 
 <p>Linuxのinotifyという仕組みを利用しており、Linuxカーネル2.6.13以降で使える。他のOSでは使えない。</p>
 
-<p>incrontabというコマンドでincronを管理し、
+<p><code>incrontab</code>というコマンドでincronを管理し、
 cronを管理する<a href="commands/crontab.html">crontab</a>とよく似ている。</p>
 
 <h2 id="88b3f23">インストール
 <span class="article-date">2013/05/12</span></h2>
 
-<h3 id="e302de4">CentOSの場合
-<span class="article-date">2013/05/12</span></h3>
-
-<pre><code>sudo yum install incron
-</code></pre>
-
-<h3 id="86ce5eb">Ubuntuの場合
-<span class="article-date">2013/05/12</span></h3>
-
-<pre><code>sudo apt-get install incron
-</code></pre>
-
-<p>このコマンドだけで、勝手に起動して、OS起動時の自動実行にも設定される。</p>
-
-<p>(Ubuntu 12.04で確認)</p>
+<p>-&gt; <a href="commands/incrontab.html#install"><code>incrontab</code>コマンド</a></p>
 
 <h2 id="a73bf40">incrontabコマンド
 <span class="article-date">2013/05/12</span></h2>
@@ -199,10 +185,7 @@ incrontab -r
 <h2 id="dead4d8">他との比較
 <span class="article-date">2013/05/12</span></h2>
 
-<p>他にLinuxで使える仕組みとして、fanotifyというものがあるらしい。</p>
-
-<p>inotifyとfanotifyの比較<br />
-<a href="http://www.nminoru.jp/~nminoru/programming/file_change_notification.html" target="_blank">http://www.nminoru.jp/~nminoru/programming/file_change_notification.html</a></p>
+<p>-&gt; <a href="commands/incrontab.html#compare-other"><code>incrontab</code>コマンド</a></p>
 
 
 </div>
