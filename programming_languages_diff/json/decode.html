@@ -60,7 +60,7 @@ pom.xml に以下のように書く。</p>
 </code></pre>
 
 <h2 id="php">PHP
-<span class="article-date">2013/09/09</span></h2>
+<span class="article-date">2013/10/18</span></h2>
 
 <pre><code>// JSONからオブジェクトにデコード
 $obj = json_decode($json_src);
@@ -81,14 +81,19 @@ $arr = json_decode($json_src, true);
 // =&gt; NG
 </code></pre>
 
+<p>JSONのフォーマットがおかしいなどでデコードできなかった場合は <code>NULL</code> が返される。</p>
+
 <h2 id="bf63e59">Perl
-<span class="article-date">2013/09/07</span></h2>
+<span class="article-date">2013/10/17</span></h2>
 
 <pre><code>use JSON qw/decode_json/;
 
 # JSONからハッシュへのレファレンスにデコード
 my $data = decode_json($json_src);
 </code></pre>
+
+<p>JSON-2.61 | search.cpan.org<br />
+<a href="http://search.cpan.org/~makamaka/JSON-2.61/lib/JSON.pm" target="_blank">http://search.cpan.org/~makamaka/JSON-2.61/lib/JSON.pm</a></p>
 
 <h2 id="54f6c83">JavaScript / CoffeeScript
 <span class="article-date">2013/10/16</span></h2>

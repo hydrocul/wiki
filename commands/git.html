@@ -23,6 +23,7 @@
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
@@ -510,6 +511,15 @@ git read-tree -m -u HEAD
 <p><code>-o</code> で指定する。</p>
 
 <pre><code>git clone -o &lt;remote-name&gt; &lt;remote-repository-uri&gt;
+</code></pre>
+
+<h2 id="ca9ba9e"><code>git diff</code> で差分を見るときにリネームして編集されたファイルを削除と作成ではなく、編集の差分を見るには
+<span class="article-date">2013/10/18</span></h2>
+
+<p><code>--find-renames</code> を付ける。</p>
+
+<pre><code># ステージングされた編集の差分をリネームを考慮して表示
+git diff --cached --find-renames
 </code></pre>
 
 
