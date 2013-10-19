@@ -23,6 +23,7 @@
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
       <li>awk コマンド</li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
@@ -36,7 +37,7 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep</a></li>
-      <li><a href="../commands/incron.html">incron (inotify cron)</a></li>
+      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -114,6 +115,14 @@
 <span class="article-date">2013/10/15</span></h2>
 
 <pre><code>awk '{print NR " " $0;}'
+</code></pre>
+
+<h2 id="e4cadd9">sprintfのようなフォーマットで数字を出力するには
+<span class="article-date">2013/10/18</span></h2>
+
+<p><a href="../programming_languages_diff/string/format.html">C言語の <code>sprintf</code> のような書式</a>で出力するには、そのまま <code>sprintf</code> という関数が使える。</p>
+
+<pre><code>awk '{print sprintf("%04d", NR);}'
 </code></pre>
 
 
