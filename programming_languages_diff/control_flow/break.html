@@ -52,6 +52,24 @@
 
 <p><code>for</code>文、<code>while</code>文、<code>do while</code>文の中で <code>break</code> と書くと、そこでループを途中で脱出する。</p>
 
+<p><code>break</code>はデフォルトではもっとも内側のループを脱出するだけなので、多重ループの外側のループを脱出したい場合にはラベル付きの<code>break</code>を使う。
+<code>for</code>文、<code>while</code>文などにはラベルを付けることができ、
+<code>break</code>でどのループを脱出するのかをラベルで指定する。</p>
+
+<p>例</p>
+
+<pre><code>foo: for (...) {
+    bar: for (...) {
+        ...;
+        if (...) {
+            break foo;
+        }
+    }
+}
+</code></pre>
+
+<p>ブロックにもラベルつきbreakができる。</p>
+
 <h2 id="395784c">Ruby
 <span class="article-date">2013/09/06</span></h2>
 

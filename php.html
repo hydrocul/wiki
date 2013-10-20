@@ -95,22 +95,17 @@ SSLや独自ポート番号には対応していない模様。ホスト名は�
 
 <p><a href="http://stackoverflow.com/questions/6730076/mdpf-library-generate-blank-page-no-error-even-i-set-debug-mode#answer-6768688" target="_blank">http://stackoverflow.com/questions/6730076/mdpf-library-generate-blank-page-no-error-even-i-set-debug-mode#answer-6768688</a></p>
 
-<h2 id="22e8016">PHPのバージョン間の非互換性
-<span class="article-date">2013/04/30</span></h2>
-
-<p><a href="http://www.php.net/manual/ja/appendices.php" target="_blank">http://www.php.net/manual/ja/appendices.php</a></p>
-
 <h2 id="f9445b6">Ubuntuでの php.ini の場所
 <span class="article-date">2013/06/25</span></h2>
 
-<p>apt-get でインストールした場合、Apacheで動くPHPの php.ini は 
-/etc/php5/apache2/php.ini にある。この場所は <code>phpinfo();</code> で確認できる。</p>
+<p><a href="linux-pkg-manager.html"><code>apt-get</code></a> でインストールした場合、Apacheで動くPHPの 
+<code>php.ini</code> は <code>/etc/php5/apache2/php.ini</code> にある。この場所は <code>phpinfo();</code> で確認できる。</p>
 
-<p>コマンドラインで動くPHPの php.ini は
-/etc/php5/cli/php.ini にある。この場所は
+<p>コマンドラインで動くPHPの <code>php.ini</code> は
+<code>/etc/php5/cli/php.ini</code> にある。この場所は
 <code>php -i | grep php.ini</code> で確認できる。</p>
 
-<p>2つの php.ini の違いは <code>diff /etc/php5/apache2/php.ini /etc/php5/cli/php.ini</code>
+<p>2つの <code>php.ini</code> の違いは <code>diff /etc/php5/apache2/php.ini /etc/php5/cli/php.ini</code>
 で確認できるが、Apacheで動く方は、PCNTL関数の実行とメモリの最大値が制限されているようだ。</p>
 
 <p>(Ubuntu 13.04 で確認)</p>

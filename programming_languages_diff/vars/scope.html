@@ -27,7 +27,7 @@
           <li><a href="../../programming_languages_diff/vars/name.html">変数名</a></li>
           <li>変数の宣言とスコープ</li>
           <li><a href="../../programming_languages_diff/vars/argv.html">コマンドライン引数の取得</a></li>
-          <li><a href="../../programming_languages_diff/vars/env.html">環境変数の取得</a></li>
+          <li><a href="../../programming_languages_diff/vars/env.html">環境変数を取得するには</a></li>
           <li><a href="../../programming_languages_diff/vars/file_line.html">ソースファイル名と行番号をソースコード中で取得するには</a></li>
           <li><a href="../../programming_languages_diff/vars/swapvars.html">2つの変数の内容を入れ替えるには</a></li>
         </ul>
@@ -67,14 +67,15 @@
 
 <p>関数の中や <code>if</code> や <code>for</code> などのブロックの中など、だいたい <code>{}</code> で新しいスコープが作成される。</p>
 
-<h2 id="6c6f6ab">PHP
-<span class="article-date">2013/09/28</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2013/10/20</span></h2>
 
 <p>変数の宣言なしにいきなり使うことができる。</p>
 
 <p>関数の中で使用している変数のスコープは関数の中で、関数の外で使用している変数のスコープはグローバルになる。</p>
 
-<p>グローバル変数を関数の中から使用するには、その関数の中で <code>global</code> でグローバル変数を宣言する必要がある。</p>
+<p>グローバル変数を関数の中から使用するには、その関数の中で <code>global</code> でグローバル変数を宣言する必要がある。ただし、スーパーグローバル変数と呼ばれるものは、
+<code>global</code> で宣言しなくても関数の中から使える。</p>
 
 <p>関数の中では新しいスコープが作成されるが、
 <code>if</code> や <code>for</code> などの制御構文ではスコープが作成されない。</p>

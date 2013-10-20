@@ -1,3 +1,7 @@
+body {
+    background-color: #F3F3F3;
+}
+
 code, kbd, pre, samp {
   font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
 }
@@ -28,17 +32,22 @@ code, kbd, pre, samp {
 }
 #content {
   margin: 0 40px 0px 280px;
+  border-bottom: 1px solid #CCC;
+  box-shadow: 0 1px 0 #FFF;
   word-wrap: break-word;
 }
 #content h1 {
   margin: 30px 0 20px 0;
-  border-bottom: 2px #CCC solid;
+  border-bottom: 1px solid #CCC;
+  box-shadow: 0 1px 0 #FFF;
   padding-bottom: 4px;
   font-size: 24px;
+  text-shadow: 1px -1px 0 #CCC;
 }
 #content h2 {
   margin: 30px 0 20px 0;
   border-bottom: 1px #CCC solid;
+  box-shadow: 0 1px 0 #FFF;
   padding-bottom: 2px;
   font-size: 20px;
 }
@@ -76,7 +85,6 @@ code, kbd, pre, samp {
 footer {
   margin-left: 40px;
   margin-right: 40px;
-  border-top: 1px solid #888;
   padding-top: 10px;
   text-align: right;
   font-size: 80%;

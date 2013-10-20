@@ -23,6 +23,7 @@
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
@@ -36,7 +37,7 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep</a></li>
-      <li><a href="../commands/incron.html">incron (inotify cron)</a></li>
+      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -148,6 +149,20 @@ unzip -P パスワード ZIPファイル名
 </code></pre>
 
 <p>jar は tar と同じ使い方で、ただ tar に付けるオプション <code>z</code> だけ削除する、と覚えると楽。</p>
+
+<h2 id="3e2c7f4">圧縮結果のバイナリを標準出力に吐き出すには
+<span class="article-date">2013/10/19</span></h2>
+
+<p>ZIPファイル名の代わりに <code>-</code> と書くと、<code>-</code> というファイルに圧縮ファイルを書き出すのではなく、標準出力にバイナリが書き出される。</p>
+
+<p>これを応用して、ローカルにある大量のファイルを圧縮しながらリモートにSSHで転送するには以下のようにする。</p>
+
+<pre><code>zip -r - 圧縮対象ディレクトリ | ssh リモートホスト "cat &gt; リモートでの書き出し先圧縮ファイルパス"
+</code></pre>
+
+<p>ローカルにディスク容量の余裕がなく、あまりにも大容量で一時的にであっても圧縮ファイルをローカルに置くことができない場合にこの方法が便利。</p>
+
+<p>tarでも同じことができる。-&gt; <a href="ssh.html#backup-local-to-remote">ローカルにある大量のファイルを tar しながら、リモートにアップロードするには</a></p>
 
 
 </div>

@@ -23,6 +23,7 @@
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
@@ -36,7 +37,7 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep</a></li>
-      <li><a href="../commands/incron.html">incron (inotify cron)</a></li>
+      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li>lftp</li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -81,12 +82,17 @@
 
 <div id="content">
   <h1 id="lftp">lftp
-<span class="article-date">2013/09/06</span></h1>
+<span class="article-date">2013/10/20</span></h1>
 
 <p>FTPクライアントのコマンド。</p>
 
+<p>以下でlftpのプロンプトが表示され、インタラクティブなモードになる。</p>
+
 <pre><code>lftp ftp.hogehoge.com
 </code></pre>
+
+<h2 id="d3af27e">オプション
+<span class="article-date">2013/09/06</span></h2>
 
 <dl>
   <dt><code>-p</code> ポート番号</dt>
