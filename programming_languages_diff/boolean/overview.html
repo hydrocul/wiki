@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>論理値(boolean)の概要 | 論理型 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>論理値(boolean)の概要 | 論理型 | 各プログラミング言語における機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/boolean/">論理型</a> &gt; <span>論理値(boolean)の概要</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語における機能のまとめ</a> &gt; <a href="../../programming_languages_diff/boolean/">論理型</a> &gt; <span>論理値(boolean)の概要</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語における機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/boolean/">論理型</a>
         <ul>
@@ -39,9 +39,11 @@
   <h1 id="overview">論理値(boolean)の概要</h1>
 
 <h2 id="b42f70a">C言語
-<span class="article-date">2013/08/24</span></h2>
+<span class="article-date">2013/10/20</span></h2>
 
-<p><code>true</code>, <code>false</code> というキーワードはなく、論理値の型もない。</p>
+<p><code>true</code>, <code>false</code> というキーワードはなく、論理値の型もない。
+<code>0</code> や <code>NULL</code> がfalseの扱いになる。
+<code>0</code> を <code>false</code>、<code>1</code> を <code>true</code> の代わりに使われることも多い。</p>
 
 <h2 id="94aa6e7">C++
 <span class="article-date">2013/08/24</span></h2>
@@ -49,14 +51,21 @@
 <p><code>true</code>, <code>false</code> というキーワードがあり、<code>bool</code> という型である。</p>
 
 <h2 id="7390538">Java
-<span class="article-date">2013/09/11</span></h2>
+<span class="article-date">2013/10/20</span></h2>
 
-<p><code>true</code>, <code>false</code> というキーワードがあり、<code>boolean</code> というプリミティブ型である。このプリミティブ型に対応するクラスは <code>java.lang.Boolean</code> である。</p>
+<p><code>true</code>, <code>false</code> というキーワードがあり、これらは <code>boolean</code> というプリミティブ型である。このプリミティブ型に対応するクラスは <code>java.lang.Boolean</code> である。
+<code>boolean</code>型以外(<code>true</code>, <code>false</code>以外のいっさい)を
+<code>if</code>文などの条件式として入れるとコンパイルエラーになる。</p>
 
 <h2 id="bed5d6c">Python
 <span class="article-date">2013/10/07</span></h2>
 
 <p><code>True</code>, <code>False</code> という組み込みの定数があり、<code>bool</code> という型がある。</p>
+
+<h2 id="d4414d0">Ruby
+<span class="article-date">2013/10/20</span></h2>
+
+<p><code>true</code>, <code>false</code> というキーワードがあり、それぞれ、<code>TrueClass</code>, <code>FalseClass</code> の唯一のインスタンスである。</p>
 
 <h2 id="525e042">Perl
 <span class="article-date">2013/08/24</span></h2>

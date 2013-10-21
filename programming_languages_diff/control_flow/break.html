@@ -40,7 +40,10 @@
 </div>
 
 <div id="content">
-  <h1 id="break">break文</h1>
+  <h1 id="break">break文
+<span class="article-date">2013/10/20</span></h1>
+
+<p>ループを途中で脱出する構文。</p>
 
 <h2 id="2bcc862">C言語, C++
 <span class="article-date">2013/09/07</span></h2>
@@ -48,7 +51,7 @@
 <p><code>for</code>文、<code>while</code>文、<code>do while</code>文の中で <code>break</code> と書くと、そこでループを途中で脱出する。</p>
 
 <h2 id="4a440b4">Java
-<span class="article-date">2013/09/06</span></h2>
+<span class="article-date">2013/10/20</span></h2>
 
 <p><code>for</code>文、<code>while</code>文、<code>do while</code>文の中で <code>break</code> と書くと、そこでループを途中で脱出する。</p>
 
@@ -58,24 +61,41 @@
 
 <p>例</p>
 
-<pre><code>foo: for (...) {
-    bar: for (...) {
-        ...;
-        if (...) {
+<pre><code>foo: for(int i = 0; i &lt; 10; i++){
+    bar: for(int j = 0; j &lt; 10; j++){
+        System.out.println(String.format("i=%d, j=%d", i, j));
+        if(i + j == 14){
             break foo;
+            // i=5, j=9 を出力したところで終了する
         }
     }
 }
 </code></pre>
 
-<p>ブロックにもラベルつきbreakができる。</p>
+<p>ループ以外でも通常のブロックの中でも<code>break</code>を使用することができる。ただしこの場合はラベルが必須。ラベルがないとコンパイルエラーになる。</p>
+
+<p>例</p>
+
+<pre><code>int k = 0;
+hoge: {
+    System.out.println("STEP 1");
+    if(k == 0){
+        break hoge;
+        // hogeブロックを途中で終了するので、
+        // STEP 1だけを出力する
+    }
+    
+    // ここは実行されない
+    System.out.println("STEP 2");
+}
+</code></pre>
 
 <h2 id="395784c">Ruby
-<span class="article-date">2013/09/06</span></h2>
+<span class="article-date">2013/10/20</span></h2>
 
 <p>繰り返し処理の中で <code>break</code> と書くと、そこでループを脱出する。</p>
 
-<p>ブロック付きメソッド呼び出しでも、ブロックの中で使用でき、メソッドが繰り返し処理をするものであれば、ループから抜け出す。繰り返し処理でないブロック付きメソッド呼び出しだと、ブロックから脱出してさらにそのブロック付きメソッド呼び出しからも脱出する。</p>
+<p>ブロック付きメソッド呼び出しでも、ブロックの中で使用でき、メソッドが繰り返し処理をするものであれば、ループから抜け出す。繰り返し処理でないブロック付きメソッド呼び出しでも同様に、ブロックから脱出してさらにそのブロック付きメソッド呼び出しからも脱出する。</p>
 
 <h2 id="35130a2">Perl
 <span class="article-date">2013/09/28</span></h2>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>部分文字列を検索するには (indexOf / lastIndexOf) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>部分文字列を検索するには (indexOf / lastIndexOf) | 文字列 | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>部分文字列を検索するには (indexOf / lastIndexOf)</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>部分文字列を検索するには (indexOf / lastIndexOf)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/string/">文字列</a>
         <ul>
@@ -86,6 +86,21 @@ int lastIndexOf(String str)
 </code></pre>
 
 <p>見つからない場合は <code>FALSE</code> を返す。</p>
+
+<h2 id="d5e6720">Python
+<span class="article-date">2013/10/21</span></h2>
+
+<pre><code>str = "abcabc"
+
+print str.find("bc")
+# =&gt; 1
+
+print str.find("bc", 1)
+# =&gt; 1
+
+print str.find("bc", 2)
+# =&gt; 4
+</code></pre>
 
 <h2 id="295f4b5">Ruby
 <span class="article-date">2013/04/10</span></h2>

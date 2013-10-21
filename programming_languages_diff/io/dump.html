@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>デバッグのためにオブジェクトの中身を表示させるには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>デバッグのためにオブジェクトの中身を表示させるには | 入出力・ファイル操作 | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>デバッグのためにオブジェクトの中身を表示させるには</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>デバッグのためにオブジェクトの中身を表示させるには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/io/">入出力・ファイル操作</a>
         <ul>
@@ -84,6 +84,19 @@ pprint(a)
 </code></pre>
 
 <p><code>p</code>メソッドはオブジェクトの<code>inspect</code>メソッドを呼び出して文字列表現を手に入れ、それを標準出力する。</p>
+
+<h2 id="8321853">Perl
+<span class="article-date">2013/10/20</span></h2>
+
+<p><code>Data::Dumper</code> を使うとできる。</p>
+
+<pre><code>use Data::Dumper;
+
+print Dumper $hoge;
+</code></pre>
+
+<p>Data::Dumper | perldoc.perl.org<br />
+<a href="http://perldoc.perl.org/Data/Dumper.html" target="_blank">http://perldoc.perl.org/Data/Dumper.html</a></p>
 
 
 </div>

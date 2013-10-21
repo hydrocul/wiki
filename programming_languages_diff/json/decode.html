@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>JSONからオブジェクトに変換 | JSON | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>JSONからオブジェクトに変換 | JSON | 各プログラミング言語における機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/json/">JSON</a> &gt; <span>JSONからオブジェクトに変換</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語における機能のまとめ</a> &gt; <a href="../../programming_languages_diff/json/">JSON</a> &gt; <span>JSONからオブジェクトに変換</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語における機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/json/">JSON</a>
         <ul>
@@ -84,7 +84,7 @@ $arr = json_decode($json_src, true);
 <p>JSONのフォーマットがおかしいなどでデコードできなかった場合は <code>NULL</code> が返される。</p>
 
 <h2 id="bf63e59">Perl
-<span class="article-date">2013/10/17</span></h2>
+<span class="article-date">2013/10/20</span></h2>
 
 <pre><code>use JSON qw/decode_json/;
 
@@ -94,6 +94,11 @@ my $data = decode_json($json_src);
 
 <p>JSON-2.61 | search.cpan.org<br />
 <a href="http://search.cpan.org/~makamaka/JSON-2.61/lib/JSON.pm" target="_blank">http://search.cpan.org/~makamaka/JSON-2.61/lib/JSON.pm</a></p>
+
+<p>JSONの数値はPerlの文字列としてデコードされてしまい、普通には区別ができないみたいだが、以下のページに紹介されている方法を使えば、区別ができた。</p>
+
+<p>内部的に数値か文字かを判別する<br />
+<a href="http://anond.hatelabo.jp/20080303125703" target="_blank">http://anond.hatelabo.jp/20080303125703</a></p>
 
 <h2 id="54f6c83">JavaScript / CoffeeScript
 <span class="article-date">2013/10/16</span></h2>
