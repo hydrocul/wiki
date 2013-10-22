@@ -78,15 +78,18 @@
 </div>
 
 <div id="content">
-  <h1 id="clone">リストをコピーするには (clone)</h1>
+  <h1 id="clone">リストをコピーするには (clone)
+<span class="article-date">2013/10/22</span></h1>
+
+<p>イミュータブルなオブジェクトのコピーは意味がないので、ここではミュータブルなリストのコピーについて。</p>
 
 <h2 id="python">Python
-<span class="article-date">2013/10/03</span></h2>
+<span class="article-date">2013/10/22</span></h2>
 
 <pre><code>copied = lst[:]
 </code></pre>
 
-<p><code>[:]</code> の記法は<a href="sub-list.html#python">スライス</a>である。</p>
+<p><code>[:]</code> は<a href="sub-list.html#python">スライス表記</a>である。</p>
 
 <p>または</p>
 
@@ -96,10 +99,10 @@ copy.copy(lst)     # shallow copy
 copy.deepcopy(lst) # deep copy
 </code></pre>
 
-<p>copy — 浅いコピーおよび深いコピー操作<br />
-<a href="http://docs.python.jp/2/library/copy.html" target="_blank">http://docs.python.jp/2/library/copy.html</a></p>
+<p>copy — 浅いコピーおよび深いコピー操作 | Python 標準ライブラリ<br />
+<a href="http://docs.python.jp/2.7/library/copy.html" target="_blank">http://docs.python.jp/2.7/library/copy.html</a></p>
 
-<h2 id="47e08ae">Ruby
+<h2 id="0e16599">Ruby
 <span class="article-date">2013/05/04</span></h2>
 
 <p>shallow copy</p>
@@ -108,7 +111,7 @@ copy.deepcopy(lst) # deep copy
 Array#dup
 </code></pre>
 
-<h2 id="8864cbd">Perl
+<h2 id="96029a6">Perl
 <span class="article-date">2013/09/11</span></h2>
 
 <p>shallow copy の例</p>
@@ -119,7 +122,7 @@ my @dst = @src
 
 <p>代入するだけでコピーされる。</p>
 
-<h2 id="2afe56b">JavaScript
+<h2 id="e4f64a7">JavaScript
 <span class="article-date">2013/04/20</span></h2>
 
 <p>shallow copy</p>

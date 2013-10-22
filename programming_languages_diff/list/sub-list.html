@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストの一部をリストとして取り出すには (subList / slice) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストの一部をリストとして取り出すには (subList / slice) | リスト(配列) | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの一部をリストとして取り出すには (subList / slice)</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの一部をリストとして取り出すには (subList / slice)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/list/">リスト(配列)</a>
         <ul>
@@ -37,6 +37,7 @@
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li>リストの一部をリストとして取り出すには (subList / slice)</li>
           <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
+          <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/filter-count.html">リストから特定の条件にマッチする要素の数を数えるには (filter-count)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
@@ -45,10 +46,13 @@
           <li><a href="../../programming_languages_diff/list/foreach.html">リストの要素を1つずつ順番に処理するには (foreach)</a></li>
           <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
+          <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べたリストを作成するには (fill)</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
+          <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
+          <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/push.html">リストの最後に要素1つまたは複数追加するには (push)</a></li>
           <li><a href="../../programming_languages_diff/list/pop.html">リストの最後から要素を1つ取得してリストから削除するには (pop)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
@@ -63,11 +67,7 @@
           <li><a href="../../programming_languages_diff/list/to-map.html">リストからマップを生成するには (toMap)</a></li>
           <li><a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
-          <li><a href="../../programming_languages_diff/list/vector-add-subtract.html">数のリストを要素ごとに加算/減算するには</a></li>
-          <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
-          <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
-          <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
-          <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
+          <li><a href="../../programming_languages_diff/list/vector-add-subtract.html">数のリストを要素ごとに加算/減算するには(ベクトル演算)</a></li>
         </ul>
       </li>
     </ul>
@@ -80,7 +80,7 @@
 <div id="content">
   <h1 id="sub-list">リストの一部をリストとして取り出すには (subList / slice)</h1>
 
-<h2 id="12274ed">Java
+<h2 id="12167e9">Java
 <span class="article-date">2013/10/04</span></h2>
 
 <pre><code>List&lt;E&gt; List&lt;E&gt;#subList(int from, int until)
@@ -90,7 +90,7 @@
 
 <p><code>subList</code> で返されたリストを変更すると、元のリストにも反映される。</p>
 
-<h2 id="65ec942">Scala
+<h2 id="76178f0">Scala
 <span class="article-date">2013/10/04</span></h2>
 
 <pre><code>def Seq[A]#slice(from: Int, until: Int): Seq[A]
@@ -98,16 +98,16 @@
 
 <p>返り値のリストの最後は、元のリストのインデックス <code>until - 1</code> になる。</p>
 
-<h2 id="42ab4e1">PHP
+<h2 id="d81533e">PHP
 <span class="article-date">2013/04/27</span></h2>
 
 <pre><code>array array_slice($arr, $from [, $length])
 </code></pre>
 
 <h2 id="python">Python
-<span class="article-date">2013/10/04</span></h2>
+<span class="article-date">2013/10/22</span></h2>
 
-<p>以下はPythonのシーケンスといわれるリスト、タプル、文字列で共通操作。</p>
+<p>以下はPythonのシーケンスといわれるリスト、タプル、文字列で共通操作で、スライス表記という。範囲を指定して部分リストを取得できる。</p>
 
 <pre><code>lst[from:until]
 </code></pre>
@@ -121,10 +121,13 @@ lst[:until] # 先頭から until - 1 まで
 lst[:]      # 先頭から最後まで
 </code></pre>
 
-<p><code>lst[:]</code> の書き方はリストをコピーする目的で使える。<br />
+<p><code>lst[:]</code> の書き方はリストをコピーする目的で使える。
 -&gt; <a href="clone.html#python">リストをコピーするには</a></p>
 
-<h2 id="4ce279c">Ruby
+<p>スライス表記 (slicing) | Python 言語リファレンス<br />
+<a href="http://docs.python.jp/2.7/reference/expressions.html#slicing" target="_blank">http://docs.python.jp/2.7/reference/expressions.html#slicing</a></p>
+
+<h2 id="812bf6f">Ruby
 <span class="article-date">2013/10/05</span></h2>
 
 <pre><code>arr.slice(from, length) # from から from + length - 1 まで
@@ -134,7 +137,7 @@ arr.slice(index)        # indexの要素のみを取得
 <p>lengthを省略したら、from以降の部分配列ではなく、その場所の要素を返す(<code>[]</code> と同じ)。
 arr.slice(index, 1) はその場所の要素だけの配列を返すので、これとも違う。</p>
 
-<h2 id="e99639b">Perl
+<h2 id="1b71d2e">Perl
 <span class="article-date">2013/07/27</span></h2>
 
 <pre><code>my @arr = ('abc', 'def', 'ghi');
@@ -143,7 +146,7 @@ print "@arr[0,2]";      # =&gt; abc ghi
 print "@arr[1..$#arr]"; # =&gt; def ghi
 </code></pre>
 
-<h2 id="5626636">JavaScript
+<h2 id="a825858">JavaScript
 <span class="article-date">2013/04/20</span></h2>
 
 <pre><code>Array#slice(start[, end])

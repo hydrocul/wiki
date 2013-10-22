@@ -23,6 +23,7 @@
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
@@ -30,13 +31,13 @@
       <li><a href="../commands/crontab.html">crontab</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
       <li><a href="../commands/cut.html">cut コマンド</a></li>
-      <li><a href="../commands/date.html">date</a></li>
+      <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep</a></li>
-      <li><a href="../commands/incron.html">incron (inotify cron)</a></li>
+      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -57,6 +58,7 @@
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
+      <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li>tail コマンド</li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
@@ -101,6 +103,14 @@ tail -c 10 hoge.txt
 
 # 最初の9バイトを除いて10バイト目からを表示
 tail -c +10 hoge.txt
+</code></pre>
+
+<h2 id="ec0fc1f">ログファイルなどのファイルへの出力をリアルタイムに画面に表示するには
+<span class="article-date">2013/10/22</span></h2>
+
+<p>以下のように <code>-f</code> を付けると、ログをリアルタイムに表示できる。終了するには Ctrl+C を押すなどする。</p>
+
+<pre><code>tail -f access_log
 </code></pre>
 
 
