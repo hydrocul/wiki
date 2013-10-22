@@ -31,7 +31,7 @@
       <li><a href="../commands/crontab.html">crontab</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
       <li><a href="../commands/cut.html">cut コマンド</a></li>
-      <li><a href="../commands/date.html">date</a></li>
+      <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
@@ -201,14 +201,23 @@ sed "s/x\{4\}/XXXX/g" # =&gt; OK
 sed "s/x\\\{4\\\}/XXXX/g" # =&gt; NG
 </code></pre>
 
-<h2 id="f9351b6">正規表現の中の <code>()</code> で囲まれた部分を使って置換するには
-<span class="article-date">2013/06/17</span></h2>
+<h2 id="group">正規表現の中の <code>()</code> で囲まれた部分を使って置換するには
+<span class="article-date">2013/10/22</span></h2>
 
 <p>置換後の文字列には、<code>\1</code>, <code>\2</code> などを指定することで、正規表現にマッチしたグループに置き換えられる。</p>
 
 <pre><code>echo "bc abcc" | sed 's/b\(c*\)/\1/g'
 # =&gt; c acc
+
+echo "bc abcc" | sed -e 's/b\(c*\)/\1/g'
+# =&gt; c acc
+
+echo "bc abcc" | sed -E 's/b(c*)/\1/g'
+# =&gt; c acc
 </code></pre>
+
+<p>正規表現の中の <code>()</code> には <code>\</code> でエスケープしないといけないみたい。でもなぜか 
+<code>-E</code> をつけると、エスケープが不要みたい。</p>
 
 <h2 id="0d00817">タブ文字を全置換するには
 <span class="article-date">2013/06/17</span></h2>

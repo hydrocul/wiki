@@ -23,6 +23,7 @@
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
       <li>ack-grep コマンド</li>
+      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
@@ -30,13 +31,13 @@
       <li><a href="../commands/crontab.html">crontab</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
       <li><a href="../commands/cut.html">cut コマンド</a></li>
-      <li><a href="../commands/date.html">date</a></li>
+      <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep</a></li>
-      <li><a href="../commands/incron.html">incron (inotify cron)</a></li>
+      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -96,12 +97,13 @@
 </code></pre>
 
 <h2 id="6e86836">対応しているファイルタイプの一覧を見るには
-<span class="article-date">2013/04/03</span></h2>
+<span class="article-date">2013/10/21</span></h2>
 
 <pre><code>ack-grep --help-type
 </code></pre>
 
-<p>ファイルタイプの一覧をいじるには <code>/usr/share/perl5/App/Ack.pm</code> をいじる(apt-get でインストールした場合)。以下はmarkdown形式に対応させる例。</p>
+<p>ファイルタイプの一覧をいじるには <code>/usr/share/perl5/App/Ack.pm</code> をいじる
+(環境によってパスは違うと思うが、このパスは apt-get でインストールした場合)。以下はmarkdown形式に対応させる例。</p>
 
 <pre><code>--- Ack.pm
 +++ Ack.pm

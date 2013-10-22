@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>date コマンド | コマンドリファレンス | hydrocul のメモ</title>
+<title>sshfs コマンド | コマンドリファレンス | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; <span>date コマンド</span>
+  <a href="../commands/">コマンドリファレンス</a> &gt; <span>sshfs コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -31,7 +31,7 @@
       <li><a href="../commands/crontab.html">crontab</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
       <li><a href="../commands/cut.html">cut コマンド</a></li>
-      <li>date コマンド</li>
+      <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
@@ -58,6 +58,7 @@
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
+      <li>sshfs コマンド</li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
@@ -81,68 +82,18 @@
 </div>
 
 <div id="content">
-  <h1 id="date">date コマンド</h1>
+  <h1 id="sshfs">sshfs コマンド
+<span class="article-date">2013/10/22</span></h1>
 
-<h2 id="dca4beb">YYYYMMDD-hhmmss の書式で日時を出力するには
-<span class="article-date">2013/03/21</span></h2>
-
-<pre><code>date "+%Y%m%d-%H%M%S"
-</code></pre>
-
-<h2 id="586e94b">曜日を取得するには
-<span class="article-date">2013/09/11</span></h2>
-
-<pre><code>date "+%w"
-</code></pre>
-
-<p>0-6の数字を出力する。0が日曜日。</p>
-
-<h2 id="6469c92">明日の日付を取得するには
-<span class="article-date">2013/06/22</span></h2>
-
-<pre><code>date --date "1 day" "+%Y-%m-%d"
-</code></pre>
-
-<p><code>--date</code> オプションに渡す文字列はいろいろ書ける。</p>
+<p>SSHを使ってリモートのファイルシステムをローカルにマウントするためのコマンド。これによってリモートにあるファイルを直接ローカルのエディタで編集したり、
+<code>cp</code>コマンドや<code>mv</code>コマンドなどで操作できるようになる。</p>
 
 <p>例</p>
 
-<pre><code>date --date "2 days" "+%Y-%m-%d"
-date --date "1 day ago" "+%Y-%m-%d"
-date --date "1 days ago" "+%Y-%m-%d" # 単数形複数形が間違っていても大丈夫
-date --date "1 month" "+%Y-%m-%d"
+<pre><code>sshfs -o auto_cache -o reconnect hogesrv:/ ~/mnt/hogesrv
 </code></pre>
 
-<h2 id="a6f968d">UNIX時間を取得するには
-<span class="article-date">2013/10/21</span></h2>
-
-<pre><code># 現在日時
-date +%s
-
-# 1日前
-date --date "1day ago" +%s
-</code></pre>
-
-<h2 id="da1c436">UNIX時間から日時を取得するには
-<span class="article-date">2013/10/21</span></h2>
-
-<p><code>--date</code> オプションに渡す文字列として、数字の前に <code>@</code> を付けると、
-UNIX時間での指定になる。</p>
-
-<pre><code>date --date @1382282400
-# =&gt; Mon Oct 21 00:20:00 JST 2013
-</code></pre>
-
-<h2 id="set">日時を設定するには
-<span class="article-date">2013/09/04</span></h2>
-
-<p>例</p>
-
-<pre><code># 9月4日12時17分に設定
-sudo date -s "2013/09/04 12:17:00"
-</code></pre>
-
-<p>あらかじめ <code>sudo</code> なしで実行してみて、日時のフォーマットが合っているかを確認するとよい。</p>
+<p>-&gt; <a href="ssh.html">ssh</a></p>
 
 
 </div>

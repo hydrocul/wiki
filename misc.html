@@ -38,11 +38,12 @@
   <li>misc</li>
   <li><a href="./mysql.html">MySQL</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
+  <li><a href="./others/">未分類</a></li>
   <li><a href="./paco.html">Paco</a></li>
   <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
   <li><a href="./phantomjs.html">phantomjs</a></li>
   <li><a href="./php.html">PHP</a></li>
-  <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
   <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
@@ -55,54 +56,19 @@
 <div id="content">
   <h1 id="misc">misc</h1>
 
-<h2 id="globalsign">(SSL) ジオトラストとグローバルサインのどっちがどっちだっけ？
-<span class="article-date">2011/01/04</span></h2>
+<h2 id="globalsign">(SSL) ジオトラストとグローバルサインのどっちがどっちだっけ？</h2>
 
-<p>記事その1<br />
-<a href="http://ascii.jp/elem/000/000/038/38621/" target="_blank">http://ascii.jp/elem/000/000/038/38621/</a></p>
-
-<p>記事その2<br />
-<a href="http://cloud.watch.impress.co.jp/epw/cda/topic/2007/05/30/10394.html" target="_blank">http://cloud.watch.impress.co.jp/epw/cda/topic/2007/05/30/10394.html</a></p>
-
-<p>要するに、<br />
-米ベリサインが米ジオトラストを買収<br />
-↓<br />
-日本でジオトラストの代理店をしていた日本ジオトラストが、競合である日本ベリサインの商品を売るという事態<br />
-↓<br />
-困った日本ジオトラストがベルギーのグローバルサインを買収<br />
-↓<br />
-日本ジオトラストからグローバルサインに社名変更  </p>
+<p>-&gt; <a href="others/ssl-geotrust-globalsign.html">ジオトラストとグローバルサインのどっちがどっちだっけ？</a></p>
 
 <h2 id="2f79170">postfix
 <span class="article-date">2013/04/30</span></h2>
 
-<p><code>/etc/postfix/</code> あたりに設定ファイルがいろいろ入っている。</p>
-
-<p>メールをプログラムが受信するには、 <code>/etc/alias</code> に以下のように書いておく。</p>
-
-<pre><code>hoge: "|/usr/bin/php /home/foo/bin/receive_mail.php"
-</code></pre>
-
-<p>メールを無条件に別ホストに転送したい場合は、 <code>/etc/alias</code> に以下のように書いておく。</p>
-
-<pre><code>hoge: foo@example.com
-</code></pre>
-
-<p>メールを無条件に同じホストに転送したい場合は、 <code>/etc/alias</code> に以下のように書いておく。</p>
-
-<pre><code>hoge: foo
-</code></pre>
+<p>-&gt; <a href="others/postfix-alias.html">postfixでのaliasの設定</a></p>
 
 <h2 id="6dbb908">flickrで動画をアップロードしても Bonk! と表示されてしまう場合
 <span class="article-date">2013/06/02</span></h2>
 
-<p>“Bonk! flickr unable to process this video.” というエラーメッセージが出て、動画ファイルをアップロードできない場合、何度かアップしなおすとできる場合もあるが、繰り返し試してもだめだった場合に、以下の古いアップローダから試すとできる場合がある。</p>
-
-<p>古いアップローダ<br />
-<a href="http://www.flickr.com/photos/upload/basic/" target="_blank">http://www.flickr.com/photos/upload/basic/</a></p>
-
-<p>参考<br />
-<a href="https://www.flickr.com/help/tools/#1866" target="_blank">https://www.flickr.com/help/tools/#1866</a></p>
+<p>-&gt; <a href="others/flickr-bonk.html">flickrで動画をアップロードしても Bonk! と表示されてしまう場合</a></p>
 
 
 </div>

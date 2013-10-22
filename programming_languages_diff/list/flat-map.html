@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap) | リスト(配列) | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/list/">リスト(配列)</a>
         <ul>
@@ -78,16 +78,19 @@
 </div>
 
 <div id="content">
-  <h1 id="flat-map">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</h1>
+  <h1 id="flat-map">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)
+<span class="article-date">2013/10/22</span></h1>
+
+<p><a href="map.html"><code>map</code>関数</a>と<a href="flatten.html"><code>flatten</code>関数</a>をつなげたイメージ。</p>
 
 <h2 id="5f2965d">Scala
 <span class="article-date">2013/07/30</span></h2>
 
-<pre><code>// Seq[A]
+<pre><code>// scala.collection.Seq[A]
 def flatMap[B](f: A =&gt; Seq[B]): Seq[B]
 </code></pre>
 
-<p>処理結果のリストを返し、自身は変更しない。</p>
+<p>結果を新しいリストで返し、自身は変更しない。</p>
 
 <h2 id="865872e">Ruby
 <span class="article-date">2013/05/04</span></h2>

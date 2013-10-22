@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>postfixでのaliasの設定 | 未分類 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../others/">未分類</a> &gt; <span>postfixでのaliasの設定</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../others/">未分類</a>
+    <ul>
+      <li><a href="../others/flickr-bonk.html">flickrで動画をアップロードしても Bonk! と表示されてしまう場合</a></li>
+      <li>postfixでのaliasの設定</li>
+      <li><a href="../others/ssl-geotrust-globalsign.html">(SSL) ジオトラストとグローバルサインのどっちがどっちだっけ？</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="postfix-alias">postfixでのaliasの設定
+<span class="article-date">2013/04/30</span></h1>
+
+<p><code>/etc/postfix/</code> あたりに設定ファイルがいろいろ入っている。</p>
+
+<p>メールをプログラムが受信するには、 <code>/etc/alias</code> に以下のように書いておく。</p>
+
+<pre><code>hoge: "|/usr/bin/php /home/foo/bin/receive_mail.php"
+</code></pre>
+
+<p>メールを無条件に別ホストに転送したい場合は、 <code>/etc/alias</code> に以下のように書いておく。</p>
+
+<pre><code>hoge: foo@example.com
+</code></pre>
+
+<p>メールを無条件に同じホストに転送したい場合は、 <code>/etc/alias</code> に以下のように書いておく。</p>
+
+<pre><code>hoge: foo
+</code></pre>
+
+
+</div>
+
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

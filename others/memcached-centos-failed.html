@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>memcachedがCentOSでうまくいかない場合 | 未分類 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../others/">未分類</a> &gt; <span>memcachedがCentOSでうまくいかない場合</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../others/">未分類</a>
+    <ul>
+      <li><a href="../others/flickr-bonk.html">flickrで動画をアップロードしても Bonk! と表示されてしまう場合</a></li>
+      <li>memcachedがCentOSでうまくいかない場合</li>
+      <li><a href="../others/postfix-alias.html">postfixでのaliasの設定</a></li>
+      <li><a href="../others/ssl-geotrust-globalsign.html">(SSL) ジオトラストとグローバルサインのどっちがどっちだっけ？</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="memcached-centos-failed">memcachedがCentOSでうまくいかない場合
+<span class="article-date">2013/06/27</span></h1>
+
+<p>SELinuxが有効だと、memcachedに接続できないことがあるみたい。</p>
+
+<p><code>set</code> や <code>get</code> をしても <code>false</code> が返ってきて、
+<code>$mc-&gt;getResultCode()</code> が26を返してしまう。
+26の意味は不明だが。</p>
+
+<p>26は、<br />
+<a href="http://www.php.net/manual/ja/memcached.constants.php#95793" target="_blank">http://www.php.net/manual/ja/memcached.constants.php#95793</a><br />
+によると <code>RES_ERRNO</code> ということで意味がよくわからない。</p>
+
+
+</div>
+
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

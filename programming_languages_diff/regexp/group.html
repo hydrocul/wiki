@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>正規表現のグルーピングにマッチした文字列を使うには | 正規表現 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>正規表現のグルーピングにマッチした文字列を使うには | 正規表現 | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/regexp/">正規表現</a> &gt; <span>正規表現のグルーピングにマッチした文字列を使うには</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/regexp/">正規表現</a> &gt; <span>正規表現のグルーピングにマッチした文字列を使うには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/regexp/">正規表現</a>
         <ul>
@@ -50,6 +50,14 @@
 <a href="../vars/argv.html#perl"><code>$0</code></a> は実行されているPerlスクリプトファイル名が入っていて、正規表現とは関係ないので注意。</p>
 
 <p><code>${^POSTMATCH}</code> にはマッチした部分より後ろの文字列が入る。</p>
+
+<h2 id="192b31e">sh
+<span class="article-date">2013/10/22</span></h2>
+
+<p><code>sed</code>コマンドで正規表現による置換ができるが、<code>()</code>でのグルーピングを参照するには
+<code>$1</code>, <code>$2</code>, <code>$3</code> などではなく、<code>\1</code>, <code>\2</code>, <code>\3</code> を使う。</p>
+
+<p>-&gt; <a href="../../commands/sed.html"><code>sed</code>コマンド</a></p>
 
 
 </div>
