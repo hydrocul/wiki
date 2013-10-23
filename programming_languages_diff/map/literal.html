@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>マップの書き方 | マップ(連想配列) | 各プログラミング言語における機能のまとめ | hydrocul のメモ</title>
+<title>マップの書き方 | マップ(連想配列) | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">各プログラミング言語における機能のまとめ</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>マップの書き方</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>マップの書き方</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">各プログラミング言語における機能のまとめ</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/map/">マップ(連想配列)</a>
         <ul>
@@ -49,7 +49,7 @@
 <div id="content">
   <h1 id="literal">マップの書き方</h1>
 
-<h2 id="2fdbe3c">Java
+<h2 id="379089a">Java
 <span class="article-date">2013/09/21</span></h2>
 
 <p><code>java.util.Map</code> インスタンスは一発では作れない。</p>
@@ -70,7 +70,7 @@ map.put("b", 2);
 <pre><code>Collections.&lt;String, Integer&gt;singletonMap(key, value)
 </code></pre>
 
-<h2 id="dd35a63">Scala
+<h2 id="9d8123c">Scala
 <span class="article-date">2013/09/03</span></h2>
 
 <pre><code>map = Map("a" -&gt; 1, "b" -&gt; 2);
@@ -82,16 +82,20 @@ map.put("b", 2);
                                            scala.Predef.any2ArrowAssoc("a").-&gt;(2));
 </code></pre>
 
-<h2 id="e721ea8">PHP
-<span class="article-date">2013/09/03</span></h2>
+<h2 id="3b01008">PHP
+<span class="article-date">2013/10/22</span></h2>
 
-<pre><code>arr = array('a' =&gt; 1, 'b' =&gt; 2);
+<pre><code>arr = array('a' =&gt; 1, 'b' =&gt; 2, );
 </code></pre>
+
+<p><a href="../list/literal.html#php">普通の配列</a>と同様に最後に余計なカンマがあってもなくてもよい。</p>
 
 <p>PHP 5.4からは以下のようにも書ける。</p>
 
 <pre><code>arr = ['a' =&gt; 1, 'b' =&gt; 2];
 </code></pre>
+
+<p>この構文でも最後に余計なカンマがあってもよい。</p>
 
 <p>配列 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.types.array.php" target="_blank">http://www.php.net/manual/ja/language.types.array.php</a></p>
@@ -99,7 +103,7 @@ map.put("b", 2);
 <p>配列関係の関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/book.array.php" target="_blank">http://www.php.net/manual/ja/book.array.php</a></p>
 
-<h2 id="b465ab3">Python
+<h2 id="a1b63e2">Python
 <span class="article-date">2013/10/07</span></h2>
 
 <pre><code>map = {'a': 1, 'b': 2}
@@ -110,13 +114,13 @@ map = {}
 dic = dict()
 </code></pre>
 
-<h2 id="9f14ad3">Ruby
+<h2 id="100dce2">Ruby
 <span class="article-date">2013/09/03</span></h2>
 
 <pre><code>hash = {'a' =&gt; 1, 'b' =&gt; 2}
 </code></pre>
 
-<h2 id="92c4916">Perl
+<h2 id="269ff61">Perl
 <span class="article-date">2013/09/03</span></h2>
 
 <p>ハッシュそのものは変数名が <code>%</code> で始まり、要素を参照するには <code>$</code> で始める。</p>
@@ -142,7 +146,7 @@ my %hash = ('a', 1, 'b', 2);
           );
 </code></pre>
 
-<h3 id="5d6d32d">ハッシュへのレファレンス
+<h3 id="3c08215">ハッシュへのレファレンス
 <span class="article-date">2013/09/23</span></h3>
 
 <pre><code>my $hash = {a =&gt; 1, b =&gt; 2};
@@ -176,7 +180,7 @@ map = {'a': 1, 'b': 2}
 <p>JSONフォーマットは、JavaScriptでのオブジェクトの書き方に準ずるが
 JSONフォーマットのほうがルールが厳しい。</p>
 
-<h3 id="ac4d090">JSON
+<h3 id="afbb0f1">JSON
 <span class="article-date">2013/10/20</span></h3>
 
 <p>JavaScriptのオブジェクトの表記は、ほぼそのままJSONの表記となるが、少し違う点がある。</p>
@@ -199,7 +203,7 @@ JSONフォーマットのほうがルールが厳しい。</p>
 -&gt; <a href="../json/decode.html#php">PHPでデコードするには</a></li>
 </ul>
 
-<h2 id="32b6bcc">CoffeeScript
+<h2 id="60cafab">CoffeeScript
 <span class="article-date">2013/04/15</span></h2>
 
 <pre><code>map = {a: 1, b: 2}

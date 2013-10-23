@@ -60,9 +60,19 @@
 <p><code>java.util.Map</code> インターフェースがある。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2013/10/05</span></h2>
+<span class="article-date">2013/10/22</span></h2>
 
 <p>連想配列が組み込み型として存在する。連想配列のキーに整数を使えば、単純な配列として使うことができ、連想配列と通常の配列の区別がない。</p>
+
+<p>キーには以下のような制限がある。</p>
+
+<ul>
+  <li>浮動小数点数は整数に切り捨てられてしまう</li>
+  <li><code>TRUE</code> は <code>1</code> になってしまう</li>
+  <li><code>FALSE</code> は <code>0</code> になってしまう</li>
+  <li><code>NULL</code> は <code>""</code> になってしまう</li>
+  <li>配列やオブジェクトはキーとして使えない</li>
+</ul>
 
 <p>配列 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.types.array.php" target="_blank">http://www.php.net/manual/ja/language.types.array.php</a></p>

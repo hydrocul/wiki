@@ -83,6 +83,62 @@
 
 <p>イミュータブルなオブジェクトのコピーは意味がないので、ここではミュータブルなリストのコピーについて。</p>
 
+<h2 id="c715d34">PHP
+<span class="article-date">2013/10/22</span></h2>
+
+<p>配列をコピーするには単に代入すればよい。</p>
+
+<pre><code>$src = array(1, 2, 3);
+$dst = $src;
+$src[0] = 10;
+
+var_export($src);
+// 出力:
+// array (
+//   0 =&gt; 10,
+//   1 =&gt; 2,
+//   2 =&gt; 3,
+// )
+
+var_export($dst);
+// 出力:
+// array (
+//   0 =&gt; 1,
+//   1 =&gt; 2,
+//   2 =&gt; 3,
+// )
+</code></pre>
+
+<p>要素が配列であってもそれもコピーされるので、deep copyということか。</p>
+
+<pre><code>$src = array(1, array(2, 3));
+$dst = $src;
+$src[1][0] = 20;
+
+var_export($src);
+// 出力:
+// array (
+//   0 =&gt; 1,
+//   1 =&gt;
+//   array (
+//     0 =&gt; 20,
+//     1 =&gt; 3,
+//   ),
+// )
+
+var_export($dst);
+// 出力:
+// array (
+//   0 =&gt; 1,
+//   1 =&gt;
+//   array (
+//     0 =&gt; 2,
+//     1 =&gt; 3,
+//   ),
+// )
+)
+</code></pre>
+
 <h2 id="python">Python
 <span class="article-date">2013/10/22</span></h2>
 
