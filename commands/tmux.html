@@ -23,6 +23,7 @@
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
@@ -30,13 +31,13 @@
       <li><a href="../commands/crontab.html">crontab</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
       <li><a href="../commands/cut.html">cut コマンド</a></li>
-      <li><a href="../commands/date.html">date</a></li>
+      <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep</a></li>
-      <li><a href="../commands/incron.html">incron (inotify cron)</a></li>
+      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -57,6 +58,7 @@
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
+      <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
@@ -82,7 +84,7 @@
 <div id="content">
   <h1 id="tmux">tmux コマンド</h1>
 
-<h2 id="564cf29">キーバインド
+<h2 id="2d00375">キーバインド
 <span class="article-date">2013/07/24</span></h2>
 
 <p>以下で &lt;prefix&gt; は Ctrl+b など、tmuxのプリフィックキーで、設定によって変わる。</p>
@@ -98,7 +100,7 @@
   <dd>ペインの間を移動する</dd>
 </dl>
 
-<h2 id="4dea0c7">用語の説明
+<h2 id="dce5b9b">用語の説明
 <span class="article-date">2013/07/24</span></h2>
 
 <dl>
@@ -110,7 +112,7 @@
   <dd>ウィンドウの中の1つの端末で、ウィンドウの中を水平や垂直に区切って複数並べることができる。</dd>
 </dl>
 
-<h2 id="7a0b3ac">コマンドラインでのコマンド
+<h2 id="00bb43e">コマンドラインでのコマンド
 <span class="article-date">2013/07/24</span></h2>
 
 <pre><code># セッション一覧
@@ -123,7 +125,7 @@ tmux new -s hoge
 tmux attach -t 名前
 </code></pre>
 
-<h2 id="87c8f42">複数のペインで同じ操作をするには
+<h2 id="e4b8c20">複数のペインで同じ操作をするには
 <span class="article-date">2013/09/25</span></h2>
 
 <p>たくさんのリモートホストに対して、同じコマンド操作をしたい場合に、いちいちそれぞれのリモートホストにSSH接続して同じキー入力するのはとても面倒。それを解決してくれるのが、tmuxのsynchronize-panesの機能。</p>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>パスからファイル名を取得するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>パスからファイル名を取得するには | 入出力・ファイル操作 | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>パスからファイル名を取得するには</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>パスからファイル名を取得するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/io/">入出力・ファイル操作</a>
         <ul>
@@ -58,7 +58,7 @@
 
 <p>ファイルパスからファイル名の部分を取り出す方法。ディレクトリの部分を取り出す方法は<a href="dirname.html">dirname</a>。拡張子を取り出す方法は<a href="extname.html">extname</a>。</p>
 
-<h2 id="45cb178">Java
+<h2 id="ebf2406">Java
 <span class="article-date">2013/10/08</span></h2>
 
 <pre><code>import java.io.File;
@@ -67,7 +67,7 @@ File file = new File(path);
 String basename = file.getName();
 </code></pre>
 
-<h2 id="95d04f1">PHP
+<h2 id="4930960">PHP
 <span class="article-date">2013/09/13</span></h2>
 
 <pre><code>basename($path);
@@ -76,7 +76,7 @@ String basename = file.getName();
 <p>basename | PHPマニュアル<br />
 <a href="http://www.php.net/manual/ja/function.basename.php" target="_blank">http://www.php.net/manual/ja/function.basename.php</a></p>
 
-<h2 id="1d1c854">Python
+<h2 id="bc6aae4">Python
 <span class="article-date">2013/10/08</span></h2>
 
 <pre><code>import os
@@ -84,13 +84,13 @@ String basename = file.getName();
 print os.path.basename(path)
 </code></pre>
 
-<h2 id="bec088f">Ruby
+<h2 id="bc31582">Ruby
 <span class="article-date">2013/08/29</span></h2>
 
 <pre><code>File.basename(path)
 </code></pre>
 
-<h2 id="946d657">Perl
+<h2 id="efc92b9">Perl
 <span class="article-date">2013/08/17</span></h2>
 
 <p>例</p>
@@ -103,7 +103,7 @@ print basename("/aaa") . "\n"; # =&gt; aaa
 print basename("aaa") . "\n"; # =&gt; aaa
 </code></pre>
 
-<h2 id="d0726c1">sh
+<h2 id="f8fb649">sh
 <span class="article-date">2013/10/09</span></h2>
 
 <p><code>basename</code>コマンドを利用する。</p>

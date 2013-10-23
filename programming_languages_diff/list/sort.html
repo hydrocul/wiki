@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストの要素を並べ替えするには (sort) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストの要素を並べ替えするには (sort) | リスト(配列) | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの要素を並べ替えするには (sort)</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの要素を並べ替えするには (sort)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/list/">リスト(配列)</a>
         <ul>
@@ -80,7 +80,7 @@
 <div id="content">
   <h1 id="sort">リストの要素を並べ替えするには (sort)</h1>
 
-<h2 id="5296b3e">Java
+<h2 id="60f4ea9">Java
 <span class="article-date">2013/08/28</span></h2>
 
 <p>Signature:</p>
@@ -90,7 +90,7 @@ static void &lt;T extends java.util.Comparable&lt;? super T&gt;&gt; sort(List&lt
 static void &lt;T&gt; sort(List&lt;T&gt; list, java.util.Comparator&lt;? super T&gt; comparator)
 </code></pre>
 
-<h2 id="468ef51">Scala
+<h2 id="3b1af1b">Scala
 <span class="article-date">2013/07/30</span></h2>
 
 <p>Signature:</p>
@@ -102,7 +102,7 @@ def sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 
 <p>ソート結果のリストを返し、自身は変更しない。</p>
 
-<h2 id="e026d65">Python
+<h2 id="9eebbe2">Python
 <span class="article-date">2013/10/08</span></h2>
 
 <pre><code># ソート済みのリストを返し、引数のリストは変更しない
@@ -112,7 +112,7 @@ sorted(lst)
 lst.sort()
 </code></pre>
 
-<h2 id="81552ae">Ruby
+<h2 id="4822fb4">Ruby
 <span class="article-date">2013/10/08</span></h2>
 
 <pre><code>Array#sort
@@ -128,7 +128,7 @@ arr.sort  {|a, b| a.num &lt;=&gt; b.num}  # 非破壊的
 arr.sort! {|a, b| a.num &lt;=&gt; b.num}  # 破壊的
 </code></pre>
 
-<h2 id="efd00e1">Perl
+<h2 id="e37fa1c">Perl
 <span class="article-date">2013/09/11</span></h2>
 
 <pre><code>sort(@arr)

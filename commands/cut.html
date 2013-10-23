@@ -23,6 +23,7 @@
   <li><a href="../commands/">コマンドリファレンス</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
@@ -30,13 +31,13 @@
       <li><a href="../commands/crontab.html">crontab</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
       <li>cut コマンド</li>
-      <li><a href="../commands/date.html">date</a></li>
+      <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep</a></li>
-      <li><a href="../commands/incron.html">incron (inotify cron)</a></li>
+      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -57,6 +58,7 @@
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
+      <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
@@ -94,7 +96,7 @@ cat ファイル名 | cut -f1,3
 cat ファイル名 | cut -f3,1
 </code></pre>
 
-<h2 id="6fbc5c8">オプション
+<h2 id="b13ce3d">オプション
 <span class="article-date">2013/10/08</span></h2>
 
 <dl>
@@ -113,13 +115,13 @@ cat ファイル名 | cut -f3,1
   <dd>フィールド単位ではなく文字単位で抽出する範囲を指定する</dd>
 </dl>
 
-<h2 id="bf5d3a4">スペース区切りを処理するには
+<h2 id="4c0f3a8">スペース区切りを処理するには
 <span class="article-date">2013/06/17</span></h2>
 
 <pre><code>cat ファイル名 | cut -d' ' -f1,3
 </code></pre>
 
-<h2 id="c71ad07">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには
+<h2 id="ea99fad">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには
 <span class="article-date">2013/08/13</span></h2>
 
 <p>例</p>
@@ -127,7 +129,7 @@ cat ファイル名 | cut -f3,1
 <pre><code>cat hoge.txt | sed 's/[\t ]\+/ /g' | cut -d' ' -f1,3
 </code></pre>
 
-<h2 id="1826176">タブをコマンドラインから指定するには
+<h2 id="85b0656">タブをコマンドラインから指定するには
 <span class="article-date">2013/06/17</span></h2>
 
 <p><code>cut</code> は <code>-f</code> でフィールドを指定した場合、デフォルトでタブ区切りだが、コマンドラインからどうしてもタブ区切りであることを指定したい場合は、以下のように書けなくもない。</p>

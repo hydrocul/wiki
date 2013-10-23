@@ -34,15 +34,15 @@
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
   <li><a href="./mechanize.html">mechanize</a></li>
-  <li><a href="./memcached.html">memcached</a></li>
   <li><a href="./misc.html">misc</a></li>
   <li>MySQL</li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
+  <li><a href="./others/">未分類</a></li>
   <li><a href="./paco.html">Paco</a></li>
   <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
   <li><a href="./phantomjs.html">phantomjs</a></li>
   <li><a href="./php.html">PHP</a></li>
-  <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
   <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
@@ -55,7 +55,7 @@
 <div id="content">
   <h1 id="mysql">MySQL</h1>
 
-<h2 id="a046ee1">プロセス
+<h2 id="52c3eb6">プロセス
 <span class="article-date">2013/04/03</span></h2>
 
 <p>実行中のプロセスの一覧を表示する</p>
@@ -69,13 +69,13 @@ SHOW FULL PROCESSLIST;
 <pre><code>KILL プロセスID
 </code></pre>
 
-<h2 id="ea3530c">EXPLAIN
+<h2 id="0c498b1">EXPLAIN
 <span class="article-date">2013/04/03</span></h2>
 
 <p>EXPLAINを使用して、クエリを最適化する | MySQL リファレンスマニュアル<br />
 <a href="http://dev.mysql.com/doc/refman/5.1/ja/explain.html" target="_blank">http://dev.mysql.com/doc/refman/5.1/ja/explain.html</a></p>
 
-<h2 id="3526b0a">テーブルの文字コードを調べるには
+<h2 id="7b80dc0">テーブルの文字コードを調べるには
 <span class="article-date">2013/09/28</span></h2>
 
 <p>データベースの設定、クライアント側の設定、接続時の設定などを見るには</p>
@@ -91,7 +91,7 @@ SHOW FULL PROCESSLIST;
 <p>【MySQL】テーブルの文字コードを調べる<br />
 <a href="http://www.softel.co.jp/blogs/tech/archives/1470" target="_blank">http://www.softel.co.jp/blogs/tech/archives/1470</a></p>
 
-<h2 id="18f8701">MySQLダンプファイルを1行ずつ見やすいフォーマットにするには
+<h2 id="34120d8">MySQLダンプファイルを1行ずつ見やすいフォーマットにするには
 <span class="article-date">2013/04/09</span></h2>
 
 <pre><code>mysqldump -u ユーザ名 -p --skip-extended-insert --complete-insert --order-by-primary データベース名
@@ -105,20 +105,20 @@ SHOW FULL PROCESSLIST;
   <li>オプション <code>--order-by-primary</code> はプライマリキーの順にINSER文を出力する。</li>
 </ul>
 
-<h2 id="f1e6615">MySQLダンプでデータ自体ではなく、テーブル定義のみをエクスポートするには
+<h2 id="ff9aa37">MySQLダンプでデータ自体ではなく、テーブル定義のみをエクスポートするには
 <span class="article-date">2013/04/09</span></h2>
 
 <pre><code>mysqldump -u ユーザ名 -p --no-data データベース名
 </code></pre>
 
-<h2 id="218b142">mysqlコマンドで結果が縦に長い時にページャで見るには、または横に長くて崩れてしまうのをなんとかするには
+<h2 id="443c605">mysqlコマンドで結果が縦に長い時にページャで見るには、または横に長くて崩れてしまうのをなんとかするには
 <span class="article-date">2013/07/02</span></h2>
 
 <p>mysqlコマンドのオプションに <code>--pager='less -SXF'</code> をつける。 <code>-X</code> を付けると、 less 終了時に画面をクリアしない。 <code>-F</code> を付けると、行数が短くて一画面に収まる場合は less がすぐに終了する。</p>
 
 <p>-&gt; less.md</p>
 
-<h2 id="ad75bea">mysqlコマンドでSELECTの結果を表形式ではなくレコードごとに縦に表示させるには
+<h2 id="e9744ab">mysqlコマンドでSELECTの結果を表形式ではなくレコードごとに縦に表示させるには
 <span class="article-date">2013/07/24</span></h2>
 
 <p>最後のセミコロンのかわりに <code>\G</code> を付けると、縦に表示してくれる。</p>
@@ -126,13 +126,13 @@ SHOW FULL PROCESSLIST;
 <pre><code>SELECT * FROM hoge\G
 </code></pre>
 
-<h2 id="6d12673">MySQLは正規表現が使える
+<h2 id="22088b5">MySQLは正規表現が使える
 <span class="article-date">2013/04/23</span></h2>
 
 <p>正規表現 | MySQL 5.1 リファレンスマニュアル<br />
 <a href="http://dev.mysql.com/doc/refman/5.1/ja/regexp.html" target="_blank">http://dev.mysql.com/doc/refman/5.1/ja/regexp.html</a></p>
 
-<h2 id="44d8cbd">MySQLへの接続のパスワードを変更するには
+<h2 id="2f7a6a3">MySQLへの接続のパスワードを変更するには
 <span class="article-date">2013/06/18</span></h2>
 
 <p>MySQLへの接続のパスワードを変更するには、以下のコマンドを打つ。</p>
@@ -161,7 +161,7 @@ UPDATE user set Password = PASSWORD('newpassword')  where User='username';
 FLUSH PRIVILEGES
 </code></pre>
 
-<h2 id="64934b7">コマンドラインから直接SQLを実行するには
+<h2 id="9ee4a10">コマンドラインから直接SQLを実行するには
 <span class="article-date">2013/09/10</span></h2>
 
 <p><code>-e</code> オプションでSQLを渡す。</p>
@@ -175,7 +175,7 @@ FLUSH PRIVILEGES
 
 <p><code>-N</code> を付けるとSELECTの1行目のカラム名が出力されなくなる。</p>
 
-<h2 id="d509be3">TSVファイルでデータをインポートするには
+<h2 id="368e6cc">TSVファイルでデータをインポートするには
 <span class="article-date">2013/06/28</span></h2>
 
 <p><code>LOAD DATA</code> というSQLの構文を使う。以下は <code>items</code> テーブルに
@@ -191,7 +191,7 @@ FLUSH PRIVILEGES
 <pre><code>load data local infile '/home/foo/bar.tsv' into table items (id, title, keywd);
 </code></pre>
 
-<h2 id="a8c18f0">MySQLサーバをskip-name-resolveオプション付きで起動するときは注意が要る件について
+<h2 id="72e44a5">MySQLサーバをskip-name-resolveオプション付きで起動するときは注意が要る件について
 <span class="article-date">2013/07/02</span></h2>
 
 <p><a href="http://backslash.ddo.jp/wordpress/archives/397" target="_blank">http://backslash.ddo.jp/wordpress/archives/397</a></p>
@@ -203,7 +203,7 @@ FLUSH PRIVILEGES
 <p>に自分も先日食らって、接続するソースコードに
 <code>s/127\.0\.0\.1/localhost/</code> 的なコードを追加していたのだった。</p>
 
-<h2 id="31257d0">設定ファイル my.cnf の場所
+<h2 id="af8c84f">設定ファイル my.cnf の場所
 <span class="article-date">2013/10/08</span></h2>
 
 <p>CentOS: <code>/etc/my.cnf</code><br />
