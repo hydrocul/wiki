@@ -98,14 +98,14 @@
 <h2 id="fec7f98"><code>mv</code> に渡す場合は要注意
 <span class="article-date">2013/06/11</span></h2>
 
-<p>xargsは、コマンドの最後にファイル名を引数として渡すため、
+<p><code>xargs</code> は、コマンドの最後にファイル名を引数として渡すため、
 <code>mv</code> に渡すには <code>mv -t</code> とする必要がある。</p>
 
 <pre><code>find . -type f | xargs mv -t ~/dst
 </code></pre>
 
 <p><code>-t</code> を与えないと <code>mv ~/dst a.txt b.txt dir/c.txt dir/d.txt</code> のようになって、
-dir/d.txt に移動することになってしまい、ほとんどのファイルの中身が破壊されてしまう。</p>
+<code>dir/d.txt</code> に移動することになってしまい、ほとんどのファイルの中身が破壊されてしまう。</p>
 
 
 </div>

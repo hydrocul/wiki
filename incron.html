@@ -34,15 +34,15 @@
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
   <li><a href="./mechanize.html">mechanize</a></li>
-  <li><a href="./memcached.html">memcached</a></li>
   <li><a href="./misc.html">misc</a></li>
   <li><a href="./mysql.html">MySQL</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
+  <li><a href="./others/">未分類</a></li>
   <li><a href="./paco.html">Paco</a></li>
   <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
   <li><a href="./phantomjs.html">phantomjs</a></li>
   <li><a href="./php.html">PHP</a></li>
-  <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
   <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
@@ -64,12 +64,25 @@ incronはファイルの変更などのイベント時に特定のジョブを�
 <p><code>incrontab</code>というコマンドでincronを管理し、
 cronを管理する<a href="commands/crontab.html">crontab</a>とよく似ている。</p>
 
-<h2 id="88b3f23">インストール
-<span class="article-date">2013/05/12</span></h2>
+<h2 id="b66082f">インストール</h2>
 
-<p>-&gt; <a href="commands/incrontab.html#install"><code>incrontab</code>コマンド</a></p>
+<h3 id="a39f813">CentOSの場合
+<span class="article-date">2013/05/12</span></h3>
 
-<h2 id="a73bf40">incrontabコマンド
+<pre><code>sudo yum install incron
+</code></pre>
+
+<h3 id="b9a01e5">Ubuntuの場合
+<span class="article-date">2013/05/12</span></h3>
+
+<pre><code>sudo apt-get install incron
+</code></pre>
+
+<p>このコマンドだけで、勝手に起動して、OS起動時の自動実行にも設定される。</p>
+
+<p>(Ubuntu 12.04で確認)</p>
+
+<h2 id="3c6f77d">incrontabコマンド
 <span class="article-date">2013/05/12</span></h2>
 
 <p><code>incrontab</code> コマンドの使い方は <code>crontab</code> と同じ。</p>
@@ -89,7 +102,7 @@ incrontab -r
 
 <p><code>-r</code> は <code>crontab</code> と同じく、確認なしに設定を削除するので、要注意。</p>
 
-<h2 id="ee53483">ジョブの設定のフォーマット
+<h2 id="53e3cf0">ジョブの設定のフォーマット
 <span class="article-date">2013/09/09</span></h2>
 
 <pre><code>監視対象ファイル 監視対象イベント コマンド
@@ -124,7 +137,7 @@ incrontab -r
 
 <p>コマンドの中にcrontabと同じ要領で <code>&gt;</code> を使ってファイルに出力しようとしてもできないみたい。</p>
 
-<h2 id="a850207">イベントの一覧
+<h2 id="917ce7a">イベントの一覧
 <span class="article-date">2013/05/12</span></h2>
 
 <p>以下のコマンドで使用できるイベントの一覧を確認できる。
@@ -176,16 +189,19 @@ incrontab -r
 
 <p><code>man inotify</code> にもイベントの説明が書いてある。</p>
 
-<h2 id="c877785">ログ
+<h2 id="33f49ab">ログ
 <span class="article-date">2013/05/13</span></h2>
 
 <p>実行されたコマンドのログは <code>/var/log/syslog</code> に書きだされる
 (Ubuntuのデフォルトの設定で確認、他のOSでは違うかもしれない)。</p>
 
-<h2 id="dead4d8">他との比較
+<h2 id="efee57a">他との比較
 <span class="article-date">2013/05/12</span></h2>
 
-<p>-&gt; <a href="commands/incrontab.html#compare-other"><code>incrontab</code>コマンド</a></p>
+<p>他にLinuxで使える仕組みとして、fanotifyというものがあるらしい。</p>
+
+<p>inotifyとfanotifyの比較<br />
+<a href="http://www.nminoru.jp/~nminoru/programming/file_change_notification.html" target="_blank">http://www.nminoru.jp/~nminoru/programming/file_change_notification.html</a></p>
 
 
 </div>
