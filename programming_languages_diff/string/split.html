@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>特定の文字やパターンで配列などに分割するには (split / explode) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>特定の文字やパターンで配列などに分割するには (split / explode) | 文字列 | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>特定の文字やパターンで配列などに分割するには (split / explode)</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>特定の文字やパターンで配列などに分割するには (split / explode)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/string/">文字列</a>
         <ul>
@@ -46,6 +46,7 @@
           <li>特定の文字やパターンで配列などに分割するには (split / explode)</li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
         </ul>
       </li>
@@ -59,7 +60,7 @@
 <div id="content">
   <h1 id="split">特定の文字やパターンで配列などに分割するには (split / explode)</h1>
 
-<h2 id="86cc95c">Java
+<h2 id="6df95c0">Java
 <span class="article-date">2013/08/02</span></h2>
 
 <pre><code>String[] String#split(String regex)
@@ -68,7 +69,7 @@ String[] String#split(String regex, int limit)
 
 <p>空文字列をsplitすると空文字列1つだけの配列を返す。</p>
 
-<h2 id="c1b00ab">Scala
+<h2 id="cd1396e">Scala
 <span class="article-date">2013/08/02</span></h2>
 
 <pre><code>// scala.collection.immutable.StringLike
@@ -82,7 +83,7 @@ def split(regex: String, limit: Int): Array[String]
 
 <p>いずれのメソッドも空文字列をsplitすると空文字列1つだけの配列を返す。</p>
 
-<h2 id="4e753b0">PHP
+<h2 id="458713a">PHP
 <span class="article-date">2013/05/05</span></h2>
 
 <pre><code>explode($separator, $str [, $limit])
@@ -90,7 +91,7 @@ def split(regex: String, limit: Int): Array[String]
 
 <p><a href="http://www.php.net/manual/ja/function.explode.php" target="_blank">http://www.php.net/manual/ja/function.explode.php</a></p>
 
-<h2 id="8636a00">Ruby
+<h2 id="d5b8602">Ruby
 <span class="article-date">2013/08/02</span></h2>
 
 <pre><code>String#split(pattern [, limit])
@@ -121,7 +122,7 @@ def split(regex: String, limit: Int): Array[String]
 # =&gt; ["", "b"]
 </code></pre>
 
-<h2 id="22770c1">Perl
+<h2 id="fd4ba15">Perl
 <span class="article-date">2013/08/02</span></h2>
 
 <pre><code>my @arr = split(/[bd]/, "abcdef");

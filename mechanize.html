@@ -21,7 +21,7 @@
   <div id="side-menu-ls">
     <ul>
   <li><a href="./apache.html">Apache</a></li>
-  <li><a href="./commands/">コマンドリファレンス</a></li>
+  <li><a href="./commands/">コマンドの使い方</a></li>
   <li><a href="./css.html">CSS</a></li>
   <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google.html">google</a></li>
@@ -34,15 +34,15 @@
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
   <li>mechanize</li>
-  <li><a href="./memcached.html">memcached</a></li>
   <li><a href="./misc.html">misc</a></li>
   <li><a href="./mysql.html">MySQL</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
+  <li><a href="./others/">未分類</a></li>
   <li><a href="./paco.html">Paco</a></li>
   <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
   <li><a href="./phantomjs.html">phantomjs</a></li>
   <li><a href="./php.html">PHP</a></li>
-  <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
   <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
@@ -60,7 +60,7 @@
 
 <h2 id="19eb8cb">Ruby</h2>
 
-<h3 id="f5f2657">参考サイト
+<h3 id="da1f64a">参考サイト
 <span class="article-date">2013/06/03</span></h3>
 
 <p>Mechanize 公式サイト<br />
@@ -76,7 +76,7 @@
 <a href="http://nokogiri.org/" target="_blank">http://nokogiri.org/</a><br />
 Mechanizeが利用しているHTMLを解析するライブラリ</p>
 
-<h3 id="c1e5044">Nokogiriをインストールするにはgem以外のパッケージも必要
+<h3 id="de47e50">Nokogiriをインストールするにはgem以外のパッケージも必要
 <span class="article-date">2013/06/17</span></h3>
 
 <p>自分の環境では <code>gem install</code> する前に apt-get でいくつかのパッケージをインストールすることが必要だった。</p>
@@ -92,7 +92,7 @@ sudo gem install -v 1.5.9 nokogiri
 <p>詳しくは以下の公式ドキュメントを参照。<br />
 <a href="http://nokogiri.org/tutorials/installing_nokogiri.html" target="_blank">http://nokogiri.org/tutorials/installing_nokogiri.html</a></p>
 
-<h3 id="b106de8">コードの例
+<h3 id="fb059dd">コードの例
 <span class="article-date">2013/04/15</span></h3>
 
 <pre><code>require 'mechanize'
@@ -109,7 +109,7 @@ link = agent.page.link_with(:text =&gt; 'ヘルプ'.toutf8) # リンクを探す
 link.click if link != nil リンクをクリック
 </code></pre>
 
-<h3 id="4fe05fd">フォームに関するコードの例
+<h3 id="f262e87">フォームに関するコードの例
 <span class="article-date">2013/05/18</span></h3>
 
 <pre><code>form = agent.page.forms[0] # フォームを取得
@@ -122,7 +122,7 @@ form['password'] = pw # input要素に値を設定
 form.click_button # submitを実行
 </code></pre>
 
-<h3 id="cf8215d">BASIC認証のあるページにアクセスするには
+<h3 id="b23aa36">BASIC認証のあるページにアクセスするには
 <span class="article-date">2013/06/17</span></h3>
 
 <p>リクエストする前にid, pwをauthメソッドに渡す。</p>
@@ -132,7 +132,7 @@ form.click_button # submitを実行
 <pre><code>agent.auth('user_hoge', 'passwd')
 </code></pre>
 
-<h3 id="69d09a0">user_agent_alias で使えるエイリアス
+<h3 id="9cec7e4">user_agent_alias で使えるエイリアス
 <span class="article-date">2013/06/20</span></h3>
 
 <p>サーバへのリクエスト時に送信される User-Agent をmechanizeデフォルトのものから以下のようなコードで変更できる。</p>

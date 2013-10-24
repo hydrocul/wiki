@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>概要 | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>概要 | 文字列 | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>概要</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>概要</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/string/">文字列</a>
         <ul>
@@ -60,7 +60,7 @@
 <div id="content">
   <h1 id="overview">概要</h1>
 
-<h2 id="e355cde">C言語, C++
+<h2 id="a84cc88">C言語, C++
 <span class="article-date">2013/10/07</span></h2>
 
 <p>C言語における文字列は、1バイトの整数である<code>char</code>型の配列であるか、配列の先頭へのポインタである。型は <code>char[]</code>, <code>char*</code> など。</p>
@@ -71,7 +71,7 @@
 
 <p>文字符号化方式(文字コード)に関する情報は文字列自身は持っていない。マルチバイトの文字はそのまま2バイト以上を使って保存する。</p>
 
-<h2 id="f9c80ee">Java / Scala
+<h2 id="6b3acc7">Java / Scala
 <span class="article-date">2013/10/10</span></h2>
 
 <p>Java / Scala における文字列は、2バイトの整数であるJavaの<code>char</code>型の配列と長さの情報を持ったオブジェクトである。長さの情報を持っているため、終端文字を考えなくてよい。</p>
@@ -88,7 +88,7 @@
 <p><code>java.lang.String</code> はイミュータブル(immutable)である。ミュータブルな文字列としては、<code>java.lang.StringBuilder</code>,
 <code>java.lang.StringBuffer</code> がある。</p>
 
-<h2 id="47edd3b">Python
+<h2 id="ccd88c1">Python
 <span class="article-date">2013/08/17</span></h2>
 
 <p>単なるバイト列の文字列とUnicode文字列の2種類ある。</p>
@@ -103,7 +103,7 @@
 
 <p>Unicode文字列はencodeメソッドでバイト列に変換でき、バイト列はdecodeメソッドでUnicode文字列に変換できる。</p>
 
-<h2 id="7775f98">Ruby
+<h2 id="3f929ef">Ruby
 <span class="article-date">2013/09/21</span></h2>
 
 <p>Ruby 1.8以前と1.9以降とでは文字列の扱いが大きく異なる。</p>
@@ -117,7 +117,7 @@
 
 <p>文字列のメソッドの中には文字列自身を変更するものがあるため、文字列はmutableなオブジェクトである。</p>
 
-<h2 id="b62b8f6">Perl
+<h2 id="3263830">Perl
 <span class="article-date">2013/09/21</span></h2>
 
 <p>Javaに似ていて、内部ではUnicodeで処理していて、外界との入出力時に必要とする文字符号化方式で変換するのが原則。</p>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>cp コマンド | コマンドリファレンス | hydrocul のメモ</title>
+<title>cp コマンド | コマンドの使い方 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; <span>cp コマンド</span>
+  <a href="../commands/">コマンドの使い方</a> &gt; <span>cp コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,9 +20,10 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../commands/">コマンドリファレンス</a>
+  <li><a href="../commands/">コマンドの使い方</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat</a></li>
@@ -30,13 +31,13 @@
       <li><a href="../commands/crontab.html">crontab</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
       <li><a href="../commands/cut.html">cut コマンド</a></li>
-      <li><a href="../commands/date.html">date</a></li>
+      <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep</a></li>
-      <li><a href="../commands/incron.html">incron (inotify cron)</a></li>
+      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -57,6 +58,7 @@
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
+      <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
@@ -85,7 +87,7 @@
 
 <p>ファイルをコピーするコマンド。別のホストにファイルをコピーするには<a href="rsync.html">rsync</a>を使う。コピーではなく移動させるにはmvを使う。</p>
 
-<h2 id="ba43644">オプション
+<h2 id="4590d63">オプション
 <span class="article-date">2013/09/26</span></h2>
 
 <dl>
@@ -107,7 +109,7 @@
 このオプションを付ければ、シンボリックリンクとしてそのままコピーされる。</dd>
 </dl>
 
-<h2 id="8a587f7">注意！
+<h2 id="d0a0215">注意！
 <span class="article-date">2013/10/09</span></h2>
 
 <p>複数のファイルをコピーしたくて、ファイル名を入力している途中で間違ってエンターを押しちゃったときに、最後のファイル名がコピー先となってコピーを実行してしまい、ファイルを破壊してしまうので、要注意。</p>
@@ -125,7 +127,7 @@
 <p>の段階でエンターを押してしまうと、<code>bar.txt</code> の内容が失われて、
 <code>foo.txt</code> が <code>bar.txt</code> にコピーされてしまう。</p>
 
-<h2 id="f657790">ディレクトリ名も含めてファイルをコピーするには
+<h2 id="f9428e5">ディレクトリ名も含めてファイルをコピーするには
 <span class="article-date">2013/09/16</span></h2>
 
 <pre><code>cp --parents abc/def/ghi.dat /home/who/

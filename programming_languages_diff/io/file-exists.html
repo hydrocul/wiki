@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ファイルまたはディレクトリが存在するかどうかを取得するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>ファイルまたはディレクトリが存在するかどうかを取得するには | 入出力・ファイル操作 | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイルまたはディレクトリが存在するかどうかを取得するには</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイルまたはディレクトリが存在するかどうかを取得するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/io/">入出力・ファイル操作</a>
         <ul>
@@ -55,7 +55,7 @@
 <div id="content">
   <h1 id="file-exists">ファイルまたはディレクトリが存在するかどうかを取得するには</h1>
 
-<h2 id="63a0669">PHP
+<h2 id="99da234">PHP
 <span class="article-date">2013/07/24</span></h2>
 
 <pre><code>file_exists('/home/foo/testfile')
@@ -66,7 +66,7 @@
 <p>file_exists | PHPマニュアル<br />
 <a href="http://www.php.net/manual/ja/function.file-exists.php" target="_blank">http://www.php.net/manual/ja/function.file-exists.php</a></p>
 
-<h2 id="e8c7cd2">Ruby
+<h2 id="78acfda">Ruby
 <span class="article-date">2013/10/09</span></h2>
 
 <pre><code>File.exists?('/home/foo/testfile')
@@ -74,7 +74,7 @@
 
 <p>シンボリックリンクの場合は、リンク先が存在するかどうかをチェックする。リンク先が存在しなければリンクそのものが存在していても <code>false</code> を返す。</p>
 
-<h2 id="b066079">Perl
+<h2 id="975485f">Perl
 <span class="article-date">2013/07/27</span></h2>
 
 <pre><code>if( -e '/home/foo/testfile' ){
@@ -82,7 +82,7 @@
 }
 </code></pre>
 
-<h2 id="5b5bc09">sh
+<h2 id="a887968">sh
 <span class="article-date">2013/07/27</span></h2>
 
 <pre><code>if [ -e /home/foo/testfile ]; then
