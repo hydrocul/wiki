@@ -20,13 +20,15 @@
   </div>
   <div id="side-menu-ls">
     <ul>
+  <li><a href="./commands/">コマンドの使い方</a></li>
+  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
+  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
+  <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./apache.html">Apache</a></li>
-  <li><a href="./commands/">コマンドリファレンス</a></li>
   <li><a href="./css.html">CSS</a></li>
   <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google.html">google</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
-  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
   <li><a href="./ie.html">Internet Explorer</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li><a href="./jquery.html">jQuery</a></li>
@@ -34,17 +36,15 @@
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
   <li><a href="./mechanize.html">mechanize</a></li>
-  <li><a href="./memcached.html">memcached</a></li>
   <li><a href="./misc.html">misc</a></li>
   <li><a href="./mysql.html">MySQL</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
+  <li><a href="./others/">未分類</a></li>
   <li><a href="./paco.html">Paco</a></li>
   <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
   <li><a href="./phantomjs.html">phantomjs</a></li>
   <li><a href="./php.html">PHP</a></li>
-  <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
-  <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
   <li><a href="./ubuntu.html">Ubuntu</a></li>
 </ul>
@@ -55,9 +55,9 @@
 <div id="content">
   <h1 id="linux">Linux</h1>
 
-<h2 id="37ac15a">デーモンの管理 (CentOSの場合)</h2>
+<h2 id="81b1df0">デーモンの管理 (CentOSの場合)</h2>
 
-<h3 id="25c6ac0">起動時にデーモンを自動起動させるには
+<h3 id="d48a464">起動時にデーモンを自動起動させるには
 <span class="article-date">2013/04/12</span></h3>
 
 <p>例えば、mysqlの場合</p>
@@ -68,7 +68,7 @@ chkconfig mysqld on
 
 <p><code>chkconfig</code> の設定状況は <code>chkconfig --list</code> で確認できる。</p>
 
-<h3 id="32fe859">手動でデーモンを起動させるには
+<h3 id="ef4cd57">手動でデーモンを起動させるには
 <span class="article-date">2013/04/12</span></h3>
 
 <p>例えば、mysqlの場合</p>
@@ -77,7 +77,7 @@ chkconfig mysqld on
 service mysqld start
 </code></pre>
 
-<h3 id="63b7ddf">手動で作った起動スクリプトを <code>chkconfig</code> に管理させるには
+<h3 id="0d1277b">手動で作った起動スクリプトを <code>chkconfig</code> に管理させるには
 <span class="article-date">2013/04/12</span></h3>
 
 <p><code>/etc/init.d/mydaemon</code> というのがあるとすると</p>
@@ -106,7 +106,7 @@ Codename:       precise
 <pre><code>sudo apt-get install lsb-release
 </code></pre>
 
-<h3 id="773a066"><code>/etc/</code> に入っているファイルで確認するには
+<h3 id="bf5bd70"><code>/etc/</code> に入っているファイルで確認するには
 <span class="article-date">2013/04/30</span></h3>
 
 <p>RedHat, CentOS などの場合</p>
@@ -121,7 +121,7 @@ CentOS release 5.2 (Final)
 wheezy/sid
 </code></pre>
 
-<h3 id="3f51638">スクリプトで自動判定するには
+<h3 id="c5a5f57">スクリプトで自動判定するには
 <span class="article-date">2013/05/22</span></h3>
 
 <pre><code># ファイルの有無で調べる
@@ -139,7 +139,7 @@ elif [ -x /usr/bin/apt-get ] ; then
 fi
 </code></pre>
 
-<h2 id="8ce3e44"><code>adduser</code> と <code>useradd</code>
+<h2 id="7ae252b"><code>adduser</code> と <code>useradd</code>
 <span class="article-date">2013/05/13</span></h2>
 
 <p>-&gt; <a href="commands/adduser.html">adduser コマンド</a></p>
@@ -149,7 +149,7 @@ fi
 
 <p><code>visudo</code> というコマンドをroot権限で実行すると、設定ファイルがviなどで開ける。設定ファイルは <code>/etc/sudoers</code> だが、これを直接開いて編集すると、万が一書き方が間違っていたりしてsudoできなくなってしまうと大変。それを防ぐために <code>visudo</code> というコマンドは、設定ファイルをエディタで編集した後に構文チェックをして問題ない場合に限りそれを適用する仕組みになっている。</p>
 
-<h3 id="080f412">CentOS
+<h3 id="d929a6b">CentOS
 <span class="article-date">2013/05/13</span></h3>
 
 <p>sudoを使うには、最初にroot権限で <code>visudo</code> を実行して設定変更が必要。以下のような行があるので、この行のコメントを解除して有効にする。</p>
@@ -161,7 +161,7 @@ fi
 
 <p>(CentOS6.4で確認)</p>
 
-<h4 id="ee6e85f">なぜwheelという名前のグループなのか？
+<h4 id="859ecb5">なぜwheelという名前のグループなのか？
 <span class="article-date">2013/09/28</span></h4>
 
 <p>なぜsudoする権限のあるグループが「wheel」という名前なのか<br />
@@ -171,7 +171,7 @@ fi
   <p>諸説あるようですが個人的に納得したのが big wheel から由来している説です。big wheel というのは「大物」とか「実力者」とかそういった意味のある言葉のようです</p>
 </blockquote>
 
-<h3 id="7fbd6a6">Ubuntu
+<h3 id="9920ef9">Ubuntu
 <span class="article-date">2013/05/13</span></h3>
 
 <p>OSセットアップ時に作成したユーザはデフォルトでsudoという名前のグループに入っていて、そのグループに入っているユーザには任意のコマンドをsudoで実行できるようになっている。</p>
@@ -185,7 +185,7 @@ fi
 
 <p>(Ubuntu12.04で確認)</p>
 
-<h2 id="366862c">CPUの詳細を確認するには
+<h2 id="6aad54d">CPUの詳細を確認するには
 <span class="article-date">2013/06/14</span></h2>
 
 <pre><code>cat /proc/cpuinfo

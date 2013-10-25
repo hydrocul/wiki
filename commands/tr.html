@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>tr コマンド | コマンドリファレンス | hydrocul のメモ</title>
+<title>tr コマンド | コマンドの使い方 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; <span>tr コマンド</span>
+  <a href="../commands/">コマンドの使い方</a> &gt; <span>tr コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../commands/">コマンドリファレンス</a>
+  <li><a href="../commands/">コマンドの使い方</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
@@ -31,7 +31,7 @@
       <li><a href="../commands/crontab.html">crontab</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
       <li><a href="../commands/cut.html">cut コマンド</a></li>
-      <li><a href="../commands/date.html">date</a></li>
+      <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
@@ -58,6 +58,7 @@
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
+      <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
@@ -83,7 +84,7 @@
 <div id="content">
   <h1 id="tr">tr コマンド</h1>
 
-<h2 id="9caba2a">ファイルの特定の文字を改行に全置換するには
+<h2 id="8cbfc68">ファイルの特定の文字を改行に全置換するには
 <span class="article-date">2013/09/21</span></h2>
 
 <pre><code>cat 変更前ファイル名 | tr '&gt;' '\n' &gt; 変更後ファイル名
@@ -93,7 +94,7 @@
 <code>tr</code>では特定の1文字を別の1文字に置換する、という処理なので、
 <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h2 id="1143826">ファイルの特定の文字を削除するには
+<h2 id="9f61f82">ファイルの特定の文字を削除するには
 <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>cat 変更前ファイル名 | tr -d '\n' &gt; 変更後ファイル名
@@ -101,7 +102,7 @@
 
 <p>この例だと、改行をすべて削除する。</p>
 
-<h2 id="fd7ffc6">特定の文字集合のみにするには
+<h2 id="9f8c42b">特定の文字集合のみにするには
 <span class="article-date">2013/10/01</span></h2>
 
 <p><code>0123456789abcdef</code> 以外をすべて削除する例</p>
@@ -109,7 +110,7 @@
 <pre><code>cat ./hoge.txt | tr -dc '0123456789abcdef'
 </code></pre>
 
-<h2 id="94a67e9">連続したスペースを単一のスペースに変換するには
+<h2 id="89d97ef">連続したスペースを単一のスペースに変換するには
 <span class="article-date">2013/04/18</span></h2>
 
 <pre><code>cat 変更前ファイル名 | tr -s ' ' &gt; 変更後ファイル名

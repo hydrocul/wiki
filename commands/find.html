@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>find コマンド | コマンドリファレンス | hydrocul のメモ</title>
+<title>find コマンド | コマンドの使い方 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; <span>find コマンド</span>
+  <a href="../commands/">コマンドの使い方</a> &gt; <span>find コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../commands/">コマンドリファレンス</a>
+  <li><a href="../commands/">コマンドの使い方</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
@@ -31,7 +31,7 @@
       <li><a href="../commands/crontab.html">crontab</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
       <li><a href="../commands/cut.html">cut コマンド</a></li>
-      <li><a href="../commands/date.html">date</a></li>
+      <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
       <li>find コマンド</li>
@@ -58,6 +58,7 @@
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
+      <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
@@ -83,7 +84,7 @@
 <div id="content">
   <h1 id="find">find コマンド</h1>
 
-<h2 id="2f6638f">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには
+<h2 id="e6a98c3">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには
 <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n"
@@ -95,19 +96,19 @@
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n" | sort -r -k6,7
 </code></pre>
 
-<h2 id="941f1de">カレントディレクトリ以下にある <code>.ht</code> で始まるファイルをそれぞれ <code>.ht*.example</code> というファイルにコピーするには
+<h2 id="4e2c68a">カレントディレクトリ以下にある <code>.ht</code> で始まるファイルをそれぞれ <code>.ht*.example</code> というファイルにコピーするには
 <span class="article-date">2013/04/16</span></h2>
 
 <pre><code>find . -name ".ht*" | awk '{print "cp " $1 " " $1 ".example"}' | sh
 </code></pre>
 
-<h2 id="956fddd">カレントディレクトリ以下にあるすべてのシンボリックリンクを探すには
+<h2 id="0270de7">カレントディレクトリ以下にあるすべてのシンボリックリンクを探すには
 <span class="article-date">2013/04/23</span></h2>
 
 <pre><code>find . -type l -exec ls -l {} \;
 </code></pre>
 
-<h2 id="c43b3b7"><code>Permission denied</code> を表示しないようにするには
+<h2 id="f54e7fb"><code>Permission denied</code> を表示しないようにするには
 <span class="article-date">2013/06/11</span></h2>
 
 <p><code>find</code> で <code>/</code> などを検索すると、 <code>Permission denied</code> というエラーメッセージが大量に出力されてしまう。それを抑制するには以下のようにする。</p>
@@ -115,7 +116,7 @@
 <pre><code>find / ... 2&gt;/dev/null
 </code></pre>
 
-<h2 id="749379d">別のマウント領域の中は探索しないようにするには
+<h2 id="5ccfd97">別のマウント領域の中は探索しないようにするには
 <span class="article-date">2013/06/25</span></h2>
 
 <p><code>-mount</code> を使う。</p>
@@ -125,7 +126,7 @@
 find / -mount -name "hoge" 2&gt;/dev/null
 </code></pre>
 
-<h2 id="ee89339">UIDからそのユーザのホームディレクトリを調べる簡単な方法
+<h2 id="4c2810c">UIDからそのユーザのホームディレクトリを調べる簡単な方法
 <span class="article-date">2013/07/03</span></h2>
 
 <pre><code># UIDが1000のユーザのホームディレクトリ
@@ -141,19 +142,19 @@ find /home -maxdepth 1 -uid 1000
 
 <p>-&gt; http://d.hatena.ne.jp/hydrocul/20111211/1323595015</p>
 
-<h2 id="01fd7fd">空のディレクトリの一覧を表示するには
+<h2 id="81e252f">空のディレクトリの一覧を表示するには
 <span class="article-date">2013/08/28</span></h2>
 
 <pre><code>find . -type d -empty
 </code></pre>
 
-<h2 id="fc1b24f">サイズ0のファイルの一覧を表示するには
+<h2 id="7dc77aa">サイズ0のファイルの一覧を表示するには
 <span class="article-date">2013/08/28</span></h2>
 
 <pre><code>find . -type f -empty
 </code></pre>
 
-<h2 id="a94538c">リンク集
+<h2 id="15af3f8">リンク集
 <span class="article-date">2013/04/03</span></h2>
 
 <p>特定の日に更新したファイルの一覧を表示するコマンド<br />
