@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>git コマンド | コマンドリファレンス | hydrocul のメモ</title>
+<title>git コマンド | コマンドの使い方 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; <span>git コマンド</span>
+  <a href="../commands/">コマンドの使い方</a> &gt; <span>git コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../commands/">コマンドリファレンス</a>
+  <li><a href="../commands/">コマンドの使い方</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
@@ -31,7 +31,7 @@
       <li><a href="../commands/crontab.html">crontab</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
       <li><a href="../commands/cut.html">cut コマンド</a></li>
-      <li><a href="../commands/date.html">date</a></li>
+      <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
@@ -58,6 +58,7 @@
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
+      <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
@@ -89,7 +90,7 @@
 <pre><code>git log --graph --date-order --branches --pretty=format:"%Cblue%h %d %Cgreen%ai %Cblue%ae %Creset%s"
 </code></pre>
 
-<h2 id="e40e21a">diffでインデントなどの空白の違いを無視するには
+<h2 id="aacca9e">diffでインデントなどの空白の違いを無視するには
 <span class="article-date">2013/09/25</span></h2>
 
 <p>以下のオプションを <code>git diff</code> に付ける。このオプションは普通の<a href="diff.html"><code>diff</code>コマンド</a>と同じ。</p>
@@ -264,16 +265,16 @@ rm patch.patch
 
 <p>これで hoge というディレクトリが作られる。</p>
 
-<h2 id="229b44a"><code>.gitignore</code> のサンプルファイル
+<h2 id="be3a536"><code>.gitignore</code> のサンプルファイル
 <span class="article-date">2013/08/04</span></h2>
 
-<h3 id="1e286db">Java</h3>
+<h3 id="10510ee">Java</h3>
 
 <pre><code># Maven2で生成されるファイル
 /target
 </code></pre>
 
-<h3 id="5a23a11">Ruby</h3>
+<h3 id="da74d5a">Ruby</h3>
 
 <pre><code># bundle install --path vendor/bundle
 # で生成されるファイル
@@ -281,7 +282,7 @@ rm patch.patch
 /vendor/bundle
 </code></pre>
 
-<h3 id="052d247">その他</h3>
+<h3 id="6654633">その他</h3>
 
 <pre><code># Windowsで勝手に作られる隠しファイル
 Thumbs.db
@@ -290,7 +291,7 @@ Thumbs.db
 .DS_Store
 </code></pre>
 
-<h3 id="38619fd"><code>.gitignore</code> のサンプル集
+<h3 id="4bfe923"><code>.gitignore</code> のサンプル集
 <span class="article-date">2013/04/16</span></h3>
 
 <p><a href="https://github.com/github/gitignore" target="_blank">https://github.com/github/gitignore</a></p>
@@ -318,7 +319,7 @@ Thumbs.db
 
 <p><code>.git/info/exclude</code> に <code>.gitignore</code> と同じフォーマットで書けば、自分のワーキングディレクトリにだけ無視ファイルを設定できる。自分のディレクトリにだけ一時的に何かファイルを置きたい場合などに使える。</p>
 
-<h2 id="cb5a927">GitのURI
+<h2 id="71be702">GitのURI
 <span class="article-date">2013/04/23</span></h2>
 
 <p>プロトコルを省略した以下の記法はSSHプロトコルとみなされる。pathの先頭に <code>/</code> がつかない。</p>
@@ -336,14 +337,14 @@ Thumbs.db
 <pre><code>ssh://username@hostname:port/path/foo/bar.git
 </code></pre>
 
-<h2 id="16c33eb"><code>~/.ssh/config</code> をgit専用に設定するには
+<h2 id="1d0f793"><code>~/.ssh/config</code> をgit専用に設定するには
 <span class="article-date">2013/04/23</span></h2>
 
 <p>環境変数 <code>GIT_SSH</code> を使用する。</p>
 
 <p><a href="http://qiita.com/items/c397370862095c305cbe" target="_blank">http://qiita.com/items/c397370862095c305cbe</a></p>
 
-<h2 id="bbbe768">gitの過去のログから特定の名前のファイルを削除するには
+<h2 id="970aa9b">gitの過去のログから特定の名前のファイルを削除するには
 <span class="article-date">2013/04/29</span></h2>
 
 <p>拡張子が <code>.pw</code> のファイルをすべて削除する例</p>
@@ -356,7 +357,7 @@ Thumbs.db
 <pre><code>git filter-branch --tree-filter 'find . -name "*.pw" -exec rm -f {} \;' HEAD
 </code></pre>
 
-<h2 id="25f2553">初めてコミットする前に間違って <code>git add</code> してしまったファイルをもとに戻そうと <code>git reset</code> しようとしてもエラーになってしまう場合
+<h2 id="0c44e48">初めてコミットする前に間違って <code>git add</code> してしまったファイルをもとに戻そうと <code>git reset</code> しようとしてもエラーになってしまう場合
 <span class="article-date">2013/04/30</span></h2>
 
 <pre><code>fatal: Failed to resolve 'HEAD' as a valid ref.
@@ -374,12 +375,12 @@ Thumbs.db
 
 <p>とする。</p>
 
-<h2 id="a7de0af">Gitblit
+<h2 id="c5f0095">Gitblit
 <span class="article-date">2013/05/05</span></h2>
 
 <p>Javaで実装されたGitレポジトリ管理ツール。リポジトリの pull request をWeb上ですることはできない。コミットログをグラフィカルに表示することはできない。WikiやIssueの機能がない。Hookのスクリプトを Groovy で書ける。</p>
 
-<h2 id="4128fbc">過去のログが不要な場合
+<h2 id="401635a">過去のログが不要な場合
 <span class="article-date">2013/05/08</span></h2>
 
 <pre><code>git clone --depth 1 リポジトリURL
@@ -396,7 +397,7 @@ fatal: The remote end hung up unexpectedly
 
 <p>shallow repository には <code>.git/shallow</code> というファイルがあり、省略された過去のコミットが参照されていて、このファイルにより shallow repository であることを示している。このファイルを削除すると、ローカルではcloneすることができるが、リモートへのcloneでは過去のコミットが見つからない、というエラーが出て、やっぱりcloneできない。</p>
 
-<h2 id="eb99612">エンバグしたコミットを探すには
+<h2 id="fcbcd15">エンバグしたコミットを探すには
 <span class="article-date">2013/05/08</span></h2>
 
 <p><code>git-bisect</code> は、エンバグしたコミットを二分探索して探す支援をするコマンド。</p>
@@ -421,7 +422,7 @@ fatal: The remote end hung up unexpectedly
 
 <p>として、<code>bisect</code> を終了させる。</p>
 
-<h2 id="ad8627c"><code>git push</code> したときに warning: push.default is unset などと表示された場合
+<h2 id="3dbe2bf"><code>git push</code> したときに warning: push.default is unset などと表示された場合
 <span class="article-date">2013/05/29</span></h2>
 
 <pre><code>warning: push.default is unset; its implicit value is changing in Git 2.0 from 'matching' to 'simple'.
@@ -438,7 +439,7 @@ matching から simple に変わる予定とのこと。simple にする場合�
 <pre><code>git config --global push.default matching
 </code></pre>
 
-<h2 id="880ae7e">git clone するときにディレクトリを作成するのではなく、カレントディレクトリにそのまま展開させるには
+<h2 id="985755d">git clone するときにディレクトリを作成するのではなく、カレントディレクトリにそのまま展開させるには
 <span class="article-date">2013/06/15</span></h2>
 
 <p>uriの次にclone先のディレクトリを指定できる。</p>
@@ -446,7 +447,7 @@ matching から simple に変わる予定とのこと。simple にする場合�
 <pre><code>git clone &lt;remote-repository-uri&gt; .
 </code></pre>
 
-<h2 id="3fd8e1d">zshのプロンプトにgitのメールアドレスを表示させるには
+<h2 id="efb3955">zshのプロンプトにgitのメールアドレスを表示させるには
 <span class="article-date">2013/07/10</span></h2>
 
 <p>~/.zshrc に以下のような記述をしている。ブランチ名をプロンプトに表示させるところまではよくある例だが、その中に無理やり <code>git config user.email</code> という記述を入れて、メールアドレスも追加で表示させている。プライベートのレポジトリと会社のレポジトリとが混在していて、会社のレポジトリに間違ってプライベートのメールアドレスでコミットしちゃわないようにするためのものである。</p>
@@ -464,7 +465,7 @@ export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
 <p>svnなどgit以外のワーキングディレクトリではメールアドレスを表示できないので、
 <code>git config user.email</code> する前にif文で分岐させている。</p>
 
-<h2 id="814c3ed">ファイル単位ではなくファイルの中の差分ごとに git add するには
+<h2 id="03bf941">ファイル単位ではなくファイルの中の差分ごとに git add するには
 <span class="article-date">2013/07/19</span></h2>
 
 <p>以下のコマンドで差分を1つずつインタラクティブに確認しながら git add できる。</p>
@@ -479,13 +480,13 @@ export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
 
 <p><code>-p</code> のかわりに <code>--patch</code> でも同じ。</p>
 
-<h2 id="a5510a9">いまチェックアウトしているブランチの名前を変更するには
+<h2 id="ffc60a9">いまチェックアウトしているブランチの名前を変更するには
 <span class="article-date">2013/09/09</span></h2>
 
 <pre><code>git branch -m newbranchname
 </code></pre>
 
-<h2 id="7103a90">特定のディレクトリだけをチェックアウトするには
+<h2 id="62b6234">特定のディレクトリだけをチェックアウトするには
 <span class="article-date">2013/09/13</span></h2>
 
 <p>いったんチェックアウトしたディレクトリにて以下を実行する。</p>
@@ -497,7 +498,7 @@ git read-tree -m -u HEAD
 
 <p>こうすると、<code>hoge</code>ディレクトリのみになる。<code>hoge</code>ディレクトリ自体がチェックアウトしたディレクトリのルートになるわけではなく、単にその他のディレクトリが削除されるだけである。おそらく<code>.git</code>ディレクトリにはすべてのファイルが保存されたままである。</p>
 
-<h2 id="63a3f86">追跡するリモートブランチを追加するには
+<h2 id="7d19c3b">追跡するリモートブランチを追加するには
 <span class="article-date">2013/09/17</span></h2>
 
 <pre><code>git remote add &lt;remote-name&gt; &lt;remote-repository-uri&gt;
@@ -505,7 +506,7 @@ git read-tree -m -u HEAD
 
 <p>&lt;remotename&gt; はワーキングディレクトリの中で通用するリモートブランチの名前。</p>
 
-<h2 id="8d7bf22"><code>clone</code>するときにリモートレポジトリの名前を <code>origin</code> 以外にするには
+<h2 id="5b66da3"><code>clone</code>するときにリモートレポジトリの名前を <code>origin</code> 以外にするには
 <span class="article-date">2013/10/16</span></h2>
 
 <p><code>-o</code> で指定する。</p>
@@ -513,7 +514,7 @@ git read-tree -m -u HEAD
 <pre><code>git clone -o &lt;remote-name&gt; &lt;remote-repository-uri&gt;
 </code></pre>
 
-<h2 id="ca9ba9e"><code>git diff</code> で差分を見るときにリネームして編集されたファイルを削除と作成ではなく、編集の差分を見るには
+<h2 id="e387862"><code>git diff</code> で差分を見るときにリネームして編集されたファイルを削除と作成ではなく、編集の差分を見るには
 <span class="article-date">2013/10/18</span></h2>
 
 <p><code>--find-renames</code> を付ける。</p>

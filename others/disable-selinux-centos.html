@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>CentOSのSELinuxを無効にするには | 未分類 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../others/">未分類</a> &gt; <span>CentOSのSELinuxを無効にするには</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../others/">未分類</a>
+    <ul>
+      <li>CentOSのSELinuxを無効にするには</li>
+      <li><a href="../others/flickr-bonk.html">flickrで動画をアップロードしても Bonk! と表示されてしまう場合</a></li>
+      <li><a href="../others/memcached-centos-failed.html">memcachedがCentOSでうまくいかない場合</a></li>
+      <li><a href="../others/postfix-alias.html">postfixでのaliasの設定</a></li>
+      <li><a href="../others/ssl-geotrust-globalsign.html">(SSL) ジオトラストとグローバルサインのどっちがどっちだっけ？</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="disable-selinux-centos">CentOSのSELinuxを無効にするには
+<span class="article-date">2013/06/27</span></h1>
+
+<p><code>/etc/selinux/config</code> を、以下のように修正し、</p>
+
+<pre><code>SELINUX=disabled
+</code></pre>
+
+<p>OSの再起動を実施する。</p>
+
+<pre><code>shutdown -r now
+</code></pre>
+
+
+</div>
+
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

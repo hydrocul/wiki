@@ -20,13 +20,14 @@
   </div>
   <div id="side-menu-ls">
     <ul>
+  <li><a href="./commands/">コマンドの使い方</a></li>
+  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
+  <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./apache.html">Apache</a></li>
-  <li><a href="./commands/">コマンドリファレンス</a></li>
   <li><a href="./css.html">CSS</a></li>
   <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google.html">google</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
-  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
   <li><a href="./ie.html">Internet Explorer</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li><a href="./jquery.html">jQuery</a></li>
@@ -34,17 +35,16 @@
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li>Mac</li>
   <li><a href="./mechanize.html">mechanize</a></li>
-  <li><a href="./memcached.html">memcached</a></li>
   <li><a href="./misc.html">misc</a></li>
   <li><a href="./mysql.html">MySQL</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
+  <li><a href="./others/">未分類</a></li>
   <li><a href="./paco.html">Paco</a></li>
   <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
   <li><a href="./phantomjs.html">phantomjs</a></li>
   <li><a href="./php.html">PHP</a></li>
-  <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
-  <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
   <li><a href="./ubuntu.html">Ubuntu</a></li>
 </ul>
@@ -55,7 +55,7 @@
 <div id="content">
   <h1 id="mac">Mac</h1>
 
-<h2 id="e8ff46b">パッケージ管理ツール
+<h2 id="dcab943">パッケージ管理ツール
 <span class="article-date">2013/05/03</span></h2>
 
 <ul>
@@ -95,7 +95,7 @@
 
 <p>-&gt; <a href="yum, apt-get, Macports, Homebrew">パッケージ管理ツール</a></p>
 
-<h2 id="1aaf721">Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー
+<h2 id="7dd32ab">Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー
 <span class="article-date">2013/06/01</span></h2>
 
 <pre><code>MacFUSE file system is not available (-1)
@@ -108,20 +108,15 @@ MacFUSE がインストールされていないことになっていたので、
 
 <p>つい先日まではなにもしなくてもマウントで着ていたはずなのに、なぜだろう？</p>
 
-<h2 id="35dfb5c">Microsoftの Remote Desktop Connection が固まったときに一発でkillするには
+<h2 id="2069510">Microsoftの Remote Desktop Connection が固まったときに一発でkillするには
 <span class="article-date">2013/04/04</span></h2>
 
 <pre><code>kill `ps aux | grep Remote | grep -v grep | tr -s ' ' | cut -d ' ' -f2`
 </code></pre>
 
-<h2 id="550516b">拡張子sfxのファイルを解凍するには
-<span class="article-date">2013/04/08</span></h2>
+<h2 id="838bcd1">拡張子sfxのファイルを解凍するには</h2>
 
-<p>自己解凍書庫ファイルで、単に実行権限を与えて実行すればよい。</p>
-
-<pre><code>chmod 755 ファイル名.sfx
-./ファイル名.sfx
-</code></pre>
+<p>-&gt; <a href="others/ext-sfx-mac.html">拡張子sfxのファイルをMacで解凍するには</a></p>
 
 
 </div>

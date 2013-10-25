@@ -58,14 +58,61 @@
 <p>末尾の関数コールの最適化はしてくれない。</p>
 
 <h2 id="e445021">Scala
-<span class="article-date">2013/07/05</span></h2>
+<span class="article-date">2013/10/25</span></h2>
 
-<p>末尾再帰の最適化ができる場合は、コンパイラが自動でそのようにしてくれる。</p>
+<p>ループへの変換など、末尾再帰の最適化ができる場合は、コンパイラが自動でそのようにしてくれる。</p>
+
+<p>末尾再帰以外の末尾最適化してくれない。JVMの仕様上、難しい。</p>
 
 <p><code>@scala.annotation.tailrec</code> アノテーションをメソッドに付けると、そのメソッドの再帰呼び出しの箇所が末尾再帰の最適化にならない場合にコンパイルエラーになってくれるので、末尾再帰でないと困る場合はこれを付けたほうがよい。</p>
 
-<p>メソッドがオーバーライド可能だと、末尾再帰できないので、
-<code>final</code> も付ける必要がある。</p>
+<p>メソッドがオーバーライド可能だと、末尾再帰できないので、その場合は <code>final</code> も付ける必要がある。</p>
+
+<p>フィボナッチ数列を計算する例</p>
+
+<pre><code>import scala.annotation.tailrec;
+
+// 末尾再帰になっていない再帰のフィボナッチ
+// @tailrec を付けるとコンパイラに
+// error: could not optimize @tailrec annotated method fib: it contains a recursive call not in tail position
+// と言われる
+def fib(n: Int): Int = {
+  if (n &lt;= 2) {
+    1;
+  } else {
+    fib(n - 1) + fib(n - 2);
+  }
+}
+
+// 末尾再帰のフィボナッチ
+def fib_r(n: Int): Int = fib_r_sub(n, 1, 0);
+@tailrec
+def fib_r_sub(n: Int, a: Int, b: Int): Int = {
+  if (n &lt;= 1) {
+    a;
+  } else if (n == 2) {
+    a + b;
+  } else {
+    fib_r_sub(n - 1, a + b, a);
+  }
+}
+
+println(fib(8));
+// =&gt; 21
+
+println(fib_r(8));
+// =&gt; 21
+</code></pre>
+
+<h2 id="8f17281">PHP
+<span class="article-date">2013/10/25</span></h2>
+
+<p>末尾の関数コールの最適化はしてくれない。</p>
+
+<h2 id="ad05f3d">Python
+<span class="article-date">2013/10/25</span></h2>
+
+<p>末尾の関数コールの最適化はしてくれない。</p>
 
 <h2 id="6bd738a">Ruby
 <span class="article-date">2013/10/08</span></h2>
