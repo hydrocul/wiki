@@ -48,7 +48,7 @@
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには</a></li>
+          <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べたリストを作成するには (fill)</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
@@ -80,21 +80,21 @@
 <div id="content">
   <h1 id="get">インデックスで要素を参照するには (get)</h1>
 
-<h2 id="d0b3e9e">Java</h2>
+<h2 id="1d21255">Java</h2>
 
-<h3 id="63e7d95">配列
+<h3 id="fb31da3">配列
 <span class="article-date">2013/09/04</span></h3>
 
 <pre><code>arr[index]
 </code></pre>
 
-<h3 id="05d435d"><code>java.util.List</code>
+<h3 id="f09a292"><code>java.util.List</code>
 <span class="article-date">2013/09/04</span></h3>
 
 <pre><code>lst.get(index)
 </code></pre>
 
-<h2 id="af88d93">Scala
+<h2 id="57beaaa">Scala
 <span class="article-date">2013/10/03</span></h2>
 
 <p><code>Array</code> でも <code>List</code> などの <code>Seq</code> でも同じ。</p>
@@ -109,13 +109,13 @@ lst(index);
 lst.apply(index);
 </code></pre>
 
-<h2 id="03d6a7f">PHP
+<h2 id="6fa8328">PHP
 <span class="article-date">2013/09/05</span></h2>
 
 <pre><code>$arr[$index]
 </code></pre>
 
-<h2 id="b462188">Python
+<h2 id="e58800b">Python
 <span class="article-date">2013/10/04</span></h2>
 
 <p>以下はPythonのシーケンスといわれるリスト、タプル、文字列で共通操作。</p>
@@ -132,13 +132,13 @@ lst[-2]; # 最後から2番目の要素
 
 <p>-&gt; <a href="index-out-of-bounds-exception.html#perl">範囲外のインデックスにアクセスしたときにどうなるか?</a></p>
 
-<h2 id="214376c">Ruby
+<h2 id="a799288">Ruby
 <span class="article-date">2013/09/05</span></h2>
 
 <pre><code>lst[index]
 </code></pre>
 
-<h2 id="a871e96">Perl
+<h2 id="9e0f443">Perl
 <span class="article-date">2013/10/04</span></h2>
 
 <p>配列そのもののシジルは <code>@</code> だが、インデックスで参照するには、要素がスカラのためシジルとして <code>$</code> を使う。</p>

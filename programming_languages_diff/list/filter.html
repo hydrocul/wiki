@@ -48,7 +48,7 @@
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには</a></li>
+          <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べたリストを作成するには (fill)</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
@@ -83,7 +83,7 @@
 
 <p>リストから特定の条件にマッチする要素のみを取り出したリストを作成する方法。または特定の条件にマッチする要素のみのリストとマッチしない要素のみのリストの2つに分ける方法。</p>
 
-<h2 id="b8f90bf">Scala
+<h2 id="3fa5067">Scala
 <span class="article-date">2013/10/09</span></h2>
 
 <p>以下は、フィルター済みのリストを返し、自身は変更しないメソッド。</p>
@@ -102,7 +102,7 @@ def filter(p: A =&gt; Boolean): Seq[A]
 def partition(p: A =&gt; Boolean): (Seq[A], Seq[A])
 </code></pre>
 
-<h2 id="6e38cad">Python
+<h2 id="09c707f">Python
 <span class="article-date">2013/10/09</span></h2>
 
 <p><code>filter</code>関数を使う例</p>
@@ -121,7 +121,7 @@ print [x for x in lst if x &lt; 30]
 # =&gt; [10, 20]
 </code></pre>
 
-<h2 id="56269d3">Ruby
+<h2 id="5dd26d1">Ruby
 <span class="article-date">2013/08/21</span></h2>
 
 <pre><code>Array#select
@@ -141,7 +141,7 @@ Array#partition
 positive, negative_or_zero = arr.partition {|elem| elem &gt; 0}
 </code></pre>
 
-<h2 id="8e6ffa4">Perl
+<h2 id="88c8178">Perl
 <span class="article-date">2013/07/30</span></h2>
 
 <p>例</p>
@@ -152,7 +152,7 @@ print "@arr2";
 # =&gt; 1 3 5
 </code></pre>
 
-<h2 id="3a533f4">CoffeeScript
+<h2 id="f104530">CoffeeScript
 <span class="article-date">2013/04/19</span></h2>
 
 <p>配列の内包表記</p>
