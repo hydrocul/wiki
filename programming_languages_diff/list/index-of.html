@@ -82,11 +82,25 @@
 
 <p>-&gt; <a href="find.html">find</a></p>
 
+<svg id="illustration" height="100"></svg>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+
+<script>
+var snap = Snap("#illustration");
+var rect = snap.rect(50, 50, 50, 20);
+rect.attr({fill: "#FFF", stroke: "#333", strokeWidth: 2});
+var text = snap.text(68, 66, "0");
+//rect.attr({fill: "#FFF", stroke: "#333", strokeWidth: 2});
+</script>
+
 <h2 id="82d508d">Java
 <span class="article-date">2013/05/06</span></h2>
 
-<pre><code>int List&lt;E&gt;#indexOf(Object obj)
-int List&lt;E&gt;#lastIndexOf(Object obj)
+<p>Signature:</p>
+
+<pre><code>// java.util.List
+int indexOf(Object obj)
+int lastIndexOf(Object obj)
 </code></pre>
 
 <p>見つからなかった場合は <code>-1</code> を返す。</p>
@@ -94,10 +108,13 @@ int List&lt;E&gt;#lastIndexOf(Object obj)
 <h2 id="35b67c2">Scala
 <span class="article-date">2013/05/06</span></h2>
 
-<pre><code>def Seq[A]#indexOf(obj: A): Int
-def Seq[A]#indexOf(obj: A, from: Int): Int
-def Seq[A]#indexWhere(p: A =&gt; Boolean): Int
-def Seq[A]#indexWhere(p: A =&gt; Boolean, from: Int): Int
+<p>Signature:</p>
+
+<pre><code>// scala.collection.Seq
+def indexOf(obj: A): Int
+def indexOf(obj: A, from: Int): Int
+def indexWhere(p: A =&gt; Boolean): Int
+def indexWhere(p: A =&gt; Boolean, from: Int): Int
 </code></pre>
 
 <p>見つからなかった場合は <code>-1</code> を返す。</p>

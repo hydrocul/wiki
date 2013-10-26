@@ -39,9 +39,9 @@
 
 <div id="content">
   <h1 id="elvis">エルビス演算子
-<span class="article-date">2013/05/14</span></h1>
+<span class="article-date">2013/10/26</span></h1>
 
-<p>三項演算子の2項目が省略されたもので、 <code>?:</code> を顔文字として見たときに「エルビス演算子」という名前の由来がわかる。デフォルト値を設定する場合などに便利。</p>
+<p>三項演算子の2項目が省略されたもので、 <code>?:</code> を顔文字として見たときに「エルビス演算子」という名前の由来がわかる(右に90度回転させると)。デフォルト値を設定する場合などに便利。</p>
 
 <h2 id="11f2a93">Groovy
 <span class="article-date">2013/05/14</span></h2>
@@ -69,12 +69,11 @@
 <pre><code>$a ? $a : $b
 </code></pre>
 
-<p>と同じ意味になる。<code>$a</code> が <code>null</code> や空文字列だった場合などにデフォルトの値にする、という使い方などに便利。</p>
+<p>と同じ意味になる。<a href="ternary.html#php">三項演算子</a>参照。
+<code>$a</code> が <code>null</code> や空文字列だった場合などにデフォルトの値にする、という使い方などに便利。</p>
 
 <p><code>$a</code> が <code>false</code>, <code>null</code>, <code>0</code>, <code>0.0</code>, <code>''</code>, <code>'0'</code>, <code>array()</code>
-の場合に <code>$b</code> になり、それ以外の場合は、<code>$a</code> になる。</p>
-
-<p>-&gt; <a href="ternary.html#php">三項演算子</a><br />
+の場合に <code>$b</code> になり、それ以外の場合は、<code>$a</code> になる。
 -&gt; <a href="../boolean/to-boolean.html#php">論理値への変換</a></p>
 
 

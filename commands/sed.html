@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>sed コマンド | コマンドリファレンス | hydrocul のメモ</title>
+<title>sed コマンド | コマンドの使い方 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドリファレンス</a> &gt; <span>sed コマンド</span>
+  <a href="../commands/">コマンドの使い方</a> &gt; <span>sed コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../commands/">コマンドリファレンス</a>
+  <li><a href="../commands/">コマンドの使い方</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
@@ -58,6 +58,7 @@
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
+      <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
@@ -86,12 +87,14 @@
 
 <p>文字列を全置換したり、行単位で削除したり、いろいろできるコマンド。</p>
 
-<h2 id="196241d">基本的な使い方
-<span class="article-date">2013/10/01</span></h2>
+<h2 id="1db04e2">基本的な使い方
+<span class="article-date">2013/10/26</span></h2>
+
+<p>標準入力を処理して標準出力に出力する。またはファイル名を指定すればそのファイルを読み込んで標準出力に出力する。ファイル名を指定してオプション <code>-i</code> を使えば、そのファイルを読み込んで、結果をそのファイルに上書きする。処理内容はオプション <code>-e</code> で指定する。</p>
 
 <p>パイプで使う場合の例</p>
 
-<pre><code>cat -e ./hoge.txt | sed 's/xxx/XXX/g' &gt; ./hoge-new.txt
+<pre><code>cat -e ./hoge.txt | sed -e 's/xxx/XXX/g' &gt; ./hoge-new.txt
 </code></pre>
 
 <p>ファイル名を指定して使う場合の例</p>
@@ -104,30 +107,28 @@
 <pre><code>sed -i -e 's/xxx/XXX/g' ./hoge.txt ./hoge2.txt ./hoge3.txt
 </code></pre>
 
-<p><code>-e</code> のあとはsedで実行できるコマンドを指定する。</p>
-
 <p><code>-e</code>オプションを複数指定すれば、コマンドを複数実行することができる。またはコマンドを <code>;</code> で区切って複数並べることもできる。</p>
 
 <p>コマンドが複数ある場合、コマンド1つずつ全行操作するのではなく、各行ごとにコマンドをすべて実行していく。</p>
 
 <p>例えば <code>sed -n -e '11,20!d' -e 6,15p</code> または <code>sed -n -e '11,20!d;6,15p</code> は、
 11行目から20行目以外を削除するコマンドと、
-6行目から15行目のみを抽出するコマンドだが、これは、11行目から20行目以外を削除した結果に対して6行目から15行目を抽出する、つまりトータルでは16行目から20行目のみを抽出する、のではなく、
+6行目から15行目のみを抽出するコマンドだが、これは、11行目から20行目以外を削除した結果に対して6行目から15行目を抽出する(つまりトータルでは16行目から20行目のみを抽出する)のではなく、
 11行目から20行目と6行目から15行目が重なる行、つまり11行目から15行目のみを抽出する。</p>
 
-<h3 id="81202ab"><code>s</code>コマンド
+<h3 id="4ac7902"><code>s</code>コマンド
 <span class="article-date">2013/10/01</span></h3>
 
 <p><a href="../programming_languages_diff/regexp/replace-all.html#sed">正規表現で置換</a>をする。</p>
 
-<h3 id="0a259cb"><code>d</code>コマンド
+<h3 id="63c6a61"><code>d</code>コマンド
 <span class="article-date">2013/10/01</span></h3>
 
 <p>行を削除する。</p>
 
 <p><code>sed d</code> とすると、すべての行が削除されてなにも出力しなくなってしまう。通常は後述のアドレスの機能を使って削除する行を指定して、残りを出力させる。</p>
 
-<pre><code># 1行目から行目を削除して6行目以降を出力
+<pre><code># 1行目から5行目を削除して6行目以降を出力
 sed 1,5d
 </code></pre>
 
@@ -140,15 +141,15 @@ sed '1,5!d'
 sed 1,5\!d
 </code></pre>
 
-<h3 id="a2afeb1"><code>p</code>コマンド
+<h3 id="10e0c12"><code>p</code>コマンド
 <span class="article-date">2013/10/01</span></h3>
 
 <p>行を単に出力する。通常は <code>-n</code> オプションと組み合わせる。
-sedコマンドでは処理結果をデフォルトで出力するが、
+<code>sed</code>コマンドでは処理結果をデフォルトで出力するが、
 <code>-n</code> オプションを付けるとデフォルトの出力がされなくなり、
 <code>p</code>コマンドの出力のみになる。</p>
 
-<h3 id="ed190c1">アドレス
+<h3 id="f03a24c">アドレス
 <span class="article-date">2013/10/01</span></h3>
 
 <p>コマンドの実行対象行を指定する行番号をアドレスという。行番号だけでなくや正規表現で指定することもできる。</p>
@@ -189,15 +190,15 @@ sed -n -e /xxx/,+3p
 sed -n -e 20,+3p
 </code></pre>
 
-<h2 id="24e9124">正規表現の中で ‘{}’ を使うには
+<h2 id="f63e1b3">正規表現の中で ‘{}’ を使うには
 <span class="article-date">2013/06/17</span></h2>
 
 <p>正規表現で文字数を指定する <code>{}</code> は <code>\</code> でエスケープしないと使えないようだ。</p>
 
-<pre><code>sed 's/x{4}/XXXX/g' # =&gt; NG
-sed 's/x\{4\}/XXXX/g' # =&gt; OK
-sed "s/x{4}/XXXX/g" # =&gt; NG
-sed "s/x\{4\}/XXXX/g" # =&gt; OK
+<pre><code>sed 's/x{4}/XXXX/g'       # =&gt; NG
+sed 's/x\{4\}/XXXX/g'     # =&gt; OK
+sed "s/x{4}/XXXX/g"       # =&gt; NG
+sed "s/x\{4\}/XXXX/g"     # =&gt; OK
 sed "s/x\\\{4\\\}/XXXX/g" # =&gt; NG
 </code></pre>
 
@@ -219,14 +220,14 @@ echo "bc abcc" | sed -E 's/b(c*)/\1/g'
 <p>正規表現の中の <code>()</code> には <code>\</code> でエスケープしないといけないみたい。でもなぜか 
 <code>-E</code> をつけると、エスケープが不要みたい。</p>
 
-<h2 id="0d00817">タブ文字を全置換するには
+<h2 id="a7c5547">タブ文字を全置換するには
 <span class="article-date">2013/06/17</span></h2>
 
 <pre><code># タブ文字をスペースに全置換
 sed '/\t/ /g'
 </code></pre>
 
-<h2 id="848c054">正規表現にマッチする行を削除するには
+<h2 id="3c28adf">正規表現にマッチする行を削除するには
 <span class="article-date">2013/06/17</span></h2>
 
 <pre><code># '2013' が含まれる行を削除
@@ -236,7 +237,7 @@ sed '/^2013/d'
 sed '/^$/d'
 </code></pre>
 
-<h2 id="7776465">正規表現にマッチする行を抽出するには
+<h2 id="9fce4d9">正規表現にマッチする行を抽出するには
 <span class="article-date">2013/09/25</span></h2>
 
 <pre><code># '2013' が含まれる行のみを出力
@@ -248,14 +249,14 @@ sed -n '/^2013/p'
 sed -n '/^$/p' | wc -l
 </code></pre>
 
-<h2 id="7b24614">1つ以上の連続するスペースまたはタブ文字を1つのスペースに全置換するには
+<h2 id="85210e2">1つ以上の連続するスペースまたはタブ文字を1つのスペースに全置換するには
 <span class="article-date">2013/06/17</span></h2>
 
 <pre><code># タブ文字をスペースに全置換
 sed -E '/[\t ]+/ /g'
 </code></pre>
 
-<h2 id="b24b8ad">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには
+<h2 id="99dcc4b">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには
 <span class="article-date">2013/06/17</span></h2>
 
 <pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
@@ -265,7 +266,7 @@ sed -E '/[\t ]+/ /g'
 
 <p><code>-e</code> はどういう意味だろう？</p>
 
-<h3 id="06d2ca7">ディレクトリの中にあるたくさんのファイルの文字列を全置換するには
+<h3 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換するには
 <span class="article-date">2013/09/10</span></h3>
 
 <p>置換対象のファイルを <code>find</code> などでリストアップして、 <code>sed</code> を使う。</p>
@@ -280,7 +281,7 @@ sed -E '/[\t ]+/ /g'
 
 <p>-&gt; http://d.hatena.ne.jp/hydrocul/20111211/1323595015</p>
 
-<h2 id="f691fd9">2つ以上の全置換を一括で実行するには
+<h2 id="843a0db">2つ以上の全置換を一括で実行するには
 <span class="article-date">2013/06/17</span></h2>
 
 <p><code>-e</code> で2つ以上の全置換を実行できる。</p>
@@ -288,7 +289,7 @@ sed -E '/[\t ]+/ /g'
 <pre><code>cat ファイル名 | sed -e 's/置換前/置換後/g' -e 's/別の置換前/別の置換後/g'
 </code></pre>
 
-<h2 id="26276d0">行番号で指定する範囲のみを抽出するには
+<h2 id="bc7f63d">行番号で指定する範囲のみを抽出するには
 <span class="article-date">2013/06/14</span></h2>
 
 <pre><code># 2行目から4行目を抽出(4行目を含む)
@@ -303,7 +304,7 @@ cat ファイル名 | sed -n '2,$p'
 cat ファイル名 | sed -n 2,\$p
 </code></pre>
 
-<h2 id="0fa713a">行番号で指定する範囲のみを削除するには
+<h2 id="c845011">行番号で指定する範囲のみを削除するには
 <span class="article-date">2013/06/14</span></h2>
 
 <pre><code># 2行目から4行目を削除(4行目も削除)
@@ -323,7 +324,7 @@ cat ファイル名 | head -n 1
 cat ファイル名 | sed -e \$d
 </code></pre>
 
-<h2 id="242cace">パスなどを全置換する際にスラッシュをエスケープするのが面倒な場合
+<h2 id="1f85bb3">パスなどを全置換する際にスラッシュをエスケープするのが面倒な場合
 <span class="article-date">2013/06/18</span></h2>
 
 <p><code>s/.../..../g</code> の記法のスラッシュは記号なら比較的なんでもよくて、3つ同じ記号を使っていることに意味があるので、<code>s@...@...@g</code> のようにも書ける。</p>
@@ -333,7 +334,7 @@ cat ファイル名 | sed -e \$d
 <pre><code>cat ファイル名 | sed -e 's@/etc/foo/bar@/home/my/etc/foo/bar@g'
 </code></pre>
 
-<h2 id="5a9ef7a">ログファイルなどの <code>tail -f</code> の出力をsedで処理しながら表示するには
+<h2 id="5e23def">ログファイルなどの <code>tail -f</code> の出力をsedで処理しながら表示するには
 <span class="article-date">2013/07/09</span></h2>
 
 <pre><code>tail -f access_log | sed --unbuffered ...
@@ -341,7 +342,7 @@ cat ファイル名 | sed -e \$d
 
 <p><code>--unbuffered</code> を付けないとsedがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
 
-<h2 id="4b273dd">空行を削除するには
+<h2 id="ecac355">空行を削除するには
 <span class="article-date">2013/09/11</span></h2>
 
 <p><code>^$</code> という正規表現と、<code>d</code>での削除コマンドを使う。</p>
