@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストから特定の要素を探してそのインデックスを取得するには (indexOf) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストから特定の要素を探してそのインデックスを取得するには (indexOf) | リスト(配列) | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストから特定の要素を探してそのインデックスを取得するには (indexOf)</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストから特定の要素を探してそのインデックスを取得するには (indexOf)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -20,7 +20,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
     <ul>
       <li><a href="../../programming_languages_diff/list/">リスト(配列)</a>
         <ul>
@@ -48,7 +48,7 @@
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには</a></li>
+          <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べたリストを作成するには (fill)</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
@@ -82,7 +82,7 @@
 
 <p>-&gt; <a href="find.html">find</a></p>
 
-<h2 id="04da2e6">Java
+<h2 id="82d508d">Java
 <span class="article-date">2013/05/06</span></h2>
 
 <pre><code>int List&lt;E&gt;#indexOf(Object obj)
@@ -91,7 +91,7 @@ int List&lt;E&gt;#lastIndexOf(Object obj)
 
 <p>見つからなかった場合は <code>-1</code> を返す。</p>
 
-<h2 id="2aad80c">Scala
+<h2 id="35b67c2">Scala
 <span class="article-date">2013/05/06</span></h2>
 
 <pre><code>def Seq[A]#indexOf(obj: A): Int
@@ -102,7 +102,7 @@ def Seq[A]#indexWhere(p: A =&gt; Boolean, from: Int): Int
 
 <p>見つからなかった場合は <code>-1</code> を返す。</p>
 
-<h2 id="bb1cc47">PHP
+<h2 id="18e1bfa">PHP
 <span class="article-date">2013/06/11</span></h2>
 
 <pre><code>array_search($obj, $arr)
@@ -117,7 +117,7 @@ def Seq[A]#indexWhere(p: A =&gt; Boolean, from: Int): Int
 
 <p><a href="http://www.php.net/manual/ja/function.array-search.php" target="_blank">http://www.php.net/manual/ja/function.array-search.php</a></p>
 
-<h2 id="d316247">Python
+<h2 id="20e105a">Python
 <span class="article-date">2013/10/03</span></h2>
 
 <pre><code>lst.index(obj);
@@ -127,7 +127,7 @@ def Seq[A]#indexWhere(p: A =&gt; Boolean, from: Int): Int
 
 <p>見つからなかった場合はエラーを吐く。</p>
 
-<h2 id="bcbd2c9">Ruby
+<h2 id="3c9e981">Ruby
 <span class="article-date">2013/04/16</span></h2>
 
 <pre><code>Array#index(obj)

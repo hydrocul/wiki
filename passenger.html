@@ -20,13 +20,15 @@
   </div>
   <div id="side-menu-ls">
     <ul>
+  <li><a href="./commands/">コマンドの使い方</a></li>
+  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
+  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
+  <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./apache.html">Apache</a></li>
-  <li><a href="./commands/">コマンドリファレンス</a></li>
   <li><a href="./css.html">CSS</a></li>
   <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google.html">google</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
-  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
   <li><a href="./ie.html">Internet Explorer</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li><a href="./jquery.html">jQuery</a></li>
@@ -34,17 +36,15 @@
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
   <li><a href="./mechanize.html">mechanize</a></li>
-  <li><a href="./memcached.html">memcached</a></li>
   <li><a href="./misc.html">misc</a></li>
   <li><a href="./mysql.html">MySQL</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
+  <li><a href="./others/">未分類</a></li>
   <li><a href="./paco.html">Paco</a></li>
   <li>Passenger (Ruby on Rails)</li>
   <li><a href="./phantomjs.html">phantomjs</a></li>
   <li><a href="./php.html">PHP</a></li>
-  <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
-  <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
   <li><a href="./ubuntu.html">Ubuntu</a></li>
 </ul>
@@ -58,7 +58,7 @@
 
 <p>Ruby on Rails のアプリをApacheで動かすためのモジュール。</p>
 
-<h2 id="bdf223e">インストール
+<h2 id="aeb13ff">インストール
 <span class="article-date">2013/05/29</span></h2>
 
 <p>以下のコマンドだけでよい。</p>
@@ -75,7 +75,7 @@ sudo passenger-install-apache2-module
 <pre><code>sudo apt-get install build-essential libcurl4-openssl-dev libssl-dev zlib1g-dev apache2-threaded-dev libapr1-dev libaprutil1-dev
 </code></pre>
 
-<h2 id="04d3809">環境の切替
+<h2 id="a51ce6e">環境の切替
 <span class="article-date">2013/09/28</span></h2>
 
 <p>Railsの実行環境として、<code>production</code>, <code>development</code>, <code>test</code> の3種類を選択できる。
@@ -87,7 +87,7 @@ Passenger で動かすときのデフォルトは、<code>production</code> 環�
 <pre><code>RailsEnv development
 </code></pre>
 
-<h2 id="1922a06">環境変数
+<h2 id="33b0086">環境変数
 <span class="article-date">2013/04/03</span></h2>
 
 <p>環境変数を設定したい場合は、Apacheの設定に以下のように書き足す。</p>
@@ -95,7 +95,7 @@ Passenger で動かすときのデフォルトは、<code>production</code> 環�
 <pre><code>SetEnv GEM_HOME /home/hogehoge/.gems
 </code></pre>
 
-<h2 id="393673b">特定のrailsアプリケーションのみ再起動するには
+<h2 id="4914d6d">特定のrailsアプリケーションのみ再起動するには
 <span class="article-date">2013/04/05</span></h2>
 
 <p>Passenger で動いているrailsアプリケーションを再起動するには <code>tmp</code> ディレクトリに

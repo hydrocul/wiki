@@ -20,13 +20,15 @@
   </div>
   <div id="side-menu-ls">
     <ul>
+  <li><a href="./commands/">コマンドの使い方</a></li>
+  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
+  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
+  <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./apache.html">Apache</a></li>
-  <li><a href="./commands/">コマンドリファレンス</a></li>
   <li><a href="./css.html">CSS</a></li>
   <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google.html">google</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
-  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
   <li><a href="./ie.html">Internet Explorer</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li><a href="./jquery.html">jQuery</a></li>
@@ -34,17 +36,15 @@
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
   <li><a href="./mechanize.html">mechanize</a></li>
-  <li><a href="./memcached.html">memcached</a></li>
   <li><a href="./misc.html">misc</a></li>
   <li><a href="./mysql.html">MySQL</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
+  <li><a href="./others/">未分類</a></li>
   <li><a href="./paco.html">Paco</a></li>
   <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
   <li><a href="./phantomjs.html">phantomjs</a></li>
   <li>PHP</li>
-  <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
-  <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
   <li><a href="./ubuntu.html">Ubuntu</a></li>
 </ul>
@@ -55,7 +55,7 @@
 <div id="content">
   <h1 id="php">PHP</h1>
 
-<h2 id="cf72c60">mail関数でメールを送るときに、長い日本語のサブジェクトが途中から文字化けする件
+<h2 id="122a9ce">mail関数でメールを送るときに、長い日本語のサブジェクトが途中から文字化けする件
 <span class="article-date">2013/04/03</span></h2>
 
 <p>mb_encode_mimeheader を呼び出す際には内部エンコードがJISである必要がある。  </p>
@@ -63,7 +63,7 @@
 <p>参考：<br />
 <a href="http://www.onecreation.jp/blog/?p=1132" target="_blank">http://www.onecreation.jp/blog/?p=1132</a></p>
 
-<h2 id="26d7148">mPDF: HTMLをPDFに変換するライブラリ
+<h2 id="3791282">mPDF: HTMLをPDFに変換するライブラリ
 <span class="article-date">2013/04/09</span></h2>
 
 <p>例：</p>
@@ -88,14 +88,14 @@ $mpdf-&gt;Output(date('YmdHis').'.pdf', 'I');
 HTTPスキーマとポート番号なしを決め打ちしてしまって、
 SSLや独自ポート番号には対応していない模様。ホスト名はたぶん <code>$_SERVER['SERVER_NAME']</code> を参照している。</p>
 
-<h3 id="685a3d5">Error parsing image file - image type not recognised, and not supported by GD imagecreate というエラー
+<h3 id="c0976a1">Error parsing image file - image type not recognised, and not supported by GD imagecreate というエラー
 <span class="article-date">2013/04/09</span></h3>
 
 <p>このエラーが表示されて原因がわからなくなったときに調べる方法</p>
 
 <p><a href="http://stackoverflow.com/questions/6730076/mdpf-library-generate-blank-page-no-error-even-i-set-debug-mode#answer-6768688" target="_blank">http://stackoverflow.com/questions/6730076/mdpf-library-generate-blank-page-no-error-even-i-set-debug-mode#answer-6768688</a></p>
 
-<h2 id="f9445b6">Ubuntuでの php.ini の場所
+<h2 id="6486cbb">Ubuntuでの php.ini の場所
 <span class="article-date">2013/06/25</span></h2>
 
 <p><a href="linux-pkg-manager.html"><code>apt-get</code></a> でインストールした場合、Apacheで動くPHPの 
