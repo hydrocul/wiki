@@ -107,9 +107,24 @@ int i = Integer.parseInt(str, 16);
 </code></pre>
 
 <h2 id="eef8cc9">JavaScript
-<span class="article-date">2013/09/16</span></h2>
+<span class="article-date">2013/10/26</span></h2>
 
 <pre><code>parseInt(str, 10);
+</code></pre>
+
+<p>2つ目の引数の10は10進数で解釈することを指定している。</p>
+
+<p>2つ目の引数を省略すると、文字列の内容に応じて自動で判断される。先頭が <code>0x</code> または <code>0X</code> で始まる場合は16進数として解釈される。それ以外で先頭が <code>0</code> で始まる場合は8進数として解釈される。</p>
+
+<pre><code>// 以下はブラウザによって挙動が違うかもしれない
+console.log(parseInt("07"));  // =&gt; 7
+console.log(parseInt("08"));  // =&gt; 0
+console.log(parseInt("09"));  // =&gt; 0
+console.log(parseInt("10"));  // =&gt; 10
+console.log(parseInt("010")); // =&gt; 8
+console.log(parseInt("0xa")); // =&gt; 10
+console.log(parseInt("0a"));  // =&gt; 0
+console.log(parseInt("a"));   // =&gt; NaN
 </code></pre>
 
 

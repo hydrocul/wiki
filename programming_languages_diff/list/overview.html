@@ -48,7 +48,7 @@
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには</a></li>
+          <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べたリストを作成するには (fill)</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
@@ -86,17 +86,17 @@
 <p><a href="../../commands/sed.html"><code>sed</code></a> などのコマンドも、このサイトでは文字列のリストを処理するものと捉えて、解説することにする。</p>
 
 <h2 id="234f5be">C言語
-<span class="article-date">2013/09/16</span></h2>
+<span class="article-date">2013/10/25</span></h2>
 
-<p>配列の仕組みがある。</p>
+<p>配列の仕組みがある。配列のメモリ領域を確保した時点で大きさを変更できないので、固定長配列になる。</p>
 
 <p>インデックスでアクセスする場合は先頭の要素が0になる。</p>
 
 <h2 id="ceac745">Java
-<span class="article-date">2013/09/21</span></h2>
+<span class="article-date">2013/10/25</span></h2>
 
 <p>言語の組み込み型である配列と、クラスライブラリでサポートされている
-<code>java.util.List</code> インターフェースがある。</p>
+<code>java.util.List</code> インターフェースがある。配列は生成する時点で長さを指定しなければならず、固定長配列になる。</p>
 
 <p>配列も <code>java.util.List</code> もインデックスでアクセスする場合は先頭の要素が0になる。</p>
 
@@ -117,7 +117,7 @@
 <p>Scalaコレクションのアーキテクチャ<br />
 <a href="http://eed3si9n.github.io/scala-collections-impl-doc-ja/" target="_blank">http://eed3si9n.github.io/scala-collections-impl-doc-ja/</a></p>
 
-<h2 id="37528cf">PHP
+<h2 id="php">PHP
 <span class="article-date">2013/10/05</span></h2>
 
 <p>組み込み型の連想配列のキーに整数を使えば、配列として使うことができる。</p>
@@ -125,13 +125,13 @@
 <p>-&gt; <a href="../map/overview.html#php">連想配列</a></p>
 
 <h2 id="python">Python
-<span class="article-date">2013/10/15</span></h2>
+<span class="article-date">2013/10/22</span></h2>
 
-<p>リストおよびタプルというデータ型がある。また、NumPyを導入すればベクトル計算の得意な多次元配列を使える。</p>
+<p>リストおよびタプルというデータ型がある。また、NumPyを導入すればベクトル計算の得意な固定長の多次元配列を使える。</p>
 
 <p>インデックスでアクセスする場合は先頭の要素が0になる。</p>
 
-<p>連結リストではなく可変長配列として実装されているが、
+<p>リストは連結リストではなく可変長配列として実装されている。
 NumPyの配列は固定長配列である。</p>
 
 <p>よく似たものでタプルというデータ型もあるが、単なるイミュータブル(要素の書き換えが不能な)なリストという感じで、

@@ -48,7 +48,7 @@
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには</a></li>
+          <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べたリストを作成するには (fill)</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
@@ -252,13 +252,16 @@ my $arr = \@a;
 </code></pre>
 
 <h2 id="09296ce">JavaScript
-<span class="article-date">2013/09/16</span></h2>
+<span class="article-date">2013/10/25</span></h2>
 
 <pre><code>var arr = [1, 2, 3];
 </code></pre>
 
+<p>最後に余計なカンマがあっても本当は問題ないのだが、
+IEだとだめなので、最後のカンマは付けないほうがよい。最近のIEのバージョンだとどうなのかは知らない。</p>
+
 <h2 id="60cafab">CoffeeScript
-<span class="article-date">2013/04/10</span></h2>
+<span class="article-date">2013/10/25</span></h2>
 
 <pre><code>arr = [1, 2, 3]
 arr = [1, 2, 3, ]
@@ -268,6 +271,8 @@ arr = [
     3
 ]
 </code></pre>
+
+<p>最後に余計なカンマがあっても問題ない。改行すればカンマを省略できる。</p>
 
 
 </div>
