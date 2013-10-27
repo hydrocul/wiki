@@ -29,7 +29,6 @@
   <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google.html">google</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
-  <li><a href="./ie.html">Internet Explorer</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li><a href="./jquery.html">jQuery</a></li>
   <li>Linux</li>
@@ -86,58 +85,10 @@ service mysqld start
 chkconfig --add mydaemon
 </code></pre>
 
-<h2 id="view-distribution-version">Linuxのディストリビューションの確認方法
+<h2 id="c921b46">Linuxのディストリビューションの確認方法
 <span class="article-date">2013/04/30</span></h2>
 
-<p>例</p>
-
-<pre><code>$ lsb_release -a
-No LSB modules are available.
-Distributor ID: Ubuntu
-Description:    Ubuntu 12.04 LTS
-Release:        12.04
-Codename:       precise
-</code></pre>
-
-<p>このコマンドはパッケージのインストールが必要。</p>
-
-<p>Ubuntuの場合</p>
-
-<pre><code>sudo apt-get install lsb-release
-</code></pre>
-
-<h3 id="bf5bd70"><code>/etc/</code> に入っているファイルで確認するには
-<span class="article-date">2013/04/30</span></h3>
-
-<p>RedHat, CentOS などの場合</p>
-
-<pre><code>$ cat /etc/redhat-release
-CentOS release 5.2 (Final)
-</code></pre>
-
-<p>Debian, Ubuntu などの場合</p>
-
-<pre><code>$ cat /etc/debian_version
-wheezy/sid
-</code></pre>
-
-<h3 id="c5a5f57">スクリプトで自動判定するには
-<span class="article-date">2013/05/22</span></h3>
-
-<pre><code># ファイルの有無で調べる
-if [ -e /etc/redhat-release ] ; then
-    echo Redhat
-elif [ -e /etc/debian_version ] ; then
-    echo Debian
-fi
-
-# パッケージ管理ツールのコマンドで調べる
-if [ -x /usr/bin/yum ] ; then
-    echo Redhat
-elif [ -x /usr/bin/apt-get ] ; then
-    echo Debian
-fi
-</code></pre>
+<p>-&gt; <a href="others/linux-distribution-version.html">Linuxのディストリビューションの確認方法</a></p>
 
 <h2 id="7ae252b"><code>adduser</code> と <code>useradd</code>
 <span class="article-date">2013/05/13</span></h2>

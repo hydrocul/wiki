@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Linuxのディストリビューションのバージョンを確認するには | 未分類 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../others/">未分類</a> &gt; <span>Linuxのディストリビューションのバージョンを確認するには</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../others/">未分類</a>
+    <ul>
+      <li><a href="../others/disable-selinux-centos.html">CentOSのSELinuxを無効にするには</a></li>
+      <li><a href="../others/ext-sfx-mac.html">拡張子sfxのファイルをMacで解凍するには</a></li>
+      <li><a href="../others/faster-startup-time-jvm.html">高速にJVMを起動するには</a></li>
+      <li><a href="../others/flickr-bonk.html">flickrで動画をアップロードしても Bonk! と表示されてしまう場合</a></li>
+      <li>Linuxのディストリビューションのバージョンを確認するには</li>
+      <li><a href="../others/memcached-centos-failed.html">memcachedがCentOSでうまくいかない場合</a></li>
+      <li><a href="../others/postfix-alias.html">postfixでのaliasの設定</a></li>
+      <li><a href="../others/ssl-geotrust-globalsign.html">(SSL) ジオトラストとグローバルサインのどっちがどっちだっけ？</a></li>
+      <li><a href="../others/test-on-ie.html">Internet Explorer の検証環境</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="linux-distribution-version">Linuxのディストリビューションのバージョンを確認するには
+<span class="article-date">2013/04/30</span></h1>
+
+<p>例</p>
+
+<pre><code>$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 12.04 LTS
+Release:        12.04
+Codename:       precise
+</code></pre>
+
+<p>このコマンドはパッケージのインストールが必要。</p>
+
+<p>Ubuntuの場合</p>
+
+<pre><code>sudo apt-get install lsb-release
+</code></pre>
+
+<h2 id="d23993d"><code>/etc/</code> に入っているファイルで確認するには
+<span class="article-date">2013/04/30</span></h2>
+
+<p>RedHat, CentOS などの場合</p>
+
+<pre><code>$ cat /etc/redhat-release
+CentOS release 5.2 (Final)
+</code></pre>
+
+<p>Debian, Ubuntu などの場合</p>
+
+<pre><code>$ cat /etc/debian_version
+wheezy/sid
+</code></pre>
+
+<h2 id="5b39fa4">スクリプトで自動判定するには
+<span class="article-date">2013/05/22</span></h2>
+
+<pre><code># ファイルの有無で調べる
+if [ -e /etc/redhat-release ] ; then
+    echo Redhat
+elif [ -e /etc/debian_version ] ; then
+    echo Debian
+fi
+
+# パッケージ管理ツールのコマンドで調べる
+if [ -x /usr/bin/yum ] ; then
+    echo Redhat
+elif [ -x /usr/bin/apt-get ] ; then
+    echo Debian
+fi
+</code></pre>
+
+
+</div>
+
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

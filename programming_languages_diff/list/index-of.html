@@ -78,19 +78,27 @@
 </div>
 
 <div id="content">
-  <h1 id="index-of">リストから特定の要素を探してそのインデックスを取得するには (indexOf)</h1>
-
-<p>-&gt; <a href="find.html">find</a></p>
+  <h1 id="index-of">リストから特定の要素を探してそのインデックスを取得するには (indexOf)
+<span class="article-date">2013/10/26</span></h1>
 
 <svg id="illustration" height="100"></svg>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 
 <script>
 var snap = Snap("#illustration");
-var rect = snap.rect(50, 50, 50, 20);
-rect.attr({fill: "#FFF", stroke: "#333", strokeWidth: 2});
-var text = snap.text(68, 66, "0");
-//rect.attr({fill: "#FFF", stroke: "#333", strokeWidth: 2});
+var boxInterval = 50;
+for(var i = 0; i < 10; i++){
+    var rect = snap.rect(50 + boxInterval * i, 20, 50, 24);
+    rect.attr({fill: "#FFF", stroke: "#333", strokeWidth: 2});
+    var text1 = snap.text(50 + 20 + boxInterval * i, 18, String(i));
+    text1.attr({stroke: "#999", strokeWidth: 1, "font-size": "16px"});
+    if(i == 2){
+        var text2 = snap.text(50 + 12 + boxInterval * i, 40, "★");
+        text2.attr({stroke: "#999", strokeWidth: 1, "font-size": "24px"});
+    }
+}
+var text = snap.text(100, 96, "=> 2");
+text.attr({stroke: "#000", strokeWidth: 1, "font-size": "32px"});
 </script>
 
 <h2 id="82d508d">Java
