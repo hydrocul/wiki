@@ -90,6 +90,17 @@
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n"
 </code></pre>
 
+<h2 id="b517bc7">特定の日に更新したファイルの一覧を表示するには
+<span class="article-date">2009/11/29</span></h2>
+
+<p>例えば、24日前～23日前に更新したファイルの一覧を表示したい場合、</p>
+
+<pre><code>find / -mtime -24 -mtime +22 -ls | less
+</code></pre>
+
+<p>この場合、ちょうど24日前の現在時刻よりも最近で、
+23日前の現在時刻よりも古い時間または23日前の現在時刻ちょうどに更新されたファイルをリスト表示する。”+22”とする必要あり。</p>
+
 <h2 id="sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには
 <span class="article-date">2013/04/03</span></h2>
 
@@ -153,6 +164,10 @@ find /home -maxdepth 1 -uid 1000
 
 <pre><code>find . -type f -empty
 </code></pre>
+
+<h2 id="aa97425">たくさんのファイルをまとめて less で閲覧するには</h2>
+
+<p>-&gt; <a href="less.html#less-many-files">たくさんのファイルをまとめて less で閲覧するには</a></p>
 
 <h2 id="15af3f8">リンク集
 <span class="article-date">2013/04/03</span></h2>

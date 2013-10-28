@@ -82,8 +82,10 @@
 </div>
 
 <div id="content">
-  <h1 id="less">less コマンド
-<span class="article-date">2013/08/06</span></h1>
+  <h1 id="less">less コマンド</h1>
+
+<h2 id="cc7b066">オプション
+<span class="article-date">2013/08/06</span></h2>
 
 <dl>
   <dt><code>-N</code></dt>
@@ -132,9 +134,21 @@
 
 <p>たぶん、<code>[3m&lt;9A&gt;</code> とかはlessコマンドがUTF-8を扱えないために変換しちゃうのだと思う。<code>-r</code> は文字を解釈せずにそのままスルーするオプションで、端末がUTF-8で動いていれば、結果的にうまく表示できる。</p>
 
-<h2 id="96827ca">たくさんのファイルをまとめて less で閲覧するには</h2>
+<h2 id="less-many-files">たくさんのファイルをまとめて less で閲覧するには
+<span class="article-date">2013/09/28</span></h2>
 
-<p>-&gt; <a href="../oneliner.html#less-many-files">たくさんのファイルをまとめて less で閲覧するには</a></p>
+<p>find などのファイル一覧の出力に対して、 less で閲覧するには</p>
+
+<pre><code>find ... -type f | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
+</code></pre>
+
+<p><code>cat -n</code> は行番号をつけて出力する。</p>
+
+<p>特定のディレクトリ直下にあるファイルを閲覧するには
+(そのディレクトリの中にサブディレクトリが存在しない場合)</p>
+
+<pre><code>ls foo/bar/* | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
+</code></pre>
 
 
 </div>

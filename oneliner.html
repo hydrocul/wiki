@@ -20,14 +20,14 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="./apache.html">Apache</a></li>
   <li><a href="./commands/">コマンドの使い方</a></li>
+  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
+  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
+  <li><a href="./sh.html">シェルスクリプト</a></li>
+  <li><a href="./apache.html">Apache</a></li>
   <li><a href="./css.html">CSS</a></li>
   <li><a href="./emacs.html">Emacs</a></li>
-  <li><a href="./google.html">google</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
-  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
-  <li><a href="./ie.html">Internet Explorer</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li><a href="./jquery.html">jQuery</a></li>
   <li><a href="./linux.html">Linux</a></li>
@@ -42,11 +42,8 @@
   <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
   <li><a href="./phantomjs.html">phantomjs</a></li>
   <li><a href="./php.html">PHP</a></li>
-  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
-  <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
-  <li><a href="./ubuntu.html">Ubuntu</a></li>
 </ul>
 
   </div>
@@ -57,11 +54,9 @@
 
 <p>複雑な処理をコマンドラインで直接実行するために、シェルスクリプトなどで1行で書くプログラム。</p>
 
-<h2 id="6102705">シェルスクリプトでシンボリックリンクからリンク先を取得するには
-<span class="article-date">2013/04/22</span></h2>
+<h2 id="6102705">シェルスクリプトでシンボリックリンクからリンク先を取得するには</h2>
 
-<pre><code>ls -l シンボリックリンク名 | perl -anle '$_ =~ /-&gt; (.+)$/; print $1'
-</code></pre>
+<p>-&gt; <a href="programming_languages_diff/io/get-symbolic-link-target.html#sh">シンボリックリンクのリンク先を取得する</a></p>
 
 <h2 id="loop">1秒ごとに処理を永久に繰り返すには
 <span class="article-date">2013/04/24</span></h2>
@@ -95,21 +90,9 @@ echo %E3%81%82 | tr % = | nkf -WmQ
 <pre><code>cat ファイル名 | ruby -ne 'print $_.gsub(/\\u([0-9a-f]{4})/){[$1.hex].pack("U")}'
 </code></pre>
 
-<h2 id="less-many-files">たくさんのファイルをまとめて less で閲覧するには
-<span class="article-date">2013/09/28</span></h2>
+<h2 id="less-many-files">たくさんのファイルをまとめて less で閲覧するには</h2>
 
-<p>find などのファイル一覧の出力に対して、 less で閲覧するには</p>
-
-<pre><code>find ... -type f | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
-</code></pre>
-
-<p><code>cat -n</code> は行番号をつけて出力する。</p>
-
-<p>特定のディレクトリ直下にあるファイルを閲覧するには
-(そのディレクトリの中にサブディレクトリが存在しない場合)</p>
-
-<pre><code>ls foo/bar/* | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
-</code></pre>
+<p>-&gt; <a href="commands/less.html#less-many-files">たくさんのファイルをまとめて less で閲覧するには</a></p>
 
 <h2 id="convert-lf-code">改行コードを変換するには
 <span class="article-date">2013/06/04</span></h2>
@@ -159,6 +142,7 @@ echo %E3%81%82 | tr % = | nkf -WmQ
 <p><a href="http://www.commandlinefu.com/commands/browse" target="_blank">http://www.commandlinefu.com/commands/browse</a></p>
 
 <p>ワンライナーを共有するサイト</p>
+
 
 </div>
 
