@@ -47,45 +47,7 @@
 <div id="content">
   <h1 id="return-tuple">複数の返り値(多値返却)</h1>
 
-<p>複数の値を関数から返す方法。</p>
-
-<h2 id="4057973">Scala
-<span class="article-date">2013/09/20</span></h2>
-
-<p>タプルを返せばよい。</p>
-
-<h2 id="e0f1da3">PHP
-<span class="article-date">2013/04/22</span></h2>
-
-<p>配列を使って無理やりやろうと思えばできなくもない。</p>
-
-<pre><code>function f(){
-  return array(1, "abc");
-}
-list($num, $str) = f();
-</code></pre>
-
-<h2 id="449479d">Ruby
-<span class="article-date">2013/09/06</span></h2>
-
-<p><code>return</code> にカンマ区切りで複数の値を書けば、配列を返すことになり、受け取り側は配列の多重代入を使う。</p>
-
-<pre><code>def f
-  return 1, "abc"
-end
-num, str = f
-</code></pre>
-
-<h2 id="96e30ce">Perl
-<span class="article-date">2013/09/21</span></h2>
-
-<p>リストを返して、受け取り側は多重代入を使う。</p>
-
-<pre><code>sub f {
-    return (1, "abc");
-}
-my ($num, $str) = f;
-</code></pre>
+<p>-&gt; <a href="../tuple/return-tuple.html">複数の返り値(多値返却)</a></p>
 
 
 </div>

@@ -40,18 +40,37 @@
 </div>
 
 <div id="content">
-  <h1 id="swapvars">2つの変数の内容を入れ替えるには</h1>
+  <h1 id="swapvars">2つの変数の内容を入れ替えるには
+<span class="article-date">2013/10/28</span></h1>
+
+<p>多重代入のできる言語であればだいたい簡単にできるのかな。</p>
+
+<p>-&gt; <a href="../tuple/multiple-assignment.html">多重代入</a></p>
+
+<h2 id="a9e99cc">Python
+<span class="article-date">2013/10/28</span></h2>
+
+<p>多重代入を使えば簡単にできる。</p>
+
+<pre><code>a = 1
+b = 2
+a, b = b, a
+print a
+# =&gt; 2
+print b
+# =&gt; 1
+</code></pre>
 
 <h2 id="944f06e">Ruby
 <span class="article-date">2013/09/30</span></h2>
 
 <p>多重代入を使えば簡単にできる。</p>
 
-<pre><code>foo = 1
-bar = 2
-foo, bar = bar, foo
-# foo =&gt; 2
-# bar =&gt; 1
+<pre><code>a = 1
+b = 2
+a, b = b, a
+# a =&gt; 2
+# b =&gt; 1
 </code></pre>
 
 

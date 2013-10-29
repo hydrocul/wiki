@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>シンボリックリンクのリンク先を取得する | 入出力・ファイル操作 | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>シンボリックリンクのリンク先を取得する</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/io/">入出力・ファイル操作</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
+          <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
+          <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
+          <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
+          <li><a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには (rm / unlink)</a></li>
+          <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
+          <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
+          <li>シンボリックリンクのリンク先を取得する</li>
+          <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
+          <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
+          <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="get-symbolic-link-target">シンボリックリンクのリンク先を取得する</h1>
+
+<h2 id="2041c52">Ruby
+<span class="article-date">2013/04/30</span></h2>
+
+<p><code>path</code> がシンボリックリンクの場合に、<code>path</code> をリンク先に書き換える。</p>
+
+<pre><code>if File.exists?(path) &amp;&amp; File.ftype(path) == 'link' then
+  link = File.readlink(path)
+  path = File.expand_path(link, File.dirname(path))
+end
+</code></pre>
+
+<h2 id="sh">sh
+<span class="article-date">2013/10/28</span></h2>
+
+<pre><code>readlink -f シンボリックリンク
+</code></pre>
+
+<p><a href="../../commands/ls.html"><code>ls</code>コマンド</a>を使って無理やりやる方法</p>
+
+<pre><code>ls -l シンボリックリンク | perl -anle '$_ =~ /-&gt; (.+)$/; print $1'
+</code></pre>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

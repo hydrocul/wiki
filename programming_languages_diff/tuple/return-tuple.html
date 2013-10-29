@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>複数の返り値(多値返却) | タプル | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/tuple/">タプル</a> &gt; <span>複数の返り値(多値返却)</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/tuple/">タプル</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/tuple/overview.html">概要</a></li>
+          <li>複数の返り値(多値返却)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="return-tuple">複数の返り値(多値返却)
+<span class="article-date">2013/10/28</span></h1>
+
+<p>関数は普通は返り値を1つだけ返すか、1つも返さない(C言語の<code>void</code>など)ものが多い。ただ、言語によっては複数の値を関数から返す方法がある。</p>
+
+<h2 id="scala">Scala
+<span class="article-date">2013/09/20</span></h2>
+
+<p>タプルを返せばよい。</p>
+
+<h2 id="e0f1da3">PHP
+<span class="article-date">2013/04/22</span></h2>
+
+<p>配列を使って無理やりやろうと思えばできなくもない。</p>
+
+<pre><code>function f(){
+  return array(1, "abc");
+}
+list($num, $str) = f();
+</code></pre>
+
+<h2 id="449479d">Ruby
+<span class="article-date">2013/09/06</span></h2>
+
+<p><code>return</code> にカンマ区切りで複数の値を書けば、配列を返すことになり、受け取り側は配列の多重代入を使う。</p>
+
+<pre><code>def f
+  return 1, "abc"
+end
+num, str = f
+</code></pre>
+
+<h2 id="96e30ce">Perl
+<span class="article-date">2013/09/21</span></h2>
+
+<p>リストを返して、受け取り側は多重代入を使う。</p>
+
+<pre><code>sub f {
+    return (1, "abc");
+}
+my ($num, $str) = f;
+</code></pre>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

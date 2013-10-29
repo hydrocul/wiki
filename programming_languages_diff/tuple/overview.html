@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>概要 | タプル | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/tuple/">タプル</a> &gt; <span>概要</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/tuple/">タプル</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/tuple/multiple-assignment.html">複数の値をまとめて代入(多重代入)</a></li>
+          <li>概要</li>
+          <li><a href="../../programming_languages_diff/tuple/return-tuple.html">複数の返り値(多値返却)</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="overview">概要
+<span class="article-date">2013/10/05</span></h1>
+
+<p>型が違っていてもよい2つ以上のデータを格納できるコンテナ型。格納するデータの数は固定。各フィールドに名前が付いていないC言語の構造体みたいなもの。</p>
+
+<p>静的な型付けの言語では要素ごとの型も静的に決まる。</p>
+
+<h2 id="7f4d550">Scala
+<span class="article-date">2013/10/28</span></h2>
+
+<p>コンマ区切りの2つ以上の値を<code>()</code>で囲めば、タプルになる。</p>
+
+<p>関数にタプルを1つだけ渡して呼び出すには、
+<code>()</code>はもともと関数呼び出しの引数を囲む記号なので、二重にカッコで囲まないといけない。</p>
+
+<p>関数の返り値としてタプルを使えば、
+<a href="return-tuple.html">複数の結果を返す</a>ことができる。</p>
+
+<p>タプルは実際には普通のオブジェクトで、
+2要素であれば <code>scala.Tuple2</code>、3要素であれば <code>scala.Tuple3</code> というクラスのインスタンスである。</p>
+
+<h2 id="ccd88c1">Python
+<span class="article-date">2013/10/05</span></h2>
+
+<p>Pythonのタプルは、リストがイミュータブルになっただけのようである。</p>
+
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

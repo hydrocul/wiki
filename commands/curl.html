@@ -95,6 +95,11 @@
 
 <p>URLに <code>[]</code> が含まれている場合は、オプションとして <code>-g</code> を付けないといけないみたい。</p>
 
+<h2 id="180789a"><code>curl: (35) Unknown SSL protocol error in connection to ...</code> のようなエラー
+<span class="article-date">2013/10/29</span></h2>
+
+<p>SSLのリモートホストに接続するときにホストによってはこのエラーが出ることがあるので、その場合はオプション <code>--tlsv1</code> を付けるとよい。</p>
+
 <h2 id="8dbf5db">リクエストヘッダやレスポンスヘッダを表示するには
 <span class="article-date">2013/10/16</span></h2>
 

@@ -83,42 +83,53 @@
 <h2 id="1d21255">Java</h2>
 
 <h3 id="fb31da3">配列
-<span class="article-date">2013/09/04</span></h3>
+<span class="article-date">2013/10/28</span></h3>
+
+<p>配列はの要素は <code>[]</code> でアクセスする。</p>
 
 <pre><code>arr[index]
 </code></pre>
 
 <h3 id="f09a292"><code>java.util.List</code>
-<span class="article-date">2013/09/04</span></h3>
+<span class="article-date">2013/10/28</span></h3>
+
+<p><code>java.util.List</code> は <code>get</code> というメソッドで要素にアクセスする。</p>
 
 <pre><code>lst.get(index)
 </code></pre>
 
 <h2 id="57beaaa">Scala
-<span class="article-date">2013/10/03</span></h2>
+<span class="article-date">2013/10/28</span></h2>
 
-<p><code>Array</code> でも <code>List</code> などの <code>Seq</code> でも同じ。</p>
+<p><code>Array</code> でも <code>List</code> などの <code>Seq</code> でも同じで、関数呼び出しのように 
+<code>()</code> でアクセスする。
+Javaでは <code>[]</code> でアクセスする配列もScalaでは <code>()</code> でアクセスする。</p>
 
-<pre><code>arr(index);
-lst(index);
+<pre><code>arr(index)
+lst(index)
 </code></pre>
 
-<p>これは以下と同じ意味。</p>
+<p>これらには <code>apply</code> というメソッドが定義されていて、
+<code>apply</code> というメソッドがあるオブジェクトは、それ自体が関数であるかのように後ろにカッコで引数を置くことで、<code>apply</code>メソッドを呼び出すことができるScalaの仕組みがあるために、このように書ける。</p>
 
-<pre><code>arr.apply(index);
-lst.apply(index);
+<p>つまり、これらは以下と同じ意味。</p>
+
+<pre><code>arr.apply(index)
+lst.apply(index)
 </code></pre>
 
 <h2 id="6fa8328">PHP
-<span class="article-date">2013/09/05</span></h2>
+<span class="article-date">2013/10/28</span></h2>
+
+<p>配列はの要素は <code>[]</code> でアクセスする。</p>
 
 <pre><code>$arr[$index]
 </code></pre>
 
 <h2 id="e58800b">Python
-<span class="article-date">2013/10/04</span></h2>
+<span class="article-date">2013/10/28</span></h2>
 
-<p>以下はPythonのシーケンスといわれるリスト、タプル、文字列で共通操作。</p>
+<p>Pythonのシーケンスといわれるリスト、タプル、文字列で共通して、要素には <code>[]</code> でアクセスする。</p>
 
 <pre><code>lst[index]
 tpl[index]
