@@ -101,7 +101,7 @@
 <p>SSLのリモートホストに接続するときにホストによってはこのエラーが出ることがあるので、その場合はオプション <code>--tlsv1</code> を付けるとよい。</p>
 
 <h2 id="8dbf5db">リクエストヘッダやレスポンスヘッダを表示するには
-<span class="article-date">2013/10/16</span></h2>
+<span class="article-date">2013/11/01</span></h2>
 
 <p><code>-v</code> を付けると、リクエストヘッダは <code>&gt;</code> で表示され、レスポンスヘッダは <code>&lt;</code> で表示される。</p>
 
@@ -123,6 +123,9 @@
 &lt; Connection: close
 &lt; Content-Type: text/html; charset=UTF-8
 </code></pre>
+
+<p><code>-I</code> を付けると、レスポンス本体を取得せずにレスポンスヘッダのみを表示する。
+<code>-I</code> は実際には、HTTPのHEADコマンドが発行されている。その様子は <code>-Iv</code> とすればわかる。</p>
 
 
 </div>

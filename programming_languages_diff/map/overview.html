@@ -48,21 +48,63 @@
 
 <div id="content">
   <h1 id="overview">概要
-<span class="article-date">2013/10/05</span></h1>
+<span class="article-date">2013/11/01</span></h1>
 
 <p>キーと値の2つのオブジェクトのペアを複数保持し、キーからオブジェクトを取得できるコンテナオブジェクト。配列の数字を添字とするものに対し、任意のオブジェクトを添字にできるもの。連想配列、マップ、ディクショナリなど、言語によって呼び方は違う。</p>
 
-<p>キーと値の型は違っていてもよいが、キーと値はそれぞれすべて同じ型である必要がある。ただ、型が違うものがまざっていてもよい言語もある。</p>
+<p>型が静的な言語では、キーと値の型は違っていてもよいが、キーと値はそれぞれすべて同じ型である必要がある。</p>
 
-<h2 id="ceac745">Java
-<span class="article-date">2013/09/21</span></h2>
+<h2 id="java">Java
+<span class="article-date">2013/11/01</span></h2>
 
 <p><code>java.util.Map</code> インターフェースがある。</p>
 
+<p><code>java.util.Map</code> のインスタンスを生成したり、要素にアクセスしたりする言語構造はないので、<code>new</code> 演算子を使ったり、メソッドを使ったりする。</p>
+
+<p>インスタンス生成の例</p>
+
+<pre><code>import java.util.HashMap;
+HashMap&lt;String, Integer&gt; map = new HashMap&lt;String, Integer&gt;();
+map.put("a", 1);
+map.put("b", 2);
+</code></pre>
+
+<p>空の <code>java.util.Map</code> インスタンスを作るには</p>
+
+<pre><code>Collections.&lt;String, Integer&gt;emptyMap()
+</code></pre>
+
+<p>要素が1つだけの <code>java.util.Map</code> インスタンスを作るには</p>
+
+<pre><code>Collections.&lt;String, Integer&gt;singletonMap(key, value)
+</code></pre>
+
+<p>要素を参照するには <code>get</code> を使う。-&gt; <a href="get.html#java">キーで値を参照するには</a></p>
+
+<pre><code>map.get("a");
+</code></pre>
+
 <h2 id="php">PHP
-<span class="article-date">2013/10/22</span></h2>
+<span class="article-date">2013/11/01</span></h2>
 
 <p>連想配列が組み込み型として存在する。連想配列のキーに整数を使えば、単純な<a href="../list/overview.html#php">配列</a>として使うことができ、連想配列と通常の配列の区別がない。</p>
+
+<pre><code>arr = array('a' =&gt; 1, 'b' =&gt; 2, );
+</code></pre>
+
+<p><a href="../list/literal.html#php">普通の配列</a>と同様に最後に余計なカンマがあってもなくてもよい。</p>
+
+<p>PHP 5.4からは以下のようにも書ける。</p>
+
+<pre><code>arr = ['a' =&gt; 1, 'b' =&gt; 2];
+</code></pre>
+
+<p>この構文でも最後に余計なカンマがあってもよい。</p>
+
+<p>要素を参照するには <code>[]</code> を使う。</p>
+
+<pre><code>arr['a']
+</code></pre>
 
 <p>キーには以下のような制限がある。</p>
 
@@ -77,8 +119,11 @@
 <p>配列 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.types.array.php" target="_blank">http://www.php.net/manual/ja/language.types.array.php</a></p>
 
+<p>配列関係の関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/book.array.php" target="_blank">http://www.php.net/manual/ja/book.array.php</a></p>
+
 <h2 id="python">Python
-<span class="article-date">2013/10/07</span></h2>
+<span class="article-date">2013/11/01</span></h2>
 
 <p>ディクショナリ(辞書)というデータ型がある。</p>
 
@@ -87,16 +132,124 @@
 
 <p>ディクショナリ自体はミュータブル(可変)である。</p>
 
+<pre><code># ディクショナリの例
+dic = {'a': 1, 'b': 2}
+
+# 空のディクショナリ
+dic = {}
+
+# 空のディクショナリはdict関数に引数を与えないことでも作れる
+dic = dict()
+</code></pre>
+
+<p>要素を参照するには <code>[]</code> を使う。</p>
+
+<pre><code>dic['a']
+</code></pre>
+
 <h2 id="perl">Perl
-<span class="article-date">2013/09/21</span></h2>
+<span class="article-date">2013/11/01</span></h2>
 
-<p>ハッシュという。偶数個の要素のリストをハッシュの変数(<code>%</code>で始まる名前)に代入するとハッシュになる。</p>
+<p>Perlではハッシュという。</p>
 
-<h2 id="61c7ec2">JavaScript
-<span class="article-date">2013/10/05</span></h2>
+<p>ハッシュを入れる変数は名前が <code>%</code> で始まり、要素を参照するには <code>$</code> で始める。</p>
+
+<p>以下の2つはまったく同じ意味で、どちらもハッシュを <code>%hash</code> に代入している。</p>
+
+<pre><code>my %hash = (a =&gt; 1, b =&gt; 2);
+my %hash = ('a', 1, 'b', 2);
+</code></pre>
+
+<p>上記の <code>(...)</code> の表記をリストという。偶数個の要素のリストを <code>%</code> で始まる変数に代入するとハッシュになる。</p>
+
+<p>リストの中の <code>=&gt;</code> は <code>,</code> とまったく同じ意味で、以下のように書いても差支えない。こんな書き方は普通はしないが。</p>
+
+<pre><code>my %hash = ('a', 1 =&gt; 'b', 2);
+</code></pre>
+
+<p>最後に余計なカンマがあっても問題ない。</p>
+
+<pre><code>my %hash = (
+           a =&gt; 1,
+           b =&gt; 2,
+          );
+</code></pre>
+
+<p>要素を参照するには変数名を <code>$</code> で始めて、<code>{}</code> を使う。
+-&gt; <a href="get.html#perl">キーで値を参照するには</a></p>
+
+<pre><code>$hash{a}
+</code></pre>
+
+<h3 id="920a94a">ハッシュへのレファレンス
+<span class="article-date">2013/11/01</span></h3>
+
+<p><code>{}</code> を使うと、ハッシュへのレファレンスを直接書くことができる。</p>
+
+<pre><code>my $hash = {a =&gt; 1, b =&gt; 2};
+</code></pre>
+
+<p>で、これは以下と同じ。</p>
+
+<pre><code>my %h = (a =&gt; 1, b =&gt; 2);
+my $hash = \%h;
+</code></pre>
+
+<p>レファレンスの実体を取り出すには、</p>
+
+<pre><code>%$hash;
+</code></pre>
+
+<h2 id="javascript">JavaScript
+<span class="article-date">2013/11/01</span></h2>
 
 <p>オブジェクトがそのまま連想配列のように使える。
-JavaScriptにおいてオブジェクトと連想配列は同じ。</p>
+JavaScriptにおいてオブジェクトと連想配列は同じで、下の2つは全部同じオブジェクトを生成する。</p>
+
+<pre><code>map = {a: 1, b: 2}
+map = {'a': 1, 'b': 2}
+</code></pre>
+
+<p>最後に余計なカンマがあっても問題ない。</p>
+
+<pre><code>map = {'a': 1, 'b': 2, }
+</code></pre>
+
+<h3 id="json">JSON
+<span class="article-date">2013/10/20</span></h3>
+
+<p>JSONフォーマットは、JavaScriptでのオブジェクトの書き方に準ずるが
+JSONフォーマットのほうがルールが厳しい。</p>
+
+<p>JavaScriptのオブジェクトの表記は、ほぼそのままJSONの表記となるが、少し違う点がある。</p>
+
+<ul>
+  <li>キーは文字列のみで、必ずダブルクオーテーションで囲む</li>
+  <li>文字列は <code>"</code> で囲み、 <code>'</code> で囲むのは禁止</li>
+  <li>正数であっても先頭に <code>+</code> を付けるのは禁止</li>
+  <li><code>0.</code> で始まる浮動小数点数は許されるが、先頭の <code>0</code> を省略した表記は禁止</li>
+  <li><code>0</code> で始まる8進数表記や <code>0x</code> で始まる16進数表記の数値は禁止</li>
+  <li>文字列の中のエスケープシーケンスとして <code>\0</code> で始まる8進数表記や <code>\x</code> で
+始まる16新数表記は禁止で、代わりに <code>\u</code> で始まるUnicodeエスケープを使う。</li>
+  <li><code>undefined</code> や <code>NaN</code> は禁止</li>
+</ul>
+
+<p>その他にJSONパーサによっての制約もある。</p>
+
+<ul>
+  <li>PHPのjson_decodeでは、要素の最後の余計なカンマがあるとパースできない
+-&gt; <a href="../json/decode.html#php">PHPでデコードするには</a></li>
+</ul>
+
+<h2 id="fdf056c">CoffeeScript
+<span class="article-date">2013/04/15</span></h2>
+
+<pre><code>map = {a: 1, b: 2}
+map = a: 1, b: 2
+map =
+    a: 1
+    b: 2
+</code></pre>
 
 
 </div>

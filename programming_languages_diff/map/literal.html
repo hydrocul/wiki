@@ -49,169 +49,29 @@
 <div id="content">
   <h1 id="literal">マップの書き方</h1>
 
-<h2 id="379089a">Java
-<span class="article-date">2013/09/21</span></h2>
+<h2 id="379089a">Java</h2>
 
-<p><code>java.util.Map</code> インスタンスは一発では作れない。</p>
+<p>-&gt; <a href="overview.html#java">概要</a></p>
 
-<pre><code>import java.util.HashMap;
-HashMap&lt;String, Integer&gt; map = new HashMap&lt;String, Integer&gt;();
-map.put("a", 1);
-map.put("b", 2);
-</code></pre>
+<h2 id="3b01008">PHP</h2>
 
-<p>空の <code>java.util.Map</code> インスタンスを作るには</p>
+<p>-&gt; <a href="overview.html#php">概要</a></p>
 
-<pre><code>Collections.&lt;String, Integer&gt;emptyMap()
-</code></pre>
+<h2 id="a1b63e2">Python</h2>
 
-<p>要素が1つだけの <code>java.util.Map</code> インスタンスを作るには</p>
+<p>-&gt; <a href="overview.html#python">概要</a></p>
 
-<pre><code>Collections.&lt;String, Integer&gt;singletonMap(key, value)
-</code></pre>
+<h2 id="269ff61">Perl</h2>
 
-<h2 id="9d8123c">Scala
-<span class="article-date">2013/09/03</span></h2>
+<p>-&gt; <a href="overview.html#perl">概要</a></p>
 
-<pre><code>map = Map("a" -&gt; 1, "b" -&gt; 2);
-</code></pre>
+<h2 id="09296ce">JavaScript</h2>
 
-<p>これは以下のシンタックスシュガー。</p>
+<p>-&gt; <a href="overview.html#javascript">概要</a></p>
 
-<pre><code>map = scala.collection.immutable.Map.apply(scala.Predef.any2ArrowAssoc("a").-&gt;(1),
-                                           scala.Predef.any2ArrowAssoc("a").-&gt;(2));
-</code></pre>
+<h3 id="a79df61">JSON</h3>
 
-<h2 id="3b01008">PHP
-<span class="article-date">2013/10/22</span></h2>
-
-<pre><code>arr = array('a' =&gt; 1, 'b' =&gt; 2, );
-</code></pre>
-
-<p><a href="../list/literal.html#php">普通の配列</a>と同様に最後に余計なカンマがあってもなくてもよい。</p>
-
-<p>PHP 5.4からは以下のようにも書ける。</p>
-
-<pre><code>arr = ['a' =&gt; 1, 'b' =&gt; 2];
-</code></pre>
-
-<p>この構文でも最後に余計なカンマがあってもよい。</p>
-
-<p>配列 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/language.types.array.php" target="_blank">http://www.php.net/manual/ja/language.types.array.php</a></p>
-
-<p>配列関係の関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/book.array.php" target="_blank">http://www.php.net/manual/ja/book.array.php</a></p>
-
-<h2 id="a1b63e2">Python
-<span class="article-date">2013/10/07</span></h2>
-
-<pre><code>map = {'a': 1, 'b': 2}
-# 空のディクショナリ
-map = {}
-
-# 空のディクショナリはdict関数に引数を与えないことでも作れる
-dic = dict()
-</code></pre>
-
-<h2 id="100dce2">Ruby
-<span class="article-date">2013/09/03</span></h2>
-
-<pre><code>hash = {'a' =&gt; 1, 'b' =&gt; 2}
-</code></pre>
-
-<h2 id="269ff61">Perl
-<span class="article-date">2013/09/03</span></h2>
-
-<p>ハッシュそのものは変数名が <code>%</code> で始まり、要素を参照するには <code>$</code> で始める。</p>
-
-<p>以下の2つはまったく同じ意味で、どちらもハッシュを <code>%hash</code> に代入している。</p>
-
-<pre><code>my %hash = (a =&gt; 1, b =&gt; 2);
-my %hash = ('a', 1, 'b', 2);
-</code></pre>
-
-<p>上記の <code>(...)</code> の表記をリストという。偶数個の要素のリストを <code>%</code> で始まる変数に代入するとハッシュになる。</p>
-
-<p>リストの中の <code>=&gt;</code> は <code>,</code> とまったく同じ意味で、以下のように書いても差支えない。こんな書き方は普通はしないが。</p>
-
-<pre><code>my %hash = ('a', 1 =&gt; 'b', 2);
-</code></pre>
-
-<p>最後に余計なカンマがあっても問題ない。</p>
-
-<pre><code>my %hash = (
-           a =&gt; 1,
-           b =&gt; 2,
-          );
-</code></pre>
-
-<h3 id="3c08215">ハッシュへのレファレンス
-<span class="article-date">2013/09/23</span></h3>
-
-<pre><code>my $hash = {a =&gt; 1, b =&gt; 2};
-</code></pre>
-
-<p>で、これは以下と同じ。</p>
-
-<pre><code>my %h = (a =&gt; 1, b =&gt; 2);
-my $hash = \%h;
-</code></pre>
-
-<p>レファレンスの実体を取り出すには、</p>
-
-<pre><code>%$hash;
-</code></pre>
-
-<h2 id="javascript">JavaScript
-<span class="article-date">2013/09/28</span></h2>
-
-<p>下の2つは全部同じオブジェクトを生成する。</p>
-
-<pre><code>map = {a: 1, b: 2}
-map = {'a': 1, 'b': 2}
-</code></pre>
-
-<p>最後に余計なカンマがあっても問題ない。</p>
-
-<pre><code>map = {'a': 1, 'b': 2, }
-</code></pre>
-
-<p>JSONフォーマットは、JavaScriptでのオブジェクトの書き方に準ずるが
-JSONフォーマットのほうがルールが厳しい。</p>
-
-<h3 id="afbb0f1">JSON
-<span class="article-date">2013/10/20</span></h3>
-
-<p>JavaScriptのオブジェクトの表記は、ほぼそのままJSONの表記となるが、少し違う点がある。</p>
-
-<ul>
-  <li>キーは文字列のみで、必ずダブルクオーテーションで囲む</li>
-  <li>文字列は <code>"</code> で囲み、 <code>'</code> で囲むのは禁止</li>
-  <li>正数であっても先頭に <code>+</code> を付けるのは禁止</li>
-  <li><code>0.</code> で始まる浮動小数点数は許されるが、先頭の <code>0</code> を省略した表記は禁止</li>
-  <li><code>0</code> で始まる8進数表記や <code>0x</code> で始まる16進数表記の数値は禁止</li>
-  <li>文字列の中のエスケープシーケンスとして <code>\0</code> で始まる8進数表記や <code>\x</code> で
-始まる16新数表記は禁止で、代わりに <code>\u</code> で始まるUnicodeエスケープを使う。</li>
-  <li><code>undefined</code> や <code>NaN</code> は禁止</li>
-</ul>
-
-<p>その他にJSONパーサによっての制約もある。</p>
-
-<ul>
-  <li>PHPのjson_decodeでは、要素の最後の余計なカンマがあるとパースできない
--&gt; <a href="../json/decode.html#php">PHPでデコードするには</a></li>
-</ul>
-
-<h2 id="60cafab">CoffeeScript
-<span class="article-date">2013/04/15</span></h2>
-
-<pre><code>map = {a: 1, b: 2}
-map = a: 1, b: 2
-map =
-    a: 1
-    b: 2
-</code></pre>
+<p>-&gt; <a href="overview.html#json">JSON</a></p>
 
 
 </div>
