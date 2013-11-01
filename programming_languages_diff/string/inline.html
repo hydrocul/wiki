@@ -71,14 +71,16 @@
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2013/09/02</span></h2>
+<span class="article-date">2013/10/31</span></h2>
 
-<p><code>"</code> で囲んだ文字列は、 <code>#{...}</code> を使って式を評価した結果を文字列に埋め込むことができる。</p>
+<p><code>"</code> で囲んだ文字列は、 <code>#{...}</code> を使って式を評価した結果を文字列に埋め込むことができる。
+<code>#{...}</code> の中は単純な変数には限らず、関数呼び出しなど任意の式を書ける。</p>
 
 <p>例</p>
 
-<pre><code>now = DateTime.now
-puts "It is #{now} now."
+<pre><code>require 'date'
+
+puts "It is #{DateTime.now} now."
 </code></pre>
 
 <h2 id="perl">Perl

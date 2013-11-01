@@ -53,7 +53,7 @@
 <code>elif</code>派: Python, sh</p>
 
 <h2 id="e09a82e">C言語, C++
-<span class="article-date">2013/06/19</span></h2>
+<span class="article-date">2013/10/31</span></h2>
 
 <pre><code>if(...){
   ...;
@@ -73,6 +73,8 @@ else
 </code></pre>
 
 <p>いずれの構文でも <code>else</code> で実行する文がなければ、<code>else</code> を省略可。</p>
+
+<p>Scalaのようにif文自体が値を返すことはできない。</p>
 
 <h2 id="b532050">Go言語
 <span class="article-date">2013/06/19</span></h2>
@@ -100,7 +102,7 @@ else
 </code></pre>
 
 <h2 id="a7cf68a">Java
-<span class="article-date">2013/07/07</span></h2>
+<span class="article-date">2013/10/31</span></h2>
 
 <pre><code>if(...){
   ...;
@@ -118,6 +120,8 @@ else
 else
   ...;
 </code></pre>
+
+<p>Scalaのようにif文自体が値を返すことはできない。</p>
 
 <h2 id="scala">Scala
 <span class="article-date">2013/07/07</span></h2>
@@ -204,7 +208,7 @@ else:
 </code></pre>
 
 <h2 id="e6d9531">Ruby
-<span class="article-date">2013/10/18</span></h2>
+<span class="article-date">2013/10/31</span></h2>
 
 <pre><code>if ...
   ...
@@ -238,6 +242,16 @@ end
 }
 
 ... unless ...
+</code></pre>
+
+<p>RubyではScalaと同じくifは結果を返すことができるので以下のように
+<a href="../operator/ternary.html">三項演算子</a>の代わりとしても使える。</p>
+
+<pre><code>max = if(a &gt; b)
+        a
+      else
+        b
+      end
 </code></pre>
 
 <h2 id="5327dda">Perl
