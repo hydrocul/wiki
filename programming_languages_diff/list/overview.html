@@ -85,20 +85,57 @@
 
 <p><a href="../../commands/sed.html"><code>sed</code></a> などのコマンドも、このサイトでは文字列のリストを処理するものと捉えて、解説することにする。</p>
 
-<h2 id="234f5be">C言語
-<span class="article-date">2013/10/25</span></h2>
+<h2 id="c">C言語
+<span class="article-date">2013/11/03</span></h2>
 
 <p>配列の仕組みがある。配列のメモリ領域を確保した時点で大きさを変更できないので、固定長配列になる。</p>
 
 <p>インデックスでアクセスする場合は先頭の要素が0になる。</p>
 
-<h2 id="ceac745">Java
+<p>変数宣言のときに配列を書くには</p>
+
+<pre><code>int arr[] = {1, 2, 3};
+</code></pre>
+
+<h2 id="java">Java
 <span class="article-date">2013/10/25</span></h2>
 
 <p>言語の組み込み型である配列と、クラスライブラリでサポートされている
 <code>java.util.List</code> インターフェースがある。配列は生成する時点で長さを指定しなければならず、固定長配列になる。</p>
 
 <p>配列も <code>java.util.List</code> もインデックスでアクセスする場合は先頭の要素が0になる。</p>
+
+<h3 id="543541c">配列
+<span class="article-date">2013/10/08</span></h3>
+
+<p>配列生成の例</p>
+
+<pre><code>int[] arr = {1, 2, 3};
+</code></pre>
+
+<p>または</p>
+
+<pre><code>int[] arr = new int[]{1, 2, 3};
+</code></pre>
+
+<p>要素を初期化しない場合は</p>
+
+<pre><code>int[] arr = new int[1024];
+</code></pre>
+
+<h3 id="92aa783"><code>java.util.List</code>
+<span class="article-date">2013/09/04</span></h3>
+
+<p>インスタンス生成の例</p>
+
+<pre><code>import java.util.List;
+import java.util.ArrayList;
+
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+list.add("a");
+list.add("b");
+list.add("c");
+</code></pre>
 
 <h2 id="7f4d550">Scala
 <span class="article-date">2013/10/03</span></h2>
@@ -117,12 +154,41 @@
 <p>Scalaコレクションのアーキテクチャ<br />
 <a href="http://eed3si9n.github.io/scala-collections-impl-doc-ja/" target="_blank">http://eed3si9n.github.io/scala-collections-impl-doc-ja/</a></p>
 
+<h2 id="146cd2d">Groovy
+<span class="article-date">2013/10/01</span></h2>
+
+<pre><code>def lst = [1, 2, 3]; // java.util.ArrayList
+</code></pre>
+
 <h2 id="php">PHP
 <span class="article-date">2013/10/05</span></h2>
 
-<p>組み込み型の連想配列のキーに整数を使えば、配列として使うことができる。</p>
+<p>組み込み型の連想配列のキーに整数を使えば、配列として使うことができる。-&gt; <a href="../map/overview.html#php">連想配列</a></p>
 
-<p>-&gt; <a href="../map/overview.html#php">連想配列</a></p>
+<p>配列を生成する例</p>
+
+<pre><code>$arr = array(1, 2, 3);
+</code></pre>
+
+<p>最後に余計なカンマがあっても問題ない。</p>
+
+<pre><code>$arr = array(
+             1,
+             2,
+             3,
+            );
+</code></pre>
+
+<p>PHP5.4以降では以下のようにも書ける。</p>
+
+<pre><code>$arr = [1, 2, 3];
+</code></pre>
+
+<p>配列 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/language.types.array.php" target="_blank">http://www.php.net/manual/ja/language.types.array.php</a></p>
+
+<p>配列関係の関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/book.array.php" target="_blank">http://www.php.net/manual/ja/book.array.php</a></p>
 
 <h2 id="python">Python
 <span class="article-date">2013/10/22</span></h2>
