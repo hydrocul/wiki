@@ -207,8 +207,8 @@ else:
     ...
 </code></pre>
 
-<h2 id="e6d9531">Ruby
-<span class="article-date">2013/10/31</span></h2>
+<h2 id="ruby">Ruby
+<span class="article-date">2013/11/05</span></h2>
 
 <pre><code>if ...
   ...
@@ -230,7 +230,7 @@ else
 end
 </code></pre>
 
-<p>elseの節がなく、本体の文が1つだけの場合は以下のように修飾子の構文での書き方も可能。</p>
+<p>elseの節がなく、本体の文が1つだけの場合は以下のように修飾子の構文での書き方も可能。この書き方は <code>end</code> を書く必要がなく行数が短くて済むため読みやすい場合が多い。</p>
 
 <pre><code>... if ...
 </code></pre>
@@ -245,7 +245,7 @@ end
 </code></pre>
 
 <p>RubyではScalaと同じくifは結果を返すことができるので以下のように
-<a href="../operator/ternary.html">三項演算子</a>の代わりとしても使える。</p>
+<a href="../operator/ternary.html">三項演算子</a>の代わりとしても使える。ただし、ネストしていないなどシンプルな構造の場合は素直に三項演算子のほうがわかりやすい。</p>
 
 <pre><code>max = if(a &gt; b)
         a

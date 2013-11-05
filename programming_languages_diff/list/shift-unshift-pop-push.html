@@ -153,11 +153,11 @@ var_export($result); echo "\n";
 <span class="article-date">2013/11/04</span></h2>
 
 <pre><code># 先頭を削除。削除した要素を返す
-arr.pop(0)
+lst.pop(0)
 # 先頭に追加
-arr.insert(0, obj)
+lst.insert(0, obj)
 # 最後を削除。削除した要素を返す
-arr.pop()
+lst.pop()
 # 最後に追加
 lst.append(obj)
 </code></pre>
@@ -183,44 +183,25 @@ arr.insert(index, obj)
 
 <p>タプルはイミュータブルなので、これらに相当するメソッドはない。</p>
 
-<h2 id="71693e2">Ruby</h2>
+<h2 id="71693e2">Ruby
+<span class="article-date">2013/11/05</span></h2>
 
-<h3 id="363bbd7">shift
-<span class="article-date">2013/08/04</span></h3>
-
-<pre><code>Array#shift
+<pre><code># 先頭を削除。削除した要素を返す
+arr.shift
+# 先頭に追加
+arr.unshift(obj)
+# 最後を削除。削除した要素を返す
+arr.pop
+# 最後に追加
+arr.push(obj1)
 </code></pre>
 
-<p>要素が1つもない場合は、 <code>nil</code> を返す。</p>
+<p>これらは配列自身を変更する破壊的なメソッドである。</p>
 
-<p>JavaScriptと同じメソッド名。</p>
+<p><code>shift</code>, <code>pop</code> は配列に要素が1つもない場合は、 <code>nil</code> を返す。
+<code>unshift</code>, <code>push</code> は配列自身を返す。</p>
 
-<h3 id="794b4bd">unshift
-<span class="article-date">2013/10/05</span></h3>
-
-<pre><code>arr.unshift(obj)
-</code></pre>
-
-<p>これは配列自身を変更する破壊的メソッドで、配列自身を返す。</p>
-
-<h3 id="686e4e2">pop
-<span class="article-date">2013/10/06</span></h3>
-
-<pre><code>Array#pop
-</code></pre>
-
-<h3 id="38adddc">push
-<span class="article-date">2013/08/28</span></h3>
-
-<pre><code>Array#push(obj)
-</code></pre>
-
-<p>例</p>
-
-<pre><code>arr.push(obj1)
-</code></pre>
-
-<p>これは配列自身を変更する破壊的メソッドで、配列自身を返す。以下のように、複数の要素を追加することもできる。</p>
+<p><code>push</code> は、以下のように複数の要素を追加することもできる。</p>
 
 <pre><code>arr.push(obj1, obj2, obj3)
 </code></pre>
@@ -230,7 +211,7 @@ arr.insert(index, obj)
 <pre><code>arr &lt;&lt; obj1 &lt;&lt; obj2 &lt;&lt; obj3
 </code></pre>
 
-<p>配列を連結させるには、</p>
+<p>配列を連結させるには、次のメソッドも使える。</p>
 
 <pre><code>Array#concat(other_array)
 </code></pre>

@@ -53,17 +53,14 @@
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
-          <li><a href="../../programming_languages_diff/list/push.html">リストの最後に要素1つまたは複数追加するには (push)</a></li>
-          <li><a href="../../programming_languages_diff/list/pop.html">リストの最後から要素を1つ取得してリストから削除するには (pop)</a></li>
-          <li><a href="../../programming_languages_diff/list/shift.html">リストの先頭から要素を1つ取得してリストから削除するには (shift)</a></li>
-          <li><a href="../../programming_languages_diff/list/unshift.html">リストの先頭に要素を挿入するには (unshift)</a></li>
+          <li><a href="../../programming_languages_diff/list/shift-unshift-pop-push.html">リストの先頭または最後の要素を削除したり、先頭または最後に要素を追加するには (shift, unshift, pop, push)</a></li>
           <li><a href="../../programming_languages_diff/list/set.html">インデックスで要素を設定するには (set)</a></li>
           <li><a href="../../programming_languages_diff/list/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値の要素をすべて削除するには (remove-by-value)</a></li>
           <li><a href="../../programming_languages_diff/list/clone.html">リストをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
-          <li><a href="../../programming_languages_diff/list/convert.html">リストの種類を相互に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/list/convert.html">リストの種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/list/to-map.html">リストからマップを生成するには (toMap)</a></li>
           <li><a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
@@ -80,14 +77,21 @@
 <div id="content">
   <h1 id="index-out-of-bounds-exception">範囲外のインデックスにアクセスしたときにどうなるか?</h1>
 
-<h2 id="12849c3">Ruby
-<span class="article-date">2013/08/08</span></h2>
+<h2 id="a66fbc6">Java
+<span class="article-date">2013/11/05</span></h2>
 
-<p><code>nil</code> が返ってくる。インデックスをマイナスにすると後ろから数えてくれるので必ずしも <code>nil</code> にはならない。</p>
+<p>配列も <code>java.util.List</code> もインデックスが範囲外の場合は例外がスローされる。</p>
+
+<p>インデックスを負にすると後ろから数えてくれる機能などはない。</p>
+
+<h2 id="12849c3">Ruby
+<span class="article-date">2013/11/05</span></h2>
+
+<p><code>nil</code> が返される。インデックスをマイナスにすると後ろから数えてくれる。</p>
 
 <pre><code>arr = [1, 2, 3]
-p arr[2] # =&gt; 3
-p arr[3] # =&gt; nil
+p arr[2]  # =&gt; 3
+p arr[3]  # =&gt; nil
 p arr[-1] # =&gt; 3
 p arr[-3] # =&gt; 1
 p arr[-4] # =&gt; nil
@@ -101,10 +105,11 @@ p arr[-4] # =&gt; nil
 <p>インデックスを負にすると後ろから数えてくれるが、後ろから数えて先頭よりも前になってしまうと、やはり例外がスローされる。</p>
 
 <h2 id="perl">Perl
-<span class="article-date">2013/10/04</span></h2>
+<span class="article-date">2013/11/05</span></h2>
 
-<p><code>undef</code> になり、<code>use warnings;</code> と宣言していると、
-<code>Use of uninitialized value</code> という警告が表示される。</p>
+<p><code>undef</code> が返される。
+<code>use warnings;</code> と宣言していると、
+<code>Use of uninitialized value</code> という警告がアクセス時に表示される。</p>
 
 <p>インデックスを負にすると後ろから数えてくれるが、後ろから数えて先頭よりも前になってしまうと、やはり <code>undef</code> になり、<code>use warnings;</code> と宣言していると、
 <code>Use of uninitialized value</code> という警告が表示される。</p>
@@ -118,7 +123,7 @@ print $a[-4]; # =&gt; Use of uninitialized value
 <h2 id="947320d">JavaScript
 <span class="article-date">2013/08/08</span></h2>
 
-<p><code>undefined</code> が返ってくる。</p>
+<p><code>undefined</code> が返される。</p>
 
 
 </div>
