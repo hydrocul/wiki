@@ -53,6 +53,7 @@
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
+          <li><a href="../../programming_languages_diff/list/shift-unshift-pop-push.html">リストの先頭または最後の要素を削除したり、先頭または最後に要素を追加するには (shift, unshift, pop, push)</a></li>
           <li><a href="../../programming_languages_diff/list/push.html">リストの最後に要素1つまたは複数追加するには (push)</a></li>
           <li><a href="../../programming_languages_diff/list/pop.html">リストの最後から要素を1つ取得してリストから削除するには (pop)</a></li>
           <li>リストの先頭から要素を1つ取得してリストから削除するには (shift)</li>
@@ -63,7 +64,7 @@
           <li><a href="../../programming_languages_diff/list/clone.html">リストをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
-          <li><a href="../../programming_languages_diff/list/convert.html">リストの種類を相互に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/list/convert.html">リストの種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/list/to-map.html">リストからマップを生成するには (toMap)</a></li>
           <li><a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
@@ -78,70 +79,9 @@
 </div>
 
 <div id="content">
-  <h1 id="shift">リストの先頭から要素を1つ取得してリストから削除するには (shift)
-<span class="article-date">2013/09/11</span></h1>
+  <h1 id="shift">リストの先頭から要素を1つ取得してリストから削除するには (shift)</h1>
 
-<p>最後の要素の削除は<a href="pop.html">pop</a>。<br />
-先頭への追加は<a href="unshift.html">unshift</a>。</p>
-
-<h2 id="2bb32d0">PHP
-<span class="article-date">2013/04/22</span></h2>
-
-<pre><code>array_shift($arr);
-</code></pre>
-
-<p>array_shift | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.array-shift.php" target="_blank">http://www.php.net/manual/ja/function.array-shift.php</a></p>
-
-<h2 id="79c5362">Ruby
-<span class="article-date">2013/08/04</span></h2>
-
-<pre><code>Array#shift
-</code></pre>
-
-<p>要素が1つもない場合は、 <code>nil</code> を返す。</p>
-
-<p>JavaScriptと同じメソッド名。</p>
-
-<h2 id="python">Python
-<span class="article-date">2013/09/21</span></h2>
-
-<pre><code>arr.pop(0)
-</code></pre>
-
-<p>引数を指定しないと最後の要素を取得して削除する。(-&gt;<a href="pop.html#python">pop</a>)</p>
-
-<p>以下の例は、リストの指定のインデックスの要素を取得し、削除して詰める。(-&gt;<a href="remove.html#python">remove</a>)</p>
-
-<pre><code>arr.pop(index)
-</code></pre>
-
-<h2 id="5848dc7">Perl
-<span class="article-date">2013/09/26</span></h2>
-
-<pre><code>shift(@arr);
-</code></pre>
-
-<p>引数を指定しないと、mainモジュールの中では <code>@ARGV</code> を対象とし、
-subの中では <code>@_</code> を対象とする。</p>
-
-<p>リストの先頭の要素を返し、配列自身は先頭が削除される。</p>
-
-<h2 id="44de204">JavaScript
-<span class="article-date">2013/04/19</span></h2>
-
-<pre><code>Array#shift
-</code></pre>
-
-<p>Rubyと同じメソッド名。</p>
-
-<h2 id="42bcc70">CoffeeScript
-<span class="article-date">2013/04/22</span></h2>
-
-<pre><code>Array#shift
-</code></pre>
-
-<p>これはJavaScriptと同じ。</p>
+<p>-&gt; <a href="shift-unshift-pop-push.html">追加/削除</a></p>
 
 
 </div>

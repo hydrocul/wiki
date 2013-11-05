@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストの種類を相互に変換するには | リスト(配列) | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
+<title>リストの種類を相互に変換するには (convert) | リスト(配列) | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -12,7 +12,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの種類を相互に変換するには</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの種類を相互に変換するには (convert)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -63,7 +63,7 @@
           <li><a href="../../programming_languages_diff/list/clone.html">リストをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
-          <li>リストの種類を相互に変換するには</li>
+          <li>リストの種類を相互に変換するには (convert)</li>
           <li><a href="../../programming_languages_diff/list/to-map.html">リストからマップを生成するには (toMap)</a></li>
           <li><a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
@@ -78,19 +78,20 @@
 </div>
 
 <div id="content">
-  <h1 id="convert">リストの種類を相互に変換するには</h1>
+  <h1 id="convert">リストの種類を相互に変換するには (convert)</h1>
 
-<h2 id="a7429b5">Java
-<span class="article-date">2013/09/04</span></h2>
+<h2 id="java">Java</h2>
 
-<p><code>java.util.List</code> のインスタンスを配列に変換するには</p>
+<h3 id="60c41f7"><code>java.util.List</code> のインスタンスを配列に変換するには
+<span class="article-date">2013/09/04</span></h3>
 
 <pre><code>ArrayList&lt;String&gt; list = ...;
 String[] arr = new String[list.size()];
 list.toArray(arr);
 </code></pre>
 
-<p>逆に配列を <code>java.util.List</code> に変換するには</p>
+<h3 id="016c04d">配列を <code>java.util.List</code> に変換するには
+<span class="article-date">2013/09/04</span></h3>
 
 <pre><code>import java.util.Arrays;
 
