@@ -43,12 +43,22 @@
   <h1 id="to-list">セットからリストに変換するには (toSet)</h1>
 
 <h2 id="8ea26af">Java
-<span class="article-date">2013/08/02</span></h2>
+<span class="article-date">2013/11/05</span></h2>
 
 <p><code>Set</code> から配列に変換する例</p>
 
 <pre><code>String[] arr = new String[st.size()];
 st.toArray(arr);
+</code></pre>
+
+<p><code>Set</code> から <code>List</code> に変換する例</p>
+
+<pre><code>import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+Set&lt;String&gt; st = ...;
+List&lt;String&gt; lst = new ArrayList&lt;String&gt;(st);
 </code></pre>
 
 <h2 id="a4db220">Scala
