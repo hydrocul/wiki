@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>プログラマのための数学勉強会ノート | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="./common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <span>プログラマのための数学勉強会ノート</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="./commands/">コマンドの使い方</a></li>
+  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
+  <li><a href="./html.html">HTMLのTips</a></li>
+  <li><a href="./css.html">CSSのTips</a></li>
+  <li><a href="./jquery.html">jQueryのTips</a></li>
+  <li><a href="./sh.html">シェルスクリプト</a></li>
+  <li>プログラマのための数学勉強会ノート</li>
+  <li><a href="./statistics.html">統計学のノート</a></li>
+  <li><a href="./apache.html">Apache</a></li>
+  <li><a href="./emacs.html">Emacs</a></li>
+  <li><a href="./google-analytics.html">Google Analytics</a></li>
+  <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
+  <li><a href="./linux.html">Linux</a></li>
+  <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
+  <li><a href="./mac.html">Mac</a></li>
+  <li><a href="./mechanize.html">mechanize</a></li>
+  <li><a href="./mysql.html">MySQLのメモ</a></li>
+  <li><a href="./oneliner.html">ワンライナー</a></li>
+  <li><a href="./others/">未分類</a></li>
+  <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
+  <li><a href="./phantomjs.html">phantomjs</a></li>
+  <li><a href="./php.html">PHP</a></li>
+  <li><a href="./ruby.html">Ruby</a></li>
+  <li><a href="./svn.html">Subversion (svn)</a></li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="math-for-programmers-note">プログラマのための数学勉強会ノート
+<span class="article-date">2013/11/06</span></h1>
+
+<p>これは<a href="http://nineties.github.io/math-seminar/" target="_blank">プログラマのための数学勉強会</a>を聴講したときの個人的なノートである。</p>
+
+<h2 id="fa3584b">浮動小数点数
+<span class="article-date">2013/11/06</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/2.html#/3" target="_blank">http://nineties.github.io/math-seminar/2.html#/3</a></p>
+
+<ul>
+  <li>IEEE 754
+    <ul>
+      <li>最も広く使用されている浮動小数点数の規格</li>
+      <li>値の種類
+        <ul>
+          <li>正規化数</li>
+          <li>非正規化数</li>
+          <li>+0 と -0</li>
+          <li>+Inf と -Inf</li>
+          <li>NaN</li>
+        </ul>
+      </li>
+      <li>精度
+        <ul>
+          <li>単精度: 32ビット</li>
+          <li>倍精度: 64ビット</li>
+          <li>四倍精度: 128ビット</li>
+        </ul>
+      </li>
+      <li>よく使われる倍精度では
+        <ul>
+          <li>十進数にして15桁〜16桁程度の精度</li>
+          <li>正規化数では絶対値は 10e-308 〜 10e+308 程度</li>
+          <li>非正規化数では 10e-323 〜</li>
+        </ul>
+      </li>
+      <li>計算結果の丸め方: 再近接偶数丸め
+        <ul>
+          <li><a href="http://nineties.github.io/math-seminar/2.html#/12" target="_blank">http://nineties.github.io/math-seminar/2.html#/12</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>誤差の種類
+    <ul>
+      <li>オーバーフロー
+        <ul>
+          <li>絶対値が許容範囲を超えると +Inf または -Inf になってしまう現象</li>
+        </ul>
+      </li>
+      <li>アンダーフロー
+        <ul>
+          <li>絶対値が許容範囲を下回ると +0 または -0 になってしまう現象</li>
+        </ul>
+      </li>
+      <li>情報落ち
+        <ul>
+          <li>絶対値が大きく異る2つの数を加減算すると絶対値の小さい方の数が無視されてしまう現象</li>
+        </ul>
+      </li>
+      <li>桁落ち
+        <ul>
+          <li>2つの非常に近い値の差を計算すると有効桁数が落ちる現象</li>
+        </ul>
+      </li>
+      <li>打ち切り誤差
+        <ul>
+          <li>テイラー展開などの無限の反復を途中で止めることで発生する誤差</li>
+        </ul>
+      </li>
+      <li>二進数と十進数の変換</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="239e460">極限・微分
+<span class="article-date">2013/11/06</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/2.html#/30" target="_blank">http://nineties.github.io/math-seminar/2.html#/30</a></p>
+
+<ul>
+  <li>ε-N論法
+    <ul>
+      <li><a href="http://nineties.github.io/math-seminar/2.html#/39" target="_blank">http://nineties.github.io/math-seminar/2.html#/39</a></li>
+    </ul>
+  </li>
+  <li>ε-δ論法
+    <ul>
+      <li><a href="http://nineties.github.io/math-seminar/2.html#/41" target="_blank">http://nineties.github.io/math-seminar/2.html#/41</a></li>
+    </ul>
+  </li>
+  <li>微分係数
+    <ul>
+      <li>\[ \lim_{h \rightarrow 0} \frac{f(a+h) - f(a)}{h} \]
+が収束するとき
+\[ f^{\prime}(a) \]
+\[ \frac{df}{dx}(a) \]
+\[ \left. \frac{d}{dx}f(x) \right|_{x=a} \]
+などと書く</li>
+    </ul>
+  </li>
+  <li>導関数
+    <ul>
+      <li>\[ f^{\prime}(x) \]
+\[ \frac{d}{dx}f(x) \]
+などと書く</li>
+    </ul>
+  </li>
+  <li>高階導関数
+    <ul>
+      <li>\[ f^{n}(x) \]
+\[ \frac{d^{n}}{dx^{n}}f(x) \]
+\[ \left(\frac{d}{dx}\right)^{n}f(x) \]
+などと書く</li>
+      <li>高次導関数ともいう</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="42c6d73">連続性・微分可能性・極値・ロルの定理
+<span class="article-date">2013/11/06</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/3.html#/4" target="_blank">http://nineties.github.io/math-seminar/3.html#/4</a></p>
+
+<ul>
+  <li>連続性
+    <ul>
+      <li><a href="http://nineties.github.io/math-seminar/3.html#/5" target="_blank">http://nineties.github.io/math-seminar/3.html#/5</a></li>
+    </ul>
+  </li>
+  <li>微分可能性
+    <ul>
+      <li><a href="http://nineties.github.io/math-seminar/3.html#/6" target="_blank">http://nineties.github.io/math-seminar/3.html#/6</a></li>
+      <li>\(n\)回微分係数が存在するとき、n回微分可能という</li>
+    </ul>
+  </li>
+  <li>極値と導関数の関係
+    <ul>
+      <li>\(f(a)\) が極値ならば \( f^{\prime}(a)=0 \)</li>
+      <li><a href="http://nineties.github.io/math-seminar/3.html#/10" target="_blank">http://nineties.github.io/math-seminar/3.html#/10</a></li>
+    </ul>
+  </li>
+  <li>ロルの定理
+    <ul>
+      <li>ある区間で連続で、両端で \(f(x)\) の値が同じならば、\( f^{\prime}(c)=0 \) を満たす \(c\) がその区間の内側のどこかに存在する</li>
+      <li><a href="http://nineties.github.io/math-seminar/3.html#/12" target="_blank">http://nineties.github.io/math-seminar/3.html#/12</a></li>
+    </ul>
+  </li>
+  <li>テイラーの定理
+    <ul>
+      <li><a href="http://nineties.github.io/math-seminar/3.html#/22" target="_blank">http://nineties.github.io/math-seminar/3.html#/22</a></li>
+      <li>\[ f(x) = \sum_{i=0}^{n} \frac{f^{(i)}(a)}{i!}(x-a)^{i} + \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1} \]
+ただし、\( a &lt; c &lt; x \) または \( x &lt; c &lt; a \)</li>
+      <li>最後の項を剰余項という</li>
+      <li>\( n = 0 \) の場合を特に平均値の定理という</li>
+    </ul>
+  </li>
+</ul>
+
+
+</div>
+
+<footer>
+  <a href="./">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

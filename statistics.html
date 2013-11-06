@@ -28,6 +28,8 @@
   <li><a href="./css.html">CSSのTips</a></li>
   <li><a href="./jquery.html">jQueryのTips</a></li>
   <li><a href="./sh.html">シェルスクリプト</a></li>
+  <li><a href="./math-for-programmers-note.html">プログラマのための数学勉強会ノート</a></li>
+  <li>統計学のノート</li>
   <li><a href="./apache.html">Apache</a></li>
   <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
@@ -36,15 +38,13 @@
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
   <li><a href="./mechanize.html">mechanize</a></li>
-  <li><a href="./mysql.html">MySQL</a></li>
+  <li><a href="./mysql.html">MySQLのメモ</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
   <li><a href="./others/">未分類</a></li>
-  <li><a href="./paco.html">Paco</a></li>
   <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
   <li><a href="./phantomjs.html">phantomjs</a></li>
   <li><a href="./php.html">PHP</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
-  <li>統計学のノート</li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
 </ul>
 
@@ -52,9 +52,9 @@
 </div>
 
 <div id="content">
-  <h1 id="statistic">統計学のノート</h1>
+  <h1 id="statistics">統計学のノート</h1>
 
-<h2 id="c51bf64">変数の種類
+<h2 id="ac408f9">変数の種類
 <span class="article-date">2013/11/06</span></h2>
 
 <ul>
@@ -74,7 +74,7 @@
   </li>
 </ul>
 
-<h2 id="41ad555">度数とヒストグラム
+<h2 id="988d226">度数とヒストグラム
 <span class="article-date">2013/11/05</span></h2>
 
 <ul>
@@ -90,26 +90,28 @@
   </li>
 </ul>
 
-<h2 id="a17d794">代表値
-<span class="article-date">2013/11/05</span></h2>
+<h2 id="91f034c">代表値
+<span class="article-date">2013/11/06</span></h2>
 
 <ul>
   <li>平均値
     <ul>
       <li>\[ \overline{x} = \frac{ \sum_{i} x_{i} }{n} \]</li>
+      <li>R言語では <code>mean</code> 関数</li>
     </ul>
   </li>
   <li>中央値
     <ul>
       <li>数値の大小の順に並べたときに真ん中に位置する値</li>
       <li>データの数が偶数の場合は中間をとる</li>
+      <li>R言語では <code>median</code> 関数</li>
     </ul>
   </li>
   <li>最頻値</li>
 </ul>
 
-<h2 id="09bfdb5">散布度
-<span class="article-date">2013/11/05</span></h2>
+<h2 id="1891017">散布度
+<span class="article-date">2013/11/06</span></h2>
 
 <p>データの散らばり具合を見る指標。</p>
 
@@ -124,11 +126,13 @@
     <ul>
       <li>\[ \frac{ \sum_{i} (x_{i} - \overline{x})^{2} }{n - 1} \]</li>
       <li>推測統計: テレビの視聴率の調査など、母集団の一部のみを分析して母集団を推測する場合</li>
+      <li>R言語では <code>var</code> 関数</li>
     </ul>
   </li>
   <li>標準偏差(不偏分散の平方根)
     <ul>
       <li>\[ \sqrt{ \frac{ \sum_{i} (x_{i} - \overline{x})^{2} }{n - 1} } \]</li>
+      <li>R言語では <code>sd</code> 関数</li>
     </ul>
   </li>
   <li>平均偏差
@@ -143,10 +147,69 @@
   </li>
 </ul>
 
-<h2 id="f55b4fc">標準化
+<h2 id="595c7f5">標準化
 <span class="article-date">2013/11/05</span></h2>
 
 <p>平均と標準偏差が特定の値になるようにすべてのデータの値を変換すること。</p>
+
+<h2 id="dfa646c">2つの変数の記述統計
+<span class="article-date">2013/11/06</span></h2>
+
+<ul>
+  <li>相関
+    <ul>
+      <li>複数の量的変数の間での関連の強さ</li>
+      <li>必ずしも因果関係ではないことに注意</li>
+      <li>正の相関: xが大きいほどyが大きい</li>
+      <li>負の相関: xが大きいほどyが小さい</li>
+      <li>無相関: xとyに関連がない</li>
+    </ul>
+  </li>
+  <li>連関
+    <ul>
+      <li>複数の質的変数の間での関連の強さ</li>
+    </ul>
+  </li>
+  <li>散布図
+    <ul>
+      <li>相関を視覚的に確認するには散布図がよい</li>
+      <li>R言語で作図するには <code>plot</code> 関数を使う</li>
+    </ul>
+  </li>
+  <li>共分散
+    <ul>
+      <li>\[ \frac{ \sum_{i} (x_{i} - \overline{x})(y_{i} - \overline{y}) }{n} \]</li>
+    </ul>
+  </li>
+  <li>不偏共分散
+    <ul>
+      <li>\[ \frac{ \sum_{i} (x_{i} - \overline{x})(y_{i} - \overline{y}) }{n - 1} \]</li>
+      <li>R言語では <code>cov</code></li>
+    </ul>
+  </li>
+  <li>相関係数
+    <ul>
+      <li>\[ \frac{ \sum_{i} (x_{i} - \overline{x})(y_{i} - \overline{y}) }{ \sqrt{ \sum_{i} (x_{i} - \overline{x})^2 \sum_{i} (y_{i} - \overline{y})^2 } } \]</li>
+      <li>-1から+1までの間の数になる</li>
+      <li>R言語では <code>cor</code></li>
+      <li>\( &gt; 0 \): 正の相関</li>
+      <li>\( &lt; 0 \): 負の相関</li>
+      <li>\( = 0 \): 無相関</li>
+      <li>1または-1に近いほど強い相関</li>
+    </ul>
+  </li>
+  <li>クロス集計
+    <ul>
+      <li>2つの二値の質的変数の関係を表にしたもの</li>
+      <li>R言語では <code>table</code></li>
+    </ul>
+  </li>
+  <li>ファイ係数
+    <ul>
+      <li>2つの質的変数をそれぞれ0または1に置き換えて相関係数を計算したもの</li>
+    </ul>
+  </li>
+</ul>
 
 
 </div>

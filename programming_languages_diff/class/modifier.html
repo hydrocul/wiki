@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body>
@@ -54,7 +56,7 @@
 </dl>
 
 <h2 id="cab5d15">Java
-<span class="article-date">2013/10/05</span></h2>
+<span class="article-date">2013/11/06</span></h2>
 
 <dl>
   <dt><code>public</code></dt>
@@ -62,7 +64,7 @@
   <dt><code>protected</code></dt>
   <dd>クラスの中とそのクラスを継承するサブクラスの中、
 および同一パッケージの中からのみ可視</dd>
-  <dt>パッケージプライベート (アクセス修飾子を指定しない場合のデフォルト)</dt>
+  <dt>無指定(アクセス修飾子を指定しない場合のデフォルト) = パッケージプライベート</dt>
   <dd>同一パッケージの中からのみ可視。
 この可視性を指定するキーワードはない。</dd>
   <dt><code>private</code></dt>
@@ -70,7 +72,7 @@
 </dl>
 
 <h2 id="722dd15">Scala
-<span class="article-date">2013/10/05</span></h2>
+<span class="article-date">2013/11/06</span></h2>
 
 <dl>
   <dt><code>public</code> (アクセス修飾子を指定しない場合のデフォルト)</dt>
@@ -104,11 +106,12 @@ Javaにはこの修飾子はない。</dd>
 
 <p><code>protected[</code>パッケージ名/クラス名<code>]</code> または <code>private[</code>パッケージ名/クラス名<code>]</code>
 では、パッケージ名/クラス名にはドットを含むフルネームを書くことはできず、名前のみを書く。パッケージ名は階層の途中でもよく、例えば <code>com.example.app1.foo</code> というパッケージの中のクラスで、<code>private[example]</code>
-と書けば、<code>com.example</code> とそのサブクラスの中のどこからでもアクセスできる。
-<code>private[]</code> でパッケージ階層の途中ではなく末端のパッケージを指定すれば、
-Javaのパッケージプライベートと同じになるが、
-Javaには任意のパッケージを指定することはできないし、
-<code>protected[]</code> を指定することもできない。</p>
+と書けば、<code>com.example</code> とそのサブクラスの中のどこからでもアクセスできる。</p>
+
+<p><code>private[</code>パッケージ名/クラス名<code>]</code> でパッケージ階層の途中ではなく末端のパッケージを指定すれば、Javaのパッケージプライベートと同じになる。</p>
+
+<p><code>protected[</code>パッケージ名/クラス名<code>]</code> やパッケージ階層の途中を指定した 
+<code>private[</code>パッケージ名/クラス名<code>]</code> は、Javaにはない。</p>
 
 <h2 id="7958ce1">PHP
 <span class="article-date">2013/10/05</span></h2>

@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
 <body>
@@ -83,18 +85,18 @@
 
 <div id="content">
   <h1 id="paco">Paco (pacKAGE oRGANIZER)
-<span class="article-date">2013/06/25</span></h1>
+<span class="article-date">2013/11/06</span></h1>
 
-<p><code>make install</code> したパッケージを管理するためのツール。</p>
+<p><code>make install</code> などでソースから直接インストールしたパッケージを管理するためのツール。</p>
 
 <p><a href="http://paco.sourceforge.net/" target="_blank">http://paco.sourceforge.net/</a></p>
 
-<p><code>yum</code>や<code>apt-get</code>などのパッケージ管理ツールに存在せず、ソースからコンパイルしてインストールしたパッケージは、アンインストールができなかったり、そもそもなにがインストールされているかわからなくなったりするが、このツールを使うと、そういうパッケージを管理できるようになる。</p>
+<p><code>yum</code>や<code>apt-get</code>などのパッケージ管理ツールに存在せず、ソースからコンパイルしてインストールしたパッケージは、アンインストールができなかったり、そもそもインストールされたファイルがなんなのかわからなくなったりするが、このツールを使うと、そういうパッケージを管理できるようになる。</p>
 
 <h2 id="9631c92">pacoのインストール
-<span class="article-date">2013/06/27</span></h2>
+<span class="article-date">2013/11/06</span></h2>
 
-<pre><code>wget http://downloads.sourceforge.net/project/paco/paco/2.0.7/paco-2.0.7.tar.bz2
+<pre><code>wget [http://downloads.sourceforge.net/project/paco/paco/2.0.7/paco-2.0.7.tar.bz2](http://downloads.sourceforge.net/project/paco/paco/2.0.7/paco-2.0.7.tar.bz2)
 tar xvf paco-2.0.7.tar.bz2
 cd paco-2.0.7
 ./configure --disable-gpaco
@@ -102,6 +104,8 @@ make
 sudo make install
 sudo PATH=$PATH make logme
 </code></pre>
+
+<p>最後のコマンドは<code>paco</code>を使って早速<code>paco</code>自身を管理するためのもの。</p>
 
 <p>sudoのバージョン1.6.9以降では環境変数PATHの仕様が変わったために 
 <code>make logme</code> を実行するときにpacoコマンドが見つからない、というエラーが出てしまう。pacoのMakefileがおかしい気がする。</p>
