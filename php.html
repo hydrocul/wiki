@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="./common/js/page.js"></script>
 </head>
 <body>
@@ -22,21 +24,18 @@
     <ul>
   <li><a href="./commands/">コマンドの使い方</a></li>
   <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
-  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
+  <li><a href="./html.html">HTMLのTips</a></li>
+  <li><a href="./css.html">CSS</a></li>
+  <li><a href="./jquery.html">jQueryのTips</a></li>
   <li><a href="./sh.html">シェルスクリプト</a></li>
   <li><a href="./apache.html">Apache</a></li>
-  <li><a href="./css.html">CSS</a></li>
   <li><a href="./emacs.html">Emacs</a></li>
-  <li><a href="./google.html">google</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
-  <li><a href="./ie.html">Internet Explorer</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
-  <li><a href="./jquery.html">jQuery</a></li>
   <li><a href="./linux.html">Linux</a></li>
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
   <li><a href="./mechanize.html">mechanize</a></li>
-  <li><a href="./misc.html">misc</a></li>
   <li><a href="./mysql.html">MySQL</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
   <li><a href="./others/">未分類</a></li>
@@ -45,8 +44,8 @@
   <li><a href="./phantomjs.html">phantomjs</a></li>
   <li>PHP</li>
   <li><a href="./ruby.html">Ruby</a></li>
+  <li><a href="./statistic.html">統計学のノート</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
-  <li><a href="./ubuntu.html">Ubuntu</a></li>
 </ul>
 
   </div>
@@ -55,62 +54,13 @@
 <div id="content">
   <h1 id="php">PHP</h1>
 
-<h2 id="122a9ce">mail関数でメールを送るときに、長い日本語のサブジェクトが途中から文字化けする件
-<span class="article-date">2013/04/03</span></h2>
+<h2 id="3791282">mPDF: HTMLをPDFに変換するライブラリ</h2>
 
-<p>mb_encode_mimeheader を呼び出す際には内部エンコードがJISである必要がある。  </p>
+<p>-&gt; <a href="others//mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するPHPのライブラリ</a></p>
 
-<p>参考：<br />
-<a href="http://www.onecreation.jp/blog/?p=1132" target="_blank">http://www.onecreation.jp/blog/?p=1132</a></p>
+<h2 id="6486cbb">Ubuntuでの php.ini の場所</h2>
 
-<h2 id="3791282">mPDF: HTMLをPDFに変換するライブラリ
-<span class="article-date">2013/04/09</span></h2>
-
-<p>例：</p>
-
-<pre><code>require_once 'mpdf.php';
-$mpdf = new mPDF('ja', 'A4', '', '', 15, 15, 26);
-$mpdf-&gt;showImageErrors = TRUE;
-$mpdf-&gt;keep_table_proportions = TRUE;
-$mpdf-&gt;WriteHTML($content_html);
-$mpdf-&gt;Output(date('YmdHis').'.pdf', 'I');
-</code></pre>
-
-<p>画像がリンク切れの状態でキャプチャが撮れてしまう場合に以下のオプションを指定しておくと、エラーメッセージが表示される。</p>
-
-<pre><code>$mpdf-&gt;showImageErrors = TRUE;
-</code></pre>
-
-<p>オプションの一覧<br />
-<a href="http://mpdf1.com/manual/index.php?tid=273" target="_blank">http://mpdf1.com/manual/index.php?tid=273</a></p>
-
-<p>HTMLの中に <code>/</code> で始まるパスの画像があった場合は、
-HTTPスキーマとポート番号なしを決め打ちしてしまって、
-SSLや独自ポート番号には対応していない模様。ホスト名はたぶん <code>$_SERVER['SERVER_NAME']</code> を参照している。</p>
-
-<h3 id="c0976a1">Error parsing image file - image type not recognised, and not supported by GD imagecreate というエラー
-<span class="article-date">2013/04/09</span></h3>
-
-<p>このエラーが表示されて原因がわからなくなったときに調べる方法</p>
-
-<p><a href="http://stackoverflow.com/questions/6730076/mdpf-library-generate-blank-page-no-error-even-i-set-debug-mode#answer-6768688" target="_blank">http://stackoverflow.com/questions/6730076/mdpf-library-generate-blank-page-no-error-even-i-set-debug-mode#answer-6768688</a></p>
-
-<h2 id="6486cbb">Ubuntuでの php.ini の場所
-<span class="article-date">2013/06/25</span></h2>
-
-<p><a href="linux-pkg-manager.html"><code>apt-get</code></a> でインストールした場合、Apacheで動くPHPの 
-<code>php.ini</code> は <code>/etc/php5/apache2/php.ini</code> にある。この場所は <code>phpinfo();</code> で確認できる。</p>
-
-<p>コマンドラインで動くPHPの <code>php.ini</code> は
-<code>/etc/php5/cli/php.ini</code> にある。この場所は
-<code>php -i | grep php.ini</code> で確認できる。</p>
-
-<p>2つの <code>php.ini</code> の違いは <code>diff /etc/php5/apache2/php.ini /etc/php5/cli/php.ini</code>
-で確認できるが、Apacheで動く方は、PCNTL関数の実行とメモリの最大値が制限されているようだ。</p>
-
-<p>(Ubuntu 13.04 で確認)</p>
-
-<p>CentOS 6.4では <code>/etc/php.ini</code> にある。</p>
+<p>-&gt; <a href="others/php-ini-location.html">Ubuntuでの php.ini の場所</a></p>
 
 
 </div>
