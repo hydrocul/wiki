@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>cat コマンド | コマンドの使い方 | hydrocul のメモ</title>
+<title>siege コマンド | コマンドの使い方 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドの使い方</a> &gt; <span>cat コマンド</span>
+  <a href="../commands/">コマンドの使い方</a> &gt; <span>siege コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -28,7 +28,7 @@
       <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
-      <li>cat コマンド</li>
+      <li><a href="../commands/cat.html">cat コマンド</a></li>
       <li><a href="../commands/cp.html">cp コマンド</a></li>
       <li><a href="../commands/crontab.html">crontab</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
@@ -56,6 +56,7 @@
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
       <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
+      <li>siege コマンド</li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
@@ -84,59 +85,47 @@
 </div>
 
 <div id="content">
-  <h1 id="cat">cat コマンド
-<span class="article-date">2013/11/06</span></h1>
+  <h1 id="siege">siege コマンド
+<span class="article-date">2013/11/07</span></h1>
 
-<p>ファイルまたは標準入力の内容をそのまま標準出力に出力するコマンド。ファイルの中身を確認するのによく使う。</p>
+<p>HTTPサーバのパフォーマンスを調べるためのコマンド。</p>
 
-<p><code>cat</code>の反対は <a href="tac.html"><code>tac</code></a>(冗談じゃない)。</p>
+<h2 id="152740b">残念な話</h2>
 
-<h2 id="738c09d">オプション
-<span class="article-date">2013/08/06</span></h2>
+<h3 id="dd19056">その1
+<span class="article-date">2013/11/07</span></h3>
+
+<p>残念ながら、IPアドレスのURLには対応していないみたい。
+<code>http://192.168.56.10/foo</code> のようなURLにアクセスさせようとしてもなぜかlocalhostにアクセスしてしまう。さらになぜか <code>http://192.168.56.10/</code> のようなトップページにだけはちゃんとアクセスできる。さらにさらになぜか <code>/etc/hosts</code> も無視されるようなので、
+<code>/etc/hosts</code> に記載しても意味がない。なので、ローカルホストでApacheのリバースプロキシを動かすとかする。</p>
+
+<p>(Ubuntu 13.10 で apt-get でインストールした siege 2.7.0 で確認)</p>
+
+<h3 id="5fdd6c5">その2
+<span class="article-date">2013/11/07</span></h3>
+
+<p>GETパラメータがとても長いとsiegeが buffer overflow のエラーを吐いてしまう。</p>
+
+<p>(Ubuntu 13.10 で apt-get でインストールした siege 2.7.0 で確認)</p>
+
+<h2 id="28f99ce">オプション
+<span class="article-date">2013/11/07</span></h2>
 
 <dl>
-  <dt><code>-n</code></dt>
-  <dd>行番号を付加して出力する。(<code>less</code> の場合は <code>-N</code>)</dd>
-  <dt><code>-E</code></dt>
-  <dd>各行末に <code>$</code> を追加して出力する。</dd>
-  <dt><code>-T</code></dt>
-  <dd>タブを <code>^I</code> として出力する。</dd>
+  <dt><code>-b</code></dt>
+  <dd>ベンチマークを取るためにインターバルをおかずに連続してリクエストを投げることを指示する。</dd>
+  <dt><code>-r</code> 回数</dt>
+  <dd>指定の回数だけリクエストを繰り返すことを指示する。
+<code>-c</code> も指定すれば、実際に送信されるリクエストは <code>-c</code> の数との乗算になる。
+<code>-r</code> を指定しないと、Ctrl-C を押すまでリクエストが繰り返される。</dd>
+  <dt><code>-c</code> 数</dt>
+  <dd>並行処理の数を指定する。
+<code>-c</code> を省略すると手元の環境では15がデフォルトだった。</dd>
+  <dt><code>-i</code></dt>
+  <dd>URLを指定されたファイルの中からリクエストごとにランダムに選ぶことを指示する。</dd>
+  <dt><code>-f</code> ファイル名</dt>
+  <dd>URLのリストが書かれたファイルを指定する。</dd>
 </dl>
-
-<h2 id="bash-zsh">cat を使ったファイルの作成と bash, zsh での機能
-<span class="article-date">2013/06/04</span></h2>
-
-<p>シェルから <code>cat</code> を使ってファイルを作成するには、以下のような方法がある。</p>
-
-<pre><code>$ cat &gt; foo.txt
-hogehoge
-# ここで Ctrl+D を押せば、標準入力が閉じられて、
-# 入力した内容がファイルに書きだされる。
-</code></pre>
-
-<p>ただ、これは zsh では <code>cat</code> を使わなくても以下のようにできる。</p>
-
-<pre><code># zshの場合
-
-$ &gt; foo.txt
-hogehoge
-# ここで Ctrl+D を押せば、標準入力が閉じられて、
-# 入力した内容がファイルに書きだされる。
-</code></pre>
-
-<p>bash では標準入力を端末で入力させてもらえずに、空っぽのファイルが書きだされる。ファイルが既存だった場合は、内容が削除され、強制的に空っぽのファイルになってしまう。</p>
-
-<p>bash での動きは <code>touch</code> に似ているが、 <code>touch</code> は、ファイルが既存だった場合は、内容を削除せずにタイムスタンプだけ新しくする。</p>
-
-<h2 id="20e6ffc">ディレクトリの中にあるすべてのファイルをまとめて閲覧するには
-<span class="article-date">2013/10/08</span></h2>
-
-<p>ディレクトリの中にサブディレクトリが存在しない場合</p>
-
-<pre><code>ls foo/* | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
-</code></pre>
-
-<p>-&gt; <a href="../oneliner.html#less-many-files">たくさんのファイルをまとめて less で閲覧するには</a></p>
 
 
 </div>
