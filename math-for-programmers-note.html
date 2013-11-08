@@ -57,8 +57,12 @@
 
 <p>このページは<a href="http://nineties.github.io/math-seminar/" target="_blank">プログラマのための数学勉強会</a>を聴講したときの個人的なノートである。</p>
 
-<h2 id="fa3584b">浮動小数点数
-<span class="article-date">2013/11/06</span></h2>
+<h2 id="f0c1d4b">第2回プログラマのための数学勉強会(2013/09/19)の内容</h2>
+
+<p><a href="http://nineties.github.io/math-seminar/2.html" target="_blank">http://nineties.github.io/math-seminar/2.html</a></p>
+
+<h3 id="99835af">浮動小数点数
+<span class="article-date">2013/11/06</span></h3>
 
 <p><a href="http://nineties.github.io/math-seminar/2.html#/3" target="_blank">http://nineties.github.io/math-seminar/2.html#/3</a></p>
 
@@ -70,9 +74,9 @@
         <ul>
           <li>正規化数</li>
           <li>非正規化数</li>
-          <li>+0 と -0</li>
-          <li>+Inf と -Inf</li>
-          <li>NaN</li>
+          <li><code>+0</code> と <code>-0</code></li>
+          <li><code>+Inf</code> と <code>-Inf</code></li>
+          <li><code>NaN</code></li>
         </ul>
       </li>
       <li>精度
@@ -100,12 +104,12 @@
     <ul>
       <li>オーバーフロー
         <ul>
-          <li>絶対値が許容範囲を超えると +Inf または -Inf になってしまう現象</li>
+          <li>絶対値が許容範囲を超えると <code>+Inf</code> または <code>-Inf</code> になってしまう現象</li>
         </ul>
       </li>
       <li>アンダーフロー
         <ul>
-          <li>絶対値が許容範囲を下回ると +0 または -0 になってしまう現象</li>
+          <li>絶対値が許容範囲を下回ると <code>+0</code> または <code>-0</code> になってしまう現象</li>
         </ul>
       </li>
       <li>情報落ち
@@ -123,13 +127,13 @@
           <li>テイラー展開などの無限の反復を途中で止めることで発生する誤差</li>
         </ul>
       </li>
-      <li>二進数と十進数の変換</li>
+      <li>二進数と十進数の変換時に発生する誤差</li>
     </ul>
   </li>
 </ul>
 
-<h2 id="239e460">極限・微分
-<span class="article-date">2013/11/06</span></h2>
+<h3 id="83f7ba3">極限・微分
+<span class="article-date">2013/11/06</span></h3>
 
 <p><a href="http://nineties.github.io/math-seminar/2.html#/30" target="_blank">http://nineties.github.io/math-seminar/2.html#/30</a></p>
 
@@ -172,8 +176,12 @@
   </li>
 </ul>
 
-<h2 id="42c6d73">連続性・微分可能性・極値・ロルの定理
-<span class="article-date">2013/11/06</span></h2>
+<h2 id="699154b">第3回プログラマのための数学勉強会(2013/09/26)の内容</h2>
+
+<p><a href="http://nineties.github.io/math-seminar/3.html" target="_blank">http://nineties.github.io/math-seminar/3.html</a></p>
+
+<h3 id="66bb459">連続性・微分可能性・極値・ロルの定理
+<span class="article-date">2013/11/06</span></h3>
 
 <p><a href="http://nineties.github.io/math-seminar/3.html#/4" target="_blank">http://nineties.github.io/math-seminar/3.html#/4</a></p>
 
@@ -201,16 +209,60 @@
       <li><a href="http://nineties.github.io/math-seminar/3.html#/12" target="_blank">http://nineties.github.io/math-seminar/3.html#/12</a></li>
     </ul>
   </li>
+</ul>
+
+<h3 id="8821cbc">テイラーの定理
+<span class="article-date">2013/11/07</span></h3>
+
+<p><a href="http://nineties.github.io/math-seminar/3.html#/14" target="_blank">http://nineties.github.io/math-seminar/3.html#/14</a></p>
+
+<ul>
   <li>テイラーの定理
     <ul>
       <li><a href="http://nineties.github.io/math-seminar/3.html#/22" target="_blank">http://nineties.github.io/math-seminar/3.html#/22</a></li>
-      <li>\[ f(x) = \sum_{i=0}^{n} \frac{f^{(i)}(a)}{i!}(x-a)^{i} + \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1} \]
+      <li>\[ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^{k} + \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1} \]
 ただし、\( a &lt; c &lt; x \) または \( x &lt; c &lt; a \)</li>
       <li>最後の項を剰余項という</li>
       <li>\( n = 0 \) の場合を特に平均値の定理という</li>
     </ul>
   </li>
+  <li>テイラー級数
+    <ul>
+      <li><a href="http://nineties.github.io/math-seminar/3.html#/26" target="_blank">http://nineties.github.io/math-seminar/3.html#/26</a></li>
+      <li>テイラーの定理の\(n\)を無限大にした無限級数</li>
+      <li>\[ f(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(a)}{k!}(x-a)^{k} \]</li>
+      <li>収束半径: 級数が収束する範囲を表す</li>
+    </ul>
+  </li>
+  <li>テイラー展開
+    <ul>
+      <li>テイラー級数を求めること</li>
+    </ul>
+  </li>
+  <li>マクローリン級数
+    <ul>
+      <li>テイラー級数の\(a\)を\(0\)とおいたもの</li>
+    </ul>
+  </li>
+  <li>マクローリン展開
+    <ul>
+      <li>マクローリン級数を求めること</li>
+    </ul>
+  </li>
+  <li>ランダウの\(\mathcal{O}\)
+    <ul>
+      <li>右辺の最後の項において誤差の程度を表した記号</li>
+      <li>\[ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^{k} + \mathcal{O}((x-a)^{n+1}) \]</li>
+    </ul>
+  </li>
 </ul>
+
+<h3 id="ef8fdc0">関数の変化と微分係数
+<span class="article-date">2013/11/07</span></h3>
+
+<p><a href="http://nineties.github.io/math-seminar/3.html#/32" target="_blank">http://nineties.github.io/math-seminar/3.html#/32</a></p>
+
+<p>テイラー展開の応用として、関数の増減、凹凸、極大/極小の判定方法の話題。</p>
 
 
 </div>
