@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>数のリストの合計を計算するには (sum) | リスト(配列) | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
+<title>リストの一部を別のリストで置き換えるには (splice) | リスト(配列) | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>数のリストの合計を計算するには (sum)</span>
+  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの一部を別のリストで置き換えるには (splice)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -65,9 +65,9 @@
           <li><a href="../../programming_languages_diff/list/convert.html">リストの種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/list/to-map.html">リストからマップを生成するには (toMap)</a></li>
           <li><a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
-          <li>数のリストの合計を計算するには (sum)</li>
+          <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
           <li><a href="../../programming_languages_diff/list/vector-add-subtract.html">数のリストを要素ごとに加算/減算するには(ベクトル演算)</a></li>
-          <li><a href="../../programming_languages_diff/list/slice-replace.html">リストの一部を別のリストで置き換えるには (splice)</a></li>
+          <li>リストの一部を別のリストで置き換えるには (splice)</li>
         </ul>
       </li>
     </ul>
@@ -78,69 +78,56 @@
 </div>
 
 <div id="content">
-  <h1 id="sum">数のリストの合計を計算するには (sum)</h1>
+  <h1 id="slice-replace">リストの一部を別のリストで置き換えるには (splice)</h1>
 
-<h2 id="560413c">Java
+<h2 id="36908de">PHP
 <span class="article-date">2013/11/08</span></h2>
 
-<p>簡単に計算できるメソッドはないので、<code>for</code>文などでループして計算するしかない。</p>
+<p><code>array_splice</code>関数を使う。</p>
 
-<h2 id="c32f29d">Scala
-<span class="article-date">2013/05/07</span></h2>
+<pre><code>$arr = array(10, 20, 30, 40, 50);
+var_export($arr); echo "\n";
+// =&gt;
+// array (
+//   0 =&gt; 10,
+//   1 =&gt; 20,
+//   2 =&gt; 30,
+//   3 =&gt; 40,
+//   4 =&gt; 50,
+// )
 
-<p>Signature:</p>
-
-<pre><code>// scala.collection.Seq[A]
-def sum: A
+array_splice($arr, 3, 1, array(100, 200, 300));
+var_export($arr); echo "\n";
+// =&gt;
+// array (
+//   0 =&gt; 10,
+//   1 =&gt; 20,
+//   2 =&gt; 30,
+//   3 =&gt; 100,
+//   4 =&gt; 200,
+//   5 =&gt; 300,
+//   6 =&gt; 50,
+// )
 </code></pre>
 
-<p>要素が <code>Int</code> や <code>Double</code> などの場合に限る。</p>
+<p>array_splice | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.array-splice.php" target="_blank">http://www.php.net/manual/ja/function.array-splice.php</a></p>
 
-<h2 id="e6dc7f2">Groovy
-<span class="article-date">2013/10/01</span></h2>
+<h2 id="12c9d1c">Python
+<span class="article-date">2013/10/07</span></h2>
 
-<pre><code>// java.util.Collection
-Object sum()
-</code></pre>
+<p><a href="sub-list.html#python">スライス</a>の書式を代入演算子の左辺に置くと、その部分リストを新しいリストに置き換えられる。</p>
 
-<p>このメソッドはJavaでは定義されていない。</p>
+<pre><code>lst = [10, 20, 30, 40, 50]
+print lst
 
-<h2 id="d1a34a3">PHP
-<span class="article-date">2013/11/08</span></h2>
+lst[3:4] = [100, 200, 300]
+print lst
+# =&gt; [10, 20, 30, 100, 200, 300, 50]
 
-<p>例</p>
-
-<pre><code>$arr = array(1, 2, 3);
-echo array_sum($arr);
-</code></pre>
-
-<p>array_sum | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.array-sum.php" target="_blank">http://www.php.net/manual/ja/function.array-sum.php</a></p>
-
-<h2 id="1f8f610">Ruby
-<span class="article-date">2013/05/07</span></h2>
-
-<pre><code>def sum(arr)
-  arr.inject(0, :+)
-end
-</code></pre>
-
-<h2 id="9421029">Python
-<span class="article-date">2013/09/30</span></h2>
-
-<p>例</p>
-
-<pre><code>lst = [1, 2, 3]
-print sum(lst)
-</code></pre>
-
-<h2 id="8cfca28">Perl
-<span class="article-date">2013/09/11</span></h2>
-
-<p>例</p>
-
-<pre><code>my $sum = 0;
-$sum += $_ for @arr;
+lst[2:] = [1, 2, 3]
+print lst
+# =&gt; [10, 20, 1, 2, 3]
 </code></pre>
 
 
