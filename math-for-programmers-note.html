@@ -23,7 +23,7 @@
   <div id="side-menu-ls">
     <ul>
   <li><a href="./commands/">コマンドの使い方</a></li>
-  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
+  <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
   <li><a href="./html.html">HTMLのTips</a></li>
   <li><a href="./css.html">CSSのTips</a></li>
   <li><a href="./jquery.html">jQueryのTips</a></li>
@@ -263,6 +263,85 @@
 <p><a href="http://nineties.github.io/math-seminar/3.html#/32" target="_blank">http://nineties.github.io/math-seminar/3.html#/32</a></p>
 
 <p>テイラー展開の応用として、関数の増減、凹凸、極大/極小の判定方法の話題。</p>
+
+<h3 id="4d186b5">差分法
+<span class="article-date">2013/11/09</span></h3>
+
+<p><a href="http://nineties.github.io/math-seminar/3.html#/39" target="_blank">http://nineties.github.io/math-seminar/3.html#/39</a></p>
+
+<ul>
+  <li>前進差分
+    <ul>
+      <li>\[ f^{\prime}(x) = \frac{ f(x + \Delta x) - f(x) }{ \Delta x } + \mathcal{O}(\Delta x) \]</li>
+    </ul>
+  </li>
+  <li>後進差分
+    <ul>
+      <li>\[ f^{\prime}(x) = \frac{ f(x) - f(x - \Delta x) }{ \Delta x } + \mathcal{O}(\Delta x) \]</li>
+    </ul>
+  </li>
+  <li>中心差分
+    <ul>
+      <li>\[ f^{\prime}(x) = \frac{ f(x + \Delta x) - f(x - \Delta x) }{2 \Delta x} + \mathcal{O}(\Delta x ^2) \]</li>
+      <li>前進差分と後進差分の平均をとっただけで誤差が減る</li>
+    </ul>
+  </li>
+  <li>二階差分
+    <ul>
+      <li>\[ f^{\prime\prime}(x) = \frac{ f(x + \Delta x) - 2f(x) + f(x - \Delta x) }{ \Delta x ^2 } + \mathcal{O}(\Delta x ^2) \]</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3d3df5f">多変数関数の微分法
+<span class="article-date">2013/11/09</span></h3>
+
+<p><a href="http://nineties.github.io/math-seminar/3.html#/48" target="_blank">http://nineties.github.io/math-seminar/3.html#/48</a></p>
+
+<ul>
+  <li>方向微分係数
+    <ul>
+      <li><a href="http://nineties.github.io/math-seminar/3.html#/49" target="_blank">http://nineties.github.io/math-seminar/3.html#/49</a></li>
+      <li>\[ \frac{\partial f}{\partial \mathbf{u}}(\mathbf{a}) = \lim_{h \rightarrow 0} \frac{ f(\mathbf{a} + h \mathbf{u}) - f(\mathbf{a}) }{ h } \]</li>
+    </ul>
+  </li>
+  <li>偏微分係数
+    <ul>
+      <li>\[ \frac{\partial f}{\partial x_k}(\mathbf{a}) = \lim_{h \rightarrow 0} \frac{ f(a_1, \cdots, a_k + h, \cdots, a_n) - f(a_1, \cdots,  a_n) }{ h } \]</li>
+      <li>\[ \left. \frac{\partial f}{\partial x_k} \right|_{\mathbf{x}=\mathbf{a}} \]
+\[ \frac{\partial f}{\partial x_k} \mathbf{a} \]
+\[ f_{x_k}(\mathbf{a}) \]
+などと書く</li>
+    </ul>
+  </li>
+  <li>偏導関数
+    <ul>
+      <li>\(a\)を引数とみなしたもの</li>
+      <li>\[ \frac{\partial f}{\partial x_k} \]
+\[ f_{x_k} \]
+などと書く</li>
+    </ul>
+  </li>
+  <li>高階偏導関数
+    <ul>
+      <li>\(x\)と\(y\)の2変数関数の\(x\)で偏微分したものを\(y\)で偏微分したもの
+\[ \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right) \]
+を
+\[ \frac{\partial^2 f}{\partial y \partial x} \]
+\[ f_{xy} \]
+などと書く</li>
+      <li>\(f_{xy}\)が連続ならば
+\[ f_{xy} = f_{yx} \]
+つまり微分する変数の順序に依らない</li>
+    </ul>
+  </li>
+  <li>偏微分係数から方向微分係数を計算
+    <ul>
+      <li>\(f\)を2変数関数として、\(\mathbf{u}=(α,β)\)として、
+\[ \frac{\partial f}{\partial \mathbf{u}}(a, b) = f_x(a, b) α + f_y(a, b) β \]</li>
+    </ul>
+  </li>
+</ul>
 
 
 </div>
