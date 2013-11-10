@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="./common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="./common/js/page.js"></script>
 </head>
 <body>
@@ -21,32 +23,29 @@
   <div id="side-menu-ls">
     <ul>
   <li><a href="./commands/">コマンドの使い方</a></li>
-  <li><a href="./programming_languages_diff/">各プログラミング言語の機能のまとめ</a></li>
-  <li><a href="./html/">HTML(jQuery) の Tips</a></li>
+  <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li><a href="./html.html">HTMLのTips</a></li>
+  <li><a href="./css.html">CSSのTips</a></li>
+  <li><a href="./jquery.html">jQueryのTips</a></li>
   <li><a href="./sh.html">シェルスクリプト</a></li>
+  <li><a href="./math-for-programmers-note.html">プログラマのための数学勉強会ノート</a></li>
+  <li><a href="./statistics.html">統計学のノート</a></li>
   <li><a href="./apache.html">Apache</a></li>
-  <li><a href="./css.html">CSS</a></li>
   <li><a href="./emacs.html">Emacs</a></li>
-  <li><a href="./google.html">google</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
-  <li><a href="./ie.html">Internet Explorer</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
-  <li><a href="./jquery.html">jQuery</a></li>
   <li><a href="./linux.html">Linux</a></li>
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
   <li><a href="./mechanize.html">mechanize</a></li>
-  <li><a href="./misc.html">misc</a></li>
-  <li><a href="./mysql.html">MySQL</a></li>
+  <li><a href="./mysql.html">MySQLのメモ</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
   <li><a href="./others/">未分類</a></li>
-  <li><a href="./paco.html">Paco</a></li>
   <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
   <li>phantomjs</li>
   <li><a href="./php.html">PHP</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
-  <li><a href="./ubuntu.html">Ubuntu</a></li>
 </ul>
 
   </div>
@@ -67,13 +66,13 @@
 
 <pre><code># IPAフォントをインストール。
 # 日本語フォントがないとスクリーンキャプチャの際に日本語が化ける
-wget http://ipafont.ipa.go.jp/ipaexfont/IPAexfont00201.php
+wget [http://ipafont.ipa.go.jp/ipaexfont/IPAexfont00201.php](http://ipafont.ipa.go.jp/ipaexfont/IPAexfont00201.php)
 unzip IPAexfont00201.zip
 sudo mkdir -p /usr/share/fonts/japanese/ipa
 sudo cp IPAexfont00201/*.ttf /usr/share/fonts/japanese/ipa
 fc-cache -fv
 
-wget https://phantomjs.googlecode.com/files/phantomjs-1.9.1-linux-x86_64.tar.bz2
+wget [https://phantomjs.googlecode.com/files/phantomjs-1.9.1-linux-x86_64.tar.bz2](https://phantomjs.googlecode.com/files/phantomjs-1.9.1-linux-x86_64.tar.bz2)
 tar xvjf phantomjs-1.9.1-linux-x86_64.tar.bz2
 
 # あとは ./phantomjs-1.9.1-linux-x86_64/bin をPATHに追加するなりする
