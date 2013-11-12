@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>マップにマップで複数の要素を追加するには (putAll) | マップ(連想配列) | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
+<title>マップにマップで複数の要素を追加するには (putAll) | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>マップにマップで複数の要素を追加するには (putAll)</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>マップにマップで複数の要素を追加するには (putAll)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
       <li><a href="../../programming_languages_diff/map/">マップ(連想配列)</a>
         <ul>
@@ -71,6 +71,30 @@ def ++(xs: Seq[(A, B)]): Map[A, B]
 </code></pre>
 
 <p>要素を追加した新しいマップを返し、自身は変更しない。</p>
+
+<h2 id="php">PHP
+<span class="article-date">2013/11/12</span></h2>
+
+<p><code>array_merge</code> を使うと2つ以上の配列をマージすることができる。同じキーが複数の配列に含まれていた場合はあとから追加したもので上書きされる。
+<code>array_merge</code> は引数の配列を変更せず、マージした結果を返すのみである。</p>
+
+<pre><code>$map1 = array('a' =&gt; 1, 'b' =&gt; 2, );
+$map2 = array('a' =&gt; 10, 'c' =&gt; 30, );
+$merged_map = array_merge($map1, $map2);
+var_export($merged_map);
+// =&gt;
+// array (
+//   'a' =&gt; 10,
+//   'b' =&gt; 2,
+//   'c' =&gt; 30,
+// )
+</code></pre>
+
+<p><code>array_merge</code> に渡す配列のキーが数字の場合はリストの連結のような操作になる。
+-&gt; <a href="../list/shift-unshift-pop-push.html#php">配列に要素を追加</a></p>
+
+<p>array_merge | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.array-merge.php" target="_blank">http://www.php.net/manual/ja/function.array-merge.php</a></p>
 
 
 </div>
