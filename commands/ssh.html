@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
 <body>
@@ -26,20 +28,20 @@
       <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
-      <li><a href="../commands/cat.html">cat</a></li>
+      <li><a href="../commands/cat.html">cat コマンド</a></li>
       <li><a href="../commands/cp.html">cp コマンド</a></li>
-      <li><a href="../commands/crontab.html">crontab</a></li>
+      <li><a href="../commands/crontab.html">crontab コマンド</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
       <li><a href="../commands/cut.html">cut コマンド</a></li>
       <li><a href="../commands/date.html">date コマンド</a></li>
-      <li><a href="../commands/diff.html">diff</a></li>
+      <li><a href="../commands/diff.html">diff コマンド</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
-      <li><a href="../commands/grep.html">grep</a></li>
+      <li><a href="../commands/grep.html">grep コマンド</a></li>
       <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
-      <li><a href="../commands/lftp.html">lftp</a></li>
+      <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
@@ -54,6 +56,7 @@
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
       <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
+      <li><a href="../commands/siege.html">siege コマンド</a></li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
@@ -160,18 +163,20 @@ ssh接続自体へのコマンドのプレフィックスとなる。エンタ�
 
 <p>moshでは、 <code>Ctrl+^ .</code> と入れると、エンターの直後でなくても強制切断される。</p>
 
-<h2 id="backup-remot-to-local">サーバにある大量のファイルを tar しながら、ローカルにダウンロードするには
-<span class="article-date">2013/04/03</span></h2>
+<h2 id="b4d1239">findの結果をtarでアーカイブするには</h2>
 
-<pre><code>ssh &lt;ID&gt;@&lt;IP&gt; tar cvzf - リモートのバックアップ対象ディレクトリ &gt; ローカルの保存先tarファイル名
+<h3 id="backup-remot-to-local">サーバにある大量のファイルを tar しながら、ローカルにダウンロードするには
+<span class="article-date">2013/11/12</span></h3>
+
+<pre><code>ssh &lt;ID&gt;@&lt;IP&gt; tar cvzf - &lt;target remote directory&gt; &gt; &lt;local tar file name&gt;
 </code></pre>
 
 <p>リモートでtarを実行してファイルに書き出すのではなく標準出力に出して、それをsshでそのままローカルに転送し、ローカルでファイルに書き出している。</p>
 
-<h2 id="backup-local-to-remote">ローカルにある大量のファイルを tar しながら、リモートにアップロードするには
-<span class="article-date">2013/08/23</span></h2>
+<h3 id="backup-local-to-remote">ローカルにある大量のファイルを tar しながら、リモートにアップロードするには
+<span class="article-date">2013/08/23</span></h3>
 
-<pre><code>tar czf - ローカルのバックアップ対象ディレクトリ | ssh リモートホスト名 "cat &gt; リモートの保存先tarファイル名"
+<pre><code>tar czf - &lt;target local directory&gt; | ssh &lt;ID&gt;@&lt;IP&gt; "cat &gt; &lt;remote tar file name&gt;"
 </code></pre>
 
 <p>途中で途切れてしまった場合に中途半端なアーカイブファイルがリモートに残ってしまうので、いったん一時ファイルに書き出してからリネームしたほうがいいかもしれない。</p>
@@ -185,9 +190,9 @@ ssh接続自体へのコマンドのプレフィックスとなる。エンタ�
 <p><a href="sshfs.html">sshfsコマンド</a>を使う。このコマンドはリモートのファイルシステムのルートからまたは特定のディレクトリ配下を、ローカルの任意の場所にマウントする。例えば、リモートのファイルをいちいちダウンロード・アップロードしなくても直接ローカルのエディタで編集することできたりする。</p>
 
 <h2 id="965ac8c">SSHが勝手に切断されないようにするには
-<span class="article-date">2013/04/03</span></h2>
+<span class="article-date">2013/11/12</span></h2>
 
-<p>クライアント側の ~/.ssh/config に以下を記述する。</p>
+<p>クライアント側(接続元)の <code>~/.ssh/config</code> に以下を記述する。</p>
 
 <pre><code>Host *
   ServerAliveInterval 60

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>特定の文字や文字列で始まっているかどうかを見るには (startsWith) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>特定の文字や文字列で始まっているかどうかを見るには (startsWith)</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -37,8 +37,6 @@
           <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li>特定の文字や文字列で始まっているかどうかを見るには (startsWith)</li>
-          <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
@@ -50,7 +48,7 @@
           <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li>特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</li>
         </ul>
       </li>
     </ul>
@@ -61,9 +59,87 @@
 </div>
 
 <div id="content">
-  <h1 id="starts-with">特定の文字や文字列で始まっているかどうかを見るには (startsWith)</h1>
+  <h1 id="starts-with-ends-with">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</h1>
 
-<p>-&gt; <a href="starts-with-ends-with.html">startsWith / endsWith</a>。</p>
+<h2 id="bf5b877">Java / Scala
+<span class="article-date">2013/04/10</span></h2>
+
+<p>Signature:</p>
+
+<pre><code>// java.lang.String
+String startsWith(String prefix)
+String endsWith(String suffix)
+</code></pre>
+
+<h2 id="0a2ff0b">PHP
+<span class="article-date">2013/07/23</span></h2>
+
+<p>startsWithに相当するよく使う方法。</p>
+
+<pre><code>strpos($str, $prefix) === 0
+</code></pre>
+
+<p>endsWithに相当するよく使う方法。</p>
+
+<pre><code>strrpos($str, $suffix) === strlen($str) - strlen($suffix)
+</code></pre>
+
+<p>ただ、これらは、<code>$str</code>が長い文字列の時にいちいち<code>$str</code>を全部なめてしまい効率よくなさそう。</p>
+
+<h2 id="3b34aaf">Python
+<span class="article-date">2013/11/13</span></h2>
+
+<pre><code>str = "abcabc"
+
+print str.startswith("ab")
+# =&gt; True
+
+print str.startswith("bc")
+# =&gt; False
+
+print str.endswith("ab")
+# =&gt; False
+
+print str.endswith("bc")
+# =&gt; True
+</code></pre>
+
+<h2 id="c49a5a6">Ruby
+<span class="article-date">2013/04/10</span></h2>
+
+<pre><code>str.start_with?(prefix)
+
+str.end_with?(suffix)
+</code></pre>
+
+<h2 id="a5431b2">Perl
+<span class="article-date">2013/11/13</span></h2>
+
+<p>文字列の先頭にマッチする正規表現の <code>\A</code> または最後にマッチする正規表現 <code>\Z</code> を使う。</p>
+
+<p>例</p>
+
+<pre><code>print "abc" =~ /\Aab/; # =&gt; 1
+
+print "abc" =~ /bc\Z/; # =&gt; 1
+</code></pre>
+
+<h2 id="af51275">JavaScript
+<span class="article-date">2013/04/10</span></h2>
+
+<p>startsWithに相当するよく使う方法。</p>
+
+<pre><code>str.indexOf(prefix) == 0
+</code></pre>
+
+<p>ただ、これだと、<code>str</code>が長い文字列の時にいちいち<code>str</code>の最後までなめるのが効率よくなさそう。</p>
+
+<p>endsWithに相当するよく使う方法。</p>
+
+<pre><code>str.substr(str.length - prefix.length) == prefix
+</code></pre>
+
+<p>ただ、これだと、<code>prefix</code>が<code>str</code>より長い場合にどうなることやら。</p>
 
 
 </div>
