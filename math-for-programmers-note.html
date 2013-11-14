@@ -361,6 +361,165 @@
   </li>
 </ul>
 
+<h2 id="82eac77">第4回プログラマのための数学勉強会(2013/10/03)の内容</h2>
+
+<p><a href="http://nineties.github.io/math-seminar/4.html" target="_blank">http://nineties.github.io/math-seminar/4.html</a></p>
+
+<p>書きかけ</p>
+
+<h2 id="bdd2e86">第5回プログラマのための数学勉強会(2013/10/10)の内容</h2>
+
+<p><a href="http://nineties.github.io/math-seminar/5.html" target="_blank">http://nineties.github.io/math-seminar/5.html</a></p>
+
+<p>書きかけ</p>
+
+<h2 id="d995961">第6回プログラマのための数学勉強会(2013/10/17)の内容</h2>
+
+<p><a href="http://nineties.github.io/math-seminar/6.html" target="_blank">http://nineties.github.io/math-seminar/6.html</a></p>
+
+<p>書きかけ</p>
+
+<h2 id="d517318">第7回プログラマのための数学勉強会(2013/10/24)の内容</h2>
+
+<p><a href="http://nineties.github.io/math-seminar/7.html" target="_blank">http://nineties.github.io/math-seminar/7.html</a></p>
+
+<p>書きかけ</p>
+
+<h3 id="7d078f8">行列とベクトルの概要
+<span class="article-date">2013/11/14</span></h3>
+
+<p><a href="http://nineties.github.io/math-seminar/7.html#/6" target="_blank">http://nineties.github.io/math-seminar/7.html#/6</a></p>
+
+<ul>
+  <li>行列
+    <ul>
+      <li>\(m×n\)型行列: 縦に\(m\)行、横に\(n\)列</li>
+    </ul>
+  </li>
+  <li>\(n\)次正方行列
+    <ul>
+      <li>\(n×n\)型行列</li>
+    </ul>
+  </li>
+  <li>零行列
+    <ul>
+      <li>すべての要素が\(0\)の行列</li>
+    </ul>
+  </li>
+  <li>単位行列
+    <ul>
+      <li>対角成分がすべて\(1\)、それ以外がすべて\(0\)の正方行列</li>
+      <li>\[ E_n = (\delta_{ij})_{n,n} =
+    \begin{pmatrix}
+      1 &amp; 0 &amp; \cdots &amp; 0 \\ 
+      0 &amp; 1 &amp; \cdots &amp; 0 \\ 
+      \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 
+      0 &amp; 0 &amp; \cdots &amp; 1 \<br />
+    \end{pmatrix} \]</li>
+      <li>クロネッカーのデルタ: \( \delta_{ij} \)</li>
+    </ul>
+  </li>
+  <li>行列の演算
+    <ul>
+      <li>和・差・定数倍
+        <ul>
+          <li><a href="http://nineties.github.io/math-seminar/7.html#/11" target="_blank">http://nineties.github.io/math-seminar/7.html#/11</a></li>
+          <li>計算機での計算量は \( \mathcal{O}(mn) \)
+            <ul>
+              <li><a href="http://nineties.github.io/math-seminar/7.html#/16" target="_blank">http://nineties.github.io/math-seminar/7.html#/16</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>積
+        <ul>
+          <li><a href="http://nineties.github.io/math-seminar/7.html#/13" target="_blank">http://nineties.github.io/math-seminar/7.html#/13</a></li>
+          <li>計算機での計算量は \( \mathcal{O}(lmn) \)
+            <ul>
+              <li><a href="http://nineties.github.io/math-seminar/7.html#/16" target="_blank">http://nineties.github.io/math-seminar/7.html#/16</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>結合法則・分配法則
+    <ul>
+      <li><a href="http://nineties.github.io/math-seminar/7.html#/18" target="_blank">http://nineties.github.io/math-seminar/7.html#/18</a></li>
+    </ul>
+  </li>
+  <li>交換法則は一般には成立しない
+    <ul>
+      <li>\[ AB \neq BA \]</li>
+      <li>ただし、
+\[ O_{l,m}A = O_{l,n} \]
+\[ AO_{n,l} = O_{n,l} \]
+\[ E_mA = AE_n = A \]</li>
+    </ul>
+  </li>
+  <li>零因子
+    <ul>
+      <li>\[ AB = O \ \not\Rightarrow A = O \ \text{または} \ B = O \]</li>
+    </ul>
+  </li>
+  <li>転置行列
+    <ul>
+      <li>縦と横を入れ替えたもの</li>
+      <li>\(A\)の転置行列を\( A^T \) と書く</li>
+    </ul>
+  </li>
+  <li>対称行列
+    <ul>
+      <li>\( A^T = A \) を満たす行列\(A\)</li>
+    </ul>
+  </li>
+  <li>交代行列
+    <ul>
+      <li>\( A^T = -A \) を満たす行列\(A\)</li>
+    </ul>
+  </li>
+  <li>ベクトル (列ベクトル)
+    <ul>
+      <li><a href="http://nineties.github.io/math-seminar/7.html#/28" target="_blank">http://nineties.github.io/math-seminar/7.html#/28</a></li>
+      <li>\(n\)次行列: \(n×1\)型行列</li>
+      <li>1列なので、行ベクトルに対して列ベクトルともいう</li>
+    </ul>
+  </li>
+  <li>行ベクトル
+    <ul>
+      <li>\(n\)次行行列: \(1×n\)型行列</li>
+    </ul>
+  </li>
+  <li>\(\mathbb{R}^n\)
+    <ul>
+      <li>実数成分の\(n\)次元列ベクトルの集合</li>
+    </ul>
+  </li>
+  <li>ベクトルの内積
+    <ul>
+      <li>\[ (\mathbf{x}, \mathbf{y}) = \sum_i x_i y_i = \mathbf{x}\]</li>
+    </ul>
+  </li>
+  <li>ベクトルのノルム (ユークリッドノルム)
+    <ul>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>\[</td>
+              <td> </td>
+              <td>\mathbf{x}</td>
+              <td> </td>
+              <td>= \sqrt{\sum_i x_i^2} \]</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>ユークリッドノルム以外にもさまざまな定義がある</li>
+    </ul>
+  </li>
+</ul>
+
 
 </div>
 

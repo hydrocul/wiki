@@ -25,7 +25,7 @@
   <li><a href="../commands/">コマンドの使い方</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
-      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat コマンド</a></li>
@@ -76,7 +76,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-      <li><a href="../commands/zip.html">zip コマンド / unzip コマンド</a></li>
+      <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
 </ul>
@@ -88,7 +88,7 @@
   <h1 id="ssh">ssh コマンド</h1>
 
 <h2 id="d656648">基本の使い方
-<span class="article-date">2013/06/11</span></h2>
+<span class="article-date">2013/11/13</span></h2>
 
 <pre><code>ssh &lt;ID&gt;@&lt;IP&gt;
 </code></pre>
@@ -111,7 +111,9 @@
 <p><code>&lt;IP&gt;</code> と書いてある箇所はホスト名でも可。</p>
 
 <p><code>&lt;ID&gt;@</code> の部分はローカルホストのログインユーザ名と同じであるか、
-<code>~/.ssh/config</code> にユーザ名が指定してあれば、省略可。</p>
+<code>~/.ssh/config</code> にユーザ名が指定してあれば、省略可。
+<code>~/.ssh/config</code> は <code>ssh</code> だけでなく、 <code>mosh</code>, <code>sshfs</code>, <code>rsync</code> 
+コマンドからも参照される。</p>
 
 <h2 id="port">ポートが22以外のSSHサーバに接続するには
 <span class="article-date">2013/05/28</span></h2>
@@ -214,7 +216,7 @@ ssh接続自体へのコマンドのプレフィックスとなる。エンタ�
 
 <p>このコマンドを実行すると、公開鍵がリモートのサーバに設置される。リモートのサーバにとって初めての公開鍵であれば、パーミッションとかを調整する必要があるかもしれない。ファイル名が <code>authorized_keys</code> だったり <code>authorized_keys2</code> だったりするのはよくわからない。</p>
 
-<p>sshのオプションの中で bash を起動しているのは、FreeBSDのサーバなどでデフォルトのシェルがcshの場合に、ifの構文が違っていて動かないので、bashを強制するため。</p>
+<p><code>ssh</code>のオプションの中で<code>bash</code>を起動しているのは、FreeBSDのサーバなどでデフォルトのシェルがcshの場合に、<a href="../programming_languages_diff/control_flow/if.html#sh"><code>if</code>の構文</a>が違っていて動かないので、bashを強制するため。</p>
 
 <h2 id="d5ca21a">autossh
 <span class="article-date">2013/04/22</span></h2>
