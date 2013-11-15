@@ -37,10 +37,9 @@
           <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with.html">特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
-          <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim)</a></li>
+          <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/add.html">文字列の連結をするには (add)</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返し連結するには</a></li>
@@ -91,18 +90,20 @@ def split(regex: String, limit: Int): Array[String]
 <p>いずれのメソッドも空文字列をsplitすると空文字列1つだけの配列を返す。</p>
 
 <h2 id="458713a">PHP
-<span class="article-date">2013/05/05</span></h2>
+<span class="article-date">2013/11/15</span></h2>
 
-<pre><code>explode($separator, $str [, $limit])
+<pre><code>$arr = explode($separator, $str);
+$arr = explode($separator, $str, $limit);
 </code></pre>
 
 <p>explode | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.explode.php" target="_blank">http://www.php.net/manual/ja/function.explode.php</a></p>
 
 <h2 id="d5b8602">Ruby
-<span class="article-date">2013/08/02</span></h2>
+<span class="article-date">2013/11/15</span></h2>
 
-<pre><code>String#split(pattern [, limit])
+<pre><code>arr = str.split(pattern)
+arr = str.split(pattern, limit)
 </code></pre>
 
 <p><code>pattern</code> には文字列または正規表現を使える。
@@ -145,7 +146,6 @@ print scalar @arr;
 </code></pre>
 
 <p>2つ目の引数を省略すると <code>$_</code> を対象にsplitする。</p>
-
 
 </div>
 
