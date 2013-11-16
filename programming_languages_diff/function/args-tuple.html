@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>可変長引数 | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>タプルで複数の引数をまとめて渡すには | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>可変長引数</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>タプルで複数の引数をまとめて渡すには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -33,11 +33,11 @@
           <li><a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
           <li><a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
           <li><a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値(多値返却)</a></li>
-          <li>可変長引数</li>
+          <li><a href="../../programming_languages_diff/function/var-args.html">可変長引数</a></li>
           <li><a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
           <li><a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾最適化 (Tail Call Optimization)</a></li>
           <li><a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
-          <li><a href="../../programming_languages_diff/function/args-tuple.html">タプルで複数の引数をまとめて渡すには</a></li>
+          <li>タプルで複数の引数をまとめて渡すには</li>
         </ul>
       </li>
     </ul>
@@ -48,51 +48,34 @@
 </div>
 
 <div id="content">
-  <h1 id="var-args">可変長引数</h1>
+  <h1 id="args-tuple">タプルで複数の引数をまとめて渡すには</h1>
 
-<h2 id="079bb9d">Java
-<span class="article-date">2013/09/21</span></h2>
-
-<p>引数の型と仮引数名の間に <code>...</code> と書くと、可変長引数になる。</p>
-
-<p>メソッドの中では可変長引数は配列で参照できる。</p>
-
-<pre><code>public void foo(Object... args) {
-    // args は配列
-}
-</code></pre>
-
-<h2 id="9d5f885">Scala
-<span class="article-date">2013/09/21</span></h2>
-
-<pre><code>def foo(args: Any*) {
-    ...;
-}
-</code></pre>
-
-<h2 id="python">Python
+<h2 id="806c3df">Python
 <span class="article-date">2013/10/10</span></h2>
 
-<p>仮引数名の前に <code>*</code> を付けると、可変長引数になる。</p>
+<p><a href="../list/overview.html#python">タプル</a>を関数に渡すときに <code>*</code> を付けると、タプルの各要素を関数の引数として展開されて渡される。
+<a href="var-args.html#python">可変長引数</a>と逆のイメージ。</p>
 
-<p>関数の中ではその引数は<a href="../list/overview.html#python">タプル</a>になる。</p>
-
-<pre><code>def foo(*args):
+<pre><code>def f(a, b):
     ...
+
+args = (10, "abc")
+
+f(*args)
 </code></pre>
 
-<h2 id="ruby">Ruby
+<h2 id="d638332">Ruby
 <span class="article-date">2013/11/16</span></h2>
 
-<p>仮引数名の前に <code>*</code> を付けると、可変長引数になる。</p>
+<p><a href="../list/overview.html#ruby">配列</a>を関数に渡すときに <code>*</code> をつけると、配列の各要素を関数の引数として展開されて渡される。
+<a href="var-args.html#ruby">可変長引数</a>と逆のイメージ。</p>
 
-<p>関数の中ではその引数は<a href="../list/overview.html#ruby">配列</a>になる。</p>
-
-<pre><code>def f(*a)
-  print "a:#{a}\n"
+<pre><code>def f(a, b)
+  print "a:#{a} b:#{b}\n"
 end
 
-f(1, 2) # =&gt; a:[1, 2]
+args = [1, 2]
+f(*args); # =&gt; a:1 b:2
 </code></pre>
 
 </div>

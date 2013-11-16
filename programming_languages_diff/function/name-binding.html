@@ -37,6 +37,7 @@
           <li><a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
           <li><a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾最適化 (Tail Call Optimization)</a></li>
           <li>関数の内側から外側のスコープの変数にアクセスできるかどうか</li>
+          <li><a href="../../programming_languages_diff/function/args-tuple.html">タプルで複数の引数をまとめて渡すには</a></li>
         </ul>
       </li>
     </ul>
@@ -60,6 +61,32 @@
 
 <p><a href="literal.html#java">Java8からのラムダ式</a>でも同じである。</p>
 
+<h2 id="74802b5">PHP
+<span class="article-date">2013/11/16</span></h2>
+
+<pre><code>function builder(){
+    $i = 0;
+    return function() use (&amp;$i) {
+        echo "$i\n";
+        $i++;
+    };
+}
+
+$f1 = builder();
+$f2 = builder();
+$f1(); // =&gt; 0
+$f1(); // =&gt; 1
+$f2(); // =&gt; 0
+$f1(); // =&gt; 2
+</code></pre>
+
+<p>関数の外側のスコープにある変数を参照するには <code>use ($i)</code> のように宣言する必要がある。さらにその変数を書き換えるには <code>use (&amp;$i)</code> のように宣言する必要がある。</p>
+
+<p>上記の例で <code>use (&amp;$i)</code> を <code>use ($i)</code> と書くと、<code>$i++</code> でエラーは発生しないが、書き換えた結果は無視され、4箇所とも<code>0</code>が出力される。</p>
+
+<p>そもそも <code>use</code> を書かなかった場合は 
+<code>PHP Notice:  Undefined variable: i</code> が出力される。</p>
+
 <h2 id="63190e8">Ruby
 <span class="article-date">2013/06/09</span></h2>
 
@@ -73,10 +100,10 @@ end
 
 f1 = builder
 f2 = builder
-f1.call # 0
-f1.call # 1
-f2.call # 0
-f1.call # 2
+f1.call # =&gt; 0
+f1.call # =&gt; 1
+f2.call # =&gt; 0
+f1.call # =&gt; 2
 </code></pre>
 
 <p>Procオブジェクトは、その外側の変数を読み書きできる。</p>
@@ -95,12 +122,11 @@ f1.call # 2
 }
 var f1 = builder();
 var f2 = builder();
-f1(); // 0
-f1(); // 1
-f2(); // 0
-f1(); // 2
+f1(); // =&gt; 0
+f1(); // =&gt; 1
+f2(); // =&gt; 0
+f1(); // =&gt; 2
 </code></pre>
-
 
 </div>
 
