@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>第4回プログラマのための数学勉強会のノート (多変数関数の微分法 / 方程式の数値解法) | 数学関係のノート | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../math/">数学関係のノート</a> &gt; <span>第4回プログラマのための数学勉強会のノート (多変数関数の微分法 / 方程式の数値解法)</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../math/">数学関係のノート</a>
+    <ul>
+      <li><a href="../math/for-programmers-note-01.html">第1回プログラマのための数学勉強会のノート (イントロダクション)</a></li>
+      <li><a href="../math/for-programmers-note-02.html">第2回プログラマのための数学勉強会のノート (計算機での浮動小数点数 / 極限・微分)</a></li>
+      <li><a href="../math/for-programmers-note-03.html">第3回プログラマのための数学勉強会のノート (連続性・微分可能性・極値・ロルの定理 / テイラーの定理 / 関数の変化と微分係数 / 差分法 / 多変数関数の微分法)</a></li>
+      <li>第4回プログラマのための数学勉強会のノート (多変数関数の微分法 / 方程式の数値解法)</li>
+      <li><a href="../math/for-programmers-note-07.html">第7回プログラマのための数学勉強会のノート (行列とベクトルの概要 / 行列とベクトルの応用 / 連立一次方程式)</a></li>
+      <li><a href="../math/for-programmers-note-08.html">第8回プログラマのための数学勉強会のノート (行列式・逆行列 / 連立一次方程式の解法 / ベクトルでの微分法 / 係数行列が正方でない連立一次方程式)</a></li>
+      <li><a href="../math/statistics.html">統計学のノート</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="for-programmers-note-04">第4回プログラマのための数学勉強会のノート (多変数関数の微分法 / 方程式の数値解法)</h1>
+
+<p>このページは<a href="http://nineties.github.io/math-seminar/" target="_blank">プログラマのための数学勉強会</a>を聴講したときの個人的なノートである。</p>
+
+<p>第4回プログラマのための数学勉強会(2013/10/03)の資料<br />
+<a href="http://nineties.github.io/math-seminar/4.html" target="_blank">http://nineties.github.io/math-seminar/4.html</a></p>
+
+<h2 id="9dcf0b8">多変数関数の微分法(続き)
+<span class="article-date">2013/11/17</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/4.html#/3" target="_blank">http://nineties.github.io/math-seminar/4.html#/3</a></p>
+
+<ul>
+  <li>一変数関数の微分係数での近似式
+    <ul>
+      <li>\[ \begin{align}
+      \Delta f &amp;= f(x+\Delta x) - f(x) \\ 
+               &amp;= f^{\prime}(x) \Delta x + \mathcal{O}(\Delta x^2) \\ 
+               &amp;= \frac{df}{dx}(x) \Delta x + \mathcal{O}(\Delta x^2)
+    \end{align} \]</li>
+    </ul>
+  </li>
+  <li>二変数関数の微分係数での近似式
+    <ul>
+      <li>\[ \begin{align}
+      \Delta f &amp;= f(x+\Delta x, y+\Delta y) - f(x,y) \\ 
+               &amp;= \frac{\partial f}{\partial x}(x, y) \Delta x + \frac{\partial f}{\partial y}(x, y) \Delta y + \mathcal{O}(\Delta x^2 + \Delta y^2)
+    \end{align} \]</li>
+    </ul>
+  </li>
+  <li><strong>全微分可能</strong>
+    <ul>
+      <li>多変数関数の増分 \( \Delta f \) を独立変数の増分 \( \Delta x \), \( \Delta y \) で表せること</li>
+      <li>全微分可能なとき、\( \Delta x_i \) を十分小さくして以下のように表す
+\[ df = \sum_i \frac{\partial f}{\partial x_i} dx_i \]</li>
+      <li>勾配 \( \mathrm{grad} f(\mathbf{a}) = \left( \frac{\partial f}{\partial x_1}(\mathbf{a}), \cdots, \frac{\partial f}{\partial x_n}(\mathbf{a}) \right) \) を使うと以下のように表せる
+\[ df = \mathrm{grad} f(\mathbf{a}) d\mathbf{a} \]</li>
+    </ul>
+  </li>
+  <li><strong>合成微分法</strong><br />
+<a href="http://nineties.github.io/math-seminar/4.html#/11" target="_blank">http://nineties.github.io/math-seminar/4.html#/11</a></li>
+  <li>一変数関数のテイラーの定理<br />
+    <ul>
+      <li>\[ f(x) 
+      = \sum_{k=0}^{n} \frac{1}{k!}(x-a)^{k} \left(\frac{d}{dx}\right)^k f(a) \\ 
+      + \frac{1}{(n+1)!}(x-a)^{n+1} \left(\frac{d}{dx}\right)^{n+1} f(c) \]
+ただし、\( a &lt; c &lt; x \) または \( x &lt; c &lt; a \)</li>
+    </ul>
+  </li>
+  <li>多変数関数のテイラーの定理<br />
+<a href="http://nineties.github.io/math-seminar/4.html#/16" target="_blank">http://nineties.github.io/math-seminar/4.html#/16</a>
+    <ul>
+      <li>\[ f(x_1, \cdots, x_n) 
+    = \sum_{k=0}^{n} \frac{1}{k!}\left(\sum_j (x_j-a_j) \left(\frac{\partial}{\partial x_j}\right)\right)^k f(a_1, \cdots, a_n) \\ 
+    + \frac{1}{(n+1)!}\left(\sum_j (x_j-a_j) \left(\frac{\partial}{\partial x_j}\right)\right)^{n+1} f(c_1, \cdots, c_n) \]
+ただし、\( a_i &lt; c_i &lt; x_i \) または \( x_i &lt; c_i &lt; a_i \)</li>
+    </ul>
+  </li>
+  <li>多変数関数の極値と偏導関数の関係<br />
+<a href="http://nineties.github.io/math-seminar/4.html#/18" target="_blank">http://nineties.github.io/math-seminar/4.html#/18</a>
+    <ul>
+      <li>\(f(a_1, \cdots, a_n)\) が極値ならば、いずれの\(i\)に対しても \( \frac{\partial f}{\partial x_i}(a_1, \cdots, a_n)=0 \) が成り立つ</li>
+      <li>最小二乗法での例<br />
+<a href="http://nineties.github.io/math-seminar/4.html#/18" target="_blank">http://nineties.github.io/math-seminar/4.html#/18</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="835c56a">方程式の数値解法
+<span class="article-date">2013/11/17</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/4.html#/25" target="_blank">http://nineties.github.io/math-seminar/4.html#/25</a></p>
+
+<p>書きかけ</p>
+
+</div>
+
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
