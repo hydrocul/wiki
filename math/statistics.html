@@ -24,10 +24,12 @@
     <ul>
   <li><a href="../math/">数学関係のノート</a>
     <ul>
-      <li><a href="../math/for-programmers-note-02.html">第2回プログラマのための数学勉強会(2013/09/19)のノート</a></li>
-      <li><a href="../math/for-programmers-note-03.html">第3回プログラマのための数学勉強会(2013/09/26)のノート</a></li>
-      <li><a href="../math/for-programmers-note-07.html">第7回プログラマのための数学勉強会(2013/10/24)のノート</a></li>
-      <li><a href="../math/for-programmers-note-08.html">第8回プログラマのための数学勉強会(2013/10/31)のノート</a></li>
+      <li><a href="../math/for-programmers-note-01.html">第1回プログラマのための数学勉強会のノート (イントロダクション)</a></li>
+      <li><a href="../math/for-programmers-note-02.html">第2回プログラマのための数学勉強会のノート (計算機での浮動小数点数 / 極限・微分)</a></li>
+      <li><a href="../math/for-programmers-note-03.html">第3回プログラマのための数学勉強会のノート (連続性・微分可能性・極値・ロルの定理 / テイラーの定理 / 関数の変化と微分係数 / 差分法 / 多変数関数の微分法)</a></li>
+      <li><a href="../math/for-programmers-note-04.html">第4回プログラマのための数学勉強会のノート (多変数関数の微分法 / 方程式の数値解法)</a></li>
+      <li><a href="../math/for-programmers-note-07.html">第7回プログラマのための数学勉強会のノート (行列とベクトルの概要 / 行列とベクトルの応用 / 連立一次方程式)</a></li>
+      <li><a href="../math/for-programmers-note-08.html">第8回プログラマのための数学勉強会のノート (行列式・逆行列 / 連立一次方程式の解法 / ベクトルでの微分法 / 係数行列が正方でない連立一次方程式)</a></li>
       <li>統計学のノート</li>
     </ul>
   </li>
@@ -40,20 +42,20 @@
   <h1 id="statistics">統計学のノート</h1>
 
 <h2 id="ac408f9">変数の種類
-<span class="article-date">2013/11/06</span></h2>
+<span class="article-date">2013/11/18</span></h2>
 
 <ul>
-  <li>量的変数
+  <li><strong>量的変数</strong>
     <ul>
       <li>テストの点数などの数値で表わされるもの</li>
       <li>四則演算など(→平均など)の計算ができる</li>
     </ul>
   </li>
-  <li>質的変数
+  <li><strong>質的変数</strong>
     <ul>
       <li>性別、都道府県など数値ではなく選択肢の中からいずれかを選択されたもの</li>
       <li>とくに選択肢が2つのものを二値変数という</li>
-      <li>IDも表現が数字だとしても質的変数か</li>
+      <li>IDの類は数字での表現だとしても質的変数</li>
       <li>四則演算の計算ができない</li>
     </ul>
   </li>
@@ -63,12 +65,12 @@
 <span class="article-date">2013/11/05</span></h2>
 
 <ul>
-  <li>度数
+  <li><strong>度数</strong>
     <ul>
       <li>変数の値の範囲ごとにデータの個数を数えたもの</li>
     </ul>
   </li>
-  <li>ヒストグラム
+  <li><strong>ヒストグラム</strong>
     <ul>
       <li>度数分布を隙間のない棒グラフにしたもの</li>
     </ul>
@@ -79,20 +81,20 @@
 <span class="article-date">2013/11/06</span></h2>
 
 <ul>
-  <li>平均値
+  <li><strong>平均値</strong>
     <ul>
       <li>\[ \overline{x} = \frac{ \sum_{i} x_{i} }{n} \]</li>
       <li>R言語では <code>mean</code> 関数</li>
     </ul>
   </li>
-  <li>中央値
+  <li><strong>中央値</strong>
     <ul>
       <li>数値の大小の順に並べたときに真ん中に位置する値</li>
       <li>データの数が偶数の場合は中間をとる</li>
       <li>R言語では <code>median</code> 関数</li>
     </ul>
   </li>
-  <li>最頻値</li>
+  <li><strong>最頻値</strong></li>
 </ul>
 
 <h2 id="1891017">散布度
@@ -101,26 +103,26 @@
 <p>データの散らばり具合を見る指標。</p>
 
 <ul>
-  <li>標本分散
+  <li><strong>標本分散</strong>
     <ul>
       <li>\[ \frac{ \sum_{i} (x_{i} - \overline{x})^{2} }{n} \]</li>
-      <li>記述統計: テストの点数の統計など、すべてのデータが揃っている場合</li>
+      <li><strong>記述統計</strong>: テストの点数の統計など、すべてのデータが揃っている場合</li>
     </ul>
   </li>
-  <li>不偏分散
+  <li><strong>不偏分散</strong>
     <ul>
       <li>\[ \frac{ \sum_{i} (x_{i} - \overline{x})^{2} }{n - 1} \]</li>
-      <li>推測統計: テレビの視聴率の調査など、母集団の一部のみを分析して母集団を推測する場合</li>
+      <li><strong>推測統計</strong>: テレビの視聴率の調査など、母集団の一部のみを分析して母集団を推測する場合</li>
       <li>R言語では <code>var</code> 関数</li>
     </ul>
   </li>
-  <li>標準偏差(不偏分散の平方根)
+  <li><strong>標準偏差</strong>(不偏分散の平方根)
     <ul>
       <li>\[ \sqrt{ \frac{ \sum_{i} (x_{i} - \overline{x})^{2} }{n - 1} } \]</li>
       <li>R言語では <code>sd</code> 関数</li>
     </ul>
   </li>
-  <li>平均偏差
+  <li><strong>平均偏差</strong>
     <ul>
       <li>\[ \frac{ \sum_{i} \left| x_{i} - \overline{x} \right| }{n} \]</li>
     </ul>
@@ -141,38 +143,38 @@
 <span class="article-date">2013/11/06</span></h2>
 
 <ul>
-  <li>相関
+  <li><strong>相関</strong>
     <ul>
       <li>複数の量的変数の間での関連の強さ</li>
       <li>必ずしも因果関係ではないことに注意</li>
-      <li>正の相関: xが大きいほどyが大きい</li>
-      <li>負の相関: xが大きいほどyが小さい</li>
-      <li>無相関: xとyに関連がない</li>
+      <li><strong>正の相関</strong>: xが大きいほどyが大きい</li>
+      <li><strong>負の相関</strong>: xが大きいほどyが小さい</li>
+      <li><strong>無相関</strong>: xとyに関連がない</li>
     </ul>
   </li>
-  <li>連関
+  <li><strong>連関</strong>
     <ul>
       <li>複数の質的変数の間での関連の強さ</li>
     </ul>
   </li>
-  <li>散布図
+  <li><strong>散布図</strong>
     <ul>
       <li>相関を視覚的に確認するには散布図がよい</li>
       <li>R言語で作図するには <code>plot</code> 関数を使う</li>
     </ul>
   </li>
-  <li>共分散
+  <li><strong>共分散</strong>
     <ul>
       <li>\[ \frac{ \sum_{i} (x_{i} - \overline{x})(y_{i} - \overline{y}) }{n} \]</li>
     </ul>
   </li>
-  <li>不偏共分散
+  <li><strong>不偏共分散</strong>
     <ul>
       <li>\[ \frac{ \sum_{i} (x_{i} - \overline{x})(y_{i} - \overline{y}) }{n - 1} \]</li>
       <li>R言語では <code>cov</code></li>
     </ul>
   </li>
-  <li>相関係数
+  <li><strong>相関係数</strong>
     <ul>
       <li>\[ \frac{ \sum_{i} (x_{i} - \overline{x})(y_{i} - \overline{y}) }{ \sqrt{ \sum_{i} (x_{i} - \overline{x})^2 \sum_{i} (y_{i} - \overline{y})^2 } } \]</li>
       <li>-1から+1までの間の数になる</li>
@@ -183,15 +185,53 @@
       <li>1または-1に近いほど強い相関</li>
     </ul>
   </li>
-  <li>クロス集計
+  <li><strong>クロス集計</strong>
     <ul>
       <li>2つの二値の質的変数の関係を表にしたもの</li>
       <li>R言語では <code>table</code></li>
     </ul>
   </li>
-  <li>ファイ係数
+  <li><strong>ファイ係数</strong>
     <ul>
       <li>2つの質的変数をそれぞれ0または1に置き換えて相関係数を計算したもの</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="d3aef9b">母集団と標本
+<span class="article-date">2013/11/18</span></h2>
+
+<ul>
+  <li><strong>母集団</strong>
+    <ul>
+      <li>データ全体</li>
+    </ul>
+  </li>
+  <li><strong>標本</strong>
+    <ul>
+      <li>母集団に対して統計をとるために一部を抽出したもの</li>
+    </ul>
+  </li>
+  <li><strong>推測統計</strong>
+    <ul>
+      <li>テレビの視聴率の調査など、母集団の一部のみ(標本)を分析して母集団を推測する場合</li>
+    </ul>
+  </li>
+  <li>推測統計の分類
+    <ul>
+      <li>推定
+        <ul>
+          <li>点推定</li>
+          <li>区間推定</li>
+        </ul>
+      </li>
+      <li>検定</li>
+    </ul>
+  </li>
+  <li><strong>点推定</strong>
+    <ul>
+      <li>標本から母集団のある統計的指標を推定すること</li>
+      <li>例えば、標本の平均を計算すると、この値は母集団の平均を点推定したものになる</li>
     </ul>
   </li>
 </ul>
