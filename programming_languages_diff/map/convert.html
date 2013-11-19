@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>マップをコピーするには (clone) | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>マップの種類を相互に変換するには (convert) | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>マップをコピーするには (clone)</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>マップの種類を相互に変換するには (convert)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -33,8 +33,8 @@
           <li><a href="../../programming_languages_diff/map/put.html">キーで要素を設定するには (put)</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">マップの要素を1つずつ順番に処理するには (foreach)</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
-          <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
-          <li>マップをコピーするには (clone)</li>
+          <li>マップの種類を相互に変換するには (convert)</li>
+          <li><a href="../../programming_languages_diff/map/clone.html">マップをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">マップが空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
@@ -50,50 +50,18 @@
 </div>
 
 <div id="content">
-  <h1 id="clone">マップをコピーするには (clone)</h1>
+  <h1 id="convert">マップの種類を相互に変換するには (convert)</h1>
 
-<h2 id="php">PHP
-<span class="article-date">2013/11/18</span></h2>
+<h2 id="d0572be">Scala
+<span class="article-date">2013/10/14</span></h2>
 
-<p>配列を別の変数に代入するだけでコピーになる。しかも deep copy になる。</p>
+<pre><code>import scala.collection.JavaConverters._;
 
-<pre><code>$src = array('a' =&gt; array(10, 20, 30), 'b' =&gt; 2, 'c' =&gt; 3);
-$dst = $src;
-$src['a'][0] = 100; // $dst['a'][0] は 10 のまま
-</code></pre>
+// JavaのMapからScalaのミュータブルなMapに変換
+val mutableMap = javaMap.asScala;
 
-<p><a href="../list/clone.html#php">添字が整数の配列でも同じ</a>。</p>
-
-<h2 id="5d6493d">Python
-<span class="article-date">2013/10/07</span></h2>
-
-<pre><code>dic2 = dic.copy()
-</code></pre>
-
-<h2 id="96029a6">Perl
-<span class="article-date">2013/09/11</span></h2>
-
-<p>shallow copy の例</p>
-
-<pre><code>my %src = ...;
-my %dst = %src
-</code></pre>
-
-<p>代入するだけでコピーされる。</p>
-
-<h2 id="e4f64a7">JavaScript
-<span class="article-date">2013/04/20</span></h2>
-
-<p>shallow copy</p>
-
-<pre><code>function clone(src){
-    var dst = {}
-    for(var k in src){
-        dst[k] = src[k];
-    }
-    return dst;
-}
-map_copy = map.clone();
+// ScalaのミュータブルなMapからイミュータブルなMapに変換
+val immutableMap = Map(mutableMap.toSeq:_*);
 </code></pre>
 
 </div>

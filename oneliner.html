@@ -28,8 +28,7 @@
   <li><a href="./css.html">CSSのTips</a></li>
   <li><a href="./jquery.html">jQueryのTips</a></li>
   <li><a href="./sh.html">シェルスクリプト</a></li>
-  <li><a href="./math-for-programmers-note.html">プログラマのための数学勉強会ノート</a></li>
-  <li><a href="./statistics.html">統計学のノート</a></li>
+  <li><a href="./math/">数学関係のノート</a></li>
   <li><a href="./apache.html">Apache</a></li>
   <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
@@ -37,6 +36,7 @@
   <li><a href="./linux.html">Linux</a></li>
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
   <li><a href="./mac.html">Mac</a></li>
+  <li><a href="./math-for-programmers-note.html">プログラマのための数学勉強会ノート</a></li>
   <li><a href="./mechanize.html">mechanize</a></li>
   <li><a href="./mysql.html">MySQLのメモ</a></li>
   <li>ワンライナー</li>
@@ -138,13 +138,21 @@ echo %E3%81%82 | tr % = | nkf -WmQ
 
 <p>行は <code>$_</code> で参照できる。</p>
 
+<h2 id="698da25">正規分布から無作為に(ランダムに)データ抽出した数列を取得するワンライナー
+<span class="article-date">2013/11/19</span></h2>
+
+<p>R言語を使っているが</p>
+
+<pre><code># 平均50,標準偏差10の正規母集団から100個のデータを取り出す
+echo 'rnorm(n=100,mean=50,sd=10)' | R --vanilla --slave  | sed -e 's/^ \+\[[0-9]\+\] //g' -e 's/ /\n/g'
+</code></pre>
+
 <h2 id="b96b86e">commandlinefu.com
 <span class="article-date">2013/04/23</span></h2>
 
 <p><a href="http://www.commandlinefu.com/commands/browse" target="_blank">http://www.commandlinefu.com/commands/browse</a></p>
 
 <p>ワンライナーを共有するサイト</p>
-
 
 </div>
 
