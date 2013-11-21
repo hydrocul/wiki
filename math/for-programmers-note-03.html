@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>第3回プログラマのための数学勉強会のノート (連続性・微分可能性・極値・ロルの定理 / テイラーの定理 / 関数の変化と微分係数 / 差分法 / 多変数関数の微分法) | 数学関係のノート | hydrocul のメモ</title>
+<title>第3回プログラマのための数学勉強会のノート | 数学関係のノート | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../math/">数学関係のノート</a> &gt; <span>第3回プログラマのための数学勉強会のノート (連続性・微分可能性・極値・ロルの定理 / テイラーの定理 / 関数の変化と微分係数 / 差分法 / 多変数関数の微分法)</span>
+  <a href="../math/">数学関係のノート</a> &gt; <span>第3回プログラマのための数学勉強会のノート</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,12 +24,13 @@
     <ul>
   <li><a href="../math/">数学関係のノート</a>
     <ul>
-      <li><a href="../math/for-programmers-note-01.html">第1回プログラマのための数学勉強会のノート (イントロダクション)</a></li>
-      <li><a href="../math/for-programmers-note-02.html">第2回プログラマのための数学勉強会のノート (計算機での浮動小数点数 / 極限・微分)</a></li>
-      <li>第3回プログラマのための数学勉強会のノート (連続性・微分可能性・極値・ロルの定理 / テイラーの定理 / 関数の変化と微分係数 / 差分法 / 多変数関数の微分法)</li>
-      <li><a href="../math/for-programmers-note-04.html">第4回プログラマのための数学勉強会のノート (多変数関数の微分法 / 方程式の数値解法)</a></li>
-      <li><a href="../math/for-programmers-note-07.html">第7回プログラマのための数学勉強会のノート (行列とベクトルの概要 / 行列とベクトルの応用 / 連立一次方程式)</a></li>
-      <li><a href="../math/for-programmers-note-08.html">第8回プログラマのための数学勉強会のノート (行列式・逆行列 / 連立一次方程式の解法 / ベクトルでの微分法 / 係数行列が正方でない連立一次方程式)</a></li>
+      <li><a href="../math/for-programmers-note/">プログラマのための数学勉強会のノート</a></li>
+      <li><a href="../math/for-programmers-note-01.html">第1回プログラマのための数学勉強会のノート</a></li>
+      <li><a href="../math/for-programmers-note-02.html">第2回プログラマのための数学勉強会のノート</a></li>
+      <li>第3回プログラマのための数学勉強会のノート</li>
+      <li><a href="../math/for-programmers-note-04.html">第4回プログラマのための数学勉強会のノート</a></li>
+      <li><a href="../math/for-programmers-note-07.html">第7回プログラマのための数学勉強会のノート</a></li>
+      <li><a href="../math/for-programmers-note-08.html">第8回プログラマのための数学勉強会のノート</a></li>
       <li><a href="../math/statistics.html">統計学のノート</a></li>
     </ul>
   </li>
@@ -39,192 +40,10 @@
 </div>
 
 <div id="content">
-  <h1 id="for-programmers-note-03">第3回プログラマのための数学勉強会のノート (連続性・微分可能性・極値・ロルの定理 / テイラーの定理 / 関数の変化と微分係数 / 差分法 / 多変数関数の微分法)</h1>
+  <h1 id="for-programmers-note-03">第3回プログラマのための数学勉強会のノート</h1>
 
-<p>このページは<a href="http://nineties.github.io/math-seminar/" target="_blank">プログラマのための数学勉強会</a>を聴講したときの個人的なノートである。</p>
-
-<p>第3回プログラマのための数学勉強会(2013/09/26)の資料<br />
-<a href="http://nineties.github.io/math-seminar/3.html" target="_blank">http://nineties.github.io/math-seminar/3.html</a></p>
-
-<p>第3回プログラマのための数学勉強会(2013/09/26)の動画<br />
-<a href="http://www.youtube.com/watch?v=ikcDsefUZ2k" target="_blank">http://www.youtube.com/watch?v=ikcDsefUZ2k</a></p>
-
-<h2 id="6a9b8d1">連続性・微分可能性・極値・ロルの定理
-<span class="article-date">2013/11/06</span></h2>
-
-<p><a href="http://nineties.github.io/math-seminar/3.html#/4" target="_blank">http://nineties.github.io/math-seminar/3.html#/4</a></p>
-
-<ul>
-  <li>連続性<br />
-<a href="http://nineties.github.io/math-seminar/3.html#/5" target="_blank">http://nineties.github.io/math-seminar/3.html#/5</a></li>
-  <li>微分可能性<br />
-<a href="http://nineties.github.io/math-seminar/3.html#/6" target="_blank">http://nineties.github.io/math-seminar/3.html#/6</a>
-    <ul>
-      <li>\(n\)回微分係数が存在するとき、n回微分可能という</li>
-    </ul>
-  </li>
-  <li>極値と導関数の関係<br />
-<a href="http://nineties.github.io/math-seminar/3.html#/10" target="_blank">http://nineties.github.io/math-seminar/3.html#/10</a>
-    <ul>
-      <li>\(f(a)\) が極値ならば \( f^{\prime}(a)=0 \)  </li>
-    </ul>
-  </li>
-  <li>ロルの定理<br />
-<a href="http://nineties.github.io/math-seminar/3.html#/12" target="_blank">http://nineties.github.io/math-seminar/3.html#/12</a>
-    <ul>
-      <li>ある区間で連続で、両端で \(f(x)\) の値が同じならば、\( f^{\prime}(c)=0 \) を満たす \(c\) がその区間の内側のどこかに存在する</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="44c5cf4">テイラーの定理
-<span class="article-date">2013/11/07</span></h2>
-
-<p><a href="http://nineties.github.io/math-seminar/3.html#/14" target="_blank">http://nineties.github.io/math-seminar/3.html#/14</a></p>
-
-<ul>
-  <li>テイラーの定理<br />
-<a href="http://nineties.github.io/math-seminar/3.html#/22" target="_blank">http://nineties.github.io/math-seminar/3.html#/22</a>
-    <ul>
-      <li>\[ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^{k} + \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1} \]
-ただし、\( a &lt; c &lt; x \) または \( x &lt; c &lt; a \)</li>
-      <li>最後の項を剰余項という</li>
-      <li>\( n = 0 \) の場合を特に平均値の定理という</li>
-    </ul>
-  </li>
-  <li>テイラー級数<br />
-<a href="http://nineties.github.io/math-seminar/3.html#/26" target="_blank">http://nineties.github.io/math-seminar/3.html#/26</a>
-    <ul>
-      <li>テイラーの定理の\(n\)を無限大にした無限級数</li>
-      <li>\[ f(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(a)}{k!}(x-a)^{k} \]</li>
-      <li>収束半径: 級数が収束する範囲を表す</li>
-    </ul>
-  </li>
-  <li>テイラー展開<br />
-<a href="http://nineties.github.io/math-seminar/3.html#/26" target="_blank">http://nineties.github.io/math-seminar/3.html#/26</a>
-    <ul>
-      <li>テイラー級数を求めること</li>
-    </ul>
-  </li>
-  <li>マクローリン級数
-    <ul>
-      <li>テイラー級数の\(a\)を\(0\)とおいたもの</li>
-    </ul>
-  </li>
-  <li>マクローリン展開
-    <ul>
-      <li>マクローリン級数を求めること</li>
-    </ul>
-  </li>
-  <li>ランダウの\(\mathcal{O}\)
-    <ul>
-      <li>右辺の最後の項において誤差の程度を表した記号</li>
-      <li>\[ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^{k} + \mathcal{O}((x-a)^{n+1}) \]</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="245ddad">関数の変化と微分係数
-<span class="article-date">2013/11/07</span></h2>
-
-<p><a href="http://nineties.github.io/math-seminar/3.html#/32" target="_blank">http://nineties.github.io/math-seminar/3.html#/32</a></p>
-
-<p>テイラー展開の応用として、関数の増減、凹凸、極大/極小の判定方法の話題。</p>
-
-<h2 id="76f443d">差分法
-<span class="article-date">2013/11/09</span></h2>
-
-<p><a href="http://nineties.github.io/math-seminar/3.html#/39" target="_blank">http://nineties.github.io/math-seminar/3.html#/39</a></p>
-
-<ul>
-  <li>前進差分
-    <ul>
-      <li>\[ f^{\prime}(x) = \frac{ f(x + \Delta x) - f(x) }{ \Delta x } + \mathcal{O}(\Delta x) \]</li>
-    </ul>
-  </li>
-  <li>後進差分
-    <ul>
-      <li>\[ f^{\prime}(x) = \frac{ f(x) - f(x - \Delta x) }{ \Delta x } + \mathcal{O}(\Delta x) \]</li>
-    </ul>
-  </li>
-  <li>中心差分
-    <ul>
-      <li>\[ f^{\prime}(x) = \frac{ f(x + \Delta x) - f(x - \Delta x) }{2 \Delta x} + \mathcal{O}(\Delta x ^2) \]</li>
-      <li>前進差分と後進差分の平均をとっただけで誤差が減る</li>
-    </ul>
-  </li>
-  <li>二階差分
-    <ul>
-      <li>\[ f^{\prime\prime}(x) = \frac{ f(x + \Delta x) - 2f(x) + f(x - \Delta x) }{ \Delta x ^2 } + \mathcal{O}(\Delta x ^2) \]</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="ac113c5">多変数関数の微分法
-<span class="article-date">2013/11/17</span></h2>
-
-<p><a href="http://nineties.github.io/math-seminar/3.html#/48" target="_blank">http://nineties.github.io/math-seminar/3.html#/48</a></p>
-
-<ul>
-  <li>方向微分係数<br />
-<a href="http://nineties.github.io/math-seminar/3.html#/49" target="_blank">http://nineties.github.io/math-seminar/3.html#/49</a>
-    <ul>
-      <li>\[ \frac{\partial f}{\partial \mathbf{u}}(\mathbf{a}) = \lim_{h \rightarrow 0} \frac{ f(\mathbf{a} + h \mathbf{u}) - f(\mathbf{a}) }{ h } \]</li>
-    </ul>
-  </li>
-  <li>偏微分係数
-    <ul>
-      <li>\[ \frac{\partial f}{\partial x_k}(\mathbf{a}) = \lim_{h \rightarrow 0} \frac{ f(a_1, \cdots, a_k + h, \cdots, a_n) - f(a_1, \cdots,  a_n) }{ h } \]</li>
-      <li>\[ \left. \frac{\partial f}{\partial x_k} \right|_{\mathbf{x}=\mathbf{a}} \]
-\[ \frac{\partial f}{\partial x_k} \mathbf{a} \]
-\[ f_{x_k}(\mathbf{a}) \]
-などと書く</li>
-    </ul>
-  </li>
-  <li>偏導関数
-    <ul>
-      <li>\(a\)を引数とみなしたもの</li>
-      <li>\[ \frac{\partial f}{\partial x_k} \]
-\[ f_{x_k} \]
-などと書く</li>
-    </ul>
-  </li>
-  <li>高階偏導関数
-    <ul>
-      <li>\(x\)と\(y\)の2変数関数の\(x\)で偏微分したものを\(y\)で偏微分したもの
-\[ \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right) \]
-を
-\[ \frac{\partial^2 f}{\partial y \partial x} \]
-\[ f_{xy} \]
-などと書く</li>
-      <li>\(f_{xy}\)が連続ならば
-\[ f_{xy} = f_{yx} \]
-つまり微分する変数の順序に依らない</li>
-    </ul>
-  </li>
-  <li>偏微分係数から方向微分係数を計算<br />
-<a href="http://nineties.github.io/math-seminar/3.html#/57" target="_blank">http://nineties.github.io/math-seminar/3.html#/57</a>
-    <ul>
-      <li>\(f\)を\(x\), \(y\)の2変数関数として、\(\mathbf{u}=(α,β)\)として、
-\[ \frac{\partial f}{\partial \mathbf{u}}(a, b) = f_x(a, b) α + f_y(a, b) β \]</li>
-      <li>\(||\mathbf{u}||=1\)のときの偏微分係数の大きさ
-\[ \left| \frac{\partial f}{\partial \mathbf{u}}(\mathbf{a}) \right| \]
-は勾配 \( \mathrm{grad} f(\mathbf{a})=(f_{x_1}(\mathbf{a}), \cdots, f_{x_n}(\mathbf{a})) \) とベクトル\(\mathbf{u}\)が平行のときに最大になる<br />
-<a href="http://nineties.github.io/math-seminar/3.html#/58" target="_blank">http://nineties.github.io/math-seminar/3.html#/58</a></li>
-    </ul>
-  </li>
-  <li>勾配
-    <ul>
-      <li>\[ \begin{align}
-      \mathrm{grad} f(\mathbf{a})
-        &amp;= (f_{x_1}(\mathbf{a}), \cdots, f_{x_n}(\mathbf{a})) \\ 
-        &amp;= \left( \frac{\partial f}{\partial x_1}(\mathbf{a}), \cdots, \frac{\partial f}{\partial x_n}(\mathbf{a}) \right)
-    \end{align} \]</li>
-    </ul>
-  </li>
-  <li>応用: 画像のエッジの検出<br />
-<a href="http://nineties.github.io/math-seminar/3.html#/63" target="_blank">http://nineties.github.io/math-seminar/3.html#/63</a></li>
-</ul>
+<p>移動しました<br />
+<a href="for-programmers-note/03.html">第3回プログラマのための数学勉強会のノート</a></p>
 
 </div>
 

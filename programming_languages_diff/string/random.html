@@ -59,32 +59,39 @@
 </div>
 
 <div id="content">
-  <h1 id="random">ランダム文字列を生成するには</h1>
+  <h1 id="random">ランダム文字列を生成するには
+<span class="article-date">2013/11/21</span></h1>
+
+<p>パスワードの自動生成が必要な場合など。</p>
 
 <h2 id="733a11a">PHP
 <span class="article-date">2013/07/24</span></h2>
 
 <p>サンプル</p>
 
-<pre><code>function createpasswd(){
+<pre><code>function createpasswd() {
   $data = 'abcdefghkmnprstuvwxyzABCDEFGHJKLMNPRSTUVWXYZ2345678';
   $n = strlen($data);
   $ret = '';
-  for($ii=0;$ii&lt;8;$ii++){
-    $ret .= $data[rand(0, $n-1)];
+  for ($ii=0; $ii &lt; 8; $ii++) {
+    $ret .= $data[rand(0, $n - 1)];
   }
   return $ret;
 }
+</code></pre>
 
-function createpasswd_num(){
-  $data = '1234567890';
-  $n = strlen($data);
-  $ret = '';
-  for($ii=0;$ii&lt;8;$ii++){
-    $ret .= $data[rand(0, $n-1)];
-  }
-  return $ret;
-}
+<h2 id="c2c10f6">Python
+<span class="article-date">2013/11/21</span></h2>
+
+<p>サンプル</p>
+
+<pre><code>import string
+import random
+
+def createpasswd():
+    data = 'abcdefghkmnprstuvwxyzABCDEFGHJKLMNPRSTUVWXYZ2345678'
+    n = len(data)
+    return ''.join(data[random.randrange(n)] for i in xrange(8))
 </code></pre>
 
 <h2 id="cebeee2">sh

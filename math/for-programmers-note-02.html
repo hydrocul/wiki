@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>第2回プログラマのための数学勉強会のノート (計算機での浮動小数点数 / 極限・微分) | 数学関係のノート | hydrocul のメモ</title>
+<title>第2回プログラマのための数学勉強会のノート | 数学関係のノート | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../math/">数学関係のノート</a> &gt; <span>第2回プログラマのための数学勉強会のノート (計算機での浮動小数点数 / 極限・微分)</span>
+  <a href="../math/">数学関係のノート</a> &gt; <span>第2回プログラマのための数学勉強会のノート</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,12 +24,13 @@
     <ul>
   <li><a href="../math/">数学関係のノート</a>
     <ul>
-      <li><a href="../math/for-programmers-note-01.html">第1回プログラマのための数学勉強会のノート (イントロダクション)</a></li>
-      <li>第2回プログラマのための数学勉強会のノート (計算機での浮動小数点数 / 極限・微分)</li>
-      <li><a href="../math/for-programmers-note-03.html">第3回プログラマのための数学勉強会のノート (連続性・微分可能性・極値・ロルの定理 / テイラーの定理 / 関数の変化と微分係数 / 差分法 / 多変数関数の微分法)</a></li>
-      <li><a href="../math/for-programmers-note-04.html">第4回プログラマのための数学勉強会のノート (多変数関数の微分法 / 方程式の数値解法)</a></li>
-      <li><a href="../math/for-programmers-note-07.html">第7回プログラマのための数学勉強会のノート (行列とベクトルの概要 / 行列とベクトルの応用 / 連立一次方程式)</a></li>
-      <li><a href="../math/for-programmers-note-08.html">第8回プログラマのための数学勉強会のノート (行列式・逆行列 / 連立一次方程式の解法 / ベクトルでの微分法 / 係数行列が正方でない連立一次方程式)</a></li>
+      <li><a href="../math/for-programmers-note/">プログラマのための数学勉強会のノート</a></li>
+      <li><a href="../math/for-programmers-note-01.html">第1回プログラマのための数学勉強会のノート</a></li>
+      <li>第2回プログラマのための数学勉強会のノート</li>
+      <li><a href="../math/for-programmers-note-03.html">第3回プログラマのための数学勉強会のノート</a></li>
+      <li><a href="../math/for-programmers-note-04.html">第4回プログラマのための数学勉強会のノート</a></li>
+      <li><a href="../math/for-programmers-note-07.html">第7回プログラマのための数学勉強会のノート</a></li>
+      <li><a href="../math/for-programmers-note-08.html">第8回プログラマのための数学勉強会のノート</a></li>
       <li><a href="../math/statistics.html">統計学のノート</a></li>
     </ul>
   </li>
@@ -39,121 +40,10 @@
 </div>
 
 <div id="content">
-  <h1 id="for-programmers-note-02">第2回プログラマのための数学勉強会のノート (計算機での浮動小数点数 / 極限・微分)</h1>
+  <h1 id="for-programmers-note-02">第2回プログラマのための数学勉強会のノート</h1>
 
-<p>このページは<a href="http://nineties.github.io/math-seminar/" target="_blank">プログラマのための数学勉強会</a>を聴講したときの個人的なノートである。</p>
-
-<p>第2回プログラマのための数学勉強会(2013/09/19)の資料<br />
-<a href="http://nineties.github.io/math-seminar/2.html" target="_blank">http://nineties.github.io/math-seminar/2.html</a></p>
-
-<p>第2回プログラマのための数学勉強会(2013/09/19)の動画<br />
-<a href="http://www.youtube.com/watch?v=_vhGa5jj9dI" target="_blank">http://www.youtube.com/watch?v=_vhGa5jj9dI</a></p>
-
-<h2 id="7971939">計算機での浮動小数点数
-<span class="article-date">2013/11/06</span></h2>
-
-<p><a href="http://nineties.github.io/math-seminar/2.html#/3" target="_blank">http://nineties.github.io/math-seminar/2.html#/3</a></p>
-
-<ul>
-  <li>IEEE 754
-    <ul>
-      <li>最も広く使用されている浮動小数点数の規格</li>
-      <li>値の種類
-        <ul>
-          <li>正規化数</li>
-          <li>非正規化数</li>
-          <li><code>+0</code> と <code>-0</code></li>
-          <li><code>+Inf</code> と <code>-Inf</code></li>
-          <li><code>NaN</code></li>
-        </ul>
-      </li>
-      <li>精度
-        <ul>
-          <li>単精度: 32ビット</li>
-          <li>倍精度: 64ビット</li>
-          <li>四倍精度: 128ビット</li>
-        </ul>
-      </li>
-      <li>よく使われる倍精度では
-        <ul>
-          <li>十進数にして15桁〜16桁程度の精度</li>
-          <li>正規化数では絶対値は 10e-308 〜 10e+308 程度</li>
-          <li>非正規化数では 10e-323 〜</li>
-        </ul>
-      </li>
-      <li>計算結果の丸め方: 再近接偶数丸め<br />
-<a href="http://nineties.github.io/math-seminar/2.html#/12" target="_blank">http://nineties.github.io/math-seminar/2.html#/12</a></li>
-    </ul>
-  </li>
-  <li>誤差の種類
-    <ul>
-      <li>オーバーフロー
-        <ul>
-          <li>絶対値が許容範囲を超えると <code>+Inf</code> または <code>-Inf</code> になってしまう現象</li>
-        </ul>
-      </li>
-      <li>アンダーフロー
-        <ul>
-          <li>絶対値が許容範囲を下回ると <code>+0</code> または <code>-0</code> になってしまう現象</li>
-        </ul>
-      </li>
-      <li>情報落ち
-        <ul>
-          <li>絶対値が大きく異る2つの数を加減算すると絶対値の小さい方の数が無視されてしまう現象</li>
-        </ul>
-      </li>
-      <li>桁落ち
-        <ul>
-          <li>2つの非常に近い値の差を計算すると有効桁数が落ちる現象</li>
-        </ul>
-      </li>
-      <li>打ち切り誤差
-        <ul>
-          <li>テイラー展開などの無限の反復を途中で止めることで発生する誤差</li>
-        </ul>
-      </li>
-      <li>二進数と十進数の変換時に発生する誤差</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="b6b744e">極限・微分
-<span class="article-date">2013/11/06</span></h2>
-
-<p><a href="http://nineties.github.io/math-seminar/2.html#/30" target="_blank">http://nineties.github.io/math-seminar/2.html#/30</a></p>
-
-<ul>
-  <li>ε-N論法<br />
-<a href="http://nineties.github.io/math-seminar/2.html#/39" target="_blank">http://nineties.github.io/math-seminar/2.html#/39</a></li>
-  <li>ε-δ論法<br />
-<a href="http://nineties.github.io/math-seminar/2.html#/41" target="_blank">http://nineties.github.io/math-seminar/2.html#/41</a></li>
-  <li>微分係数
-    <ul>
-      <li>\[ \lim_{h \rightarrow 0} \frac{f(a+h) - f(a)}{h} \]
-が収束するとき
-\[ f^{\prime}(a) \]
-\[ \frac{df}{dx}(a) \]
-\[ \left. \frac{d}{dx}f(x) \right|_{x=a} \]
-などと書く</li>
-    </ul>
-  </li>
-  <li>導関数
-    <ul>
-      <li>\[ f^{\prime}(x) \]
-\[ \frac{d}{dx}f(x) \]
-などと書く</li>
-    </ul>
-  </li>
-  <li>高階導関数
-    <ul>
-      <li>\[ f^{n}(x) \]
-\[ \frac{d^{n}}{dx^{n}}f(x) \]
-\[ \left(\frac{d}{dx}\right)^{n}f(x) \]
-などと書く</li>
-      <li>高次導関数ともいう</li>
-    </ul>
-  </li>
-</ul>
+<p>移動しました<br />
+<a href="for-programmers-note/02.html">第2回プログラマのための数学勉強会のノート</a></p>
 
 </div>
 

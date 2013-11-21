@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>第7回プログラマのための数学勉強会のノート (行列とベクトルの概要 / 行列とベクトルの応用 / 連立一次方程式) | プログラマのための数学勉強会のノート | 数学関係のノート | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../math/">数学関係のノート</a> &gt; <a href="../../math/for-programmers-note/">プログラマのための数学勉強会のノート</a> &gt; <span>第7回プログラマのための数学勉強会のノート (行列とベクトルの概要 / 行列とベクトルの応用 / 連立一次方程式)</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../math/">数学関係のノート</a>
+    <ul>
+      <li><a href="../../math/for-programmers-note/">プログラマのための数学勉強会のノート</a>
+        <ul>
+          <li><a href="../../math/for-programmers-note/01.html">第1回プログラマのための数学勉強会のノート (イントロダクション)</a></li>
+          <li><a href="../../math/for-programmers-note/02.html">第2回プログラマのための数学勉強会のノート (計算機での浮動小数点数 / 極限・微分)</a></li>
+          <li><a href="../../math/for-programmers-note/03.html">第3回プログラマのための数学勉強会のノート (連続性・微分可能性・極値・ロルの定理 / テイラーの定理 / 関数の変化と微分係数 / 差分法 / 多変数関数の微分法)</a></li>
+          <li><a href="../../math/for-programmers-note/04.html">第4回プログラマのための数学勉強会のノート (多変数関数の微分法 / 方程式の数値解法)</a></li>
+          <li>第7回プログラマのための数学勉強会のノート (行列とベクトルの概要 / 行列とベクトルの応用 / 連立一次方程式)</li>
+          <li><a href="../../math/for-programmers-note/08.html">第8回プログラマのための数学勉強会のノート (行列式・逆行列 / 連立一次方程式の解法 / ベクトルでの微分法 / 係数行列が正方でない連立一次方程式)</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="07">第7回プログラマのための数学勉強会のノート (行列とベクトルの概要 / 行列とベクトルの応用 / 連立一次方程式)</h1>
+
+<p>このページは<a href="http://nineties.github.io/math-seminar/" target="_blank">プログラマのための数学勉強会</a>を聴講したときの個人的なノートである。</p>
+
+<p>第7回プログラマのための数学勉強会(2013/10/24)の資料<br />
+<a href="http://nineties.github.io/math-seminar/7.html" target="_blank">http://nineties.github.io/math-seminar/7.html</a></p>
+
+<p>第7回プログラマのための数学勉強会(2013/10/24)の動画<br />
+<a href="http://www.youtube.com/watch?v=ur8Ez9touTY" target="_blank">http://www.youtube.com/watch?v=ur8Ez9touTY</a><br />
+<a href="http://www.youtube.com/watch?v=r5L4_jKeCCM" target="_blank">http://www.youtube.com/watch?v=r5L4_jKeCCM</a><br />
+<a href="http://www.youtube.com/watch?v=8KUTD0OMEW0" target="_blank">http://www.youtube.com/watch?v=8KUTD0OMEW0</a></p>
+
+<h2 id="592e777">行列とベクトルの概要
+<span class="article-date">2013/11/16</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/7.html#/6" target="_blank">http://nineties.github.io/math-seminar/7.html#/6</a></p>
+
+<ul>
+  <li>行列
+    <ul>
+      <li>\(m×n\)型行列: 縦に\(m\)行、横に\(n\)列</li>
+    </ul>
+  </li>
+  <li>\(n\)次正方行列
+    <ul>
+      <li>\(n×n\)型行列</li>
+    </ul>
+  </li>
+  <li>零行列
+    <ul>
+      <li>すべての要素が\(0\)の行列</li>
+    </ul>
+  </li>
+  <li>単位行列
+    <ul>
+      <li>対角成分がすべて\(1\)、それ以外がすべて\(0\)の正方行列</li>
+      <li>\[ \mathbf{E}_n = (\delta_{ij})_{n,n} =
+    \begin{pmatrix}
+      1 &amp; 0 &amp; \cdots &amp; 0 \\ 
+      0 &amp; 1 &amp; \cdots &amp; 0 \\ 
+      \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 
+      0 &amp; 0 &amp; \cdots &amp; 1 \<br />
+    \end{pmatrix} \]</li>
+      <li>クロネッカーのデルタ: \( \delta_{ij} \)</li>
+    </ul>
+  </li>
+  <li>行列の演算
+    <ul>
+      <li>和・差・定数倍<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/11" target="_blank">http://nineties.github.io/math-seminar/7.html#/11</a>
+        <ul>
+          <li>計算機での計算量は \( \mathcal{O}(mn) \)<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/16" target="_blank">http://nineties.github.io/math-seminar/7.html#/16</a></li>
+        </ul>
+      </li>
+      <li>積<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/13" target="_blank">http://nineties.github.io/math-seminar/7.html#/13</a>
+        <ul>
+          <li>計算機での計算量は \( \mathcal{O}(lmn) \)<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/16" target="_blank">http://nineties.github.io/math-seminar/7.html#/16</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>結合法則・分配法則<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/18" target="_blank">http://nineties.github.io/math-seminar/7.html#/18</a></li>
+  <li>交換法則は一般には成立しない
+    <ul>
+      <li>\[ \mathbf{AB} \neq \mathbf{BA} \]</li>
+      <li>ただし、\(m×n\)型行列\(\mathbf{A}\)について
+\[ \mathbf{0}_{l,m}\mathbf{A} = \mathbf{0}_{l,n} \]
+\[ \mathbf{A}\mathbf{0}_{n,l} = \mathbf{0}_{m,l} \]
+\[ \mathbf{E}_m\mathbf{A} = \mathbf{A}\mathbf{E}_n = \mathbf{A} \]</li>
+    </ul>
+  </li>
+  <li>零因子
+    <ul>
+      <li>\[ \mathbf{AB} = \mathbf{0} \ \not\Rightarrow \mathbf{A} = \mathbf{0} \ \text{または} \ \mathbf{B} = \mathbf{0} \]</li>
+    </ul>
+  </li>
+  <li>転置行列
+    <ul>
+      <li>縦と横を入れ替えたもの</li>
+      <li>\(\mathbf{A}\)の転置行列を\( \mathbf{A}^T \) と書く</li>
+    </ul>
+  </li>
+  <li>対称行列
+    <ul>
+      <li>\( \mathbf{A}^T = \mathbf{A} \) を満たす行列\(\mathbf{A}\)</li>
+    </ul>
+  </li>
+  <li>交代行列
+    <ul>
+      <li>\( \mathbf{A}^T = -\mathbf{A} \) を満たす行列\(\mathbf{A}\)</li>
+    </ul>
+  </li>
+  <li>ベクトル (列ベクトル)<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/28" target="_blank">http://nineties.github.io/math-seminar/7.html#/28</a>
+    <ul>
+      <li>\(n\)次行列: \(n×1\)型行列</li>
+      <li>1列なので、行ベクトルに対して列ベクトルともいう</li>
+    </ul>
+  </li>
+  <li>行ベクトル
+    <ul>
+      <li>\(n\)次行行列: \(1×n\)型行列</li>
+    </ul>
+  </li>
+  <li>\(\mathbb{R}^n\)
+    <ul>
+      <li>実数成分の\(n\)次元列ベクトルの集合</li>
+    </ul>
+  </li>
+  <li>ベクトルの内積
+    <ul>
+      <li>\[ (\mathbf{x}, \mathbf{y}) = \sum_i x_i y_i = \mathbf{x}^T \mathbf{y} \]</li>
+    </ul>
+  </li>
+  <li>ベクトルのノルム (ユークリッドノルム)
+    <ul>
+      <li>\[ ||\mathbf{x}|| = \sqrt{\sum_i x_i^2} = \sqrt{\mathbf{x}^T \mathbf{x}} \]</li>
+      <li>ユークリッドノルム以外にもさまざまな定義がある</li>
+    </ul>
+  </li>
+  <li>コーシー・シュワルツの不等式<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/33" target="_blank">http://nineties.github.io/math-seminar/7.html#/33</a>
+    <ul>
+      <li>\[ ||\mathbf{x}||^2 ||\mathbf{y}||^2 \geq (\mathbf{x}, \mathbf{y})^2 \]</li>
+    </ul>
+  </li>
+  <li>ノルムの三角不等式<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/35" target="_blank">http://nineties.github.io/math-seminar/7.html#/35</a>
+    <ul>
+      <li>\[ ||\mathbf{x} + \mathbf{y}|| \leq ||\mathbf{x}|| + ||\mathbf{y}|| \]</li>
+    </ul>
+  </li>
+  <li>小行列への分解<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/36" target="_blank">http://nineties.github.io/math-seminar/7.html#/36</a></li>
+</ul>
+
+<h2 id="f511f38">行列とベクトルの応用
+<span class="article-date">2013/11/14</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/7.html#/38" target="_blank">http://nineties.github.io/math-seminar/7.html#/38</a></p>
+
+<ul>
+  <li>連立一次方程式<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/39" target="_blank">http://nineties.github.io/math-seminar/7.html#/39</a></li>
+  <li>連立一次漸化式<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/40" target="_blank">http://nineties.github.io/math-seminar/7.html#/40</a></li>
+  <li>フィボナッチ数列の計算<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/42" target="_blank">http://nineties.github.io/math-seminar/7.html#/42</a></li>
+  <li>微分方程式<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/44" target="_blank">http://nineties.github.io/math-seminar/7.html#/44</a></li>
+  <li>ベクトル値関数<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/45" target="_blank">http://nineties.github.io/math-seminar/7.html#/45</a></li>
+  <li>画像の識別<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/46" target="_blank">http://nineties.github.io/math-seminar/7.html#/46</a></li>
+  <li>波形から音源を分離<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/47" target="_blank">http://nineties.github.io/math-seminar/7.html#/47</a></li>
+  <li>グラフ(ノード, エッジ)<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/51" target="_blank">http://nineties.github.io/math-seminar/7.html#/51</a></li>
+</ul>
+
+<h2 id="6201690">連立一次方程式
+<span class="article-date">2013/11/15</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/7.html#/52" target="_blank">http://nineties.github.io/math-seminar/7.html#/52</a></p>
+
+<ul>
+  <li>拡大係数行列<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/57" target="_blank">http://nineties.github.io/math-seminar/7.html#/57</a></li>
+  <li>連立一次方程式の表現形式のまとめ<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/58" target="_blank">http://nineties.github.io/math-seminar/7.html#/58</a></li>
+  <li>掃き出し法による連立一次方程式の解法<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/59" target="_blank">http://nineties.github.io/math-seminar/7.html#/59</a></li>
+  <li>連立一次方程式の数値的解法<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/65" target="_blank">http://nineties.github.io/math-seminar/7.html#/65</a>
+    <ul>
+      <li>直接法</li>
+      <li>反復法</li>
+    </ul>
+  </li>
+  <li>直接法: ガウス消去法<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/66" target="_blank">http://nineties.github.io/math-seminar/7.html#/66</a>
+    <ul>
+      <li>前進消去</li>
+      <li>後退代入</li>
+      <li>計算量: \( \mathcal{O}(n^3) \)<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/74" target="_blank">http://nineties.github.io/math-seminar/7.html#/74</a></li>
+      <li>ピボット選択<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/75" target="_blank">http://nineties.github.io/math-seminar/7.html#/75</a></li>
+    </ul>
+  </li>
+  <li>最小二乗法を連立一次方程式で解く例<br />
+<a href="http://nineties.github.io/math-seminar/7.html#/77" target="_blank">http://nineties.github.io/math-seminar/7.html#/77</a></li>
+</ul>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

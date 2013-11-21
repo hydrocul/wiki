@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>第8回プログラマのための数学勉強会のノート (行列式・逆行列 / 連立一次方程式の解法 / ベクトルでの微分法 / 係数行列が正方でない連立一次方程式) | プログラマのための数学勉強会のノート | 数学関係のノート | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../math/">数学関係のノート</a> &gt; <a href="../../math/for-programmers-note/">プログラマのための数学勉強会のノート</a> &gt; <span>第8回プログラマのための数学勉強会のノート (行列式・逆行列 / 連立一次方程式の解法 / ベクトルでの微分法 / 係数行列が正方でない連立一次方程式)</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../math/">数学関係のノート</a>
+    <ul>
+      <li><a href="../../math/for-programmers-note/">プログラマのための数学勉強会のノート</a>
+        <ul>
+          <li><a href="../../math/for-programmers-note/01.html">第1回プログラマのための数学勉強会のノート (イントロダクション)</a></li>
+          <li><a href="../../math/for-programmers-note/02.html">第2回プログラマのための数学勉強会のノート (計算機での浮動小数点数 / 極限・微分)</a></li>
+          <li><a href="../../math/for-programmers-note/03.html">第3回プログラマのための数学勉強会のノート (連続性・微分可能性・極値・ロルの定理 / テイラーの定理 / 関数の変化と微分係数 / 差分法 / 多変数関数の微分法)</a></li>
+          <li><a href="../../math/for-programmers-note/04.html">第4回プログラマのための数学勉強会のノート (多変数関数の微分法 / 方程式の数値解法)</a></li>
+          <li><a href="../../math/for-programmers-note/07.html">第7回プログラマのための数学勉強会のノート (行列とベクトルの概要 / 行列とベクトルの応用 / 連立一次方程式)</a></li>
+          <li>第8回プログラマのための数学勉強会のノート (行列式・逆行列 / 連立一次方程式の解法 / ベクトルでの微分法 / 係数行列が正方でない連立一次方程式)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="08">第8回プログラマのための数学勉強会のノート (行列式・逆行列 / 連立一次方程式の解法 / ベクトルでの微分法 / 係数行列が正方でない連立一次方程式)</h1>
+
+<p>このページは<a href="http://nineties.github.io/math-seminar/" target="_blank">プログラマのための数学勉強会</a>を聴講したときの個人的なノートである。</p>
+
+<p>第8回プログラマのための数学勉強会(2013/10/31)の資料<br />
+<a href="http://nineties.github.io/math-seminar/8.html" target="_blank">http://nineties.github.io/math-seminar/8.html</a></p>
+
+<p>第8回プログラマのための数学勉強会(2013/10/31)の動画<br />
+<a href="http://www.youtube.com/watch?v=fnUGgKHnQDA" target="_blank">http://www.youtube.com/watch?v=fnUGgKHnQDA</a></p>
+
+<p>第7回までは19時スタートだったのが、今回から19時半スタート。</p>
+
+<h2 id="51e2217">行列式・逆行列
+<span class="article-date">2013/11/16</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/8.html#/3" target="_blank">http://nineties.github.io/math-seminar/8.html#/3</a></p>
+
+<ul>
+  <li>連立一次方程式の解法における行基本変形<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/4" target="_blank">http://nineties.github.io/math-seminar/8.html#/4</a></li>
+  <li>行列式の定義<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/5" target="_blank">http://nineties.github.io/math-seminar/8.html#/5</a>
+    <ul>
+      <li>正方行列に対してこの3つの性質を満たすなんらかの数値を行列式と定義</li>
+      <li>交代性</li>
+      <li>線形性</li>
+    </ul>
+  </li>
+  <li>行列式の公式<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/12" target="_blank">http://nineties.github.io/math-seminar/8.html#/12</a>
+    <ul>
+      <li>\[ \det \mathbf{A} = \sum_i \mathrm{sign}(i_1, \cdots, i_n) a_{i_1, 1} a_{i_2, 2} \cdots a_{i_n, n} \]</li>
+      <li>数値的に行列式を計算するにはこの公式を使うのではなく、
+連立一次方程式の解法であるガウス消去法で出てきた前進消去を使って
+上三角行列に変形するのがよい。対角成分の積だけで計算できるようになる。<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/38" target="_blank">http://nineties.github.io/math-seminar/8.html#/38</a></li>
+    </ul>
+  </li>
+  <li>転置しても行列式は不変<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/15" target="_blank">http://nineties.github.io/math-seminar/8.html#/15</a>
+    <ul>
+      <li>\[ \det(\mathbf{A}^T) = \det \mathbf{A} \]</li>
+    </ul>
+  </li>
+  <li>行列の積の行列式はそれぞれの行列式の積と等しい<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/20" target="_blank">http://nineties.github.io/math-seminar/8.html#/20</a>
+    <ul>
+      <li>\[ \det(\mathbf{AB}) = (\det\mathbf{A})(\det\mathbf{A}) \]</li>
+      <li>\[ \det(\mathbf{A}^n) = (\det\mathbf{A})^n \]</li>
+    </ul>
+  </li>
+  <li>余因子展開<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/6" target="_blank">http://nineties.github.io/math-seminar/8.html#/6</a><br />
+<a href="http://nineties.github.io/math-seminar/8.html#/21" target="_blank">http://nineties.github.io/math-seminar/8.html#/21</a><br />
+<a href="http://nineties.github.io/math-seminar/8.html#/23" target="_blank">http://nineties.github.io/math-seminar/8.html#/23</a></li>
+  <li>逆行列<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/26" target="_blank">http://nineties.github.io/math-seminar/8.html#/26</a>
+    <ul>
+      <li>\[ \mathbf{AX} = \mathbf{XA} = \mathbf{E} \]
+を満たすとき、\( \mathbf{X} \)を\( \mathbf{A} \)の逆行列といい\( \mathbf{X} \)を
+\[ \mathbf{A}^{-1} \]
+と書く</li>
+      <li>正方行列でしか逆行列は定義されない</li>
+      <li>正方行列が必ず逆行列を持つとは限らない</li>
+      <li>逆行列が存在する行列を正則行列という</li>
+    </ul>
+  </li>
+  <li>逆行列の公式<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/30" target="_blank">http://nineties.github.io/math-seminar/8.html#/30</a>
+    <ul>
+      <li>余因子展開を使って導く</li>
+      <li>数値的に逆行列を計算するにはこの公式を使うのではなく、
+\( \mathbf{AX} = \mathbf{E} \) の連立一次方程式をガウス消去法で
+解いたほうが計算量が少なくて済む。<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/40" target="_blank">http://nineties.github.io/math-seminar/8.html#/40</a></li>
+    </ul>
+  </li>
+  <li>逆行列の性質<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/33" target="_blank">http://nineties.github.io/math-seminar/8.html#/33</a>
+    <ul>
+      <li>\[ \mathbf{AX} = \mathbf{E} \ \Leftrightarrow \ \mathbf{XA} = \mathbf{E} \]</li>
+      <li>\[ (\mathbf{A}^{-1})^{-1} = \mathbf{A} \]</li>
+      <li>\[ (\mathbf{AB})^{-1} = \mathbf{B}^{-1} \mathbf{A}^{-1}\]</li>
+    </ul>
+  </li>
+  <li>連立一次方程式が唯一の解を持つ必要十分条件<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/34" target="_blank">http://nineties.github.io/math-seminar/8.html#/34</a>
+    <ul>
+      <li>連立一次方程式
+\[ \mathbf{Ax} = \mathbf{b} \]
+について
+\[ \mathbf{A} \text{が正則行列} \ \Leftrightarrow \ 
+    \mathbf{Ax} = \mathbf{b} \text{が唯一の解を持つ} \]</li>
+      <li>そのときの解は
+\[ \mathbf{x} = \mathbf{A}^{-1} \mathbf{b} \]</li>
+      <li>ただし連立一次方程式の解を数値計算で求める場合には
+この式を適用するのではなく、ガウス消去法を使ったほうが計算量が少なくて済む</li>
+    </ul>
+  </li>
+  <li>\(0\)の成分が多い行列の行列式・逆行列の計算方法<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/42" target="_blank">http://nineties.github.io/math-seminar/8.html#/42</a></li>
+</ul>
+
+<h2 id="e0d50c8">連立一次方程式の解法
+<span class="article-date">2013/11/16</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/8.html#/47" target="_blank">http://nineties.github.io/math-seminar/8.html#/47</a></p>
+
+<p>直接法のうち、ガウス消去法以外の方法。</p>
+
+<ul>
+  <li>LU分解<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/49" target="_blank">http://nineties.github.io/math-seminar/8.html#/49</a>
+    <ul>
+      <li>下三角行列\(\mathbf{L}\)と上三角行列\(\mathbf{U}\)の積
+\[ \mathbf{A} = \mathbf{LU} \]
+に分解すること</li>
+      <li>LU分解を使うと連立一次方程式の解を計算量 \( \mathcal{O}(n^2) \) で計算できる
+        <ul>
+          <li>ガウス消去法は計算量 \( \mathcal{O}(n^3) \)</li>
+        </ul>
+      </li>
+      <li>LU分解する方法: ドゥーリトル法・クラウト法<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/51" target="_blank">http://nineties.github.io/math-seminar/8.html#/51</a>
+        <ul>
+          <li>LU分解の計算量は \( \mathcal{O}(n^3) \)</li>
+          <li>係数行列が同一の連立一次方程式を大量に解く場合には
+LU分解は一度だけでよいので、
+計算量が \( \mathcal{O}(n^2) \) になる</li>
+          <li>1つの連立一次方程式だけを考えるのであれば、ガウス消去法でもよい</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>コレスキー分解・修正コレスキー分解<br />
+<a href="http://nineties.github.io/math-seminar/8.html#/56" target="_blank">http://nineties.github.io/math-seminar/8.html#/56</a></li>
+</ul>
+
+<h2 id="9ef0804">ベクトルでの微分法
+<span class="article-date">2013/11/16</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/8.html#/58" target="_blank">http://nineties.github.io/math-seminar/8.html#/58</a></p>
+
+<p>書きかけ</p>
+
+<h2 id="83f85a7">係数行列が正方でない連立一次方程式
+<span class="article-date">2013/11/16</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/8.html#/64" target="_blank">http://nineties.github.io/math-seminar/8.html#/64</a></p>
+
+<p>書きかけ</p>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
