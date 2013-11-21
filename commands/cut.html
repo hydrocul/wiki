@@ -25,7 +25,7 @@
   <li><a href="../commands/">コマンドの使い方</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
-      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat コマンド</a></li>
@@ -76,7 +76,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-      <li><a href="../commands/zip.html">zip コマンド / unzip コマンド</a></li>
+      <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
 </ul>
@@ -86,17 +86,20 @@
 
 <div id="content">
   <h1 id="cut">cut コマンド
-<span class="article-date">2013/09/24</span></h1>
+<span class="article-date">2013/11/21</span></h1>
 
 <p>タブ区切りでフィールドを選択して出力する。または文字単位・バイト単位で1行の中の場所を選択して出力する。</p>
 
 <p>例</p>
 
 <pre><code># タブ区切りで最初の列と3列目だけを抽出して、タブ区切りで出力する
-cat ファイル名 | cut -f1,3
+cat &lt;file-path&gt; | cut -f1,3
 
 # 以下のようにしても列の順番は入れ替えてくれない
-cat ファイル名 | cut -f3,1
+cat &lt;file-path&gt; | cut -f3,1
+
+# 各行の4文字目以降を出力する
+cat &lt;file-path&gt; | cut -b4-
 </code></pre>
 
 <h2 id="b13ce3d">オプション
@@ -118,10 +121,10 @@ cat ファイル名 | cut -f3,1
   <dd>フィールド単位ではなく文字単位で抽出する範囲を指定する</dd>
 </dl>
 
-<h2 id="4c0f3a8">スペース区切りを処理するには
+<h2 id="5473724">フィールドの区切りをタブではなくスペースにして処理するには
 <span class="article-date">2013/06/17</span></h2>
 
-<pre><code>cat ファイル名 | cut -d' ' -f1,3
+<pre><code>cat &lt;file-path&gt; | cut -d' ' -f1,3
 </code></pre>
 
 <h2 id="ea99fad">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには
@@ -142,7 +145,6 @@ cut -d$'\t' -f1
 </code></pre>
 
 <p><code>sort</code> でも似たような書き方でできる。</p>
-
 
 </div>
 

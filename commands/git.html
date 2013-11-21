@@ -25,23 +25,23 @@
   <li><a href="../commands/">コマンドの使い方</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
-      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat コマンド</a></li>
       <li><a href="../commands/cp.html">cp コマンド</a></li>
-      <li><a href="../commands/crontab.html">crontab</a></li>
+      <li><a href="../commands/crontab.html">crontab コマンド</a></li>
       <li><a href="../commands/curl.html">curl コマンド</a></li>
       <li><a href="../commands/cut.html">cut コマンド</a></li>
       <li><a href="../commands/date.html">date コマンド</a></li>
-      <li><a href="../commands/diff.html">diff</a></li>
+      <li><a href="../commands/diff.html">diff コマンド</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li>git コマンド</li>
-      <li><a href="../commands/grep.html">grep</a></li>
+      <li><a href="../commands/grep.html">grep コマンド</a></li>
       <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
-      <li><a href="../commands/lftp.html">lftp</a></li>
+      <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
@@ -76,7 +76,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-      <li><a href="../commands/zip.html">zip コマンド / unzip コマンド</a></li>
+      <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
 </ul>
@@ -539,6 +539,25 @@ git svn dcommit
 # 自分はあまり試していない
 </code></pre>
 
+<h2 id="4409020">ローカルでのファイルの編集をgitで無視したい場合
+<span class="article-date">2013/11/21</span></h2>
+
+<p>すでにgit管理下にあるファイルは <code>.gitignore</code> に入れても無視してくれない。
+gitにコミットされているファイルを一時的にローカルで変更してもそれの差分をgitでは無視してほしい場合には以下のようなコマンドを打つ。</p>
+
+<pre><code>git update-index --assume-unchanged &lt;file-path&gt;
+# または
+git update-index --skip-worktree  &lt;file-path&gt;
+</code></pre>
+
+<p>上記により無視されているファイルを再び無視されないようにしたい場合は以下のような解除のコマンドを打つ。</p>
+
+<pre><code>git update-index --no-assume-unchanged &lt;file-path&gt;
+# または
+git update-index --no-skip-worktree  &lt;file-path&gt;
+</code></pre>
+
+<p><code>--assume-unchanged</code> / <code>--no-assume-unchanged</code> と <code>--skip-worktree</code> / <code>--no-skip-worktree</code> は厳密には違うものなので、解除コマンドはそれぞれに対応するものを打つ必要がある。</p>
 
 </div>
 
