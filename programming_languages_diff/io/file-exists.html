@@ -30,8 +30,8 @@
           <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
           <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
-          <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
+          <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには (rm / unlink)</a></li>
@@ -78,12 +78,15 @@
 <p>シンボリックリンクの場合は、リンク先が存在するかどうかをチェックする。リンク先が存在しなければリンクそのものが存在していても <code>false</code> を返す。</p>
 
 <h2 id="975485f">Perl
-<span class="article-date">2013/07/27</span></h2>
+<span class="article-date">2013/11/22</span></h2>
 
 <pre><code>if( -e '/home/foo/testfile' ){
     ...;
 }
 </code></pre>
+
+<p>シンボリックリンクの場合は、リンク先が存在するかどうかをチェックする。リンク先が存在しなければリンクそのものが存在していても 
+<code>-e '/home/foo/testfile'</code> は <code>undef</code> になる。存在すれば <code>-e '/home/foo/testfile'</code> は <code>1</code> になる。</p>
 
 <h2 id="a887968">sh
 <span class="article-date">2013/07/27</span></h2>

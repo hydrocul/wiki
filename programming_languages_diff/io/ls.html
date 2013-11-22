@@ -30,8 +30,8 @@
           <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
           <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
-          <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
+          <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
           <li>ディレクトリの中のファイル一覧を取得するには</li>
           <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには (rm / unlink)</a></li>
@@ -88,7 +88,7 @@ if ($dhandle) {
 </code></pre>
 
 <h2 id="688a025">Perl
-<span class="article-date">2013/08/14</span></h2>
+<span class="article-date">2013/11/22</span></h2>
 
 <p>例</p>
 
@@ -96,13 +96,12 @@ if ($dhandle) {
 @files = map { if ( /\/([^\/]+)\Z/ ){ $1; } else { $_; } } @files;
 </code></pre>
 
-<p>1行目だけだと、フルパスでファイル一覧が取得される。</p>
+<p>1行目だけだと、フルパスでファイル一覧が取得されるので、２行目の正規表現でファイル名の部分を取り出している。</p>
 
 <h2 id="3234d06">sh
 <span class="article-date">2013/09/16</span></h2>
 
 <p><a href="../../commands/ls.html"><code>ls</code></a>を使う。</p>
-
 
 </div>
 
