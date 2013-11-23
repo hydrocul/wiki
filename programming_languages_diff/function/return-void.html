@@ -80,9 +80,12 @@
 <a href="http://shugo.net/jit/20120229.html" target="_blank">http://shugo.net/jit/20120229.html</a></p>
 
 <h2 id="0b32633">Perl
-<span class="article-date">2013/09/20</span></h2>
+<span class="article-date">2013/11/22</span></h2>
 
 <p><code>return</code>文がない場合は、最後に評価された式の結果が返り値となる。変数への代入文が最後だとしてもその代入された値が返り値になる。でも <code>=~</code> が最後の場合はその変数が返されるわけではないみたい。</p>
+
+<p><code>if</code>文自体は値を返す式ではないが、サブルーチンの最後の文が<code>if</code>文の場合、
+<code>if</code>文の中の最後の式がサブルーチンの返り値になる。</p>
 
 <p>本体が何もないサブルーチンや、返り値を指定せずに<code>return</code>だけを書いた場合は、
 <code>undef</code>が返り値となる。</p>

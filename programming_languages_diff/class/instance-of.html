@@ -64,7 +64,7 @@ hash.is_a?(Hash)
 </code></pre>
 
 <h2 id="f0e5baa">Perl
-<span class="article-date">2013/09/28</span></h2>
+<span class="article-date">2013/11/23</span></h2>
 
 <p>レファレンスの種類は <code>ref</code> という関数(?)で判定できる。レファレンスでない場合は <code>''</code> を返し、レファレンスの場合はその指す先のオブジェクトの種類を文字列で返す。</p>
 
@@ -72,19 +72,23 @@ hash.is_a?(Hash)
 my $str = "abc";
 my @arr = (1, 2, 3);
 my %hash = (a =&gt; 1, b =&gt; 2);
+sub func {
+    ...;
+}
 
 print (ref $num eq ''); # =&gt; 1
 print (ref $str eq ''); # =&gt; 1
 print (ref @arr eq ''); # =&gt; 1
 print (ref %hash eq ''); # =&gt; 1
+print (ref &amp;func eq ''); # =&gt; 1
 
 my $ref_arr = [1, 2, 3];
 my $ref_hash = {a =&gt; 1, b =&gt; 2};
-my $ref_sub = sub { print "Hello\n"; };
+my $ref_func = sub { print "Hello\n"; };
 
 print (ref $ref_arr); # =&gt; ARRAY
 print (ref $ref_hash); # =&gt; HASH
-print (ref $ref_sub); # =&gt; CODE
+print (ref $ref_func); # =&gt; CODE
 </code></pre>
 
 <h2 id="aa198ce">JavaScript
@@ -94,7 +98,6 @@ print (ref $ref_sub); # =&gt; CODE
 
 <pre><code> a instanceof Array
 </code></pre>
-
 
 </div>
 

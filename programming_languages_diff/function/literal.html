@@ -158,7 +158,7 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 <a href="http://www.php.net/manual/ja/functions.anonymous.php" target="_blank">http://www.php.net/manual/ja/functions.anonymous.php</a></p>
 
 <h2 id="269ff61">Perl
-<span class="article-date">2013/09/21</span></h2>
+<span class="article-date">2013/11/23</span></h2>
 
 <p>無名関数の例</p>
 
@@ -188,6 +188,15 @@ my $f2 = createCounter;
 $f2-&gt;(); # =&gt; 1
 
 $f1-&gt;(); # =&gt; 4
+</code></pre>
+
+<p>関数の必要な文脈で定義済みのサブルーチンを参照したい場合は、サブルーチンの名前に <code>\&amp;</code> を付けた関数への参照を使えばよい。</p>
+
+<pre><code>sub sb {
+    ...;
+}
+my $f1 = \&amp;sb;
+$f1-&gt;();
 </code></pre>
 
 <h2 id="20ba0c9">R言語
