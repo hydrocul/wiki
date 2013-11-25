@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Macの Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー | 2013 | ブログ | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2013/">2013</a> &gt; <span>Macの Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../blog/">ブログ</a>
+    <ul>
+      <li><a href="../../blog/2013/">2013</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="0601-phone-disk-error-mac">Macの Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー
+<span class="article-date">2013/06/01</span></h1>
+
+<pre><code>MacFUSE file system is not available (-1)
+</code></pre>
+
+<p>Phone Disk というソフトをインストールしている Mac に iPhone を接続したときに、上記のようなエラーが出た。試しに iFunBox というソフトでも同様のエラーが出て、いずれのソフトでも iPhone のファイルシステムをマウントすることができなかった。</p>
+
+<p>システム環境設定の中に MacFUSE というのがあって、それを見てみたら、
+MacFUSE がインストールされていないことになっていたので、その画面で Install ボタンを押して、しばらく待ったらインストールされた状態になったので、再度 Phone Disk を試してみたら、無事マウントできた。</p>
+
+<p>つい先日まではなにもしなくてもマウントできていたはずなのに、なぜだろう？</p>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

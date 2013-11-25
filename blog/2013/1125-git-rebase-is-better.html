@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>git merge よりも git rebase の勧め | 2013年 | ブログ | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2013/">2013年</a> &gt; <span>git merge よりも git rebase の勧め</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../blog/">ブログ</a>
+    <ul>
+      <li><a href="../../blog/2013/">2013年</a>
+        <ul>
+          <li><a href="../../blog/2013/0430-postfix-alias.html">postfixでのaliasの設定</a></li>
+          <li><a href="../../blog/2013/0601-phone-disk-error-mac.html">Macの Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー</a></li>
+          <li><a href="../../blog/2013/0602-flickr-bonk.html">flickrで動画をアップロードしても Bonk! と表示されてしまう場合</a></li>
+          <li><a href="../../blog/2013/0627-memcached-centos-failed.html">memcachedがCentOSでうまくいかない場合</a></li>
+          <li><a href="../../blog/2013/1026-try-snap.html">Snap.svg を使ってみる</a></li>
+          <li>git merge よりも git rebase の勧め</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="1125-git-rebase-is-better">git merge よりも git rebase の勧め
+<span class="article-date">2013/11/25</span></h1>
+
+<script>
+var illLineColor = "#333";
+var illLineWidth = 4;
+var illFontSize = "18";
+var illCircleColor = "#FFF";
+var illRedCircleColor = "#F33";
+</script>
+
+<p>以下、話を単純にするために、プルリクエストのようなことをやっておらず、チーム全体で1つのリモートレポジトリを共有し、各自でブランチを作って開発作業をするものとします。各自のブランチの名前は、Aさんは <code>work/a</code> などとします。</p>
+
+<p>二人が別々の機能を平行して開発し始めたとします。</p>
+
+<p>下の図は左から右にコミットグラフが伸びている様子です。</p>
+
+<svg id="illustration1" height="200"></svg>
+<script>
+$(function(){
+    var snap = Snap("#illustration1");
+    snap.line(80, 50, 160, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(80, 50, 120, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(120, 130, 200, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(80, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(160, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(120, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(200, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.text(200, 50, "work/a").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(240, 130, "work/b").attr({stroke: illLineColor, "font-size": illFontSize});
+});
+</script>
+
+<p>Aさんは開発の過程でリファクタリングにせまられ、ある定数の名前を変更してソースコードを改善しました。定数を参照しているところも全部書き換えてテストも問題ありません。</p>
+
+<svg id="illustration2" height="180"></svg>
+<script>
+$(function(){
+    var snap = Snap("#illustration2");
+    snap.line(80, 50, 240, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(80, 50, 120, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(120, 130, 200, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(80, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(160, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(240, 50, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(120, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(200, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.text(280, 50, "work/a").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(240, 130, "work/b").attr({stroke: illLineColor, "font-size": illFontSize});
+});
+</script>
+
+<p>Bさんは別の機能の開発にその定数を参照する必要がありました。この時点ではBさんはAさんのブランチをmergeもrebaseもしてないので変更前の定数名で参照しています。</p>
+
+<svg id="illustration3" height="180"></svg>
+<script>
+$(function(){
+    var snap = Snap("#illustration3");
+    snap.line(80, 50, 240, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(80, 50, 120, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(120, 130, 280, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(80, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(160, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(240, 50, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(120, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(200, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(280, 130, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.text(280, 50, "work/a").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(320, 130, "work/b").attr({stroke: illLineColor, "font-size": illFontSize});
+});
+</script>
+
+<p>AさんとBさんはその後も開発を続けます。</p>
+
+<svg id="illustration4" height="180"></svg>
+<script>
+$(function(){
+    var snap = Snap("#illustration4");
+    snap.line(80, 50, 320, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(80, 50, 120, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(120, 130, 360, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(80, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(160, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(240, 50, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(320, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(120, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(200, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(280, 130, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(360, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.text(360, 50, "work/a").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(400, 130, "work/b").attr({stroke: illLineColor, "font-size": illFontSize});
+});
+</script>
+
+<p>Aさんが開発を完了し、<code>master</code>ブランチにマージしました。マージ後のテストも無事です。開発ブランチを<code>master</code>にrebaseをせずにmergeする場合は fast-forward にしないことが多いかと思いますので、下の図のようになります。</p>
+
+<pre><code>git fetch origin
+git checkout master
+git merge origin/master
+git merge work/a --no-ff # not fast-forward
+git push origin master
+</code></pre>
+
+<svg id="illustration5" height="260"></svg>
+<script>
+$(function(){
+    var snap = Snap("#illustration5");
+    snap.line(80, 50, 400, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(80, 50, 160, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(160, 130, 320, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(320, 130, 400, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(80, 50, 120, 210).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(120, 210, 360, 210).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(80, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(400, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(160, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(240, 130, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(320, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(120, 210, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(200, 210, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(280, 210, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(360, 210, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.text(440, 50, "master").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(360, 130, "work/a").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(400, 210, "work/b").attr({stroke: illLineColor, "font-size": illFontSize});
+});
+</script>
+
+<p>次にBさんが開発を完了し、テストも問題ないので、<code>master</code>ブランチにマージしました。
+Aさんの修正したファイルと重なっていませんでしたので、衝突することなくマージできました。</p>
+
+<pre><code>git fetch origin
+git checkout master
+git merge origin/master
+git merge work/b --no-ff # not fast-forward
+git push origin master
+</code></pre>
+
+<p>しかし、マージ後の<code>master</code>ブランチでテストにNGが出てしまいました。</p>
+
+<svg id="illustration6" height="260"></svg>
+<script>
+$(function(){
+    var snap = Snap("#illustration6");
+    snap.line(80, 50, 480, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(80, 50, 160, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(160, 130, 320, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(320, 130, 400, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(80, 50, 120, 210).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(120, 210, 360, 210).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(360, 210, 480, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(80, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(400, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(480, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(160, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(240, 130, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(320, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(120, 210, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(200, 210, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(280, 210, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(360, 210, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.text(520, 50, "master").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(360, 130, "work/a").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(400, 210, "work/b").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(478, 50 + illFontSize / 2, "!").attr({stroke: illLineColor, "font-size": illFontSize});
+});
+</script>
+
+<p>マージ時に衝突が起きることがなかったので、マージそのものにまずい編集があったとも思えません。原因は2つの赤いコミットがお互いに不整合なものでそれをマージしてしまったことなのですが、この類の不整合は 
+<code>git merge</code> では検出してくれません。この状態からバグ修正するにはどうしたらよいでしょうか。2つのコミットそれぞれ単独では問題ないのです。テストのNGの内容からバグを探すしかありません。Aさんがデバッグに取りかかれば、
+Bさんのコードが古い定数名を参照していることが原因だと判断するかもしれません。しかしテストでNGを出したマージコミットはBさんによるものです。</p>
+
+<p>したがって、Bさんが原因を探し始めることになると思います。
+Bさんが調査を開始すると、定数を定義している箇所が間違っていると判断するかもしれません。その場合、定数の定義を元に戻してしまうかもしれません。そしてさらに新しい定数名で参照していた箇所がもしテストでNGになればそれらも戻してしまうかもしれません。テストで発見できなかった箇所はそのままになってしまうかもしれません。そうなると未発覚しないバグを潜めてしまうことになります。もちろんBさんがAさんのコミットログを読んでいれば、定数名を変更した意図を理解して、自分のコードのほうを変更し、うまくいくかもしれません。ただし、これもAさんがわかりやすいコミットログを残していればの話です。コミットログがいい加減で理解しづらいものであればやっぱりうまくいかないかもしれません。</p>
+
+<p>いずれにせよ、問題の解決まで時間がかかりそうです。</p>
+
+<p>同じ過程をrebaseを使う方法ですとどうなるでしょうか。以下の状態までは同じです。</p>
+
+<svg id="illustration7" height="180"></svg>
+<script>
+$(function(){
+    var snap = Snap("#illustration7");
+    snap.line(80, 50, 320, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(80, 50, 120, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(120, 130, 360, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(80, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(160, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(240, 50, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(320, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(120, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(200, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(280, 130, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(360, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.text(360, 50, "work/a").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(400, 130, "work/b").attr({stroke: illLineColor, "font-size": illFontSize});
+});
+</script>
+
+<p>Aさんが開発を完了し、<code>master</code>ブランチにマージしました。</p>
+
+<pre><code>git fetch origin
+git rebase origin/master
+git checkout master
+git merge work/a  # do not create merge commit, but only update the branch pointer
+git push origin master
+</code></pre>
+
+<svg id="illustration8" height="180"></svg>
+<script>
+$(function(){
+    var snap = Snap("#illustration8");
+    snap.line(80, 50, 320, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(80, 50, 120, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(120, 130, 360, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(80, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(160, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(240, 50, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(320, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(120, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(200, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(280, 130, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(360, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.text(360, 50, "master").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(400, 130, "work/b").attr({stroke: illLineColor, "font-size": illFontSize});
+});
+</script>
+
+<p>次にBさんも開発を完了し、テストも問題ないので、まずはrebaseをします。</p>
+
+<pre><code>git fetch origin
+git rebase origin/master
+</code></pre>
+
+<svg id="illustration9" height="180"></svg>
+<script>
+$(function(){
+    var snap = Snap("#illustration9");
+    snap.line(80, 50, 320, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(320, 50, 120, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(120, 130, 360, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(80, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(160, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(240, 50, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(320, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(120, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(200, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(280, 130, 20).attr({fill: illRedCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(360, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.text(360, 50, "master").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(400, 130, "work/b").attr({stroke: illLineColor, "font-size": illFontSize});
+});
+</script>
+
+<p>ここでテストを実行すると、この段階でNGが出ます。<code>master</code>ブランチにマージする前に異常が発覚しました。<code>git bisect</code> を使って原因となったコミットを自動で探すことができます。</p>
+
+<pre><code>git bisect start work/b origin/master
+...
+</code></pre>
+
+<p><code>bisect</code> すると、ただちにBさんの赤いコミットが原因だと断定されます。コミット当時は問題なかったのにrebaseした結果問題のあるコミットとなってしまった、ということはrebaseによって取り込まれたAさんの修正との間に不整合があったと判断できます。Aさんの修正はすでにmasterにマージされテストでも問題が出ていないので、Bさんのこの赤いコミットを修正すべきでしょう。
+Bさんはすぐに定数名を変更してコミットを修正します。</p>
+
+<pre><code># 問題のあるコミットがチェックアウトされている状態として
+git checkout -b work/b2
+git commit --amend
+git cherry-pick ... # 赤いコミットより後ろのコミットを cherry-pick
+</code></pre>
+
+<svg id="illustration10" height="180"></svg>
+<script>
+$(function(){
+    var snap = Snap("#illustration10");
+    snap.line(80, 50, 320, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(320, 50, 120, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.line(120, 130, 360, 130).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(80, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(160, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(240, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(320, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(120, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(200, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(280, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(360, 130, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.text(360, 50, "master").attr({stroke: illLineColor, "font-size": illFontSize});
+    snap.text(400, 130, "work/b2").attr({stroke: illLineColor, "font-size": illFontSize});
+});
+</script>
+
+<p>Bさんは <code>work/b2</code> ブランチで無事テストが通ることを確認して、
+<code>master</code> にマージします。</p>
+
+<pre><code>git checkout master
+git merge work/b2
+git push origin master
+</code></pre>
+
+<svg id="illustration11" height="100"></svg>
+<script>
+$(function(){
+    var snap = Snap("#illustration11");
+    snap.line(80, 50, 640, 50).attr({stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(80, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(160, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(240, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(320, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(400, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(480, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(560, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.circle(640, 50, 20).attr({fill: illCircleColor, stroke: illLineColor, strokeWidth: illLineWidth});
+    snap.text(680, 50, "master").attr({stroke: illLineColor, "font-size": illFontSize});
+});
+</script>
+
+<p>問題発生から解決までとてもスムーズです。</p>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

@@ -78,18 +78,23 @@
 <p>または、<code>mkdir -p</code> に相当する方法として</p>
 
 <pre><code>require 'fileutls'
-FileUtils::mkdir_p('foodir')
+FileUtils::mkdir_p('foodir/bardir')
 </code></pre>
 
 <h2 id="9a801b4">Perl
-<span class="article-date">2013/08/17</span></h2>
+<span class="article-date">2013/11/25</span></h2>
 
-<p>例</p>
-
-<pre><code>mkdir('foodir')
+<pre><code>mkdir('foodir');
 </code></pre>
 
 <p><code>use ...</code> はなにもいらない。</p>
+
+<p>または、<code>mkdir -p</code> に相当する方法として</p>
+
+<pre><code>use File::Path;
+
+mkpath("foodir/bardir");
+</code></pre>
 
 </div>
 
