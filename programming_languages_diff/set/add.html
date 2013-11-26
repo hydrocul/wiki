@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>セットに要素を追加するには (add) | セット(集合型) | 各プログラミング言語の機能のまとめ | hydrocul のメモ</title>
+<title>セットに要素を追加するには (add) | セット(集合型) | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a> &gt; <a href="../../programming_languages_diff/set/">セット(集合型)</a> &gt; <span>セットに要素を追加するには (add)</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">セット(集合型)</a> &gt; <span>セットに要素を追加するには (add)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../../programming_languages_diff/">各プログラミング言語の機能のまとめ</a>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
       <li><a href="../../programming_languages_diff/set/">セット(集合型)</a>
         <ul>
@@ -45,6 +45,17 @@
 <div id="content">
   <h1 id="add">セットに要素を追加するには (add)</h1>
 
+<h2 id="328c3b8">Java
+<span class="article-date">2013/11/26</span></h2>
+
+<p>Signature:</p>
+
+<pre><code>// java.util.Set&lt;E&gt;
+boolean add(E o)
+</code></pre>
+
+<p>セットに含まれておらずに追加できた場合は <code>true</code> を返す。もともと含まれていた場合は <code>false</code> を返す。</p>
+
 <h2 id="48597d3">Python
 <span class="article-date">2013/10/08</span></h2>
 
@@ -55,7 +66,6 @@
 
 <pre><code>st.update(other_set)
 </code></pre>
-
 
 </div>
 

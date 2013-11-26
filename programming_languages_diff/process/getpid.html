@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>子プロセスの終了ステータスを取得するには | プロセス管理 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>自身のプロセスIDを取得するには | プロセス管理 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/process/">プロセス管理</a> &gt; <span>子プロセスの終了ステータスを取得するには</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/process/">プロセス管理</a> &gt; <span>自身のプロセスIDを取得するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -27,8 +27,8 @@
       <li><a href="../../programming_languages_diff/process/">プロセス管理</a>
         <ul>
           <li><a href="../../programming_languages_diff/process/exit.html">自身のプロセスを終了するには</a></li>
-          <li>子プロセスの終了ステータスを取得するには</li>
-          <li><a href="../../programming_languages_diff/process/getpid.html">自身のプロセスIDを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/process/exit_status.html">子プロセスの終了ステータスを取得するには</a></li>
+          <li>自身のプロセスIDを取得するには</li>
           <li><a href="../../programming_languages_diff/process/sleep.html">自身のスレッドを一定時間停止させるには</a></li>
           <li><a href="../../programming_languages_diff/process/system.html">外部コマンドを実行してその出力をそのまま出力するには</a></li>
         </ul>
@@ -41,21 +41,23 @@
 </div>
 
 <div id="content">
-  <h1 id="exit_status">子プロセスの終了ステータスを取得するには</h1>
+  <h1 id="getpid">自身のプロセスIDを取得するには</h1>
 
-<h2 id="6f78862">Perl
-<span class="article-date">2013/09/13</span></h2>
+<h2 id="682b2bd">PHP
+<span class="article-date">2013/10/04</span></h2>
 
-<p><code>$?</code> を256で割ると、終了した子プロセスの終了ステータスが得られる。
-<code>wait</code> を呼び出した後で使える。その他の関数を呼び出したあとでも使えるかも。</p>
+<pre><code>$pid = getmypid();
+</code></pre>
+
+<h2 id="5bce6fa">Perl
+<span class="article-date">2013/11/26</span></h2>
+
+<p><code>$?</code> という変数でperlスクリプト自身のプロセスIDを取得できる。</p>
 
 <p>Perl で定義済みの変数 | perldoc.jp<br />
 <a href="http://perldoc.jp/docs/perl/perlvar.pod" target="_blank">http://perldoc.jp/docs/perl/perlvar.pod</a></p>
 
-<h2 id="6befa7f">sh
-<span class="article-date">2013/09/13</span></h2>
-
-<p><code>$?</code> という変数で直前に実行したコマンドの終了ステータスが得られる。</p>
+<p>o</p>
 
 </div>
 

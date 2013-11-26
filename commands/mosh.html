@@ -25,7 +25,7 @@
   <li><a href="../commands/">コマンドの使い方</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
-      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat コマンド</a></li>
@@ -76,7 +76,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-      <li><a href="../commands/zip.html">zip コマンド / unzip コマンド</a></li>
+      <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
 </ul>
@@ -86,7 +86,7 @@
 
 <div id="content">
   <h1 id="mosh">mosh コマンド
-<span class="article-date">2013/09/17</span></h1>
+<span class="article-date">2013/11/25</span></h1>
 
 <p>モバイル環境など頻繁にネットが切断されたり、ノートPCを開いたり閉じたりしても、ネットが復活したときに自動でsshを再接続し、しかも切断される前のセッションの状態を維持してくれる高機能sshクライアント。ネットが復活したときにIPが変わってしまってもセッションの維持に問題ない。</p>
 
@@ -95,6 +95,8 @@
 <p>moshの実装はsshの機能に依存しているので、sshで接続できることが前提でさらにサーバ側とクライアント側の両方にmoshのインストールが必要。</p>
 
 <p><a href="#ssh-udp-tunnel">SSHでトンネルを貼ってmoshの通信を通すのは難しいらしい</a>。</p>
+
+<p>使い方は<a href="ssh.html">sshコマンド</a>とよく似ている。</p>
 
 <h2 id="6117d70">インストール方法
 <span class="article-date">2013/05/28</span></h2>
@@ -118,7 +120,6 @@ sudo ldconfig
 <p><a href="http://shogo82148.github.io/blog/2012/12/28/tunneling-udp-via-ssh/" target="_blank">http://shogo82148.github.io/blog/2012/12/28/tunneling-udp-via-ssh/</a></p>
 
 <p>UDPをトンネルさせてmoshの通信を通しても、通信がとても不安定らしい。</p>
-
 
 </div>
 

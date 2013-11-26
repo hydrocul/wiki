@@ -59,15 +59,17 @@
   <h1 id="mkdir">ディレクトリを作成するには</h1>
 
 <h2 id="f658d18">Java
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2013/11/25</span></h2>
 
-<dl>
-  <dt><code>boolean java.io.File#mkdir()</code></dt>
-  <dd>ディレクトリを作成する。作成するパスの <code>File</code> オブジェクトを先に生成してから
-このメソッドを呼び出す。作成できたら <code>true</code> を返す。</dd>
-  <dt><code>boolean java.io.File#mkdirs()</code></dt>
-  <dd>上の <code>mkdir</code> とほぼ同等だが、<code>mkdir -p</code> に相当する。</dd>
-</dl>
+<p>Signature:</p>
+
+<pre><code>// java.io.File
+boolean mkdir()
+boolean mkdirs()
+</code></pre>
+
+<p>これらのメソッドは作成するディレクトリを引数で渡すのではなく、作成するパスの <code>File</code> オブジェクトを先に生成してからそのインスタンスのこのメソッドを呼び出す。作成できたら <code>true</code> を返す。
+<code>mkdir</code> は1階層のみの作成で、それに対し、 <code>mkdirs</code> は <code>mkdir -p</code> に相当し、複数の階層をまとめて作成できる。</p>
 
 <h2 id="1642748">Ruby
 <span class="article-date">2013/06/24</span></h2>

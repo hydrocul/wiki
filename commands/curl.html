@@ -25,7 +25,7 @@
   <li><a href="../commands/">コマンドの使い方</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
-      <li><a href="../commands/adduser.html">adduser コマンド / useradd コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat コマンド</a></li>
@@ -76,7 +76,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-      <li><a href="../commands/zip.html">zip コマンド / unzip コマンド</a></li>
+      <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
 </ul>
@@ -86,6 +86,22 @@
 
 <div id="content">
   <h1 id="curl">curl コマンド</h1>
+
+<h2 id="basic-auth">BASIC認証のあるサイトをダウンロードするには
+<span class="article-date">2013/11/26</span></h2>
+
+<pre><code>curl --user user:password http://www.example.com/
+</code></pre>
+
+<p>この例だと、認証方式がBASIC認証以外の場合には対応できない。</p>
+
+<p>認証方式がBASIC認証に限らない場合は <code>--anyauth</code> をつけると、自動で認証方式を選択してくれる。
+BASIC認証以外にはDigest認証、NTLM認証に対応している。</p>
+
+<pre><code>curl --anyauth --user user:password http://www.example.com/
+</code></pre>
+
+<p>-&gt; <a href="wget.html#basic-auth"><code>wget</code>コマンドでのBASIC認証</a></p>
 
 <h2 id="4b60935">進捗表示をしないようにするには
 <span class="article-date">2013/09/11</span></h2>
@@ -142,7 +158,6 @@
 
 <p><code>-d</code> はPOSTする本体を指定するオプションで、その後がデータになる。データをファイルで指定したい場合はファイル名の先頭に <code>@</code> を付けて、
 <code>@foo.txt</code> のように指定する。ファイルではなく標準入力を指定するには <code>@-</code> とする。</p>
-
 
 </div>
 
