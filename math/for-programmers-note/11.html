@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>第11回プログラマのための数学勉強会のノート | プログラマのための数学勉強会のノート | 数学関係のノート | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../math/">数学関係のノート</a> &gt; <a href="../../math/for-programmers-note/">プログラマのための数学勉強会のノート</a> &gt; <span>第11回プログラマのための数学勉強会のノート</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../math/">数学関係のノート</a>
+    <ul>
+      <li><a href="../../math/for-programmers-note/">プログラマのための数学勉強会のノート</a>
+        <ul>
+          <li><a href="../../math/for-programmers-note/01.html">第1回プログラマのための数学勉強会のノート (イントロダクション)</a></li>
+          <li><a href="../../math/for-programmers-note/02.html">第2回プログラマのための数学勉強会のノート (計算機での浮動小数点数 / 極限・微分)</a></li>
+          <li><a href="../../math/for-programmers-note/03.html">第3回プログラマのための数学勉強会のノート (連続性・微分可能性・極値・ロルの定理 / テイラーの定理 / 関数の変化と微分係数 / 差分法 / 多変数関数の微分法)</a></li>
+          <li><a href="../../math/for-programmers-note/04.html">第4回プログラマのための数学勉強会のノート (多変数関数の微分法 / 方程式の数値解法)</a></li>
+          <li><a href="../../math/for-programmers-note/07.html">第7回プログラマのための数学勉強会のノート (行列とベクトルの概要 / 行列とベクトルの応用 / 連立一次方程式)</a></li>
+          <li><a href="../../math/for-programmers-note/08.html">第8回プログラマのための数学勉強会のノート (行列式・逆行列 / 連立一次方程式の解法 / ベクトルでの微分法 / 係数行列が正方でない連立一次方程式)</a></li>
+          <li>第11回プログラマのための数学勉強会のノート</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="11">第11回プログラマのための数学勉強会のノート</h1>
+
+<p>このページは<a href="http://nineties.github.io/math-seminar/" target="_blank">プログラマのための数学勉強会</a>を聴講したときの個人的なノートである。</p>
+
+<p>第11回プログラマのための数学勉強会(2013/11/21)の資料<br />
+<a href="http://nineties.github.io/math-seminar/11.html" target="_blank">http://nineties.github.io/math-seminar/11.html</a></p>
+
+<p>第11回プログラマのための数学勉強会(2013/11/21)の動画<br />
+<a href="http://www.youtube.com/watch?v=_uHsrc0XIB4" target="_blank">http://www.youtube.com/watch?v=_uHsrc0XIB4</a></p>
+
+<h2 id="dec3d60">連立一次方程式の反復解法
+<span class="article-date">2013/11/23</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/11.html#/3" target="_blank">http://nineties.github.io/math-seminar/11.html#/3</a></p>
+
+<ul>
+  <li>直接解法(ガウス消去法やLU分解法)は比較的サイズが小さい連立一次方程式に向いている
+    <ul>
+      <li>メモリの消費が大きいので
+        <ul>
+          <li>100万次元だと行列の要素が1兆個にもなる</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>反復解法はサイズが大きく疎な(係数に0が多い)連立一次方程式に向いている</li>
+  <li><strong>疎行列</strong>
+    <ul>
+      <li>ほとんどの成分が0である行列</li>
+      <li>記憶容量を節約でき、疎行列に適したさまざまなアルゴリズムも存在する</li>
+    </ul>
+  </li>
+  <li>疎行列の保存方式
+    <ul>
+      <li>行優先の<strong>CSR(Compressed Sparse Row)</strong>方式</li>
+      <li>列優先の<strong>CSC(Compressed Sparse Column)</strong>方式</li>
+      <li>すでにある行列を保存する場合に向いている</li>
+      <li>行列を組み立てる途中では圧縮した状態では非効率なので連結リストやハッシュテーブルを使うとよい</li>
+      <li>行列×列ベクトルの計算が通常は \( \mathcal{O}(n^2) \) の計算量がかかるが、
+これらの疎行列では \( \mathcal{O}(非零要素数) \) で済む</li>
+    </ul>
+  </li>
+  <li><strong>反復法</strong>
+    <ul>
+      <li>線形反復法、ニュートン法も反復法 -&gt; <a href="04.html">第4回</a></li>
+    </ul>
+  </li>
+  <li><strong>ヤコビ法</strong><br />
+<a href="http://nineties.github.io/math-seminar/11.html#/8" target="_blank">http://nineties.github.io/math-seminar/11.html#/8</a>
+    <ul>
+      <li><strong>対角行列</strong>を使う方法</li>
+      <li>計算の打ち切りの条件は
+\( \frac{\left\|\mathbf{x}_{i+1} - \mathbf{x}_i\right\|}{\left\|\mathbf{x}\right\|} \)
+など相対誤差で評価すること。ノルムでなくても成分同士の差の最大値でもよい。</li>
+      <li><strong>スペクトル半径</strong><br />
+<a href="http://nineties.github.io/math-seminar/11.html#/12" target="_blank">http://nineties.github.io/math-seminar/11.html#/12</a></li>
+      <li>ヤコビ法の収束条件<br />
+<a href="http://nineties.github.io/math-seminar/11.html#/13" target="_blank">http://nineties.github.io/math-seminar/11.html#/13</a></li>
+    </ul>
+  </li>
+  <li><strong>ガウス・ザイデル法</strong><br />
+<a href="http://nineties.github.io/math-seminar/11.html#/14" target="_blank">http://nineties.github.io/math-seminar/11.html#/14</a></li>
+  <li><strong>逐次過大緩和法(SOR法)</strong><br />
+<a href="http://nineties.github.io/math-seminar/11.html#/14" target="_blank">http://nineties.github.io/math-seminar/11.html#/14</a></li>
+</ul>
+
+<h2 id="e5e52ab">二次形式
+<span class="article-date">2013/11/23</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/11.html#/15" target="_blank">http://nineties.github.io/math-seminar/11.html#/15</a></p>
+
+<ul>
+  <li>2次の項のみの多変数関数を行列の積で表す形式</li>
+  <li>\( f(\mathbf{x}) = \mathbf{x}^T \mathbf{Ax} \)<br />
+\( \mathbf{A}^T = \mathbf{A} \)  (つまり \( \mathbf{A} \) は対称行列)</li>
+  <li>例
+\[ \begin{aligned}
+      f(x,y) &amp;= x^2 + 3xy + 2y^2 \\ 
+             &amp;= \begin{pmatrix} x &amp; y \end{pmatrix}
+                \begin{pmatrix} 1 &amp; \frac{3}{2} \\ \frac{3}{2} &amp; 2 \end{pmatrix}
+                \begin{pmatrix} x \\ y \end{pmatrix}
+    \end{aligned} \]</li>
+  <li><strong>実対称行列</strong>
+    <ul>
+      <li>実数係数の多項式の\( \mathbf{A} \)は実数成分の対称行列になりこれを実対称行列という</li>
+      <li>実対称行列の固有値はすべて実数である<br />
+<a href="http://nineties.github.io/math-seminar/11.html#/20" target="_blank">http://nineties.github.io/math-seminar/11.html#/20</a></li>
+      <li>実対称行列の直交行列により対角化可能<br />
+<a href="http://nineties.github.io/math-seminar/11.html#/21" target="_blank">http://nineties.github.io/math-seminar/11.html#/21</a></li>
+    </ul>
+  </li>
+  <li>二次形式の<strong>標準形</strong><br />
+<a href="http://nineties.github.io/math-seminar/11.html#/23" target="_blank">http://nineties.github.io/math-seminar/11.html#/23</a>
+    <ul>
+      <li>\(x^2\)や\(y^2\)の項のみになり、\(xy\)の項がなくなる</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="0d28c47">多変数関数の極値
+<span class="article-date">2013/11/23</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/11.html#/26" target="_blank">http://nineties.github.io/math-seminar/11.html#/26</a></p>
+
+<ul>
+  <li><strong>ヘッセ行列</strong>
+    <ul>
+      <li>\(n\)変数関数について\(\mathbf{a}\)について</li>
+      <li>\[ \mathbf{H}(f)(\mathbf{a}) = \left.
+      \begin{pmatrix}
+        \frac{\partial^2 f}{\partial x_1^2} &amp; \frac{\partial^2 f}{\partial x_1\partial x_2} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_1\partial x_n} \\ 
+        \frac{\partial^2 f}{\partial x_2\partial x_1} &amp; \frac{\partial^2 f}{\partial x_2^2} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_2\partial x_n} \\ 
+        \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 
+        \frac{\partial^2 f}{\partial x_n\partial x_1} &amp; \frac{\partial^2 f}{\partial x_n\partial x_2} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_n^2} \\ 
+      \end{pmatrix} \right|_{\mathbf{x}=\mathbf{a}}\]</li>
+      <li>対称行列になる</li>
+    </ul>
+  </li>
+  <li>極値の判定
+<a href="http://nineties.github.io/math-seminar/11.html#/31" target="_blank">http://nineties.github.io/math-seminar/11.html#/31</a>
+    <ul>
+      <li>\(\mathrm{grad}f(\mathbf{A}) = \mathbf{0}\) かつ \( \mathbf{H} \)の固有値がすべて正 \(\Rightarrow\) 極小値</li>
+      <li>\(\mathrm{grad}f(\mathbf{A}) = \mathbf{0}\) かつ \( \mathbf{H} \)の固有値がすべて負 \(\Rightarrow\) 極大値</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="97c559e">重積分
+<span class="article-date">2013/11/26</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/11.html#/34" target="_blank">http://nineties.github.io/math-seminar/11.html#/34</a></p>
+
+<ul>
+  <li>一変数関数の定積分
+    <ul>
+      <li>リーマン和の極限
+\[ \int_a^b f(x) \mathrm{d}x = \lim_{n \rightarrow \infty} \sum_{i=1}^n f(t_i)(x_i - x_{i-1}) \]</li>
+    </ul>
+  </li>
+  <li>二変数関数の定積分<br />
+<a href="http://nineties.github.io/math-seminar/11.html#/37" target="_blank">http://nineties.github.io/math-seminar/11.html#/37</a></li>
+  <li>重積分の性質<br />
+<a href="http://nineties.github.io/math-seminar/11.html#/40" target="_blank">http://nineties.github.io/math-seminar/11.html#/40</a></li>
+  <li>重積分から<strong>累次積分</strong>(<strong>逐次積分</strong>)への変換<br />
+<a href="http://nineties.github.io/math-seminar/11.html#/42" target="_blank">http://nineties.github.io/math-seminar/11.html#/42</a></li>
+  <li>積分変数の変換<br />
+<a href="http://nineties.github.io/math-seminar/11.html#/49" target="_blank">http://nineties.github.io/math-seminar/11.html#/49</a>
+    <ul>
+      <li>\[ \int_D f(x,y) \mathrm{d}x \mathrm{d}y = \int_{D^{\prime}} f(\phi(p,q),\psi(p,q)) \left| J \right| \mathrm{d}p \mathrm{d}q \]</li>
+      <li><strong>ヤコビアン</strong>
+        <ul>
+          <li>\[ J = \det
+          \begin{pmatrix}
+            \frac{\partial \phi}{\partial p} &amp; \frac{\partial \phi}{\partial q} \\ 
+            \frac{\partial \psi}{\partial p} &amp; \frac{\partial \psi}{\partial q} \\ 
+          \end{pmatrix} \]</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>平行四辺形の面積は行列式で表せる<br />
+<a href="http://nineties.github.io/math-seminar/11.html#/47" target="_blank">http://nineties.github.io/math-seminar/11.html#/47</a></li>
+  <li>二変数に限らず一般に\(n\)変数でも同じ<br />
+<a href="http://nineties.github.io/math-seminar/11.html#/52" target="_blank">http://nineties.github.io/math-seminar/11.html#/52</a></li>
+  <li>多重積分の数値計算は累次積分に変換して数値積分を繰り返せばよいが、計算量ば爆発的に増えてしまう。
+積分区間を\(n\)に分割するとして\(m\)重積分は \( \mathcal{O}(n^m) \) の計算量になってしまう。
+従って多重積分の数値積分は<strong>モンテカルロ法</strong>がよく使われる。</li>
+  <li>実際に計算する多変数関数では、疎行列と同じようにすべての変数が関わりあうのではなく、
+一部の変数同士のみが影響をしあう。その場合にグラフ理論などを使って、
+どのように計算量を減らすかの工夫が必要。</li>
+</ul>
+
+<h2 id="d0a0c67">線形微分方程式
+<span class="article-date">2013/11/26</span></h2>
+
+<ul>
+  <li>\[ P(x) \frac{\mathrm{d}^2 y}{\mathrm{d}x^2} + Q(x) \frac{\mathrm{d}y}{\mathrm{d}x} = 0 \]
+の微分方程式の解を \( y_1, y_2 \) とすると、
+\( ay_1 + by_2 \) も解となる。-&gt; 2次の線形空間<br />
+すべての解はこの2次の線形空間に収まる</li>
+  <li>\[ \frac{\mathrm{d}}{\mathrm{d}x} e^{kx} = k e^{kx} \]
+は、\(k\)を固有値、\( e^{kx} \) を固有ベクトルと捉えることもできる。</li>
+</ul>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
