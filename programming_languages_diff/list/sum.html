@@ -143,6 +143,21 @@ print sum(lst)
 $sum += $_ for @arr;
 </code></pre>
 
+<h2 id="sh">sh
+<span class="article-date">2013/11/28</span></h2>
+
+<p>1行に1つの数字が書かれたファイルからその合計を計算する例</p>
+
+<pre><code>cat hoge.txt | awk '{sum+=$1}END{print sum}'
+</code></pre>
+
+<p>平均の例</p>
+
+<pre><code>cat hoge.txt | awk '{sum+=$1}END{print sum/NR}'
+</code></pre>
+
+<p>-&gt; <a href="../../commands/awk.html">数字が書かれたテキストファイルからその合計/平均を計算するには</a></p>
+
 </div>
 
 <footer>

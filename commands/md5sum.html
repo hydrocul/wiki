@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>lha コマンド | コマンドの使い方 | hydrocul のメモ</title>
+<title>md5sum コマンド | コマンドの使い方 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドの使い方</a> &gt; <span>lha コマンド</span>
+  <a href="../commands/">コマンドの使い方</a> &gt; <span>md5sum コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -42,9 +42,9 @@
       <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
-      <li>lha コマンド</li>
+      <li><a href="../commands/lha.html">lha コマンド</a></li>
       <li><a href="../commands/ls.html">ls コマンド</a></li>
-      <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li>md5sum コマンド</li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
@@ -86,28 +86,14 @@
 </div>
 
 <div id="content">
-  <h1 id="lha">lha コマンド
-<span class="article-date">2013/10/11</span></h1>
+  <h1 id="md5sum">md5sum コマンド
+<span class="article-date">2013/10/16</span></h1>
 
-<p>拡張子 .lzh のファイル形式を圧縮・解凍するコマンド。</p>
+<p>MD5のハッシュ値を計算するコマンド。使い方は<a href="sha1sum.html">sha1sum</a>と同じ。</p>
 
-<p>最近は自分でわざわざlzh形式のファイルを作ることなんかなく、でも届いたメールの添付がlzhだったりして 
-“極まれによく” 解凍しないといけないケースがあるので。</p>
+<p>例</p>
 
-<h2 id="5254ade">インストール
-<span class="article-date">2013/11/28</span></h2>
-
-<p>Ubuntuの場合</p>
-
-<pre><code>sudo apt-get install lhasa
-</code></pre>
-
-<p>(Ubuntu 13.10 で確認)</p>
-
-<h2 id="17a32da">lzhファイルを解凍するには
-<span class="article-date">2013/08/19</span></h2>
-
-<pre><code>lha x hoge.zip
+<pre><code>echo -n "message" | md5sum
 </code></pre>
 
 </div>

@@ -85,6 +85,17 @@ $arr = json_decode($json_src, true);
 
 <p>JSONのフォーマットがおかしいなどでデコードできなかった場合は <code>NULL</code> が返される。</p>
 
+<h2 id="a9f40e5">Ruby
+<span class="article-date">2013/11/27</span></h2>
+
+<pre><code>require 'json'
+
+data = JSON.parse(json_str)
+</code></pre>
+
+<p>JSON.parse | Ruby 1.9.3 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/1.9.3/class/JSON.html#M_PARSE" target="_blank">http://docs.ruby-lang.org/ja/1.9.3/class/JSON.html#M_PARSE</a></p>
+
 <h2 id="2b3e774">Perl
 <span class="article-date">2013/10/20</span></h2>
 
@@ -107,7 +118,6 @@ my $data = decode_json($json_src);
 
 <pre><code>data = JSON.parse(json_src);
 </code></pre>
-
 
 </div>
 

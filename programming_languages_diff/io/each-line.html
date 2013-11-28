@@ -30,8 +30,8 @@
           <li>ファイルの中身を1行ずつテキスト処理するには</li>
           <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
-          <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
+          <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには (rm / unlink)</a></li>
@@ -136,13 +136,20 @@ end
 </code></pre>
 
 <h2 id="6e71bc4">Perl
-<span class="article-date">2013/09/20</span></h2>
+<span class="article-date">2013/11/28</span></h2>
 
 <pre><code>open(IN, '&lt;', './hoge.txt') or die "Cannot open";
 while (my $line = &lt;IN&gt;) {
     # $line には最後の改行を含む
     ...;
 }
+close IN;
+</code></pre>
+
+<p>または</p>
+
+<pre><code>open(IN, '&lt;', './hoge.txt') or die "Cannot open";
+my @lines = &lt;IN&gt;;
 close IN;
 </code></pre>
 

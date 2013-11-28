@@ -44,6 +44,7 @@
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
       <li><a href="../commands/ls.html">ls コマンド</a></li>
+      <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
@@ -128,6 +129,26 @@
 
 <pre><code>awk '{print sprintf("%04d", NR);}'
 </code></pre>
+
+<h2 id="a9e9f29">数字が書かれたテキストファイルからその合計/平均を計算するには
+<span class="article-date">2013/11/28</span></h2>
+
+<p>1行に1つの数字が書かれたファイルからその合計を計算する例</p>
+
+<pre><code>awk '{sum+=$1}END{print sum}' hoge.txt
+</code></pre>
+
+<p>平均の例</p>
+
+<pre><code>awk '{sum+=$1}END{print sum/NR}' hoge.txt
+</code></pre>
+
+<p>ファイルの最後の行だけを無視して数字の合計を計算する例</p>
+
+<pre><code>head -n-1 hoge.txt | awk '{sum+=$1}END{print sum}'
+</code></pre>
+
+<p>-&gt; <a href="../programming_languages_diff/list/sum.html">数のリストの合計/平均を計算するには</a></p>
 
 </div>
 

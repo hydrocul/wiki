@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>JavaScriptのTips | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="./common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="./common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <span>JavaScriptのTips</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="./commands/">コマンドの使い方</a></li>
+  <li><a href="./programming_languages_diff/">プログラミング言語の比較</a></li>
+  <li><a href="./html.html">HTMLのTips</a></li>
+  <li><a href="./css.html">CSSのTips</a></li>
+  <li>JavaScriptのTips</li>
+  <li><a href="./jquery.html">jQueryのTips</a></li>
+  <li><a href="./sh.html">シェルスクリプト</a></li>
+  <li><a href="./math/">数学関係のノート</a></li>
+  <li><a href="./blog/">ブログ</a></li>
+  <li><a href="./apache.html">Apache</a></li>
+  <li><a href="./emacs.html">Emacs</a></li>
+  <li><a href="./google-analytics.html">Google Analytics</a></li>
+  <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
+  <li><a href="./linux.html">Linux</a></li>
+  <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
+  <li><a href="./mac.html">Mac</a></li>
+  <li><a href="./math-for-programmers-note.html">プログラマのための数学勉強会ノート</a></li>
+  <li><a href="./mechanize.html">mechanize</a></li>
+  <li><a href="./mysql.html">MySQLのメモ</a></li>
+  <li><a href="./oneliner.html">ワンライナー</a></li>
+  <li><a href="./others/">未分類</a></li>
+  <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
+  <li><a href="./phantomjs.html">phantomjs</a></li>
+  <li><a href="./php.html">PHP</a></li>
+  <li><a href="./ruby.html">Ruby</a></li>
+  <li><a href="./svn.html">Subversion (svn)</a></li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="javascript">JavaScriptのTips</h1>
+
+<p>jQueryについては<a href="jquery.html">jQueryのTips</a>参照。</p>
+
+<h2 id="timer">一定の時間が経過してからなにかの処理をするには
+<span class="article-date">2013/10/04</span></h2>
+
+<p>例</p>
+
+<pre><code>setTimeout(function(){
+  ...
+}, 3000);
+</code></pre>
+
+<p>3000ミリ秒後に関数が呼び出される。</p>
+
+<p>-&gt; <a href="programming_languages_diff/process/sleep.html#javascript">sleep</a></p>
+
+<h2 id="localstorage">ローカルストレージ
+<span class="article-date">2013/04/19</span></h2>
+
+<p>値の読み出し</p>
+
+<pre><code>localStorage.getItem(key)
+</code></pre>
+
+<p>値の書き出し</p>
+
+<pre><code>localStorage.setItem(key, value)
+</code></pre>
+
+<p>読みだそうとして、まだそのキーが存在しない場合は <code>null</code> を返す。</p>
+
+<p><code>key</code> の部分には、文字列や配列なども使える模様(本当？)。</p>
+
+<p><code>value</code> の部分には本来は文字列だけでなく配列なども使える規格らしいが、現状のほとんどのブラウザでは文字列しかサポートされていないようで、文字列以外を与えても勝手に文字列に変換されてしまう。なので、以下のようにするとよい。</p>
+
+<p>値の読み出し</p>
+
+<pre><code>JSON.parse(localStorage.getItem(key))
+</code></pre>
+
+<p>値の書き出し</p>
+
+<pre><code>localStorage.setItem(key, JSON.stringify(value))
+</code></pre>
+
+<p><code>getItem</code> が <code>null</code> を返した場合は、<code>JSON.parse</code> も <code>null</code> を返す。</p>
+
+<p>特定のキーを削除するには</p>
+
+<pre><code>localStorage.removeItem(key)
+</code></pre>
+
+<p>キーをすべて削除するには</p>
+
+<pre><code>localStorage.clear()
+</code></pre>
+
+<h3 id="0cdb2e3">容量制限
+<span class="article-date">2013/04/16</span></h3>
+
+<p>ブラウザごとに容量の制限が決まっていて、それを超えて保存しようとすると、
+<code>setItem</code> の呼び出しで <code>QuotaExceededError</code> 例外が発生する(Chromeで確認したが、他のブラウザでは未確認)。</p>
+
+<h2 id="input-auto-select">入力ボックス(input)をクリックしたときにデフォルトでテキストが全選択状態になるようにするには
+<span class="article-date">2013/04/18</span></h2>
+
+<p>HTMLであればonclickに以下のように書いておく。</p>
+
+<pre><code>&lt;input ... onclick="this.select();"&gt;
+</code></pre>
+
+<p>CoffeeScriptなら以下のように書いておく。</p>
+
+<pre><code>$('#...').click -&gt;
+  this.select()
+</code></pre>
+
+<h2 id="onbeforeunload">他のページに遷移する前に特定の処理をするには
+<span class="article-date">2013/04/18</span></h2>
+
+<pre><code>window.onbeforeunload = function(event){
+  console.log("onbeforeunload");
+  event = event || window.event;
+  return event.returnValue = '別のページを移動しちゃおうとしてます。';
+}
+</code></pre>
+
+<p>最後の行は、ページに遷移する前に確認画面を出して取り消せるようにしたい場合に必要。
+<code>event.returnValue</code> にメッセージを入れないといけないブラウザと、戻り値でメッセージを文字列で返さないといけないブラウザがあるために、こういう書き方をしている。</p>
+
+</div>
+
+<footer>
+  <a href="./">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
