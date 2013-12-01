@@ -42,12 +42,13 @@
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/add.html">文字列の連結をするには (add)</a></li>
-          <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返し連結するには</a></li>
+          <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
         </ul>
       </li>
@@ -129,7 +130,7 @@ echo 'aaa\ttt'; // =&gt; aaa\ttt // \t はタブにはならずに \t のまま
 echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
 </code></pre>
 
-<p><code>"</code> で囲んだ場合は、以下のエスケープが使える。</p>
+<p><code>"</code> で囲んだ文字列は、以下のエスケープが使える。</p>
 
 <dl>
   <dt><code>\\</code>数字(1ケタ〜3ケタ)</dt>
@@ -148,6 +149,40 @@ echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
   <dd>0x1B ESC</dd>
   <dt><code>\$</code></dt>
   <dd><code>$</code></dd>
+  <dt><code>\"</code></dt>
+  <dd><code>"</code></dd>
+  <dt><code>\\</code></dt>
+  <dd><code>\</code></dd>
+</dl>
+
+<h2 id="b6cd818">Ruby
+<span class="article-date">2013/12/01</span></h2>
+
+<p><code>"</code> で囲んだ文字列は、以下のエスケープが使える。</p>
+
+<dl>
+  <dt><code>\\</code>数字(1ケタ〜3ケタ)</dt>
+  <dd>8進数で文字を表現</dd>
+  <dt><code>\\x</code>数字(1ケタ〜2ケタ)</dt>
+  <dd>16進数で文字を表現</dd>
+  <dt><code>\t</code></dt>
+  <dd>0x09 タブ</dd>
+  <dt><code>\n</code></dt>
+  <dd>0x0a LF</dd>
+  <dt><code>\f</code></dt>
+  <dd>0x0c</dd>
+  <dt><code>\r</code></dt>
+  <dd>0x0d CR</dd>
+  <dt><code>\e</code></dt>
+  <dd>0x1B ESC</dd>
+  <dt><code>\a</code></dt>
+  <dd>0x07 ベル</dd>
+  <dt><code>\b</code></dt>
+  <dd>0x08 バックスペース</dd>
+  <dt><code>\s</code></dt>
+  <dd>0x20 スペース</dd>
+  <dt><code>\#</code></dt>
+  <dd><code>#</code></dd>
   <dt><code>\"</code></dt>
   <dd><code>"</code></dd>
   <dt><code>\\</code></dt>
