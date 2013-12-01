@@ -232,12 +232,12 @@ else
 end
 </code></pre>
 
-<p>elseの節がなく、本体の文が1つだけの場合は以下のように修飾子の構文での書き方も可能。この書き方は <code>end</code> を書く必要がなく行数が短くて済むため読みやすい場合が多い。</p>
+<p><code>else</code> の節がなく、本体の文が1つだけの場合は以下のように修飾子の構文での書き方も可能。この書き方は <code>end</code> を書く必要がなく行数が短くて済むため読みやすい場合が多い。</p>
 
 <pre><code>... if ...
 </code></pre>
 
-<p>ifの反対で条件が満たされなかった場合にのみ実行するunlessもある。</p>
+<p><code>if</code> の反対で条件が満たされなかった場合にのみ実行する <code>unless</code> もある。</p>
 
 <pre><code>unless(...){
   ...
@@ -246,7 +246,7 @@ end
 ... unless ...
 </code></pre>
 
-<p>RubyではScalaと同じくifは結果を返すことができるので以下のように
+<p>RubyではScalaと同じく <code>if</code> は結果を返すことができるので以下のように
 <a href="../operator/ternary.html">三項演算子</a>の代わりとしても使える。ただし、ネストしていないなどシンプルな構造の場合は素直に三項演算子のほうがわかりやすい。</p>
 
 <pre><code>max = if(a &gt; b)
@@ -354,7 +354,6 @@ else ...
 
 <pre><code>alert "hoge" if condition
 </code></pre>
-
 
 </div>
 

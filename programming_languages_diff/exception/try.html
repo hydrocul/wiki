@@ -28,6 +28,7 @@
         <ul>
           <li>例外を捕捉する構文 (try / catch / finally)</li>
           <li><a href="../../programming_languages_diff/exception/throw.html">例外をスローする構文 (throw)</a></li>
+          <li><a href="../../programming_languages_diff/exception/cause.html">例外の原因</a></li>
           <li><a href="../../programming_languages_diff/exception/class-hierarchy.html">例外クラス階層</a></li>
           <li><a href="../../programming_languages_diff/exception/checked.html">チェック例外と非チェック例外</a></li>
         </ul>
@@ -141,13 +142,13 @@ end
 
 <p>スタックトレースを出力するには <code>print e.backtrace.join("\n")</code> と書く。</p>
 
-<p>rescue節で特定のクラスの例外を補足したい場合は、以下のように書く。</p>
+<p>rescue節で特定のクラスの例外を捕捉したい場合は、以下のように書く。</p>
 
 <pre><code>rescue ZeroDivisionError =&gt; e
 </code></pre>
 
-<p>このようなクラス名を省略すると、 <code>StandardError</code> とみなされるので、
-<code>StandardError</code> 以外の <code>Exception</code> のインスタンスは補足されない。</p>
+<p>捕捉する例外クラスのクラス名を省略すると、 <code>StandardError</code> を捕捉するとみなされるので、
+<code>StandardError</code> 以外の <code>Exception</code> のインスタンスは捕捉されない。</p>
 
 <p>rescue節は複数書くことができる。</p>
 
