@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>クラス | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>型名のエイリアスのようなもの | クラス | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>クラス</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラス</a> &gt; <span>型名のエイリアスのようなもの</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,14 +24,14 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>クラス
+      <li><a href="../../programming_languages_diff/class/">クラス</a>
         <ul>
           <li><a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
           <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
           <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
           <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
           <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
-          <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
+          <li>型名のエイリアスのようなもの</li>
           <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
           <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
         </ul>
@@ -44,20 +44,21 @@
 </div>
 
 <div id="content">
-  <h1 id="class">クラス</h1>
+  <h1 id="alias">型名のエイリアスのようなもの</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="3e3d453">C言語 / C++
+<span class="article-date">2013/10/14</span></h2>
 
-<ul>
-  <li><a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
-  <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
-  <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
-  <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
-  <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
-  <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
-  <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
-  <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
-</ul>
+<pre><code>typedef int size;
+</code></pre>
+
+<p>とすると、<code>size</code> という名前の型があるかのうようにコードを書くことができる。</p>
+
+<h2 id="3e53ca7">Scala
+<span class="article-date">2013/09/20</span></h2>
+
+<pre><code>type IntSeq = Seq[Int];
+</code></pre>
 
 </div>
 

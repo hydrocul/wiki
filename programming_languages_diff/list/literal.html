@@ -119,20 +119,22 @@ np.array([1, 2, 3])
 </code></pre>
 
 <h2 id="100dce2">Ruby
-<span class="article-date">2013/10/20</span></h2>
+<span class="article-date">2013/12/02</span></h2>
 
 <pre><code>arr = [1, 2, 3]
 
 arr = %w(abc def ghi) # =&gt; ['abc', 'def', 'ghi'] と同じ
 </code></pre>
 
-<p>%w の記法を使うと、カッコは比較的なんでもよくて、以下はすべて同じ意味になる。</p>
+<p><code>%w</code> の記法を使うと、カッコは比較的なんでもよくて、以下はすべて同じ意味になる。</p>
 
 <pre><code>['abc', 'def', 'ghi']
 %w(abc def ghi)
 %w[abc def ghi]
 %w!abc def ghi!
 </code></pre>
+
+<p><code>%w</code> の記法では要素間はスペースで区切って、コンマで区切ることはできない。</p>
 
 <h2 id="269ff61">Perl
 <span class="article-date">2013/09/23</span></h2>
