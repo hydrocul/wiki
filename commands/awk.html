@@ -130,15 +130,23 @@
 <pre><code>awk '{print sprintf("%04d", NR);}'
 </code></pre>
 
-<h2 id="a9e9f29">数字が書かれたテキストファイルからその合計/平均を計算するには
-<span class="article-date">2013/11/28</span></h2>
+<h2 id="sum-avg-max-min">数字が書かれたテキストファイルからその合計/平均/最大値/最小値を計算するには
+<span class="article-date">2013/12/05</span></h2>
 
-<p>1行に1つの数字が書かれたファイルからその合計を計算する例</p>
+<p>以下のような1行に1つの数字が書かれたファイルからその合計や平均、最大値・最小値を計算する方法。</p>
+
+<pre><code>228
+516
+512
+549
+</code></pre>
+
+<p>合計を計算する例</p>
 
 <pre><code>awk '{sum+=$1}END{print sum}' hoge.txt
 </code></pre>
 
-<p>平均の例</p>
+<p>平均を計算する例</p>
 
 <pre><code>awk '{sum+=$1}END{print sum/NR}' hoge.txt
 </code></pre>
@@ -148,7 +156,25 @@
 <pre><code>head -n-1 hoge.txt | awk '{sum+=$1}END{print sum}'
 </code></pre>
 
+<p>最大値を求める例</p>
+
+<pre><code>awk 'NR==1 {max=$1} {if($1 &gt; max) max = $1} END {print max}' hoge.txt
+</code></pre>
+
+<p>最小値を求める例</p>
+
+<pre><code>awk 'NR==1 {min=$1} {if($1 &lt; max) min = $1} END {print min}' hoge.txt
+</code></pre>
+
 <p>-&gt; <a href="../programming_languages_diff/list/sum.html">数のリストの合計/平均を計算するには</a></p>
+
+<h2 id="ef34612">テキストファイルの各行の文字数を求めるには
+<span class="article-date">2013/12/05</span></h2>
+
+<p>各行の、行末の改行を除く文字数を求める例。バイト数ではなくあくまで文字数である。</p>
+
+<pre><code>cat hoge.txt | awk '{print length();}' | awk 'NR==1 {max=$1} {if($1 &gt; max) max = $1} END {print max}'
+</code></pre>
 
 </div>
 

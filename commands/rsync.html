@@ -106,7 +106,7 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 <p>リモートからローカルへのダウンロード、またはローカルからリモートへのアップロードが可能だが、リモートから別のリモートへの転送はできない。</p>
 
 <h2 id="b39bf91">オプション
-<span class="article-date">2013/09/16</span></h2>
+<span class="article-date">2013/12/05</span></h2>
 
 <dl>
   <dt><code>-r</code></dt>
@@ -116,7 +116,8 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
   <dt><code>-t</code></dt>
   <dd>タイムスタンプも保存</dd>
   <dt><code>-p</code></dt>
-  <dd>パーミッションも保存</dd>
+  <dd>パーミッションも保存。<a href="cp.html"><code>cp</code>コマンド</a>では <code>-p</code> でタイムスタンプも保存してくれるが、
+<code>rsync</code> では <code>-p</code> ではなく <code>-t</code> が必要。</dd>
   <dt><code>-u</code></dt>
   <dd>タイムスタンプが新しいファイルのみをコピー</dd>
 </dl>
@@ -145,6 +146,11 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 </code></pre>
 
 <p>-&gt; <a href="ssh.html#port">ポートが22以外のSSHサーバに接続するには</a></p>
+
+<h2 id="71bbd88">進捗を表示するには
+<span class="article-date">2013/12/05</span></h2>
+
+<p>転送の進捗をリアルタイムに表示させるには、<code>--progress</code> オプションを使う。プログレスバーのようなビジュアルでの表示ではなく、単に数値で表示するのはちょっと残念。</p>
 
 </div>
 

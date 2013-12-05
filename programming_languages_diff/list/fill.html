@@ -102,13 +102,45 @@ Seq.fill[A](n1: Int, n2: Int, n3: Int)(elem: =&gt; A): Seq[Seq[Seq[A]]]
 // =&gt; List(0.6325425328171801, 0.4376259819974295, 0.48787100947790263)
 </code></pre>
 
+<h2 id="ab415ec">Python
+<span class="article-date">2013/12/04</span></h2>
+
+<p>例</p>
+
+<pre><code># 1 が3つの配列を生成
+lst = [1] * 3
+</code></pre>
+
+<h3 id="8abf22b">numpy
+<span class="article-date">2013/10/12</span></h3>
+
+<p>0.0で埋めたNumPyの配列を作るには</p>
+
+<pre><code>import numpy as np
+
+print np.zeros(3)
+# =&gt; [ 0.  0.  0.]
+</code></pre>
+
 <h2 id="d99c55b">Ruby
 <span class="article-date">2013/05/07</span></h2>
 
-<p>同じ値を指定の数だけ含む配列を作るには</p>
+<p>例</p>
 
-<pre><code>[].fill(value, 0, size)
+<pre><code># 1 が3つの配列を生成
+[].fill(value, 1, 3)
 </code></pre>
+
+<h2 id="7ebbcb8">Perl
+<span class="article-date">2013/12/04</span></h2>
+
+<p>例</p>
+
+<pre><code># 1 が3つの配列を生成
+my @lst = (1) x 3;
+</code></pre>
+
+<p>アルファベットの <code>x</code> で繰り返しさせる意味になる。</p>
 
 </div>
 
