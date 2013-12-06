@@ -80,13 +80,14 @@ fclose(reader);
 <p><code>BufferedReader#readLine()</code> は <code>"\n"</code>, <code>"\r"</code>, <code>"\r\n"</code> のいずれかを改行としてみなす。</p>
 
 <h2 id="8f757a4">Scala
-<span class="article-date">2013/11/18</span></h2>
+<span class="article-date">2013/12/06</span></h2>
 
 <p>例（標準入力だが）</p>
 
 <pre><code>import scala.io.Source;
 
 Source.fromInputStream(System.in).getLines.foreach { line =&gt;
+  // line には最後の改行を含まない
   ...;
 }
 </code></pre>
