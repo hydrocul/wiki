@@ -95,12 +95,20 @@ hoge: {
 
 <p><code>break</code>は<a href="switch.html#java"><code>switch</code>文</a>でも使う。</p>
 
-<h2 id="b6bac34">Ruby
-<span class="article-date">2013/10/20</span></h2>
+<h2 id="ruby">Ruby
+<span class="article-date">2013/12/08</span></h2>
 
 <p>繰り返し処理の中で <code>break</code> と書くと、そこでループを脱出する。</p>
 
 <p>ブロック付きメソッド呼び出しでも、ブロックの中で使用でき、メソッドが繰り返し処理をするものであれば、ループから抜け出す。繰り返し処理でないブロック付きメソッド呼び出しでも同様に、ブロックから脱出してさらにそのブロック付きメソッド呼び出しからも脱出する。</p>
+
+<p><code>break</code> に値を指定すると繰り返し分の返り値を指定することになる。以下の例は目的がよくわからないが。</p>
+
+<pre><code>print (while true
+  break 1
+end)
+# =&gt; 1
+</code></pre>
 
 <h2 id="7aff3a4">Perl
 <span class="article-date">2013/09/28</span></h2>
