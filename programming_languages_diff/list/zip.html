@@ -104,6 +104,38 @@ def zip(that: Iterable[B]): Seq[(A, B)]
 ['a', 'b'].zip([1, 2], [3, 4]) # =&gt; [["a", 1, 3], ["b", 2, 4]]
 </code></pre>
 
+<h2 id="0df299c">Perl
+<span class="article-date">2013/12/10</span></h2>
+
+<p>例</p>
+
+<pre><code>sub zip {
+    my ($lst1, $lst2) = @_;
+    my @src1 = @$lst1;
+    my @src2 = @$lst2;
+    my @result = ();
+    while (@src1 &amp;&amp; @src2) {
+        my $elem1 = shift(@src1);
+        my $elem2 = shift(@src2);
+        push(@result, [$elem1, $elem2]);
+    }
+    \@result;
+}
+
+my $lst1 = [1, 2, 3];
+my $lst2 = [10, 20, 30];
+
+my $zipped = zip($lst1, $lst2);
+
+foreach my $elem (@$zipped) {
+    print "$elem-&gt;[0] $elem-&gt;[1]\n";
+}
+# =&gt;
+# 1 10
+# 2 20
+# 3 30
+</code></pre>
+
 </div>
 
 <footer>
