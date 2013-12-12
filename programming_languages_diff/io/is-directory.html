@@ -76,29 +76,35 @@ if os.path.isdir("/home/foo/testfile"):
     ...
 </code></pre>
 
-<p>シンボリックリンクの場合はリンク先がディレクトリかどうかを見る。存在しない場合は <code>False</code> になる。</p>
+<p>シンボリックリンクの場合は、リンク先がディレクトリかどうかを見る。存在しない場合は <code>False</code> になる。</p>
 
 <h2 id="aea5d01">Ruby
-<span class="article-date">2013/04/30</span></h2>
+<span class="article-date">2013/12/11</span></h2>
 
 <pre><code>File.ftype('/home/foo/testfile') == 'directory'
 </code></pre>
 
+<p>シンボリックリンクの場合は、<code>File.ftype</code> は <code>"link"</code> を返し、たとえリンク先がディレクトリであってもこの式は <code>false</code> になる。</p>
+
 <h2 id="7bc9185">Perl
-<span class="article-date">2013/07/27</span></h2>
+<span class="article-date">2013/12/11</span></h2>
 
 <pre><code>if( -d '/home/foo/testfile' ){
     ...;
 }
 </code></pre>
 
+<p>シンボリックリンクの場合は、リンク先がディレクトリかどうかを見る。</p>
+
 <h2 id="59e5eb1">sh
-<span class="article-date">2013/09/16</span></h2>
+<span class="article-date">2013/12/11</span></h2>
 
 <pre><code>if [ -d /home/foo/testfile ]; then
     ...
 fi
 </code></pre>
+
+<p>シンボリックリンクの場合は、リンク先がディレクトリかどうかを見る。</p>
 
 <p>-&gt; <a href="../../sh.html#operator">シェルスクリプトの演算子</a></p>
 

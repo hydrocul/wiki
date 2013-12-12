@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ファイルかどうかを調べるには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイルかどうかを調べるには</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -40,12 +40,12 @@
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
+          <li>ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</li>
           <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
           <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
-          <li>ファイルかどうかを調べるには</li>
+          <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
         </ul>
       </li>
@@ -57,9 +57,52 @@
 </div>
 
 <div id="content">
-  <h1 id="is-file">ファイルかどうかを調べるには</h1>
+  <h1 id="file-type">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</h1>
 
-<p>-&gt; <a href="file-type.html">ファイルの種類を確認するには</a></p>
+<h2 id="88ccf80">Python
+<span class="article-date">2013/10/13</span></h2>
+
+<h3 id="e9140f6">ファイルかどうかの判定</h3>
+
+<pre><code>import os
+
+if os.path.isfile("/home/foo/testfile"):
+    ...
+</code></pre>
+
+<p>シンボリックリンクの場合はリンク先がファイルかどうかを見る。存在しない場合は <code>False</code> になる。</p>
+
+<h2 id="6c8c92d">Ruby
+<span class="article-date">2013/04/30</span></h2>
+
+<h3 id="b886c09">ファイルかどうかの判定</h3>
+
+<pre><code>File.ftype('/home/foo/testfile') == 'file'
+</code></pre>
+
+<h2 id="7642bcb">Perl
+<span class="article-date">2013/07/27</span></h2>
+
+<h3 id="1e3a01d">ファイルかどうかの判定</h3>
+
+<pre><code>if( -f '/home/foo/testfile' ){
+    ...;
+}
+</code></pre>
+
+<h2 id="6f9425d">sh
+<span class="article-date">2013/12/12</span></h2>
+
+<h3 id="9ca3498">ファイルかどうかの判定</h3>
+
+<pre><code>if [ -f /home/foo/testfile ]; then
+    ...
+fi
+</code></pre>
+
+<p>シンボリックリンクの場合は、リンク先がファイルかどうかを見る。</p>
+
+<p>-&gt; <a href="../../sh.html#operator">シェルスクリプトの演算子</a></p>
 
 </div>
 
