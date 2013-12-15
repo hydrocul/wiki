@@ -40,6 +40,7 @@
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
           <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
@@ -58,23 +59,13 @@
 <div id="content">
   <h1 id="is-symbolic-link">シンボリックリンクかどうかを調べるには</h1>
 
-<h2 id="e0df96a">Ruby
-<span class="article-date">2013/10/14</span></h2>
+<h2 id="e0df96a">Ruby</h2>
 
-<pre><code>if File.ftype('/home/foo/testfile') == 'link'
-  ...
-end
-</code></pre>
+<p>-&gt; <a href="file-type.html#ruby">ファイルの種類を取得</a></p>
 
-<h2 id="8fb3672">Perl
-<span class="article-date">2013/09/26</span></h2>
+<h2 id="8fb3672">Perl</h2>
 
-<pre><code>if( -l '/home/foo/testfile' ){
-    ...;
-}
-</code></pre>
-
-<p>Perlは小文字の <code>-l</code> だがシェルスクリプトは大文字の <code>-L</code>。</p>
+<p>-&gt; <a href="file-type.html#perl">ファイルの種類を判定</a></p>
 
 <h2 id="3ea71a3">sh
 <span class="article-date">2013/09/17</span></h2>

@@ -137,11 +137,20 @@ match式で扱いに違いがある。慣例として、識別子の途中にあ
 <code>int</code> はキーワードではないが、デフォルトで関数名として存在するので、使わないほうがよい。</p>
 
 <h2 id="37e8c79">Ruby
-<span class="article-date">2013/08/04</span></h2>
+<span class="article-date">2013/12/14</span></h2>
 
 <p><code>$</code> で始まる変数は、グローバル変数。</p>
 
+<p><code>@</code> で始まる変数は、インスタンス変数とよばれる、オブジェクトのフィールドを表す。
+RubyではオブジェクトのフィールドはScalaでの 
+<a href="../class/modifier.html#scala"><code>private[this]</code></a> と同等で、フィールドアクセスはインスタンス自身のものにしかアクセスできず、従って <code>obj.@field1</code> のような記法が存在しない。フィールドを外部に公開するには、<code>attr_accessor</code>, <code>attr_reader</code> などを使ってアクセッサメソッドを用意する必要がある。</p>
+
+<p><code>@@</code> で始まる変数は、クラス変数と呼ばれる。C++の静的メンバー変数や
+Javaのstaticフィールドに近い。</p>
+
 <p>アルファベット大文字で始まる名前は、定数。</p>
+
+<p>アルファベット小文字またはアンダースコア(<code>_</code>)で始まる変数は、ローカル変数。</p>
 
 <h2 id="90f26ce">Perl
 <span class="article-date">2013/09/21</span></h2>

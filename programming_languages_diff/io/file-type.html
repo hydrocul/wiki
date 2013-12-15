@@ -72,23 +72,46 @@ if os.path.isfile("/home/foo/testfile"):
 
 <p>シンボリックリンクの場合はリンク先がファイルかどうかを見る。存在しない場合は <code>False</code> になる。</p>
 
-<h2 id="6c8c92d">Ruby
-<span class="article-date">2013/04/30</span></h2>
+<h2 id="ruby">Ruby
+<span class="article-date">2013/12/14</span></h2>
 
-<h3 id="b886c09">ファイルかどうかの判定</h3>
-
-<pre><code>File.ftype('/home/foo/testfile') == 'file'
+<pre><code># ファイルの種類を取得
+File.ftype('/home/foo/testfile')
 </code></pre>
 
-<h2 id="7642bcb">Perl
-<span class="article-date">2013/07/27</span></h2>
+<p><code>File.ftype</code> は以下のような文字列を返す。</p>
 
-<h3 id="1e3a01d">ファイルかどうかの判定</h3>
+<dl>
+  <dt><code>'file'</code></dt>
+  <dd>ファイル</dd>
+  <dt>``directory’`</dt>
+  <dd>ディレクトリ</dd>
+  <dt><code>'link'</code></dt>
+  <dd>シンボリックリンク。リンク先の種類に依らず。</dd>
+</dl>
 
-<pre><code>if( -f '/home/foo/testfile' ){
+<h2 id="perl">Perl
+<span class="article-date">2013/12/14</span></h2>
+
+<pre><code># ファイルかどうかの判定
+# シンボリックリンクの場合はリンク先がファイルかどうかを判定
+if( -f '/home/foo/testfile' ){
+    ...;
+}
+
+# ディレクトリかどうかの判定
+# シンボリックリンクの場合はリンク先がディレクトリかどうかを判定
+if( -d '/home/foo/testfile' ){
+    ...;
+}
+
+# シンボリックリンクかどうかの判定
+if( -l '/home/foo/testfile' ){
     ...;
 }
 </code></pre>
+
+<p>シンボリックリンク判定の演算子は、Perlでは小文字の <code>-l</code> だがシェルスクリプトは大文字の <code>-L</code>。</p>
 
 <h2 id="6f9425d">sh
 <span class="article-date">2013/12/12</span></h2>

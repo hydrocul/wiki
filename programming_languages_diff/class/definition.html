@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>クラスの定義 | クラス | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>クラスの定義 | クラスとオブジェクト | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラス</a> &gt; <span>クラスの定義</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラスとオブジェクト</a> &gt; <span>クラスの定義</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,12 +24,17 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/class/">クラス</a>
+      <li><a href="../../programming_languages_diff/class/">クラスとオブジェクト</a>
         <ul>
           <li>クラスの定義</li>
           <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
           <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
           <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
+          <li><a href="../../programming_languages_diff/class/object-id.html">オブジェクトのIDを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
+          <li><a href="../../programming_languages_diff/class/access-member.html">クラスメンバーへのアクセス</a></li>
+          <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
+          <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
           <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
         </ul>
       </li>
@@ -58,14 +63,14 @@
 </code></pre>
 
 <h2 id="b6e3b6a">C++
-<span class="article-date">2013/08/28</span></h2>
+<span class="article-date">2013/12/14</span></h2>
 
 <p>例</p>
 
 <pre><code>class FooClass : public SuperFooClass {
 
 private:
-    // フィールド宣言
+    // メンバ変数宣言
     int field1;
     int field2;
 
@@ -76,8 +81,14 @@ public:
     // デストラクタ宣言
     ~FooClass();
 
-    // メンバ関数(メソッド)宣言
+    // メンバ関数宣言
     void method1();
+
+    // 静的メンバ変数宣言
+    static int sfield1;
+
+    // 静的メンバ関数宣言
+    static int smethod1();
 
 }
 
@@ -92,7 +103,7 @@ void FooClass::method1(){
 <p>またクラス宣言の中にはメンバ関数(メソッド)はシグニチャの宣言のみを書いて、メンバ関数の定義はクラス宣言の外側に書く。普通はクラス宣言はヘッダファイルに書き、メンバ関数定義はソースファイルに書く。</p>
 
 <h2 id="e8f6b75">Java
-<span class="article-date">2013/09/10</span></h2>
+<span class="article-date">2013/12/14</span></h2>
 
 <p>例</p>
 
@@ -109,6 +120,15 @@ void FooClass::method1(){
     
     // メソッド定義
     public void method1(){
+        ...;
+    }
+    
+    // staticフィールド定義
+    private static int sfield1;
+    private static int sfield2;
+    
+    // staticメソッド定義
+    public static void smethod1(){
         ...;
     }
     
@@ -156,7 +176,7 @@ void FooClass::method1(){
 </code></pre>
 
 <h2 id="61545c9">Ruby
-<span class="article-date">2013/08/27</span></h2>
+<span class="article-date">2013/12/14</span></h2>
 
 <p>例</p>
 
@@ -172,10 +192,10 @@ void FooClass::method1(){
     ...
   end
 
-  # フィールドへの読み取り専用アクセッサ
+  # フィールドへの読み取り専用アクセッサの作成
   attr_reader :field1, :field2
 
-  # フィールドへの読み書きアクセッサ
+  # フィールドへの読み書きアクセッサの作成
   attr_accessor :field3, :field4
 
 end

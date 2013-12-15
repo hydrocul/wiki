@@ -40,6 +40,7 @@
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
           <li>ディレクトリかどうかを調べるには</li>
@@ -78,23 +79,13 @@ if os.path.isdir("/home/foo/testfile"):
 
 <p>シンボリックリンクの場合は、リンク先がディレクトリかどうかを見る。存在しない場合は <code>False</code> になる。</p>
 
-<h2 id="aea5d01">Ruby
-<span class="article-date">2013/12/11</span></h2>
+<h2 id="aea5d01">Ruby</h2>
 
-<pre><code>File.ftype('/home/foo/testfile') == 'directory'
-</code></pre>
+<p>-&gt; <a href="file-type.html#ruby">ファイルの種類を判定</a></p>
 
-<p>シンボリックリンクの場合は、<code>File.ftype</code> は <code>"link"</code> を返し、たとえリンク先がディレクトリであってもこの式は <code>false</code> になる。</p>
+<h2 id="7bc9185">Perl</h2>
 
-<h2 id="7bc9185">Perl
-<span class="article-date">2013/12/11</span></h2>
-
-<pre><code>if( -d '/home/foo/testfile' ){
-    ...;
-}
-</code></pre>
-
-<p>シンボリックリンクの場合は、リンク先がディレクトリかどうかを見る。</p>
+<p>-&gt; <a href="file-type.html#perl">ファイルの種類を判定</a></p>
 
 <h2 id="59e5eb1">sh
 <span class="article-date">2013/12/11</span></h2>

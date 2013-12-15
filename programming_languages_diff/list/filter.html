@@ -102,6 +102,27 @@ def filter(p: A =&gt; Boolean): Seq[A]
 def partition(p: A =&gt; Boolean): (Seq[A], Seq[A])
 </code></pre>
 
+<h2 id="b025412">PHP
+<span class="article-date">2013/12/14</span></h2>
+
+<p>例</p>
+
+<pre><code>$arr = array(1, 2, 3, 4, 5);
+$filtered = array_filter($arr, function($elem){
+  return $elem % 2 == 1;
+});
+var_export($filtered);
+// =&gt;
+// array (
+//   0 =&gt; 1,
+//   2 =&gt; 3,
+//   4 =&gt; 5,
+// )
+</code></pre>
+
+<p>array_filter | PHPマニュアル<br />
+<a href="http://www.php.net/manual/ja/function.array-filter.php" target="_blank">http://www.php.net/manual/ja/function.array-filter.php</a></p>
+
 <h2 id="09c707f">Python
 <span class="article-date">2013/10/09</span></h2>
 

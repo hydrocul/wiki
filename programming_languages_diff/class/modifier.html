@@ -32,6 +32,7 @@
           <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
           <li><a href="../../programming_languages_diff/class/object-id.html">オブジェクトのIDを取得するには</a></li>
           <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
+          <li><a href="../../programming_languages_diff/class/access-member.html">クラスメンバーへのアクセス</a></li>
           <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
           <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
           <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
@@ -51,16 +52,16 @@
 <span class="article-date">2013/10/05</span></h2>
 
 <dl>
-  <dt><code>public</code> (structのメンバーでアクセス修飾子を指定しない場合のデフォルト)</dt>
+  <dt><code>public</code> (構造体(<code>struct</code>)のメンバでアクセス修飾子を指定しない場合のデフォルト)</dt>
   <dd>クラスの外からでも可視</dd>
   <dt><code>protected</code></dt>
   <dd>同一クラスの中とそのクラスを継承する派生クラス(サブクラス)の中からのみ可視</dd>
-  <dt><code>private</code> (classのメンバーでアクセス修飾子を指定しない場合のデフォルト)</dt>
+  <dt><code>private</code> (クラス(<code>class</code>)のメンバーでアクセス修飾子を指定しない場合のデフォルト)</dt>
   <dd>同一クラスの中からのみ可視。同一クラスであれば他のインスタンスからもアクセス可能。</dd>
 </dl>
 
 <h2 id="cab5d15">Java
-<span class="article-date">2013/11/06</span></h2>
+<span class="article-date">2013/12/14</span></h2>
 
 <dl>
   <dt><code>public</code></dt>
@@ -68,14 +69,14 @@
   <dt><code>protected</code></dt>
   <dd>クラスの中とそのクラスを継承するサブクラスの中、
 および同一パッケージの中からのみ可視</dd>
-  <dt>無指定(アクセス修飾子を指定しない場合のデフォルト) = パッケージプライベート</dt>
+  <dt>パッケージプライベート(アクセス修飾子を指定しない場合のデフォルト)</dt>
   <dd>同一パッケージの中からのみ可視。
-この可視性を指定するキーワードはない。</dd>
+この可視性を指定するキーワードがなく明示的に指定する方法がない。</dd>
   <dt><code>private</code></dt>
   <dd>同一クラスの中からのみ可視。同一クラスであれば他のインスタンスからもアクセス可能。</dd>
 </dl>
 
-<h2 id="722dd15">Scala
+<h2 id="scala">Scala
 <span class="article-date">2013/11/06</span></h2>
 
 <dl>
