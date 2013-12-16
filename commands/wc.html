@@ -87,27 +87,29 @@
 
 <div id="content">
   <h1 id="wc">wc コマンド
-<span class="article-date">2013/09/23</span></h1>
+<span class="article-date">2013/11/16</span></h1>
 
 <p><code>wc オプション ファイル名</code> またはパイプの形式で <code>cat ファイル名 | wc オプション</code> 
 のような形式で、行数や文字数などを数える。</p>
 
 <p>ファイル名は複数の引数で渡すこともできる。</p>
 
+<p>行数はあくまで改行の数を数えているにすぎないことに注意。最後に改行のない行があった場合はその行がカウントされない。</p>
+
 <h2 id="faac8ae">オプション
 <span class="article-date">2013/09/12</span></h2>
 
 <dl>
-  <dt><code>wc -l</code></dt>
+  <dt><code>-l</code></dt>
   <dd>行数を数える。実際には改行の数を数えるだけなので、<code>"1\n2\n"</code> は2行と
 数えるが、<code>"1\n2"</code> は1行と数える。改行が1つもないと中身が存在しても0行と
 数える。</dd>
-  <dt><code>wc -m</code></dt>
+  <dt><code>-m</code></dt>
   <dd>文字数を数える。マルチバイトな文字もあくまで文字単位で数える。
 文字コードがUTF-8じゃない場合の挙動はどうなんだろう？
 最後に改行がある場合はそれも数える。
 改行コードがCRLFの場合の挙動はどうなんだろう？</dd>
-  <dt><code>wc -c</code></dt>
+  <dt><code>-c</code></dt>
   <dd>バイト数を数える。最後に改行がある場合はそれも数える。</dd>
 </dl>
 

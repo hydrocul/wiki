@@ -40,6 +40,7 @@
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li>ファイルの最終更新日時を取得するには</li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
           <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
@@ -57,6 +58,17 @@
 
 <div id="content">
   <h1 id="file-get-timestamp">ファイルの最終更新日時を取得するには</h1>
+
+<h2 id="8738245">PHP
+<span class="article-date">2013/12/15</span></h2>
+
+<pre><code>filemtime('./hoge.txt');
+</code></pre>
+
+<p><code>filemtime</code> ではUnixタイムスタンプ(1970年1月1日0時からの秒数)で取得できる。</p>
+
+<p>filemtime | PHPマニュアル<br />
+<a href="http://www.php.net/manual/ja/function.filemtime.php" target="_blank">http://www.php.net/manual/ja/function.filemtime.php</a></p>
 
 <h2 id="ab22406">Python
 <span class="article-date">2013/09/01</span></h2>

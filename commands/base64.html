@@ -87,7 +87,7 @@
 
 <div id="content">
   <h1 id="base64">base64 コマンド
-<span class="article-date">2013/10/14</span></h1>
+<span class="article-date">2013/12/16</span></h1>
 
 <p>標準入力のデータをBASE64でエンコードまたはデコードして標準出力する。</p>
 
@@ -95,7 +95,7 @@
 base64 -d # デコード
 </code></pre>
 
-<p>変なところに改行があったりしてうまくデコードできない場合は</p>
+<p>変なところに改行があったりしてうまくデコードできない場合は以下のように<a href="tr.html#rm-char">tr</a>で削除をするとよい。</p>
 
 <pre><code>cat src.txt | tr -d '\n' | base64 -d | dst.txt
 </code></pre>

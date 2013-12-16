@@ -98,13 +98,13 @@
 <code>tr</code>では特定の1文字を別の1文字に置換する、という処理なので、
 <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
 
-<h2 id="9f61f82">ファイルの特定の文字を削除するには
-<span class="article-date">2013/04/03</span></h2>
+<h2 id="rm-char">ファイルの特定の文字を削除するには
+<span class="article-date">2013/12/16</span></h2>
+
+<p>以下は、改行をすべて削除する例。</p>
 
 <pre><code>cat ./src.txt | tr -d '\n' &gt; ./dst.txt
 </code></pre>
-
-<p>この例だと、改行をすべて削除する。</p>
 
 <h2 id="9f8c42b">特定の文字集合のみにするには
 <span class="article-date">2013/10/01</span></h2>
