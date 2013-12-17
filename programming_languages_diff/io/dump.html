@@ -40,6 +40,7 @@
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
           <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
@@ -79,7 +80,7 @@ pprint(a)
 </code></pre>
 
 <h2 id="9db1e45">Ruby
-<span class="article-date">2013/08/27</span></h2>
+<span class="article-date">2013/12/16</span></h2>
 
 <p>以下のようにすると、hogeオブジェクトの中身が標準出力に出力される。</p>
 
@@ -87,6 +88,8 @@ pprint(a)
 </code></pre>
 
 <p><code>p</code>メソッドはオブジェクトの<code>inspect</code>メソッドを呼び出して文字列表現を手に入れ、それを標準出力する。</p>
+
+<p>これに対して<code>puts</code>メソッドは<code>to_s</code>メソッドを呼び出して、それを標準出力する。</p>
 
 <h2 id="fe4ad45">Perl
 <span class="article-date">2013/10/20</span></h2>

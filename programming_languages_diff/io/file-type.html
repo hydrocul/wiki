@@ -91,7 +91,7 @@ File.ftype('/home/foo/testfile')
 </dl>
 
 <h2 id="perl">Perl
-<span class="article-date">2013/12/14</span></h2>
+<span class="article-date">2013/12/16</span></h2>
 
 <pre><code># ファイルかどうかの判定
 # シンボリックリンクの場合はリンク先がファイルかどうかを判定
@@ -111,19 +111,31 @@ if( -l '/home/foo/testfile' ){
 }
 </code></pre>
 
-<p>シンボリックリンク判定の演算子は、Perlでは小文字の <code>-l</code> だがシェルスクリプトは大文字の <code>-L</code>。</p>
+<p>シンボリックリンク判定の演算子は、シェルスクリプトでは大文字の <code>-L</code> だが
+Perlでは小文字の <code>-l</code>。</p>
 
-<h2 id="6f9425d">sh
-<span class="article-date">2013/12/12</span></h2>
+<h2 id="sh">sh
+<span class="article-date">2013/12/16</span></h2>
 
-<h3 id="9ca3498">ファイルかどうかの判定</h3>
+<pre><code># ファイルかどうかの判定
+# シンボリックリンクの場合はリンク先がファイルかどうかを判定
+if [ -f /home/foo/testfile ]; then
+    ...
+fi
 
-<pre><code>if [ -f /home/foo/testfile ]; then
+# ディレクトリかどうかの判定
+# シンボリックリンクの場合はリンク先がディレクトリかどうかを判定
+if [ -d /home/foo/testfile ]; then
+    ...
+fi
+
+# シンボリックリンクかどうかの判定
+if [ -L /home/foo/testfile ]; then
     ...
 fi
 </code></pre>
 
-<p>シンボリックリンクの場合は、リンク先がファイルかどうかを見る。</p>
+<p>シンボリックリンク判定の演算子は、Perlでは小文字の <code>-l</code> だがシェルスクリプトでは大文字の <code>-L</code>。</p>
 
 <p>-&gt; <a href="../../sh.html#operator">シェルスクリプトの演算子</a></p>
 
