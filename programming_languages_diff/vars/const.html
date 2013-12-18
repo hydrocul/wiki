@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>変数/定数・束縛 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>定数 | 変数/定数・束縛 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>変数/定数・束縛</span>
+  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/vars/">変数/定数・束縛</a> &gt; <span>定数</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,10 +24,10 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>変数/定数・束縛
+      <li><a href="../../programming_languages_diff/vars/">変数/定数・束縛</a>
         <ul>
           <li><a href="../../programming_languages_diff/vars/name.html">変数名</a></li>
-          <li><a href="../../programming_languages_diff/vars/const.html">定数</a></li>
+          <li>定数</li>
           <li><a href="../../programming_languages_diff/vars/scope.html">変数の宣言とスコープ</a></li>
           <li><a href="../../programming_languages_diff/vars/argv.html">コマンドライン引数を取得するには</a></li>
           <li><a href="../../programming_languages_diff/vars/env.html">環境変数を取得するには</a></li>
@@ -43,19 +43,43 @@
 </div>
 
 <div id="content">
-  <h1 id="vars">変数/定数・束縛</h1>
+  <h1 id="const">定数</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="php">PHP
+<span class="article-date">2013/11/15</span></h2>
 
-<ul>
-  <li><a href="../../programming_languages_diff/vars/name.html">変数名</a></li>
-  <li><a href="../../programming_languages_diff/vars/const.html">定数</a></li>
-  <li><a href="../../programming_languages_diff/vars/scope.html">変数の宣言とスコープ</a></li>
-  <li><a href="../../programming_languages_diff/vars/argv.html">コマンドライン引数を取得するには</a></li>
-  <li><a href="../../programming_languages_diff/vars/env.html">環境変数を取得するには</a></li>
-  <li><a href="../../programming_languages_diff/vars/file_line.html">ソースファイル名と行番号をソースコード中で取得するには</a></li>
-  <li><a href="../../programming_languages_diff/vars/swapvars.html">2つの変数の内容を入れ替えるには</a></li>
-</ul>
+<p>定数名は先頭に <code>$</code> が付かない点を除いて普通の変数名と同じルールだが、慣例では定数はすべて大文字で書く。</p>
+
+<pre><code>// グローバル空間に定数を定義
+// 配列を設定することはできない
+define("FOO", 10);
+
+// グローバル空間の定数を参照
+FOO;
+
+// クラスの中に定数を定義
+// 右辺には関数呼び出しや演算子の含むもの、配列を置くことはできない
+// 文字列の連結すらだめ
+const BAR = 20;
+
+// クラスの中の定数を参照
+HogeClass::BAR;
+</code></pre>
+
+<h2 id="ruby">Ruby
+<span class="article-date">2013/12/18</span></h2>
+
+<p>アルファベット大文字で始まる識別子が定数になる。これは慣例ではなくRubyの文法である。定数であってもなんと再代入が可能である。ただし再代入は普通は推奨されず、
+2度目以降は実行時に警告が表示される。</p>
+
+<pre><code>PI = 3.14
+</code></pre>
+
+<h2 id="f186cdf">Perl
+<span class="article-date">2013/09/30</span></h2>
+
+<pre><code>use const PI =&gt; 3.14;
+</code></pre>
 
 </div>
 
