@@ -44,6 +44,7 @@
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
       <li><a href="../commands/ls.html">ls コマンド</a></li>
+      <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
@@ -139,9 +140,9 @@
 </code></pre>
 
 <h2 id="1f69732">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには
-<span class="article-date">2013/07/03</span></h2>
+<span class="article-date">2013/12/19</span></h2>
 
-<p>diff は同じだったかどうかによって終了コードが異なるので、以下のように書ける。</p>
+<p>diff は2つのファイルが同じだった場合に成功の終了コード(0)を返し、違いがあった場合には異常終了(0以外)を返すので、以下のように書ける。</p>
 
 <pre><code>if diff fileA.txt fileB.txt &gt;/dev/null ; then
     # 同じだった場合
