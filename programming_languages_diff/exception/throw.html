@@ -56,7 +56,7 @@
 </code></pre>
 
 <h2 id="a8a711b">Ruby
-<span class="article-date">2013/08/22</span></h2>
+<span class="article-date">2013/12/19</span></h2>
 
 <p>例外をスローするには、以下のような書き方がある。</p>
 
@@ -64,6 +64,13 @@
 
 raise ZeroDivisionError, "message ..."
 </code></pre>
+
+<p>2つ目の構文は以下と同じである。</p>
+
+<pre><code>raise ZeroDivisionError.new("message ...")
+</code></pre>
+
+<p><code>raise</code>はRubyの構文ではなく定義済みのメソッドである。</p>
 
 <h2 id="bfdce20">Python
 <span class="article-date">2013/08/22</span></h2>

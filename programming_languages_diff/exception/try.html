@@ -122,7 +122,7 @@
 <p>finally節が書けるのはPHP5.5以降。</p>
 
 <h2 id="dee92b0">Ruby
-<span class="article-date">2013/08/22</span></h2>
+<span class="article-date">2013/12/19</span></h2>
 
 <pre><code>begin
   ...
@@ -135,7 +135,7 @@ ensure
 end
 </code></pre>
 
-<p>rescue節で例外オブジェクトを利用したい場合は、以下のように書く。</p>
+<p><code>rescue</code>節で例外オブジェクトを利用したい場合は、以下のように書く。</p>
 
 <pre><code>rescue =&gt; e
 </code></pre>
@@ -144,17 +144,21 @@ end
 
 <p>スタックトレースを出力するには <code>print e.backtrace.join("\n")</code> と書く。</p>
 
-<p>rescue節で特定のクラスの例外を捕捉したい場合は、以下のように書く。</p>
+<p><code>rescue</code>節で特定のクラスの例外を捕捉したい場合は、以下のように書く。</p>
 
 <pre><code>rescue ZeroDivisionError =&gt; e
 </code></pre>
 
+<p>例外クラス名はコンマ区切りで複数書ける。</p>
+
 <p>捕捉する例外クラスのクラス名を省略すると、 <code>StandardError</code> を捕捉するとみなされるので、
 <code>StandardError</code> 以外の <code>Exception</code> のインスタンスは捕捉されない。</p>
 
-<p>rescue節は複数書くことができる。</p>
+<p><code>rescue</code>節自体は複数書くことができる。</p>
 
-<p>rescue節の中では <code>retry</code> と書くと、beginからやりなおしてくれる。これは他の言語にはあまりない機能である。</p>
+<p><code>rescue</code>節の中では <code>retry</code> と書くと、beginからやりなおしてくれる。これは他の言語にはあまりない機能である。</p>
+
+<p><code>else</code>節は例外が発生しなかった場合に<code>ensure</code>節の前に実行される。これも他の言語にはあまりない機能である。</p>
 
 <h2 id="dae3dd5">Python
 <span class="article-date">2013/08/22</span></h2>

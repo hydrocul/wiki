@@ -147,23 +147,37 @@
 </code></pre>
 
 <h2 id="9e17a97">Ruby
-<span class="article-date">2013/12/08</span></h2>
+<span class="article-date">2013/12/19</span></h2>
+
+<pre><code>while ...
+  ...
+end
+</code></pre>
+
+<p>以下のように条件の後に <code>do</code> を付けてもよい。</p>
 
 <pre><code>while ... do
   ...
 end
 </code></pre>
 
-<p><code>do</code> は省略可能。</p>
+<p>条件式を否定形に反転した <code>until</code> もある。</p>
 
-<p>永久ループは</p>
+<pre><code>until ...
+  ...
+end
+</code></pre>
+
+<p><code>until</code> も条件の後ろに <code>do</code> を付けてもよい。</p>
+
+<p>永久ループは以下のようにする。</p>
 
 <pre><code>while true do
   ...
 end
 </code></pre>
 
-<p>Rubyでは <code>while</code> は結果を返すことができるが通常は <code>nil</code> を返す。引数を伴った <a href="break.html#ruby"><code>break</code></a> で特定の値を <code>while</code> が返すことができる。</p>
+<p>Rubyでは <code>while</code>, <code>until</code> は結果を返すことができるが通常は <code>nil</code> を返す。引数を伴った <a href="break.html#ruby"><code>break</code></a> で特定の値を <code>while</code>, <code>until</code> が返すことができる。</p>
 
 <h2 id="840dc62">Perl
 <span class="article-date">2013/09/06</span></h2>

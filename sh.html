@@ -197,9 +197,9 @@ Perlでも同じ。</dd>
 </dl>
 
 <h2 id="boolean-operator">論理演算子
-<span class="article-date">2013/09/02</span></h2>
+<span class="article-date">2013/12/19</span></h2>
 
-<p><code>test</code>コマンドの演算子</p>
+<p>以下は<code>test</code>コマンドの演算子。</p>
 
 <dl>
   <dt><code>!</code></dt>
@@ -223,6 +223,14 @@ if [ "$a" -eq "$b" or "$c" -eq "$d" ]; then
 fi
 # または
 if [ "$a" -eq "$b" ] || [ "$c" -eq "$d" ]; then
+    ...
+fi
+</code></pre>
+
+<p>否定の演算子は<code>test</code>コマンドでなくても、任意のコマンドの前につけることもできる。</p>
+
+<pre><code>if ! grep "xxx" hoge.txt &gt;/dev/null; then
+    # hoge.txt に xxx が見つからなかった場合の処理
     ...
 fi
 </code></pre>
