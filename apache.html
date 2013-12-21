@@ -110,9 +110,9 @@ ProxyPassReverse / http://127.0.0.1:3000/
 ProxyPreserveHost On
 </code></pre>
 
-<h2 id="9292228"><code>.httaccess</code></h2>
+<h2 id="5dc4613"><code>.htaccess</code> ファイル</h2>
 
-<h3 id="20a7133">ファイルが存在しない場合に限り特定のPHPなどで処理する <code>.htaccess</code>
+<h3 id="a21823c">ファイルが存在しない場合に限り特定のPHPなどで処理する <code>.htaccess</code> の設定
 <span class="article-date">2013/04/24</span></h3>
 
 <pre><code>RewriteEngine on
@@ -121,8 +121,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule  (.*) index.php/$1 [L]
 </code></pre>
 
-<h3 id="8a3959d">特定のURLを除外してBASIC認証をかける <code>.htaccess</code>
-<span class="article-date">2013/04/03</span></h3>
+<h3 id="8d60572">特定のURLを除外してBASIC認証をかける <code>.htaccess</code> の設定
+<span class="article-date">2013/12/21</span></h3>
 
 <p>例</p>
 
@@ -140,9 +140,11 @@ Deny from all
 Allow from env=excludeauth
 </code></pre>
 
-<p>BASIC認証をかけつつ、 <code>SetEnfIf</code> で特定のURLのときに変数を設定して、 <code>Allow</code> でその変数が設定されているときのアクセスを許可する。 <code>Satisfy Any</code> の指定は <code>require</code> と <code>Allow</code> のいずれかが満たされれば、アクセスが許可される、という意味。</p>
+<p>BASIC認証をかけつつ、 <code>SetEnfIf</code> で特定のURLのときに変数を設定して、
+<code>Allow</code> でその変数が設定されているときのアクセスを許可する。
+<code>Satisfy Any</code> の指定は前半の <code>require</code> の設定と後半の <code>Allow</code> の設定のいずれかが満たされれば、アクセスが許可される、という意味。</p>
 
-<h3 id="111369f">特定のIPからのアクセスは無条件に許可して、それ以外のアクセスにはBASIC認証をかける <code>.htaccess</code>
+<h3 id="7ef903b">特定のIPからのアクセスは無条件に許可して、それ以外のアクセスにはBASIC認証をかける <code>.htaccess</code> の設定
 <span class="article-date">2013/04/09</span></h3>
 
 <p>例</p>
@@ -160,10 +162,10 @@ Allow from 99.99.99.99
 Deny from all
 </code></pre>
 
-<h3 id="eafcc70">メンテナンス画面に切り替えるための <code>.htaccess</code>
-<span class="article-date">2013/04/03</span></h3>
+<h3 id="4620193">一時的にメンテナンス画面に切り替えるための <code>.htaccess</code> の設定
+<span class="article-date">2013/12/21</span></h3>
 
-<p>.htaccess の RewriteEngine On の直後に以下を書く</p>
+<p><code>.htaccess</code> の <code>RewriteEngine On</code> の直後に以下を書く。</p>
 
 <pre><code>RewriteEngine on
 RewriteCond %{REQUEST_URI} !^.*\.(js|css|gif|png|jpg)$
@@ -171,12 +173,12 @@ RewriteCond %{REQUEST_URI} !/maintenance\.html$
 RewriteRule ^(.*) /maintenance.html [R,L]
 </code></pre>
 
-<p>メンテナンスが終わった後は、上記3行を消して、代わりに以下を書く</p>
+<p>メンテナンスが終わった後は、上記の <code>RewriteEngine On</code> 以外の3行を消して、代わりに以下を書く。</p>
 
 <pre><code>RewriteRule ^maintenance.html$ / [R,L]
 </code></pre>
 
-<h3 id="54164ff">URLの拡張子を .html としたまま、 .php で動かす <code>.htaccess</code>
+<h3 id="31dfbe0">URLの拡張子を .html としたまま、 .php で動かす <code>.htaccess</code>
 <span class="article-date">2013/04/23</span></h3>
 
 <pre><code>RewriteEngine on
@@ -244,7 +246,7 @@ EAUvkvx4rxqGKbYSr1fyPGWrTU+JSjEAlqz1QU4HPgrL1639qMroMggf8A==
 -----END CERTIFICATE REQUEST-----
 </code></pre>
 
-<h2 id="openssl">openssl</h2>
+<h2 id="openssl">opensslコマンド</h2>
 
 <p>-&gt; <a href="commands/openssl.html"><code>openssl</code>コマンド</a></p>
 
