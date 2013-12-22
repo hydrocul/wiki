@@ -28,10 +28,14 @@
       <li><a href="../others/ext-sfx-mac.html">拡張子sfxのファイルをMacで解凍するには</a></li>
       <li><a href="../others/faster-startup-time-jvm.html">高速にJVMを起動するには</a></li>
       <li><a href="../others/flickr-bonk.html">flickrで動画をアップロードしても Bonk! と表示されてしまう場合</a></li>
+      <li><a href="../others/ie.html">Internet Explorer</a></li>
+      <li><a href="../others/jvm.html">JVM (Java仮想マシン)</a></li>
+      <li><a href="../others/linux.html">Linux</a></li>
       <li><a href="../others/linux-distribution-version.html">Linuxのディストリビューションのバージョンを確認するには</a></li>
       <li><a href="../others/memcached-centos-failed.html">memcachedがCentOSでうまくいかない場合</a></li>
       <li><a href="../others/mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するPHPのライブラリ</a></li>
       <li><a href="../others/phone-disk-error-mac.html">Macの Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー</a></li>
+      <li><a href="../others/php.html">PHP</a></li>
       <li>Ubuntuでの php.ini の場所</li>
       <li><a href="../others/php-post-curl.html">PHPのcURL関数を使って、HTTPのPOSTをするサンプル</a></li>
       <li><a href="../others/postfix-alias.html">postfixでのaliasの設定</a></li>
@@ -49,19 +53,7 @@
   <h1 id="php-ini-location">Ubuntuでの php.ini の場所
 <span class="article-date">2013/06/25</span></h1>
 
-<p><a href="../linux-pkg-manager.html"><code>apt-get</code></a> でインストールした場合、Apacheで動くPHPの 
-<code>php.ini</code> は <code>/etc/php5/apache2/php.ini</code> にある。この場所は <code>phpinfo();</code> で確認できる。</p>
-
-<p>コマンドラインで動くPHPの <code>php.ini</code> は
-<code>/etc/php5/cli/php.ini</code> にある。この場所は
-<code>php -i | grep php.ini</code> で確認できる。</p>
-
-<p>2つの <code>php.ini</code> の違いは <code>diff /etc/php5/apache2/php.ini /etc/php5/cli/php.ini</code>
-で確認できるが、Apacheで動く方は、PCNTL関数の実行とメモリの最大値が制限されているようだ。</p>
-
-<p>(Ubuntu 13.04 で確認)</p>
-
-<p>CentOS 6.4では <code>/etc/php.ini</code> にある。</p>
+<p>-&gt; <a href="../blog/2013/0625-php-ini-location-ubuntu.html">Ubuntuでの php.ini の場所</a></p>
 
 </div>
 

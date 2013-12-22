@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Linux | 未分類 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../others/">未分類</a> &gt; <span>Linux</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../others/">未分類</a>
+    <ul>
+      <li><a href="../others/disable-selinux-centos.html">CentOSのSELinuxを無効にするには</a></li>
+      <li><a href="../others/ext-sfx-mac.html">拡張子sfxのファイルをMacで解凍するには</a></li>
+      <li><a href="../others/faster-startup-time-jvm.html">高速にJVMを起動するには</a></li>
+      <li><a href="../others/flickr-bonk.html">flickrで動画をアップロードしても Bonk! と表示されてしまう場合</a></li>
+      <li><a href="../others/jvm.html">JVM (Java仮想マシン)</a></li>
+      <li>Linux</li>
+      <li><a href="../others/linux-distribution-version.html">Linuxのディストリビューションのバージョンを確認するには</a></li>
+      <li><a href="../others/memcached-centos-failed.html">memcachedがCentOSでうまくいかない場合</a></li>
+      <li><a href="../others/mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するPHPのライブラリ</a></li>
+      <li><a href="../others/phone-disk-error-mac.html">Macの Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー</a></li>
+      <li><a href="../others/php-ini-location.html">Ubuntuでの php.ini の場所</a></li>
+      <li><a href="../others/php-post-curl.html">PHPのcURL関数を使って、HTTPのPOSTをするサンプル</a></li>
+      <li><a href="../others/postfix-alias.html">postfixでのaliasの設定</a></li>
+      <li><a href="../others/ssl-geotrust-globalsign.html">(SSL) ジオトラストとグローバルサインのどっちがどっちだっけ？</a></li>
+      <li><a href="../others/test-on-ie.html">Internet Explorer の検証環境</a></li>
+      <li><a href="../others/try-snap.html">Snap.svg を使ってみる</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="linux">Linux</h1>
+
+<h2 id="81b1df0">デーモンの管理 (CentOSの場合)</h2>
+
+<h3 id="d48a464">起動時にデーモンを自動起動させるには
+<span class="article-date">2013/04/12</span></h3>
+
+<p>例えば、mysqlの場合</p>
+
+<pre><code># root
+chkconfig mysqld on
+</code></pre>
+
+<p><code>chkconfig</code> の設定状況は <code>chkconfig --list</code> で確認できる。</p>
+
+<h3 id="ef4cd57">手動でデーモンを起動させるには
+<span class="article-date">2013/04/12</span></h3>
+
+<p>例えば、mysqlの場合</p>
+
+<pre><code># root
+service mysqld start
+</code></pre>
+
+<h3 id="0d1277b">手動で作った起動スクリプトを <code>chkconfig</code> に管理させるには
+<span class="article-date">2013/04/12</span></h3>
+
+<p><code>/etc/init.d/mydaemon</code> というのがあるとすると</p>
+
+<pre><code># root
+chkconfig --add mydaemon
+</code></pre>
+
+<h2 id="distribution-version">Linuxのディストリビューションの確認方法
+<span class="article-date">2013/04/30</span></h2>
+
+<p>例</p>
+
+<pre><code>$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 12.04 LTS
+Release:        12.04
+Codename:       precise
+</code></pre>
+
+<p>このコマンドはパッケージのインストールが必要。</p>
+
+<p>Ubuntuの場合</p>
+
+<pre><code>sudo apt-get install lsb-release
+</code></pre>
+
+<h3 id="cfce18f"><code>/etc/</code> に入っているファイルで確認するには
+<span class="article-date">2013/04/30</span></h3>
+
+<p>RedHat, CentOS などの場合</p>
+
+<pre><code>$ cat /etc/redhat-release
+CentOS release 5.2 (Final)
+</code></pre>
+
+<p>Debian, Ubuntu などの場合</p>
+
+<pre><code>$ cat /etc/debian_version
+wheezy/sid
+</code></pre>
+
+<h3 id="5078744">スクリプトで自動判定するには
+<span class="article-date">2013/05/22</span></h3>
+
+<pre><code># ファイルの有無で調べる
+if [ -e /etc/redhat-release ] ; then
+    echo Redhat
+elif [ -e /etc/debian_version ] ; then
+    echo Debian
+fi
+
+# パッケージ管理ツールのコマンドで調べる
+if [ -x /usr/bin/yum ] ; then
+    echo Redhat
+elif [ -x /usr/bin/apt-get ] ; then
+    echo Debian
+fi
+</code></pre>
+
+<h2 id="7ae252b"><code>adduser</code> と <code>useradd</code>
+<span class="article-date">2013/05/13</span></h2>
+
+<p>-&gt; <a href="../commands/adduser.html">adduser コマンド</a></p>
+
+<h2 id="visudo">sudoの設定方法
+<span class="article-date">2013/05/13</span></h2>
+
+<p><code>visudo</code> というコマンドをroot権限で実行すると、設定ファイルがviなどで開ける。設定ファイルは <code>/etc/sudoers</code> だが、これを直接開いて編集すると、万が一書き方が間違っていたりしてsudoできなくなってしまうと大変。それを防ぐために <code>visudo</code> というコマンドは、設定ファイルをエディタで編集した後に構文チェックをして問題ない場合に限りそれを適用する仕組みになっている。</p>
+
+<h3 id="d929a6b">CentOS
+<span class="article-date">2013/05/13</span></h3>
+
+<p>sudoを使うには、最初にroot権限で <code>visudo</code> を実行して設定変更が必要。以下のような行があるので、この行のコメントを解除して有効にする。</p>
+
+<pre><code># %wheel ALL=(ALL) ALL
+</code></pre>
+
+<p>次に <code>vi /etc/group</code> を編集してwheelグループにsudo可能にしたいユーザを追加する。これで設定完了だが、設定変更前からwheelに追加したそのユーザでログインしたままの場合は、ログインしなおさないと変更が反映されないもよう。</p>
+
+<p>(CentOS6.4で確認)</p>
+
+<h4 id="859ecb5">なぜwheelという名前のグループなのか？
+<span class="article-date">2013/09/28</span></h4>
+
+<p>なぜsudoする権限のあるグループが「wheel」という名前なのか<br />
+<a href="http://codaholic.org/?p=1757" target="_blank">http://codaholic.org/?p=1757</a></p>
+
+<blockquote>
+  <p>諸説あるようですが個人的に納得したのが big wheel から由来している説です。big wheel というのは「大物」とか「実力者」とかそういった意味のある言葉のようです</p>
+</blockquote>
+
+<h3 id="9920ef9">Ubuntu
+<span class="article-date">2013/05/13</span></h3>
+
+<p>OSセットアップ時に作成したユーザはデフォルトでsudoという名前のグループに入っていて、そのグループに入っているユーザには任意のコマンドをsudoで実行できるようになっている。</p>
+
+<p>特定のコマンドをパスワードなしでsudoできるようにするには、</p>
+
+<pre><code>sudo ALL=(ALL) NOPASSWD: /etc/init.d/apache2
+</code></pre>
+
+<p>などと書く。この例ではApacheの起動・終了・リロードなどがsudoグループであればパスワードなしで実行できる。パスワードなしということは、スクリプトの中にこのコマンドを書いて自動実行させることもできる。</p>
+
+<p>(Ubuntu12.04で確認)</p>
+
+<h2 id="6aad54d">CPUの詳細を確認するには
+<span class="article-date">2013/06/14</span></h2>
+
+<pre><code>cat /proc/cpuinfo
+</code></pre>
+
+<p>これはLinuxの場合で、Macはこの方法では見ることができず、以下のようにする。</p>
+
+<pre><code>system_profiler SPHardwareDataType
+</code></pre>
+
+<h2 id="runlevel">runlevel
+<span class="article-date">2013/07/10</span></h2>
+
+<p>現在のLinuxのランレベルを調べるコマンド。</p>
+
+<pre><code>$ runlevel
+N 2
+</code></pre>
+
+<p>1つ前のランレベルと現在のランレベルが表示される。1つ前のランレベルがない場合は 
+<code>N</code> と表示される。</p>
+
+<p>手元のUbuntu Server 13.04では2、CentOS 6.4では3であった。</p>
+
+<p>RHEL 7からはランレベルの概念がなくなるらしい。<br />
+<a href="http://www.hitachi-solutions.co.jp/redhat/sp/column/vol01/" target="_blank">http://www.hitachi-solutions.co.jp/redhat/sp/column/vol01/</a></p>
+
+</div>
+
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
