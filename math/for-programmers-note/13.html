@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>第13回 (統計学第2回) 情報エントロピー / さまざまな確率分布 | プログラマのための数学勉強会のノート | 数学関係のノート | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../math/">数学関係のノート</a> &gt; <a href="../../math/for-programmers-note/">プログラマのための数学勉強会のノート</a> &gt; <span>第13回 (統計学第2回) 情報エントロピー / さまざまな確率分布</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../math/">数学関係のノート</a>
+    <ul>
+      <li><a href="../../math/for-programmers-note/">プログラマのための数学勉強会のノート</a>
+        <ul>
+          <li><a href="../../math/for-programmers-note/01.html">第1回プログラマのための数学勉強会のノート (イントロダクション)</a></li>
+          <li><a href="../../math/for-programmers-note/02.html">第2回プログラマのための数学勉強会のノート (計算機での浮動小数点数 / 極限・微分)</a></li>
+          <li><a href="../../math/for-programmers-note/03.html">第3回プログラマのための数学勉強会のノート (連続性・微分可能性・極値・ロルの定理 / テイラーの定理 / 関数の変化と微分係数 / 差分法 / 多変数関数の微分法)</a></li>
+          <li><a href="../../math/for-programmers-note/04.html">第4回プログラマのための数学勉強会のノート (多変数関数の微分法 / 方程式の数値解法)</a></li>
+          <li><a href="../../math/for-programmers-note/07.html">第7回プログラマのための数学勉強会のノート (行列とベクトルの概要 / 行列とベクトルの応用 / 連立一次方程式)</a></li>
+          <li><a href="../../math/for-programmers-note/08.html">第8回プログラマのための数学勉強会のノート (行列式・逆行列 / 連立一次方程式の解法 / ベクトルでの微分法 / 係数行列が正方でない連立一次方程式)</a></li>
+          <li><a href="../../math/for-programmers-note/11.html">第11回プログラマのための数学勉強会のノート (連立一次方程式の反復解法 / 二次形式 / 多変数関数の極値 / 重積分 / 線形微分方程式)</a></li>
+          <li><a href="../../math/for-programmers-note/12.html">第12回 (統計学第1回) 確率論入門 / 確率変数・確率分布 / ベイズの定理</a></li>
+          <li>第13回 (統計学第2回) 情報エントロピー / さまざまな確率分布</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="13">第13回 (統計学第2回) 情報エントロピー / さまざまな確率分布</h1>
+
+<p>このページは<a href="http://nineties.github.io/math-seminar/" target="_blank">プログラマのための数学勉強会</a>を聴講したときの個人的なノートである。</p>
+
+<p>第13回プログラマのための数学勉強会(2013/12/05)の資料<br />
+<a href="http://nineties.github.io/math-seminar/13.html" target="_blank">http://nineties.github.io/math-seminar/13.html</a></p>
+
+<p>第13回プログラマのための数学勉強会(2013/12/05)の動画<br />
+<a href="http://www.youtube.com/watch?v=O2ouPUxzzLI" target="_blank">http://www.youtube.com/watch?v=O2ouPUxzzLI</a></p>
+
+<h2 id="615a957">情報エントロピー
+<span class="article-date">2013/12/22</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/13.html#/3" target="_blank">http://nineties.github.io/math-seminar/13.html#/3</a></p>
+
+<ul>
+  <li><strong>情報量</strong><br />
+<a href="http://nineties.github.io/math-seminar/13.html#/5" target="_blank">http://nineties.github.io/math-seminar/13.html#/5</a>
+    <ul>
+      <li>情報量の大きいデータを解析することに価値がある</li>
+      <li>情報量の小さいデータを解析してもマシンパワーが無駄なだけ</li>
+      <li>情報量 \( I(A) \)<br />
+<a href="http://nineties.github.io/math-seminar/13.html#/7" target="_blank">http://nineties.github.io/math-seminar/13.html#/7</a>
+        <ul>
+          <li>\[ I(A) = -\log P(A) \]
+\( \log \) の底はなんでもよい</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>情報エントロピー(シャノン情報量)</strong><br />
+<a href="http://nineties.github.io/math-seminar/13.html#/10" target="_blank">http://nineties.github.io/math-seminar/13.html#/10</a>
+    <ul>
+      <li>\[ H(X) = - \sum_i P(X = x_i) \log P(X = x_i) \]</li>
+      <li>連続的な確率分布の場合の情報エントロピー<br />
+        <ul>
+          <li>\[ h(x) = - \int_{-\infty}^{+\infty} \rho(x) \log \rho(x) \mathrm{d}x \]</li>
+          <li>ただしこれはシャノン情報量とは言わない</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>エントロピーはすべての事象の確率が等しいときに最大となる<br />
+<a href="http://nineties.github.io/math-seminar/13.html#/12" target="_blank">http://nineties.github.io/math-seminar/13.html#/12</a></li>
+  <li><strong>エントロピー</strong><br />
+<a href="http://nineties.github.io/math-seminar/13.html#/14" target="_blank">http://nineties.github.io/math-seminar/13.html#/14</a>
+    <ul>
+      <li>「乱雑さの度合い」</li>
+      <li>情報科学におけるエントロピーは統計力学におけるエントロピーと定数倍を除いて一致する</li>
+      <li>情報科学と統計力学(物理学)との接点</li>
+      <li>情報を削除すると熱が発生する: マクスウェルの悪魔
+        <ul>
+          <li>情報をエネルギーに変換することに成功！<br />
+<a href="http://www.s.u-tokyo.ac.jp/ja/press/2010/42.html" target="_blank">http://www.s.u-tokyo.ac.jp/ja/press/2010/42.html</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>データの圧縮への応用<br />
+<a href="http://nineties.github.io/math-seminar/13.html#/15" target="_blank">http://nineties.github.io/math-seminar/13.html#/15</a></li>
+  <li><strong>結合エントロピー</strong><br />
+<a href="http://nineties.github.io/math-seminar/13.html#/17" target="_blank">http://nineties.github.io/math-seminar/13.html#/17</a>
+    <ul>
+      <li>\[ H(X, Y) = -\sum_{i, j} P(X = x_i, Y = y_i) \log P(X = x_i, Y = y_i) \]</li>
+    </ul>
+  </li>
+  <li><strong>相互情報量</strong><br />
+<a href="http://nineties.github.io/math-seminar/13.html#/17" target="_blank">http://nineties.github.io/math-seminar/13.html#/17</a>
+    <ul>
+      <li>\[ I(X, Y) = H(X) + H(Y) - H(X, Y) \]</li>
+      <li>\[ \text{確率変数} X, Y \text{が独立} \Leftrightarrow  I(X, Y) = 0 \]
+<a href="http://nineties.github.io/math-seminar/13.html#/18" target="_blank">http://nineties.github.io/math-seminar/13.html#/18</a></li>
+      <li>相互情報量が小さいほど独立に近い</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="61c7c47">さまざまな確率分布
+<span class="article-date">2013/12/22</span></h2>
+
+<p><a href="http://nineties.github.io/math-seminar/13.html#/19" target="_blank">http://nineties.github.io/math-seminar/13.html#/19</a></p>
+
+<ul>
+  <li><strong>離散一様分布</strong><br />
+<a href="http://nineties.github.io/math-seminar/13.html#/21" target="_blank">http://nineties.github.io/math-seminar/13.html#/21</a></li>
+  <li><strong>連続一様分布</strong><br />
+<a href="http://nineties.github.io/math-seminar/13.html#/22" target="_blank">http://nineties.github.io/math-seminar/13.html#/22</a>
+    <ul>
+      <li>\( U(a, b) \) と書く</li>
+      <li>確率密度関数
+\[ \rho(x) = \left\{ \begin{array}{cl}
+              \frac{1}{b - a} &amp; (a \leq x \leq b) \\ 
+              0               &amp; (\text{otherwise})
+              \end{array} \right. \]</li>
+      <li>平均
+\[ \mu = \frac{a + b}{2} \]</li>
+      <li>分散
+\[ \sigma^2 = \frac{(b - a)^2}{12} \]</li>
+    </ul>
+  </li>
+</ul>
+
+<p>書きかけ</p>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
