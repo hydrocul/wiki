@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Emacs | 未分類 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../others/">未分類</a> &gt; <span>Emacs</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../others/">未分類</a>
+    <ul>
+      <li>Emacs</li>
+      <li><a href="../others/ext-sfx-mac.html">拡張子sfxのファイルをMacで解凍するには</a></li>
+      <li><a href="../others/faster-startup-time-jvm.html">高速にJVMを起動するには</a></li>
+      <li><a href="../others/ie.html">Internet Explorer</a></li>
+      <li><a href="../others/jvm.html">JVM (Java仮想マシン)</a></li>
+      <li><a href="../others/linux.html">Linux</a></li>
+      <li><a href="../others/linux-distribution-version.html">Linuxのディストリビューションのバージョンを確認するには</a></li>
+      <li><a href="../others/mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するPHPのライブラリ</a></li>
+      <li><a href="../others/phantomjs.html">phantomjs</a></li>
+      <li><a href="../others/php.html">PHP</a></li>
+      <li><a href="../others/php-ini-location.html">Ubuntuでの php.ini の場所</a></li>
+      <li><a href="../others/php-post-curl.html">PHPのcURL関数を使って、HTTPのPOSTをするサンプル</a></li>
+      <li><a href="../others/test-on-ie.html">Internet Explorer の検証環境</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="emacs">Emacs</h1>
+
+<h2 id="45c576a">文字コード・改行コードを変えてファイルを再読みこむには
+<span class="article-date">2013/10/18</span></h2>
+
+<p>C-x C-m r utf-8 C-m</p>
+
+<p>以下の方法もある。(以下の手順を順番に実行)</p>
+
+<ol>
+  <li>C-x C-m c</li>
+  <li>文字コード・改行コードを入力 C-m</li>
+  <li>M-x revert-buffer C-m</li>
+</ol>
+
+<p>文字コード・改行コードは以下のような文字列が使える。</p>
+
+<ul>
+  <li><code>utf-8-unix</code></li>
+  <li><code>sjis-dos</code></li>
+  <li><code>sjis-mac</code></li>
+  <li><code>euc-jp-unix</code></li>
+  <li><code>euc-japan-unix</code></li>
+  <li><code>junet-unix</code></li>
+</ul>
+
+<p><code>euc-jp</code> と <code>euc-japan</code> はたぶん同じ。</p>
+
+<h2 id="56fb3a3">文字コードを変更して保存するには
+<span class="article-date">2013/05/17</span></h2>
+
+<p>C-x C-m f utf-8</p>
+
+<h2 id="ae9d975">タブ文字を1ストロークで入力できるようにするには
+<span class="article-date">2013/07/01</span></h2>
+
+<p>タブ文字そのものは C-q TAB で入力できるが、2ストロークが面倒なので、以下の設定を <code>.emacs</code> に書いて、C-i で入力できるようにする。ただ、これだとTABでも C-i と同じ扱いでタブ文字そのものの入力になってしまう。</p>
+
+<pre><code>;; C-i でタブを入力できるように
+(global-set-key "\C-i" '(lambda ()
+  (interactive)
+  (insert "\t")))
+</code></pre>
+
+<p>ちなみにシェル環境では Ctrl-v TAB でタブ文字を入力できる。</p>
+
+<h2 id="7c294cb">タブと全角スペースを表示させるには
+<span class="article-date">2013/09/26</span></h2>
+
+<p>ソースコード中に全角スペースが混ざっていてハマってしまうのを防ぐために、全角文字を可視化したい。そして、インデントにスペースを使うかタブを使うかのルールがプロジェクトごとに違っていたりしてエディタの設定でなんとかするのが難しいので、タブ文字も可視化したい。以下は、そういう場合の設定。</p>
+
+<p>以下の設定で、タブは黄色のアンダースコア、全角スペースはアンダースコア+赤で塗りつぶしで表示される。</p>
+
+<pre><code>(global-whitespace-mode 1)
+(setq whitespace-space-regexp "\\(\u3000\\)")
+(setq whitespace-style '(face tabs tab-mark spaces space-mark))
+(setq whitespace-display-mappings ())
+(set-face-foreground 'whitespace-tab "yellow")
+(set-face-underline  'whitespace-tab t)
+(set-face-foreground 'whitespace-space "yellow")
+(set-face-background 'whitespace-space "red")
+(set-face-underline  'whitespace-space t)
+</code></pre>
+
+</div>
+
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
