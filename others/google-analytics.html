@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Google Analytics | 未分類 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../others/">未分類</a> &gt; <span>Google Analytics</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../others/">未分類</a>
+    <ul>
+      <li><a href="../others/emacs.html">Emacs</a></li>
+      <li>Google Analytics</li>
+      <li><a href="../others/ie.html">Internet Explorer</a></li>
+      <li><a href="../others/jvm.html">JVM (Java仮想マシン)</a></li>
+      <li><a href="../others/linux.html">Linux</a></li>
+      <li><a href="../others/mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するPHPのライブラリ</a></li>
+      <li><a href="../others/phantomjs.html">phantomjs</a></li>
+      <li><a href="../others/php.html">PHP</a></li>
+      <li><a href="../others/php-ini-location.html">Ubuntuでの php.ini の場所</a></li>
+      <li><a href="../others/php-post-curl.html">PHPのcURL関数を使って、HTTPのPOSTをするサンプル</a></li>
+      <li><a href="../others/test-on-ie.html">Internet Explorer の検証環境</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="google-analytics">Google Analytics</h1>
+
+<p><a href="http://www.google.co.jp/intl/ja/analytics/" target="_blank">http://www.google.co.jp/intl/ja/analytics/</a></p>
+
+<h2 id="api">API
+<span class="article-date">2013/06/13</span></h2>
+
+<p>集計結果を取得できるAPIが提供されている。</p>
+
+<p>APIアクセスのための、PHP, Ruby, JavaなどのライブラリやサンプルコードをGoogleが提供している。</p>
+
+<p><a href="https://developers.google.com/analytics/devguides/reporting/core/v3/gdataLibraries" target="_blank">https://developers.google.com/analytics/devguides/reporting/core/v3/gdataLibraries</a></p>
+
+<p>APIの認証は、OAuth2.0。</p>
+
+<p>期間、dimensions, metrics を指定して集計結果を取得できる。dimensionsとして、日付、URL、参照元、ブラウザの種類など、 metricsとして、訪問数、PVなどが使える。</p>
+
+<p><a href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets" target="_blank">https://developers.google.com/analytics/devguides/reporting/core/dimsmets</a></p>
+
+<h3 id="api-explorer">Google APIs Explorer
+<span class="article-date">2013/09/09</span></h3>
+
+<p><a href="https://developers.google.com/apis-explorer/#p/" target="_blank">https://developers.google.com/apis-explorer/#p/</a></p>
+
+<p>ブラウザから簡単にGoogleの各種APIを試すことができる。</p>
+
+<h3 id="820fb6b">制限
+<span class="article-date">2013/06/13</span></h3>
+
+<ul>
+  <li>1ユーザ毎秒1リクエストまで (設定で変更可能)</li>
+  <li>全ユーザ合計毎日5万リクエストまで (Quota Request Form あり)</li>
+</ul>
+
+<h3 id="88528f8">APIにアクセスする準備
+<span class="article-date">2013/06/13</span></h3>
+
+<p>Google API console<br />
+<a href="https://developers.google.com/console/" target="_blank">https://developers.google.com/console/</a></p>
+
+<p>Google API console のページで “Create project …” ボタンを押して、プロジェクトを作成して、いろいろ設定する。</p>
+
+<h3 id="cc7bf46">Rubyでのサンプルコード
+<span class="article-date">2013/06/17</span></h3>
+
+<p>phase1.rb</p>
+
+<pre><code># -*- coding: utf-8 -*-
+require 'google/api_client'
+
+client = Google::APIClient.new
+
+# API console
+# https://developers.google.com/console/
+# で取得できる Client ID, Client secret をここに書く
+# 
+# このRubyのライブラリでは、
+# Web Application として登録が必要みたい
+
+# Client ID
+client.authorization.client_id = '999999999999-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com'
+
+# Client secret
+client.authorization.client_secret = 'xxxxxxxxxxxxxxxxxxxxxxxx'
+
+# 自分のアプリ側でコールバックを受けるURLをここに書く。
+# 実際にコールバックを受けるときにはこのURLの後ろに
+# ?code=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# というようなパラメータが渡される。
+client.authorization.redirect_uri = 'http://myapp.example.com/callback'
+
+# OAuthでGoogleアカウントのどんな権限を必要とするのかを以下に書く。
+# 
+# Analyticsのレポート取得で必要な権限の説明は以下に書いてある。
+# https://developers.google.com/analytics/devguides/reporting/core/v3/gdataAuthorization#OAuth2Scope
+# 
+client.authorization.scope = 'https://www.googleapis.com/auth/analytics.readonly'
+
+redirect_uri = client.authorization.authorization_uri
+puts redirect_uri
+# 
+# ブラウザでGoogleアカウントにログインしておいて、
+# ここで表示されたURLにブラウザアクセスすると、
+# 認可の画面が表示されるので、"アクセスを許可" のボタンを押す。
+# 
+# すると、client.authorization.redirect_uri に設定したURLにリダイレクトされるが、
+# そのときに code というパラメータを渡されるので、
+# その値を次の phase2.rb に書く。
+</code></pre>
+
+<p>phase2.rb</p>
+
+<pre><code># -*- coding: utf-8 -*-
+require 'google/api_client'
+
+client = Google::APIClient.new
+
+client.authorization.client_id = '999999999999-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com'
+client.authorization.client_secret = 'xxxxxxxxxxxxxxxxxxxxxxxx'
+client.authorization.redirect_uri = 'http://myapp.example.com/callback'
+client.authorization.scope = 'https://www.googleapis.com/auth/analytics.readonly'
+
+# phase1.rb で取得したcodeをここに書く
+client.authorization.code = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
+p client.authorization.fetch_access_token!
+# ここでaccess_tokenなどがHashで表示されるので、
+# それを次の phase3.rb に書く
+</code></pre>
+
+<p>phase3.rb</p>
+
+<pre><code># -*- coding: utf-8 -*-
+require 'google/api_client'
+
+client = Google::APIClient.new
+
+# phase2.rb で取得したHashをここに書く
+client.authorization.update_token!({"access_token"=&gt;"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "token_type"=&gt;"Bearer", "expires_in"=&gt;3600, "refresh_token"=&gt;"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+
+analytics = client.discovered_api('analytics', 'v3')
+
+result = client.execute(
+  :api_method =&gt; analytics.management.profiles.list,
+  :parameters =&gt; {'accountId' =&gt; '~all', 'webPropertyId' =&gt; '~all'}
+)
+p result.data
+# ここでいろいろ表示されるが、idの値(8桁の数字の)を拾って、
+# それを次の phase4.rb に書く
+</code></pre>
+
+<p>phase4.rb</p>
+
+<pre><code># -*- coding: utf-8 -*-
+require 'google/api_client'
+
+client = Google::APIClient.new
+
+# phase2.rb で取得したHashをここに書く
+client.authorization.update_token!({"access_token"=&gt;"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "token_type"=&gt;"Bearer", "expires_in"=&gt;3600, "refresh_token"=&gt;"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+
+analytics = client.discovered_api('analytics', 'v3')
+
+# idsのところには、phase3.rb で取得した8桁の数字のidに 'ga:' を付けて書く
+result = client.execute(
+  :api_method =&gt; analytics.data.ga.get,
+  :parameters =&gt; {'ids' =&gt; 'ga:99999999', # Unique table ID
+                                          # for retrieving Analytics data.
+                                          # Table ID is of the form ga:XXXX,
+                                          # where XXXX is the Analytics profile ID.
+                  'start-date' =&gt; '2013-06-01',
+                  'end-date' =&gt; '2013-06-10',
+                  'dimensions' =&gt; 'ga:date,ga:pagePath',
+                  'metrics' =&gt; 'ga:visitors,ga:pageviews'})
+p result.data.rows
+</code></pre>
+
+</div>
+
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
