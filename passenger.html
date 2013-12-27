@@ -45,7 +45,6 @@
   <li><a href="./others/">未分類</a></li>
   <li>Passenger (Ruby on Rails)</li>
   <li><a href="./phantomjs.html">phantomjs</a></li>
-  <li><a href="./php.html">PHP</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
 </ul>
@@ -54,65 +53,9 @@
 </div>
 
 <div id="content">
-  <h1 id="passenger">Passenger (Ruby on Rails)
-<span class="article-date">2013/10/28</span></h1>
+  <h1 id="passenger">Passenger (Ruby on Rails)</h1>
 
-<p>Ruby on Rails のアプリをApacheで動かすためのモジュール。</p>
-
-<p>Passengerの他にUnicornというアプリケーションサーバもある。</p>
-
-<h2 id="aeb13ff">インストール
-<span class="article-date">2013/05/29</span></h2>
-
-<p>以下のコマンドだけでよい。</p>
-
-<pre><code>sudo gem install passenger
-sudo passenger-install-apache2-module
-</code></pre>
-
-<p>足りないパッケージがあった場合は全部やり方を 
-<code>passenger-install-apache2-module</code> が教えてくれるのでそのとおりにすればよい。</p>
-
-<p>Ubuntuの場合は事前に以下を実行すると少し楽になる。</p>
-
-<pre><code>sudo apt-get install build-essential libcurl4-openssl-dev libssl-dev zlib1g-dev apache2-threaded-dev libapr1-dev libaprutil1-dev
-</code></pre>
-
-<h2 id="a51ce6e">環境の切替
-<span class="article-date">2013/09/28</span></h2>
-
-<p>Railsの実行環境として、<code>production</code>, <code>development</code>, <code>test</code> の3種類を選択できる。
-Passenger で動かすときのデフォルトは、<code>production</code> 環境での動作となる。</p>
-
-<p><code>development</code> または <code>test</code> に切り替えたい場合は、Apacheの設定に以下を書き足す。
-<code>VirtualHost</code>の中に書けばそのバーチャルホストにだけ適用できる。</p>
-
-<pre><code>RailsEnv development
-</code></pre>
-
-<h2 id="33b0086">環境変数
-<span class="article-date">2013/04/03</span></h2>
-
-<p>環境変数を設定したい場合は、Apacheの設定に以下のように書き足す。</p>
-
-<pre><code>SetEnv GEM_HOME /home/hogehoge/.gems
-</code></pre>
-
-<h2 id="4914d6d">特定のrailsアプリケーションのみ再起動するには
-<span class="article-date">2013/04/05</span></h2>
-
-<p>Passenger で動いているrailsアプリケーションを再起動するには <code>tmp</code> ディレクトリに
-<code>restart.txt</code> というファイルを設置する。ファイル設置後最初のアクセスで、再起動が実行される。</p>
-
-<pre><code>touch tmp/restart.txt
-</code></pre>
-
-<p>古いバージョンだと再起動完了後にこのファイルは削除されるらしいが、少なくとも passenger 3.0.19 では再起動してもファイルは削除されない。
-<code>tmp/restart.txt</code> のタイムスタンプを見ている様子。</p>
-
-<p>このファイルをgit管理下に入れて、バージョンが変わるごとにこのファイルの内容を書き換えて、サーバサイドで <code>git pull</code> するごとにこのファイルのタイムスタンプが変わるようにすれば、自動で再起動がかかって便利そう。</p>
-
-<p>Apacheを再起動するとすべてのアプリケーションで数秒のダウンタイムが発生してしまうが、この方法なら影響するのはこのアプリケーションのみで、ダウンタイムも発生しない。</p>
+<p>-&gt; <a href="others/passenger.html">Passenger</a></p>
 
 </div>
 
