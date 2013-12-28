@@ -47,7 +47,7 @@
 <h2 id="379089a">Java
 <span class="article-date">2013/09/28</span></h2>
 
-<p>整数は<code>0</code>で始まる8進数表記、<code>0x</code>または<code>0X</code>で始まる16進数表記を使える。</p>
+<p>整数は10進数での表記のほか、<code>0</code>で始まる8進数表記、<code>0x</code>または<code>0X</code>で始まる16進数表記を使える。</p>
 
 <p>10進数表記、8進数表記、16進数表記ともに、最後に <code>l</code>または<code>L</code>を付けることで<code>long</code>型になり、それ以外は<code>int</code>型になる。</p>
 
@@ -76,9 +76,15 @@ C言語やJavaなどと違って、8進数表記は<code>0o</code>または<code
 <a href="http://docs.python.jp/2/reference/lexical_analysis.html#numbers" target="_blank">http://docs.python.jp/2/reference/lexical_analysis.html#numbers</a></p>
 
 <h2 id="100dce2">Ruby
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2013/12/28</span></h2>
 
-<p>整数は3ケタごとの区切りなどとして途中にアンダースコアを入れることができる。入れる場所はどこでもよく、インタプリタは単に途中のアンダースコアを無視する。</p>
+<p>10進数での表記の他、
+<code>0</code>で始まる8進数表記、<code>0x</code>または<code>0X</code>で始まる16進数表記、
+<code>0b</code>または<code>0B</code>で始まる2進数表記を使える。
+C言語やJavaなどと違って、Pythonと同様に、
+8進数表記は<code>0o</code>または<code>0O</code>で始めることもできる。</p>
+
+<p>整数は3ケタごとの区切りなどとして途中にアンダースコアを入れることができる。入れる場所はどこでもよく、インタプリタは単に途中のアンダースコアを無視する。ただし、<code>0x</code> などの直後にアンダースコアを置くことはできない。さらなる例外として、なぜか8進数表記は <code>0_</code> で始めることもできる。</p>
 
 <h2 id="269ff61">Perl
 <span class="article-date">2013/09/10</span></h2>

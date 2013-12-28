@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>未分類 | hydrocul のメモ</title>
+<title>Mac | 未分類 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <span>未分類</span>
+  <a href="../others/">未分類</a> &gt; <span>Mac</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>未分類
+  <li><a href="../others/">未分類</a>
     <ul>
       <li><a href="../others/apache.html">Apache</a></li>
       <li><a href="../others/emacs.html">Emacs</a></li>
@@ -31,7 +31,7 @@
       <li><a href="../others/jvm.html">JVM (Java仮想マシン)</a></li>
       <li><a href="../others/linux.html">Linux</a></li>
       <li><a href="../others/linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
-      <li><a href="../others/mac.html">Mac</a></li>
+      <li>Mac</li>
       <li><a href="../others/mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するPHPのライブラリ</a></li>
       <li><a href="../others/passenger.html">Passenger (Ruby on Rails)</a></li>
       <li><a href="../others/phantomjs.html">phantomjs</a></li>
@@ -47,27 +47,61 @@
 </div>
 
 <div id="content">
-  <h1 id="others">未分類</h1>
+  <h1 id="mac">Mac</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="dcab943">パッケージ管理ツール
+<span class="article-date">2013/05/03</span></h2>
 
 <ul>
-  <li><a href="../others/apache.html">Apache</a></li>
-  <li><a href="../others/emacs.html">Emacs</a></li>
-  <li><a href="../others/google-analytics.html">Google Analytics</a></li>
-  <li><a href="../others/ie.html">Internet Explorer</a></li>
-  <li><a href="../others/jvm.html">JVM (Java仮想マシン)</a></li>
-  <li><a href="../others/linux.html">Linux</a></li>
-  <li><a href="../others/linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
-  <li><a href="../others/mac.html">Mac</a></li>
-  <li><a href="../others/mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するPHPのライブラリ</a></li>
-  <li><a href="../others/passenger.html">Passenger (Ruby on Rails)</a></li>
-  <li><a href="../others/phantomjs.html">phantomjs</a></li>
-  <li><a href="../others/php.html">PHP</a></li>
-  <li><a href="../others/php-ini-location.html">Ubuntuでの php.ini の場所</a></li>
-  <li><a href="../others/php-post-curl.html">PHPのcURL関数を使って、HTTPのPOSTをするサンプル</a></li>
-  <li><a href="../others/test-on-ie.html">Internet Explorer の検証環境</a></li>
+  <li>Macports
+    <ul>
+      <li>パッケージ数は多い</li>
+      <li>FreeBSD の ports がベース</li>
+      <li>インストール先は /opt/local</li>
+    </ul>
+  </li>
+  <li>Homebrew
+    <ul>
+      <li>パッケージ数は少ない</li>
+      <li>インストール先は /usr/local</li>
+      <li>Ruby で実装されている</li>
+    </ul>
+  </li>
+  <li>Fink
+    <ul>
+      <li>海外で多く使われている</li>
+      <li>パッケージ数は圧倒的</li>
+      <li>Debian の apt がベース</li>
+      <li>インストール先は /sw</li>
+    </ul>
+  </li>
+  <li>Gentoo Prefix
+    <ul>
+      <li>パッケージ数は多い</li>
+      <li>Gentoo の portage がベース</li>
+      <li>インストール先は ~/Gentoo</li>
+      <li>管理者権限不要</li>
+    </ul>
+  </li>
 </ul>
+
+<p>どれも Xcode が必須。</p>
+
+<p>-&gt; <a href="linux-pkg-manager.html">パッケージ管理ツール(yum, apt-get, Macports, Homebrew)</a></p>
+
+<h2 id="7dd32ab">Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー</h2>
+
+<p>-&gt; <a href="../blog/2013/0601-phone-disk-error-mac.html">Macの Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー</a></p>
+
+<h2 id="2069510">Microsoftの Remote Desktop Connection が固まったときに一発でkillするには
+<span class="article-date">2013/04/04</span></h2>
+
+<pre><code>kill `ps aux | grep Remote | grep -v grep | tr -s ' ' | cut -d ' ' -f2`
+</code></pre>
+
+<h2 id="838bcd1">拡張子sfxのファイルを解凍するには</h2>
+
+<p>-&gt; <a href="../blog/2013/0408-sfx-mac.html">拡張子sfxのファイルをMacで解凍するには</a></p>
 
 </div>
 

@@ -32,7 +32,6 @@
   <li><a href="./math/">数学関係のノート</a></li>
   <li><a href="./blog/">ブログ</a></li>
   <li><a href="./apache.html">Apache</a></li>
-  <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li><a href="./linux.html">Linux</a></li>
@@ -43,9 +42,6 @@
   <li><a href="./mysql.html">MySQLのメモ</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
   <li><a href="./others/">未分類</a></li>
-  <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
-  <li><a href="./phantomjs.html">phantomjs</a></li>
-  <li><a href="./php.html">PHP</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
 </ul>
@@ -56,147 +52,7 @@
 <div id="content">
   <h1 id="linux-pkg-manager">Linuxでのパッケージ管理</h1>
 
-<p><code>yum</code> または <code>apt-get</code>。Macでは Macports や Homebrew など。</p>
-
-<h2 id="fd8d152">パッケージマネージャ別の基本操作</h2>
-
-<h3 id="d0df2fe"><code>apt-get</code>
-<span class="article-date">2013/05/20</span></h3>
-
-<pre><code># パッケージを検索
-apt-cache search キーワード
-
-# インストール
-sudo apt-get install パッケージ名
-
-# アンインストール
-sudo apt-get remove パッケージ名
-
-# パッケージ一覧を更新するには
-sudo apt-get update
-# これをしばらくしていないと、インストールしようとしても
-# Not Found になってしまうことがある。
-
-# 現在インストールされているパッケージ全てをバージョンアップ
-sudo apt-get upgrade
-
-# インストール済みのパッケージ一覧を見るには
-dpkg -l
-
-# パッケージでインストールされるファイルの一覧を見るには
-dpkg -L パッケージ名
-
-# 特定のファイルがどのパッケージに含まれるかを調べるには
-dpkg -S ファイル名
-</code></pre>
-
-<h3 id="1db4485"><code>yum</code>
-<span class="article-date">2013/05/20</span></h3>
-
-<pre><code># パッケージを検索
-yum search キーワード
-
-# インストール
-sudo yum install パッケージ名
-
-# 質問には全部Yesと答えることにして自動でインストールする
-sudo yum -y install パッケージ名
-
-# アンインストール
-sudo yum remove パッケージ名
-
-# インストール済みのパッケージ一覧を見るには
-rpm -qa
-
-# パッケージでインストールされるファイルの一覧を見るには
-rpm -ql パッケージ名
-
-# 特定のファイルがどのパッケージに含まれるかを調べるには
-rpm -qf ファイル名
-</code></pre>
-
-<h3 id="51244e6">Macports
-<span class="article-date">2013/05/03</span></h3>
-
-<pre><code># パッケージを検索
-port search キーワード
-
-# インストール
-sudo port install パッケージ名
-
-# アンインストール
-sudo port uninstall パッケージ名
-
-# パッケージ一覧を更新するには
-sudo port selfupdate
-
-# 特定のパッケージをバージョンアップ
-sudo port upgrade パッケージ名
-
-# 現在インストールされているパッケージ全てをバージョンアップ
-sudo port upgrade installed
-
-# インストール済みのパッケージ一覧を見るには
-port installed
-
-# パッケージでインストールされるファイルの一覧を見るには
-port contents パッケージ名
-</code></pre>
-
-<h3 id="9b9539b">Homebrew
-<span class="article-date">2013/05/03</span></h3>
-
-<pre><code># パッケージを検索
-brew search キーワード
-
-# インストール
-brew install パッケージ名
-
-# アンインストール
-brew uninstall パッケージ名
-
-# パッケージ一覧を更新するには
-brew update
-# このコマンドの実行には git がインストールされていることが必要
-
-# 現在インストールされているパッケージ全てをバージョンアップ
-brew upgrade
-
-# パッケージでインストールされるファイルの一覧を見るには
-brew list パッケージ名
-</code></pre>
-
-<h3 id="paco">paco
-<span class="article-date">2013/07/01</span></h3>
-
-<p>パッケージマネージャを通さずにソースからコンパイルしてインストールしたパッケージなどを管理できるツール。</p>
-
-<p>-&gt; <a href="commands/paco.html">paco</a></p>
-
-<pre><code># インストール
-# (カレントディレクトリの名前がパッケージ名になる)
-./configure --hogehoge
-make
-sudo paco -D make install
-
-# パッケージの名前を指定してインストール
-sudo paco -p &lt;packagename&gt; make install
-
-# アンインストール
-sudo paco -r パッケージ名
-
-# パッケージでインストールされるファイルの一覧を見るには
-paco -f パッケージ名
-
-# パッケージでインストールされるファイルとそのサイズの一覧を見るには
-paco -fs パッケージ名
-
-# インストール済みのパッケージ一覧を見るには
-paco -a
-
-# インストール済みのパッケージ一覧を詳細に見るには
-paco -a1Fds
-</code></pre>
+<p>-&gt; <a href="others/linux-pkg-manager.html">Linuxでのパッケージ管理</a></p>
 
 </div>
 

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Apache | 未分類 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../others/">未分類</a> &gt; <span>Apache</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../others/">未分類</a>
+    <ul>
+      <li>Apache</li>
+      <li><a href="../others/emacs.html">Emacs</a></li>
+      <li><a href="../others/google-analytics.html">Google Analytics</a></li>
+      <li><a href="../others/ie.html">Internet Explorer</a></li>
+      <li><a href="../others/jvm.html">JVM (Java仮想マシン)</a></li>
+      <li><a href="../others/linux.html">Linux</a></li>
+      <li><a href="../others/linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
+      <li><a href="../others/mac.html">Mac</a></li>
+      <li><a href="../others/mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するPHPのライブラリ</a></li>
+      <li><a href="../others/passenger.html">Passenger (Ruby on Rails)</a></li>
+      <li><a href="../others/phantomjs.html">phantomjs</a></li>
+      <li><a href="../others/php.html">PHP</a></li>
+      <li><a href="../others/php-ini-location.html">Ubuntuでの php.ini の場所</a></li>
+      <li><a href="../others/php-post-curl.html">PHPのcURL関数を使って、HTTPのPOSTをするサンプル</a></li>
+      <li><a href="../others/test-on-ie.html">Internet Explorer の検証環境</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="apache">Apache</h1>
+
+<h2 id="20fe277">OS別のディレクトリ構成</h2>
+
+<h3 id="17d8fc1">Ubuntu
+<span class="article-date">2013/09/12</span></h3>
+
+<p>設定ファイルは以下にある。</p>
+
+<pre><code>/etc/apache2/apache2.conf
+</code></pre>
+
+<p>以下を <code>Include</code> している。</p>
+
+<pre><code>/etc/apache2/mods-enabled/*.load
+/etc/apache2/mods-enabled/*.conf
+/etc/apache2/conf.d/*
+/etc/apache2/site-enabled/*
+</code></pre>
+
+<p>(Ubuntu 12.04 Server, 13.04 Server で確認)</p>
+
+<h3 id="f58ecb7">Mac OS X
+<span class="article-date">2013/04/25</span></h3>
+
+<p>設定ファイルは以下にある。</p>
+
+<pre><code>/etc/apache2/httpd.conf
+</code></pre>
+
+<p>※このファイルの実体は以下にある。</p>
+
+<pre><code>/private/etc/apache2/httpd.conf
+</code></pre>
+
+<p>以下を <code>Include</code> している。</p>
+
+<pre><code>/etc/apache2/other/*.conf
+</code></pre>
+
+<p>(OS X 10.6 で確認)</p>
+
+<h2 id="6137c9d">リバースプロキシ
+<span class="article-date">2013/04/03</span></h2>
+
+<p>RailsなどWEBrickを動かす場合で、80番ポートでWEBrickにアクセスできるようにするには、Apacheにリバースプロキシを設定すると簡単。passengerを入れるほどでもない場合に。</p>
+
+<p><a href="https://github.com/gitlabhq/gitlab-recipes/blob/master/apache/gitlab" target="_blank">https://github.com/gitlabhq/gitlab-recipes/blob/master/apache/gitlab</a></p>
+
+<p>Apacheの VirtualHost の設定の中に以下のように書く。</p>
+
+<pre><code>ProxyPass / http://127.0.0.1:3000/
+ProxyPassReverse / http://127.0.0.1:3000/
+ProxyPreserveHost On
+</code></pre>
+
+<h2 id="5dc4613"><code>.htaccess</code> ファイル</h2>
+
+<h3 id="a21823c">ファイルが存在しない場合に限り特定のPHPなどで処理する <code>.htaccess</code> の設定
+<span class="article-date">2013/04/24</span></h3>
+
+<pre><code>RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule  (.*) index.php/$1 [L]
+</code></pre>
+
+<h3 id="8d60572">特定のURLを除外してBASIC認証をかける <code>.htaccess</code> の設定
+<span class="article-date">2013/12/21</span></h3>
+
+<p>例</p>
+
+<pre><code>Satisfy Any
+
+AuthUserFile /var/www/.htpasswd
+AuthGroupFile /dev/null
+AuthName "secret area"
+AuthType Basic
+require valid-user
+
+SetEnvIf Request_URI /welcome.html excludeauth
+Order deny,allow
+Deny from all
+Allow from env=excludeauth
+</code></pre>
+
+<p>BASIC認証をかけつつ、 <code>SetEnfIf</code> で特定のURLのときに変数を設定して、
+<code>Allow</code> でその変数が設定されているときのアクセスを許可する。
+<code>Satisfy Any</code> の指定は前半の <code>require</code> の設定と後半の <code>Allow</code> の設定のいずれかが満たされれば、アクセスが許可される、という意味。</p>
+
+<h3 id="7ef903b">特定のIPからのアクセスは無条件に許可して、それ以外のアクセスにはBASIC認証をかける <code>.htaccess</code> の設定
+<span class="article-date">2013/04/09</span></h3>
+
+<p>例</p>
+
+<pre><code>Satisfy Any
+
+AuthUserFile /path/to/.htpasswd
+AuthGroupFile /dev/null
+AuthName "hoge"
+AuthType Basic
+require valid-user
+
+Order deny,allow
+Allow from 99.99.99.99
+Deny from all
+</code></pre>
+
+<h3 id="4620193">一時的にメンテナンス画面に切り替えるための <code>.htaccess</code> の設定
+<span class="article-date">2013/12/21</span></h3>
+
+<p><code>.htaccess</code> の <code>RewriteEngine On</code> の直後に以下を書く。</p>
+
+<pre><code>RewriteEngine on
+RewriteCond %{REQUEST_URI} !^.*\.(js|css|gif|png|jpg)$
+RewriteCond %{REQUEST_URI} !/maintenance\.html$
+RewriteRule ^(.*) /maintenance.html [R,L]
+</code></pre>
+
+<p>メンテナンスが終わった後は、上記の <code>RewriteEngine On</code> 以外の3行を消して、代わりに以下を書く。</p>
+
+<pre><code>RewriteRule ^maintenance.html$ / [R,L]
+</code></pre>
+
+<h3 id="31dfbe0">URLの拡張子を .html としたまま、 .php で動かす <code>.htaccess</code>
+<span class="article-date">2013/04/23</span></h3>
+
+<pre><code>RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)\.html /$1.php
+</code></pre>
+
+<h2 id="create-csr">SSLのCSRの作成方法
+<span class="article-date">2013/04/03</span></h2>
+
+<pre><code>$ ps aux | openssl md5 &gt; rand.dat
+$ openssl genrsa -rand rand.dat -des3 2048 &gt; 2012key.pem
+33 semi-random bytes loaded
+Generating RSA private key, 1024 bit long modulus
+.............................++++++
+.......++++++
+e is 65537 (0x10001)
+Enter pass phrase:
+Verifying - Enter pass phrase:
+$ openssl req -new -key 2012key.pem -out 2012csr.pem
+Enter pass phrase for 2012key.pem:
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:JP
+State or Province Name (full name) [Some-State]:Tokyo
+Locality Name (eg, city) []:Shibuya-ku
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Example Inc.
+Organizational Unit Name (eg, section) []:
+Common Name (eg, YOUR name) []:www.example.com
+Email Address []:←入力しない
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:←入力しない
+An optional company name []:←入力しない
+$ openssl rsa -in 2012key.pem -out 2012key-nopass.pem
+Enter pass phrase for 2012key.pem:
+writing RSA key
+$ cat 2012key.pem
+-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: DES-EDE3-CBC,9B527A3154370DC3
+
+MfBHRtPNOcpsvS/v8iROQiKI0OxkG/BDjgms5UcK8lZ0bVbWh+4pPM5k+cIs16b1
+...
+S3JLM5rJYiDqD68w+v1nr02eQ29eL4o8wosJJvILs5uGfe9/IbGY0g==
+-----END RSA PRIVATE KEY-----
+$ cat 2012key-nopass.pem
+-----BEGIN RSA PRIVATE KEY-----
+MIICXQIBAAKBgQDHJclRL5NKhmu6A3trgZJY6ZoRQfrjWcnhbxTNDRjS0sQHib/O
+...
+WxeCZcn78PNkRhnzV18rmniW7ey3GZt3NfDoGSP+4Gml
+-----END RSA PRIVATE KEY-----
+$ cat 2012csr.pem
+-----BEGIN CERTIFICATE REQUEST-----
+MIIBpzCCARACAQAwZzELMAkGA1UEBhMCSlAxDjAMBgNVBAgTBVRva3lvMRMwEQYD
+...
+EAUvkvx4rxqGKbYSr1fyPGWrTU+JSjEAlqz1QU4HPgrL1639qMroMggf8A==
+-----END CERTIFICATE REQUEST-----
+</code></pre>
+
+<h2 id="openssl">opensslコマンド</h2>
+
+<p>-&gt; <a href="../commands/openssl.html"><code>openssl</code>コマンド</a></p>
+
+</div>
+
+<footer>
+  <a href="../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
