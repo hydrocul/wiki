@@ -32,7 +32,6 @@
   <li><a href="./math/">数学関係のノート</a></li>
   <li><a href="./blog/">ブログ</a></li>
   <li><a href="./apache.html">Apache</a></li>
-  <li><a href="./emacs.html">Emacs</a></li>
   <li><a href="./google-analytics.html">Google Analytics</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li><a href="./linux.html">Linux</a></li>
@@ -43,9 +42,6 @@
   <li>MySQLのメモ</li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
   <li><a href="./others/">未分類</a></li>
-  <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
-  <li><a href="./phantomjs.html">phantomjs</a></li>
-  <li><a href="./php.html">PHP</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
 </ul>
@@ -56,166 +52,7 @@
 <div id="content">
   <h1 id="mysql">MySQLのメモ</h1>
 
-<h2 id="52c3eb6">プロセス
-<span class="article-date">2013/04/03</span></h2>
-
-<p>実行中のプロセスの一覧を表示する</p>
-
-<pre><code>SHOW PROCESSLIST;
-SHOW FULL PROCESSLIST;
-</code></pre>
-
-<p>プロセスを強制終了する</p>
-
-<pre><code>KILL プロセスID
-</code></pre>
-
-<h2 id="7b80dc0">テーブルの文字コードを調べるには
-<span class="article-date">2013/09/28</span></h2>
-
-<p>データベースの設定、クライアント側の設定、接続時の設定などを見るには</p>
-
-<pre><code>show variables like 'character\_set\_%';
-</code></pre>
-
-<p>テーブルごとの設定を見るには</p>
-
-<pre><code>show table status;
-</code></pre>
-
-<p>【MySQL】テーブルの文字コードを調べる<br />
-<a href="http://www.softel.co.jp/blogs/tech/archives/1470" target="_blank">http://www.softel.co.jp/blogs/tech/archives/1470</a></p>
-
-<h2 id="34120d8">MySQLダンプファイルを1行ずつ見やすいフォーマットにするには
-<span class="article-date">2013/04/09</span></h2>
-
-<pre><code>mysqldump -u ユーザ名 -p --skip-extended-insert --complete-insert --order-by-primary データベース名
-</code></pre>
-
-<p>これで1レコードが1行に完結し、ファイルの一部を見ただけでもわかりやすいし、<code>diff</code> もしやすい。</p>
-
-<ul>
-  <li>オプション <code>--skip-extended-insert</code> は1レコードごとに1つのINSERT文を出力する。</li>
-  <li>オプション <code>--complete-insert</code> はカラム名もINSERT文ごとにいちいち出力する。</li>
-  <li>オプション <code>--order-by-primary</code> はプライマリキーの順にINSER文を出力する。</li>
-</ul>
-
-<h2 id="ff9aa37">MySQLダンプでデータ自体ではなく、テーブル定義のみをエクスポートするには
-<span class="article-date">2013/04/09</span></h2>
-
-<pre><code>mysqldump -u ユーザ名 -p --no-data データベース名
-</code></pre>
-
-<h2 id="443c605">mysqlコマンドで結果が縦に長い時にページャで見るには、または横に長くて崩れてしまうのをなんとかするには
-<span class="article-date">2013/07/02</span></h2>
-
-<p>mysqlコマンドのオプションに <code>--pager='less -SXF'</code> をつける。 <code>-X</code> を付けると、 less 終了時に画面をクリアしない。 <code>-F</code> を付けると、行数が短くて一画面に収まる場合は less がすぐに終了する。</p>
-
-<p>-&gt; less.md</p>
-
-<h2 id="e9744ab">mysqlコマンドでSELECTの結果を表形式ではなくレコードごとに縦に表示させるには
-<span class="article-date">2013/07/24</span></h2>
-
-<p>最後のセミコロンのかわりに <code>\G</code> を付けると、縦に表示してくれる。</p>
-
-<pre><code>SELECT * FROM hoge\G
-</code></pre>
-
-<h2 id="22088b5">MySQLは正規表現が使える
-<span class="article-date">2013/04/23</span></h2>
-
-<p>正規表現 | MySQL 5.1 リファレンスマニュアル<br />
-<a href="http://dev.mysql.com/doc/refman/5.1/ja/regexp.html" target="_blank">http://dev.mysql.com/doc/refman/5.1/ja/regexp.html</a></p>
-
-<h2 id="2f7a6a3">MySQLへの接続のパスワードを変更するには
-<span class="article-date">2013/06/18</span></h2>
-
-<p>MySQLへの接続のパスワードを変更するには、以下のコマンドを打つ。</p>
-
-<pre><code>mysqladmin password -u username -p
-</code></pre>
-
-<p>まず現在のパスワードを聞かれるので、それを入力し、その後に新しいパスワードを
-2回入力する。新しいパスワードとしてなにも入力せずにエンターを押すと、パスワードなしで接続できるようになる。</p>
-
-<p>パスワードを削除するには、MySQLに接続して、以下のSQLを実行してもよい。</p>
-
-<pre><code>USE mysql;
-UPDATE user set Password = '' where User='username';
-FLUSH PRIVILEGES
-</code></pre>
-
-<p>mysqlテーブルに認証情報が保存されているので、それを直接書き換える方法だが、
-<code>FLUSH PRIVILEGES</code> を実行しないと、起動中のデーモンに反映されない。</p>
-
-<p>同様にパスワードを削除ではなく新しいパスワードを設定するには、
-<code>PASSWORD</code> という関数を使う。</p>
-
-<pre><code>USE mysql;
-UPDATE user set Password = PASSWORD('newpassword')  where User='username';
-FLUSH PRIVILEGES
-</code></pre>
-
-<h2 id="9ee4a10">コマンドラインから直接SQLを実行するには
-<span class="article-date">2013/09/10</span></h2>
-
-<p><code>-e</code> オプションでSQLを渡す。</p>
-
-<p>例</p>
-
-<pre><code>mysql -u username -p dbname -e 'SELECT * FROM foo;'
-</code></pre>
-
-<p>SELECT文の結果はTSVで出力される。</p>
-
-<p><code>-N</code> を付けるとSELECTの1行目のカラム名が出力されなくなる。</p>
-
-<h3 id="1d18100">PostgreSQLの場合</h3>
-
-<p>PostgreSQLでこれに相当することを行うには <code>-c</code> オプションを使う。</p>
-
-<pre><code>psql dbname -c 'SELECT * FROM foo;'
-</code></pre>
-
-<p>TSV形式にするには <code>-A</code> オプションで固定幅での表示を無効(位置揃えなし)にし、
-<code>-F</code> オプションで区切り文字を指定する。</p>
-
-<pre><code>psql dbname -c "SELECT * FROM foo;" -A -F$'\t'
-</code></pre>
-
-<h2 id="368e6cc">TSVファイルでデータをインポートするには
-<span class="article-date">2013/06/28</span></h2>
-
-<p><code>LOAD DATA</code> というSQLの構文を使う。以下は <code>items</code> テーブルに
-<code>/home/foo/bar.tsv</code> のファイルからインポートするSQLの例。</p>
-
-<pre><code>load data local infile '/home/foo/bar.tsv' into table items;
-</code></pre>
-
-<p>TSVファイルのカラムの順番は、テーブルのカラムの順番と一致している必要がある。</p>
-
-<p>テーブルの一部カラムのみをTSVファイルからインポートしたい場合や、カラムの順番が違う場合は、以下のようにTSVにあるカラムを列挙する。</p>
-
-<pre><code>load data local infile '/home/foo/bar.tsv' into table items (id, title, keywd);
-</code></pre>
-
-<h2 id="72e44a5">MySQLサーバをskip-name-resolveオプション付きで起動するときは注意が要る件について
-<span class="article-date">2013/07/02</span></h2>
-
-<p><a href="http://backslash.ddo.jp/wordpress/archives/397" target="_blank">http://backslash.ddo.jp/wordpress/archives/397</a></p>
-
-<blockquote>
-  <p>接続する際のホスト名を 127.0.0.1 から localhost に変更すると接続できるようになるという奇抜な現象</p>
-</blockquote>
-
-<p>に自分も先日食らって、接続するソースコードに
-<code>s/127\.0\.0\.1/localhost/</code> 的なコードを追加していたのだった。</p>
-
-<h2 id="af8c84f">設定ファイル my.cnf の場所
-<span class="article-date">2013/10/08</span></h2>
-
-<p>CentOS: <code>/etc/my.cnf</code><br />
-Ubuntu: <code>/etc/mysql/my.cnf</code></p>
+<p>-&gt; <a href="others/mysql.html">MySQLのメモ</a></p>
 
 </div>
 

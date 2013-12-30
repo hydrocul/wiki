@@ -32,8 +32,6 @@
   <li><a href="./math/">数学関係のノート</a></li>
   <li><a href="./blog/">ブログ</a></li>
   <li><a href="./apache.html">Apache</a></li>
-  <li><a href="./emacs.html">Emacs</a></li>
-  <li><a href="./google-analytics.html">Google Analytics</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
   <li><a href="./linux.html">Linux</a></li>
   <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
@@ -43,9 +41,6 @@
   <li><a href="./mysql.html">MySQLのメモ</a></li>
   <li><a href="./oneliner.html">ワンライナー</a></li>
   <li><a href="./others/">未分類</a></li>
-  <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
-  <li><a href="./phantomjs.html">phantomjs</a></li>
-  <li><a href="./php.html">PHP</a></li>
   <li><a href="./ruby.html">Ruby</a></li>
   <li>Subversion (svn)</li>
 </ul>
@@ -54,213 +49,9 @@
 </div>
 
 <div id="content">
-  <h1 id="svn">Subversion (svn)
-<span class="article-date">2013/06/11</span></h1>
+  <h1 id="svn">Subversion (svn)</h1>
 
-<p><a href="commands/git.html">git</a>をCUIのみで使っている筆者がsvnを使わないといけなくて、かつCUIのみで使いたいときに、コマンドの使い方を調べたメモです。</p>
-
-<h2 id="diff-from-git">gitとの違い
-<span class="article-date">2013/06/11</span></h2>
-
-<ul>
-  <li>ブランチやタグは branches や tags の中の普通のディレクトリとしてコピーして作る
-(これは単なる習慣でsvnの仕様ではない)</li>
-  <li>clone, push, pull がない</li>
-</ul>
-
-<h2 id="checkout">チェックアウト
-<span class="article-date">2013/06/11</span></h2>
-
-<pre><code># チェックアウト
-# (カレントディレクトリにtrunkというディレクトリが作成される)
-svn checkout svn://id@host/path/to/svnroot/trunk
-
-# カレントディレクトリにチェックアウト
-svn checkout svn://id@host/path/to/svnroot/trunk .
-
-# 作成されるディレクトリの名前を指定してチェックアウト
-# (カレントディレクトリにhogeというディレクトリが作成される)
-svn checkout svn://id@host/path/to/svnroot/trunk hoge
-</code></pre>
-
-<h2 id="info">詳細情報表示
-<span class="article-date">2013/06/11</span></h2>
-
-<pre><code># カレントディレクトリの詳細情報を表示
-svn info
-
-# 作業用ディレクトリ特定のパスを指定して詳細情報を表示
-svn info foo/bar
-</code></pre>
-
-<h2 id="log">ログ表示
-<span class="article-date">2013/06/11</span></h2>
-
-<pre><code># リポジトリのルートを指定してログを表示
-svn log svn://id@host/path/to/svnroot
-
-# リポジトリの特定のパスを指定してログを表示
-# ファイルでもディレクトリでも可能
-svn log svn://id@host/path/to/svnroot/trunk/foo/bar
-
-# リポジトリの特定のリビジョンを指定してログを表示
-svn log svn://id@host/path/to/svnroot/trunk/foo/bar@r999
-
-# リポジトリの特定のリビジョンを指定してログを表示
-svn log svn://id@host/path/to/svnroot@r999
-
-# カレントディレクトリのログを表示
-svn log
-
-# 作業用ディレクトリの特定のパスを指定してログを表示
-svn log foo/bar
-</code></pre>
-
-<h2 id="diff">差分表示
-<span class="article-date">2013/06/25</span></h2>
-
-<pre><code># カレントディレクトリの最後のコミットと作業用ディレクトリとの差分を表示
-svn diff
-
-# カレントディレクトリについてのリビジョン間の差分を表示
-svn diff -r r998:r999
-
-# 差分のファイル名のみを表示
-svn diff --summarize -r r998:r999
-
-# 作業用ディレクトリの特定のパスについてのリビジョン間の差分を表示
-svn diff -r r998:r999 foo/bar
-
-# リポジトリの特定のパスとリビジョンを指定して差分を表示
-svn diff svn://id@host/path/to/svnroot/trunk@r998 svn://id@host/path/to/svnroot/tags/hoge@r999
-</code></pre>
-
-<h2 id="ls">ファイル一覧表示
-<span class="article-date">2013/06/14</span></h2>
-
-<pre><code># カレントディレクトリのファイル一覧を表示
-# (まだaddしていないファイルがあれば、それは表示されない。
-#  まだrmしていない削除済みファイルは表示される)
-svn ls
-
-# ファイル一覧を詳細に表示 (ls -l みたいな)
-svn ls -v
-
-# ファイル一覧をサブディレクトリも再帰的に表示 (find みたいな)
-svn ls -R
-
-# 作業用ディレクトリ特定のパスを指定してファイル一覧を表示
-svn ls foo/bar
-
-# リポジトリの特定のパスを指定してファイル一覧を表示
-svn ls svn://id@host/path/to/svnroot/trunk/foo/bar
-</code></pre>
-
-<h2 id="add">新規作成ファイルの登録
-<span class="article-date">2013/07/02</span></h2>
-
-<pre><code># ファイルをステージングに登録
-# git add newhoge.txt に相当
-svn add newhoge.txt
-
-# ディレクトリをステージングに登録
-# ディレクトリの中も再帰的に登録
-# git add newhogedir に相当
-svn add newhogedir
-</code></pre>
-
-<h2 id="7f21160">既存ファイルの削除
-<span class="article-date">2013/12/19</span></h2>
-
-<pre><code># ファイル削除をステージングに登録
-# git rm hoge.txt に相当
-# ディレクトリに対しても同じコマンドで可能
-svn delete hoge.txt
-</code></pre>
-
-<h2 id="commit">コミット
-<span class="article-date">2013/07/02</span></h2>
-
-<pre><code># コミット
-# git commit &amp;&amp; git push に相当(?)
-# svn update しないと、svn log したときの結果には反映されない
-# コミットメッセージを入力するエディタが開く
-svn commit &amp;&amp; svn update
-
-# コミットメッセージを指定してコミット
-# git commit -m "hogehoge message" &amp;&amp; git push に相当(?)
-svn commit -m "hogehoge message" &amp;&amp; svn update
-</code></pre>
-
-<h2 id="revert">編集取り消し
-<span class="article-date">2013/06/18</span></h2>
-
-<pre><code># まだコミットしていない編集済みのファイルを元に戻す
-# git checkout foo/bar.txt に相当
-svn revert foo/bar.txt
-</code></pre>
-
-<h2 id="update">更新を取り込むには
-<span class="article-date">2013/09/18</span></h2>
-
-<pre><code># 更新を取り込む
-# git pull に相当(?)
-# カレントディレクトリ配下のみをとり込むので、
-# 作業ディレクトリのルートより下で実行すると
-# カレントディレクトリは以下とそれより上のディレクトリとで
-# リビジョンがずれる
-svn update
-
-# ディレクトリを指定して更新を取り込む
-svn update ../hogedir
-</code></pre>
-
-<p><code>update</code>前に手動でファイルをいじっていても、結果的に<code>update</code>後と同じ状態にしてあれば、<code>svn update</code> は成功する。</p>
-
-<h2 id="branches">ブランチの作成
-<span class="article-date">2013/07/11</span></h2>
-
-<pre><code>svn copy svn://id@host/path/to/svnroot/trunk svn://id@host/path/to/svnroot/branches/hoge -m "hogehoge message"
-</code></pre>
-
-<h2 id="tags">タグの設定
-<span class="article-date">2013/07/11</span></h2>
-
-<pre><code>svn copy svn://id@host/path/to/svnroot/trunk svn://id@host/path/to/svnroot/tags/hoge -m "hogehoge message"
-</code></pre>
-
-<p>または、ローカルにtrunk, tagsディレクトリの存在する作業ディレクトリがあれば</p>
-
-<pre><code># trunkに対してタグを設定する
-# trunk, tagsディレクトリの存在する作業ディレクトリにて
-svn copy trunk tags/hogehoge &amp;&amp; svn commit -m "commit message"
-</code></pre>
-
-<h2 id="switch">作業ディレクトリを特定のブランチに切り替え
-<span class="article-date">2013/08/31</span></h2>
-
-<pre><code># git checkout hoge に相当
-svn switch svn://id@host/path/to/svnroot/branches/hoge
-</code></pre>
-
-<h2 id="merge">マージ
-<span class="article-date">2013/07/12</span></h2>
-
-<pre><code># hogeブランチをtrunkにマージ。現在の作業ディレクトリがtrunkだとして
-# hogeブランチを作ったリビジョンが99だとして
-svn merge -r 99:HEAD svn://id@host/path/to/svnroot/branches/hoge
-svn commit -m "hogehoge message"
-</code></pre>
-
-<p>マージしたあとのコミットはなぜか <code>svn update</code> しなくてもローカルのリビジョン番号が上がる。</p>
-
-<h2 id="admin-create">レポジトリ作成
-<span class="article-date">2013/07/02</span></h2>
-
-<pre><code># カレントディレクトリをレポジトリにする
-# git init --bare . に相当
-svnadmin create .
-</code></pre>
+<p>-&gt; <a href="commands/svn.html">Subversion (svn)</a></p>
 
 </div>
 
