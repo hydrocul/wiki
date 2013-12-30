@@ -40,10 +40,13 @@
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
       <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
+      <li><a href="../commands/jhead.html">jhead コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
       <li><a href="../commands/ls.html">ls コマンド</a></li>
+      <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
+      <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
@@ -62,6 +65,7 @@
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
+      <li><a href="../commands/svn.html">Subversion (svn)</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
@@ -158,6 +162,20 @@ BASIC認証以外にはDigest認証、NTLM認証に対応している。</p>
 
 <p><code>-d</code> はPOSTする本体を指定するオプションで、その後がデータになる。データをファイルで指定したい場合はファイル名の先頭に <code>@</code> を付けて、
 <code>@foo.txt</code> のように指定する。ファイルではなく標準入力を指定するには <code>@-</code> とする。</p>
+
+<h2 id="4e22833">Cookieを使うには
+<span class="article-date">2013/12/30</span></h2>
+
+<p>リクエスト時にクッキーをサーバに送信するには <code>-b</code> オプションを使う。受信したクッキーを保存するには <code>-c</code> オプションを使う。</p>
+
+<p>例</p>
+
+<pre><code># クッキーを送信
+curl -c cookie.txt http://www.example.com/
+
+# クッキーを保存
+curl -b cookie.txt [http://www.example.com/](http://www.example.com/)
+</code></pre>
 
 </div>
 

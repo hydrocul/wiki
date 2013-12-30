@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>コマンドの使い方 | hydrocul のメモ</title>
+<title>jhead コマンド | コマンドの使い方 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <span>コマンドの使い方</span>
+  <a href="../commands/">コマンドの使い方</a> &gt; <span>jhead コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>コマンドの使い方
+  <li><a href="../commands/">コマンドの使い方</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
@@ -40,7 +40,7 @@
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
       <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
-      <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li>jhead コマンド</li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -89,69 +89,27 @@
 </div>
 
 <div id="content">
-  <h1 id="commands">コマンドの使い方</h1>
+  <h1 id="jhead">jhead コマンド
+<span class="article-date">2013/04/03</span></h1>
 
-<h2 id="section">目次</h2>
+<p>Exif Jpeg header manipulation tool<br />
+<a href="http://www.sentex.net/~mwandel/jhead/" target="_blank">http://www.sentex.net/~mwandel/jhead/</a></p>
 
-<ul>
-  <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
-  <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
-  <li><a href="../commands/awk.html">awk コマンド</a></li>
-  <li><a href="../commands/base64.html">base64 コマンド</a></li>
-  <li><a href="../commands/cat.html">cat コマンド</a></li>
-  <li><a href="../commands/cp.html">cp コマンド</a></li>
-  <li><a href="../commands/crontab.html">crontab コマンド</a></li>
-  <li><a href="../commands/curl.html">curl コマンド</a></li>
-  <li><a href="../commands/cut.html">cut コマンド</a></li>
-  <li><a href="../commands/date.html">date コマンド</a></li>
-  <li><a href="../commands/diff.html">diff コマンド</a></li>
-  <li><a href="../commands/du.html">du コマンド</a></li>
-  <li><a href="../commands/find.html">find コマンド</a></li>
-  <li><a href="../commands/git.html">git コマンド</a></li>
-  <li><a href="../commands/grep.html">grep コマンド</a></li>
-  <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
-  <li><a href="../commands/jhead.html">jhead コマンド</a></li>
-  <li><a href="../commands/less.html">less コマンド</a></li>
-  <li><a href="../commands/lftp.html">lftp コマンド</a></li>
-  <li><a href="../commands/lha.html">lha コマンド</a></li>
-  <li><a href="../commands/ls.html">ls コマンド</a></li>
-  <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
-  <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
-  <li><a href="../commands/mosh.html">mosh コマンド</a></li>
-  <li><a href="../commands/netstat.html">netstat コマンド</a></li>
-  <li><a href="../commands/nkf.html">nkf コマンド</a></li>
-  <li><a href="../commands/od.html">od コマンド</a></li>
-  <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-  <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
-  <li><a href="../commands/ps.html">ps コマンド</a></li>
-  <li><a href="../commands/pstree.html">pstree コマンド</a></li>
-  <li><a href="../commands/rsync.html">rsync コマンド</a></li>
-  <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
-  <li><a href="../commands/sed.html">sed コマンド</a></li>
-  <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
-  <li><a href="../commands/siege.html">siege コマンド</a></li>
-  <li><a href="../commands/sort.html">sort コマンド</a></li>
-  <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
-  <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
-  <li><a href="../commands/ssh.html">ssh コマンド</a></li>
-  <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
-  <li><a href="../commands/svn.html">Subversion (svn)</a></li>
-  <li><a href="../commands/tac.html">tac コマンド</a></li>
-  <li><a href="../commands/tail.html">tail コマンド</a></li>
-  <li><a href="../commands/tar.html">tar コマンド</a></li>
-  <li><a href="../commands/tee.html">tee コマンド</a></li>
-  <li><a href="../commands/time.html">time コマンド</a></li>
-  <li><a href="../commands/tmux.html">tmux コマンド</a></li>
-  <li><a href="../commands/top.html">top コマンド</a></li>
-  <li><a href="../commands/touch.html">touch コマンド</a></li>
-  <li><a href="../commands/tr.html">tr コマンド</a></li>
-  <li><a href="../commands/watch.html">watch コマンド</a></li>
-  <li><a href="../commands/wc.html">wc コマンド</a></li>
-  <li><a href="../commands/wget.html">wget コマンド</a></li>
-  <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
-  <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-  <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
-</ul>
+<h2 id="2ac5898">インストール
+<span class="article-date">2013/12/30</span></h2>
+
+<p>Ubuntuの場合</p>
+
+<pre><code>sudo apt-get install jhead
+</code></pre>
+
+<p>(Ubuntu 13.10 Server で確認)</p>
+
+<h2 id="96122ce">jpegのExif情報にある撮影日情報をもとにファイル名を変更するには
+<span class="article-date">2013/04/03</span></h2>
+
+<pre><code>jhead -nf%Y-%m-%d-%H%M%S IMAG0000.jpg
+</code></pre>
 
 </div>
 
