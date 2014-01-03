@@ -32,19 +32,10 @@
   <li><a href="./math/">数学関係のノート</a></li>
   <li><a href="./blog/">ブログ</a></li>
   <li><a href="./apache.html">Apache</a></li>
-  <li><a href="./emacs.html">Emacs</a></li>
-  <li><a href="./google-analytics.html">Google Analytics</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
-  <li><a href="./linux.html">Linux</a></li>
-  <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
-  <li><a href="./mac.html">Mac</a></li>
   <li><a href="./math-for-programmers-note.html">プログラマのための数学勉強会ノート</a></li>
   <li><a href="./mechanize.html">mechanize</a></li>
-  <li><a href="./mysql.html">MySQLのメモ</a></li>
-  <li><a href="./oneliner.html">ワンライナー</a></li>
   <li><a href="./others/">未分類</a></li>
-  <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
-  <li><a href="./phantomjs.html">phantomjs</a></li>
   <li>Ruby</li>
   <li><a href="./svn.html">Subversion (svn)</a></li>
 </ul>
@@ -55,57 +46,7 @@
 <div id="content">
   <h1 id="ruby">Ruby</h1>
 
-<h2 id="e4813c1">APIレファレンス
-<span class="article-date">2013/08/16</span></h2>
-
-<p>-&gt; <a href="programming_languages_diff/reference.html#ruby">RubyのAPIレファレンス</a></p>
-
-<h2 id="ca49a47">正規表現で全角文字をマッチさせるには
-<span class="article-date">2013/04/03</span></h2>
-
-<p>以下のgemを入れると簡単。</p>
-
-<p>Moji モジュール<br />
-<a href="http://gimite.net/gimite/rubymess/moji.html" target="_blank">http://gimite.net/gimite/rubymess/moji.html</a><br />
-<a href="http://rubygems.org/gems/moji" target="_blank">http://rubygems.org/gems/moji</a></p>
-
-<p>以下の例では全角文字を削除する。</p>
-
-<pre><code>require 'moji'
-str.gsub(/#{Moji.zen}/, "")
-</code></pre>
-
-<h2 id="4e6a192"><code>Encoding::UndefinedConversionError</code>
-<span class="article-date">2013/04/03</span></h2>
-
-<p><code>String#encode</code> で文字コードを変換したときに、変換できない文字があって
-<code>Encoding::UndefinedConversionError</code> が発生した場合は、以下のようにオプションを付ける。</p>
-
-<pre><code>str.encode(Encoding::SJIS, :undef =&gt; :replace, :replace =&gt; "?")
-</code></pre>
-
-<p>SJISに存在しないUnicode文字があった場合に、これでとりえあずは例外がスローされずに ‘?’ に置き換えられる。</p>
-
-<p>instance method String#encode<br />
-<a href="http://doc.ruby-lang.org/ja/1.9.3/method/String/i/encode.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/method/String/i/encode.html</a></p>
-
-<h2 id="oneliner">ワンライナー
-<span class="article-date">2013/04/03</span></h2>
-
-<p><code>-ne</code> をつけると、行ごとに処理するコードをコマンドラインで指定できる。コードの中で <code>$_</code> は行の文字列が最後の改行付きで入る。以下はなにもせずに、データを聞き流すコード。</p>
-
-<pre><code>cat src.txt | ruby -ne 'print $_'
-</code></pre>
-
-<p>以下は、改行を削除するコード。</p>
-
-<pre><code>cat src.txt | ruby -ne 'print $_.chomp'
-</code></pre>
-
-<p>だけど、改行を消すには以下のほうが簡単。</p>
-
-<pre><code>cat src.txt | tr -d '\n'
-</code></pre>
+<p>-&gt; <a href="others/ruby.html">Ruby</a></p>
 
 </div>
 
