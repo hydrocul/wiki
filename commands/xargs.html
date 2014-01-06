@@ -90,11 +90,12 @@
 
 <div id="content">
   <h1 id="xargs">xargs コマンド
-<span class="article-date">2013/06/11</span></h1>
+<span class="article-date">2014/01/05</span></h1>
 
-<p>ファイルの一覧を標準入力から受け取って、そのファイル一覧を任意のコマンドに引数として渡すコマンド。</p>
+<p>ファイル名の一覧を標準入力から受け取って、そのファイル一覧を任意のコマンドに引数として渡すコマンド。(ファイル名でなくてもよい)</p>
 
-<p>以下のようにすると、例えば <code>find</code> で <code>a.txt b.txt dir/c.txt dir/d.txt</code> が出力されるとすると、それがそのまま <code>cat</code> に引数として渡され、
+<p>以下のコマンドの例では、
+<code>find</code> で <code>a.txt b.txt dir/c.txt dir/d.txt</code> が出力されるとすると、それがそのまま <code>cat</code> に引数として渡され、
 <code>cat a.txt b.txt dir/c.txt dir/d.txt</code> が実行される。</p>
 
 <pre><code>find . -type f | xargs cat
@@ -113,6 +114,54 @@
 
 <p><code>-t</code> を与えないと <code>mv ~/dst a.txt b.txt dir/c.txt dir/d.txt</code> のようになって、
 <code>dir/d.txt</code> に移動することになってしまい、ほとんどのファイルの中身が破壊されてしまう。</p>
+
+<h2 id="84d293e">一度にコマンドに渡す引数の最大数を制御するには
+<span class="article-date">2014/01/05</span></h2>
+
+<p><code>-n</code> オプションを使って最大数を設定できる。</p>
+
+<p>例えば、<code>-n 3</code> とすると、コマンドに最大で3つまでしか引数を渡さず、
+4つ以上ある場合はコマンドを複数回実行される。</p>
+
+<p>ディレクトリに <code>a.txt</code>, <code>b.txt</code>, <code>c.txt</code>, <code>test.sh</code> があって、
+<code>test.sh</code> が以下の内容とし、</p>
+
+<pre><code>echo "exec: test.sh"
+echo "$@"
+</code></pre>
+
+<p>以下を実行すると、</p>
+
+<pre><code>ls | xargs sh test.sh
+</code></pre>
+
+<p>以下のように出力される</p>
+
+<pre><code>exec: test.sh
+a.txt b.txt c.txt test.sh
+</code></pre>
+
+<p><code>-n</code> オプションで最大1に設定すると、</p>
+
+<pre><code>ls | xargs -n 1 sh test.sh
+</code></pre>
+
+<p>以下のように出力される</p>
+
+<pre><code>exec: test.sh
+a.txt
+exec: test.sh
+b.txt
+exec: test.sh
+c.txt
+exec: test.sh
+test.sh
+</code></pre>
+
+<p><code>-n</code> の後ろに空白を入れなくてもよい。</p>
+
+<pre><code>ls | xargs -n1 sh test.sh
+</code></pre>
 
 </div>
 
