@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドの使い方</a> &gt; <span>sshfs コマンド</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方</a> &gt; <span>sshfs コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -101,6 +101,11 @@
 </code></pre>
 
 <p>-&gt; <a href="ssh.html">ssh</a></p>
+
+<h2 id="b068dc6">リモートのファイルシステム上でのファイルオーナーを無視して、全ファイルのオーナーを特定のものにするには
+<span class="article-date">2014/01/07</span></h2>
+
+<p><code>-o uid=1000 -o gid=1000</code> というようなオプションをつけると、ローカルでの1000番のユーザ、1000番のグループがリモートのファイルのオーナーになっているかのように見せかけることができる。</p>
 
 </div>
 

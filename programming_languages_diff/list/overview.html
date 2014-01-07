@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>概要</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>概要</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -65,6 +65,7 @@
           <li><a href="../../programming_languages_diff/list/convert.html">リストの種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/list/to-map.html">リストからマップを生成するには (toMap)</a></li>
           <li><a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
+          <li><a href="../../programming_languages_diff/list/max-min.html">リストの中の最大値・最小値を求めるには (max, min)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
           <li><a href="../../programming_languages_diff/list/vector-add-subtract.html">数のリストを要素ごとに加算/減算するには(ベクトル演算)</a></li>
           <li><a href="../../programming_languages_diff/list/slice-replace.html">リストの一部を別のリストで置き換えるには (splice)</a></li>
@@ -245,17 +246,62 @@ Scalaなどのタプルとはだいぶイメージが違う気がする。</p>
 <p>class Array | Ruby 1.9.2 リファレンスマニュアル<br />
 <a href="http://doc.ruby-lang.org/ja/1.9.2/class/Array.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.2/class/Array.html</a></p>
 
-<h2 id="3263830">Perl
-<span class="article-date">2013/09/23</span></h2>
+<h2 id="perl">Perl
+<span class="article-date">2014/01/07</span></h2>
 
 <p>配列の仕組みがある。</p>
 
 <p>Perlは、リストという用語は配列とは厳密には異なる意味を持ち、 
 <code>(..., ..., ...)</code> のようなソースコード上の表現をリストといい、それを配列の変数に代入すると配列になり、ハッシュの変数に代入すると<a href="../map/overview.html">ハッシュ</a>)になる。</p>
 
-<p>配列そのものは変数名が <code>@</code> で始まり、要素を参照するには <code>$</code> で始める。</p>
+<p>配列そのものは変数名が <code>@</code> で始まり、要素を参照したり要素に代入したりするには <code>@</code> の代わりに <code>$</code> で始める。</p>
 
-<p>インデックスは0から始まる。</p>
+<p>例</p>
+
+<pre><code>my @arr = ('abc', 'def', 'ghi');
+</code></pre>
+
+<p><code>('abc', 'def', 'ghi')</code> の表記がリストで、<code>@arr</code> が配列になる。</p>
+
+<p>最後に余計なカンマがあっても問題ない。</p>
+
+<pre><code>my @arr = (
+           'abc',
+           'def',
+           'ghi',
+          );
+</code></pre>
+
+<p>配列をネストすることはできず、ネストして書いたつもりでも平坦になってしまう。</p>
+
+<pre><code>my @arr = (1, 2, (3, 4));
+print $arr[2]; # =&gt; 3
+print $arr[3]; # =&gt; 4
+my @arr2 = (10, 11, @arr);
+print "@arr2"; # =&gt; 10 11 1 2 3 4
+</code></pre>
+
+<p>要素を参照したり代入するときのインデックスは0から始まる。
+-&gt; <a href="get.html#perl">インデックスで要素を参照するには</a></p>
+
+<h3 id="3b028f0">配列へのレファレンス
+<span class="article-date">2013/01/07</span></h3>
+
+<p><code>[]</code> を使うと、配列へのレファレンスを直接書くことができる。</p>
+
+<pre><code>my $arr = [1, 2, 3];
+</code></pre>
+
+<p>で、これは以下と同じ。</p>
+
+<pre><code>my @a = (1, 2, 3);
+my $arr = \@a;
+</code></pre>
+
+<p>レファレンスの実体を取り出すには、</p>
+
+<pre><code>@$arr;
+</code></pre>
 
 <h2 id="2ab0b84">JavaScript / CoffeeScript
 <span class="article-date">2013/09/21</span></h2>
