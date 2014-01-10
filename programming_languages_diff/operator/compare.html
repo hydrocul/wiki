@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/operator/">演算子</a> &gt; <span>オブジェクトの比較演算子</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/operator/">演算子</a> &gt; <span>オブジェクトの比較演算子</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -69,15 +69,26 @@ Javaにおける <code>equals</code> はRubyにおける <code>==</code> に似�
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。
 <code>==</code> はJVM上ではJavaの <code>equals</code> を呼び出している。</p>
 
-<h2 id="d704d1c">Ruby
-<span class="article-date">2013/08/19</span></h2>
+<h2 id="ruby">Ruby
+<span class="article-date">2014/01/10</span></h2>
 
-<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
+<p>同じかどうかを調べるに多様なメソッドとして以下がある。</p>
 
-<p><code>equal?</code>メソッドは同じインスタンスかどうかを判別する。</p>
+<ul>
+  <li><code>==</code></li>
+  <li><code>===</code></li>
+  <li><code>equal?</code></li>
+</ul>
+
+<p>普通に等値かどうかを調べたいときには <code>==</code> を使う。
+<code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対を返す。</p>
+
+<p><code>equal?</code>メソッドは等値かどうかよりも範囲が狭く、同じインスタンスかどうかを判別する。</p>
 
 <p>Rubyにおける <code>==</code> はJavaにおける <code>equals</code> に似ていて、
 Rubyにおける <code>equal?</code> はJavaにおける <code>==</code> に似ている。</p>
+
+<p><code>===</code> は<a href="../control_flow/switch.html#ruby">case文</a>で<code>when</code>節にマッチするかどうかの判定に暗黙的に使われる。</p>
 
 <h2 id="bf47d7f">Perl
 <span class="article-date">2013/07/31</span></h2>
