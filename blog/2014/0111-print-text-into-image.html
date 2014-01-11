@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jpg画像にテキストを入れるには | 2014年 | ブログ | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../">Home</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2014/">2014年</a> &gt; <span>jpg画像にテキストを入れるには</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../blog/">ブログ</a>
+    <ul>
+      <li><a href="../../blog/2014/">2014年</a>
+        <ul>
+          <li>jpg画像にテキストを入れるには</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="0111-print-text-into-image">jpg画像にテキストを入れるには
+<span class="article-date">2014/01/11</span></h1>
+
+<p>フォトフレームに大量のjpg画像を入れているのだが、画像が表示されるだけでタイムスタンプなどのメタ情報が一切表示されないので、フォトフレームを見ただけではいつの写真だかわからないものが多い。</p>
+
+<p>ローカルで管理しているjpgのファイル名は撮影日時を元にした14桁の数字になっているので、とりあえずファイル名をそのまま画像に直接書き出しておけば、画像だけを表示しているフォトフレームでも撮影日時がわかるようになる。</p>
+
+<p>フォトフレームに入れたい画像が5000枚以上あるので、手でやる訳にはいかない。</p>
+
+<p>方法を探った結果、以下のようにPHPでスクリプトを書いた。画像にテキストを入れる方法をググると、PHPでのサンプルが多かったので、
+Webアプリケーションでもなんでもないのだが、とりあえずPHPを使った。</p>
+
+<pre><code>&lt;?php
+
+$src_fname = $argv[1]; // 元となる画像ファイルのパス
+$dst_fname = $argv[2]; // 出力先のパス
+
+echo "editing $src_fname ...\n";
+
+// $text は画像に印字するテキスト
+if (preg_match("/(.*)\\.jpg/", $src_fname, $matches)) {
+  $text = $matches[1];
+} else {
+  $text = $src_fname;
+}
+
+// フォントのファイル名
+$font_fname = "/usr/share/fonts/japanese/ipa/ipaexg.ttf";
+
+$img = imagecreatefromjpeg($src_fname);
+
+$color = imagecolorallocate($img, 255, 255, 255);
+
+// フォントの大きさ24, アングル0, 場所左上角(座標 0, 24)でテキストを印字
+imagettftext($img, 24, 0, 0, 24, $color, $font_fname, $text);
+
+// 新しい画像をファイルに保存
+imagejpeg($img, $dst_fname);
+</code></pre>
+
+<p>フォントは、既存の環境のどこにフォントがあるのかわからなかったので、とりあえず<br />
+<a href="http://ipafont.ipa.go.jp/ipaexfont/download.html" target="_blank">http://ipafont.ipa.go.jp/ipaexfont/download.html</a><br />
+からダウンロードして <code>/usr/share/fonts/japanese/ipa/ipaexg.ttf</code> にインストールした。</p>
+
+<p><code>imagecreatefromjpg</code>関数は、画像ファイルから画像をロードする関数である。反対に<code>imagejpg</code>関数は、画像をファイルに保存する関数である。</p>
+
+<p>imagecreatefromjpg 関数 | PHPマニュアル<br />
+<a href="http://www.php.net/manual/ja/function.imagecreatefromjpeg.php" target="_blank">http://www.php.net/manual/ja/function.imagecreatefromjpeg.php</a></p>
+
+<p>imagejpg 関数 | PHPマニュアル<br />
+<a href="http://www.php.net/manual/ja/function.imagejpeg.php" target="_blank">http://www.php.net/manual/ja/function.imagejpeg.php</a></p>
+
+<p><code>imagettftext</code> でテキストを画像に印字する。今回は、左上に印字したので、固定の座標でよかったが、下とか右端にしたい場合は、その前に画像のサイズを取得しないといけない。</p>
+
+<p>imagegettftext 関数 | PHPマニュアル<br />
+<a href="http://www.php.net/manual/ja/function.imagettftext.php" target="_blank">http://www.php.net/manual/ja/function.imagettftext.php</a></p>
+
+<p>最初は <code>imagetftext</code> ではなく、<code>imagestring</code> を使おうとしたのだが、フォントや大きさの指定の仕方がよくわからなかくてあきらめた。
+<code>imagestring</code> の2つ目の引数がフォントの大きさのようで、
+PHPマニュアルには1〜5とされているが、5を指定しても小さすぎたのである。</p>
+
+<p>imagestring 関数 | PHPマニュアル<br />
+<a href="http://www.php.net/manual/ja/function.imagestring.php" target="_blank">http://www.php.net/manual/ja/function.imagestring.php</a></p>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
