@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストから特定の条件にマッチする要素のみを取り出すには (filter)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストから特定の条件にマッチする要素のみを取り出すには (filter)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -61,13 +61,14 @@
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値の要素をすべて削除するには (remove-by-value)</a></li>
           <li><a href="../../programming_languages_diff/list/clone.html">リストをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
-          <li><a href="../../programming_languages_diff/list/sort.html">リストの要素を並べ替えするには (sort)</a></li>
+          <li><a href="../../programming_languages_diff/list/sort.html">リストの要素をソートするには (sort)</a></li>
           <li><a href="../../programming_languages_diff/list/convert.html">リストの種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/list/to-map.html">リストからマップを生成するには (toMap)</a></li>
           <li><a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
+          <li><a href="../../programming_languages_diff/list/max-min.html">リストの中の最大値・最小値を求めるには (max, min)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
-          <li><a href="../../programming_languages_diff/list/vector-add-subtract.html">数のリストを要素ごとに加算/減算するには(ベクトル演算)</a></li>
           <li><a href="../../programming_languages_diff/list/slice-replace.html">リストの一部を別のリストで置き換えるには (splice)</a></li>
+          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数のリストを要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
         </ul>
       </li>
     </ul>
@@ -83,8 +84,8 @@
 
 <p>リストから特定の条件にマッチする要素のみを取り出したリストを作成する方法。または特定の条件にマッチする要素のみのリストとマッチしない要素のみのリストの2つに分ける方法。</p>
 
-<h2 id="3fa5067">Scala
-<span class="article-date">2013/10/09</span></h2>
+<h2 id="scala">Scala
+<span class="article-date">2014/01/11</span></h2>
 
 <p>以下は、フィルター済みのリストを返し、自身は変更しないメソッド。</p>
 
@@ -101,6 +102,16 @@ def filter(p: A =&gt; Boolean): Seq[A]
 <pre><code>// scala.collection.Seq[A]
 def partition(p: A =&gt; Boolean): (Seq[A], Seq[A])
 </code></pre>
+
+<p>もし、フィルター済みのリストの要素の数を数えたいだけの場合は、<code>count</code>メソッドを使える。</p>
+
+<p>Signature:</p>
+
+<pre><code>// scala.collection.Seq[A]
+def count(p: A =&gt; Boolean): Int
+</code></pre>
+
+<p>このメソッドで条件にマッチした要素の数を取得できる。</p>
 
 <h2 id="b025412">PHP
 <span class="article-date">2013/12/14</span></h2>
