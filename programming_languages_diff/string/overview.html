@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>概要</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>概要</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -63,15 +63,18 @@
   <h1 id="overview">概要</h1>
 
 <h2 id="a84cc88">C言語, C++
-<span class="article-date">2013/10/07</span></h2>
+<span class="article-date">2014/01/13</span></h2>
 
-<p>C言語における文字列は、1バイトの整数である<code>char</code>型の配列であるか、配列の先頭へのポインタである。型は <code>char[]</code>, <code>char*</code> など。</p>
+<p>C言語における文字列は、1バイトの整数である<code>char</code>型の配列であるか、配列の先頭へのポインタである。型は <code>char[]</code>, <code>char*</code>。</p>
 
 <p>配列自身には長さの情報がないため、文字列にも長さの情報がなく、終端文字として <code>\x00</code> を置く習慣になっている。</p>
 
 <p>メモリ上に配置された長さよりも長い文字列を保存してしまうと、バッファオーバーフローを起こしてしまう。</p>
 
-<p>文字符号化方式(文字コード)に関する情報は文字列自身は持っていない。マルチバイトの文字はそのまま2バイト以上を使って保存する。</p>
+<p>マルチバイトの文字はそのまま2バイト以上を使って保存する。文字符号化方式(文字コード)に関する情報は文字列自身は持っていないので、使うごとに文字列がなんの文字コードなのかを意識しないといけない。</p>
+
+<p>文字列をソース・コード中に書くには <code>"</code> で囲む。これで <code>\x00</code> で終わる <code>char[]</code> 型になる。
+<code>'</code> で囲むと文字列ではなく文字(<code>char</code>型)になる。</p>
 
 <h2 id="6b3acc7">Java / Scala
 <span class="article-date">2013/10/10</span></h2>
@@ -152,6 +155,18 @@ UTF8フラグがオフになっている。外界からの入力時に <code>dec
 
 <p>Encode | search.cpan.org<br />
 <a href="http://search.cpan.org/dist/Encode/Encode.pm" target="_blank">http://search.cpan.org/dist/Encode/Encode.pm</a></p>
+
+<h2 id="61c7ec2">JavaScript
+<span class="article-date">2014/01/13</span></h2>
+
+<p><code>'</code> または <code>"</code> で囲むと文字列になる。</p>
+
+<h2 id="fdf056c">CoffeeScript
+<span class="article-date">2013/09/10</span></h2>
+
+<p><code>'</code> または <code>"</code> で囲むと文字列になる。</p>
+
+<p><code>"</code> で囲んだ文字列は、<a href="inline.html#coffeescript">中に式を埋め込む</a>ことができる。</p>
 
 </div>
 
