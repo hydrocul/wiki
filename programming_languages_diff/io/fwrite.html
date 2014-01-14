@@ -70,32 +70,14 @@ fclose($fh);
 
 <p><code>fopen</code> の2つ目の引数は mode を指定する。</p>
 
-<p>mode</p>
-
-<dl>
-  <dt><code>'w'</code></dt>
-  <dd>書き込みモード</dd>
-  <dt><code>'a'</code></dt>
-  <dd>追記モード</dd>
-</dl>
-
 <h2 id="3263c16">Python
 <span class="article-date">2013/10/12</span></h2>
 
-<pre><code>with open("./foo.txt", "w") as fh:
+<pre><code>with open('./foo.txt', 'w') as fh:
     fh.write(data)
 </code></pre>
 
 <p><code>open</code> の2つ目の引数は mode を指定する。</p>
-
-<p>mode</p>
-
-<dl>
-  <dt><code>'w'</code></dt>
-  <dd>書き込みモード</dd>
-  <dt><code>'a'</code></dt>
-  <dd>追記モード</dd>
-</dl>
 
 <h2 id="941337c">Ruby
 <span class="article-date">2013/08/23</span></h2>
@@ -108,9 +90,7 @@ File.open('./hoge.txt', 'w') do |fh|
 end
 </code></pre>
 
-<p><code>'w'</code> は通常の書き込みモードでのオープンで、すでにファイルが存在していれば、最初に大きさを0にする。</p>
-
-<p><code>'a'</code> にすると追記モードでのオープンで、すでにファイルが存在していれば、最初にポインタをファイルの最後に移動する。</p>
+<p><code>open</code> の2つ目の引数は mode を指定する。</p>
 
 <h3 id="ba15e73"><code>puts</code> と <code>write</code> の違い
 <span class="article-date">2013/08/23</span></h3>
@@ -183,6 +163,18 @@ b
 print FH $data;
 close(FH);
 </code></pre>
+
+<h2 id="412de15">ほとんどの言語で共通の説明</h2>
+
+<h3 id="bfd4d14">modeを指定する文字列
+<span class="article-date">2014/01/13</span></h3>
+
+<dl>
+  <dt><code>'w'</code></dt>
+  <dd>通常の書き込みモードでのオープンで、すでにファイルが存在していれば、最初に大きさを0にする。</dd>
+  <dt><code>'a'</code></dt>
+  <dd>追記モードでのオープンで、すでにファイルが存在していれば、最初にポインタをファイルの最後に移動する。</dd>
+</dl>
 
 </div>
 

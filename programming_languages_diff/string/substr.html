@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>部分文字列をインデックスで指定して取得するには (substr)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>部分文字列をインデックスで指定して取得するには (substr)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -102,7 +102,18 @@ length を省略した場合は、 start の位置から文字列の最後まで
 String#slice(from, length)
 </code></pre>
 
-<p>lengthを省略したら、from以降の文字列ではなく、その場所の1文字を返す。</p>
+<p>lengthを省略したら、from以降の文字列ではなく、その場所の1文字を返す。
+<code>slice</code> メソッドの代わりに <code>[]</code> も同じ使い方ができる。</p>
+
+<p>例</p>
+
+<pre><code>str = "あいうえお"
+
+p str.slice(2, 3)
+# =&gt; "うえお"
+p str[2, 3]
+# =&gt; "うえお"
+</code></pre>
 
 <p>配列に対しても同じように <code>slice</code> が使える。</p>
 

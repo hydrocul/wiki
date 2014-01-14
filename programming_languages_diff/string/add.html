@@ -125,11 +125,22 @@
 </code></pre>
 
 <h2 id="f40c514">Ruby
-<span class="article-date">2013/07/27</span></h2>
+<span class="article-date">2014/01/13</span></h2>
 
 <p>例</p>
 
 <pre><code>'abc' + 'def'
+</code></pre>
+
+<p><code>+</code> 演算子は非破壊的だが、<code>concat</code>メソッドは破壊的に文字列を連結する。</p>
+
+<p>例</p>
+
+<pre><code>str = 'abc'
+str.concat('def')
+
+puts str
+# =&gt; abcdef
 </code></pre>
 
 <h2 id="019cf7a">Perl
