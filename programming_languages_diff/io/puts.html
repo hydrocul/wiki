@@ -72,7 +72,7 @@ STDERR.puts "Error"
 </code></pre>
 
 <h2 id="9d8f007">Perl
-<span class="article-date">2013/10/16</span></h2>
+<span class="article-date">2014/01/15</span></h2>
 
 <pre><code># 標準出力
 print "OK\n";
@@ -80,11 +80,17 @@ print STDOUT "OK\n";
 
 # 標準エラー出力
 print STDERR "Error\n";
+warn "Error\n";
 </code></pre>
 
 <p><code>STDOUT</code>, <code>STDERR</code> はファイルハンドル。ちなみに標準入力のファイルハンドルは <code>STDIN</code>。</p>
 
 <p><code>print</code> の使い方はファイルに書き込むのと同じ。-&gt; <a href="fwrite.html#perl">print</a></p>
+
+<p><code>warn</code> は標準エラー出力する。出力する文字列に改行がなかった場合は行番号を出力し、その点は <a href="../process/exit.html#perl"><code>die</code></a> に似ている。</p>
+
+<p>warn | perldoc.jp<br />
+<a href="http://perldoc.jp/func/warn" target="_blank">http://perldoc.jp/func/warn</a></p>
 
 <h2 id="11f2f67">JavaScript / CoffeeScript
 <span class="article-date">2013/09/18</span></h2>

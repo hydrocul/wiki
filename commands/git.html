@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../commands/">コマンドの使い方</a> &gt; <span>git コマンド</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方</a> &gt; <span>git コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -568,6 +568,23 @@ git update-index --no-skip-worktree  &lt;file-path&gt;
 </code></pre>
 
 <p><code>--assume-unchanged</code> / <code>--no-assume-unchanged</code> と <code>--skip-worktree</code> / <code>--no-skip-worktree</code> は厳密には違うものなので、解除コマンドはそれぞれに対応するものを打つ必要がある。</p>
+
+<h2 id="d52818a">過去の特定のバージョンでの特定のファイルをチェックアウトせずに閲覧するには
+<span class="article-date">2014/01/15</span></h2>
+
+<pre><code>git cat-file -p &lt;commit sha1&gt;:&lt;path&gt;
+# または
+git show &lt;commit sha1&gt;:&lt;path&gt;
+</code></pre>
+
+<p><code>git show</code> のほうが自動でページングもしてくれて便利。</p>
+
+<p>例</p>
+
+<pre><code>git cat-file -p 859ffa2:lib/abc.php
+# または
+git show 859ffa2:lib/abc.php
+</code></pre>
 
 </div>
 

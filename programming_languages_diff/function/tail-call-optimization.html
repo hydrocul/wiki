@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>末尾最適化 (Tail Call Optimization)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>末尾最適化 (Tail Call Optimization)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -29,7 +29,7 @@
           <li><a href="../../programming_languages_diff/function/literal.html">関数定義</a></li>
           <li><a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a></li>
           <li><a href="../../programming_languages_diff/function/call.html">関数呼び出しまたはメソッド呼び出し</a></li>
-          <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
+          <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード(シグニチャの異なる複数の同名メソッド)</a></li>
           <li><a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
           <li><a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
           <li><a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値(多値返却)</a></li>
@@ -61,15 +61,16 @@
 <p>末尾の関数コールの最適化はしてくれない。</p>
 
 <h2 id="e445021">Scala
-<span class="article-date">2013/10/25</span></h2>
+<span class="article-date">2014/01/15</span></h2>
 
-<p>ループへの変換など、末尾再帰の最適化ができる場合は、コンパイラが自動でそのようにしてくれる。</p>
+<p>末尾再帰のループへの変換などへの最適化ができる場合は、コンパイラが自動でそのようにしてくれる。</p>
 
 <p>末尾再帰以外の末尾最適化してくれない。JVMの仕様上、難しい。</p>
 
 <p><code>@scala.annotation.tailrec</code> アノテーションをメソッドに付けると、そのメソッドの再帰呼び出しの箇所が末尾再帰の最適化にならない場合にコンパイルエラーになってくれるので、末尾再帰でないと困る場合はこれを付けたほうがよい。</p>
 
-<p>メソッドがオーバーライド可能だと、末尾再帰できないので、その場合は <code>final</code> も付ける必要がある。</p>
+<p>メソッドが<a href="override.html">オーバーライド</a>可能だと、末尾再帰できないので、
+<code>final</code> も付ける必要がある。</p>
 
 <p>フィボナッチ数列を計算する例</p>
 
@@ -119,6 +120,11 @@ println(fib_r(8));
 
 <h2 id="6bd738a">Ruby
 <span class="article-date">2013/10/08</span></h2>
+
+<p>末尾の関数コールの最適化はしてくれない。</p>
+
+<h2 id="3082009">Perl
+<span class="article-date">2014/01/15</span></h2>
 
 <p>末尾の関数コールの最適化はしてくれない。</p>
 

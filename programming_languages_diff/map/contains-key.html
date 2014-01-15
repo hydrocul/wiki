@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>特定のキーが含まれているかどうかを判定するには (containsKey)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>特定のキーが含まれているかどうかを判定するには (containsKey)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -55,14 +55,18 @@
 <h2 id="f0b540d">Java
 <span class="article-date">2013/05/06</span></h2>
 
-<pre><code>// Map&lt;K, V&gt;
+<p>Signature:</p>
+
+<pre><code>// java.util.Map&lt;K, V&gt;
 boolean containsKey(Object key)
 </code></pre>
 
 <h2 id="854c97e">Scala
 <span class="article-date">2013/08/20</span></h2>
 
-<pre><code>// Map[A, B]
+<p>Signature:</p>
+
+<pre><code>// scala.collection.Map[A, B]
 def contains(key: A): Boolean
 </code></pre>
 
@@ -113,6 +117,21 @@ Hash#member?(key)
 <code>use warnings;</code> が宣言されていると、
 <code>undef</code> が代入された変数を実際に使おうとするときに
 <code>Use of uninitialized value</code> という警告が表示される。</p>
+
+<h2 id="d8c52fa">JavaScript
+<span class="article-date">2014/01/15</span></h2>
+
+<p><code>in</code> という演算子があるので、これを使う。</p>
+
+<p>例</p>
+
+<pre><code>var map = {a: 1, b: 2}
+
+console.log('a' in map);
+// =&gt; true
+console.log('c' in map);
+// =&gt; false
+</code></pre>
 
 </div>
 
