@@ -90,7 +90,7 @@
 
 <div id="content">
   <h1 id="grep">grep コマンド
-<span class="article-date">2013/10/16</span></h1>
+<span class="article-date">2014/01/16</span></h1>
 
 <p>ファイルなどの中から正規表現でマッチする行を探し出すコマンド。</p>
 
@@ -99,12 +99,14 @@
 
 <p>ファイルを指定しないと標準入力をパターンマッチングする。</p>
 
-<p>ソースコード一式のディレクトリの中から特定の単語を探すときには、たいてい</p>
+<p>私がソースコード一式のディレクトリの中から特定の単語を探すときには、再帰的に検索、かつ行番号もほしいので、たいてい</p>
 
 <pre><code>grep -rn foo .
 </code></pre>
 
 <p>のように <code>-rn</code> オプションを付けて使っている。</p>
+
+<p>(grepよりも高速に検索できる <a href="ack-grep.html">ack-grep</a> などもある)</p>
 
 <h2 id="f911d96">オプション
 <span class="article-date">2013/08/28</span></h2>
