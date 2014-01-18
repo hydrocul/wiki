@@ -47,7 +47,7 @@
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
         </ul>
@@ -95,14 +95,14 @@ length を省略した場合は、 start の位置から文字列の最後まで
 
 <p><code>$length</code>が<code>$string</code>に比べ長すぎる場合は、エラーにならずに<code>$string</code>の最後までを返す。</p>
 
-<h2 id="5537941">Ruby
-<span class="article-date">2013/04/12</span></h2>
+<h2 id="ruby">Ruby
+<span class="article-date">2014/01/18</span></h2>
 
 <pre><code>String#slice(index)
 String#slice(from, length)
 </code></pre>
 
-<p>lengthを省略したら、from以降の文字列ではなく、その場所の1文字を返す。
+<p><code>length</code> を省略したら、from以降の文字列ではなく、その場所の1文字を返す。
 <code>slice</code> メソッドの代わりに <code>[]</code> も同じ使い方ができる。</p>
 
 <p>例</p>
@@ -115,7 +115,8 @@ p str[2, 3]
 # =&gt; "うえお"
 </code></pre>
 
-<p>配列に対しても同じように <code>slice</code> が使える。</p>
+<p><code>slice</code> や <code>[]</code> を使った要素へのアクセスや範囲を指定してのアクセスは、
+<a href="../list/sub-list.html#ruby">配列</a>に対しても全く同じ使い方ができる。</p>
 
 <h2 id="138094b">Perl
 <span class="article-date">2013/12/30</span></h2>

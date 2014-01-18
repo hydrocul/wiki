@@ -78,7 +78,7 @@
 <p>整数、浮動小数点数、複素数の3種類のデータ型がある。</p>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/01/13</span></h2>
+<span class="article-date">2014/01/18</span></h2>
 
 <p>整数は <code>Fixnum</code> と <code>Bignum</code> というクラスがあるが、普段はそれらのスーパークラスである <code>Integer</code> として認識すればよい。小さい整数は <code>Fixnum</code> になり、大きすぎてオーバーフローしてしまう場合は自動で <code>Bignum</code> になる。</p>
 
@@ -87,12 +87,16 @@ p a.class
 # =&gt; Fixnum
 p a.class.superclass
 # =&gt; Integer
+p a.class.superclass.superclass
+# =&gt; Numeric
 
 b = 300000000000000000000000000000000
 p b.class
 # =&gt; Bignum
 p b.class.superclass
 # =&gt; Integer
+p b.class.superclass.superclass
+# =&gt; Numeric
 </code></pre>
 
 <p>ソースコードの中で整数リテラルを書くには、
@@ -103,6 +107,15 @@ C言語やJavaなどと違って、Pythonと同様に、
 8進数表記は<code>0o</code>または<code>0O</code>で始めることもできる。</p>
 
 <p>整数は3ケタごとの区切りなどとして途中にアンダースコアを入れることができる。入れる場所はどこでもよく、インタプリタは単に途中のアンダースコアを無視する。ただし、<code>0x</code> などの直後にアンダースコアを置くことはできない。さらなる例外として、なぜか8進数表記は <code>0_</code> で始めることもできる。</p>
+
+<p>浮動小数点数は、倍精度で扱える。</p>
+
+<pre><code>f = 3.14
+p f.class
+# =&gt; Float
+p f.class.superclass
+# =&gt; Numeric
+</code></pre>
 
 <p>Ruby 2.1からは<code>r</code>サフィックスを使った有理数(<code>Rational</code>型)や、
 <code>i</code>サフィックスを使った複素数(<code>Complex</code>型)を書くこともできる。</p>
