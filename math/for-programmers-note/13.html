@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../math/">数学関係のノート</a> &gt; <a href="../../math/for-programmers-note/">プログラマのための数学勉強会のノート</a> &gt; <span>第13回 (統計学第2回) 情報エントロピー / さまざまな確率分布</span>
+  <a href="../../">Home</a> &gt; <a href="../../math/">数学関係のノート</a> &gt; <a href="../../math/for-programmers-note/">プログラマのための数学勉強会のノート</a> &gt; <span>第13回 (統計学第2回) 情報エントロピー / さまざまな確率分布</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -123,7 +123,7 @@
 </ul>
 
 <h2 id="61c7c47">さまざまな確率分布
-<span class="article-date">2013/12/22</span></h2>
+<span class="article-date">2014/01/18</span></h2>
 
 <p><a href="http://nineties.github.io/math-seminar/13.html#/19" target="_blank">http://nineties.github.io/math-seminar/13.html#/19</a></p>
 
@@ -143,6 +143,57 @@
 \[ \mu = \frac{a + b}{2} \]</li>
       <li>分散
 \[ \sigma^2 = \frac{(b - a)^2}{12} \]</li>
+    </ul>
+  </li>
+  <li><strong>ベルヌーイ分布</strong><br />
+<a href="http://nineties.github.io/math-seminar/13.html#/24" target="_blank">http://nineties.github.io/math-seminar/13.html#/24</a>
+    <ul>
+      <li>\[ P(X) = \left\{ \begin{array}{cl}
+            1 - p &amp; (X = 0) \\ 
+            p     &amp; (X = 1)
+            \end{array} \right. \]</li>
+      <li>コイン投げなど、結果が2通りしかないもの</li>
+      <li>この試行のことを<strong>ベルヌーイ試行</strong>という</li>
+      <li>平均
+\[ \mu = p \]</li>
+      <li>分散
+\[ \sigma^2 = p(1 - p) \]</li>
+    </ul>
+  </li>
+  <li><strong>二項分布</strong><br />
+<a href="http://nineties.github.io/math-seminar/13.html#/25" target="_blank">http://nineties.github.io/math-seminar/13.html#/25</a>
+    <ul>
+      <li>ベルヌーイ試行を\(n\)回試行して片方の結果になった回数の分布</li>
+      <li>例
+        <ul>
+          <li>ランダムウォーク</li>
+        </ul>
+      </li>
+      <li>\(n\)がとても大きいと正規分布に近づく</li>
+      <li>\[ P(X = k) = {}_nC_k p^k (1 - p)^{n-k} \]</li>
+      <li>\( B(n, p) \) と書く</li>
+      <li>二項分布の<strong>再生性</strong><br />
+<a href="http://nineties.github.io/math-seminar/13.html#/27" target="_blank">http://nineties.github.io/math-seminar/13.html#/27</a></li>
+      <li>平均
+\[ \mu = np \]</li>
+      <li>分散
+\[ \sigma^2 = np(1 - p) \]
+        <ul>
+          <li>試行回数が2倍になれば、分布の広がりは \( \sqrt{2} \) 倍になるということ</li>
+        </ul>
+      </li>
+      <li>余談
+        <ul>
+          <li>\( {}_nC_k \) をまじめに階乗で計算してしまうと
+あっという間にオーバーフローしてしまうので、要注意。
+(Rubyだとオーバーフローしないから気づかないので、よりやっかいかも。)
+普通は浮動小数点で漸化式を使って計算してしまう
+            <ul>
+              <li>\[ {}_nC_k = \frac{n}{k} {}_{n-1}C_{k-1} \]</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
