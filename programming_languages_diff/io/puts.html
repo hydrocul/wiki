@@ -61,15 +61,20 @@
   <h1 id="puts">標準出力・標準エラー出力するには</h1>
 
 <h2 id="dfe2647">Ruby
-<span class="article-date">2014/01/05</span></h2>
+<span class="article-date">2014/01/19</span></h2>
 
 <pre><code># 標準出力
+print "OK\n"
 puts "OK"
+STDOUT.print "OK\n"
 STDOUT.puts "OK"
 
 # 標準エラー出力
+STDERR.print "Error\n"
 STDERR.puts "Error"
 </code></pre>
+
+<p><code>puts</code> だと最後に自動で改行される。</p>
 
 <h2 id="9d8f007">Perl
 <span class="article-date">2014/01/15</span></h2>

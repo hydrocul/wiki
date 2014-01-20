@@ -94,8 +94,8 @@
 
 <p>ネットワークの状況を調べるコマンド。</p>
 
-<p>LISTENしているポートは、<code>netstat -an</code> を実行して、出力の上の方のLISTENと書いてあるレコードが該当する。そのレコードの Local Address の欄が 127.0.0.1 と書かれていると、そのポートは localhost からしか接続できない。 0.0.0.0 と書かれていると、
-(iptablesなどでブロックされていなければ)外部も含めてどこからでもアクセスできる。</p>
+<p>LISTENしているポートは、<code>netstat -an</code> を実行して、出力の上の方の <code>LISTEN</code> と書いてあるレコードが該当する。そのレコードの <code>Local Address</code> の欄が <code>127.0.0.1</code> と書かれていると、そのポートは localhost からしか接続できない。 0.0.0.0 と書かれていると、
+(iptablesなどでブロックされていなければ)外部からでもアクセスできる。</p>
 
 <h2 id="6fd40d6">ポートをLISTENしているプロセスを調べるには
 <span class="article-date">2013/07/31</span></h2>
