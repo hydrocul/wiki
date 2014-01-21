@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <span>シェルスクリプト</span>
+  <a href="./">Home</a> &gt; <span>シェルスクリプト</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -31,22 +31,10 @@
   <li>シェルスクリプト</li>
   <li><a href="./math/">数学関係のノート</a></li>
   <li><a href="./blog/">ブログ</a></li>
-  <li><a href="./apache.html">Apache</a></li>
-  <li><a href="./emacs.html">Emacs</a></li>
-  <li><a href="./google-analytics.html">Google Analytics</a></li>
   <li><a href="./incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
-  <li><a href="./linux.html">Linux</a></li>
-  <li><a href="./linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
-  <li><a href="./mac.html">Mac</a></li>
   <li><a href="./math-for-programmers-note.html">プログラマのための数学勉強会ノート</a></li>
   <li><a href="./mechanize.html">mechanize</a></li>
-  <li><a href="./mysql.html">MySQLのメモ</a></li>
-  <li><a href="./oneliner.html">ワンライナー</a></li>
   <li><a href="./others/">未分類</a></li>
-  <li><a href="./passenger.html">Passenger (Ruby on Rails)</a></li>
-  <li><a href="./phantomjs.html">phantomjs</a></li>
-  <li><a href="./ruby.html">Ruby</a></li>
-  <li><a href="./svn.html">Subversion (svn)</a></li>
 </ul>
 
   </div>
@@ -121,11 +109,14 @@ fi
 <p>Ubuntu 12.04 でのデフォルトの /bin/sh が dash になっていて、<code>$RANDOM</code> が動かないので、これを使う場合はshebangを <code>#!/bin/bash</code> にする。</p>
 
 <h2 id="3fd54e6">bash, dash の比較
-<span class="article-date">2013/04/18</span></h2>
+<span class="article-date">2014/01/21</span></h2>
 
-<p><a href="http://www.01.246.ne.jp/~hatch/sh.html" target="_blank">http://www.01.246.ne.jp/~hatch/sh.html</a></p>
+<ul>
+  <li><a href="http://www.01.246.ne.jp/~hatch/sh.html" target="_blank">http://www.01.246.ne.jp/~hatch/sh.html</a></li>
+  <li><a href="http://princessleia.com/plug/2008-JP_bash_vs_dash.pdf" target="_blank">http://princessleia.com/plug/2008-JP_bash_vs_dash.pdf</a></li>
+</ul>
 
-<p>dash は Ubuntu 12.04 でのデフォルトの /bin/sh になっている。</p>
+<p>dash は Ubuntu でのデフォルトの /bin/sh になっている(Ubuntu 12.04, 13.10 で確認)。</p>
 
 <h2 id="ff5f2f5">変数の内容を比較して分岐させるには
 <span class="article-date">2013/04/18</span></h2>
