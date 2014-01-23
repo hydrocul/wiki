@@ -27,7 +27,6 @@
       <li><a href="../../programming_languages_diff/map/">マップ(連想配列)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/map/literal.html">マップの書き方</a></li>
           <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
           <li>キーで値を参照するには (get)</li>
           <li><a href="../../programming_languages_diff/map/put.html">キーで要素を設定するには (put)</a></li>
@@ -62,10 +61,12 @@
 
 <h2 id="scala">Scala</h2>
 
-<h3 id="1e4868d">要素が存在しない場合に参照時に例外をスローさせるには
+<h3 id="71cafc4">存在しない場合に例外をスローさせる仕様で要素を取得するには
 <span class="article-date">2013/09/23</span></h3>
 
-<pre><code>// Map[A, B]
+<p>Signature:</p>
+
+<pre><code>// scala.collection.Map[A, B]
 def apply(key: A): B
 </code></pre>
 
@@ -125,18 +126,18 @@ def getOrElse(key: A, default: =&gt; B): B
 <pre><code>hash.fetch('a')
 </code></pre>
 
-<p>存在しない要素を取得しようとすると <code>[]</code> は <code>nil</code> が返ってくるが、
+<p>存在しない要素を取得しようとすると <code>[]</code> では <code>nil</code> が返ってくるが、
 <code>fetch</code> は <code>KeyError</code> の例外が発生する。</p>
 
-<p><code>fetch</code> は第2引数かブロックを与えることができ、その場合は、要素が存在しない場合に、第2引数を返すか、ブロックを評価した結果を返す。</p>
+<p><code>fetch</code> は第2引数またはブロックでデフォルト値を設定することができる。要素が存在しない場合に、第2引数があれば第2引数を返し、ブロックがあれば、それを評価した結果を返す。</p>
 
 <p>例</p>
 
 <pre><code>m = {'a' =&gt; 1}
 
-p m.fetch('a') # =&gt; 1
-p m.fetch('a', 2) # =&gt; 1
-p m.fetch('b', 2) # =&gt; 2
+p m.fetch('a')       # =&gt; 1
+p m.fetch('a', 2)    # =&gt; 1
+p m.fetch('b', 2)    # =&gt; 2
 p m.fetch('b') { 2 } # =&gt; 2
 </code></pre>
 
@@ -160,6 +161,20 @@ $hash{'a'} # =&gt; 1
 <pre><code>my $hash = {a =&gt; 1, b =&gt; 2};
 
 $hash-&gt;{a} # =&gt; 1
+</code></pre>
+
+<h2 id="0c67a07">JavaScript
+<span class="article-date">2014/01/22</span></h2>
+
+<p>例</p>
+
+<pre><code>map = {a: 1, b: 2}
+
+console.log(map.a);
+// =&gt; 1
+
+console.log(map['a']);
+// =&gt; 1
 </code></pre>
 
 </div>

@@ -217,7 +217,7 @@ list = scala.collection.immutable.List.apply();
 <a href="http://www.php.net/manual/ja/book.array.php" target="_blank">http://www.php.net/manual/ja/book.array.php</a></p>
 
 <h2 id="python">Python
-<span class="article-date">2013/10/22</span></h2>
+<span class="article-date">2014/01/22</span></h2>
 
 <p>リストおよびタプルというデータ型がある。また、NumPyを導入すればベクトル計算の得意な固定長の多次元配列を使える。</p>
 
@@ -233,6 +233,25 @@ Scalaなどのタプルとはだいぶイメージが違う気がする。</p>
 <a href="../map/overview.html#python">ディクショナリ</a>のキーにできる。</p>
 
 <p>リスト、タプルに文字列も含めたものをシーケンス型といわれ、共通の操作がいくつかある。</p>
+
+<p>リスト・タプルの書き方の例</p>
+
+<pre><code># リスト
+lst = [1, 2, 3]
+
+# タプル
+tpl = (1, 2, 3)
+
+# 要素が1つのタプル
+tpl = (1,)
+</code></pre>
+
+<p>NumPyの配列の書き方の例</p>
+
+<pre><code>import numpy as np
+
+np.array([1, 2, 3])
+</code></pre>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/01/18</span></h2>
@@ -321,8 +340,8 @@ my $arr = \@a;
 <pre><code>@$arr;
 </code></pre>
 
-<h2 id="2ab0b84">JavaScript / CoffeeScript
-<span class="article-date">2013/09/21</span></h2>
+<h2 id="javascript">JavaScript
+<span class="article-date">2013/10/25</span></h2>
 
 <p>オブジェクトのキーに整数を使って要素を定義し、
 <code>prototype</code> に <code>Array.prototype</code> が指定されたものが配列のように振舞う。</p>
@@ -334,10 +353,33 @@ var arr = {0: 1, 1: 2, 2: 3}; arr.__proto__ = Array.prototype;
 var arr = {'0': 1, '1': 2, '2': 3}; arr.__proto__ = Array.prototype;
 </code></pre>
 
+<p>最後に余計なカンマがあっても本当は問題ないのだが、
+IEだとだめなので、最後のカンマは付けないほうがよい。最近のIEのバージョンだとどうなのかは知らない。</p>
+
 <p>JavaScript の配列と連想配列の違い<br />
 <a href="http://d.hatena.ne.jp/amachang/20070202/1170386546" target="_blank">http://d.hatena.ne.jp/amachang/20070202/1170386546</a></p>
 
 <p>インデックスは0から始まる。</p>
+
+<h2 id="coffeescript">CoffeeScript
+<span class="article-date">2014/01/22</span></h2>
+
+<p>基本はJavaScriptと同じ。</p>
+
+<p>インデックスは0から始まる。</p>
+
+<p>配列の書き方の例</p>
+
+<pre><code>arr = [1, 2, 3]
+arr = [1, 2, 3, ]
+arr = [
+    1
+    2
+    3
+]
+</code></pre>
+
+<p>最後に余計なカンマがあっても問題ない。改行すればカンマを省略できる点はJavaScriptにない特徴で便利かもしれない。</p>
 
 </div>
 
