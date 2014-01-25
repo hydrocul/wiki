@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>論理演算子 | 論理型 | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/boolean/">論理型</a> &gt; <span>論理演算子</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/boolean/">論理型</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/boolean/overview.html">論理値(boolean)の概要</a></li>
+          <li><a href="../../programming_languages_diff/boolean/to-boolean.html">論理値への変換</a></li>
+          <li>論理演算子</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="operator">論理演算子</h1>
+
+<h2 id="c9a1b42">Python
+<span class="article-date">2013/10/11</span></h2>
+
+<pre><code># 論理積
+x and y
+
+# 論理和
+x or y
+
+# 否定
+not x
+</code></pre>
+
+<p><code>not</code> は優先順位が低いので <code>not x == y</code> は <code>not (x == y)</code> の意味になる。</p>
+
+<h2 id="e5a8307">Ruby
+<span class="article-date">2014/01/03</span></h2>
+
+<p>論理演算子として、<code>&amp;&amp;</code>, <code>||</code>, <code>!</code>, <code>and</code>, <code>or</code>, <code>not</code> がある。</p>
+
+<p><code>!</code>, <code>not</code> は否定で <code>true</code> か <code>false</code> を返す。</p>
+
+<p><code>&amp;&amp;</code>, <code>||</code>, <code>and</code>, <code>or</code> は左の項から順番に評価して論理値として true か false のいずれかに決定した段階で評価をやめてその項の値を返す。その項の値をそのまま返すため、式全体が返す値は <code>true</code> か <code>false</code> に限らない。
+falseの扱いになるのは、<code>false</code>, <code>nil</code> のみである。
+(-&gt; <a href="to-boolean.html#ruby">論理値への変換</a>)</p>
+
+<p><code>and</code>, <code>or</code> は関数の引数リストの区切りであるカンマよりも優先順位が低いため、関数呼び出しの引数リストの中にそのまま書くとコンパイルエラーになる。</p>
+
+<p>例</p>
+
+<pre><code>a = nil
+b = 10
+
+p (a or b)
+# =&gt; 10
+
+p (a and b)
+# =&gt; nil
+
+p a or b
+# =&gt; nil
+# (p(a) or b) と解釈されているため
+
+# 以下はカッコの中で引数リストを期待されている箇所にorがあるために
+# コンパイルエラーになる。
+# p(a or b)
+</code></pre>
+
+<h2 id="272f61c">Perl
+<span class="article-date">2014/01/24</span></h2>
+
+<pre><code># 論理積
+x &amp;&amp; y
+
+# 論理和
+x || y
+
+# 否定
+! x
+</code></pre>
+
+<p>論理積や論理和は最後に評価した項が演算子の結果になる。否定の演算子は結果が真であれば <code>1</code>、偽であれば <code>''</code> になる。</p>
+
+<p>例</p>
+
+<pre><code>2 &amp;&amp; 0   # =&gt; 0
+2 &amp;&amp; ''  # =&gt; ''
+2 &amp;&amp; 3   # =&gt; 3
+0 &amp;&amp; 2   # =&gt; 0
+'' &amp;&amp; 2  # =&gt; ''
+3 &amp;&amp; 2   # =&gt; 2
+0 || 0   # =&gt; 0
+'' || 0  # =&gt; ''
+
+2 || 0   # =&gt; 2
+2 || ''  # =&gt; 2
+2 || 3   # =&gt; 2
+0 || 2   # =&gt; 2
+'' || 2  # =&gt; 2
+3 || 2   # =&gt; 3
+0 || 0   # =&gt; 0
+0 || ''  # =&gt; ''
+
+! 0      # =&gt; 1
+! ''     # =&gt; 1
+! 1      # =&gt; ''
+</code></pre>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
