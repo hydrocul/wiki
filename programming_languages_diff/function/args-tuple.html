@@ -29,11 +29,11 @@
           <li><a href="../../programming_languages_diff/function/literal.html">関数定義</a></li>
           <li><a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a></li>
           <li><a href="../../programming_languages_diff/function/call.html">関数呼び出しまたはメソッド呼び出し</a></li>
-          <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
+          <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード(シグニチャの異なる複数の同名メソッド)</a></li>
           <li><a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
           <li><a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
           <li><a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値(多値返却)</a></li>
-          <li><a href="../../programming_languages_diff/function/var-args.html">可変長引数</a></li>
+          <li><a href="../../programming_languages_diff/function/var-args.html">可変長引数やさまざまな引数の渡し方</a></li>
           <li><a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
           <li><a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾最適化 (Tail Call Optimization)</a></li>
           <li><a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
@@ -64,19 +64,9 @@ args = (10, "abc")
 f(*args)
 </code></pre>
 
-<h2 id="d638332">Ruby
-<span class="article-date">2013/11/16</span></h2>
+<h2 id="d638332">Ruby</h2>
 
-<p><a href="../list/overview.html#ruby">配列</a>を関数に渡すときに <code>*</code> をつけると、配列の各要素を関数の引数として展開されて渡される。
-<a href="var-args.html#ruby">可変長引数</a>と逆のイメージ。</p>
-
-<pre><code>def f(a, b)
-  print "a:#{a} b:#{b}\n"
-end
-
-args = [1, 2]
-f(*args); # =&gt; a:1 b:2
-</code></pre>
+<p>-&gt; <a href="var-args.html#ruby">さまざまな引数の渡し方</a></p>
 
 </div>
 

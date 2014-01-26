@@ -64,7 +64,7 @@
 </code></pre>
 
 <h2 id="b6e3b6a">C++
-<span class="article-date">2013/12/14</span></h2>
+<span class="article-date">2014/01/26</span></h2>
 
 <p>例</p>
 
@@ -101,7 +101,7 @@ void FooClass::method1(){
 
 <p><a href="modifier.html">アクセス修飾子</a>(<code>public</code> や <code>private</code>)は、メンバごとに付けるのではなく、上記のようにグループ分けして書く。</p>
 
-<p>またクラス宣言の中にはメンバ関数(メソッド)はシグニチャの宣言のみを書いて、メンバ関数の定義はクラス宣言の外側に書く。普通はクラス宣言はヘッダファイルに書き、メンバ関数定義はソースファイルに書く。</p>
+<p>またクラス宣言の中にはメンバ関数(メソッド)はシグニチャの宣言のみを書いて、メンバ関数の定義はクラス宣言の外側に書く。クラス宣言の外側ではクラス名とメソッド名を二重コロン(<code>::</code>)でつなぐ。普通はクラス宣言はヘッダファイルに書き、メンバ関数定義はソースファイルに書く。</p>
 
 <h2 id="e8f6b75">Java
 <span class="article-date">2013/12/14</span></h2>
@@ -177,7 +177,7 @@ void FooClass::method1(){
 </code></pre>
 
 <h2 id="61545c9">Ruby
-<span class="article-date">2013/12/14</span></h2>
+<span class="article-date">2014/01/26</span></h2>
 
 <p>例</p>
 
@@ -200,6 +200,19 @@ void FooClass::method1(){
   attr_accessor :field3, :field4
 
 end
+</code></pre>
+
+<p>こういったクラスの定義式は、新しいクラスを生成してそれを <code>FooClass</code> という名前の<a href="../vars/const.html#ruby">定数</a>)に割り当てる定数定義である。つまりクラス名は定数の名前にすぎない。
+Rubyの文法では定数は大文字で始まる必要があるので、クラス名も大文字ではじめなければならない。</p>
+
+<p>定数定義と同じなので、モジュールの中でクラスが定義されれば二重コロン <code>::</code> を使ってアクセスできる。</p>
+
+<pre><code>module Foo
+  class Bar
+  end
+end
+
+a = Foo::Bar.new
 </code></pre>
 
 </div>

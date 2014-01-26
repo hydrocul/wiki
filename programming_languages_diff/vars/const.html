@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/vars/">変数/定数・束縛</a> &gt; <span>定数</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/vars/">変数/定数・束縛</a> &gt; <span>定数</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -67,12 +67,21 @@ HogeClass::BAR;
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2013/12/18</span></h2>
+<span class="article-date">2014/01/26</span></h2>
 
 <p>アルファベット大文字で始まる識別子が定数になる。これは慣例ではなくRubyの文法である。定数であってもなんと再代入が可能である。ただし再代入は普通は推奨されず、
 2度目以降は実行時に警告が表示される。</p>
 
 <pre><code>PI = 3.14
+</code></pre>
+
+<p>モジュールの中で定義された定数はモジュール名と定数名を二重コロン <code>::</code> で接続してアクセスできる。</p>
+
+<pre><code>module Foo
+  PI = 3.14
+end
+
+print Foo::PI
 </code></pre>
 
 <h2 id="f186cdf">Perl
