@@ -114,9 +114,14 @@
 </code></pre>
 
 <h2 id="d3bc6b9">タブ区切りで処理するには
-<span class="article-date">2013/06/11</span></h2>
+<span class="article-date">2014/01/27</span></h2>
 
-<pre><code>awk -F'\t' ...
+<p>入力がタブ区切りの場合は <code>-v FS=$'\t'</code> を付けて、出力がタブ区切りの場合は <code>-v OFS=$'\t'</code> を付ける。</p>
+
+<p>例</p>
+
+<pre><code># タブ区切りの入力を受け取って、行番号、1カラム目、2カラム目をタブ区切りで出力
+awk -v FS=$'\t' -v OFS=$'\t' '{print NR,$1,$2}'
 </code></pre>
 
 <h2 id="220c964">行番号を出力するには

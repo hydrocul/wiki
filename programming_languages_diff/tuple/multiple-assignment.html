@@ -26,8 +26,8 @@
     <ul>
       <li><a href="../../programming_languages_diff/tuple/">タプル</a>
         <ul>
-          <li>複数の値をまとめて代入(多重代入)</li>
           <li><a href="../../programming_languages_diff/tuple/overview.html">概要</a></li>
+          <li>複数の値をまとめて代入(多重代入)</li>
           <li><a href="../../programming_languages_diff/tuple/return-tuple.html">複数の返り値(多値返却)</a></li>
         </ul>
       </li>
@@ -99,9 +99,40 @@ a, b = 3, 'abc'
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2013/09/30</span></h2>
+<span class="article-date">2014/01/26</span></h2>
+
+<p><code>=</code> を複数並べれば、複数の変数に同じ値を代入できる。</p>
+
+<pre><code>a = b = 3
+print a # =&gt; 3
+print b # =&gt; 3
+</code></pre>
+
+<p>コンマ区切りで複数の変数への代入をまとめできる。</p>
 
 <pre><code>a, b = 3, 'abc'
+</code></pre>
+
+<p>右辺は配列にしてもよい。</p>
+
+<pre><code>a, b = [3, 'abc']
+</code></pre>
+
+<p><a href="../function/var-args.html#ruby">メソッド呼び出し</a>時と同様に <code>*</code> で配列を展開したり、逆に配列で受け取ったりできる。</p>
+
+<pre><code>a, *b = [1, 2, 3]
+print a # =&gt; 1
+print b # =&gt; [2, 3]
+
+a, b, c = 1, *[2, 3, 4]
+print a # =&gt; 1
+print b # =&gt; 2
+print c # =&gt; 3
+
+a, b, *c = 1, *[2, 3, 4]
+print a # =&gt; 1
+print b # =&gt; 2
+print c # =&gt; [3, 4]
 </code></pre>
 
 </div>
