@@ -27,13 +27,12 @@
       <li><a href="../../programming_languages_diff/list/">リスト(配列)</a>
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/list/literal.html">リスト(配列)の書き方</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/is-empty.html">リストが空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/list/get.html">インデックスで要素を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
           <li><a href="../../programming_languages_diff/list/head-last.html">リストの先頭または最後の要素を取得するには (head, last)</a></li>
-          <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の要素のリストを取得するには (tail)</a></li>
+          <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の残りの要素をリストで取得するには (tail)</a></li>
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
@@ -101,6 +100,28 @@ boolean remove(Object elem);
 
 <pre><code>// seqからelemと等しい要素をすべて削除した新しいリストを返す
 seq.filter(_ != elem)
+</code></pre>
+
+<h2 id="84837c7">PHP
+<span class="article-date">2014/01/29</span></h2>
+
+<p>例</p>
+
+<pre><code>$elem = 20;
+
+$arr = array(10, 20, 30);
+$new_arr = array();
+foreach ($arr as $v) {
+    if ($v != $elem) {
+        $new_arr[] = $v;
+    }
+}
+
+var_export($new_arr);
+# =&gt; array (
+#      0 =&gt; 10,
+#      1 =&gt; 30,
+#    )
 </code></pre>
 
 <h2 id="1fa6f80">Python

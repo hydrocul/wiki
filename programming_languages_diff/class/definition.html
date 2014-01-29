@@ -177,28 +177,34 @@ void FooClass::method1(){
 </code></pre>
 
 <h2 id="61545c9">Ruby
-<span class="article-date">2014/01/26</span></h2>
+<span class="article-date">2014/01/28</span></h2>
 
 <p>例</p>
 
 <pre><code>class FooClass &lt; SuperFooClass
-
+  
   # インスタンス初期化メソッド
   def initialize
     @field1 = ... # インスタンス変数
   end
-
+  
   # メソッド定義
   def method1
     ...
   end
-
+  
   # フィールドへの読み取り専用アクセッサの作成
   attr_reader :field1, :field2
-
+  
   # フィールドへの読み書きアクセッサの作成
   attr_accessor :field3, :field4
-
+  
+  # クラスの特異メソッド
+  # Javaでいうstaticメソッドのようなもの
+  def self.smethod1
+    ...
+  end
+  
 end
 </code></pre>
 

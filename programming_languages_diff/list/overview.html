@@ -32,7 +32,7 @@
           <li><a href="../../programming_languages_diff/list/get.html">インデックスで要素を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
           <li><a href="../../programming_languages_diff/list/head-last.html">リストの先頭または最後の要素を取得するには (head, last)</a></li>
-          <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の要素のリストを取得するには (tail)</a></li>
+          <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の残りの要素をリストで取得するには (tail)</a></li>
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
@@ -186,7 +186,7 @@ list = scala.collection.immutable.List.apply();
 </code></pre>
 
 <h2 id="php">PHP
-<span class="article-date">2013/10/05</span></h2>
+<span class="article-date">2014/01/29</span></h2>
 
 <p>組み込み型の連想配列のキーに整数を使えば、配列として使うことができる。-&gt; <a href="../map/overview.html#php">連想配列</a></p>
 
@@ -207,6 +207,40 @@ list = scala.collection.immutable.List.apply();
 <p>PHP5.4以降では以下のようにも書ける。</p>
 
 <pre><code>$arr = [1, 2, 3];
+</code></pre>
+
+<p>上記のように書けばインデックスは0から始まるが、中身は単なる連想配列であるので、以下のようにインデックスは順番に並んでいる必要がない。</p>
+
+<pre><code>$arr = array();
+$arr[1] = 10;
+$arr[3] = 30;
+
+var_export($arr);
+// =&gt; array (
+//      1 =&gt; 10,
+//      3 =&gt; 30,
+//    )
+</code></pre>
+
+<p>要素を参照するには <code>[]</code> を使う。</p>
+
+<p>連想配列のキーは整数と文字列の区別がないので、以下のように、配列に対して数字の文字列でもアクセスできてしまう。</p>
+
+<pre><code>$arr = array();
+$arr['1'] = 10;
+$arr[3] = 30;
+
+var_export($arr[1]);
+// =&gt; 10
+
+var_export($arr['3']);
+// =&gt; 30
+
+var_export($arr);
+// =&gt; array (
+//      1 =&gt; 10,
+//      3 =&gt; 30,
+//    )
 </code></pre>
 
 <p>配列 | PHP Manual<br />

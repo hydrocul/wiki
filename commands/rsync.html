@@ -155,6 +155,14 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 <p>転送の進捗をリアルタイムに表示させるには、<code>--progress</code> オプションを使う。プログレスバーのようなビジュアルでの表示ではなく、単に数値で表示するのはちょっと残念。</p>
 
+<h2 id="167dc8c">リモートのファイルをローカルに保存するのではなく、標準出力させて別のコマンドにパイプでつなぐには
+<span class="article-date">2014/01/29</span></h2>
+
+<p><code>rsync</code> で標準出力させる方法が見つからなかったが、<code>ssh</code> で以下のようにすればいいだけ。</p>
+
+<pre><code>ssh remote "cat abc.txt" | less
+</code></pre>
+
 </div>
 
 <footer>
