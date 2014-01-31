@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>部分文字列を検索するには (indexOf / lastIndexOf)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>部分文字列を検索するには (indexOf / lastIndexOf)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -47,7 +47,7 @@
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
         </ul>
@@ -65,11 +65,11 @@
 <h2 id="06aa8d1">Java / Scala
 <span class="article-date">2013/04/27</span></h2>
 
-<pre><code>// String
+<pre><code>// java.lang.String
 int indexOf(int ch)
 int indexOf(String str)
 
-// String
+// java.lang.String
 int lastIndexOf(int ch)
 int lastIndexOf(String str)
 </code></pre>
@@ -114,7 +114,8 @@ String#rindex(str)
 String#rindex(str, index)
 </code></pre>
 
-<p>見つからない場合は <code>nil</code> を返す。2つ目の引数を与えると <code>index</code> はその位置以降を探し、<code>rindex</code> はその位置以前を探す。</p>
+<p>見つからない場合は <code>nil</code> を返す。2つ目の引数を与えると <code>index</code> はその位置以降を探し、
+<code>rindex</code> はその位置以前を探す。</p>
 
 <pre><code>'abcabc'.index('abc')     # =&gt; 0
 'abcabc'.index('abc', 1)  # =&gt; 3
