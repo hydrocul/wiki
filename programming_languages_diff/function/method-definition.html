@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>メソッド定義</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>メソッド定義</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -29,11 +29,11 @@
           <li><a href="../../programming_languages_diff/function/literal.html">関数定義</a></li>
           <li>メソッド定義</li>
           <li><a href="../../programming_languages_diff/function/call.html">関数呼び出しまたはメソッド呼び出し</a></li>
-          <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
+          <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード(シグニチャの異なる複数の同名メソッド)</a></li>
           <li><a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
           <li><a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
           <li><a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値(多値返却)</a></li>
-          <li><a href="../../programming_languages_diff/function/var-args.html">可変長引数</a></li>
+          <li><a href="../../programming_languages_diff/function/var-args.html">可変長引数やさまざまな引数の渡し方</a></li>
           <li><a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
           <li><a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾最適化 (Tail Call Optimization)</a></li>
           <li><a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
@@ -51,7 +51,9 @@
   <h1 id="method-definition">メソッド定義</h1>
 
 <h2 id="a392e2a">Java
-<span class="article-date">2013/07/10</span></h2>
+<span class="article-date">2014/01/31</span></h2>
+
+<p>クラス定義の中にメソッドを書く。</p>
 
 <pre><code>public String f(String arg1, int arg2){
   ...;
@@ -67,7 +69,9 @@
 </code></pre>
 
 <h2 id="37048bd">Scala
-<span class="article-date">2013/09/12</span></h2>
+<span class="article-date">2014/01/31</span></h2>
+
+<p>クラス定義の中にメソッドを書く。</p>
 
 <pre><code>def f(arg1: String, arg2: Int): String = {
   ...;
@@ -98,9 +102,7 @@
 }
 </code></pre>
 
-<ul>
-  <li>関数定義・メソッド定義では引数のカッコを省略不可</li>
-</ul>
+<p>関数定義・メソッド定義では引数のカッコを省略不可。</p>
 
 <h2 id="d7546dc">Python
 <span class="article-date">2013/11/21</span></h2>
@@ -110,13 +112,14 @@
     return ...
 </code></pre>
 
-<ul>
-  <li>関数定義では引数のカッコを省略不可</li>
-  <li>関数呼び出しでは引数のカッコを省略不可</li>
-</ul>
+<p>関数定義では引数のカッコを省略不可。</p>
+
+<p>関数呼び出しでは引数のカッコを省略不可。</p>
 
 <h2 id="a98e3ca">Ruby
-<span class="article-date">2013/11/05</span></h2>
+<span class="article-date">2014/02/01</span></h2>
+
+<p>クラス定義の中にメソッドを書く。</p>
 
 <pre><code>def f(arg1, arg2)
   ...
@@ -124,12 +127,28 @@
 end
 </code></pre>
 
-<ul>
-  <li>メソッド呼び出しでは引数のカッコを省略可</li>
-</ul>
+<p>メソッド呼び出しでは引数のカッコを省略可。</p>
 
 <p>メソッドの中の最後でreturnする場合は、<code>return</code>と書かないのが多い。
 <a href="return-void.html#ruby">最後の式がメソッドの返り値になる</a>ため。</p>
+
+<p>特異メソッドを定義する例</p>
+
+<pre><code>def obj.f(arg1, arg2)
+  ...
+  return ...
+end
+</code></pre>
+
+<p>または</p>
+
+<pre><code>class &lt;&lt; obj
+  def f(arg1, arg2)
+    ...
+    return ...
+  end
+end
+</code></pre>
 
 <h2 id="1cf9d63">Perl
 <span class="article-date">2013/08/12</span></h2>
