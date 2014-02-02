@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>文字列を全置換するには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>文字列</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列を全置換するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,7 +24,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>文字列
+      <li><a href="../../programming_languages_diff/string/">文字列</a>
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
@@ -50,7 +50,7 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
-          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
+          <li>文字列を全置換するには</li>
         </ul>
       </li>
     </ul>
@@ -61,37 +61,85 @@
 </div>
 
 <div id="content">
-  <h1 id="string">文字列</h1>
+  <h1 id="replace">文字列を全置換するには</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="40d184c">Perl
+<span class="article-date">2014/02/02</span></h2>
 
-<ul>
-  <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
-  <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-  <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
-  <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
-  <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
-  <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
-  <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
-  <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
-  <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
-  <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
-  <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-  <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
-  <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
-  <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-  <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/add.html">文字列の連結をするには (add)</a></li>
-  <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
-  <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
-  <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
-  <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-  <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-  <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
-  <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
-</ul>
+<p>以下は正規表現で全置換する例。</p>
+
+<pre><code>$str =~ s/abc/ABC/g;
+</code></pre>
+
+<p><code>=~ s/</code> で置換を意味し、最後のフラグ <code>g</code> はすべてのマッチした文字列を置換することを意味する。</p>
+
+<p>上の例では <code>abc</code> が置換前の正規表現、<code>ABC</code> が置換後の文字列。置換後の文字列には、正規表現中の <code>()</code> でグルーピングにマッチした文字列を取得できる 
+<code>$1</code>, <code>$2</code>… の変数が使える。</p>
+
+<p>最後のフラグに <code>e</code> を付けると、置換後の文字列の場所にPerlのコードを書いて、置換後文字列をその場で計算させることができる。</p>
+
+<p>例</p>
+
+<pre><code>$str =~ s/(\d+)/$1 * 2/eg;
+</code></pre>
+
+<p>置換前後の文字列が変数で与えられて、正規表現ではなく、そのまま全置換したい場合は、以下のようにするとできるようだ。</p>
+
+<pre><code>my $str = "abc[]def";
+my $src = "c[]d";
+my $dst = "C{}D";
+my $src_regexp = quotemeta($src);
+
+$str =~ s{$src_regexp}{$dst}g;
+
+print $str; # =&gt; abC{}Def
+</code></pre>
+
+<p><code>quotemeta</code> は正規表現中で特別な意味を持つかもしれない記号類をごっそりエスケープ処理してしまう関数である。</p>
+
+<h2 id="a8b5980">sh</h2>
+
+<h3 id="sed">sed コマンド
+<span class="article-date">2013/10/01</span></h3>
+
+<pre><code>sed -e 's/abc/ABC/g'
+</code></pre>
+
+<p><code>s</code> で置換コマンドを意味し、最後の <code>g</code> はすべてのマッチした文字列を置換することを意味する。
+<code>g</code> がなくても全行で置換を実行するが、1行に2つ以上マッチした場合は
+1つ目しか置換されない。</p>
+
+<p><code>g</code> がなくても全行の置換をするが、1行に複数マッチする場合でも各行の最初のマッチしか置換をしない。</p>
+
+<p>区切り記号の <code>/</code> は他の記号でもよく、パスの置換などで置換対象に <code>/</code> が含まれている場合は、<code>!</code> など他の記号を使ったほうが便利。</p>
+
+<p>上の例では <code>abc</code> が置換前の正規表現、<code>ABC</code> が置換後の文字列。</p>
+
+<p><code>-e</code> の代わりに <code>-E</code> を使うと、置換後の文字列には <code>&amp;</code> を指定するとマッチした文字列の部分が出力され、
+<code>\1</code>, <code>\2</code>… を指定するとマッチした文字列のうち正規表現内でカッコでグルーピングされた部分が出力される。</p>
+
+<p>例</p>
+
+<pre><code>echo xx34 | sed -E 's/xx(.)/&amp;&amp;\1\1/g'
+# =&gt; xx3xx3334
+</code></pre>
+
+<p><code>-n</code> オプションを追加して<code>p</code>フラグを付けると、マッチした行のみを出力する。</p>
+
+<p><code>s</code>コマンドの前に数字を置くと、その行のみがマッチングの対象になる。(アドレスという)</p>
+
+<pre><code># 3行目のみを全置換の対象とする
+# gを付けているのでその行に複数マッチすれば全部置換される
+sed 3s/abc/ABC/g
+
+# 3行目から5行目のみを全置換の対象とする
+sed 3,5s/abc/ABC/g
+
+# 3行目から5行目のみを全置換の対象とする
+sed '3,$s/abc/ABC/g'
+</code></pre>
+
+<p>-&gt; <a href="../../commands/sed.html">sedコマンド</a></p>
 
 </div>
 
