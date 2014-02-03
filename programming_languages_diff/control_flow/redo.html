@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>制御構文 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>redo文 | 制御構文 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>制御構文</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/control_flow/">制御構文</a> &gt; <span>redo文</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,7 +24,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>制御構文
+      <li><a href="../../programming_languages_diff/control_flow/">制御構文</a>
         <ul>
           <li><a href="../../programming_languages_diff/control_flow/if.html">if文</a></li>
           <li><a href="../../programming_languages_diff/control_flow/while.html">while文</a></li>
@@ -32,7 +32,7 @@
           <li><a href="../../programming_languages_diff/control_flow/break.html">break文</a></li>
           <li><a href="../../programming_languages_diff/control_flow/continue.html">continue文</a></li>
           <li><a href="../../programming_languages_diff/control_flow/switch.html">switch文</a></li>
-          <li><a href="../../programming_languages_diff/control_flow/redo.html">redo文</a></li>
+          <li>redo文</li>
         </ul>
       </li>
     </ul>
@@ -43,19 +43,61 @@
 </div>
 
 <div id="content">
-  <h1 id="control_flow">制御構文</h1>
+  <h1 id="redo">redo文</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="aac2c35">Ruby
+<span class="article-date">2014/02/03</span></h2>
 
-<ul>
-  <li><a href="../../programming_languages_diff/control_flow/if.html">if文</a></li>
-  <li><a href="../../programming_languages_diff/control_flow/while.html">while文</a></li>
-  <li><a href="../../programming_languages_diff/control_flow/for.html">for文(繰り返し)</a></li>
-  <li><a href="../../programming_languages_diff/control_flow/break.html">break文</a></li>
-  <li><a href="../../programming_languages_diff/control_flow/continue.html">continue文</a></li>
-  <li><a href="../../programming_languages_diff/control_flow/switch.html">switch文</a></li>
-  <li><a href="../../programming_languages_diff/control_flow/redo.html">redo文</a></li>
-</ul>
+<p><code>while</code>文の中で <code>redo</code> と書くと、そこでループの先頭に戻る。戻ったときに <code>while</code> の条件式は評価されず、無条件にループが再開される。</p>
+
+<pre><code>i = 0
+while i &lt; 5
+  if i == 1
+    i = 3
+    redo
+  end
+  puts i
+  i += 1
+end
+# =&gt;
+#    0
+#    3
+#    4
+</code></pre>
+
+<h2 id="2d5415a">Perl
+<span class="article-date">2013/10/21</span></h2>
+
+<p><code>while</code>文の中で <code>redo</code> と書くと、そこでループの先頭に戻る。</p>
+
+<pre><code>my $i = 0;
+while () {
+    print "Start $i\n";
+    if ($i % 5 == 0) {
+        $i++;
+        redo;
+    }
+    if ($i == 7) {
+        last;
+    }
+    print "End   $i\n";
+    $i++;
+}
+# 以下のように表示される
+# Start 0
+# Start 1
+# End   1
+# Start 2
+# End   2
+# Start 3
+# End   3
+# Start 4
+# End   4
+# Start 5
+# Start 6
+# End   6
+# Start 7
+</code></pre>
 
 </div>
 

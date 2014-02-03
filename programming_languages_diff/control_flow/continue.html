@@ -32,6 +32,7 @@
           <li><a href="../../programming_languages_diff/control_flow/break.html">break文</a></li>
           <li>continue文</li>
           <li><a href="../../programming_languages_diff/control_flow/switch.html">switch文</a></li>
+          <li><a href="../../programming_languages_diff/control_flow/redo.html">redo文</a></li>
         </ul>
       </li>
     </ul>
@@ -58,9 +59,11 @@
 <p><code>continue</code>のような手続き型っぽい構文は存在しない。</p>
 
 <h2 id="dd1659b">Ruby
-<span class="article-date">2013/12/19</span></h2>
+<span class="article-date">2014/02/03</span></h2>
 
-<p>繰り返し処理の中で <code>next</code> と書くと、ループ本体の残りの処理をスキップして、次のサイクルに移る。<code>next</code> というキーワードはPerl由来である。</p>
+<p>繰り返し処理の中で <code>next</code> と書くと、ループ本体の残りの処理をスキップして、次のサイクルに移る。次のサイクルに移るときにループの条件が評価されるので、結果的にそこでループを脱出するかもしれない。</p>
+
+<p><code>next</code> というキーワードはPerl由来である。</p>
 
 <p>ブロック付きメソッド呼び出しでも、ブロックの中で使用でき、メソッドが繰り返し処理をするものであれば、ループ本体の残りの処理をスキップして次のサイクルに移る。繰り返し処理でないブロック付きメソッド呼び出しだと、単なる無名関数からのreturnだとみなせる。</p>
 
