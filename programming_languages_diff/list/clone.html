@@ -27,13 +27,12 @@
       <li><a href="../../programming_languages_diff/list/">リスト(配列)</a>
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/list/literal.html">リスト(配列)の書き方</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/is-empty.html">リストが空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/list/get.html">インデックスで要素を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
           <li><a href="../../programming_languages_diff/list/head-last.html">リストの先頭または最後の要素を取得するには (head, last)</a></li>
-          <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の要素のリストを取得するには (tail)</a></li>
+          <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の残りの要素をリストで取得するには (tail)</a></li>
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
@@ -108,7 +107,7 @@ var_export($dst);
 // )
 </code></pre>
 
-<p>要素が配列であってもそれもコピーされるので、deep copyということか。</p>
+<p>要素が配列だとそれもコピーされるので、deep copyということか。</p>
 
 <pre><code>$src = array(1, array(2, 3));
 $dst = $src;

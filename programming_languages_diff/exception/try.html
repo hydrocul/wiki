@@ -121,6 +121,43 @@
 
 <p>finally節が書けるのはPHP5.5以降。</p>
 
+<h2 id="python">Python
+<span class="article-date">2013/08/22</span></h2>
+
+<pre><code>try:
+  ...
+except:
+  ...
+finally:
+  ...
+</code></pre>
+
+<p>except節で例外オブジェクトを扱う場合は、</p>
+
+<pre><code>except ex:
+</code></pre>
+
+<p>のように書く。</p>
+
+<p>特定の例外クラスだけexcept節で扱う場合は、</p>
+
+<pre><code>except HogeException:
+</code></pre>
+
+<p>または</p>
+
+<pre><code>except HogeException, ex:
+</code></pre>
+
+<p>のように書く。</p>
+
+<p>except節の中で同じ例外を再スローするには単に</p>
+
+<pre><code>raise
+</code></pre>
+
+<p>とだけ書く。</p>
+
 <h2 id="dee92b0">Ruby
 <span class="article-date">2013/12/19</span></h2>
 
@@ -159,43 +196,6 @@ end
 <p><code>rescue</code>節の中では <code>retry</code> と書くと、beginからやりなおしてくれる。これは他の言語にはあまりない機能である。</p>
 
 <p><code>else</code>節は例外が発生しなかった場合に<code>ensure</code>節の前に実行される。これも他の言語にはあまりない機能である。</p>
-
-<h2 id="dae3dd5">Python
-<span class="article-date">2013/08/22</span></h2>
-
-<pre><code>try:
-  ...
-except:
-  ...
-finally:
-  ...
-</code></pre>
-
-<p>except節で例外オブジェクトを扱う場合は、</p>
-
-<pre><code>except ex:
-</code></pre>
-
-<p>のように書く。</p>
-
-<p>特定の例外クラスだけexcept節で扱う場合は、</p>
-
-<pre><code>except HogeException:
-</code></pre>
-
-<p>または</p>
-
-<pre><code>except HogeException, ex:
-</code></pre>
-
-<p>のように書く。</p>
-
-<p>except節の中で同じ例外を再スローするには単に</p>
-
-<pre><code>raise
-</code></pre>
-
-<p>とだけ書く。</p>
 
 <h2 id="43536fc">Perl
 <span class="article-date">2013/09/11</span></h2>
