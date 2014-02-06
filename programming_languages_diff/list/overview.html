@@ -317,7 +317,7 @@ np.array([1, 2, 3])
 <a href="http://doc.ruby-lang.org/ja/1.9.2/class/Array.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.2/class/Array.html</a></p>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/01/07</span></h2>
+<span class="article-date">2014/02/06</span></h2>
 
 <p>配列の仕組みがある。</p>
 
@@ -350,6 +350,8 @@ print $arr[3]; # =&gt; 4
 my @arr2 = (10, 11, @arr);
 print "@arr2"; # =&gt; 10 11 1 2 3 4
 </code></pre>
+
+<p>配列 <code>@var</code> とスカラ変数 <code>$var</code> は名前の衝突をせず共存できるのだが、普通はコードがわかりづらくなるのでそんなことはしない。</p>
 
 <p>要素を参照したり代入するときのインデックスは0から始まる。
 -&gt; <a href="get.html#perl">インデックスで要素を参照するには</a></p>

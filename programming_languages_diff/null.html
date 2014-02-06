@@ -90,18 +90,18 @@
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2013/09/21</span></h2>
+<span class="article-date">2014/02/06</span></h2>
 
-<p>変数の値が未定義の状態というのがありえる。変数を宣言だけして、一度も代入しないと <code>undef</code> になる。</p>
+<p><code>undef</code> という値がある。変数を宣言だけして、一度も代入しないと <code>undef</code> になる。</p>
 
 <p>定義済みの変数を未定義の状態に戻すには、以下のようにする。</p>
 
-<pre><code>undef $a;
+<pre><code>$a = undef;
 </code></pre>
 
 <p>または以下のようにもできる。</p>
 
-<pre><code>$a = undef;
+<pre><code>undef $a;
 </code></pre>
 
 <p><code>defined</code> を使うと、定義済みかどうかを判定することができる。</p>
