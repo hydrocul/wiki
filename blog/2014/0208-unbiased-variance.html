@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>不偏分散はなぜ n - 1 で割るのか？ | 2014年 | ブログ | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../">Home</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2014/">2014年</a> &gt; <span>不偏分散はなぜ n - 1 で割るのか？</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../blog/">ブログ</a>
+    <ul>
+      <li><a href="../../blog/2014/">2014年</a>
+        <ul>
+          <li><a href="../../blog/2014/0111-print-text-into-image.html">jpg画像にテキストを入れるには</a></li>
+          <li>不偏分散はなぜ n - 1 で割るのか？</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="0208-unbiased-variance">不偏分散はなぜ n - 1 で割るのか？
+<span class="article-date">2014/02/08</span></h1>
+
+<p>分散というのは、平均からの散らばり具合を示す統計です。分散を計算するときに \(n\) で割るところがあるのですが、
+\(n-1\) で割らないといけない場合があり、なぜ \(-1\) なのか？という問題です。</p>
+
+<h2 id="a794cd2">疑問の概要</h2>
+
+<p>日本人全員の身長の分散といった場合は、身長の平均を求めて、各人の身長から平均を引いた数の二乗を日本人全員で合計したものを、人口で割ったものです。</p>
+
+<p>しかし日本人全員の身長をいっせいに測定するのは難しいので、一部の人たちだけの身長を測定して、そこから日本人全体の平均と分散を推測したい、という場合がよくあります。</p>
+
+<p>この、「一部の人たち」を標本と言い、日本人全体を母集団と言います。</p>
+
+<p>母集団の平均を推測するには、単に標本の平均を計算します。標本の平均がだいたい母集団の平均になる、というのは、なんとなくそんな気がしますし、数学的に証明することもできます。</p>
+
+<p>ところが分散に関しては、標本の分散よりも母集団の分散の方が少し大きい値になる傾向があります。標本の分散は、標本となった人たちの身長から標本の平均を引いた数の二乗の合計を標本の人数で割ったものですが、標本の人数の代わりに標本の人数から1引いた人数で割った数値を不偏分散と言い、母集団の分散の推測値となるのです。</p>
+
+<p>なぜ1引いた数で割ると母集団の推測値になるのか？</p>
+
+<h2 id="04ede51">用語の整理</h2>
+
+<dl>
+  <dt>母集団</dt>
+  <dd>日本人全体のような、推測したい集団全体。でも日本人全員の身長をいっせいに測るのは難しい。</dd>
+  <dt>標本</dt>
+  <dd>日本人の中の一部の人達。一部の人達だけを対象に身長を測ることはできそう。</dd>
+  <dt>平均</dt>
+  <dd>身長の合計を人数で割ったもの。母集団の平均と標本の平均は別のものだが、
+だいたい近い値になる傾向がある。</dd>
+  <dt>分散</dt>
+  <dd>身長から平均を引いた数の二乗の合計を人数で割ったもの。母集団の分散と標本の分散は別のもので、
+母集団の分散の方が、標本の分散よりも大きな値になる傾向がある。</dd>
+</dl>
+
+<p>なぜ1引くのかについて、自由度が1少ないから、というわかったようなわからないような説明をよく聞くのですが、私は納得いかないので、自分で考察しました。</p>
+
+<h2 id="60fae0e">考察</h2>
+
+<p>1を引く、という主張はつまり、</p>
+
+<p>\[ \begin{aligned}
+  \text{母集団の分散}
+    &amp;\simeq \frac{ \text{標本の身長から標本平均を引いた数の二乗の和} }{ \text{標本の数} - 1 } \\ 
+  \end{aligned} \]</p>
+
+<p>ということです。ここで、\( \simeq \) を推測の意味で使っています。</p>
+
+<p>\[ \begin{aligned}
+  \text{母集団の分散}
+    &amp;\simeq \frac{ \text{標本の身長から標本平均を引いた数の二乗の和} }{ \text{標本の数} - 1 } \\ 
+    &amp;\simeq \frac{ \text{標本の数} }{ \text{標本の数} - 1 } \frac{ \text{標本の身長から標本平均を引いた数の二乗の和} }{ \text{標本の数} } \\ 
+    &amp;\simeq \frac{ \text{標本の数} }{ \text{標本の数} - 1 } \text{標本の分散} \\ 
+  \end{aligned} \]</p>
+
+<p>ですので、逆に、</p>
+
+<p>\[ \begin{aligned}
+  \text{標本の分散}
+    &amp;\simeq \frac{ \text{標本の数} - 1 }{ \text{標本の数} } \text{母集団の分散} \\ 
+  \end{aligned} \]</p>
+
+<p>を説明できればよいのです。</p>
+
+<p>標本の分散というのは、標本によって少しずつ異なります。日本人の中から無作為に30人を抽出した標本の分散が常に一定なわけはありません。</p>
+
+<p>では、無作為に30人を抽出して分散を計算し、また次に無作為抽出して分散を計算し、、、と繰り返し、分散をたくさん計算して、その平均を計算しようと考えました。その値が、
+\( \frac{ \text{標本の数} - 1 }{ \text{標本の数} } \text{母集団の分散} \) 
+と一致すると嬉しいです。</p>
+
+<p>たくさん計算するといってもどれぐらい計算すればよいでしょうか？仮に100回繰り返したところで、100個の分散の平均は、決まった値になるわけではなく、やっぱりゆらぎがありそうです。1引くとよい、ということを納得するためには、ゆらぎがあっては嫌です。ゆらぎを出さないようにするには、すべての標本パターンを考えてそれらの分散の平均を計算してしまえばよいと考えました。すべての標本パターンというのは、人口、仮に1億2千万人とし、その中から30人を選び出す組み合わせの数だけあります。</p>
+
+<p>いくつぐらいパターンがあるでしょうか？</p>
+
+<p>答えは</p>
+
+<p>894902522371265290536235873763786872666840270542167130028083535705642512846900173240556793266548376184325888396129544134779302645519934770297629266751773551122237533116569271571342701162210755529969199996000000パターンです。</p>
+
+<p>以下のコマンドで計算しました。</p>
+
+<pre><code>ruby -e 'N=120000000;n=30;print (N-n+1..N).inject(:*) / (1..n).inject(:*)'
+</code></pre>
+
+<p>巨大な整数を電卓代わりに気軽に計算するにはRubyが便利ですね。</p>
+
+<p>\[ \begin{aligned}
+  \text{標本の分散の平均}
+    &amp;= \frac{ \text{標本の数} - 1 }{ \text{標本の数} } \text{母集団の分散} \\ 
+  \end{aligned} \]</p>
+
+<p>210桁あるこのパターンを全部計算してその平均を求め、上の式が成立することを示したいと思います。</p>
+
+<h2 id="0d3373d">計算の準備</h2>
+
+<p>ちょっと大変そうなので、少し準備をします。</p>
+
+<p>母集団なのか標本なのかは置いておいて、平均と分散の計算式を整理しておきます。</p>
+
+<p>まずは平均から。\( x \) を身長だとして、</p>
+
+<p>\[ \begin{aligned}
+  \text{平均}
+    &amp;= \frac{1}{n} \sum_{i=1}^n x_i \\ 
+  \end{aligned} \]</p>
+
+<p>\( \sum \) は、その右にある式を計算した合計という意味で、\( x_i \) は \( i \) 番目の人の身長という意味です。従って、
+\[ \sum_{i=1}^n x_i \]
+は \( n \) 人の身長の合計です。これを \( n \) で割ったものが平均です。</p>
+
+<p>次は分散。</p>
+
+<p>\[ \begin{aligned}
+  \text{分散}
+    &amp;= \frac{1}{n} \sum_{i=1}^n ( x_i - \text{平均} )^2 \\ 
+  \end{aligned} \]</p>
+
+<p>括弧の二乗を展開して</p>
+
+<p>\[ \begin{aligned}
+  \text{分散}
+    &amp;= \frac{1}{n} \sum_{i=1}^n \left( x_i^2 - 2 x_i \text{平均} + \text{平均}^2 \right) \\ 
+  \end{aligned} \]</p>
+
+<p>\( \sum \) を各項に適用して、</p>
+
+<p>\[ \begin{aligned}
+  \text{分散}
+    &amp;= \frac{1}{n} \sum_{i=1}^n x_i^2 - 2 \left( \frac{1}{n} \sum_{i=1}^n x_i \right) \text{平均} + \text{平均}^2 \\ 
+  \end{aligned} \]</p>
+
+<p>3つ目の項は \( \frac{1}{n} \sum \) がなくなっていますが、\( \text{平均} \) は \( i \) には依らない定数であるためです。2項目の括弧の中を見ると、平均と同じ形をしていますので、</p>
+
+<p>\[ \begin{aligned}
+  \text{分散}
+    &amp;= \frac{1}{n} \sum_{i=1}^n x_i^2 - 2 \text{平均}^2 + \text{平均}^2 \\ 
+    &amp;= \frac{1}{n} \sum_{i=1}^n x_i^2 - \text{平均}^2 \\ 
+  \end{aligned} \]</p>
+
+<p>となります。分散というのはつまり二乗の平均から平均の二乗を引いたものです。さらに式を変形していきます。</p>
+
+<p>\[ \begin{aligned}
+  \text{分散}
+    &amp;= \frac{1}{n} \sum_{i=1}^n x_i^2 - \text{平均}^2 \\ 
+    &amp;= \frac{1}{n} \sum_{i=1}^n x_i^2 - \left( \frac{1}{n} \sum_{i=1}^n x_i \right)^2 \\ 
+  \end{aligned} \]</p>
+
+<p>括弧の二乗を展開して、</p>
+
+<p>\[ \begin{aligned}
+  \text{分散}
+    &amp;= \frac{1}{n} \sum_{i=1}^n x_i^2
+      - \frac{1}{n^2} \left( \sum_{i=1}^n x_i^2
+                             + 2 \sum_{i_1,i_2}^n x_{i_1} x_{i_2} \right) \\ 
+  \end{aligned} \]</p>
+
+<p>ここで、</p>
+
+<p>\[ \sum_{i_1,i_2}^n \]</p>
+
+<p>というのは、\( n \)人から2人を抽出してそれを\( i_1 \)番目の人、\( i_2 \)番目の人として
+\( \sum \) の右の式を、2人の組み合わせすべてで計算した合計を表すことにします。
+\( \sum \) の右の式を \( \frac{n(n-1)}{2} \) 回計算することになります。</p>
+
+<p>さらに変形していきますと、</p>
+
+<p>\[ \begin{aligned}
+  \text{分散}
+    &amp;= \frac{1}{n} \sum_{i=1}^n x_i^2
+       - \frac{1}{n^2} \sum_{i=1}^n x_i^2
+       - \frac{2}{n^2} \sum_{i_1,i_2}^n x_{i_1} x_{i_2} \\ 
+    &amp;= \left( \frac{1}{n} - \frac{1}{n^2} \right) \sum_{i=1}^n x_i^2
+       - \frac{2}{n^2} \sum_{i_1,i_2}^n x_{i_1} x_{i_2} \\ 
+    &amp;= \frac{n-1}{n^2} \sum_{i=1}^n x_i^2
+       - \frac{2}{n^2} \sum_{i_1,i_2}^n x_{i_1} x_{i_2} \\ 
+  \end{aligned} \]</p>
+
+<p>となります。</p>
+
+<p>この結果を踏まえて、改めて母集団の人数を\( N \)、標本の人数を\( n \)とすると、次のようになります。ついでにこの後の議論に合わせて\( \sum \)の添字を変えておきます。</p>
+
+<p>\[ \begin{aligned}
+  \text{母集団の分散}
+    &amp;= \frac{N-1}{N^2} \sum_k^N x_k^2
+       - \frac{2}{N^2} \sum_{k_1,k_2}^N x_{k_1} x_{k_2}
+  \end{aligned} \]</p>
+
+<p>\[ \begin{aligned}
+  \text{標本の分散}
+    &amp;= \frac{n-1}{n^2} \sum_j^n x_j^2
+       - \frac{2}{n^2} \sum_{j_1,j_2}^n x_{j_1} x_{j_2}
+  \end{aligned} \]</p>
+
+<p>\( N \)は日本の人口、1億2千万で、\( n \)は抽出された人数、30です。</p>
+
+<h2 id="d5d8b06">本題の計算</h2>
+
+<p>で、問題に戻りまして、計算したいのは標本の分散の平均でした。標本というのは全部で89…00(210桁の数)の数だけあるので、それぞれ分散を計算して、その平均を求めたいのでした。</p>
+
+<p>89…00(210桁の数)というのは、\( {}_N C_n \) と表されます。
+\( N \)人の母集団から\( n \)人を抽出する組み合わせの数です。その標本に1から89…00(210桁の数)までの番号を付けて、
+\( \text{標本}_i \) のように表すことにします。</p>
+
+<p>\[ \begin{aligned}
+  \text{標本の分散の平均}
+    &amp;= \frac{1}{{}_N C_n} \sum_{i=1}^{{}_N C_n} \text{標本}_i\text{の分散} \\ 
+  \end{aligned} \]</p>
+
+<p>先ほど求めた分散の式を代入します。</p>
+
+<p>\[ \begin{aligned}
+  \text{標本の分散の平均}
+    &amp;= \frac{1}{{}_N C_n} \sum_{i=1}^{{}_N C_n}
+          \left( \frac{n-1}{n^2} \sum_{j=1}^n x_{i,j}^2
+          - \frac{2}{n^2} \sum_{j_1,j_2}^n x_{i,j_1} x_{i,j_2} \right) \\ 
+  \end{aligned} \]</p>
+
+<p>ここで、\( x_{i,j} \) は\( i \)番目の標本に含まれる\( j \)番目の人の身長です。</p>
+
+<p>\[ \sum_{j_1,j_2}^n \]</p>
+
+<p>というのは、先ほども似た形が出てきましたが、\( i \)番目の標本の\( n \)人から
+2人を抽出してそれを\( j_1 \)番目の人、\( j_2 \)番目の人として
+\( \sum \) の右の式を、2人の組み合わせすべてで計算した合計です。</p>
+
+<p>次に括弧を展開します。</p>
+
+<p>\[ \begin{aligned}
+  \text{標本の分散の平均}
+    &amp;= \frac{1}{{}_N C_n} \frac{n-1}{n^2} \sum_{i=1}^{{}_N C_n} \sum_{j=1}^n x_{i,j}^2
+          - \frac{1}{{}_N C_n} \frac{2}{n^2} \sum_{i=1}^{{}_N C_n} \sum_{j_1,j_2}^n x_{i,j_1} x_{i,j_2} \\ 
+  \end{aligned} \]</p>
+
+<p>各項で \( \sum \) が二重になっているのを1つずつに減らします。この変形はだいぶ飛躍していますが。</p>
+
+<p>\[ \begin{aligned}
+  \text{標本の分散の平均}
+    &amp;= \frac{1}{{}_N C_n} \frac{n-1}{n^2} {}_{N-1}C_{n-1} \sum_{k=1}^N x_k^2
+          - \frac{1}{{}_N C_n} \frac{2}{n^2} {}_{N-2}C_{n-2} \sum_{k_1,k_2}^N x_{k_1} x_{k_2} \\ 
+  \end{aligned} \]</p>
+
+<p>\( {}_N C_n \) は、先ほどの繰り返しですが、\( N \)人から\( n \)を選び出すパターンの数で、</p>
+
+<p>\[ {}_N C_n = \frac{N!}{n!(N-n)!} \]</p>
+
+<p>です。これを代入すると、</p>
+
+<p>\[ \begin{aligned}
+  \text{標本の分散の平均}
+    &amp;= \frac{n!(N-n)!}{N!} \frac{n-1}{n^2} \frac{(N-1)!}{(n-1)!(N-n)!} \sum_{k=1}^N x_k^2
+          - \frac{n!(N-n)!}{N!} \frac{2}{n^2} \frac{(N-2)!}{(n-2)!(N-n)!} \sum_{k_1,k_2}^N x_{k_1} x_{k_2} \\ 
+  \end{aligned} \]</p>
+
+<p>ここから、分母分子を移動したり相殺して整理していくと、</p>
+
+<p>\[ \begin{aligned}
+  \text{標本の分散の平均}
+    &amp;= \frac{n!}{N!} \frac{n-1}{n^2} \frac{(N-1)!}{(n-1)!} \sum_{k=1}^N x_k^2
+       - \frac{n!}{N!} \frac{2}{n^2} \frac{(N-2)!}{(n-2)!} \sum_{k_1,k_2}^N x_{k_1} x_{k_2} \\ 
+    &amp;= \frac{n-1}{n^2} \frac{n!}{(n-1)!} \frac{(N-1)!}{N!} \sum_{k=1}^N x_k^2
+       - \frac{2}{n^2} \frac{n!}{(n-2)!} \frac{(N-2)!}{N!} \sum_{k_1,k_2}^N x_{k_1} x_{k_2} \\ 
+    &amp;= \frac{n-1}{n^2} \frac{n}{1} \frac{1}{N} \sum_{k=1}^N x_k^2
+       - \frac{2}{n^2} \frac{n(n-1)}{1} \frac{1}{N(N-1)} \sum_{k_1,k_2}^N x_{k_1} x_{k_2} \\ 
+    &amp;= \frac{n-1}{n} \frac{1}{N} \sum_{k=1}^N x_k^2
+       - \frac{n-1}{n} \frac{2}{N(N-1)} \sum_{k_1,k_2}^N x_{k_1} x_{k_2} \\ 
+  \end{aligned} \]</p>
+
+<p>次は天下り的ですが、引き続き変形していきます。</p>
+
+<p>\[ \begin{aligned}
+  \text{標本の分散の平均}
+    &amp;= \frac{n-1}{n} \frac{1}{N} \left( \frac{N^2}{N-1} \frac{N-1}{N^2} \right) \sum_{k=1}^N x_k^2
+       - \frac{n-1}{n} \frac{2}{N(N-1)} \left( \frac{N^2}{2} \frac{2}{N^2} \right) \sum_{k_1,k_2}^N x_{k_1} x_{k_2} \\ 
+    &amp;= \frac{n-1}{n} \frac{N}{N-1} \frac{N-1}{N^2} \sum_{k=1}^N x_k^2
+          - \frac{n-1}{n} \frac{N}{N-1} \frac{2}{N^2} \sum_{k_1,k_2}^N x_{k_1} x_{k_2} \\ 
+    &amp;= \frac{n-1}{n} \frac{N}{N-1} \left( \frac{N-1}{N^2} \sum_k^N x_k^2
+       - \frac{2}{N^2} \sum_{k_1,k_2}^N x_{k_1} x_{k_2} \right) \\ 
+  \end{aligned} \]</p>
+
+<p>先に計算の準備で出てきた母集団の分散の式を再掲しておきます。</p>
+
+<p>\[ \begin{aligned}
+  \text{母集団の分散}
+    &amp;= \frac{N-1}{N^2} \sum_k^N x_k^2
+       - \frac{2}{N^2} \sum_{k_1,k_2}^N x_{k_1} x_{k_2} \\ 
+  \end{aligned} \]</p>
+
+<p>これと見比べてみると、以下のようになります。</p>
+
+<p>\[ \begin{aligned}
+  \text{標本の分散の平均}
+    &amp;= \frac{n-1}{n} \frac{N}{N-1} \text{母集団の分散} \\ 
+  \end{aligned} \]</p>
+
+<p>つまり、</p>
+
+<p>\[ \begin{aligned}
+  \text{母集団の分散}
+    &amp;=  \frac{N-1}{N}\frac{n}{n-1} \text{標本の分散の平均} \\ 
+  \end{aligned} \]</p>
+
+<p>母集団の数\( N \)は1億2千万といったとても大きな数を想定しているので、以下のように近似できます。</p>
+
+<p>\[ \begin{aligned}
+  \text{母集団の分散}
+    &amp;\approx  \frac{n}{n-1} \text{標本の分散の平均} \\ 
+    &amp;\approx \frac{n}{n-1} \frac{ \text{標本の身長から標本平均を引いた数の二乗の和} }{n} \\ 
+    &amp;\approx \frac{ \text{標本の身長から標本平均を引いた数の二乗の和} }{n-1} \\ 
+  \end{aligned} \]</p>
+
+<p>ということで、\(n-1\)で割る理由を理解できました。</p>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
