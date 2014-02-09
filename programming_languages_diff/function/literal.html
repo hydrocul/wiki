@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>関数定義 | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>関数リテラル | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>関数定義</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>関数リテラル</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -26,14 +26,14 @@
     <ul>
       <li><a href="../../programming_languages_diff/function/">関数・メソッド</a>
         <ul>
-          <li>関数定義</li>
+          <li>関数リテラル</li>
           <li><a href="../../programming_languages_diff/function/method-definition.html">メソッド定義</a></li>
           <li><a href="../../programming_languages_diff/function/call.html">関数呼び出しまたはメソッド呼び出し</a></li>
-          <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード</a></li>
+          <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード(シグニチャの異なる複数の同名メソッド)</a></li>
           <li><a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
           <li><a href="../../programming_languages_diff/function/return-void.html">関数の中で返り値が指定されていない場合の扱い</a></li>
           <li><a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値(多値返却)</a></li>
-          <li><a href="../../programming_languages_diff/function/var-args.html">可変長引数</a></li>
+          <li><a href="../../programming_languages_diff/function/var-args.html">可変長引数やさまざまな引数の渡し方</a></li>
           <li><a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
           <li><a href="../../programming_languages_diff/function/tail-call-optimization.html">末尾最適化 (Tail Call Optimization)</a></li>
           <li><a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
@@ -48,7 +48,7 @@
 </div>
 
 <div id="content">
-  <h1 id="literal">関数定義
+  <h1 id="literal">関数リテラル
 <span class="article-date">2013/10/09</span></h1>
 
 <p>ここでは式の中に書ける関数リテラル(無名関数)の説明をする。</p>
@@ -158,7 +158,7 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 <a href="http://www.php.net/manual/ja/functions.anonymous.php" target="_blank">http://www.php.net/manual/ja/functions.anonymous.php</a></p>
 
 <h2 id="269ff61">Perl
-<span class="article-date">2013/11/23</span></h2>
+<span class="article-date">2014/02/08</span></h2>
 
 <p>無名関数の例</p>
 
@@ -167,6 +167,13 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 };
 
 $f-&gt;(...);
+</code></pre>
+
+<p>無名関数をその場で呼び出す例</p>
+
+<pre><code>sub {
+    ...;
+}-&gt;(...);
 </code></pre>
 
 <p>クロージャーとして使う例</p>

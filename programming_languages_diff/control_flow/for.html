@@ -158,16 +158,27 @@ end
 <code>each</code> メソッドの返り値を返す。</p>
 
 <h2 id="227cdf6">Perl
-<span class="article-date">2013/08/01</span></h2>
+<span class="article-date">2014/02/08</span></h2>
 
 <p>C言語ライクのfor文を使える。</p>
 
-<pre><code>for(my $i = 0; $i &lt; 10; $i++){
+<pre><code>for (my $i = 0; $i &lt; 10; $i++) {
     ...;
 }
 </code></pre>
 
 <p><code>$i</code> のスコープはfor文の中のみである。</p>
+
+<p>以下のような範囲演算子を使った方法もできる。</p>
+
+<pre><code>for my $i (0 .. 9) {
+    ...;
+}
+</code></pre>
+
+<p>Perlでは <code>for</code> と <code>foreach</code> はまったく同じなので、ここで <code>foreach</code> と書いてもよいが意味に応じて使い分けたほうがいいだろう。</p>
+
+<p>-&gt; <a href="../list/foreach.html#perl">配列でのforeach</a></p>
 
 <h2 id="47d6da8">JavaScript
 <span class="article-date">2013/07/27</span></h2>
