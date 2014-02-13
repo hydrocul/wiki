@@ -182,8 +182,13 @@ fi
 
 <p>(Ubuntu12.04で確認)</p>
 
-<h2 id="6aad54d">CPUの詳細を確認するには
-<span class="article-date">2013/06/14</span></h2>
+<h2 id="f5633d3">ハードウェアスペックの情報を確認するには
+<span class="article-date">2014/02/13</span></h2>
+
+<p>LinuxマシンのコンソールからメモリやCPUのコア数などを調べる方法。仮想環境で動いていれば、その環境に割当てられているハードウェアを確認できる。</p>
+
+<h3 id="b29330b">CPU・コア数
+<span class="article-date">2013/06/14</span></h3>
 
 <pre><code>cat /proc/cpuinfo
 </code></pre>
@@ -192,6 +197,24 @@ fi
 
 <pre><code>system_profiler SPHardwareDataType
 </code></pre>
+
+<h3 id="efebae8">ディスク容量
+<span class="article-date">2014/02/13</span></h3>
+
+<pre><code>df
+</code></pre>
+
+<p>LinuxでもMacでも、このコマンドでマウントしているファイルシステムの一覧とそれぞれの容量や使用状況を確認することができる。
+(Ubuntu Server 13.10, Mac OSX 10.9.1で確認)</p>
+
+<h3 id="6e7bb07">メモリ
+<span class="article-date">2014/02/13</span></h3>
+
+<pre><code>free -h
+</code></pre>
+
+<p>Linuxでメモリの容量や使用状況を確認することができる。
+(Ubuntu Server 13.10で確認)</p>
 
 <h2 id="runlevel">runlevel
 <span class="article-date">2013/07/10</span></h2>
