@@ -30,8 +30,9 @@
           <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
           <li><a href="../../programming_languages_diff/number/compare.html">数値の比較演算子</a></li>
           <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
-          <li><a href="../../programming_languages_diff/number/divide.html">除算演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
+          <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
         </ul>
       </li>
     </ul>
@@ -78,7 +79,7 @@
 <p>整数、浮動小数点数、複素数の3種類のデータ型がある。</p>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/01/18</span></h2>
+<span class="article-date">2014/02/15</span></h2>
 
 <p>整数は <code>Fixnum</code> と <code>Bignum</code> というクラスがあるが、普段はそれらのスーパークラスである <code>Integer</code> として認識すればよい。小さい整数は <code>Fixnum</code> になり、大きすぎてオーバーフローしてしまう場合は自動で <code>Bignum</code> になる。</p>
 
@@ -116,6 +117,8 @@ p f.class
 p f.class.superclass
 # =&gt; Numeric
 </code></pre>
+
+<p>それ以外に <code>BigDecimal</code> という金融・関係分野で使える任意精度の浮動小数点数もある。</p>
 
 <p>Ruby 2.1からは<code>r</code>サフィックスを使った有理数(<code>Rational</code>型)や、
 <code>i</code>サフィックスを使った複素数(<code>Complex</code>型)を書くこともできる。</p>
