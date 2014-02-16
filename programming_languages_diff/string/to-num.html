@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列を整数に変換するには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>文字列を数値に変換するには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列を整数に変換するには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列を数値に変換するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -46,12 +46,12 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li>文字列を整数に変換するには</li>
+          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を数値に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
+          <li>文字列を数値に変換するには</li>
         </ul>
       </li>
     </ul>
@@ -62,9 +62,96 @@
 </div>
 
 <div id="content">
-  <h1 id="to-int">文字列を整数に変換するには</h1>
+  <h1 id="to-num">文字列を数値に変換するには</h1>
 
-<p>-&gt; <a href="to-num.html">文字列を数値に変換するには</a></p>
+<h2 id="8041b68">Java
+<span class="article-date">2013/10/14</span></h2>
+
+<p>例</p>
+
+<pre><code>// 10進数の文字列を整数に変換
+int i = Integer.parseInt(str);
+
+// 16進数の文字列を整数に変換
+int i = Integer.parseInt(str, 16);
+</code></pre>
+
+<h2 id="8cb710e">PHP
+<span class="article-date">2013/06/12</span></h2>
+
+<pre><code>(int)$str
+</code></pre>
+
+<p>例</p>
+
+<pre><code>(int)"0"      // =&gt; 0
+(int)"-0"     // =&gt; 0
+(int)"1"      // =&gt; 1
+(int)"1.5"    // =&gt; 1
+(int)"-1.5"   // =&gt; -1
+(int)"010"    // =&gt; 10
+(int)"0x10"   // =&gt; 0
+(int)"10 abc" // =&gt; 10
+</code></pre>
+
+<h2 id="c23e12b">Python
+<span class="article-date">2014/01/23</span></h2>
+
+<pre><code># 10進数の文字列を整数に変換
+int(str)
+
+# 文字列を浮動小数点数に変換
+float(str)
+</code></pre>
+
+<h2 id="def8d54">Ruby
+<span class="article-date">2014/02/15</span></h2>
+
+<p><code>to_i</code>メソッドを使う。</p>
+
+<pre><code>str.to_i
+</code></pre>
+
+<p>16進数の文字列を整数にしたい場合は <code>to_i</code> の引数に16を渡す。</p>
+
+<p>例</p>
+
+<pre><code>p "27".to_i
+# =&gt; 27
+p "27".to_i(16)
+# =&gt; 39
+</code></pre>
+
+<h2 id="ba8d40a">Perl
+<span class="article-date">2013/09/23</span></h2>
+
+<p>Perlのスカラには文字列か数字かの区別はなく、数字を前提とした演算子にスカラを与えると数字として振舞おうとする。</p>
+
+<p>16進数表記の文字列を数字に変換するには <code>hex</code> を使う。</p>
+
+<pre><code>print hex("00A0"); # =&gt; 160
+</code></pre>
+
+<h2 id="f1d4636">JavaScript
+<span class="article-date">2013/10/26</span></h2>
+
+<pre><code>parseInt(str, 10);
+</code></pre>
+
+<p>2つ目の引数の10は10進数で解釈することを指定している。</p>
+
+<p>2つ目の引数を省略すると、文字列の内容に応じて自動で判断される。先頭が <code>0x</code> または <code>0X</code> で始まる場合は16進数として解釈される。それ以外で先頭が <code>0</code> で始まる場合は8進数として解釈される。</p>
+
+<pre><code>// 以下はブラウザによって挙動が違うかもしれない
+console.log(parseInt("07"));  // =&gt; 7
+console.log(parseInt("08"));  // =&gt; 0
+console.log(parseInt("09"));  // =&gt; 0
+console.log(parseInt("10"));  // =&gt; 10
+console.log(parseInt("010")); // =&gt; 8
+console.log(parseInt("0xa")); // =&gt; 10
+console.log(parseInt("0a"));  // =&gt; 0
+console.log(parseInt("a"));   // =&gt; NaN
+</code></pre>
 
 </div>
 

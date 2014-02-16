@@ -287,7 +287,7 @@ np.array([1, 2, 3])
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/01/18</span></h2>
+<span class="article-date">2014/02/15</span></h2>
 
 <p><code>Array</code>という可変長配列のクラスが存在する。要素は異なる方のオブジェクトが混ざっていてもよい。</p>
 
@@ -312,6 +312,16 @@ np.array([1, 2, 3])
 </code></pre>
 
 <p><code>%w</code> の記法では要素間はスペースで区切って、コンマで区切ることはできない。</p>
+
+<p><code>nil</code>で埋められた指定サイズの配列を作成するには、</p>
+
+<pre><code>Array.new(10) # nilが10個の配列
+</code></pre>
+
+<p><code>nil</code>ではなく任意の値が並ぶ配列を作成するには、</p>
+
+<pre><code>Array.new(10, 0) # 0が10個の配列
+</code></pre>
 
 <p>class Array | Ruby 1.9.2 リファレンスマニュアル<br />
 <a href="http://doc.ruby-lang.org/ja/1.9.2/class/Array.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.2/class/Array.html</a></p>
