@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>PythonのNumPyでTSVファイルを読み込む方法 | 2014年 | ブログ | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../">Home</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2014/">2014年</a> &gt; <span>PythonのNumPyでTSVファイルを読み込む方法</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../blog/">ブログ</a>
+    <ul>
+      <li><a href="../../blog/2014/">2014年</a>
+        <ul>
+          <li><a href="../../blog/2014/0111-print-text-into-image.html">jpg画像にテキストを入れるには</a></li>
+          <li><a href="../../blog/2014/0208-unbiased-variance.html">不偏分散はなぜ n - 1 で割るのか？</a></li>
+          <li>PythonのNumPyでTSVファイルを読み込む方法</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="0216-load-tsv-python">PythonのNumPyでTSVファイルを読み込む方法
+<span class="article-date">2014/02/16</span></h1>
+
+<p>NumPyの <code>loadtxt</code> という関数でTSVファイルやCSVファイルを2次元配列で読み込むことができる。</p>
+
+<p>1行目からデータが始まっていて、データが全て浮動小数点数であれば、オプションを指定することなく、TSVファイルを読み込める。</p>
+
+<pre><code>data = np.loadtxt("data.tsv")
+</code></pre>
+
+<p><code>data</code> は2次元配列になる。</p>
+
+<p>コンマ区切りのCSVファイルであっても同じやり方で読み込めるようで、区切り文字はいくつかデフォルトで使えるようだ。</p>
+
+<p>以下のように区切り文字を明示的に指定してもよいが、なくてもタブ区切りを読み込める。</p>
+
+<pre><code>data = np.loadtxt("data.tsv", delimiter="\t")
+</code></pre>
+
+<p>TSVファイルの先頭が <code>#</code> で始まっている行はコメントとみなして、データとしては読み込まれなくなる。</p>
+
+<p>以下のようにコメントの始まりの記号を指定することもできる。</p>
+
+<pre><code>data = np.loadtxt("data.tsv", delimiter="\t", comments="#")
+</code></pre>
+
+<p>浮動小数点数以外のデータ型があるTSVファイルの場合は、カラムごとの名前とデータ型を以下のように指定する。</p>
+
+<pre><code>data = np.loadtxt("data.tsv", delimiter="\t", comments="#", dtype={
+        'names':('v1', 'v2', 'years'),
+        'formats':('f8', 'f8', 'i')})
+</code></pre>
+
+<p><code>'names'</code> で指定するのはカラムの名前で、<code>'formats'</code> で指定するのがデータ型である。</p>
+
+<p>指定できるデータ型は以下のとおり。他にもあるかもしれないけど。</p>
+
+<dl>
+  <dt><code>'f8'</code></dt>
+  <dd>浮動小数点数</dd>
+  <dt><code>'i'</code></dt>
+  <dd>整数</dd>
+  <dt><code>'S1'</code></dt>
+  <dd>1文字の文字列。<code>S</code>のあとの数字がそのまま文字数の最大長になるので、
+<code>'S10'</code> であれば10文字までの文字列になる。</dd>
+</dl>
+
+<p><code>'formats'</code> だけを指定して、<code>'names'</code> を指定しないとエラーになる。</p>
+
+<p><code>'names'</code> を指定すると、2次元配列としてだけではなく、カラム名で1次元配列を取得することもできる。以下はその実行例。</p>
+
+<p>data.tsv:</p>
+
+<pre><code>1.1	1.2	1
+0.1	0.2	0
+</code></pre>
+
+<p>pythonソースファイル:</p>
+
+<pre><code>import numpy as np
+
+data = np.loadtxt("data.tsv", delimiter="\t", comments="#", dtype={
+        'names':('v1', 'v2', 'years'),
+        'formats':('f8', 'f8', 'i')})
+
+print data
+# =&gt; [(1.1, 1.2, 1) (0.1, 0.2, 0)]
+
+print data['years']
+# =&gt; [1 0]
+</code></pre>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

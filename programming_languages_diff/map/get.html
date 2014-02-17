@@ -116,7 +116,7 @@ def getOrElse(key: A, default: =&gt; B): B
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2013/09/04</span></h2>
+<span class="article-date">2014/02/16</span></h2>
 
 <pre><code>hash['a']
 </code></pre>
@@ -133,12 +133,26 @@ def getOrElse(key: A, default: =&gt; B): B
 
 <p>例</p>
 
-<pre><code>m = {'a' =&gt; 1}
+<pre><code>hash = {'a' =&gt; 1}
 
-p m.fetch('a')       # =&gt; 1
-p m.fetch('a', 2)    # =&gt; 1
-p m.fetch('b', 2)    # =&gt; 2
-p m.fetch('b') { 2 } # =&gt; 2
+p hash.fetch('a')       # =&gt; 1
+p hash.fetch('a', 2)    # =&gt; 1
+p hash.fetch('b', 2)    # =&gt; 2
+p hash.fetch('b') { 2 } # =&gt; 2
+</code></pre>
+
+<p>ハッシュ生成時にブロックを与えれば、<code>[]</code> で存在しない要素を参照しようとした場合に、例外を発生させたり、デフォルト値を返させたりすることができる。</p>
+
+<p>例</p>
+
+<pre><code>hash = Hash.new { |hash, key| raise KeyError }
+
+hash['a'] = 'A';
+
+p hash['a']
+# =&gt; "A"
+p hash['b']
+# KeyError がスローされる
 </code></pre>
 
 <h2 id="perl">Perl
