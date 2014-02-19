@@ -27,18 +27,20 @@
       <li><a href="../../programming_languages_diff/list/">リスト(配列)</a>
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/list/literal.html">リスト(配列)の書き方</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/is-empty.html">リストが空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/list/get.html">インデックスで要素を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
-          <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の要素のリストを取得するには (tail)</a></li>
+          <li><a href="../../programming_languages_diff/list/head-last.html">リストの先頭または最後の要素を取得するには (head, last)</a></li>
+          <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の残りの要素をリストで取得するには (tail)</a></li>
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
-          <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
+          <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
+          <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
@@ -46,7 +48,6 @@
           <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べたリストを作成するには (fill)</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
@@ -64,7 +65,6 @@
           <li>リストからセットを生成する方法 (toSet)</li>
           <li><a href="../../programming_languages_diff/list/max-min.html">リストの中の最大値・最小値を求めるには (max, min)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
-          <li><a href="../../programming_languages_diff/list/head-last.html">リストの先頭または最後の要素を取得するには (head, last)</a></li>
           <li><a href="../../programming_languages_diff/list/slice-replace.html">リストの一部を別のリストで置き換えるには (splice)</a></li>
           <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数のリストを要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
         </ul>
@@ -113,21 +113,25 @@ def toSet: Set[A]
 </code></pre>
 
 <h2 id="7cce263">Ruby
-<span class="article-date">2013/10/06</span></h2>
+<span class="article-date">2014/02/19</span></h2>
 
-<p>以下は配列から重複を削除する例</p>
+<p>Rubyには集合のデータ型がないが、以下は配列から重複を削除する例である。</p>
 
 <pre><code># 重複を削除した配列を返し、自身は変更しない
 arr.uniq
+# または
+arr | []
 
 # 重複を削除した配列に変更する
 arr.uniq!
 </code></pre>
 
+<p><code>|</code> 演算子は複数の配列の和集合を取り出す演算子で、空の配列をその演算子に渡せば結果的に配列から重複を削除できる。</p>
+
 <h2 id="2a337f5">Perl
 <span class="article-date">2013/07/30</span></h2>
 
-<p>Perlにはセットというものはないが、以下は配列から重複を削除する例。</p>
+<p>Perlにはセットというものはないが、以下は配列から重複を削除する例である。</p>
 
 <pre><code>my @arr = (1, 2, 3, 4, 5, 4);
 my %uniq = map {$_ =&gt; 1} @arr;

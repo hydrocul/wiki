@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>マップにマップで複数の要素を追加するには (putAll)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>マップにマップで複数の要素を追加するには (putAll)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -27,7 +27,6 @@
       <li><a href="../../programming_languages_diff/map/">マップ(連想配列)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/map/literal.html">マップの書き方</a></li>
           <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/map/get.html">キーで値を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/map/put.html">キーで要素を設定するには (put)</a></li>
@@ -35,6 +34,7 @@
           <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
           <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">マップをコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">マップから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">マップが空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li>マップにマップで複数の要素を追加するには (putAll)</li>
@@ -94,8 +94,24 @@ var_export($merged_map);
 <p><code>array_merge</code> に渡す配列のキーが数字の場合はリストの連結のような操作になる。
 -&gt; <a href="../list/shift-unshift-pop-push.html#php">配列に要素を追加</a></p>
 
-<p>array_merge | PHP Manual<br />
+<p><code>array_merge</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.array-merge.php" target="_blank">http://www.php.net/manual/ja/function.array-merge.php</a></p>
+
+<h2 id="316ad76">Ruby
+<span class="article-date">2014/02/19</span></h2>
+
+<p><code>Hash#merge</code> を使うとマージした結果の新しいハッシュを生成できる。
+<code>Hash#merge!</code> は破壊的メソッドのバージョン。</p>
+
+<p>例</p>
+
+<pre><code>hash1 = {'a' =&gt; 1, 'b' =&gt; 2}
+hash2 = {'a' =&gt; 10, 'c' =&gt; 30}
+merged_hash = hash1.merge(hash2)
+
+p merged_hash
+# =&gt; {"a"=&gt;10, "b"=&gt;2, "c"=&gt;30}
+</code></pre>
 
 </div>
 
