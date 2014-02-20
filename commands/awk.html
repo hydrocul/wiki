@@ -139,9 +139,9 @@ awk -v FS=$'\t' -v OFS=$'\t' '{print NR,$1,$2}'
 </code></pre>
 
 <h2 id="sum-avg-max-min">数字が書かれたテキストファイルからその合計/平均/最大値/最小値を計算するには
-<span class="article-date">2013/12/05</span></h2>
+<span class="article-date">2014/02/20</span></h2>
 
-<p>以下のような1行に1つの数字が書かれたファイルからその合計や平均、最大値・最小値を計算する方法。</p>
+<p>以下のような1行に1つの数字が書かれたファイル(<code>hoge.txt</code>)からその合計や平均、最大値・最小値を計算する方法。</p>
 
 <pre><code>228
 516
@@ -152,26 +152,36 @@ awk -v FS=$'\t' -v OFS=$'\t' '{print NR,$1,$2}'
 <p>合計を計算する例</p>
 
 <pre><code>awk '{sum+=$1}END{print sum}' hoge.txt
+# または
+cat hoge.txt | perl -nle '$sum+=$_; END{print $sum}'
 </code></pre>
 
 <p>平均を計算する例</p>
 
 <pre><code>awk '{sum+=$1}END{print sum/NR}' hoge.txt
+# または
+cat hoge.txt | perl -nle '$sum+=$_;$l++; END{print $sum/$l}'
 </code></pre>
 
 <p>ファイルの最後の行だけを無視して数字の合計を計算する例</p>
 
 <pre><code>head -n-1 hoge.txt | awk '{sum+=$1}END{print sum}'
+# または
+head -n-1 hoge.txt | perl -nle '$sum+=$_; END{print $sum}'
 </code></pre>
 
 <p>最大値を求める例</p>
 
 <pre><code>awk 'NR==1 {max=$1} {if($1 &gt; max) max = $1} END {print max}' hoge.txt
+# または
+cat hoge.txt | perl -nle '(!defined($max) || $max&lt;$_) and $max=$_; END{print $max}'
 </code></pre>
 
 <p>最小値を求める例</p>
 
 <pre><code>awk 'NR==1 {min=$1} {if($1 &lt; max) min = $1} END {print min}' hoge.txt
+# または
+cat hoge.txt | perl -nle '(!defined($min) || $min&gt;$_) and $min=$_; END{print $min}'
 </code></pre>
 
 <p>-&gt; <a href="../programming_languages_diff/list/sum.html">数のリストの合計/平均を計算するには</a></p>

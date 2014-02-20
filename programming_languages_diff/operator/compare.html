@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>オブジェクトの比較演算子 | 演算子 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>比較演算子 | 演算子 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/operator/">演算子</a> &gt; <span>オブジェクトの比較演算子</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/operator/">演算子</a> &gt; <span>比較演算子</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -26,7 +26,7 @@
     <ul>
       <li><a href="../../programming_languages_diff/operator/">演算子</a>
         <ul>
-          <li>オブジェクトの比較演算子</li>
+          <li>比較演算子</li>
           <li><a href="../../programming_languages_diff/operator/increment.html">インクリメント・デクリメント演算子</a></li>
           <li><a href="../../programming_languages_diff/operator/ternary.html">三項演算子</a></li>
           <li><a href="../../programming_languages_diff/operator/elvis.html">エルビス演算子</a></li>
@@ -40,64 +40,13 @@
 </div>
 
 <div id="content">
-  <h1 id="compare">オブジェクトの比較演算子
+  <h1 id="compare">比較演算子
 <span class="article-date">2013/09/17</span></h1>
 
 <p>-&gt; <a href="../string/compare.html">文字列の比較</a><br />
 -&gt; <a href="../number/compare.html">数値の比較</a><br />
--&gt; <a href="../list/compare.html">配列の比較</a></p>
-
-<h2 id="ff5136c">Java
-<span class="article-date">2013/10/15</span></h2>
-
-<p><code>==</code>, <code>!=</code> はプリミティブ型の場合は値を比較し、参照型の場合は同じインスタンスかどうかを判別する。</p>
-
-<p>オブジェクトに対して <code>obj1.equals(obj2)</code> を使うと、値を比較するが、各クラスの <code>equals</code> の実装に依存する。</p>
-
-<p>Javaにおける <code>==</code> はRubyにおける <code>equal?</code> に似ていて、
-Javaにおける <code>equals</code> はRubyにおける <code>==</code> に似ている。</p>
-
-<h2 id="1af9280">Scala
-<span class="article-date">2013/11/08</span></h2>
-
-<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。
-<code>==</code> はJVM上では、プリミティブ型に対してはJavaと同じで、参照型に対してはJavaの <code>equals</code> を呼び出している。</p>
-
-<h2 id="991deb7">Groovy
-<span class="article-date">2013/11/08</span></h2>
-
-<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。
-<code>==</code> はJVM上ではJavaの <code>equals</code> を呼び出している。</p>
-
-<h2 id="ruby">Ruby
-<span class="article-date">2014/01/10</span></h2>
-
-<p>同じかどうかを調べるに多様なメソッドとして以下がある。</p>
-
-<ul>
-  <li><code>==</code></li>
-  <li><code>===</code></li>
-  <li><code>equal?</code></li>
-</ul>
-
-<p>普通に等値かどうかを調べたいときには <code>==</code> を使う。
-<code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対を返す。</p>
-
-<p><code>equal?</code>メソッドは等値かどうかよりも範囲が狭く、同じインスタンスかどうかを判別する。</p>
-
-<p>Rubyにおける <code>==</code> はJavaにおける <code>equals</code> に似ていて、
-Rubyにおける <code>equal?</code> はJavaにおける <code>==</code> に似ている。</p>
-
-<p><code>===</code> は<a href="../control_flow/switch.html#ruby">case文</a>で<code>when</code>節にマッチするかどうかの判定に暗黙的に使われる。</p>
-
-<h2 id="bf47d7f">Perl
-<span class="article-date">2013/07/31</span></h2>
-
-<p><code>eq</code> は文字列として等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>ne</code> はその反対。</p>
-
-<p><code>==</code> は数値として等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>!=</code> はその反対。</p>
-
-<p><code>'10a' == '10b'</code> は無理やり数値にして、同じ <code>10</code> になるため、<code>1</code> を返す。ただ、 <code>use warnings;</code> を使っていると、警告を表示してくれる。</p>
+-&gt; <a href="../list/compare.html">配列の比較</a><br />
+-&gt; <a href="../class/compare.html">オブジェクトの比較</a></p>
 
 </div>
 
