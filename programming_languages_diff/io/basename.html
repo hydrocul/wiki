@@ -89,10 +89,19 @@ String basename = file.getName();
 print os.path.basename(path)
 </code></pre>
 
-<h2 id="bc31582">Ruby
-<span class="article-date">2013/08/29</span></h2>
+<h2 id="ruby">Ruby
+<span class="article-date">2014/02/22</span></h2>
 
 <pre><code>File.basename(path)
+</code></pre>
+
+<p><a href="dirname.html#ruby"><code>dirname</code></a> の情報も必要であれば、それらを同時に取得できる <code>File#split</code> というのもある。</p>
+
+<pre><code>p File.split("/aaa/bbb/ccc")
+# =&gt; ["/aaa/bbb", "ccc"]
+
+p File.split("/aaa/bbb/ccc/")
+# =&gt; ["/aaa/bbb", "ccc"]
 </code></pre>
 
 <h2 id="efc92b9">Perl

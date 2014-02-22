@@ -91,6 +91,14 @@ code, kbd, pre, samp {
   border-left: 2px #CCC solid;
   padding-left: 8px;
 }
+#content table {
+  border-collapse: collapse;
+}
+#content table th,
+#content table td {
+  border: 1px #999 solid;
+  padding: 4px;
+}
 footer {
   margin-left: 40px;
   margin-right: 40px;

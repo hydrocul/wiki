@@ -57,7 +57,58 @@
 </div>
 
 <div id="content">
-  <h1 id="indent">インデント / セミコロン</h1>
+  <h1 id="indent">インデント / セミコロン
+<span class="article-date">2014/02/22</span></h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>C言語 / C++</td>
+      <td>Go言語</td>
+      <td>Java</td>
+      <td>Scala</td>
+      <td>Groovy</td>
+      <td>PHP</td>
+      <td>Python</td>
+      <td>Ruby</td>
+      <td>Perl</td>
+      <td>sh</td>
+      <td>JavaScript</td>
+      <td>CoffeeScript</td>
+    </tr>
+    <tr>
+      <td>ブロック</td>
+      <td><code>{}</code></td>
+      <td><code>{}</code></td>
+      <td><code>{}</code></td>
+      <td><code>{}</code></td>
+      <td><code>{}</code></td>
+      <td><code>{}</code></td>
+      <td>インデント</td>
+      <td> </td>
+      <td><code>{}</code></td>
+      <td> </td>
+      <td><code>{}</code></td>
+      <td>インデント</td>
+    </tr>
+    <tr>
+      <td>行末セミコロン</td>
+      <td>省略不可</td>
+      <td>省略可</td>
+      <td>省略不可</td>
+      <td>省略可</td>
+      <td>省略可</td>
+      <td>省略不可</td>
+      <td>省略可</td>
+      <td>省略可</td>
+      <td>省略不可</td>
+      <td>省略可</td>
+      <td>省略可</td>
+      <td>省略可</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="ef82320">C言語, C++
 <span class="article-date">2013/04/22</span></h2>
@@ -76,11 +127,11 @@
 </ul>
 
 <h2 id="7c982f0">Java
-<span class="article-date">2013/07/07</span></h2>
+<span class="article-date">2014/02/22</span></h2>
 
 <ul>
   <li>ブロックはC言語ライクに {} で表現</li>
-  <li>行末のセミコロンは省略可</li>
+  <li>行末のセミコロンは省略不可</li>
 </ul>
 
 <h2 id="b74f7e7">Scala
@@ -108,12 +159,18 @@
 </ul>
 
 <h2 id="f9d5ab4">Python
-<span class="article-date">2013/06/30</span></h2>
+<span class="article-date">2014/02/22</span></h2>
 
 <ul>
   <li>ブロックをインデントで表現</li>
   <li>行末のセミコロンは省略可(省略推奨)</li>
 </ul>
+
+<p>Pythonのインデント志向を削除して普通の言語っぽく書けるようにした 
+Python with Braces というものがあるらしい。</p>
+
+<p>Python with Braces<br />
+<a href="http://www.pythonb.org/" target="_blank">http://www.pythonb.org/</a></p>
 
 <h2 id="8953922">Ruby
 <span class="article-date">2013/04/22</span></h2>
@@ -136,6 +193,31 @@
 
 <ul>
   <li>行末のセミコロンは省略可</li>
+</ul>
+
+<h2 id="0090560">JavaScript
+<span class="article-date">2014/02/22</span></h2>
+
+<ul>
+  <li>ブロックはC言語ライクに {} で表現</li>
+  <li>行末のセミコロンは省略可</li>
+</ul>
+
+<h3 id="2db1ffa">改行
+<span class="article-date">2013/09/18</span></h3>
+
+<p><a href="http://masatokinugawa.l0.cm/2013/09/u2028u2029.domxss.html" target="_blank">http://masatokinugawa.l0.cm/2013/09/u2028u2029.domxss.html</a></p>
+
+<blockquote>
+  <p>ECMAScriptの仕様では、0x0A/0x0D以外にU+2028/2029の文字も改行とすることが明記されています。</p>
+</blockquote>
+
+<p>以下の理由でセキュリティ上の問題になりやすい</p>
+
+<ul>
+  <li>単一行コメントが”改行”で終了する</li>
+  <li>正規表現のドットが”改行”にマッチしない</li>
+  <li>IEやChromeではURLにU+2028/2029をエンコードせずに含められる</li>
 </ul>
 
 <h2 id="24c639e">CoffeeScript
