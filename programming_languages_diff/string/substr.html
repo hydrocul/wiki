@@ -51,6 +51,7 @@
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -120,7 +121,7 @@ p str[2, 3]
 <a href="../list/sub-list.html#ruby">配列</a>に対しても全く同じ使い方ができる。</p>
 
 <h2 id="138094b">Perl
-<span class="article-date">2013/12/30</span></h2>
+<span class="article-date">2014/02/24</span></h2>
 
 <p>例</p>
 
@@ -136,6 +137,17 @@ print substr($s, 1);
 </code></pre>
 
 <p><code>use utf8;</code> がないと、バイト数で数えてしまって、<code>あ</code> しか表示されない。</p>
+
+<p><code>substr</code>関数はとても変わっていて、左辺値として使えてしまうので、以下のように文字列の一部を変更するためにも使えてしまう。</p>
+
+<pre><code>use utf8;
+
+my $s = "あいうえお";
+
+substr($s, 2, 3) = "UEO";
+print $s;
+# =&gt; あいUEO
+</code></pre>
 
 <h2 id="70f39a9">JavaScript
 <span class="article-date">2013/04/10</span></h2>

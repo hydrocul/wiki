@@ -82,17 +82,28 @@
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/01/26</span></h2>
+<span class="article-date">2014/02/23</span></h2>
 
 <p>仮引数名の前に <code>*</code> を付けると、可変長引数になる。</p>
 
 <p>関数の中ではその引数は<a href="../list/overview.html#ruby">配列</a>になる。</p>
 
-<pre><code>def f(*a)
-  print "a:#{a}\n"
+<p>例</p>
+
+<pre><code>def f(*args)
+  print "args:#{args}\n"
 end
 
 f(1, 2) # =&gt; a:[1, 2]
+</code></pre>
+
+<p>可変長引数は仮引数の中では最後である必要があるが、ブロックを受け取る引数がある場合は、ブロック引数が最後で、可変長引数はその前になる。</p>
+
+<p>例</p>
+
+<pre><code>def f(a, b, *args, &amp;block)
+  ...
+end
 </code></pre>
 
 <p>可変長引数の逆で、複数の仮引数に対して関数呼び出し時に

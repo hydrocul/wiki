@@ -51,6 +51,21 @@
 print pwd
 </code></pre>
 
+<h3 id="43786aa"><code>popen</code> を使う方法
+<span class="article-date">2014/02/23</span></h3>
+
+<p>例</p>
+
+<pre><code>IO.popen('cat', 'r+') do |io|
+  io.puts("abcdef");
+  p io.gets
+  # =&gt;   "abcdef\n"
+  io.puts("あいうえお");
+  p io.gets
+  # =&gt; "あいうえお\n"
+end
+</code></pre>
+
 <h2 id="cd46b58">Perl
 <span class="article-date">2013/11/29</span></h2>
 

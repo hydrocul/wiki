@@ -47,9 +47,11 @@
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -103,11 +105,33 @@
 <p><code>'</code> または <code>"</code> で囲む。</p>
 
 <h2 id="269ff61">Perl
-<span class="article-date">2013/09/10</span></h2>
+<span class="article-date">2014/02/24</span></h2>
 
-<p><code>'</code> または <code>"</code> で囲む。</p>
+<p><code>'</code> または <code>"</code> で囲む。または、<code>q//</code>, <code>qq//</code> の表記も使える。</p>
 
-<p><code>"</code> で囲んだ文字列は、<a href="inline.html#perl">中に変数を埋め込む</a>ことができる。</p>
+<p><code>"</code> で囲んだ文字列や、<code>qq//</code>の表記では、<a href="inline.html#perl">中に変数を埋め込む</a>ことができる。</p>
+
+<p><code>q//</code>, <code>qq//</code> の表記は、<code>q</code> や <code>qq</code> のあとに <code>/</code> などの終端記号を指定して、文字列を書いて最後に指定した終端記号で閉じる表記で、Rubyにも似た機能がある。</p>
+
+<p><code>q</code> や <code>qq</code> のあとに <code>(</code>, <code>{</code>, <code>[</code>, <code>&lt;</code> を置くと、終端記号は、
+<code>)</code>, <code>}</code>, <code>]</code>, <code>&gt;</code> になり、括弧を対応させれば、中でネストさせることも可能になる。</p>
+
+<p>例</p>
+
+<pre><code>use Data::Dumper;
+
+my $str1 =  q/abc\ndef/;
+my $str2 = qq/abc\ndef/;
+
+print Dumper($str1);
+# =&gt;
+# $VAR1 = 'abc\\ndef';
+
+print Dumper($str2);
+# =&gt;
+# $VAR1 = 'abc
+# def';
+</code></pre>
 
 <h2 id="60cafab">CoffeeScript
 <span class="article-date">2013/09/10</span></h2>
