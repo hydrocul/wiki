@@ -38,7 +38,7 @@
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li>デバッグのためにオブジェクトの中身を表示させるには</li>
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
@@ -68,6 +68,19 @@
 
 <p><code>var_export</code><br />
 <a href="http://www.php.net/manual/ja/function.var-export.php" target="_blank">http://www.php.net/manual/ja/function.var-export.php</a></p>
+
+<h2 id="502c7ff">Smarty
+<span class="article-date">2014/02/25</span></h2>
+
+<p>テンプレートに以下のように書けば、変数<code>$a</code>の内容がそのままHTMLにダンプされる。</p>
+
+<pre><code>{$a|@debug_print_var}
+</code></pre>
+
+<p>または</p>
+
+<pre><code>{$a|@var_dump}
+</code></pre>
 
 <h2 id="ccad852">Python
 <span class="article-date">2013/10/14</span></h2>
