@@ -27,7 +27,6 @@
       <li><a href="../../programming_languages_diff/map/">マップ(連想配列)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/map/literal.html">マップの書き方</a></li>
           <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/map/get.html">キーで値を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/map/put.html">キーで要素を設定するには (put)</a></li>
@@ -35,6 +34,7 @@
           <li>特定のキーが含まれているかどうかを判定するには (containsKey)</li>
           <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">マップをコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">マップから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">マップが空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
@@ -104,19 +104,24 @@ Hash#member?(key)
 </code></pre>
 
 <h2 id="782ccd4">Perl
-<span class="article-date">2013/10/20</span></h2>
+<span class="article-date">2014/02/26</span></h2>
 
 <p>例</p>
 
-<pre><code>if (defined($hash{$key})) {
+<pre><code>if (exists($hash{$key})) {
     ...;
 }
 </code></pre>
 
-<p>キーが存在しなくても値を取得するときにはエラーにならずに <code>undef</code> が返される。
-<code>use warnings;</code> が宣言されていると、
-<code>undef</code> が代入された変数を実際に使おうとするときに
-<code>Use of uninitialized value</code> という警告が表示される。</p>
+<p>レファレンスの場合の例</p>
+
+<pre><code>if (exists($hash_ref-&gt;{$key})) {
+    ...;
+}
+</code></pre>
+
+<p><code>defined</code> を使ってしまうと、キーが存在しない場合と、
+<code>undef</code> が値として保存されている場合の区別ができなくなってしまう。</p>
 
 <h2 id="d8c52fa">JavaScript
 <span class="article-date">2014/01/15</span></h2>

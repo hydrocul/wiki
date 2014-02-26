@@ -90,7 +90,7 @@
 
 <div id="content">
   <h1 id="lftp">lftp コマンド
-<span class="article-date">2013/10/20</span></h1>
+<span class="article-date">2014/02/26</span></h1>
 
 <p>FTPクライアントのコマンド。</p>
 
@@ -98,6 +98,13 @@
 
 <pre><code>lftp ftp.hogehoge.com
 </code></pre>
+
+<p>ユーザ名とパスワードもオプションで指定してしまう以下のようなコマンドでもよいが、これだとパスワードが、psコマンドで見えてしまうとか、コマンド履歴に残ってしまうという問題がある。</p>
+
+<pre><code>lftp -u username,password ftp.hogehoge.com
+</code></pre>
+
+<p>ユーザ名とパスワードはコンまで区切って <code>-u</code> オプションで指定する。</p>
 
 <h2 id="d3af27e">オプション
 <span class="article-date">2013/09/06</span></h2>

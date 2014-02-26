@@ -34,6 +34,7 @@
           <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
           <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">マップをコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">マップから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">マップが空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
@@ -156,7 +157,7 @@ p hash['b']
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2013/10/08</span></h2>
+<span class="article-date">2014/02/26</span></h2>
 
 <p>以下のように <code>{}</code> でキーを指定し、先頭は <code>$</code> を使う。</p>
 
@@ -168,7 +169,11 @@ $hash{'a'} # =&gt; 1
 </code></pre>
 
 <p>存在しない要素を取得しようとすると <code>undef</code> になり、
-<code>use warnings;</code> が宣言されていれば、警告が表示される。</p>
+<code>use warnings;</code> が宣言されていれば、
+<code>undef</code> が代入された変数を実際に使おうとするときに
+<code>Use of uninitialized value</code> という警告が表示される。</p>
+
+<p>注意点として、<code>undef</code> という値の要素が存在することもあり得る。</p>
 
 <p>ハッシュへのレファレンスから要素を取り出すには</p>
 

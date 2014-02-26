@@ -89,22 +89,30 @@
 </div>
 
 <div id="content">
-  <h1 id="tmux">tmux コマンド</h1>
+  <h1 id="tmux">tmux コマンド
+<span class="article-date">2013/10/23</span></h1>
+
+<p>screenコマンドと同じで、1つの端末の中でタブブラウザのように複数の端末を開けるもの。</p>
 
 <h2 id="2d00375">キーバインド
-<span class="article-date">2013/07/24</span></h2>
+<span class="article-date">2014/02/26</span></h2>
 
 <p>以下で &lt;prefix&gt; は Ctrl+b など、tmuxのプリフィックキーで、設定によって変わる。</p>
 
 <dl>
-  <dt>&lt;prefix&gt; <code>x</code></dt>
-  <dd>ペインを閉じる</dd>
+  <dt>&lt;prefix&gt; <code>c</code></dt>
+  <dd>新しいウィンドウを作成する</dd>
   <dt>&lt;prefix&gt; <code>&amp;</code></dt>
   <dd>ウィンドウを閉じる</dd>
   <dt>&lt;prefix&gt; <code>w</code></dt>
   <dd>ウィンドウ一覧を表示して選択する</dd>
   <dt>&lt;prefix&gt; <code>o</code>  (小文字のオー)</dt>
-  <dd>ペインの間を移動する</dd>
+  <dd>次のペインに移動する</dd>
+  <dt>&lt;prefix&gt; <code>x</code></dt>
+  <dd>ペインを閉じる</dd>
+  <dt>&lt;prefix&gt; <code>:</code></dt>
+  <dd>コマンドプロンプトが現れて、tmuxの任意のコマンドを実行できる。
+例えば、<code>list-keys</code> でエンターを押せば、キーバイドの一覧が表示される。</dd>
 </dl>
 
 <h2 id="dce5b9b">用語の説明
