@@ -51,6 +51,7 @@
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li>文字列を全置換するには</li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -62,6 +63,33 @@
 
 <div id="content">
   <h1 id="replace">文字列を全置換するには</h1>
+
+<h2 id="080e875">Ruby
+<span class="article-date">2014/02/27</span></h2>
+
+<p><code>gsub</code>メソッドまたは<code>gsub!</code>メソッドで正規表現を使った置換ができる。</p>
+
+<pre><code>"abc\nabc\n".gsub(/\n/, "&lt;br /&gt;")
+</code></pre>
+
+<p>2つ目の引数には、かっこでマッチした部分の参照として <code>\1</code>, <code>\2</code> などが使える。
+2つ目の引数がダブルクオーテーションで囲まれている場合は <code>\\1</code>, <code>\\2</code> のようにエスケープする必要がある。</p>
+
+<pre><code>"abac".gsub(/a(.)/, "\\1\\1") # =&gt; "bbcc"
+</code></pre>
+
+<p>正規表現のみを与えて、代わりにブロックを与えると、ブロックを評価した結果に置換される。ブロックの中ではかっこでマッチした部分を <code>$1</code>, <code>$2</code> などで参照できる。</p>
+
+<pre><code>"abac".gsub(/a(.)/) { $1 * 2 } # =&gt; "bbcc"
+</code></pre>
+
+<p>正規表現の代わりに文字列を与えれば、単純にその文字列と一致する部分を全置換する。</p>
+
+<p><code>gsub</code> は置換した結果を返し、自身は変更しない。マッチした部分がなくてもそのまま文字列を帰す。</p>
+
+<p><code>gsub!</code> は破壊的メソッドで、マッチした部分があれば、置換した結果を返し、自身も変更する。マッチした部分がなければ、<code>nil</code> を返す。</p>
+
+<p>全置換ではなく、最初にマッチした部分だけを置換するには <code>sub</code> または <code>sub!</code> を使う。</p>
 
 <h2 id="40d184c">Perl
 <span class="article-date">2014/02/02</span></h2>

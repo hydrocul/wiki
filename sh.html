@@ -331,6 +331,25 @@ FILE_PATH=`pwd`/`basename $FILE_PATH`
 
 <p>というチェックは必要になる。</p>
 
+<h2 id="675ce06"><code>&amp;&amp;</code> と <code>||</code> の優先順位
+<span class="article-date">2014/02/27</span></h2>
+
+<p>他のプログラミング言語での演算子優先順位との類推でなんとなく <code>&amp;&amp;</code> のほうが <code>||</code> よりも優先度が高くなることを期待してしまいがちだが、同じ優先度のようだ。</p>
+
+<p>従って、</p>
+
+<pre><code>cmd1 &amp;&amp; cmd2 || cmd3 &amp;&amp; cmd4
+</code></pre>
+
+<p>というコードは、コマンド4つとも終了コードが0の場合、
+<code>cmd1</code> と <code>cmd2</code> だけが実行されるのではなく、</p>
+
+<pre><code>(cmd1 &amp;&amp; cmd2 || cmd3) &amp;&amp; cmd4
+</code></pre>
+
+<p>というようなイメージで、
+<code>cmd1</code> と <code>cmd2</code> と <code>cmd4</code> が実行される。</p>
+
 </div>
 
 <footer>
