@@ -36,7 +36,7 @@
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素または特定の条件にマッチする要素が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
           <li>リストから特定の条件にマッチする要素のみを取り出すには (filter)</li>
@@ -112,7 +112,7 @@ def count(p: A =&gt; Boolean): Int
 <p>このメソッドで条件にマッチした要素の数を取得できる。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2014/02/14</span></h2>
+<span class="article-date">2014/02/28</span></h2>
 
 <p>例</p>
 
@@ -128,6 +128,8 @@ var_export($filtered);
 //   4 =&gt; 5,
 // )
 </code></pre>
+
+<p>キーはそのまま維持されてフィルタリングされる。</p>
 
 <p><a href="map.html#php"><code>array_map</code></a>関数と引数の順番が違うので、要注意。</p>
 

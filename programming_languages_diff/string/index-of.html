@@ -50,6 +50,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -77,7 +79,7 @@ int lastIndexOf(String str)
 <p>見つからない場合は <code>-1</code> を返す。</p>
 
 <h2 id="18e1bfa">PHP
-<span class="article-date">2013/04/27</span></h2>
+<span class="article-date">2014/02/28</span></h2>
 
 <pre><code>int strpos($mystring, $str)
 </code></pre>
@@ -87,7 +89,17 @@ int lastIndexOf(String str)
 <pre><code>strpos('abcabc', 'bc') // =&gt; 1
 </code></pre>
 
-<p>見つからない場合は <code>FALSE</code> を返す。</p>
+<p>見つかった場所をインデックスで返す。文字列の先頭で見つかった場合は <code>0</code> を返す。見つからない場合は <code>FALSE</code> を返す。</p>
+
+<p><code>0</code> も <code>FALSE</code> の扱いになるため、以下のようにすると、見つかった場合という条件ではなく、先頭以外で見つかった場合という条件になってしまうので注意。</p>
+
+<pre><code>if (strpos($str, $findme))
+</code></pre>
+
+<p>以下のようにすれば、見つかった場合という条件になる。</p>
+
+<pre><code>if (strpos($str, $findme) !== FALSE)
+</code></pre>
 
 <h2 id="20e105a">Python
 <span class="article-date">2013/10/21</span></h2>
