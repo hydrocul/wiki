@@ -350,6 +350,21 @@ FILE_PATH=`pwd`/`basename $FILE_PATH`
 <p>というようなイメージで、
 <code>cmd1</code> と <code>cmd2</code> と <code>cmd4</code> が実行される。</p>
 
+<h2 id="9630397">ディレクトリの中にあるファイルを1ファイルをのぞいてすべて羅列するワイルドカード
+<span class="article-date">2014/03/01</span></h2>
+
+<p>zshでは <code>^</code> というワイルドカードを使うとできる。</p>
+
+<p>例</p>
+
+<pre><code>$ ls *
+a.txt b.txt c.txt a.md b.md c.md
+$ ls ^a.txt
+b.txt c.txt a.md b.md c.md
+$ ls ^*.txt
+a.md b.md c.md
+</code></pre>
+
 </div>
 
 <footer>
