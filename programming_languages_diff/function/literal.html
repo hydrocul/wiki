@@ -158,7 +158,7 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 <a href="http://www.php.net/manual/ja/functions.anonymous.php" target="_blank">http://www.php.net/manual/ja/functions.anonymous.php</a></p>
 
 <h2 id="269ff61">Perl
-<span class="article-date">2014/02/08</span></h2>
+<span class="article-date">2014/03/01</span></h2>
 
 <p>無名関数の例</p>
 
@@ -174,6 +174,19 @@ $f-&gt;(...);
 <pre><code>sub {
     ...;
 }-&gt;(...);
+</code></pre>
+
+<p>サブルーチンをサブルーチンの中に置くこともできるが、中のサブルーチンは外からも呼び出せてしまうようだ。</p>
+
+<pre><code>sub f {
+    ...;
+    sub g {
+        ...;
+    }
+    ...;
+}
+f(...);
+g(...); # =&gt; No problem
 </code></pre>
 
 <p>クロージャーとして使う例</p>

@@ -136,7 +136,7 @@ bar
 <p>上記の例で1行目にバックスラッシュがあるのは最初の改行を文字列に含めないようにするため。</p>
 
 <h2 id="40e9037">Perl
-<span class="article-date">2013/11/22</span></h2>
+<span class="article-date">2014/03/01</span></h2>
 
 <p>例</p>
 
@@ -158,8 +158,10 @@ EOS
 
 <p><code>&lt;&lt;EOS</code>の<code>EOS</code>の部分を裸のままにするかダブルクオートで囲むと、普通のダブルクオートで囲んだ文字列と同様に中の変数名が展開される。シングルクオートで囲めば、普通のシングルクオートで囲んだ文字列と同様に変数名は展開されない。</p>
 
+<p>ヒアドキュメントがファイルの最後まで続くからといって終端の識別子を省略すると、エラーになってしまう。</p>
+
 <h2 id="96fbf7a">sh
-<span class="article-date">2013/05/31</span></h2>
+<span class="article-date">2014/03/01</span></h2>
 
 <p>例</p>
 
@@ -180,6 +182,8 @@ $HOME
 `date`
 EOD
 </code></pre>
+
+<p>ヒアドキュメントがファイルの最後までの場合は、終端の識別子を省略できる。</p>
 
 <h2 id="75ac56c">JavaScript
 <span class="article-date">2013/05/17</span></h2>
