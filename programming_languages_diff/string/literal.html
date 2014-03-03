@@ -105,11 +105,12 @@
 <p><code>'</code> または <code>"</code> で囲む。</p>
 
 <h2 id="269ff61">Perl
-<span class="article-date">2014/02/24</span></h2>
+<span class="article-date">2014/03/02</span></h2>
 
-<p><code>'</code> または <code>"</code> で囲む。または、<code>q//</code>, <code>qq//</code> の表記も使える。</p>
-
-<p><code>"</code> で囲んだ文字列や、<code>qq//</code>の表記では、<a href="inline.html#perl">中に変数を埋め込む</a>ことができる。</p>
+<p><code>'</code> または <code>"</code> で囲む。または、<code>q//</code>, <code>qq//</code> の表記も使える。
+<a href="heredoc.html#perl">ヒアドキュメント</a>も使える。これらは<a href="inline.html#perl">中の変数名等が展開</a>されるものと展開されないものの2つの種類に分けられる。
+<code>"</code> で囲まれた表記、<code>qq//</code> の表記、終端識別子を <code>"</code> で囲むヒアドキュメントは、中の変数名等が展開される。
+<code>'</code> で囲まれた表記、<code>q//</code> の表記、終端識別子をクオートで囲まないか <code>'</code> で囲むヒアドキュメントは、中の変数名等が展開されない。</p>
 
 <p><code>q//</code>, <code>qq//</code> の表記は、<code>q</code> や <code>qq</code> のあとに <code>/</code> などの終端記号を指定して、文字列を書いて最後に指定した終端記号で閉じる表記で、Rubyにも似た機能がある。</p>
 
