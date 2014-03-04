@@ -187,6 +187,19 @@ curl -b cookie.txt [http://www.example.com/](http://www.example.com/)
 <a href="https://chrome.google.com/webstore/detail/cookietxt-export/lopabhfecdfhgogdbojmaicoicjekelh" target="_blank">cookie.txt export</a> 
 という拡張を使っている。</p>
 
+<h2 id="d334c92">404などの400番台のエラーコードが返ってきた場合に0以外の終了コードを返させるには
+<span class="article-date">2014/03/04</span></h2>
+
+<p>シェルスクリプトの中に組み込む場合で404エラーの場合を異常として検知したい、という場合、終了コードで判定できるとうれしいが、デフォルトではHTTPエラーは正常終了の0が終了コードになってしまう。
+400番台のHTTPエラーの場合に終了コードが0以外になるようにするには、オプション <code>-f</code> または <code>--fail</code> をつけるとよい。</p>
+
+<p>例</p>
+
+<pre><code>if ! curl -f "$URL"; then
+    echo "HTTP Error"
+fi
+</code></pre>
+
 </div>
 
 <footer>
