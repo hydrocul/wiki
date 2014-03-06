@@ -74,17 +74,33 @@
 <p>コンパイル後のJVM上ではJavaのプリミティブ型に変換されているので、パフォーマンスの心配はしなくてよい。</p>
 
 <h2 id="python">Python
-<span class="article-date">2014/03/02</span></h2>
+<span class="article-date">2014/03/05</span></h2>
 
-<p>整数、浮動小数点数、複素数の3種類のデータ型がある。</p>
+<p>Python2では、整数(int)、長整数(long)、浮動小数点数(float)、複素数(complex)の4種類のデータ型がある。
+Python3では、整数と長整数の区別がなくなり、整数(int)、浮動小数点数(float)、複素数(complex)の3種類のデータ型がある。</p>
 
-<p>整数は、10進数での表記の他、
-<code>0</code>で始まる8進数表記、<code>0x</code>または<code>0X</code>で始まる16進数表記、
-<code>0b</code>または<code>0B</code>で始まる2進数表記を使える。
-C言語やJavaなどと違って、8進数表記は<code>0o</code>または<code>0O</code>で始めることもできる。</p>
+<p>Python2の整数は64ビットの処理系であれば、<code>2 ** 63 - 1</code> で <code>sys.maxint</code> を参照することで調べることができる。この最大値を超える整数は自動で長整数になる。
+Python3の整数には上限がない。
+Python3で <code>sys.maxint</code> を参照しようとすると <code>SyntaxError</code> になる。</p>
+
+<p>浮動小数点数はC言語でいう<code>double</code>に相当する。</p>
+
+<p>複素数は実部と虚部がそれぞれC言語の<code>double</code>で実装されている。</p>
+
+<p>整数・長整数は、10進数での表記の他、
+<code>0x</code>または<code>0X</code>で始まる16進数表記、<code>0b</code>または<code>0B</code>で始まる2進数表記を使える。
+C言語やJavaなどと違って、8進数表記は<code>0o</code>または<code>0O</code>で始める。
+Python2では8進数表記として<code>0</code>で始めることもできるが、
+Python3ではこれは <code>SyntaxError</code> になる。</p>
+
+<p>Python2で長整数であることを明示するには数字の最後に <code>L</code> を付けるが、付けなくても大きな数字であれば勝手に長整数になる。
+Python3で <code>L</code> を付けると <code>SyntaxError</code> になる。</p>
 
 <p>数値リテラル | Python 2.7 documentation<br />
 <a href="http://docs.python.jp/2/reference/lexical_analysis.html#numbers" target="_blank">http://docs.python.jp/2/reference/lexical_analysis.html#numbers</a></p>
+
+<p>数値リテラル | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/reference/lexical_analysis.html#numbers" target="_blank">http://docs.python.jp/3/reference/lexical_analysis.html#numbers</a></p>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/02/15</span></h2>

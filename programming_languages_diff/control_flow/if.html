@@ -292,18 +292,31 @@ end
 <code>elsunless</code> というのはない。</p>
 
 <h2 id="sh">sh
-<span class="article-date">2013/11/13</span></h2>
+<span class="article-date">2014/03/06</span></h2>
 
-<pre><code>if [ ... ]; then
+<pre><code>if ...; then
     ...
-elif [ ... ]; then
+elif ...; then
     ...
 else
     ...
 fi
 </code></pre>
 
-<p>cshでは違うらしい。</p>
+<p><code>then</code> の中や <code>else</code> の中にコマンドがひとつもないと
+bashであれば <code>syntax error near unexpected token </code>fi’<code>、
+Ubuntuに入っているデフォルトのsh(dash)であれば
+</code>Syntax error: “fi” unexpected` というようなエラーが発生してしまう。
+zshでは空でも大丈夫みたい。</p>
+
+<p>空ではエラーになってしまうけど、空のままにしておきたい事情があれば、なにもしないコマンド <code>:</code> を書いておけばよい。</p>
+
+<pre><code>if ...; then
+    :
+fi
+</code></pre>
+
+<p>上記はsh系(bash等)の場合で、cshではif文の構文からして違うらしい。</p>
 
 <h2 id="99ba499">JavaScript
 <span class="article-date">2013/09/07</span></h2>
