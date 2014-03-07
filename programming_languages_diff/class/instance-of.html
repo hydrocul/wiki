@@ -35,6 +35,7 @@
           <li><a href="../../programming_languages_diff/class/access-member.html">クラスメンバーへのアクセス</a></li>
           <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
           <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
+          <li><a href="../../programming_languages_diff/class/compare.html">オブジェクトの比較演算子</a></li>
           <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
           <li><a href="../../programming_languages_diff/class/this.html"><code>this</code></a></li>
         </ul>
@@ -70,9 +71,11 @@ hash.is_a?(Hash)
 </code></pre>
 
 <h2 id="f0e5baa">Perl
-<span class="article-date">2013/11/23</span></h2>
+<span class="article-date">2014/03/06</span></h2>
 
-<p>レファレンスの種類は <code>ref</code> という関数(?)で判定できる。レファレンスでない場合は <code>''</code> を返し、レファレンスの場合はその指す先のオブジェクトの種類を文字列で返す。</p>
+<p>スカラ/配列/ハッシュの区別は、<a href="../vars/name.html#perl">変数名の先頭の1文字(sigil)で区別</a>されるので、プログラムの中で動的に判定が必要となるケースはない。</p>
+
+<p>スカラが、なんらかの値なのか、レファレンスなのかの区別や、レファレンスであれば指す先の種類は、<code>ref</code> という関数(?)で判定できる。レファレンスでない場合は <code>''</code> を返し、レファレンスの場合はその指す先のオブジェクトの種類を文字列で返す。</p>
 
 <pre><code>my $num = 1;
 my $str = "abc";
