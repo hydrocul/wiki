@@ -50,6 +50,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -63,13 +65,13 @@
   <h1 id="escape">エスケープシーケンス</h1>
 
 <h2 id="e34086d">Java
-<span class="article-date">2013/09/23</span></h2>
+<span class="article-date">2014/03/09</span></h2>
 
 <p>以下ののエスケープが使える。</p>
 
 <dl>
-  <dt><code>\\</code>数字(1ケタ〜3ケタ)</dt>
-  <dd>8進数で文字を表現 (\u0000 〜 \u00FF までしか表現できない)</dd>
+  <dt><code>\</code>ooo</dt>
+  <dd>8進数1桁から3桁で文字を表現 (\u0000 〜 \u00FF までしか表現できない)</dd>
   <dt><code>\b</code></dt>
   <dd>0x08</dd>
   <dt><code>\t</code></dt>
@@ -86,9 +88,9 @@
   <dd><code>'</code></dd>
   <dt><code>\\</code></dt>
   <dd><code>\</code></dd>
-  <dt><code>\uxxxx</code></dt>
-  <dd>Unicodeで文字を表現(Unicodeエスケープ。
-文字列内のエスケープではなく、ソースコード中のどこでも使えるエスケープ)</dd>
+  <dt><code>\u</code>hhhh</dt>
+  <dd>Unicodeエスケープといい、16ビットのUnicodeを16進数表記4桁で表現。
+文字列内のエスケープではなく、ソースコード中のどこでも使えるエスケープシーケンスである。</dd>
 </dl>
 
 <h3 id="3fd6e17">Unicodeエスケープ
@@ -154,6 +156,53 @@ echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
   <dt><code>\\</code></dt>
   <dd><code>\</code></dd>
 </dl>
+
+<h2 id="ea15409">Python
+<span class="article-date">2014/03/09</span></h2>
+
+<p><code>'</code> で囲んだ文字列も <code>"</code> で囲んだ文字列も同じエスケープが使える。</p>
+
+<dl>
+  <dt><code>\0</code></dt>
+  <dd>0x00 (Null文字)</dd>
+  <dt><code>\a</code></dt>
+  <dd>0x07 (ビープ音)</dd>
+  <dt><code>\b</code></dt>
+  <dd>0x08 (バックスペース)</dd>
+  <dt><code>\t</code></dt>
+  <dd>0x09 (タブ)</dd>
+  <dt><code>\n</code></dt>
+  <dd>0x0a (LF)</dd>
+  <dt><code>\v</code></dt>
+  <dd>0x0b (垂直タブ)</dd>
+  <dt><code>\f</code></dt>
+  <dd>0x0c (改ページ)</dd>
+  <dt><code>\r</code></dt>
+  <dd>0x0d (CR)</dd>
+  <dt><code>\"</code></dt>
+  <dd><code>"</code></dd>
+  <dt><code>\'</code></dt>
+  <dd><code>'</code></dd>
+  <dt><code>\\</code></dt>
+  <dd><code>\</code></dd>
+  <dt><code>\x</code>hh</dt>
+  <dd>ASCII文字を16進数表記2桁で表現</dd>
+  <dt><code>\o</code>ooo</dt>
+  <dd>ASCII文字を8進数表記3桁で表現</dd>
+  <dt><code>\u</code>hhhh</dt>
+  <dd>16ビットのUnicodeを16進数表記4桁で表現。
+Python2ではUnicode文字列リテラル(<code>u"..."</code>)の中でのみ使用可能。
+Python2のそれ以外の文字列ではエスケープされずそのまま文字列になる。
+Javaと違い、<code>\u</code>hhhh は文字列の中でのみ使えるエスケープシーケンスである。</dd>
+  <dt><code>\Ux</code>hhhhhhhh</dt>
+  <dd>32ビットのUnicodeを16進数表記8桁で表現。
+Python2ではUnicode文字列リテラル(<code>u"..."</code>)の中でのみ使用可能。
+Python2のそれ以外の文字列ではエスケープされずそのまま文字列になる。</dd>
+</dl>
+
+<p>文字列の中で行の最後に <code>\</code> を書いて改行すると、次の行に文字列が継続される。</p>
+
+<p>エスケープシーケンスとして成立しない不適切な <code>\</code> があると、それはエスケープされずにそのまま文字列の一部になる。</p>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2013/12/01</span></h2>
