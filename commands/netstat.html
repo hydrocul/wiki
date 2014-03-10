@@ -98,12 +98,27 @@
 (iptablesなどでブロックされていなければ)外部からでもアクセスできる。</p>
 
 <h2 id="6fd40d6">ポートをLISTENしているプロセスを調べるには
-<span class="article-date">2013/07/31</span></h2>
+<span class="article-date">2014/03/10</span></h2>
 
-<pre><code>sudo netstat -anp
+<pre><code>sudo netstat -anp | grep LISTEN
 </code></pre>
 
-<p>PIDの欄がプロセスIDである。root権限でないとプロセスIDが表示されないものがあるよう。</p>
+<p>PIDの欄がプロセスIDである。一般ユーザ権限だとプロセスIDが表示されないものがあるので、知りたいプロセスが表示されていなかったら、root権限になるとよい。</p>
+
+<h2 id="871f6a7">詳細不明のSSHトンネルと思しきLISTENしているポートを強制的に閉じるには
+<span class="article-date">2014/03/10</span></h2>
+
+<p>例えばポート番号9999を強制的異閉じたい場合は</p>
+
+<pre><code>sudo netstat -anp | grep LISTEN | grep 9999
+</code></pre>
+
+<p>とでもしてプロセスIDを調べて、殺しても問題なさそうであれば、</p>
+
+<pre><code>killl &lt;プロセスID&gt;
+</code></pre>
+
+<p>でkillしてしまえばよい。killの際に動作しているユーザ権限が違っていれば、root権限が必要。</p>
 
 </div>
 

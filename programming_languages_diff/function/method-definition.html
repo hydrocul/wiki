@@ -105,7 +105,7 @@
 <p>関数定義・メソッド定義では引数のカッコを省略不可。</p>
 
 <h2 id="4032810">Smarty
-<span class="article-date">2014/02/25</span></h2>
+<span class="article-date">2014/03/10</span></h2>
 
 <p>関数定義の例</p>
 
@@ -113,6 +113,18 @@
   ...
 {/function}
 </code></pre>
+
+<p>仮引数の名前として <code>name</code> は使えない。</p>
+
+<pre><code>{function f name=false}
+</code></pre>
+
+<p>と書いたら、関数名が <code>'false'</code> になってしまい、</p>
+
+<pre><code>unknown tag "f"
+</code></pre>
+
+<p>というエラーメッセージが表示されてしまう。</p>
 
 <p><code>function</code> | Smarty Manual<br />
 <a href="http://www.smarty.net/docs/ja/language.function.function.tpl" target="_blank">http://www.smarty.net/docs/ja/language.function.function.tpl</a></p>
