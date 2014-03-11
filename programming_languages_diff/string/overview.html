@@ -96,7 +96,7 @@
 <code>java.lang.StringBuffer</code> がある。</p>
 
 <h2 id="ccd88c1">Python
-<span class="article-date">2013/08/17</span></h2>
+<span class="article-date">2014/03/10</span></h2>
 
 <p>単なるバイト列の文字列とUnicode文字列の2種類ある。</p>
 
@@ -108,7 +108,18 @@
 
 <p>Python3では、2種類を混ぜて連結しようとすると、内容によらずエラーになる。</p>
 
-<p>Unicode文字列はencodeメソッドでバイト列に変換でき、バイト列はdecodeメソッドでUnicode文字列に変換できる。</p>
+<p>Unicode文字列は<code>encode</code>メソッドでバイト列に変換でき、バイト列は<code>decode</code>メソッドでUnicode文字列に変換できる。</p>
+
+<p>文字列リテラルは、<code>'</code> または <code>"</code> で囲む。またはトリプルクオート <code>'''</code> または <code>"""</code> で囲む。トリプルクオートの中には改行をそのまま含めることもできる。複数行の<a href="../comment.html#python">コメント</a>をトリプルクオートの文字列で書くことがよくある。</p>
+
+<p><code>'</code>, <code>"</code>, <code>'''</code>, <code>"""</code> の前に <code>r</code> または <code>R</code> をプレフィックスとしてつけると、
+raw文字列というものになり、バックスラッシュによるエスケープシーケンスが無効になる。</p>
+
+<p>文字列リテラル | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/reference/lexical_analysis.html#literal" target="_blank">http://docs.python.jp/2/reference/lexical_analysis.html#literal</a></p>
+
+<p>文字列リテラル | Python 3.3 documentation<br />
+<a href="http://docs.python.jp/3/reference/lexical_analysis.html#string-and-bytes-literals" target="_blank">http://docs.python.jp/3/reference/lexical_analysis.html#string-and-bytes-literals</a></p>
 
 <h2 id="3f929ef">Ruby
 <span class="article-date">2014/03/02</span></h2>

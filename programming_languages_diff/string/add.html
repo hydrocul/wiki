@@ -119,11 +119,25 @@
 </code></pre>
 
 <h2 id="48597d3">Python
-<span class="article-date">2014/03/05</span></h2>
+<span class="article-date">2014/03/10</span></h2>
 
 <p>例</p>
 
 <pre><code>'abc' + 'def'
+</code></pre>
+
+<p>文字列と数字の間で暗黙の型変換をすることはないので、そのまま連結することはできない。</p>
+
+<p>例</p>
+
+<pre><code>print(12 + "42")
+# =&gt; エラー
+
+print(str(12) + "42")
+# =&gt; 1242
+
+print(12 + int("42"))
+# =&gt; 54
 </code></pre>
 
 <p>文字列リテラルを並べて書くと連結される。改行を挟んでもよい。</p>
