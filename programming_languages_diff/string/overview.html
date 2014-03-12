@@ -81,9 +81,9 @@
 <h2 id="6b3acc7">Java / Scala
 <span class="article-date">2013/10/10</span></h2>
 
-<p>Java / Scala における文字列は、2バイトの整数であるJavaの<code>char</code>型の配列と長さの情報を持ったオブジェクトである。長さの情報を持っているため、終端文字を考えなくてよい。</p>
+<p>Java / Scala における文字列は、2バイトの整数であるJavaの<code>char</code>型の配列と長さの情報を持った不変オブジェクトである。長さの情報を持っているため、終端文字を考えなくてよい。</p>
 
-<p>クラスは <code>java.lang.String</code>。</p>
+<p>クラスは <code>java.lang.String</code> である。</p>
 
 <p>文字符号化方式(文字コード)は常にUTF-16である。Unicodeの <code>\uFFFF</code> より大きい文字はサロゲートペアを使う。サロゲートペアの機能はJava5以降である。</p>
 
@@ -92,13 +92,13 @@
 <p>任意の文字符号化方式のバイナリを外部から読み込んで内部のUTF-16に変換する際には、不正なバイナリは除外してくれる。例えばShift-JISやEUC-JPなどのマルチバイトの符号化の場合で、
 2バイト目が2バイト目の範囲でなかったりする場合は、<code>'?'</code> などに置き換えられる。なので、内部で文字列の中に不正なバイナリが混ざってしまう心配をしなくてもよい。</p>
 
-<p><code>java.lang.String</code> はイミュータブル(immutable)である。ミュータブルな文字列としては、<code>java.lang.StringBuilder</code>,
+<p><code>java.lang.String</code> は不変(immutable)であるが、可変(mutable)文字列としては、<code>java.lang.StringBuilder</code>,
 <code>java.lang.StringBuffer</code> がある。</p>
 
 <h2 id="ccd88c1">Python
-<span class="article-date">2014/03/10</span></h2>
+<span class="article-date">2014/03/12</span></h2>
 
-<p>単なるバイト列の文字列とUnicode文字列の2種類ある。</p>
+<p>Pythonの文字列は不変オブジェクトで、単なるバイト列の文字列とUnicode文字列の2種類ある。</p>
 
 <p>Python2ではデフォルトはバイト列になる。<code>u"..."</code> と書くとUnicode文字列になる。</p>
 
@@ -153,7 +153,7 @@ p src.encoding
 
 <p>長さの情報を持っているため、終端文字を考えなくてよく、文字列の途中に <code>\x00</code> を含めることもできる。ただし、文字列の途中に <code>\x00</code> を含めた文字列をCで実装された拡張に渡すとおかしなことになるかもしれないので、やめたほうがよい。</p>
 
-<p>文字列のメソッドの中には文字列自身を変更するものがあるため、文字列はmutableなオブジェクトである。これはJavaの文字列に慣れている人にとってはとても気持ち悪い。</p>
+<p>文字列のメソッドの中には文字列自身を変更するものがあるため、文字列はmutableなオブジェクトである。これはJavaなどのimmutableな文字列に慣れている人にとってはとても気持ち悪い。</p>
 
 <p>ソースコード中に文字列リテラルを書くには、
 <code>'</code> または <code>"</code> で囲む。または<a href="heredoc.html#ruby">ヒアドキュメント</a>を使う。</p>

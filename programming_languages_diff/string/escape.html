@@ -121,10 +121,9 @@ println("\\\uu3044"); // =&gt; \い
 <p>Javaと同じ。Unicodeエスケープが使えるのも同じ。</p>
 
 <h2 id="77f7831">PHP
-<span class="article-date">2013/06/16</span></h2>
+<span class="article-date">2014/03/11</span></h2>
 
-<p><code>'</code> で囲めば、エスケープが必要になるのは <code>'</code>, <code>\</code> のみになる。<code>'\n'</code> などと書いても <code>\n</code> そのものになって改行にはならない。
-<code>'</code> で囲まれている場合、 <code>\</code> の次に <code>'</code>, <code>\</code> 以外が来ても特別な意味にはならない。</p>
+<p><code>'</code> で囲めば、エスケープが必要になるのは <code>'</code> と <code>\</code> のみになる。<code>'\n'</code> などと書いても <code>\n</code> そのものになって改行にはならない。つまり <code>'</code> で囲まれている場合、 <code>\</code> の次に <code>'</code> または <code>\</code> 以外が来ても特別な意味にはならない。</p>
 
 <pre><code>echo 'aaa\nttt'; // =&gt; aaa\nttt // \n は改行にはならない
 echo 'aaa\'ttt'; // =&gt; aaa'ttt
@@ -155,6 +154,10 @@ echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
   <dd><code>"</code></dd>
   <dt><code>\\</code></dt>
   <dd><code>\</code></dd>
+  <dt><code>\</code>ooo (数字1桁〜3桁)</dt>
+  <dd>ASCII文字を8進数表記1桁〜3桁で表現</dd>
+  <dt><code>\x</code>hh (数字1桁〜2桁)</dt>
+  <dd>ASCII文字を16進数表記2桁で表現</dd>
 </dl>
 
 <h2 id="ea15409">Python
@@ -185,10 +188,10 @@ echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
   <dd><code>'</code></dd>
   <dt><code>\\</code></dt>
   <dd><code>\</code></dd>
-  <dt><code>\x</code>hh</dt>
-  <dd>ASCII文字を16進数表記2桁で表現</dd>
   <dt><code>\o</code>ooo</dt>
   <dd>ASCII文字を8進数表記3桁で表現</dd>
+  <dt><code>\x</code>hh</dt>
+  <dd>ASCII文字を16進数表記2桁で表現</dd>
   <dt><code>\u</code>hhhh</dt>
   <dd>16ビットのUnicodeを16進数表記4桁で表現。
 Python2ではUnicode文字列リテラル(<code>u"..."</code>)の中でのみ使用可能。
@@ -210,10 +213,10 @@ Python2のそれ以外の文字列ではエスケープされずそのまま文�
 <p><code>"</code> で囲んだ文字列は、以下のエスケープが使える。</p>
 
 <dl>
-  <dt><code>\\</code>数字(1ケタ〜3ケタ)</dt>
-  <dd>8進数で文字を表現</dd>
-  <dt><code>\\x</code>数字(1ケタ〜2ケタ)</dt>
-  <dd>16進数で文字を表現</dd>
+  <dt><code>\</code>ooo (数字1桁〜3桁)</dt>
+  <dd>ASCII文字を8進数表記1桁〜3桁で表現</dd>
+  <dt><code>\x</code>hh (数字1桁〜2桁)</dt>
+  <dd>ASCII文字を16進数表記2桁で表現</dd>
   <dt><code>\t</code></dt>
   <dd>0x09 タブ</dd>
   <dt><code>\n</code></dt>

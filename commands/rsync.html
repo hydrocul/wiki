@@ -158,7 +158,7 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 <h2 id="167dc8c">リモートのファイルをローカルに保存するのではなく、標準出力させて別のコマンドにパイプでつなぐには
 <span class="article-date">2014/01/29</span></h2>
 
-<p><code>rsync</code> で標準出力させる方法が見つからなかったが、<code>ssh</code> で以下のようにすればいいだけ。</p>
+<p><code>rsync</code> で標準出力させる方法が見つからなかったが、<code>ssh</code> で以下のようにすればよい。</p>
 
 <pre><code>ssh remote "cat abc.txt" | less
 </code></pre>
