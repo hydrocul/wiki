@@ -88,7 +88,9 @@ default:
 <p><code>x</code> には、<code>byte</code>, <code>short</code>, <code>char</code>, <code>int</code>, <code>Byte</code>, <code>Short</code>, <code>Character</code>, <code>Integer</code>,
 <a href="../enum/overview.html#java"><code>enum</code></a>, <code>String</code> が使える。</p>
 
-<p><code>String</code> が使えるのは、Java7からである。ただ、<code>String</code> の場合、実行時に <code>null</code> が与えられると、<code>NullPointerException</code> が発生してしまい、
+<p><code>String</code> が使えるのは、Java7からである。</p>
+
+<p><code>String</code> の場合、実行時に <code>null</code> が与えられると、<code>NullPointerException</code> が発生してしまい、
 <code>case null</code> と書けたり、 <code>default</code> に飛んでくれたりはしない。
 <code>Integer</code> の場合も、<code>NullPointerException</code> が発生しうるのは同様。</p>
 

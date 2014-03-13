@@ -51,11 +51,22 @@
   <h1 id="compare">オブジェクトの比較演算子</h1>
 
 <h2 id="ff5136c">Java
-<span class="article-date">2013/10/15</span></h2>
+<span class="article-date">2014/03/13</span></h2>
 
-<p><code>==</code>, <code>!=</code> はプリミティブ型の場合は値を比較し、参照型の場合は同じインスタンスかどうかを判別する。</p>
+<p>プリミティブ型の値が等値かどうかを判定するには、演算子 <code>==</code>, <code>=~</code> を使う。</p>
 
-<p>オブジェクトに対して <code>obj1.equals(obj2)</code> を使うと、値を比較するが、各クラスの <code>equals</code> の実装に依存する。</p>
+<p>参照型が等値かどうかを判定するには、メソッド <code>equals</code> を使う。</p>
+
+<p>例</p>
+
+<pre><code>if (obj1.equals(obj2)) {
+    ...;
+}
+</code></pre>
+
+<p>ただし、クラスごとに<code>equals</code>が適切に実装されている必要がある。</p>
+
+<p>参照型が同じインスタンスかどうかを判定するには、演算子 <code>==</code>, <code>=~</code> を使う。</p>
 
 <p>Javaにおける <code>==</code> はRubyにおける <code>equal?</code> に似ていて、
 Javaにおける <code>equals</code> はRubyにおける <code>==</code> に似ている。</p>
@@ -78,12 +89,12 @@ Javaにおける <code>equals</code> はRubyにおける <code>==</code> に似�
 <p>等値かどうかの判定には演算子 <code>==</code>, <code>!=</code> を使う。Python2では <code>&lt;&gt;</code> を <code>!=</code> と同じ意味で使えたが
 Python3では使えない。</p>
 
-<p>同じオブジェクトかどうかの判定には演算子 <code>is</code>, <code>is not</code> を使う。</p>
+<p>同じインスタンスかどうかの判定には演算子 <code>is</code>, <code>is not</code> を使う。</p>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/01/10</span></h2>
 
-<p>同じかどうかを調べるに多様なメソッドとして以下がある。</p>
+<p>同じかどうかを調べる似た様なメソッドとして以下がある。</p>
 
 <ul>
   <li><code>==</code></li>
@@ -102,13 +113,16 @@ Rubyにおける <code>equal?</code> はJavaにおける <code>==</code> に似�
 <p><code>===</code> は<a href="../control_flow/switch.html#ruby">case文</a>で<code>when</code>節にマッチするかどうかの判定に暗黙的に使われる。</p>
 
 <h2 id="bf47d7f">Perl
-<span class="article-date">2013/07/31</span></h2>
+<span class="article-date">2014/03/13</span></h2>
 
 <p><code>eq</code> は文字列として等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>ne</code> はその反対。</p>
 
 <p><code>==</code> は数値として等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>!=</code> はその反対。</p>
 
 <p><code>'10a' == '10b'</code> は無理やり数値にして、同じ <code>10</code> になるため、<code>1</code> を返す。ただ、 <code>use warnings;</code> を使っていると、警告を表示してくれる。</p>
+
+<p>スカラーレファレンスの参照先が同じインスタンスかどうかを判定するには、
+<code>$ref1 == $ref2</code> のように、演算子 <code>==</code>, <code>=~</code> を使う。</p>
 
 </div>
 
