@@ -83,7 +83,7 @@ String substring(int from, int to)
 <pre><code>string substr(string $string, int $start [, int $length])
 </code></pre>
 
-<p>substr | PHP Manual<br />
+<p><code>substr</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.substr.php" target="_blank">http://www.php.net/manual/ja/function.substr.php</a></p>
 
 <blockquote>
@@ -96,6 +96,21 @@ length を省略した場合は、 start の位置から文字列の最後まで
 </blockquote>
 
 <p><code>$length</code>が<code>$string</code>に比べ長すぎる場合は、エラーにならずに<code>$string</code>の最後までを返す。</p>
+
+<h2 id="df3790e">Python
+<span class="article-date">2014/03/14</span></h2>
+
+<p>スライスを使う。</p>
+
+<p>例</p>
+
+<pre><code>a = "abcdef"
+s = 2
+e = 4
+
+print(a[s:e])
+# =&gt; cd
+</code></pre>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/01/18</span></h2>

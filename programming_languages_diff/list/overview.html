@@ -36,9 +36,8 @@
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素または特定の条件にマッチする要素が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
-          <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
@@ -89,7 +88,7 @@
 
 <p>配列の仕組みがある。配列のメモリ領域を確保した時点で大きさを変更できないので、固定長配列になる。</p>
 
-<p>インデックスでアクセスする場合は先頭の要素が0になる。</p>
+<p>インデックスは0から始まる。</p>
 
 <p>変数宣言のときに配列を書くには</p>
 
@@ -102,7 +101,7 @@
 <p>言語の組み込み型である配列と、クラスライブラリでサポートされている
 <code>java.util.List</code> インターフェースがある。配列は生成する時点で長さを指定しなければならず、固定長配列になる。</p>
 
-<p>配列も <code>java.util.List</code> もインデックスでアクセスする場合は先頭の要素が0になる。</p>
+<p>配列も <code>java.util.List</code> もインデックスは0から始まる。</p>
 
 <h3 id="543541c">配列
 <span class="article-date">2013/10/08</span></h3>
@@ -152,7 +151,7 @@ list.add("c");
 
 <p>Javaの配列は、Scalaでは <code>scala.Array</code> というクラスのインスタンスということになっていて、いくつかのメソッドが存在するが、JVM上での実体はJavaの配列のままになっている。</p>
 
-<p>Javaの配列も Java/Scalaのクラスライブラリでも、インデックスでアクセスする場合は先頭の要素が0になる。</p>
+<p>Javaの配列も Java/Scalaのクラスライブラリでも、インデックスは0から始まる。</p>
 
 <p>Scalaコレクションのアーキテクチャ<br />
 <a href="http://eed3si9n.github.io/scala-collections-impl-doc-ja/" target="_blank">http://eed3si9n.github.io/scala-collections-impl-doc-ja/</a></p>
@@ -225,6 +224,8 @@ var_export($arr);
 
 <p>要素を参照するには <code>[]</code> を使う。</p>
 
+<p>インデックスは通常は0から始まる。</p>
+
 <p>連想配列のキーは整数と文字列の区別がないので、以下のように、配列に対して数字の文字列でもアクセスできてしまう。</p>
 
 <pre><code>$arr = array();
@@ -255,12 +256,12 @@ var_export($arr);
 
 <p>リストおよびタプルというデータ型がある。また、NumPyを導入すればベクトル計算の得意な固定長の多次元配列を使える。</p>
 
-<p>インデックスでアクセスする場合は先頭の要素が0になる。</p>
+<p>インデックスは0から始まる。</p>
 
 <p>リストは連結リストではなく可変長配列として実装されている。
 NumPyの配列は固定長配列である。</p>
 
-<p>よく似たものでタプルというデータ型もあるが、単なるイミュータブル(要素の書き換えが不能な)なリストという感じで、
+<p>リストとよく似たものでタプルというデータ型もあるが、単なるイミュータブル(要素の書き換えが不能な)なリストという感じで、
 Scalaなどのタプルとはだいぶイメージが違う気がする。</p>
 
 <p>Pythonのタプルはイミュータブルなので、
@@ -292,7 +293,7 @@ np.array([1, 2, 3])
 
 <p><code>Array</code>という可変長配列のクラスが存在する。要素は異なる方のオブジェクトが混ざっていてもよい。</p>
 
-<p>インデックスでアクセスする場合は先頭の要素が0になる。</p>
+<p>インデックスは0から始まる。</p>
 
 <p>この配列を書くには <code>[]</code> で要素を羅列する。</p>
 
