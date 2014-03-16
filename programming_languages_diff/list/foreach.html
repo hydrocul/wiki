@@ -36,9 +36,8 @@
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素または特定の条件にマッチする要素が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
-          <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
@@ -85,12 +84,20 @@
 <a href="../control_flow/for.html">for</a>を参照。</p>
 
 <h2 id="93f5f96">Java
-<span class="article-date">2013/09/18</span></h2>
+<span class="article-date">2014/03/15</span></h2>
 
 <p>配列を<a href="../control_flow/for.html#java"><code>for</code>文</a>でループ。</p>
 
 <pre><code>for(int i = 0; i &lt; strArr.length; i++){
   String str = arr[i];
+  ...;
+}
+</code></pre>
+
+<p><code>java.lang.Iterator</code> を使った例は以下のとおり。</p>
+
+<pre><code>for(Iterator&lt;String&gt; it = strList.iterator(); it.hasNext();){
+  String str = it.next();
   ...;
 }
 </code></pre>
@@ -102,15 +109,7 @@
 }
 </code></pre>
 
-<p><code>str_arr</code> は配列であるか、<code>java.lang.Iterable</code> を実装しているオブジェクトであることが必要。</p>
-
-<p><code>java.lang.Iterator</code> を使った例は以下のとおり。</p>
-
-<pre><code>for(Iterator&lt;String&gt; it = strList.iterator(); it.hasNext();){
-  String str = it.next();
-  ...;
-}
-</code></pre>
+<p>拡張for文の場合 <code>strArr</code> は配列であるか、<code>java.lang.Iterable</code> を実装しているオブジェクトであることが必要。</p>
 
 <h2 id="scala">Scala
 <span class="article-date">2013/05/06</span></h2>
@@ -173,12 +172,14 @@ def foreach(f: A =&gt; Unit): Unit
 </code></pre>
 
 <h2 id="031dbcb">Ruby
-<span class="article-date">2013/04/21</span></h2>
+<span class="article-date">2014/03/15</span></h2>
 
 <pre><code>for elem in arr do
   ...
 end
 </code></pre>
+
+<p><code>do</code> は省略してもよい。</p>
 
 <p><code>elem</code> の部分には複数の値が入る場合に複数の変数が使える。例：</p>
 

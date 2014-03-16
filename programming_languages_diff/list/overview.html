@@ -371,7 +371,7 @@ print "@arr2"; # =&gt; 10 11 1 2 3 4
 -&gt; <a href="get.html#perl">インデックスで要素を参照するには</a></p>
 
 <h3 id="3b028f0">配列へのレファレンス
-<span class="article-date">2013/02/22</span></h3>
+<span class="article-date">2014/03/15</span></h3>
 
 <p><code>[]</code> を使うと、配列へのレファレンスを直接書くことができる。</p>
 
@@ -416,6 +416,8 @@ print Dumper($arr3);
 #     ];
 </code></pre>
 
+<p>ちなみにリストのレファレンスを取ろうとして、<code>[$a, $b, $c]</code> の代わりに <code>\($a, $b, $c)</code> と書いてしまうと、これは実は <code>(\$a, \$b, \$c)</code> と同じ意味になってしまう。</p>
+
 <h2 id="javascript">JavaScript
 <span class="article-date">2013/10/25</span></h2>
 
@@ -430,7 +432,7 @@ var arr = {'0': 1, '1': 2, '2': 3}; arr.__proto__ = Array.prototype;
 </code></pre>
 
 <p>最後に余計なカンマがあっても本当は問題ないのだが、
-IEだとだめなので、最後のカンマは付けないほうがよい。最近のIEのバージョンだとどうなのかは知らない。</p>
+IEだとエラーになってしまってだめなので、最後のカンマは付けないほうがよい。最近のIEのバージョンだとどうなのかは知らない。</p>
 
 <p>JavaScript の配列と連想配列の違い<br />
 <a href="http://d.hatena.ne.jp/amachang/20070202/1170386546" target="_blank">http://d.hatena.ne.jp/amachang/20070202/1170386546</a></p>
