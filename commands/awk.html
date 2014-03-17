@@ -194,6 +194,18 @@ cat hoge.txt | perl -nle '(!defined($min) || $min&gt;$_) and $min=$_; END{print 
 <pre><code>cat hoge.txt | awk '{print length();}' | awk 'NR==1 {max=$1} {if($1 &gt; max) max = $1} END {print max}'
 </code></pre>
 
+<h2 id="47f77bd">テキストファイルの偶数番目の行のみまたは奇数番目の行のみを抽出するには
+<span class="article-date">2014/03/17</span></h2>
+
+<pre><code># 偶数行のみをパイプで抽出
+awk 'NR % 2 == 0 { print $0;}'
+
+# 奇数行のみをパイプで抽出
+awk 'NR % 2 == 1 { print $0;}'
+</code></pre>
+
+<p><code>NR</code> は行番号が自動で入っている変数で、1から始まる番号になっている。</p>
+
 </div>
 
 <footer>

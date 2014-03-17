@@ -355,7 +355,7 @@ cat ファイル名 | sed -e \$d
 <p><code>--unbuffered</code> を付けないとsedがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
 
 <h2 id="ecac355">空行を削除するには
-<span class="article-date">2013/09/11</span></h2>
+<span class="article-date">2014/03/17</span></h2>
 
 <p><code>^$</code> という正規表現と、<code>d</code>での削除コマンドを使う。</p>
 
@@ -366,6 +366,13 @@ cat ファイル名 | sed -e \$d
 
 <pre><code>cat ファイル名 | sed '/^[[:blank:]]*$/d'
 </code></pre>
+
+<p>または</p>
+
+<pre><code>cat ファイル名 | sed '/^\s*$/d'
+</code></pre>
+
+<p>(違いは調べていない、、、)</p>
 
 </div>
 
