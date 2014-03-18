@@ -38,7 +38,7 @@
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには</a></li>
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
@@ -71,7 +71,16 @@ fclose($fh);
 <p><code>fopen</code> の2つ目の引数は mode を指定する。</p>
 
 <h2 id="3263c16">Python
-<span class="article-date">2013/10/12</span></h2>
+<span class="article-date">2014/03/17</span></h2>
+
+<p>例</p>
+
+<pre><code>fh = open('./foo.txt', 'w')
+fh.write(data)
+fh.close()
+</code></pre>
+
+<p>または</p>
 
 <pre><code>with open('./foo.txt', 'w') as fh:
     fh.write(data)
@@ -157,11 +166,18 @@ b
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2013/10/16</span></h2>
+<span class="article-date">2014/03/17</span></h2>
 
 <pre><code>open(FH, '&gt;', './foo.txt');
 print FH $data;
 close(FH);
+</code></pre>
+
+<p>または</p>
+
+<pre><code>open(my $fh, '&gt;', './foo.txt');
+print $fh $data;
+close($fh);
 </code></pre>
 
 <h2 id="412de15">ほとんどの言語で共通の説明</h2>

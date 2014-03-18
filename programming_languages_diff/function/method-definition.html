@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>メソッド定義 | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>関数定義・メソッド定義 | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>メソッド定義</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>関数定義・メソッド定義</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -27,7 +27,7 @@
       <li><a href="../../programming_languages_diff/function/">関数・メソッド</a>
         <ul>
           <li><a href="../../programming_languages_diff/function/literal.html">関数リテラル</a></li>
-          <li>メソッド定義</li>
+          <li>関数定義・メソッド定義</li>
           <li><a href="../../programming_languages_diff/function/call.html">関数呼び出しまたはメソッド呼び出し</a></li>
           <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード(シグニチャの異なる複数の同名メソッド)</a></li>
           <li><a href="../../programming_languages_diff/function/override.html">メソッドのオーバーライド</a></li>
@@ -48,12 +48,15 @@
 </div>
 
 <div id="content">
-  <h1 id="method-definition">メソッド定義</h1>
+  <h1 id="method-definition">関数定義・メソッド定義</h1>
 
 <h2 id="a392e2a">Java
-<span class="article-date">2014/01/31</span></h2>
+<span class="article-date">2014/03/17</span></h2>
 
-<p>クラス定義の中にメソッドを書く。</p>
+<p>Javaではクラスに属するメソッドはあるが、クラスの外にあるトップレベルの関数は存在しない。
+Java8からは<a href="literal.html#java">ラムダ式</a>)があるが、それも実態はメソッドである。</p>
+
+<p>メソッドの定義は、クラス定義の中に書く。</p>
 
 <pre><code>public String f(String arg1, int arg2){
   ...;
@@ -61,7 +64,7 @@
 }
 </code></pre>
 
-<p>返り値がない場合</p>
+<p>返り値がない場合の例</p>
 
 <pre><code>public void f(String arg1, int arg2){
   ...;
@@ -130,7 +133,11 @@
 <a href="http://www.smarty.net/docs/ja/language.function.function.tpl" target="_blank">http://www.smarty.net/docs/ja/language.function.function.tpl</a></p>
 
 <h2 id="d7546dc">Python
-<span class="article-date">2013/11/21</span></h2>
+<span class="article-date">2014/03/17</span></h2>
+
+<p>Pythonの関数はオブジェクトであり、関数定義できる<code>def</code>文では、関数オブジェクトを生成してそれを変数に代入する。関数名は他と同じ普通1の変数である。関数定義は普通の変数への代入と同じなので、関数定義の中に関数定義を置くこともできる。</p>
+
+<p><code>def</code>文の例</p>
 
 <pre><code>def f(arg1, arg2):
     ...
@@ -140,6 +147,8 @@
 <p>関数定義では引数のカッコを省略不可。</p>
 
 <p>関数呼び出しでは引数のカッコを省略不可。</p>
+
+<p>返り値を指定するには<code>return</code>文が必須。</p>
 
 <h2 id="a98e3ca">Ruby
 <span class="article-date">2014/02/01</span></h2>
