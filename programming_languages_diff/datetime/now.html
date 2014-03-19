@@ -65,15 +65,15 @@ DateTime.now
 </code></pre>
 
 <h2 id="ac13505">Perl
-<span class="article-date">2014/03/14</span></h2>
+<span class="article-date">2014/03/19</span></h2>
 
 <p>例</p>
 
 <pre><code>my ($sec, $min, $hour, $mday, $mon, $year) = localtime(time);
 $year += 1900;
 $mon += 1;
-
-print "$year/$mon/$mday $hour:$min:$sec\n";
+my $nowstr = sprintf("%04d/%02d/%02d-%02d:%02d:%02d", $year, $mon, $mday, $hour, $min, $sec);
+print "$nowstr\n";
 </code></pre>
 
 <p><code>localtime</code> で得られる年は20世紀を前提としているのか1900年からの数字なので、1900を足す必要がある。また、月は0〜11の数字になっているので、自然な表記にするには1を足す必要がある。</p>

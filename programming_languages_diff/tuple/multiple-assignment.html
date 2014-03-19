@@ -86,16 +86,43 @@ val a, b, c = (10, 20, 30);
 <p><code>list</code>は関数ではなく構文で、こういうときのために使う。</p>
 
 <h2 id="241a6d4">Python
-<span class="article-date">2013/10/28</span></h2>
+<span class="article-date">2014/03/18</span></h2>
 
-<p>リストやタプルを右辺に置けば、要素ごとに左辺の変数に代入できる。
-<code>()</code> や <code>[]</code> は省略できるみたい。</p>
+<p>リストやタプルを右辺に置けば、要素ごとに左辺の変数に代入できる。</p>
+
+<p>式の優先順位をコントロールするための <code>()</code> と混同する可能性がなければ、タプルは <code>()</code> を省略し <code>,</code> だけでも表せる。</p>
 
 <pre><code>a, b = [3, 'abc']
 a, b = (3, 'abc')
 a, b = 3, 'abc'
 # a =&gt; 3
 # b =&gt; 'abc'
+</code></pre>
+
+<p>右辺はリストやタプルにかぎらず、同じくシーケンスと呼ばれるカテゴリに属する文字列を置くこともできる。</p>
+
+<p>Python2の場合</p>
+
+<pre><code>a, b, c = u'あいう'
+# a =&gt; 'あ'
+# b =&gt; 'い'
+# c =&gt; 'う'
+</code></pre>
+
+<p>Python3の場合</p>
+
+<pre><code>a, b, c = 'あいう'
+# a =&gt; 'あ'
+# b =&gt; 'い'
+# c =&gt; 'う'
+</code></pre>
+
+<p>複数の変数を <code>=</code> で区切って並べればすべての変数に同じ値を代入することができる。</p>
+
+<pre><code>a = b = c = (1, 2, 3)
+# a =&gt; (1, 2, 3)
+# b =&gt; (1, 2, 3)
+# c =&gt; (1, 2, 3)
 </code></pre>
 
 <h2 id="ruby">Ruby
