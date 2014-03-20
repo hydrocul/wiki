@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
+          <li>[](../../programming_languages_diff/string/heredoc.html)</li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li>文字列に変数・式を埋め込むには</li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
@@ -65,7 +65,7 @@
   <h1 id="inline">文字列に変数・式を埋め込むには</h1>
 
 <h2 id="90f147c">PHP
-<span class="article-date">2014/03/11</span></h2>
+<span class="article-date">2014/03/19</span></h2>
 
 <p><code>"</code> で囲む文字列リテラルや<a href="heredoc.html#php">ヒアドキュメント</a>では中に変数を埋め込むことができる。</p>
 
@@ -89,10 +89,21 @@ echo "$map[a]\n"; # =&gt; 100
 // echo "$map['a']\n";
 </code></pre>
 
+<p>変数名のあとになお英数字やアンダースコアなどが続く場合は変数名を <code>{}</code> で囲んで変数名の部分を明示する。</p>
+
+<pre><code>"${str}_foo"
+# または
+"{$str}_foo"
+</code></pre>
+
+<p><code>{}</code>ので囲めば変数名だけでなく、複雑な式も入れることができるが、
+<code>{}</code>の中の最初の文字が <code>$</code> である必要がある。</p>
+
 <h2 id="ruby">Ruby
 <span class="article-date">2013/10/31</span></h2>
 
-<p><code>"</code> で囲んだ文字列は、 <code>#{...}</code> を使って式を評価した結果を文字列に埋め込むことができる。
+<p><code>"</code> で囲んだ文字列や<a href="heredoc.html#ruby">ヒアドキュメント</a>は、
+<code>#{...}</code> を使って式を評価した結果を文字列に埋め込むことができる。
 <code>#{...}</code> の中は単純な変数には限らず、関数呼び出しなど任意の式を書ける。</p>
 
 <p>例</p>

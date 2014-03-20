@@ -586,6 +586,21 @@ git show &lt;commit sha1&gt;:&lt;path&gt;
 git show 859ffa2:lib/abc.php
 </code></pre>
 
+<h2 id="3ab3a75">特定の日時でコミットするには
+<span class="article-date">2014/03/20</span></h2>
+
+<p>環境変数 <code>GIT_AUTHOR_DATE</code> を設定するとその日時を author date にしてコミットできる。</p>
+
+<p>例</p>
+
+<pre><code>GIT_AUTHOR_DATE=2013-11-26T15:18:04 git commit
+</code></pre>
+
+<p><code>GIT_COMMITTER_DATE</code> を設定しうると committer date を指定できる。</p>
+
+<p>Git のコミットのタイムスタンプには author date と committer date の 2 種類があるという話<br />
+<a href="http://vividcode.hatenablog.com/entry/git/author-date-and-committer-date" target="_blank">http://vividcode.hatenablog.com/entry/git/author-date-and-committer-date</a></p>
+
 </div>
 
 <footer>

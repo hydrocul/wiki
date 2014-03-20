@@ -107,14 +107,11 @@ bar""";
 <p>ヒアドキュメント | PHPマニュアル<br />
 <a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc" target="_blank">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc</a></p>
 
-<p>シングルクオートのヒアドキュメント | PHPマニュアル<br />
+<p>Nowdoc | PHPマニュアル<br />
 <a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc" target="_blank">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc</a></p>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2013/09/02</span></h2>
-
-<p>Ruby 1.9.3 リファレンスマニュアル &gt; ヒアドキュメント<br />
-<a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
+<span class="article-date">2014/03/19</span></h2>
 
 <p>例</p>
 
@@ -123,6 +120,67 @@ foo
 bar
 EOS
 </code></pre>
+
+<p>クォーテーションで囲まないヒアドキュメントやダブルクオーテーションで囲んだヒアドキュメントは中の <code>#{...}</code> の部分が<a href="inline.html#ruby">インライン展開</a>される。シングルクオーテーションで囲んだヒアドキュメントはインライン展開されない。</p>
+
+<pre><code>greeting = "Hello"
+
+p &lt;&lt;EOS
+#{greeting}, World!
+EOS
+# =&gt; "Hello, World!\n"
+
+p &lt;&lt;"EOS"
+#{greeting}, World!
+EOS
+# =&gt; "Hello, World!\n"
+
+p &lt;&lt;'EOS'
+#{greeting}, World!
+EOS
+# =&gt; "\#{greeting}, World!\n"
+</code></pre>
+
+<p>バッククオート(```)で囲むと、コマンドとして実行され、その結果を文字列として取得できる。コマンド実行前に <code>#{...}</code> のインライン展開もされる。</p>
+
+<pre><code>command = 'date'
+p &lt;&lt;`EOS`
+#{command}
+EOS
+# =&gt; "Thu Mar 20 00:05:48 JST 2014\n"
+</code></pre>
+
+<p>複数のヒアドキュメントを1行で使うこともできる。</p>
+
+<pre><code>arr = [&lt;&lt;EOS, &lt;&lt;EOS]
+aaa
+EOS
+bbb
+EOS
+
+p arr
+# =&gt; ["aaa\n", "bbb\n"]
+</code></pre>
+
+<p>ヒアドキュメントは普通の文字列なので、その場でメソッドを呼び出すこともできる。</p>
+
+<pre><code>p &lt;&lt;EOS.length # =&gt; 8
+foo
+bar
+EOS
+</code></pre>
+
+<p><code>&lt;&lt;</code>のあとに<code>-</code>をつければ、終端の識別子の前にインデントを置くことができる。ただし、ヒアドキュメントの中身のインデントは文字列として含まれてしまう。</p>
+
+<pre><code>p &lt;&lt;-EOS
+  foo
+  bar
+  EOS
+# =&gt; "  foo\n  bar\n"
+</code></pre>
+
+<p>Ruby 1.9.3 リファレンスマニュアル &gt; ヒアドキュメント<br />
+<a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
 
 <h2 id="49a0135">Python
 <span class="article-date">2013/07/23</span></h2>
