@@ -65,9 +65,9 @@
   <h1 id="overview">概要</h1>
 
 <h2 id="a84cc88">C言語, C++
-<span class="article-date">2014/01/13</span></h2>
+<span class="article-date">2014/03/21</span></h2>
 
-<p>C言語における文字列は、1バイトの整数である<code>char</code>型の配列であるか、配列の先頭へのポインタである。型は <code>char[]</code>, <code>char*</code>。</p>
+<p>C言語における文字列は、<code>char</code>型の配列であるか、配列の先頭へのポインタである。</p>
 
 <p>配列自身には長さの情報がないため、文字列にも長さの情報がなく、終端文字として <code>\x00</code> を置く習慣になっている。</p>
 
@@ -94,6 +94,31 @@
 
 <p><code>java.lang.String</code> は不変(immutable)であるが、可変(mutable)文字列としては、<code>java.lang.StringBuilder</code>,
 <code>java.lang.StringBuffer</code> がある。</p>
+
+<h2 id="37528cf">PHP
+<span class="article-date">2014/03/21</span></h2>
+
+<p>PHPでは文字列は長さの情報と単なるバイト配列であり、可変である。</p>
+
+<p>長さの情報を持っているため、本来は終端文字を考えなくてよく、文字列の途中に <code>\x00</code> を含めることもできる。ただし、文字列の途中に <code>\x00</code> を含めた文字列は、バイナリセーフでない関数に渡すとおかしなことになるかもしれないので、やめたほうがよい。</p>
+
+<p>文字列リテラルは、<code>'</code> または <code>"</code> で囲む。または<a href="heredoc.html#php">ヒアドキュメント</a>を使う。</p>
+
+<p>文字列リテラルは、ソースコードで使われている文字符号化方式(文字コード)でバイナリに変換されて処理される。</p>
+
+<p><code>"</code> で囲んだ場合とヒアドキュメントでは <code>$</code> で始まる部分が変数名として値に展開される。</p>
+
+<p>単なるバイト配列であり可変オブジェクトであるので、
+C言語のようにインデックスで指定して文字を変更してしまうことが可能。</p>
+
+<pre><code>$str = "abc\n";
+echo $str;
+// =&gt; abc
+
+$str[1] = 'B';
+echo $str;
+// =&gt; aBc
+</code></pre>
 
 <h2 id="ccd88c1">Python
 <span class="article-date">2014/03/12</span></h2>
