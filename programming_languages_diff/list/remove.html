@@ -36,9 +36,10 @@
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
-          <li><a href="../../programming_languages_diff/list/find.html">リストから特定の条件にマッチする最初の要素を取得するには (find)</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素または特定の条件にマッチする要素が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
+          <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
@@ -46,7 +47,6 @@
           <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べたリストを作成するには (fill)</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
@@ -86,6 +86,32 @@
 <pre><code>// java.util.List[E]
 E remove(int index);
 </code></pre>
+
+<h2 id="6106e9b">PHP
+<span class="article-date">2014/03/21</span></h2>
+
+<p>PHPの配列は連想配列と区別されないので、連想配列と同じく<code>unset</code>で要素を削除することはできるが、削除した要素のより後ろの要素のインデックスが前に詰められることはない。前に詰めるためには <code>array_values</code> を使う。</p>
+
+<p>例</p>
+
+<pre><code>$arr = array(10, 20, 30);
+unset($arr[1]);
+var_export($arr);
+# =&gt; array (
+#      0 =&gt; 10,
+#      2 =&gt; 30,
+#    )
+
+$arr = array_values($arr);
+var_export($arr);
+# =&gt; array (
+#      0 =&gt; 10,
+#      1 =&gt; 30,
+#    )
+</code></pre>
+
+<p><code>array_values</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.array-values.php" target="_blank">http://www.php.net/manual/ja/function.array-values.php</a></p>
 
 <h2 id="49fabee">Python
 <span class="article-date">2013/10/06</span></h2>
