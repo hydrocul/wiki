@@ -200,12 +200,21 @@ endif;
 </code></pre>
 
 <h2 id="a62547b">Python
-<span class="article-date">2013/06/30</span></h2>
+<span class="article-date">2014/03/25</span></h2>
 
 <pre><code>if ...:
     ...
 elif ...:
     ...
+else:
+    ...
+</code></pre>
+
+<p>書くべきステートメントが1つもない場合になにも書かないと文法エラーになってしまうが、
+<code>pass</code> というステートメントを書くと、なにもしないということを明示できてエラーにもならない。</p>
+
+<pre><code>if ...:
+    pass
 else:
     ...
 </code></pre>

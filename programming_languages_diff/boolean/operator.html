@@ -41,8 +41,37 @@
 <div id="content">
   <h1 id="operator">論理演算子</h1>
 
+<h2 id="4bd22b8">Java
+<span class="article-date">2014/03/25</span></h2>
+
+<pre><code>// 論理積(短絡評価あり)
+x &amp;&amp; y
+
+// 論理積(短絡評価なし)
+x &amp; y
+
+// 論理和(短絡評価あり)
+x || y
+
+// 論理和(短絡評価なし)
+x | y
+
+// 論理XOR(短絡評価なし)
+x ^ y
+
+// 否定
+!x
+</code></pre>
+
+<p>論理演算子の結果の値はPythonやRubyなどと違って常に <code>true</code> または <code>false</code> のいずれかになる。</p>
+
+<p><code>&amp;&amp;</code>, <code>||</code> は左の項から順番に評価し、演算子の結果として true か false のいずれかに決定した段階で評価をやめて <code>true</code> または <code>false</code> を返す
+(短絡評価、ショートサーキット評価)。</p>
+
+<p><code>&amp;</code>, <code>|</code>, <code>^</code> は短絡評価をせずすべての項が評価される。各項が論理値であれば論理積・論理和になるが、整数であればビット演算子になる。なお、ビット演算子の否定は <code>~x</code> と書く。</p>
+
 <h2 id="c9a1b42">Python
-<span class="article-date">2013/10/11</span></h2>
+<span class="article-date">2014/03/25</span></h2>
 
 <pre><code># 論理積
 x and y
@@ -54,6 +83,9 @@ x or y
 not x
 </code></pre>
 
+<p><code>and</code>, <code>or</code> は左の項から順番に評価し、演算子の結果として true か false のいずれかに決定した段階で評価をやめてその項の値を返す(短絡評価、ショートサーキット評価)。つまり、<code>and</code> は左から評価して、false の扱いになった項があればその時点で評価をやめて、その項の値を返し、すべて true の扱いであれば最後の項の値を返す。
+<code>or</code> は左から評価して、true の扱いになった項があればその時点で評価をやめて、その項の値を返し、すべて false の扱いであれば最後の項の値を返す。最後に評価した項の値をそのまま返すため、式の値としては <code>true</code> か <code>false</code> に限らない。</p>
+
 <p><code>not</code> は優先順位が低いので <code>not x == y</code> は <code>not (x == y)</code> の意味になる。</p>
 
 <h2 id="e5a8307">Ruby
@@ -63,7 +95,7 @@ not x
 
 <p><code>!</code>, <code>not</code> は否定で <code>true</code> か <code>false</code> を返す。</p>
 
-<p><code>&amp;&amp;</code>, <code>||</code>, <code>and</code>, <code>or</code> は左の項から順番に評価して論理値として true か false のいずれかに決定した段階で評価をやめてその項の値を返す。その項の値をそのまま返すため、式全体が返す値は <code>true</code> か <code>false</code> に限らない。
+<p><code>&amp;&amp;</code>, <code>||</code>, <code>and</code>, <code>or</code> は左の項から順番に評価し、演算子の結果として true か false のいずれかに決定した段階で評価をやめてその項の値を返す(ショートサーキット評価)。その項の値をそのまま返すため、式全体が返す値は <code>true</code> か <code>false</code> に限らない。
 falseの扱いになるのは、<code>false</code>, <code>nil</code> のみである。
 (-&gt; <a href="to-boolean.html#ruby">論理値への変換</a>)</p>
 
