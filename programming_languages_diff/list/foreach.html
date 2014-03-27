@@ -86,7 +86,7 @@
 <h2 id="93f5f96">Java
 <span class="article-date">2014/03/15</span></h2>
 
-<p>配列を<a href="../control_flow/for.html#java"><code>for</code>文</a>でループ。</p>
+<p>配列を<a href="../control_flow/for.html#java"><code>for</code>文</a>でループする例</p>
 
 <pre><code>for(int i = 0; i &lt; strArr.length; i++){
   String str = arr[i];
@@ -94,7 +94,7 @@
 }
 </code></pre>
 
-<p><code>java.lang.Iterator</code> を使った例は以下のとおり。</p>
+<p><code>java.lang.Iterator</code> を使った例</p>
 
 <pre><code>for(Iterator&lt;String&gt; it = strList.iterator(); it.hasNext();){
   String str = it.next();
@@ -187,12 +187,27 @@ var_export($arr);
 {/foreach}
 </code></pre>
 
-<h2 id="4bdf58a">Python
-<span class="article-date">2014/02/03</span></h2>
-
-<p>例</p>
+<h2 id="python">Python
+<span class="article-date">2014/03/26</span></h2>
 
 <pre><code>for elem in lst:
+    ...
+    ...
+</code></pre>
+
+<p><code>lst</code> にはリスト、タプル、文字列といったシーケンスを使うことができる。文字列に使うと、その中の1文字ずつでループ処理する。</p>
+
+<p>変数のスコープは関数なので、<code>elem</code>に最後に代入された要素は
+<code>for</code>ステートメントから脱出後もそのまま保持される。</p>
+
+<p><a href="../control_flow/while.html#python"><code>while</code>ステートメント</a>と同じく、
+<code>else</code>節を付けることができる。<code>else</code>節は条件を満たさなくなってループを脱出する際に実行される。ただし、<a href="break.html#python"><code>break</code></a>で脱出した場合は実行されない。</p>
+
+<pre><code>for elem in lst:
+    ...
+    ...
+else:
+    ...
     ...
 </code></pre>
 
