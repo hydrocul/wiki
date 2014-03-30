@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>べき乗演算子 | 数値型 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>数値を文字列に変換するには | 数値型 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>べき乗演算子</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>数値を文字列に変換するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -32,8 +32,8 @@
           <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
           <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
-          <li>べき乗演算子</li>
-          <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
+          <li>数値を文字列に変換するには</li>
         </ul>
       </li>
     </ul>
@@ -44,61 +44,59 @@
 </div>
 
 <div id="content">
-  <h1 id="pow">べき乗演算子</h1>
+  <h1 id="to-string">数値を文字列に変換するには</h1>
 
-<h2 id="983c097">Java / Scala
-<span class="article-date">2014/02/15</span></h2>
-
-<p><code>Math.pow</code>を利用する。</p>
-
-<pre><code>Math.pow(5, 3); // =&gt; 125.0
-</code></pre>
-
-<h2 id="86eddfa">PHP
-<span class="article-date">2014/02/15</span></h2>
-
-<p><code>pow</code>関数を利用する。</p>
-
-<pre><code>var_export(pow(5, 3));
-// =&gt; 125
-</code></pre>
-
-<p><code>pow</code>関数 | PHP Manual<br />
-<a href="http://jp1.php.net/manual/ja/function.pow.php" target="_blank">http://jp1.php.net/manual/ja/function.pow.php</a></p>
-
-<h2 id="2a3e71d">Python
-<span class="article-date">2014/02/19</span></h2>
-
-<p><code>**</code> 演算子を利用する。または<code>math</code>モジュールにある<code>pow</code>関数でも同じ。</p>
-
-<pre><code>import math
-
-print pow(1.2, 3.4)
-# =&gt; 1.85872969198
-print 1.2 ** 3.4
-# =&gt; 1.85872969198
-</code></pre>
-
-<h2 id="a47c4fc">Ruby
-<span class="article-date">2014/02/14</span></h2>
-
-<p><code>**</code> 演算子を利用する。</p>
-
-<h2 id="3e3e26c">Perl
-<span class="article-date">2014/02/14</span></h2>
-
-<p><code>**</code> 演算子を利用する。</p>
-
-<h2 id="739053f">R言語
+<h2 id="623929e">PHP
 <span class="article-date">2014/03/29</span></h2>
 
-<p><code>**</code> と <code>^</code> のどちらでもよい。</p>
+<pre><code>// 整数または浮動小数点数を文字列に変換
+(string)$num
+</code></pre>
 
-<h2 id="4bbda68">JavaScript
-<span class="article-date">2014/02/22</span></h2>
+<h2 id="dbfd653">Python
+<span class="article-date">2013/11/21</span></h2>
 
-<pre><code>var x = Math.pow(5, 3);
-console.log(x); // =&gt; 125
+<p><code>str</code>関数を使う。</p>
+
+<pre><code>str(num)
+</code></pre>
+
+<p>str 関数 | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/library/functions.html?highlight=str#str" target="_blank">http://docs.python.jp/2/library/functions.html?highlight=str#str</a></p>
+
+<h2 id="1896e17">Ruby
+<span class="article-date">2014/02/15</span></h2>
+
+<p><code>to_s</code>メソッドを使う。</p>
+
+<pre><code>num.to_s
+</code></pre>
+
+<p>16進数にしたい場合は <code>to_s</code> の引数に16を渡す。</p>
+
+<p>例</p>
+
+<pre><code>p 24.to_s
+# =&gt; "24"
+p 27.to_s(16)
+# =&gt; "1b"
+</code></pre>
+
+<p>10進数、または2進数、8進数、16進数であれば、<a href="../string/format.html#ruby">書式化文字列</a>で
+<code>%</code>演算子を使ってもできる。</p>
+
+<p>例</p>
+
+<pre><code>p "%d" % 25
+# =&gt; "24"
+p "%x" % 27
+# =&gt; "1b"
+</code></pre>
+
+<h2 id="81377b5">JavaScript
+<span class="article-date">2013/10/26</span></h2>
+
+<pre><code>String(num);
 </code></pre>
 
 </div>

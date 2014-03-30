@@ -46,7 +46,7 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を数値に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
@@ -76,10 +76,15 @@ int i = Integer.parseInt(str);
 int i = Integer.parseInt(str, 16);
 </code></pre>
 
-<h2 id="8cb710e">PHP
-<span class="article-date">2013/06/12</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2014/03/29</span></h2>
 
-<pre><code>(int)$str
+<pre><code>// 整数への変換
+(int)$str
+
+// 浮動小数点数への変換 (以下の2つはまったく同じ効果)
+(float)$str
+(double)$str
 </code></pre>
 
 <p>例</p>
@@ -93,6 +98,8 @@ int i = Integer.parseInt(str, 16);
 (int)"0x10"   // =&gt; 0
 (int)"10 abc" // =&gt; 10
 </code></pre>
+
+<p>演算子や関数などで、数字を前提とする場所に文字列を与えた場合は、上記のように明示的に数値に変換しなくても自動で変換されるので、使う機会は少ない。</p>
 
 <h2 id="c23e12b">Python
 <span class="article-date">2014/01/23</span></h2>

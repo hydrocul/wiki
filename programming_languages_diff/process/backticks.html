@@ -44,14 +44,21 @@
 <div id="content">
   <h1 id="backticks">外部コマンドを実行してその出力を文字列として取得するには</h1>
 
-<h2 id="472fe95">Ruby
-<span class="article-date">2013/11/29</span></h2>
+<h2 id="ruby">Ruby
+<span class="article-date">2014/03/30</span></h2>
 
 <pre><code>pwd = `pwd`
 print pwd
 </code></pre>
 
-<h3 id="43786aa"><code>popen</code> を使う方法
+<ul>
+  <li>標準入力は渡せない</li>
+  <li>標準出力は文字列で取得</li>
+  <li>標準エラー出力は取得できない</li>
+  <li><a href="exit_status.html#ruby">終了ステータスは <code>$?.exitstatus</code> で取得</a>できる</li>
+</ul>
+
+<h3 id="5e63c73"><code>popen</code> を使う方法
 <span class="article-date">2014/02/23</span></h3>
 
 <p>例</p>

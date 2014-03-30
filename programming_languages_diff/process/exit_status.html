@@ -44,10 +44,17 @@
 <div id="content">
   <h1 id="exit_status">子プロセスの終了ステータスを取得するには</h1>
 
-<h2 id="db86ff9">Ruby
-<span class="article-date">2013/11/29</span></h2>
+<h2 id="ruby">Ruby
+<span class="article-date">2014/03/30</span></h2>
 
 <p><code>$?</code> で最後に終了した子プロセスの終了ステータスを得られる。</p>
+
+<p><code>$?</code> は<code>Process::Status</code>クラスのオブジェクトであるので、終了ステータスを整数で取得するには
+<code>$?.exitstatus</code> とする。</p>
+
+<p>Rubyでは<code>if</code>文などの条件の中では
+<a href="../boolean/to-boolean.html#ruby">0でも0以外でもすべての整数がtrueの扱い</a>になるので、
+<code>if $?.exitstatus==0</code> などとちゃんと比較式を入れることが必要なので、注意。</p>
 
 <p><code>$?</code> | Ruby 1.9.3 リファレンスマニュアル
 <a href="http://docs.ruby-lang.org/ja/1.9.3/method/Kernel/v/=3f.html" target="_blank">http://docs.ruby-lang.org/ja/1.9.3/method/Kernel/v/=3f.html</a></p>
