@@ -94,7 +94,7 @@
 <p>Java7から例外を再スローするときの型推論が改善されている。</p>
 
 <h2 id="df8f7b8">Scala
-<span class="article-date">2013/08/22</span></h2>
+<span class="article-date">2014/04/02</span></h2>
 
 <pre><code>try {
   ...;
@@ -106,6 +106,9 @@
   ...;
 }
 </code></pre>
+
+<p><code>try</code>式は式なので、値を返す。<code>try</code>節の中から例外がスローされなかった場合は、
+<code>finally</code>節の中を実行した後に<code>try</code>節の中の最後の式の値が<code>try</code>式全体の返り値になる。</p>
 
 <h2 id="8a39adb">PHP
 <span class="article-date">2013/08/22</span></h2>

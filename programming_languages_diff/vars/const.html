@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>定数 | 変数/定数・束縛 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>定数 | 変数/定数 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/vars/">変数/定数・束縛</a> &gt; <span>定数</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/vars/">変数/定数</a> &gt; <span>定数</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,7 +24,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/vars/">変数/定数・束縛</a>
+      <li><a href="../../programming_languages_diff/vars/">変数/定数</a>
         <ul>
           <li><a href="../../programming_languages_diff/vars/name.html">変数名</a></li>
           <li>定数</li>
@@ -45,10 +45,16 @@
 <div id="content">
   <h1 id="const">定数</h1>
 
-<h2 id="php">PHP
-<span class="article-date">2013/12/19</span></h2>
+<h2 id="php">PHP</h2>
 
-<p>定数名は先頭に <code>$</code> が付かない点を除いて普通の変数名と同じルールだが、慣例では定数はすべて大文字で書く。</p>
+<h3 id="61f408f">定数
+<span class="article-date">2014/04/02</span></h3>
+
+<p>定数は普通の変数とは違い代入文ではなく、定数定義専用の関数を使って定義する。グローバルのスコープを持つ。</p>
+
+<p>定数名は先頭に <code>$</code> が付かない点を除いて普通の変数名と同じルールだが、慣例では定数はすべて大文字にする。</p>
+
+<p><code>$</code> が先頭につかないので普通のグローバル変数と名前空間は衝突しない。</p>
 
 <pre><code>// グローバル空間に定数を定義
 // 配列を設定することはできない
@@ -56,8 +62,21 @@ define("FOO", 10);
 
 // グローバル空間の定数を参照
 FOO;
+</code></pre>
 
-// クラスの中のメンバーとして定数を定義
+<p>定数の定義で定数を文字列で指定するのがちょっと気持ち悪い。</p>
+
+<p>定数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/language.constants.php" target="_blank">http://www.php.net/manual/ja/language.constants.php</a></p>
+
+<h3 id="0d59acf">オブジェクト定数
+<span class="article-date">2014/04/02</span></h3>
+
+<p>クラスの中にメンバーとして定数を定義することもでき、これは上述の定数とは違い、<code>const</code>を付けた代入文で定義する。</p>
+
+<p>この定数名も先頭に <code>$</code> を付けず、慣例ではすべて大文字にする。</p>
+
+<pre><code>// クラスの中のメンバーとして定数を定義
 // 右辺には関数呼び出しや演算子の含むもの、配列を置くことはできない
 // 文字列の連結すらだめ
 const BAR = 20;
@@ -65,6 +84,9 @@ const BAR = 20;
 // クラスの中の定数を参照
 HogeClass::BAR;
 </code></pre>
+
+<p>オブジェクト定数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/language.oop5.constants.php" target="_blank">http://www.php.net/manual/ja/language.oop5.constants.php</a></p>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/01/26</span></h2>

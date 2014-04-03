@@ -43,7 +43,7 @@
       <li><a href="../programming_languages_diff/enum/">列挙型 (enum)</a></li>
       <li><a href="../programming_languages_diff/tuple/">タプル</a></li>
       <li><a href="../programming_languages_diff/datetime/">日付と時刻</a></li>
-      <li><a href="../programming_languages_diff/vars/">変数/定数・束縛</a></li>
+      <li><a href="../programming_languages_diff/vars/">変数/定数</a></li>
       <li><a href="../programming_languages_diff/io/">入出力・ファイル操作</a></li>
       <li><a href="../programming_languages_diff/json/">JSON</a></li>
       <li><a href="../programming_languages_diff/regexp/">正規表現</a></li>
@@ -68,6 +68,14 @@
 <span class="article-date">2013/12/15</span></h2>
 
 <p><code>null</code> というのがある。任意の参照型になりえる。<code>int</code>などのプリミティブ型に<code>null</code>を使うことはできない。</p>
+
+<h2 id="3f00d5f">Scala
+<span class="article-date">2014/04/02</span></h2>
+
+<p>Javaとの互換性のためにJavaと同じ<code>null</code>があるが、Scalaでは<code>null</code>はJavaのライブラリを使用するときに現れるのみで、通常の利用は推奨されない。
+<code>null</code>を使いたくなる場面ではScalaでは<code>Option</code>型の<code>Some</code>, <code>None</code>を使う。</p>
+
+<p><code>Nil</code> というものもあるが、これは要素が1つもない空の<code>List</code>型のオブジェクトである。</p>
 
 <h2 id="php">PHP
 <span class="article-date">2014/03/23</span></h2>
