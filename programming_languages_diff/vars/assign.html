@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>変数/定数 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>変数への代入 | 変数/定数 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>変数/定数</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/vars/">変数/定数</a> &gt; <span>変数への代入</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,11 +24,11 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>変数/定数
+      <li><a href="../../programming_languages_diff/vars/">変数/定数</a>
         <ul>
           <li><a href="../../programming_languages_diff/vars/name.html">変数名</a></li>
           <li><a href="../../programming_languages_diff/vars/const.html">定数</a></li>
-          <li><a href="../../programming_languages_diff/vars/assign.html">変数への代入</a></li>
+          <li>変数への代入</li>
           <li><a href="../../programming_languages_diff/vars/scope.html">変数の宣言とスコープ</a></li>
           <li><a href="../../programming_languages_diff/vars/argv.html">コマンドライン引数を取得するには</a></li>
           <li><a href="../../programming_languages_diff/vars/env.html">環境変数を取得するには</a></li>
@@ -44,20 +44,47 @@
 </div>
 
 <div id="content">
-  <h1 id="vars">変数/定数</h1>
+  <h1 id="assign">変数への代入</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="9d463bd">Java
+<span class="article-date">2014/04/02</span></h2>
 
-<ul>
-  <li><a href="../../programming_languages_diff/vars/name.html">変数名</a></li>
-  <li><a href="../../programming_languages_diff/vars/const.html">定数</a></li>
-  <li><a href="../../programming_languages_diff/vars/assign.html">変数への代入</a></li>
-  <li><a href="../../programming_languages_diff/vars/scope.html">変数の宣言とスコープ</a></li>
-  <li><a href="../../programming_languages_diff/vars/argv.html">コマンドライン引数を取得するには</a></li>
-  <li><a href="../../programming_languages_diff/vars/env.html">環境変数を取得するには</a></li>
-  <li><a href="../../programming_languages_diff/vars/file_line.html">ソースファイル名と行番号をソースコード中で取得するには</a></li>
-  <li><a href="../../programming_languages_diff/vars/swapvars.html">2つの変数の内容を入れ替えるには</a></li>
-</ul>
+<pre><code>// 変数の宣言と代入
+String x = "Hello";
+
+// 変数への再代入
+x = "Hello";
+</code></pre>
+
+<p><code>final</code>変数を除き、同じ変数へ何度も代入することは可能。</p>
+
+<h2 id="d6163d7">Scala
+<span class="article-date">2014/04/03</span></h2>
+
+<pre><code>// 変数の宣言と代入
+val x: String = "Hello";
+
+// var変数の宣言と代入
+var x: String = "Hello";
+
+// var変数への再代入
+x = "Hello";
+</code></pre>
+
+<p><code>val</code> で宣言した変数は再代入が不可。<code>var</code> は再代入が可能だが、
+Scalaでは <code>val</code> で再代入できないようにすることが推奨されている。</p>
+
+<p>宣言時の型は多くの場合省略できる。</p>
+
+<h2 id="36c3ad1">PHP
+<span class="article-date">2014/04/02</span></h2>
+
+<pre><code>$x = "Hello";
+</code></pre>
+
+<p>変数の宣言というのはなく、変数への代入があるとローカル変数が作られる。</p>
+
+<p>同じ変数へ何度も代入することは可能。</p>
 
 </div>
 
