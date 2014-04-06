@@ -28,6 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/vars/name.html">変数名</a></li>
           <li><a href="../../programming_languages_diff/vars/const.html">定数</a></li>
+          <li><a href="../../programming_languages_diff/vars/assign.html">変数への代入</a></li>
           <li>変数の宣言とスコープ</li>
           <li><a href="../../programming_languages_diff/vars/argv.html">コマンドライン引数を取得するには</a></li>
           <li><a href="../../programming_languages_diff/vars/env.html">環境変数を取得するには</a></li>
@@ -89,11 +90,11 @@
 <p>関数スコープの変数には静的変数(<code>static</code>)というものがある。
 C言語の静的変数と同じで、変数の初期化は一度のみで、その後変数の値を変更すると、次の関数呼び出しでも変更後の値が生きる。初期化は最初にその関数が呼び出されたときに実行される。</p>
 
-<h2 id="d6f9d3c">Python
+<h2 id="python">Python
 <span class="article-date">2014/03/18</span></h2>
 
 <p>変数の宣言というのはなく、変数への代入があるとローカル変数が作られる。ローカル変数のスコープは関数定義やクラス定義の中になる。
-<code>if</code>文などの制御構文でスコープが作られることはない。関数の外側のトップレベルであればグローバルスコープになる。グローバル変数はそのファイルをモジュールと見ればモジュールオブジェクトの属性になる。</p>
+<code>if</code>文や<code>for</code>文などの制御構文でスコープが作られることはない。関数の外側のトップレベルであればグローバルスコープになる。グローバル変数はそのファイルをモジュールと見ればモジュールオブジェクトの属性になる。</p>
 
 <p>内側のスコープから外側のスコープの変数を参照することはできるが、外側の変数への代入はできない。代入しようとするとローカル変数が作成されてしまう。</p>
 

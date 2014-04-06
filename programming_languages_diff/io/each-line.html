@@ -38,7 +38,7 @@
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには</a></li>
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
@@ -111,12 +111,24 @@ if($fh){
 <p><code>fgets</code> は <code>'\r'</code>(<code>0x0D</code>) を改行としてみなさない。</p>
 
 <h2 id="c8518c1">Python
-<span class="article-date">2014/01/23</span></h2>
+<span class="article-date">2014/04/05</span></h2>
 
-<pre><code>for line in open('./hoge.txt', 'r'):
+<pre><code>for line in open('./hoge.txt'):
     # line には最後の改行を含む
     line = line[:-1] # 最後の文字(改行かもしれない改行じゃないかもしれない)を取る
 </code></pre>
+
+<p>Python2では以下のように <code>xreadlines</code> メソッドを書いても同じ。</p>
+
+<pre><code>for line in open('./hoge.txt', 'r').xreadlines():
+</code></pre>
+
+<p>以下のように <code>readlines</code> メソッドを書いてもループはできるが、この場合はループ開始時にいったんファイルの中身をすべて読み込んでしまうので、大きなファイルを扱うときにメモリを大量に消費する。</p>
+
+<pre><code>for line in open('./hoge.txt', 'r').readlines():
+</code></pre>
+
+<p>メソッドを書かない最初の例では<code>open</code>メソッドが返すファイルオブジェクトがイテレータ型であることを利用している。</p>
 
 <h2 id="440e06a">Ruby
 <span class="article-date">2013/08/22</span></h2>

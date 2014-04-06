@@ -188,16 +188,26 @@ var_export($arr);
 </code></pre>
 
 <h2 id="python">Python
-<span class="article-date">2014/03/26</span></h2>
+<span class="article-date">2014/04/05</span></h2>
 
 <pre><code>for elem in lst:
     ...
     ...
 </code></pre>
 
-<p><code>lst</code> にはリスト、タプル、文字列といったシーケンスを使うことができる。文字列に使うと、その中の1文字ずつでループ処理する。</p>
+<p><code>lst</code> にはリスト、タプル、文字列といったシーケンスを使うことができる。文字列に使うと、その中の1文字ずつでループ処理する。シーケンス以外でもイテレータ型を使うことができる。</p>
 
-<p>変数のスコープは関数なので、<code>elem</code>に最後に代入された要素は
+<p><code>lst</code> の要素がさらにリストやタプルなどになっていれば、<code>elem</code> には複数の変数を書くことができ、要素ごとに<a href="../tuple/multiple-assignment.html#python">アンパック代入</a>されてループが実行される。</p>
+
+<pre><code>lst = [[3, "abc"], [4, "def"]]
+for a, b in lst:
+    print(a, b)
+# 出力結果
+# 3 abc
+# 4 def
+</code></pre>
+
+<p><a href="../vars/scope.html#python">変数のスコープは関数</a>なので、<code>elem</code>に最後に代入された要素は
 <code>for</code>ステートメントから脱出後もそのまま保持される。</p>
 
 <p><a href="../control_flow/while.html#python"><code>while</code>ステートメント</a>と同じく、
