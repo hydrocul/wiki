@@ -68,7 +68,9 @@
 <p>逆に文字列を特定の文字で分割するには<a href="split.html">split</a>を使う。</p>
 
 <h2 id="ed7c1e8">Scala
-<span class="article-date">2013/09/28</span></h2>
+<span class="article-date">2014/04/07</span></h2>
+
+<p><code>List</code> などのコレクション型のメソッドでできる。</p>
 
 <p>Signature:</p>
 
@@ -81,12 +83,15 @@ def mkString(start: String, separator: String, end: String): String
 <p>リストの要素が文字列でなくても要素の <code>toString</code> メソッドが呼び出されてから連結される。</p>
 
 <h2 id="40ce8ea">PHP
-<span class="article-date">2013/04/10</span></h2>
+<span class="article-date">2014/04/07</span></h2>
 
 <pre><code>implode($separator, $arr)
 </code></pre>
 
-<p><a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
+<p><code>implode</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.implode.php" target="_blank">http://www.php.net/manual/ja/function.implode.php</a></p>
+
+<p>実は<code>implode</code>の2つの引数はどちらが先に来てもよい。PHPの有名な「歴史的な理由」。</p>
 
 <h2 id="f70c8ac">Python
 <span class="article-date">2014/03/14</span></h2>
