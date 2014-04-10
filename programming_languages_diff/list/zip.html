@@ -90,6 +90,31 @@ def zip(that: Iterable[B]): Iterable[(A, B)]
 def zip(that: Iterable[B]): Seq[(A, B)]
 </code></pre>
 
+<h2 id="9ab4f44">Python
+<span class="article-date">2014/04/10</span></h2>
+
+<p><code>zip</code>関数を使う。</p>
+
+<p>例</p>
+
+<pre><code>lst1 = [1, 2, 3]
+lst2 = ["abc", "def", "ghi"]
+
+zlst = zip(lst1, lst2)
+
+print(zlst)
+# Python2の場合
+# [(1, 'abc'), (2, 'def'), (3, 'ghi')]
+# Python3の場合
+# &lt;zip object at 0x7fb3dfbc43b0&gt;
+
+for e in zlst:
+    print(e)
+# (1, 'abc')
+# (2, 'def')
+# (3, 'ghi')
+</code></pre>
+
 <h2 id="d4e7060">Ruby
 <span class="article-date">2013/05/06</span></h2>
 
