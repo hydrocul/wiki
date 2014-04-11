@@ -103,7 +103,7 @@
 </code></pre>
 
 <h2 id="python">Python
-<span class="article-date">2013/10/22</span></h2>
+<span class="article-date">2014/04/10</span></h2>
 
 <p>以下はPythonのシーケンスといわれるリスト、タプル、文字列で共通操作で、スライス表記という。範囲を指定して部分リストを取得できる。</p>
 
@@ -117,10 +117,18 @@
 <pre><code>lst[from:]  # from から最後まで
 lst[:until] # 先頭から until - 1 まで
 lst[:]      # 先頭から最後まで
+lst[:-1]    # 先頭から、最後から数えて2番目まで
 </code></pre>
 
 <p><code>lst[:]</code> の書き方はリストをコピーする目的で使える。
 -&gt; <a href="clone.html#python">リストをコピーするには</a></p>
+
+<p>スライス表記には3つ目の引数を与えることもでき、いくつおきに要素を抽出するかを表す。省略した場合は<code>1</code>とみなされる。</p>
+
+<pre><code>lst[::2]    # 1番目、3番目、、、と2つおき
+lst[1::2]   # 2番め、4番目、、、と2つおき
+lst[::-1]   # 逆順
+</code></pre>
 
 <p>スライス表記 (slicing) | Python 言語リファレンス<br />
 <a href="http://docs.python.jp/2.7/reference/expressions.html#slicing" target="_blank">http://docs.python.jp/2.7/reference/expressions.html#slicing</a></p>
