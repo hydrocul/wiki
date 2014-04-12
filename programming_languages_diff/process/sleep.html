@@ -101,7 +101,7 @@ time.sleep(3)
 <p>PerlのようにSIGALRMを渡しても起きずに、Rubyスクリプト自体が終了してしまうみたい。</p>
 
 <h2 id="7c1ed39">Perl
-<span class="article-date">2013/08/14</span></h2>
+<span class="article-date">2014/04/12</span></h2>
 
 <p>3秒間停止する例</p>
 
@@ -109,6 +109,14 @@ time.sleep(3)
 </code></pre>
 
 <p>引数を省略すると永久にスリープし、SIGALRMを受け取ると再開するようになる。</p>
+
+<p>1未満の浮動小数点数を指定しても自分の環境ではスリープしてくれなかったが、以下のコードだとスリープしてくれる。</p>
+
+<pre><code># 100ミリ秒スリープ
+select undef, undef, undef, 0.1;
+</code></pre>
+
+<p>このコードの意味はあまり理解していないが使っている。</p>
 
 <h2 id="51e03a3">sh
 <span class="article-date">2013/09/26</span></h2>
