@@ -98,9 +98,17 @@ def flatten[B]: Seq[B]
 <p>これをする標準の関数はなさそう。</p>
 
 <h2 id="af28a59">Python
-<span class="article-date">2013/10/25</span></h2>
+<span class="article-date">2014/04/12</span></h2>
 
 <p>これをする標準の関数はなさそう。</p>
+
+<p>リストの内包表記で<code>for</code>を入れ子にすればできる。</p>
+
+<pre><code>lst = [[1, 2, 3], [4, 5, 6]]
+lst2 = [e2 for e1 in lst for e2 in e1]
+print(lst2)
+# =&gt; [1, 2, 3, 4, 5, 6]
+</code></pre>
 
 <h2 id="44a59c8">Ruby
 <span class="article-date">2013/10/05</span></h2>

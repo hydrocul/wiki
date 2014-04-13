@@ -111,11 +111,12 @@ if($fh){
 <p><code>fgets</code> は <code>'\r'</code>(<code>0x0D</code>) を改行としてみなさない。</p>
 
 <h2 id="c8518c1">Python
-<span class="article-date">2014/04/10</span></h2>
+<span class="article-date">2014/04/12</span></h2>
 
 <pre><code>for line in open('./hoge.txt'):
     # line には最後の改行を含む
     line = line[:-1] # 最後の文字(改行かもしれない改行じゃないかもしれない)を取る
+    # line = line.rstrip() とすれば末尾の改行を含めた空白を削除する
 </code></pre>
 
 <p>Python2では以下のように <code>xreadlines</code> メソッドを書いても同じ。</p>

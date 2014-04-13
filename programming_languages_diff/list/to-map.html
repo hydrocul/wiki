@@ -95,6 +95,19 @@ def toMap[T, U]: Map[T, U]
 list.toMap; // =&gt; Map("a" -&gt; 1, "b" -&gt; 2)
 </code></pre>
 
+<h2 id="503d346">Python
+<span class="article-date">2014/04/12</span></h2>
+
+<p><code>dict</code>関数に長さ2のタプルのリストを与える。</p>
+
+<pre><code>lst = [('a', 1), ('b', 2), ('c', 3)]
+dic = dict(lst)
+
+print(dic)
+# =&gt; {'a': 1, 'c': 3, 'b': 2}
+# ディクショナリにはエントリの順序が保存されないので、lstと同じとは限らない
+</code></pre>
+
 <h2 id="e7515f0">Ruby
 <span class="article-date">2013/05/06</span></h2>
 

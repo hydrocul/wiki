@@ -33,6 +33,7 @@
           <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
           <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -78,6 +79,17 @@ int compareTo(Double another)
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
 
 <p>Javaと違い、プリミティブ型というのがなくすべてオブジェクトであるが、数値のオブジェクトはだいたい上記の演算子が使えるようになってる。正確には、演算子ではなく <code>&lt;</code> などの名前のメソッドが定義されている。</p>
+
+<h2 id="61b0875">PHP
+<span class="article-date">2014/04/12</span></h2>
+
+<p><code>==</code>, <code>!=</code> で等値性を判定でき、 
+<code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
+
+<p><code>!=</code> の代わりに <code>&lt;&gt;</code> と書いても同じ。</p>
+
+<p><code>===</code> は等値でかつ同じ型(文字列と数値ではなく、数値同士など)の場合にのみ<code>true</code>となる。
+<code>!==</code> は等値でないか、または違う型(文字列と数値など)の場合に<code>true</code>となる。</p>
 
 <h2 id="22d8edf">Python
 <span class="article-date">2014/03/25</span></h2>
