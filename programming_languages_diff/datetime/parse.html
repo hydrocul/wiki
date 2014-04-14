@@ -45,7 +45,7 @@
   <h1 id="parse">文字列を日付に変換するには</h1>
 
 <h2 id="bcddc1d">PHP
-<span class="article-date">2013/06/16</span></h2>
+<span class="article-date">2014/04/14</span></h2>
 
 <pre><code>var_export(strptime('2013/06/16', '%Y/%m/%d'));
 // =&gt; array (
@@ -60,6 +60,8 @@
 //   'unparsed' =&gt; '',
 // )
 </code></pre>
+
+<p>パースできない場合は <code>strptime</code> は <code>FALSE</code> を返す。</p>
 
 <p>strptime | PHPマニュアル
 <a href="http://www.php.net/manual/ja/function.strptime.php" target="_blank">http://www.php.net/manual/ja/function.strptime.php</a></p>

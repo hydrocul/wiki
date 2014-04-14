@@ -44,6 +44,17 @@
 <div id="content">
   <h1 id="backticks">外部コマンドを実行してその出力を文字列として取得するには</h1>
 
+<h2 id="de35eb7">PHP
+<span class="article-date">2014/04/14</span></h2>
+
+<p>バッククオートの演算子が使える。</p>
+
+<pre><code>$format = '+%Y%m%d-%H%M%S';
+echo `date $format`;
+</code></pre>
+
+<p>バッククオート演算子をダブルクオートで囲んだ文字列の中で使うことはできない。</p>
+
 <h2 id="ruby">Ruby
 <span class="article-date">2014/03/30</span></h2>
 

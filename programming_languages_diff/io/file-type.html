@@ -38,7 +38,7 @@
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには</a></li>
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li>ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</li>
           <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
@@ -60,13 +60,28 @@
 <div id="content">
   <h1 id="file-type">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</h1>
 
+<h2 id="dfecff4">PHP
+<span class="article-date">2014/04/14</span></h2>
+
+<p>例</p>
+
+<pre><code>// 通常のファイルかどうかを判定
+if (fileperms("/home/foo/testfile") &amp; 0x8000) {
+    ...;
+}
+</code></pre>
+
+<p><code>fileperms</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.fileperms.php" target="_blank">http://www.php.net/manual/ja/function.fileperms.php</a></p>
+
 <h2 id="88ccf80">Python
 <span class="article-date">2013/10/13</span></h2>
 
-<h3 id="e9140f6">ファイルかどうかの判定</h3>
+<p>例</p>
 
 <pre><code>import os
 
+# 通常のファイルかどうかを判定
 if os.path.isfile("/home/foo/testfile"):
     ...
 </code></pre>
@@ -75,6 +90,8 @@ if os.path.isfile("/home/foo/testfile"):
 
 <h2 id="ruby">Ruby
 <span class="article-date">2013/12/14</span></h2>
+
+<p>例</p>
 
 <pre><code># ファイルの種類を取得
 File.ftype('/home/foo/testfile')
@@ -94,7 +111,7 @@ File.ftype('/home/foo/testfile')
 <h2 id="perl">Perl
 <span class="article-date">2013/12/16</span></h2>
 
-<pre><code># ファイルかどうかの判定
+<pre><code># 通常のファイルかどうかを判定
 # シンボリックリンクの場合はリンク先がファイルかどうかを判定
 if( -f '/home/foo/testfile' ){
     ...;
@@ -118,19 +135,19 @@ Perlでは小文字の <code>-l</code>。</p>
 <h2 id="sh">sh
 <span class="article-date">2013/12/16</span></h2>
 
-<pre><code># ファイルかどうかの判定
+<pre><code># 通常のファイルかどうかを判定
 # シンボリックリンクの場合はリンク先がファイルかどうかを判定
 if [ -f /home/foo/testfile ]; then
     ...
 fi
 
-# ディレクトリかどうかの判定
+# ディレクトリかどうかを判定
 # シンボリックリンクの場合はリンク先がディレクトリかどうかを判定
 if [ -d /home/foo/testfile ]; then
     ...
 fi
 
-# シンボリックリンクかどうかの判定
+# シンボリックリンクかどうかを判定
 if [ -L /home/foo/testfile ]; then
     ...
 fi

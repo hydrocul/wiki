@@ -42,13 +42,15 @@
   <h1 id="match">パターンマッチングするには</h1>
 
 <h2 id="dd36b97">PHP
-<span class="article-date">2013/09/09</span></h2>
+<span class="article-date">2014/04/14</span></h2>
 
 <p><code>preg_match</code> という関数を使い、マッチしたら <code>1</code>, マッチしなかったら <code>0</code> が返される。</p>
 
 <pre><code>var_export(preg_match("/a./", "abc\nabc")); // =&gt; 1
 var_export(preg_match("/x./", "abc\nabc")); // =&gt; 0
 </code></pre>
+
+<p>文字列全体のマッチングではなく、部分マッチングである。</p>
 
 <p>preg_match | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.preg-match.php" target="_blank">http://www.php.net/manual/ja/function.preg-match.php</a></p>

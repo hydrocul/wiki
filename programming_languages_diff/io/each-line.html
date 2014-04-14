@@ -98,7 +98,7 @@ Source.fromInputStream(System.in).getLines.foreach { line =&gt;
 <span class="article-date">2013/10/08</span></h2>
 
 <pre><code>$fh = fopen('./hoge.txt', 'r');
-if($fh){
+if ($fh) {
   while (!feof($fh)) {
     $line = fgets($fh);
     // $line には最後の改行を含む
