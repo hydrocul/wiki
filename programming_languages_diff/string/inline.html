@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li>[](../../programming_languages_diff/string/heredoc.html)</li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li>文字列に変数・式を埋め込むには</li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
@@ -65,7 +65,7 @@
   <h1 id="inline">文字列に変数・式を埋め込むには</h1>
 
 <h2 id="90f147c">PHP
-<span class="article-date">2014/03/19</span></h2>
+<span class="article-date">2014/04/15</span></h2>
 
 <p><code>"</code> で囲む文字列リテラルや<a href="heredoc.html#php">ヒアドキュメント</a>では中に変数を埋め込むことができる。</p>
 
@@ -89,7 +89,7 @@ echo "$map[a]\n"; # =&gt; 100
 // echo "$map['a']\n";
 </code></pre>
 
-<p>変数名のあとになお英数字やアンダースコアなどが続く場合は変数名を <code>{}</code> で囲んで変数名の部分を明示する。</p>
+<p>変数名のあとになお英数字やアンダースコアなどが続く場合は変数名を <code>{}</code> で囲んで変数名の部分を明示する。後ろに日本語が続く場合でも <code>{}</code> が必要みたい。</p>
 
 <pre><code>"${str}_foo"
 # または

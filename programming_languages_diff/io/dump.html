@@ -61,13 +61,15 @@
   <h1 id="dump">デバッグのためにオブジェクトの中身を表示させるには</h1>
 
 <h2 id="5097f98">PHP
-<span class="article-date">2013/08/27</span></h2>
+<span class="article-date">2014/04/15</span></h2>
 
-<p><code>var_dump</code><br />
+<p><code>var_dump</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.var-dump.php" target="_blank">http://www.php.net/manual/ja/function.var-dump.php</a></p>
 
-<p><code>var_export</code><br />
+<p><code>var_export</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.var-export.php" target="_blank">http://www.php.net/manual/ja/function.var-export.php</a></p>
+
+<p><code>var_export</code> は循環参照を扱うことができない。循環参照があると、<code>PHP Warning:  var_export does not handle circular references</code> と表示されて、処理が終わらなくなる。</p>
 
 <h2 id="502c7ff">Smarty
 <span class="article-date">2014/02/25</span></h2>
