@@ -64,6 +64,19 @@
 <div id="content">
   <h1 id="replace">文字列を全置換するには</h1>
 
+<h2 id="2876702">Smarty
+<span class="article-date">2014/04/16</span></h2>
+
+<p><code>replace</code>修飾子を使う。</p>
+
+<pre><code>{* $str に "abc" が入っているとして *}
+{$str|replace:"a":"A"} {* "Abc" を表示 *}
+{$str2 = $str|replace:"a":"A"} {* $str2 に "Abc" を代入 *}
+</code></pre>
+
+<p>replace | Smarty Manual<br />
+<a href="http://www.smarty.net/docs/ja/language.modifier.replace.tpl" target="_blank">http://www.smarty.net/docs/ja/language.modifier.replace.tpl</a></p>
+
 <h2 id="080e875">Ruby
 <span class="article-date">2014/02/27</span></h2>
 
