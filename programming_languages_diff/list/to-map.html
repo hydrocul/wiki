@@ -108,13 +108,18 @@ print(dic)
 # ディクショナリにはエントリの順序が保存されないので、lstと同じとは限らない
 </code></pre>
 
-<h2 id="e7515f0">Ruby
-<span class="article-date">2013/05/06</span></h2>
+<h2 id="fc95ed8">Ruby [2014/045/17]</h2>
 
-<p>偶数個の要素を持つ配列を<a href="../map/overview.html#ruby">ハッシュ</a>に変換する方法。</p>
+<p>長さが偶数の配列を<a href="../map/overview.html#ruby">ハッシュ</a>に変換する例</p>
 
 <pre><code>arr = ['a', 1, 'b', 2]
-Hash[*arr] # =&gt; {'a' =&gt; 1, 'b' =&gt; 2}
+Hash[*arr] # {'a' =&gt; 1, 'b' =&gt; 2}
+</code></pre>
+
+<p>長さ2の配列を要素とする配列をハッシュに変換する例 (<a href="flatten.html#ruby"><code>flatten</code></a>を使って長さが偶数の配列にする)</p>
+
+<pre><code>arr = [['a', 1], ['b', 2]]
+Hash[*arr.flatten(1)] # {"a"=&gt;1, "b"=&gt;2}
 </code></pre>
 
 <h2 id="31fdfeb">Perl

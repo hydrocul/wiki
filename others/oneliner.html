@@ -136,6 +136,18 @@ echo %E3%81%82 | tr % = | nkf -WmQ
 
 <p>行は <code>$_</code> で参照できる。</p>
 
+<h2 id="3cbee31">Perlのワンライナーでバッファリングを解除するには
+<span class="article-date">2014/04/16</span></h2>
+
+<p>ログファイルなどの <code>tail -f</code> の出力をリアルタイムにperlのワンライナーで処理して表示するには、バッファリングが邪魔してしまうので、バッファリングしないようにすることが必要になる。</p>
+
+<p>ワンライナーのコードの先頭に <code>BEGIN { \$| = 1 }</code> を入れればよい。</p>
+
+<p>例</p>
+
+<pre><code>... | perl -nale 'BEGIN { $| = 1 } $F[12] eq "0" and print $_'
+</code></pre>
+
 <h2 id="698da25">正規分布から無作為に(ランダムに)データ抽出した数列を取得するワンライナー
 <span class="article-date">2013/11/19</span></h2>
 
