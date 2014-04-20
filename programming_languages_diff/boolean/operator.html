@@ -56,7 +56,7 @@ x || y
 // 論理和(短絡評価なし)
 x | y
 
-// 論理XOR(短絡評価なし)
+// 排他的論理和(XOR) (短絡評価なし)
 x ^ y
 
 // 否定
@@ -69,6 +69,31 @@ x ^ y
 (短絡評価、ショートサーキット評価)。</p>
 
 <p><code>&amp;</code>, <code>|</code>, <code>^</code> は短絡評価をせずすべての項が評価される。各項が論理値であれば論理積・論理和になるが、整数であればビット演算子になる。なお、ビット演算子の否定は <code>~x</code> と書く。</p>
+
+<h2 id="401f27a">PHP
+<span class="article-date">2014/04/19</span></h2>
+
+<pre><code>// 論理積
+$x and $y
+$x &amp;&amp; $y
+
+// 論理和
+$x or $y
+$x || $y
+
+// 排他的論理和(XOR)
+$x xor $y
+
+// 否定
+!$x
+</code></pre>
+
+<p><code>and</code>, <code>or</code>, <code>&amp;&amp;</code>, <code>||</code> は短絡評価がある。</p>
+
+<p><code>and</code> と <code>&amp;&amp;</code>、<code>or</code> と <code>||</code> は<a href="../operator/list.html#php">演算子の優先順位</a>)が異なるだけである。</p>
+
+<p>論理演算子 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/language.operators.logical.php" target="_blank">http://www.php.net/manual/ja/language.operators.logical.php</a></p>
 
 <h2 id="c9a1b42">Python
 <span class="article-date">2014/03/25</span></h2>
