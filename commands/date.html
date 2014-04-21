@@ -47,6 +47,7 @@
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
@@ -99,6 +100,20 @@ root権限でこのコマンドで現在日時を設定する。</p>
 <span class="article-date">2013/03/21</span></h2>
 
 <pre><code>date "+%Y%m%d-%H%M%S"
+</code></pre>
+
+<h2 id="0078753">YYYY/MM/DD-hh:mm:ss の書式で日時を出力するには
+<span class="article-date">2014/04/21</span></h2>
+
+<pre><code>date "+%Y/%m/%d-%H:%M:%S"
+</code></pre>
+
+<p>同じフォーマットをperlで表示するには</p>
+
+<pre><code>my ($sec, $min, $hour, $mday, $mon, $year) = localtime(time);
+$year += 1900;
+$mon += 1;
+print sprintf("%04d/%02d/%02d-%02d:%02d:%02d", $year, $mon, $mday, $hour, $min, $sec);
 </code></pre>
 
 <h2 id="2a5d46c">曜日を取得するには

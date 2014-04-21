@@ -188,7 +188,7 @@ fi
 <p>LinuxマシンのコンソールからメモリやCPUのコア数などを調べる方法。仮想環境で動いていれば、その環境に割当てられているハードウェアを確認できる。</p>
 
 <h3 id="b29330b">CPU・コア数
-<span class="article-date">2013/06/14</span></h3>
+<span class="article-date">2014/04/21</span></h3>
 
 <pre><code>cat /proc/cpuinfo
 </code></pre>
@@ -196,6 +196,11 @@ fi
 <p>これはLinuxの場合で、Macはこの方法では見ることができず、以下のようにする。</p>
 
 <pre><code>system_profiler SPHardwareDataType
+</code></pre>
+
+<p>コア数を数値で取得する例</p>
+
+<pre><code>cat /proc/cpuinfo | grep '^processor' | wc -l
 </code></pre>
 
 <h3 id="efebae8">ディスク容量
