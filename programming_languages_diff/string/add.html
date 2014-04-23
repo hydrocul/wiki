@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列の連結をするには (add) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta http-equiv="refresh" content="0;URL=strcat.html" />
+<title>文字列の連結をするには (strcat) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,187 +15,15 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列の連結をするには (add)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列の連結をするには (strcat)</span>
 </div>
 <div id="side-menu">
-  <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
-  </div>
-  <div id="side-menu-ls">
-    <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
-    <ul>
-      <li><a href="../../programming_languages_diff/string/">文字列</a>
-        <ul>
-          <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
-          <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
-          <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
-          <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
-          <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
-          <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
-          <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
-          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
-          <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
-          <li>文字列の連結をするには (add)</li>
-          <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
-          <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
-          <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
-          <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
-          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-  </div>
 </div>
 
 <div id="content">
-  <h1 id="add">文字列の連結をするには (add)
-<span class="article-date">2013/10/28</span></h1>
+  <h1 id="add">文字列の連結をするには (strcat)</h1>
 
-<p><code>+</code> か <code>.</code> という演算子でできる言語が多い。</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Java</td>
-      <td>Scala</td>
-      <td>PHP</td>
-      <td>Python</td>
-      <td>Ruby</td>
-      <td>Perl</td>
-      <td>JavaScript</td>
-    </tr>
-    <tr>
-      <td><code>+</code></td>
-      <td><code>+</code></td>
-      <td><code>.</code></td>
-      <td><code>+</code></td>
-      <td><code>+</code></td>
-      <td><code>.</code></td>
-      <td><code>+</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="73a940b">C言語
-<span class="article-date">2013/08/06</span></h2>
-
-<p><code>strcpy</code> や <code>strcat</code> などを使う。</p>
-
-<p>文字列リテラルを並べて書くと、プリプロセッサによって連結される。</p>
-
-<pre><code>"abc" "def"
-</code></pre>
-
-<h2 id="ead75f7">Java / Scala
-<span class="article-date">2013/08/06</span></h2>
-
-<p>例</p>
-
-<pre><code>"abc" + "def"
-</code></pre>
-
-<p>静的な文字列同士の連結はコンパイル時に連結される。</p>
-
-<h2 id="899761c">PHP
-<span class="article-date">2013/07/27</span></h2>
-
-<p>例</p>
-
-<pre><code>'abc' . 'def'
-</code></pre>
-
-<h2 id="f502791">Smarty
-<span class="article-date">2014/03/24</span></h2>
-
-<p>例</p>
-
-<pre><code>{$str|cat:'foo'}
-</code></pre>
-
-<h2 id="48597d3">Python
-<span class="article-date">2014/03/10</span></h2>
-
-<p>例</p>
-
-<pre><code>'abc' + 'def'
-</code></pre>
-
-<p>文字列と数字の間で暗黙の型変換をすることはないので、そのまま連結することはできない。</p>
-
-<p>例</p>
-
-<pre><code>print(12 + "42")
-# =&gt; エラー
-
-print(str(12) + "42")
-# =&gt; 1242
-
-print(12 + int("42"))
-# =&gt; 54
-</code></pre>
-
-<p>文字列リテラルを並べて書くと連結される。改行を挟んでもよい。</p>
-
-<p>例</p>
-
-<pre><code>"abc"
-"def"
-</code></pre>
-
-<p>この2行の文字列は下のと同じになる。</p>
-
-<pre><code>"abc" 'def'
-</code></pre>
-
-<h2 id="f40c514">Ruby
-<span class="article-date">2014/01/13</span></h2>
-
-<p>例</p>
-
-<pre><code>'abc' + 'def'
-</code></pre>
-
-<p><code>+</code> 演算子は非破壊的だが、<code>concat</code>メソッドは破壊的に文字列を連結する。</p>
-
-<p>例</p>
-
-<pre><code>str = 'abc'
-str.concat('def')
-
-puts str
-# =&gt; abcdef
-</code></pre>
-
-<h2 id="019cf7a">Perl
-<span class="article-date">2013/07/27</span></h2>
-
-<p>例</p>
-
-<pre><code>'abc' . 'def'
-</code></pre>
-
-<h2 id="3e51b1d">JavaScript
-<span class="article-date">2013/08/13</span></h2>
-
-<p>例</p>
-
-<pre><code>"abc" + "def"
-</code></pre>
+<p>-&gt; <a href="strcat.html">strcat</a></p>
 
 </div>
 

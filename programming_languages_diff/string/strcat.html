@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>2つの文字列を比較するには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>文字列の連結をするには (strcat) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>2つの文字列を比較するには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列の連結をするには (strcat)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -35,7 +35,7 @@
           <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
           <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
           <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
-          <li>2つの文字列を比較するには</li>
+          <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
@@ -50,7 +50,7 @@
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
+          <li>文字列の連結をするには (strcat)</li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
         </ul>
       </li>
@@ -62,75 +62,139 @@
 </div>
 
 <div id="content">
-  <h1 id="compare">2つの文字列を比較するには</h1>
+  <h1 id="strcat">文字列の連結をするには (strcat)
+<span class="article-date">2013/10/28</span></h1>
 
-<h2 id="ff5136c">Java
-<span class="article-date">2013/07/31</span></h2>
+<p><code>+</code> か <code>.</code> という演算子でできる言語が多い。</p>
 
-<p><code>obj1.equals(obj2)</code> で値を比較する。</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Java</td>
+      <td>Scala</td>
+      <td>PHP</td>
+      <td>Python</td>
+      <td>Ruby</td>
+      <td>Perl</td>
+      <td>JavaScript</td>
+    </tr>
+    <tr>
+      <td><code>+</code></td>
+      <td><code>+</code></td>
+      <td><code>.</code></td>
+      <td><code>+</code></td>
+      <td><code>+</code></td>
+      <td><code>.</code></td>
+      <td><code>+</code></td>
+    </tr>
+  </tbody>
+</table>
 
-<p><code>==</code> は同じインスタンスかどうかをチェックするもので同じ文字列かどうかはわからない。</p>
+<h2 id="a14642a">C言語
+<span class="article-date">2013/08/06</span></h2>
 
-<h2 id="1af9280">Scala
-<span class="article-date">2013/07/31</span></h2>
+<p><code>strcpy</code> や <code>strcat</code> などを使う。</p>
 
-<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。
-Javaの <code>equals</code> を呼び出している。</p>
+<p>文字列リテラルを並べて書くと、プリプロセッサによって連結される。</p>
 
-<h2 id="61b0875">PHP
-<span class="article-date">2013/08/26</span></h2>
-
-<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
-
-<p>または <code>strcmp</code> も使える。</p>
-
-<pre><code>if (strcmp($str1, $str2) === 0) {
-  // $str1 と $str2 が等しい場合の処理
-}
+<pre><code>"abc" "def"
 </code></pre>
 
-<p>大文字と小文字を区別せずに比較するには <code>strcasecmp</code> を使う。</p>
+<h2 id="09ff966">Java / Scala
+<span class="article-date">2013/08/06</span></h2>
 
-<pre><code>if (strcasecmp($str1, $str2) === 0) {
-  // $str1 と $str2 が等しい場合の処理
-}
+<p>例</p>
+
+<pre><code>"abc" + "def"
 </code></pre>
 
-<p><code>strcmp</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.strcmp.php" target="_blank">http://www.php.net/manual/ja/function.strcmp.php</a></p>
+<p>静的な文字列同士の連結はコンパイル時に連結される。</p>
 
-<p><code>strcasecmp</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.strcasecmp.php" target="_blank">http://www.php.net/manual/ja/function.strcasecmp.php</a></p>
+<h2 id="3dce465">PHP
+<span class="article-date">2013/07/27</span></h2>
 
-<h2 id="22d8edf">Python
-<span class="article-date">2014/01/23</span></h2>
+<p>例</p>
 
-<p><code>==</code> は等値の場合に <code>True</code> を返す。 <code>!=</code> はその反対。</p>
+<pre><code>'abc' . 'def'
+</code></pre>
 
-<h2 id="d704d1c">Ruby
-<span class="article-date">2013/10/16</span></h2>
+<h2 id="b659606">Smarty
+<span class="article-date">2014/03/24</span></h2>
 
-<p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
+<p>例</p>
 
-<p><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&gt;</code>, <code>&lt;=&gt;</code> で文字列の辞書順の比較ができる。
-<code>&lt;=&gt;</code> は<a href="../number/compare.html">数値の比較</a>と同じで、大小関係によって <code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す。</p>
+<pre><code>{$str|cat:'foo'}
+</code></pre>
 
-<h2 id="bf47d7f">Perl
-<span class="article-date">2013/09/10</span></h2>
+<h2 id="a0e23d0">Python
+<span class="article-date">2014/03/10</span></h2>
 
-<p><code>eq</code> は等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>ne</code> はその反対。</p>
+<p>例</p>
 
-<p><code>gt</code>, <code>ge</code>, <code>lt</code>, <code>le</code> もある。</p>
+<pre><code>'abc' + 'def'
+</code></pre>
 
-<p><code>==</code> や <code>&lt;</code> などは数値として比較してしまうので注意。</p>
+<p>文字列と数字の間で暗黙の型変換をすることはないので、そのまま連結することはできない。</p>
 
-<h2 id="f3384ef">sh
-<span class="article-date">2013/09/25</span></h2>
+<p>例</p>
 
-<p><code>test</code> コマンドの <code>=</code>, <code>!=</code> 演算子で文字列の比較ができる。
-<code>test</code> コマンドの <code>-eq</code>, <code>-ne</code> 演算子は数値として比較するで、Perlとは逆。</p>
+<pre><code>print(12 + "42")
+# =&gt; エラー
 
-<p><a href="../../sh.html#operator.html">シェルスクリプトの演算子</a></p>
+print(str(12) + "42")
+# =&gt; 1242
+
+print(12 + int("42"))
+# =&gt; 54
+</code></pre>
+
+<p>文字列リテラルを並べて書くと連結される。改行を挟んでもよい。</p>
+
+<p>例</p>
+
+<pre><code>"abc"
+"def"
+</code></pre>
+
+<p>この2行の文字列は下のと同じになる。</p>
+
+<pre><code>"abc" 'def'
+</code></pre>
+
+<h2 id="ae5553e">Ruby
+<span class="article-date">2014/01/13</span></h2>
+
+<p>例</p>
+
+<pre><code>'abc' + 'def'
+</code></pre>
+
+<p><code>+</code> 演算子は非破壊的だが、<code>concat</code>メソッドは破壊的に文字列を連結する。</p>
+
+<p>例</p>
+
+<pre><code>str = 'abc'
+str.concat('def')
+
+puts str
+# =&gt; abcdef
+</code></pre>
+
+<h2 id="e0a9b4f">Perl
+<span class="article-date">2013/07/27</span></h2>
+
+<p>例</p>
+
+<pre><code>'abc' . 'def'
+</code></pre>
+
+<h2 id="4c4b3ac">JavaScript
+<span class="article-date">2013/08/13</span></h2>
+
+<p>例</p>
+
+<pre><code>"abc" + "def"
+</code></pre>
 
 </div>
 
