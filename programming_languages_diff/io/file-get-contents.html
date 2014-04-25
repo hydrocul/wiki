@@ -61,14 +61,19 @@
   <h1 id="file-get-contents">ファイルの中身を1つの文字列として取得するには</h1>
 
 <h2 id="63d834e">PHP
-<span class="article-date">2013/08/01</span></h2>
+<span class="article-date">2014/04/25</span></h2>
 
 <pre><code>$str = file_get_contents('./hoge.txt');
 </code></pre>
 
 <p>失敗した場合は <a href="../boolean/overview.html#php"><code>FALSE</code></a> を返される。</p>
 
-<p>file_get_contents | PHPマニュアル<br />
+<p>標準入力をまるごと文字列で取得することもできる。</p>
+
+<pre><code>$str = file_get_contents('php://stdin');
+</code></pre>
+
+<p><code>file_get_contents</code> 関数 | PHPマニュアル<br />
 <a href="http://www.php.net/manual/ja/function.file-get-contents.php" target="_blank">http://www.php.net/manual/ja/function.file-get-contents.php</a></p>
 
 <h2 id="1ac5c69">Python
