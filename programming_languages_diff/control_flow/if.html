@@ -58,9 +58,9 @@
 <h2 id="e09a82e">C言語, C++
 <span class="article-date">2013/10/31</span></h2>
 
-<pre><code>if(...){
+<pre><code>if (...) {
   ...;
-} else if(...){
+} else if (...) {
   ...;
 } else {
   ...;
@@ -107,9 +107,9 @@ else
 <h2 id="a7cf68a">Java
 <span class="article-date">2013/10/31</span></h2>
 
-<pre><code>if(...){
+<pre><code>if (...) {
   ...;
-} else if(...){
+} else if (...) {
   ...;
 } else {
   ...;
@@ -129,9 +129,9 @@ else
 <h2 id="scala">Scala
 <span class="article-date">2013/07/07</span></h2>
 
-<pre><code>if(...){
+<pre><code>if (...) {
   ...;
-} else if(...){
+} else if (...) {
   ...;
 } else {
   ...;
@@ -140,7 +140,7 @@ else
 
 <p>本体の文が1つだけの場合はC言語と同様に <code>{}</code> を省略可。</p>
 
-<pre><code>if(...)
+<pre><code>if (...)
   ...;
 else
   ...;
@@ -153,11 +153,11 @@ else
 </code></pre>
 
 <h2 id="327a07e">PHP
-<span class="article-date">2013/06/19</span></h2>
+<span class="article-date">2014/04/26</span></h2>
 
-<pre><code>if(...){
+<pre><code>if (...) {
   ...;
-} else if(...){
+} else if (...) {
   ...;
 } else {
   ...;
@@ -168,17 +168,18 @@ else
 
 <p>本体の文が1つだけの場合はC言語と同様に <code>{}</code> を省略可。</p>
 
-<pre><code>if(...)
+<pre><code>if (...)
   ...;
 else
   ...;
 </code></pre>
 
-<p>コロンを使った以下の記法も可能。</p>
+<p>コロンを使った以下の記法も可能。コロンを使った場合は <code>else if</code> はコンパイルエラーになり、
+<code>elseif</code> とすることが必要。</p>
 
-<pre><code>if(...):
+<pre><code>if (...):
   ...;
-elseif(...):
+elseif (...):
   ...;
 else:
   ...;

@@ -56,10 +56,29 @@
 <p>変数に入っているオブジェクトのクラスを動的に判定する例</p>
 
 <pre><code>Object obj = ...;
-if(obj instanceof Integer){
+if (obj instanceof Integer) {
     ...;
 }
 </code></pre>
+
+<h2 id="ba0fe3a">PHP
+<span class="article-date">2014/04/25</span></h2>
+
+<p>変数に入っている値が配列かどうかを判定する例</p>
+
+<pre><code>if (is_array($obj)) {
+    ...;
+}
+</code></pre>
+
+<p>特定のクラスのインスタンスかどうかを判定する例</p>
+
+<pre><code>if ($obj instanceof MyClass) {
+    ...;
+}
+</code></pre>
+
+<p><code>instanceof</code> はインターフェースに対しても使える。</p>
 
 <h2 id="ab12dba">Ruby
 <span class="article-date">2013/06/18</span></h2>

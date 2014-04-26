@@ -78,6 +78,20 @@
 <div id="content">
   <h1 id="compare">リストの中身を比較するには (compare)</h1>
 
+<h2 id="61b0875">PHP
+<span class="article-date">2014/04/26</span></h2>
+
+<p><code>==</code> 演算子で配列の各要素が等値かどうかを判定できる。要素の型が異なっていても変換すれば一致する場合は <code>true</code> になる。
+<code>===</code> 演算子は配列の各要素を <code>===</code> で比較するのと同様に、型まで一致しているかどうかを判定する。</p>
+
+<pre><code>$arr1 = array(1, 2, 3);
+$arr2 = array("1", "2", "3");
+var_export($arr1 == $arr2); // =&gt; true
+var_export($arr1 === $arr2); // =&gt; false
+</code></pre>
+
+<p><code>!=</code>, <code>&lt;&gt;</code> は <code>==</code> の反対、<code>!==</code> は <code>===</code> の反対の評価になる。</p>
+
 <h2 id="d704d1c">Ruby
 <span class="article-date">2013/08/19</span></h2>
 
