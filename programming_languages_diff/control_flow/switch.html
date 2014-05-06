@@ -125,7 +125,7 @@ default:
 
 <p>C言語ライクの<code>switch</code>文を使える。</p>
 
-<pre><code>switch($x){
+<pre><code>switch ($x) {
 case 1:
   ...;
   break;
@@ -142,6 +142,21 @@ default:
 <code>break</code> の代わりに <code>continue</code> と書いても<code>switch</code>文から脱出できる。</p>
 
 <p><code>case</code>では、型が異なっていても変換して比較される。値はC言語と違って文字列も使える。</p>
+
+<p>コロンを使った以下の記法も可能。</p>
+
+<pre><code>switch ($x):
+case 1:
+  ...;
+  break;
+case 2:
+  ...;
+  break;
+default:
+  ...;
+  break;
+endswitch;
+</code></pre>
 
 <h2 id="b1c5737">Python
 <span class="article-date">2013/12/18</span></h2>
