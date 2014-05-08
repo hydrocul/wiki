@@ -60,6 +60,20 @@
 <div id="content">
   <h1 id="fwrite">ファイルに書き込むには (fwrite)</h1>
 
+<h2 id="b7bcdb8">Java
+<span class="article-date">2014/05/07</span></h2>
+
+<p>例</p>
+
+<pre><code>import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+
+String data = ...;
+Writer writer = new OutputStreamWriter(new FileOutputStream(path));
+writer.write(data);
+writer.close();
+</code></pre>
+
 <h2 id="4a4ad10">PHP
 <span class="article-date">2013/10/12</span></h2>
 
