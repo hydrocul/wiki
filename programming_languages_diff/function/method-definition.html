@@ -97,7 +97,7 @@ Java8からは<a href="literal.html#java">ラムダ式</a>)があるが、それ
 </code></pre>
 
 <h2 id="cb96e84">PHP
-<span class="article-date">2013/10/07</span></h2>
+<span class="article-date">2014/05/09</span></h2>
 
 <pre><code>function f($arg1, $arg2){
   ...;
@@ -106,6 +106,19 @@ Java8からは<a href="literal.html#java">ラムダ式</a>)があるが、それ
 </code></pre>
 
 <p>関数定義・メソッド定義では引数のカッコを省略不可。</p>
+
+<p>関数定義はグローバルにある必要はなく、別の関数の中であったり、
+<code>if</code>文などの制御構造の中にあってもよい。ただ、定義された関数自体は常にグローバルになるので、関数の中で定義された別の関数は、定義後はいつでもグローバルから呼び出すことができる。</p>
+
+<p>制御構造や関数の中で定義された関数は、関数定義の部分が実行されないと、その関数を呼び出すことはできない。呼びだそうとしても 
+<code>Call to undefined function</code> と言われる。</p>
+
+<p>トップレベルで定義した場合は、定義よりも上の部分からであってもその関数を呼び出すことができる。</p>
+
+<p><a href="../vars/name.html#php">関数名は大文字小文字を区別しない</a>が、普通は定義時と呼び出し時とで大文字小文字を一致させる。</p>
+
+<p>ユーザー定義関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/functions.user-defined.php" target="_blank">http://www.php.net/manual/ja/functions.user-defined.php</a></p>
 
 <h2 id="4032810">Smarty
 <span class="article-date">2014/03/10</span></h2>
