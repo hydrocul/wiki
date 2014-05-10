@@ -77,6 +77,28 @@
 }
 </code></pre>
 
+<h2 id="bd9f9d0">PHP
+<span class="article-date">2014/05/10</span></h2>
+
+<p>可変長引数は、関数定義時には仮引数を書かずに、関数本体で <code>func_get_args</code> 関数などを呼び出すことで、引数を取得する。</p>
+
+<p>PHP 5.6からは以下のような表記で可変長引数を取る関数を定義できるようになる。</p>
+
+<pre><code>function f($first, ...$tail) {
+    // $tail には配列で2つ目以降の引数が入る
+    ...;
+}
+</code></pre>
+
+<p>可変長引数リスト | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/functions.arguments.php#functions.variable-arg-list" target="_blank">http://www.php.net/manual/ja/functions.arguments.php#functions.variable-arg-list</a></p>
+
+<p><code>func_get_args</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.func-get-args.php" target="_blank">http://www.php.net/manual/ja/function.func-get-args.php</a></p>
+
+<p>Syntax for variadic functions<br />
+<a href="https://wiki.php.net/rfc/variadics" target="_blank">https://wiki.php.net/rfc/variadics</a></p>
+
 <h2 id="python">Python
 <span class="article-date">2013/10/10</span></h2>
 
