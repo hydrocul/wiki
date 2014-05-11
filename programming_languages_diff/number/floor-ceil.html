@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>数値型 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>小数の切り捨てまたは切り上げをするには (floor, ceil) | 数値型 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>数値型</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>小数の切り捨てまたは切り上げをするには (floor, ceil)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,7 +24,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>数値型
+      <li><a href="../../programming_languages_diff/number/">数値型</a>
         <ul>
           <li><a href="../../programming_languages_diff/number/overview.html">数値のデータ型</a></li>
           <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
@@ -32,7 +32,7 @@
           <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
           <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
-          <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の切り捨てまたは切り上げをするには (floor, ceil)</a></li>
+          <li>小数の切り捨てまたは切り上げをするには (floor, ceil)</li>
           <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
           <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
         </ul>
@@ -45,21 +45,45 @@
 </div>
 
 <div id="content">
-  <h1 id="number">数値型</h1>
+  <h1 id="floor-ceil">小数の切り捨てまたは切り上げをするには (floor, ceil)</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="58c67e2">Python
+<span class="article-date">2014/02/19</span></h2>
 
-<ul>
-  <li><a href="../../programming_languages_diff/number/overview.html">数値のデータ型</a></li>
-  <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
-  <li><a href="../../programming_languages_diff/number/compare.html">数値の比較演算子</a></li>
-  <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
-  <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
-  <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
-  <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の切り捨てまたは切り上げをするには (floor, ceil)</a></li>
-  <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
-  <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
-</ul>
+<pre><code>import math
+
+# 切り捨て
+math.floor(x)
+
+# 切り上げ
+math.ceil(x)
+</code></pre>
+
+<p>切り捨てても切り上げても、値としては整数になるが型はfloatのままである。</p>
+
+<h2 id="31f8264">Perl
+<span class="article-date">2014/05/10</span></h2>
+
+<p>例</p>
+
+<pre><code>use POSIX qw(floor ceil);
+
+my $a = 12.3;
+
+# 切り捨て
+print floor($a) . "\n"; # =&gt; 12
+
+# 切り上げ
+print ceil($a) . "\n";  # =&gt; 13
+
+my $b = -12.3;
+
+# 負の切り捨ては絶対値の大きい方に丸められる
+print floor($b) . "\n"; # =&gt; -13
+
+# 負の切り上げは0に近い方に丸められる
+print ceil($b) . "\n";  # =&gt; -12
+</code></pre>
 
 </div>
 
