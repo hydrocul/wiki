@@ -61,20 +61,34 @@
   <h1 id="file-get-contents">ファイルの中身を1つの文字列として取得するには</h1>
 
 <h2 id="63d834e">PHP
-<span class="article-date">2014/04/25</span></h2>
+<span class="article-date">2014/05/12</span></h2>
 
 <pre><code>$str = file_get_contents('./hoge.txt');
 </code></pre>
 
 <p>失敗した場合は <a href="../boolean/overview.html#php"><code>FALSE</code></a> を返される。</p>
 
+<p>ファイル名ではなくURLを与えると、HTTPアクセスしてレスポンス本体を文字列で取得できる。この関数を呼び出すと、<code>$http_response_header</code> という名前のローカル変数が勝手に作られ、
+HTTPレスポンスヘッダがこの変数に配列で保存される。
+404などのエラーの原因はこの配列の1つ目の要素から文字列で取得できる。ホスト名が違うなど、そもそもサーバにアクセスできなかった場合には、この変数が定義されないので、
+<code>FALSE</code> が返ってきてエラーの原因を調べる場合には以下のようにガードしたほうがよさそう。</p>
+
+<pre><code>$source = @file_get_contents($url);
+if (isset($http_response_header)) {
+    ...;
+}
+</code></pre>
+
 <p>標準入力をまるごと文字列で取得することもできる。</p>
 
 <pre><code>$str = file_get_contents('php://stdin');
 </code></pre>
 
-<p><code>file_get_contents</code> 関数 | PHPマニュアル<br />
+<p><code>file_get_contents</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.file-get-contents.php" target="_blank">http://www.php.net/manual/ja/function.file-get-contents.php</a></p>
+
+<p><code>$http_response_header</code> | PHP Manual<br />
+<a href="http://php.net/manual/ja/reserved.variables.httpresponseheader.php" target="_blank">http://php.net/manual/ja/reserved.variables.httpresponseheader.php</a></p>
 
 <h2 id="1ac5c69">Python
 <span class="article-date">2014/04/05</span></h2>

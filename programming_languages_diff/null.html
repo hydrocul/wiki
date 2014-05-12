@@ -65,25 +65,44 @@
 <p><code>NULL</code> というのがある。<code>0</code>と同じで、ポインタに0を代入するのと <code>NULL</code> を代入するのはたぶん同じ。</p>
 
 <h2 id="56f9c86">Java
-<span class="article-date">2013/12/15</span></h2>
+<span class="article-date">2014/04/12</span></h2>
 
 <p><code>null</code> というのがある。任意の参照型になりえる。<code>int</code>などのプリミティブ型に<code>null</code>を使うことはできない。</p>
+
+<p>一度も代入されていない変数を参照しようとすると、
+<code>variable x might not have been initialized</code> というようなコンパイルエラーになる。</p>
 
 <h2 id="3f00d5f">Scala
 <span class="article-date">2014/04/02</span></h2>
 
 <p>Javaとの互換性のためにJavaと同じ<code>null</code>があるが、Scalaでは<code>null</code>はJavaのライブラリを使用するときに現れるのみで、通常の利用は推奨されない。
-<code>null</code>を使いたくなる場面ではScalaでは<code>Option</code>型の<code>Some</code>, <code>None</code>を使う。</p>
+<code>null</code>を使いたくなる場面ではScalaでは<code>Option</code>型の <code>Some</code>, <code>None</code> を使う。</p>
 
 <p><code>Nil</code> というものもあるが、これは要素が1つもない空の<code>List</code>型のオブジェクトである。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2014/03/23</span></h2>
+<span class="article-date">2014/04/12</span></h2>
 
-<p><code>NULL</code> というのがある。<a href="boolean/overview.html#php"><code>TRUE</code> / <code>FALSE</code></a>と同じく大文字小文字が区別されない。一度も代入されていない変数や、<code>unset</code>関数が呼び出された変数は <code>NULL</code> という値になる。</p>
+<p><code>NULL</code> というのがある。<a href="boolean/overview.html#php"><code>TRUE</code> / <code>FALSE</code></a>と同じく大文字小文字が区別されない。</p>
+
+<p>一度も代入されていない変数や、<code>unset</code>関数が呼び出された変数を参照しようとすると、未定義の変数として <code>PHP Notice: Undefined variable</code> が発生し、<code>NULL</code> という値が返される。</p>
+
+<p>変数が定義済みかどうかをチェックするには <code>isset</code> で調べれば良い。
+<code>isset</code> は引数に与えた変数が定義済みかどうかを <code>TRUE</code> か <code>FALSE</code> で返す。
+<code>isset</code> は通常の関数ではなく、言語構造である。</p>
+
+<pre><code>if (isset($a)) {
+    # 定義済みの場合
+} else {
+    # 未定義の場合
+}
+</code></pre>
 
 <p><code>NULL</code> | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.types.null.php" target="_blank">http://www.php.net/manual/ja/language.types.null.php</a></p>
+
+<p><code>isset</code> | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.isset.php" target="_blank">http://www.php.net/manual/ja/function.isset.php</a></p>
 
 <h2 id="09b4d23">Python
 <span class="article-date">2013/10/14</span></h2>
@@ -101,9 +120,11 @@
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/02/06</span></h2>
+<span class="article-date">2014/05/12</span></h2>
 
-<p><code>undef</code> という値がある。変数を宣言だけして、一度も代入しないと <code>undef</code> になる。</p>
+<p><code>undef</code> という値がある。</p>
+
+<p>変数を宣言だけして一度も代入しないと <code>undef</code> になる。または、宣言もなにもせずにいきなり初めての変数を参照しようとしても <code>undef</code> になる。</p>
 
 <p>定義済みの変数を未定義の状態に戻すには、以下のようにする。</p>
 
