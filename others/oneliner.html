@@ -34,6 +34,7 @@
       <li><a href="../others/mac.html">Mac</a></li>
       <li><a href="../others/mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するPHPのライブラリ</a></li>
       <li><a href="../others/mysql.html">MySQLのメモ</a></li>
+      <li><a href="../others/numpy.html">NumPy</a></li>
       <li>ワンライナー</li>
       <li><a href="../others/passenger.html">Passenger (Ruby on Rails)</a></li>
       <li><a href="../others/phantomjs.html">phantomjs</a></li>
@@ -155,6 +156,12 @@ echo %E3%81%82 | tr % = | nkf -WmQ
 
 <pre><code># 平均50,標準偏差10の正規母集団から100個のデータを取り出す
 echo 'rnorm(n=100,mean=50,sd=10)' | R --vanilla --slave  | sed -e 's/^ \+\[[0-9]\+\] //g' -e 's/ /\n/g'
+</code></pre>
+
+<h2 id="a6fba35">プロセスごとのスレッド数を確認するには
+<span class="article-date">2014/05/14</span></h2>
+
+<pre><code>( echo "pid\tname\tthreads"; find /proc/[0-9]*/status | xargs grep -E '^(Name|Threads)' | perl -nle 'if (/^\/proc\/([0-9]+)\/.+:Name:\s+(.+)$/) { $p=$1; $n=$2 } elsif (/^\/proc\/([0-9]+)\/.+:Threads:\s+(.+)$/ &amp;&amp; $1==$p) { print "$p\t$n\t$2" }' )
 </code></pre>
 
 <h2 id="b96b86e">commandlinefu.com

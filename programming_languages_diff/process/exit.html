@@ -69,8 +69,34 @@ die(0);
 die(1);
 </code></pre>
 
-<p>exit | PHPマニュアル<br />
+<p><code>exit</code> | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.exit.php" target="_blank">http://www.php.net/manual/ja/function.exit.php</a></p>
+
+<h2 id="556e102">Python
+<span class="article-date">2014/05/13</span></h2>
+
+<p>正常終了の場合</p>
+
+<pre><code>import sys
+
+sys.exit(0)
+</code></pre>
+
+<p>異常終了の場合(0以外を終了ステータスにする)</p>
+
+<pre><code>import sys
+
+sys.exit(1)
+</code></pre>
+
+<p><code>sys.exit</code> は例外をスローするので、それを囲んでいる<a href="../exception/try.html#python"><code>try</code>ステートメント</a>の
+<code>finally</code>節があれば実行されるし、<code>except</code>節で補足して、終了を取りやめることもできる。</p>
+
+<p><code>sys.exit([arg])</code> | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/library/sys.html#sys.exit" target="_blank">http://docs.python.jp/2/library/sys.html#sys.exit</a></p>
+
+<p><code>sys.exit([arg])</code> | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/library/sys.html#sys.exit" target="_blank">http://docs.python.jp/3/library/sys.html#sys.exit</a></p>
 
 <h2 id="f0f9c2b">Ruby
 <span class="article-date">2013/08/19</span></h2>

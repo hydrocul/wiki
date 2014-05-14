@@ -60,6 +60,23 @@
 list($num, $str) = f();
 </code></pre>
 
+<h2 id="6821494">Python
+<span class="article-date">2014/05/13</span></h2>
+
+<p><a href="../list/overview.html#python">リストまたはタプル</a>を使えば、関数から複数値を返せる。</p>
+
+<p>例</p>
+
+<pre><code>def f():
+    return (1, "abc")
+    # 以下のようにリストにしても同じ
+    # return [1, "abc"]
+
+a, b = f()
+print(a) # =&gt; 1
+print(b) # =&gt; abc
+</code></pre>
+
 <h2 id="449479d">Ruby
 <span class="article-date">2013/09/06</span></h2>
 
