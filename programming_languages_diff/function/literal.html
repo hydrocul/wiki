@@ -147,17 +147,33 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 <p>式の中のそれぞれの <code>_</code> が引数になるので、上記の場合は2引数の関数となる。この書き方だと各引数は1回しか式の中に登場できず、引数の順番は、式の中の <code>_</code> と同じ順番になる。</p>
 
 <h2 id="3b01008">PHP
-<span class="article-date">2013/09/23</span></h2>
+<span class="article-date">2014/05/15</span></h2>
 
 <p>PHP5.3以降で使える無名関数の例</p>
 
-<pre><code>$f = function ($str1, $str2) {
-    return strcmp($str1, $str2);
+<pre><code>$f = function ($arg) {
+    echo "$arg\n";
 }
+$f("Hello");
 </code></pre>
 
-<p>無名関数 | PHPマニュアル<br />
+<p>無名関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/functions.anonymous.php" target="_blank">http://www.php.net/manual/ja/functions.anonymous.php</a></p>
+
+<p>可変関数という、関数名の文字列が入った変数からその関数を呼び出す仕組みがある。</p>
+
+<p>例</p>
+
+<pre><code>function f($arg) {
+    echo "$arg\n";
+}
+
+$fname = "f";
+$fname("Hello");
+</code></pre>
+
+<p>可変関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/functions.variable-functions.php" target="_blank">http://www.php.net/manual/ja/functions.variable-functions.php</a></p>
 
 <h2 id="269ff61">Perl
 <span class="article-date">2014/03/01</span></h2>

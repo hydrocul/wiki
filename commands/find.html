@@ -47,6 +47,7 @@
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
@@ -89,7 +90,10 @@
 </div>
 
 <div id="content">
-  <h1 id="find">find コマンド</h1>
+  <h1 id="find">find コマンド
+<span class="article-date">2014/05/15</span></h1>
+
+<p>ディレクトリの中を再帰的にたどってファイルを検索してきてくれるコマンド。オプションで検索条件を指定する。</p>
 
 <h2 id="e6a98c3">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには
 <span class="article-date">2013/11/12</span></h2>
@@ -132,9 +136,9 @@
 </code></pre>
 
 <h2 id="f54e7fb"><code>Permission denied</code> を表示しないようにするには
-<span class="article-date">2013/06/11</span></h2>
+<span class="article-date">2014/05/15</span></h2>
 
-<p><code>find</code> で <code>/</code> などを検索すると、 <code>Permission denied</code> というエラーメッセージが大量に出力されてしまう。それを抑制するには以下のようにする。</p>
+<p><code>find</code> で <code>/</code> などを検索すると、 <code>Permission denied</code> というエラーメッセージが大量に出力されてしまう。このメッセージが邪魔なので抑制するには、以下のように単に標準エラー出力を捨てればよい。</p>
 
 <pre><code>find / ... 2&gt;/dev/null
 </code></pre>
