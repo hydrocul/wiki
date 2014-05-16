@@ -154,7 +154,7 @@ endfor;
 <h2 id="2c9e803">Ruby
 <span class="article-date">2013/12/08</span></h2>
 
-<p>0 から n-1 までを繰り返すには</p>
+<p><code>0</code> から <code>n-1</code> までを繰り返すには</p>
 
 <pre><code>n.times do |i|
   ...
@@ -187,18 +187,18 @@ end
 <code>each</code> メソッドの返り値を返す。</p>
 
 <h2 id="227cdf6">Perl
-<span class="article-date">2014/02/08</span></h2>
+<span class="article-date">2014/05/16</span></h2>
 
-<p>C言語ライクのfor文を使える。</p>
+<p>C言語ライクの<code>for</code>文を使える。</p>
 
 <pre><code>for (my $i = 0; $i &lt; 10; $i++) {
     ...;
 }
 </code></pre>
 
-<p><code>$i</code> のスコープはfor文の中のみである。</p>
+<p><code>$i</code> のスコープは<code>for</code>文の中のみである。</p>
 
-<p>以下のような範囲演算子を使った方法もできる。</p>
+<p>以下のような範囲演算子を使った方法もできる。(<code>0</code>から<code>9</code>までの10回処理を繰り返す例)</p>
 
 <pre><code>for my $i (0 .. 9) {
     ...;
@@ -220,6 +220,21 @@ end
 </code></pre>
 
 <p><code>var i</code> と書いているが、スコープはfor文を含む関数内であり、for文に限定できるものではない。</p>
+
+<h2 id="f23112d">sh
+<span class="article-date">2014/05/16</span></h2>
+
+<p>C言語ライクの<code>for</code>文ではないが、特定の回数だけ処理を繰り返すには、
+<code>for</code>文と<code>seq</code>コマンドを利用する。</p>
+
+<p><code>1</code>から<code>10</code>までの10回処理を繰り返す例</p>
+
+<pre><code>for i in `seq 10`; do
+    echo $i
+done
+</code></pre>
+
+<p>-&gt; <a href="../list/range.html#sh"><code>seq</code>コマンド</a></p>
 
 </div>
 
