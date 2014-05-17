@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>関数リテラル | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>無名関数 | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>関数リテラル</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>無名関数</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -26,7 +26,7 @@
     <ul>
       <li><a href="../../programming_languages_diff/function/">関数・メソッド</a>
         <ul>
-          <li>関数リテラル</li>
+          <li>無名関数</li>
           <li><a href="../../programming_languages_diff/function/method-definition.html">関数定義・メソッド定義</a></li>
           <li><a href="../../programming_languages_diff/function/call.html">関数呼び出しまたはメソッド呼び出し</a></li>
           <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード(シグニチャの異なる複数の同名メソッド)</a></li>
@@ -48,7 +48,7 @@
 </div>
 
 <div id="content">
-  <h1 id="literal">関数リテラル
+  <h1 id="literal">無名関数
 <span class="article-date">2013/10/09</span></h1>
 
 <p>ここでは式の中に書ける関数リテラル(無名関数)の説明をする。</p>
@@ -147,7 +147,7 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 <p>式の中のそれぞれの <code>_</code> が引数になるので、上記の場合は2引数の関数となる。この書き方だと各引数は1回しか式の中に登場できず、引数の順番は、式の中の <code>_</code> と同じ順番になる。</p>
 
 <h2 id="3b01008">PHP
-<span class="article-date">2014/05/15</span></h2>
+<span class="article-date">2014/05/16</span></h2>
 
 <p>PHP5.3以降で使える無名関数の例</p>
 
@@ -157,10 +157,13 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 $f("Hello");
 </code></pre>
 
+<p>無名関数を宣言している外側の変数を無名関数の中から参照・代入するには、
+<code>use</code> で宣言する必要がある。代入する場合はさらに <code>&amp;</code> を付ける。</p>
+
 <p>無名関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/functions.anonymous.php" target="_blank">http://www.php.net/manual/ja/functions.anonymous.php</a></p>
 
-<p>可変関数という、関数名の文字列が入った変数からその関数を呼び出す仕組みがある。</p>
+<p>無名関数の他に、可変関数という、関数名の文字列が入った変数からその関数を呼び出す仕組みがある。</p>
 
 <p>例</p>
 

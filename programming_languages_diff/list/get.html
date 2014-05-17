@@ -64,6 +64,7 @@
           <li><a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">リストの中の最大値・最小値を求めるには (max, min)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
+          <li><a href="../../programming_languages_diff/list/multiply.html">同じリストを繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/list/slice-replace.html">リストの一部を別のリストで置き換えるには (splice)</a></li>
           <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数のリストを要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
         </ul>
@@ -76,14 +77,22 @@
 </div>
 
 <div id="content">
-  <h1 id="get">インデックスで要素を参照するには (get)</h1>
+  <h1 id="get">インデックスで要素を参照するには (get)
+<span class="article-date">2014/05/16</span></h1>
+
+<p>多くの言語では先頭が0から始まるインデックスで要素を参照する。</p>
+
+<p>配列の先頭要素が「0番目」であることは気持ち悪いか…「N番目」という言葉を考察してみる<br />
+<a href="http://d.hatena.ne.jp/rubikitch/20080524/1211627661" target="_blank">http://d.hatena.ne.jp/rubikitch/20080524/1211627661</a></p>
 
 <h2 id="1d21255">Java</h2>
 
 <h3 id="fb31da3">配列
-<span class="article-date">2013/10/28</span></h3>
+<span class="article-date">2014/05/16</span></h3>
 
 <p>配列はの要素は <code>[]</code> でアクセスする。</p>
+
+<p>インデックスは0から始まる。</p>
 
 <pre><code>arr[index]
 </code></pre>
@@ -148,9 +157,11 @@ lst[-2]; # 最後から2番目の要素
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/03/15</span></h2>
+<span class="article-date">2014/05/16</span></h2>
 
 <p>配列そのもののシジルは <code>@</code> だが、インデックスで参照するには、要素がスカラのためシジルとして <code>$</code> を使う。</p>
+
+<p>インデックスは0から始まる。</p>
 
 <pre><code>$arr[0];
 </code></pre>
@@ -187,6 +198,11 @@ print $a-&gt;[2]-&gt;[0];
 print $a-&gt;[2][0];
 # =&gt; c
 </code></pre>
+
+<p>インデックスを1から始めることもできるらしい。</p>
+
+<p>perl - 配列を1番目からはじめてみる<br />
+<a href="http://blog.livedoor.jp/dankogai/archives/51055632.html" target="_blank">http://blog.livedoor.jp/dankogai/archives/51055632.html</a></p>
 
 </div>
 

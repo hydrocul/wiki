@@ -34,14 +34,13 @@
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
           <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
           <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
-          <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/add.html">文字列の連結をするには (add)</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
@@ -51,6 +50,7 @@
           <li>文字コードの数字から文字に変換するには</li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
         </ul>
       </li>
@@ -62,12 +62,15 @@
 </div>
 
 <div id="content">
-  <h1 id="chr">文字コードの数字から文字に変換するには</h1>
+  <h1 id="chr">文字コードの数字から文字に変換するには
+<span class="article-date">2014/05/16</span></h1>
+
+<p>Unicodeのコードの数字から、該当する文字を取得する方法。</p>
 
 <h2 id="dcf33ad">Scala
 <span class="article-date">2014/04/18</span></h2>
 
-<p>整数を <code>Char</code> にキャストすれば良い。</p>
+<p>整数を <code>Char</code> にキャストすればよい。</p>
 
 <pre><code>println(65.asInstanceOf[Char]) // =&gt; A
 println(12354.asInstanceOf[Char]) // =&gt; あ
@@ -81,14 +84,55 @@ println(12354.asInstanceOf[Char]) // =&gt; あ
 
 <p>残念ながらUnicodeはサポートされていない。</p>
 
-<p>chr 関数 | PHPマニュアル<br />
+<p>chr 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.chr.php" target="_blank">http://www.php.net/manual/ja/function.chr.php</a></p>
 
-<h2 id="e4b9361">Perl
-<span class="article-date">2013/09/23</span></h2>
+<h2 id="df04c73">Python
+<span class="article-date">2014/05/16</span></h2>
 
-<pre><code>print chr(65);     # =&gt; A
-print chr(0x3042); # =&gt; あ
+<p>Python2での例</p>
+
+<pre><code>print chr(65)         # =&gt; A
+print unichr(0x3042)  # =&gt; あ
+print unichr(0x2A61A) # =&gt; 𪘚
+</code></pre>
+
+<p>Python2では、0xFFを超える文字で <code>chr</code> を使おうとすると、
+<code>ValueError: chr() arg not in range(256)</code> 
+というエラーになってしまう。代わりに <code>unichr</code> を使う必要がある。</p>
+
+<p>Python3での例</p>
+
+<pre><code>print(chr(65))         # =&gt; A
+print(chr(0x3042))     # =&gt; あ
+print(chr(0x2A61A))    # =&gt; 𪘚
+</code></pre>
+
+<p>Python3ではUnicode文字はすべて <code>chr</code> が使える。逆に <code>unichr</code> を使おうとすると、
+<code>NameError: name 'unichr' is not defined</code> 
+というエラーになってしまう。</p>
+
+<h2 id="0c845c2">Ruby
+<span class="article-date">2014/05/16</span></h2>
+
+<p><code>Fixnum</code>クラスの<code>chr</code>メソッドでできるが、0xFFまでしか使えない。代わりに配列の<code>pack</code>メソッドで代用できる。</p>
+
+<pre><code>p 65.chr              # =&gt; "A"
+p [0x3042].pack('U')  # =&gt; "あ"
+p [0x2A61A].pack('U') # =&gt; "𪘚"
+</code></pre>
+
+<p>pack テンプレート文字列 | Ruby レファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/doc/pack_template.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/doc/pack_template.html</a></p>
+
+<h2 id="e4b9361">Perl
+<span class="article-date">2014/05/16</span></h2>
+
+<p>例</p>
+
+<pre><code>print chr(65);      # =&gt; A
+print chr(0x3042);  # =&gt; あ
+print chr(0x2A61A); # =&gt; 𪘚
 </code></pre>
 
 </div>

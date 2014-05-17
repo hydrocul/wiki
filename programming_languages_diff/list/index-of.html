@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストから特定の要素を探してそのインデックスを取得するには (indexOf) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストから特定の要素(条件を満たす要素)を探してそのインデックスを取得するには (indexOf) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストから特定の要素を探してそのインデックスを取得するには (indexOf)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストから特定の要素(条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -37,7 +37,7 @@
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素または特定の条件にマッチする要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li>リストから特定の要素を探してそのインデックスを取得するには (indexOf)</li>
+          <li>リストから特定の要素(条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
@@ -64,6 +64,7 @@
           <li><a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">リストの中の最大値・最小値を求めるには (max, min)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
+          <li><a href="../../programming_languages_diff/list/multiply.html">同じリストを繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/list/slice-replace.html">リストの一部を別のリストで置き換えるには (splice)</a></li>
           <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数のリストを要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
         </ul>
@@ -76,7 +77,7 @@
 </div>
 
 <div id="content">
-  <h1 id="index-of">リストから特定の要素を探してそのインデックスを取得するには (indexOf)
+  <h1 id="index-of">リストから特定の要素(条件を満たす要素)を探してそのインデックスを取得するには (indexOf)
 <span class="article-date">2013/10/26</span></h1>
 
 <svg id="illustration" height="100"></svg>
@@ -98,7 +99,7 @@ text.attr({stroke: "#000", strokeWidth: 1, "font-size": "32px"});
 </script>
 
 <h2 id="82d508d">Java
-<span class="article-date">2013/05/06</span></h2>
+<span class="article-date">2014/05/17</span></h2>
 
 <p>Signature:</p>
 
@@ -107,10 +108,14 @@ int indexOf(Object obj)
 int lastIndexOf(Object obj)
 </code></pre>
 
-<p>見つからなかった場合は <code>-1</code> を返す。</p>
+<p>要素が見つからなかった場合は <code>-1</code> を返す。</p>
+
+<p>複数ある場合は最初の要素のインデックスを返す。</p>
+
+<p>要素の比較は <code>equals</code> メソッドで行われる。</p>
 
 <h2 id="35b67c2">Scala
-<span class="article-date">2013/05/06</span></h2>
+<span class="article-date">2014/05/17</span></h2>
 
 <p>Signature:</p>
 
@@ -121,7 +126,12 @@ def indexWhere(p: A =&gt; Boolean): Int
 def indexWhere(p: A =&gt; Boolean, from: Int): Int
 </code></pre>
 
-<p>見つからなかった場合は <code>-1</code> を返す。</p>
+<p>要素が見つからなかった場合は <code>-1</code> を返す。(<code>Option[Int]</code>じゃないところがちょっと気持ち悪い)</p>
+
+<p>複数ある場合は最初の要素のインデックスを返す。</p>
+
+<p><code>indexOf</code>メソッドでの要素の比較は<code>equals</code>メソッドで行われる。
+<code>indexWhere</code>メソッドでは<code>p</code>関数が<code>true</code>を返す要素を取得する。</p>
 
 <h2 id="18e1bfa">PHP
 <span class="article-date">2013/06/11</span></h2>
@@ -136,17 +146,20 @@ def indexWhere(p: A =&gt; Boolean, from: Int): Int
 }
 </code></pre>
 
-<p><a href="http://www.php.net/manual/ja/function.array-search.php" target="_blank">http://www.php.net/manual/ja/function.array-search.php</a></p>
+<p><code>array_search</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.array-search.php" target="_blank">http://www.php.net/manual/ja/function.array-search.php</a></p>
 
 <h2 id="20e105a">Python
 <span class="article-date">2013/10/03</span></h2>
 
+<p>例</p>
+
 <pre><code>lst.index(obj);
 </code></pre>
 
-<p>複数ある場合は最初の要素のインデックスを返す。</p>
+<p>要素が見つからなかった場合はエラーを吐く。</p>
 
-<p>見つからなかった場合はエラーを吐く。</p>
+<p>複数ある場合は最初の要素のインデックスを返す。</p>
 
 <h2 id="3c9e981">Ruby
 <span class="article-date">2013/04/16</span></h2>
