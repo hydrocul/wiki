@@ -65,11 +65,51 @@ SciPyというNumPyに付随するライブラリもあり、しばしばNumPy�
 <pre><code>sudo apt-get install python-numpy python-scipy
 </code></pre>
 
+<p>(この方法だと、Python2にしかNumPyが入らない、、、)</p>
+
 <p>CentOSならyumでできるんじゃないかな。</p>
 
 <h2 id="f242759">TSVファイルを読み込む方法</h2>
 
 <p>-&gt; <a href="../blog/2014/0216-load-tsv-python.html">TSVファイルを読み込む方法</a></p>
+
+<h2 id="18ec47a">乱数の配列を取得するには
+<span class="article-date">2014/05/18</span></h2>
+
+<p>例</p>
+
+<pre><code>import numpy as np
+
+# 0.0 から 1.0 までの一様な乱数100個をnumpyの配列で生成
+print(np.random.uniform(0.0, 1.0, 100))
+
+# 平均0.0、標準偏差1.0の正規分布に従う乱数100個をnumpyの配列で生成
+print(np.random.normal(0.0, 1.0, 100))
+
+# λ=10 のポワソン分布に従う乱数100個をnumpyの整数の配列で生成
+print(np.random.poisson(10, 100))
+</code></pre>
+
+<p>Random sampling (numpy.random) | NumPy v1.8 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy/reference/routines.random.html" target="_blank">http://docs.scipy.org/doc/numpy/reference/routines.random.html</a></p>
+
+<h2 id="7cf7b00">行列の転置を求めるには
+<span class="article-date">2014/05/18</span></h2>
+
+<pre><code>import numpy as np
+from pprint import pprint
+
+X = np.array([[1, 2], [3, 4]])
+pprint(X.T)
+# =&gt;
+# array([[1, 3],
+#        [2, 4]])
+
+# 以下のようにNumPyでない普通の配列に対して T を呼びだそうとすると
+# AttributeError: 'list' object has no attribute 'T'
+# というエラーが発生する
+# X = [[1, 2], [3, 4]]
+</code></pre>
 
 <h2 id="27a536f">行列の固有値・固有ベクトルを求めるには
 <span class="article-date">2014/05/14</span></h2>
