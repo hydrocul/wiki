@@ -34,7 +34,7 @@
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
           <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
           <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
-          <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
@@ -114,7 +114,7 @@ puts "It is #{DateTime.now} now."
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/04/30</span></h2>
+<span class="article-date">2014/05/19</span></h2>
 
 <p><code>"</code> で囲む文字列では中に変数を埋め込むことができる。
 <code>`</code> で囲むコマンドにも埋め込むことができる。</p>
@@ -147,7 +147,7 @@ print "$a-&gt;[0]\n";
 # =&gt; AA
 </code></pre>
 
-<p>変数の後に <code>{</code> そのものを置きたい場合は、変数の部分を <code>{}</code> で囲む。</p>
+<p>変数名の後に半角英数字などの変数名になりうる文字や <code>{</code> そのものが続く場合は、変数の部分を <code>{}</code> で囲むことで、後続の文字列と区別する。</p>
 
 <p>例</p>
 
@@ -157,11 +157,13 @@ print "${a{A}}{A}\n";
 </code></pre>
 
 <h2 id="dc165e1">sh
-<span class="article-date">2013/09/17</span></h2>
+<span class="article-date">2014/05/19</span></h2>
 
 <p><code>"</code> で囲む文字列では中に変数を埋め込むことができる。</p>
 
-<p><code>$</code> で始まる部分が変数に展開される。変数名の後ろに変数名になりうる文字が続く場合は <code>$</code> のあとに <code>{ }</code> で変数名を囲む。</p>
+<p><code>$</code> で始まる部分が変数に展開される。</p>
+
+<p>変数名の後に半角英数字などの変数名になりうる文字が続く場合は、変数の部分を <code>{}</code> で囲むことで、後続の文字列と区別する。</p>
 
 <p>例</p>
 

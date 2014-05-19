@@ -66,13 +66,25 @@
 </code></pre>
 
 <h2 id="urlencode-urldecode">URLエンコード / URLデコード
-<span class="article-date">2013/09/20</span></h2>
+<span class="article-date">2014/05/19</span></h2>
+
+<p>エンコードの例</p>
 
 <pre><code># URLエンコード
 echo あ | ruby -r cgi -ne 'puts CGI.escape $_.chomp' | tr "\n" " " | sed 's/ /%0D%0A/g'
 </code></pre>
 
 <p>最後の <code>tr "\n" " " | sed s/ /%0D%0A/g</code> は改行を <code>%0D%0A</code> に変換するためのもの。</p>
+
+<p>または</p>
+
+<pre><code># URLエンコード
+echo あ | nkf -WMQ | sed 's/=$//g' | tr -d '\n' | tr = %
+</code></pre>
+
+<p><code>nkf -WMQ</code> はよくわからないが文字列が長い場合に改行を入れて、その改行の直前に <code>=</code> を追加するので、途中の <code>sed 's/=$//g' | tr -d '\n'</code> はそれを削除するためのもの。</p>
+
+<p>デコードの例</p>
 
 <pre><code># URLデコード
 echo %E3%81%82 | tr % = | nkf -WmQ

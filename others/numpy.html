@@ -96,6 +96,20 @@ print(np.random.poisson(10, 100))
 <h2 id="7cf7b00">行列の転置を求めるには
 <span class="article-date">2014/05/18</span></h2>
 
+<p>2次元配列に対して<code>T</code>メソッドを呼ぶだけでよい。</p>
+
+<p>\[ \mathbf{X} =
+    \begin{pmatrix}
+      1 &amp; 2 \\ 
+      3 &amp; 4 \\ 
+    \end{pmatrix} \]</p>
+
+<p>\[ \mathbf{X}^T =
+    \begin{pmatrix}
+      1 &amp; 3 \\ 
+      2 &amp; 4 \\ 
+    \end{pmatrix} \]</p>
+
 <pre><code>import numpy as np
 from pprint import pprint
 

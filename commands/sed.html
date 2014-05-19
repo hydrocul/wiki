@@ -47,6 +47,7 @@
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
@@ -95,13 +96,13 @@
 <p>文字列を全置換したり、行単位で削除したり、いろいろできるコマンド。</p>
 
 <h2 id="1db04e2">基本的な使い方
-<span class="article-date">2013/10/26</span></h2>
+<span class="article-date">2014/05/19</span></h2>
 
 <p>標準入力を処理して標準出力に出力する。またはファイル名を指定すればそのファイルを読み込んで標準出力に出力する。ファイル名を指定してオプション <code>-i</code> を使えば、そのファイルを読み込んで、結果をそのファイルに上書きする。処理内容はオプション <code>-e</code> で指定する。</p>
 
 <p>パイプで使う場合の例</p>
 
-<pre><code>cat -e ./hoge.txt | sed -e 's/xxx/XXX/g' &gt; ./hoge-new.txt
+<pre><code>cat ./hoge.txt | sed -e 's/xxx/XXX/g' &gt; ./hoge-new.txt
 </code></pre>
 
 <p>ファイル名を指定して使う場合の例</p>
@@ -122,6 +123,8 @@
 11行目から20行目以外を削除するコマンドと、
 6行目から15行目のみを抽出するコマンドだが、これは、11行目から20行目以外を削除した結果に対して6行目から15行目を抽出する(つまりトータルでは16行目から20行目のみを抽出する)のではなく、
 11行目から20行目と6行目から15行目が重なる行、つまり11行目から15行目のみを抽出する。</p>
+
+<p><code>-e</code>オプションではアルファベット1文字とその前後のパラメータを与えることで詳細な処理内容を表す。アルファベット1文字は、<code>s</code>, <code>d</code> などがあり、以下のとおり。</p>
 
 <h3 id="4ac7902"><code>s</code>コマンド
 <span class="article-date">2013/10/01</span></h3>
@@ -157,9 +160,9 @@ sed 1,5\!d
 <code>p</code>コマンドの出力のみになる。</p>
 
 <h3 id="f03a24c">アドレス
-<span class="article-date">2013/10/01</span></h3>
+<span class="article-date">2014/05/19</span></h3>
 
-<p>コマンドの実行対象行を指定する行番号をアドレスという。行番号だけでなくや正規表現で指定することもできる。</p>
+<p>コマンドの実行対象行を指定する行番号をアドレスという。行番号だけでなくや正規表現で指定して、その正規表現にマッチする行を実行対象とすることもできる。</p>
 
 <p>以下の例はすべて<code>p</code>コマンドでの例だが、<code>s</code>, <code>y</code>, <code>d</code> コマンドなどでも使える。</p>
 
@@ -274,7 +277,7 @@ sed -E '/[\t ]+/ /g'
 <p><code>-e</code> はどういう意味だろう？</p>
 
 <h3 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換するには
-<span class="article-date">2013/12/20</span></h3>
+<span class="article-date">2014/05/19</span></h3>
 
 <p>置換対象のファイルを <a href="find.html"><code>find</code></a> などでリストアップして、 <code>sed</code> を使う。</p>
 
@@ -286,12 +289,13 @@ sed -E '/[\t ]+/ /g'
 <pre><code>find . -name "*.txt" -exec sed -i 's/置換前/置換後/g' {} \;
 </code></pre>
 
-<p><code>find</code> でマッチしたファイルのほとんどが置換されるならこれでもいいと思うが、ごく一部のファイルだけであれば <a href="grep.html"><code>grep</code></a> を使って以下のようにしたほうがいいかもしれない。</p>
+<p><code>find</code> でマッチしたファイルのほとんどが置換されるならこれでもいいと思うが、ごく一部のファイルだけであれば <a href="grep.html"><code>grep</code></a> を使って以下のようにしたほうがいいかもしれない。上記 <code>find</code> のやり方だと、置換文字列が含まれていないファイルもタイムスタンプは変わってしまう。</p>
 
 <pre><code>grep -rl 置換前  | xargs sed -i 's/置換前/置換後/g'
 </code></pre>
 
-<p>-&gt; <a href="http://d.hatena.ne.jp/hydrocul/20111211/1323595015" target="_blank">http://d.hatena.ne.jp/hydrocul/20111211/1323595015</a></p>
+<p>ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法<br />
+<a href="http://d.hatena.ne.jp/hydrocul/20111211/1323595015" target="_blank">http://d.hatena.ne.jp/hydrocul/20111211/1323595015</a></p>
 
 <h2 id="843a0db">2つ以上の全置換を一括で実行するには
 <span class="article-date">2013/06/17</span></h2>

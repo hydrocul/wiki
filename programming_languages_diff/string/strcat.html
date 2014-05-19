@@ -34,7 +34,7 @@
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
           <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
           <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
-          <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
@@ -63,7 +63,7 @@
 
 <div id="content">
   <h1 id="strcat">文字列の連結をするには (strcat)
-<span class="article-date">2013/10/28</span></h1>
+<span class="article-date">2014/05/19</span></h1>
 
 <p><code>+</code> か <code>.</code> という演算子でできる言語が多い。</p>
 
@@ -77,6 +77,7 @@
       <td>Ruby</td>
       <td>Perl</td>
       <td>JavaScript</td>
+      <td>Haskell</td>
     </tr>
     <tr>
       <td><code>+</code></td>
@@ -86,6 +87,7 @@
       <td><code>+</code></td>
       <td><code>.</code></td>
       <td><code>+</code></td>
+      <td><code>++</code></td>
     </tr>
   </tbody>
 </table>
@@ -93,7 +95,7 @@
 <h2 id="a14642a">C言語
 <span class="article-date">2013/08/06</span></h2>
 
-<p><code>strcpy</code> や <code>strcat</code> などを使う。</p>
+<p><code>strcpy</code> や <code>strcat</code> 関数などを使う。</p>
 
 <p>文字列リテラルを並べて書くと、プリプロセッサによって連結される。</p>
 
@@ -186,6 +188,17 @@ puts str
 <p>例</p>
 
 <pre><code>'abc' . 'def'
+</code></pre>
+
+<h2 id="0e07536">Haskell
+<span class="article-date">2014/05/19</span></h2>
+
+<p>文字列は文字のリストなので、リストの連結の演算子を使う。</p>
+
+<p>例</p>
+
+<pre><code>&gt; "abc" ++ "def"
+"abcdef"
 </code></pre>
 
 <h2 id="4c4b3ac">JavaScript
