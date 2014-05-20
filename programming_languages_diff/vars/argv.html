@@ -74,7 +74,12 @@
 <a href="http://www.php.net/manual/ja/reserved.variables.argv.php" target="_blank">http://www.php.net/manual/ja/reserved.variables.argv.php</a></p>
 
 <h2 id="99ae434">Python
-<span class="article-date">2013/08/30</span></h2>
+<span class="article-date">2014/05/20</span></h2>
+
+<p>Python2, Python3 とも、<code>sys.argv</code> でスクリプトに渡された引数を取得できる。</p>
+
+<p><code>sys.argv[0]</code> には実行されているPythonスクリプトのファイル名が入っており、
+<code>sys.argv[1]</code> 以降に本当の引数が入っている。</p>
 
 <p>例</p>
 
@@ -90,12 +95,14 @@ arg2 = sys.argv[2]
 <h2 id="d85f018">Ruby
 <span class="article-date">2013/05/17</span></h2>
 
-<p><code>ARGV</code> という定数に引数が配列で入っている。スクリプトファイル名は含まれておらず、先頭から本当の引数が入っている。</p>
+<p><code>ARGV</code> という定数にスクリプトに渡された引数が配列で入っている。</p>
+
+<p><code>ARGV</code> には、スクリプトファイル名は含まれておらず、先頭から本当の引数が入っている。</p>
 
 <h2 id="perl">Perl
 <span class="article-date">2013/09/30</span></h2>
 
-<p><code>@ARGV</code>, <code>$ARGV[..]</code> で引数を取得できる。</p>
+<p><code>@ARGV</code>, <code>$ARGV[..]</code> でスクリプトに渡された引数を取得できる。</p>
 
 <p><code>@ARGV</code> には、スクリプトファイル名は含まれておらず、先頭から本当の引数が入っている。</p>
 

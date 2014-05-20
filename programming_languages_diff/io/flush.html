@@ -74,7 +74,7 @@ System.err.flush();
 </code></pre>
 
 <h2 id="8dbe1c2">Ruby
-<span class="article-date">2014/01/05</span></h2>
+<span class="article-date">2014/05/20</span></h2>
 
 <pre><code># 標準出力をflush
 STDOUT.flush
@@ -82,6 +82,8 @@ STDOUT.flush
 # 標準エラー出力をflush
 STDERR.flush
 </code></pre>
+
+<p>標準出力が端末だと少なくとも行単位ではflushしてくれるが、標準出力がパイプで他のプロセスとつながっていると明示的にflushしないと勝手にバッファリングされてしまうみたい。</p>
 
 <h2 id="156d0bf">Perl
 <span class="article-date">2014/05/08</span></h2>

@@ -69,15 +69,15 @@
 
 <p>本体の文が1つだけの場合は <code>{}</code> を省略可。</p>
 
-<pre><code>if(...)
+<pre><code>if (...)
   ...;
 else
   ...;
 </code></pre>
 
-<p>いずれの構文でも <code>else</code> で実行する文がなければ、<code>else</code> を省略可。</p>
+<p><code>else</code> で実行する文がなければ、<code>else</code>節を省略可。</p>
 
-<p>Scalaのようにif文自体が値を返すことはできない。</p>
+<p>Scalaのように<code>if</code>文自体が値を返すことはできない。</p>
 
 <h2 id="b532050">Go言語
 <span class="article-date">2013/06/19</span></h2>
@@ -221,7 +221,9 @@ else:
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2013/11/05</span></h2>
+<span class="article-date">2014/05/20</span></h2>
+
+<p>例</p>
 
 <pre><code>if ...
   ...
@@ -243,24 +245,32 @@ else
 end
 </code></pre>
 
-<p><code>else</code> の節がなく、本体の文が1つだけの場合は以下のように修飾子の構文での書き方も可能。この書き方は <code>end</code> を書く必要がなく行数が短くて済むため読みやすい場合が多い。</p>
+<p><code>else</code> で実行する文がなければ、<code>else</code>節を省略可。</p>
+
+<p><code>else</code>節がなく、本体の文が1つだけの場合は以下のように修飾子の構文での書き方も可能。この書き方は <code>end</code> を書く必要がなく行数が短くて済むため読みやすい場合が多い。</p>
 
 <pre><code>... if ...
 </code></pre>
 
 <p><code>if</code> の反対で条件が満たされなかった場合にのみ実行する <code>unless</code> もある。</p>
 
-<pre><code>unless(...){
+<pre><code>unless ...
   ...
-}
-
-... unless ...
+end
 </code></pre>
+
+<p>やはり修飾子の書き方も可能。</p>
+
+<pre><code>... unless ...
+</code></pre>
+
+<p><code>unless</code> にも<code>else</code>節を付けられるがわかりづらいので使わないほうがよい。
+<code>elsunless</code> というのはない。</p>
 
 <p>RubyではScalaと同じく <code>if</code> は結果を返すことができるので以下のように
 <a href="../operator/ternary.html">三項演算子</a>の代わりとしても使える。ただし、ネストしていないなどシンプルな構造の場合は素直に三項演算子のほうがわかりやすい。</p>
 
-<pre><code>max = if(a &gt; b)
+<pre><code>max = if a &gt; b
         a
       else
         b
@@ -269,6 +279,8 @@ end
 
 <h2 id="5327dda">Perl
 <span class="article-date">2014/02/08</span></h2>
+
+<p>例</p>
 
 <pre><code>if (...) {
     ...;
@@ -281,14 +293,16 @@ end
 
 <p>本体の文が1つだけの場合でも <code>{}</code> で囲むことが必要。</p>
 
-<p><code>else</code>節がなく、本体の文が1つだけの場合は以下の修飾子の書き方も可能。</p>
+<p><code>else</code> で実行する文がなければ、<code>else</code>節を省略可。</p>
+
+<p><code>else</code>節がなく、本体の文が1つだけの場合は以下の修飾子の構文での書き方も可能。</p>
 
 <pre><code>... if ...;
 </code></pre>
 
-<p>ifの反対で条件が満たされなかった場合にのみ実行する <code>unless</code> もある。</p>
+<p><code>if</code> の反対で条件が満たされなかった場合にのみ実行する <code>unless</code> もある。</p>
 
-<pre><code>unless(...){
+<pre><code>unless (...) {
     ...;
 }
 </code></pre>
@@ -304,6 +318,8 @@ end
 <h2 id="sh">sh
 <span class="article-date">2014/03/06</span></h2>
 
+<p>例</p>
+
 <pre><code>if ...; then
     ...
 elif ...; then
@@ -312,6 +328,8 @@ else
     ...
 fi
 </code></pre>
+
+<p><code>else</code> で実行する文がなければ、<code>else</code>節を省略可。</p>
 
 <p><code>then</code> の中や <code>else</code> の中にコマンドがひとつもないと
 bashであれば <code>syntax error near unexpected token </code>fi’<code>、
@@ -326,14 +344,16 @@ zshでは空でも大丈夫みたい。</p>
 fi
 </code></pre>
 
-<p>上記はsh系(bash等)の場合で、cshではif文の構文からして違うらしい。</p>
+<p>これらはsh系(bash等)の場合で、cshでは<code>if</code>文の構文からして違うらしい。</p>
 
 <h2 id="99ba499">JavaScript
 <span class="article-date">2013/09/07</span></h2>
 
-<pre><code>if(...){
+<p>例</p>
+
+<pre><code>if (...) {
   ...;
-} else if(...){
+} else if (...) {
   ...;
 } else {
   ...;
@@ -342,7 +362,7 @@ fi
 
 <p>本体の文が1つだけの場合は <code>{}</code> を省略可。</p>
 
-<pre><code>if(...)
+<pre><code>if (...)
   ...;
 else
   ...;

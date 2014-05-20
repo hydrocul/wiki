@@ -135,24 +135,18 @@ finally:
   ...
 </code></pre>
 
-<p><code>except</code>節で例外オブジェクトを扱う場合は、</p>
+<p><code>except</code>節で例外オブジェクトを利用したい場合は、以下のように書く。</p>
 
 <pre><code>except ex:
 </code></pre>
 
-<p>のように書く。</p>
-
-<p>特定の例外クラスだけexcept節で扱う場合は、</p>
+<p><code>except</code>節で特定の例外クラスだけを捕捉したい場合は、以下のように書く。</p>
 
 <pre><code>except HogeException:
+
+# または
+except HogeException, ex:
 </code></pre>
-
-<p>または</p>
-
-<pre><code>except HogeException, ex:
-</code></pre>
-
-<p>のように書く。</p>
 
 <p><code>except</code>節の中で同じ例外を再スローするには単に</p>
 
@@ -184,7 +178,7 @@ end
 
 <p>スタックトレースを出力するには <code>print e.backtrace.join("\n")</code> と書く。</p>
 
-<p><code>rescue</code>節で特定のクラスの例外を捕捉したい場合は、以下のように書く。</p>
+<p><code>rescue</code>節で特定のクラスの例外だけを捕捉したい場合は、以下のように書く。</p>
 
 <pre><code>rescue ZeroDivisionError =&gt; e
 </code></pre>
