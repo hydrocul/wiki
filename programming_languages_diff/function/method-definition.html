@@ -26,7 +26,7 @@
     <ul>
       <li><a href="../../programming_languages_diff/function/">関数・メソッド</a>
         <ul>
-          <li><a href="../../programming_languages_diff/function/literal.html">関数リテラル</a></li>
+          <li><a href="../../programming_languages_diff/function/literal.html">無名関数</a></li>
           <li>関数定義・メソッド定義</li>
           <li><a href="../../programming_languages_diff/function/call.html">関数呼び出しまたはメソッド呼び出し</a></li>
           <li><a href="../../programming_languages_diff/function/overload.html">メソッドのオーバーロード(シグニチャの異なる複数の同名メソッド)</a></li>
@@ -174,9 +174,11 @@ g()
 </code></pre>
 
 <h2 id="a98e3ca">Ruby
-<span class="article-date">2014/02/01</span></h2>
+<span class="article-date">2014/05/21</span></h2>
 
-<p>クラス定義の中にメソッドを書く。</p>
+<p>クラス定義の中にメソッドを書く。トップレベルにもメソッド定義を書けるがこれは <code>Object</code> の<code>private</code>メソッドの扱いになり、どこからでも呼び出せるメソッドになり、他の言語でのグローバルの関数として使える。</p>
+
+<p>メソッド定義の例</p>
 
 <pre><code>def f(arg1, arg2)
   ...
@@ -184,7 +186,7 @@ g()
 end
 </code></pre>
 
-<p>メソッド呼び出しでは引数のカッコを省略可。</p>
+<p>メソッド定義では仮引数のカッコを省略可。メソッド呼び出しでは引数のカッコを省略可。</p>
 
 <p>メソッドの中の最後でreturnする場合は、<code>return</code>と書かないのが多い。
 <a href="return-void.html#ruby">最後の式がメソッドの返り値になる</a>ため。</p>
@@ -206,6 +208,8 @@ end
   end
 end
 </code></pre>
+
+<p><a href="../vars/scope.html#ruby">グローバル変数</a>は <code>$</code> で始まる名前になっていて、メソッドの中からグローバル変数を参照することはできる。</p>
 
 <h2 id="1cf9d63">Perl
 <span class="article-date">2013/08/12</span></h2>

@@ -316,7 +316,7 @@ end
 <code>elsunless</code> というのはない。</p>
 
 <h2 id="sh">sh
-<span class="article-date">2014/03/06</span></h2>
+<span class="article-date">2014/05/21</span></h2>
 
 <p>例</p>
 
@@ -344,7 +344,14 @@ zshでは空でも大丈夫みたい。</p>
 fi
 </code></pre>
 
-<p>これらはsh系(bash等)の場合で、cshでは<code>if</code>文の構文からして違うらしい。</p>
+<p>他の言語にあるような <code>unless</code> を使いたくなった場合は、条件としておくコマンドの前に否定の <code>!</code> を置くとよい。</p>
+
+<pre><code>if ! ...; then
+    ...
+fi
+</code></pre>
+
+<p>これら<code>if</code>文の話はsh系(bash等)の場合で、cshでは<code>if</code>文の構文からして違うらしい。</p>
 
 <h2 id="99ba499">JavaScript
 <span class="article-date">2013/09/07</span></h2>

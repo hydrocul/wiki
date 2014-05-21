@@ -93,6 +93,68 @@ print(np.random.poisson(10, 100))
 <p>Random sampling (numpy.random) | NumPy v1.8 Manual<br />
 <a href="http://docs.scipy.org/doc/numpy/reference/routines.random.html" target="_blank">http://docs.scipy.org/doc/numpy/reference/routines.random.html</a></p>
 
+<h2 id="a3fa995">行列から行単位または列単位で一部を取り出すには
+<span class="article-date">2014/05/20</span></h2>
+
+<p><a href="../programming_languages_diff/list/sub-list.html#python">スライス表記</a>はNumPyの多次元配列にも使える。</p>
+
+<p>列単位で取り出す例</p>
+
+<p>\[ \mathbf{X} =
+    \begin{pmatrix}
+      1 &amp; 2 &amp; 3 \\ 
+      4 &amp; 5 &amp; 6 \\ 
+      7 &amp; 8 &amp; 9 \\ 
+    \end{pmatrix} \]</p>
+
+<pre><code>import numpy as np
+from pprint import pprint
+
+x = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+pprint(x)
+# =&gt;
+# array([[1, 2, 3],
+#        [4, 5, 6],
+#        [7, 8, 9]])
+
+pprint(x[:,0])
+# =&gt;
+# array([1, 4, 7])
+
+pprint(x[:,1])
+# =&gt;
+# array([2, 5, 8])
+
+pprint(x[:,1:2])
+# =&gt;
+# array([[2],
+#        [5],
+#        [8]])
+
+pprint(x[:,1:3])
+# =&gt;
+# array([[2, 3],
+#        [5, 6],
+#        [8, 9]])
+</code></pre>
+
+<p>行単位で取り出す例</p>
+
+<pre><code>import numpy as np
+from pprint import pprint
+
+x = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+pprint(x[0,:])
+# =&gt;
+# array([1, 2, 3])
+
+pprint(x[1:3,:])
+# =&gt;
+# array([[4, 5, 6],
+#        [7, 8, 9]])
+</code></pre>
+
 <h2 id="7cf7b00">行列の転置を求めるには
 <span class="article-date">2014/05/18</span></h2>
 
@@ -140,7 +202,7 @@ pprint(X.T)
       1 &amp; 4 \\ 
     \end{pmatrix} \]</p>
 
-<p>固有ベクトル:</p>
+<p>固有ベクトルを並べたもの:</p>
 
 <p>\[ \mathbf{S} =
     \begin{pmatrix}
@@ -148,7 +210,7 @@ pprint(X.T)
       0.32 &amp; -0.71 \\ 
     \end{pmatrix} \]</p>
 
-<p>固有値:</p>
+<p>固有値の対角行列:</p>
 
 <p>\[ \mathbf{\Lambda} =
     \begin{pmatrix}

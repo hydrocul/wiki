@@ -47,6 +47,7 @@
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
@@ -142,9 +143,9 @@
 </code></pre>
 
 <h2 id="1f69732">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには
-<span class="article-date">2014/02/21</span></h2>
+<span class="article-date">2014/05/21</span></h2>
 
-<p>diff は2つのファイルが同じだった場合に成功の終了コード(0)を返し、違いがあった場合には異常終了(0以外)を返すので、以下のように書ける。</p>
+<p><code>diff</code> は2つのファイルが同じだった場合に成功の終了コード(0)を返し、違いがあった場合には異常終了(0以外)を返すので、以下のように書ける。</p>
 
 <pre><code>if diff fileA.txt fileB.txt &gt;/dev/null ; then
     # 同じだった場合
@@ -153,8 +154,10 @@ else
 fi
 </code></pre>
 
-<p>普通 diff を使うときというのは、2つのファイルの違う箇所を確認するときなので、
+<p>普通 <code>diff</code> を使うときというのは、2つのファイルの違う箇所を確認するときなので、
 2つのファイルに違いがあるの場合がほとんどなのに、違いがある方が異常終了で、全く同じなときに正常終了というのは、ちょっと直感に反する気がして、不思議。</p>
+
+<p>ちなみに <code>if</code> の中に <code>&gt;/dev/null</code> を付けないと、条件判定するたびに標準出力にいちいち差分が出力されてしまう。</p>
 
 </div>
 
