@@ -47,6 +47,7 @@
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
@@ -90,7 +91,7 @@
 
 <div id="content">
   <h1 id="watch">watch コマンド
-<span class="article-date">2013/09/21</span></h1>
+<span class="article-date">2014/05/23</span></h1>
 
 <p>コマンドを一定の時間ごとに実行して結果を端末にスクロールせずに固定で表示してくれるコマンド。</p>
 
@@ -98,8 +99,11 @@
 
 <pre><code># `ls -al` を1秒ごとに実行
 watch -n 1 ls -al
+</code></pre>
 
-# ファイルの数を3秒ごとに監視
+<p>実行したいコマンドにパイプが含まれている場合、そのまま <code>watch</code> の後ろに書くと <code>watch</code> コマンド自体の出力をパイプしてしまうので、以下のように実行コマンド全体をダブルクオーテーションなどで囲む。</p>
+
+<pre><code># ファイルの数を3秒ごとに監視
 watch -n 3 "ls | wc -l"
 </code></pre>
 
