@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>パターンマッチングするには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>文字列</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>パターンマッチングするには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,7 +24,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>文字列
+      <li><a href="../../programming_languages_diff/string/">文字列</a>
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
@@ -49,7 +49,7 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li>パターンマッチングするには</li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -63,39 +63,76 @@
 </div>
 
 <div id="content">
-  <h1 id="string">文字列</h1>
+  <h1 id="match">パターンマッチングするには</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="dd36b97">PHP
+<span class="article-date">2014/04/14</span></h2>
 
-<ul>
-  <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
-  <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-  <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
-  <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
-  <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
-  <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
-  <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
-  <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
-  <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
-  <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
-  <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-  <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
-  <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
-  <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-  <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
-  <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
-  <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
-  <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-  <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-  <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
-  <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
-  <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-  <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
-</ul>
+<p><code>preg_match</code> という関数を使い、マッチしたら <code>1</code>, マッチしなかったら <code>0</code> が返される。</p>
+
+<pre><code>var_export(preg_match("/a./", "abc\nabc")); // =&gt; 1
+var_export(preg_match("/x./", "abc\nabc")); // =&gt; 0
+</code></pre>
+
+<p>文字列全体のマッチングではなく、部分マッチングである。</p>
+
+<p>preg_match | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.preg-match.php" target="_blank">http://www.php.net/manual/ja/function.preg-match.php</a></p>
+
+<h2 id="b02e24c">Ruby
+<span class="article-date">2013/09/18</span></h2>
+
+<p><code>=~</code> という演算子で、正規表現にマッチしていたら、そのインデックスを返し、マッチしなければ <code>nil</code> を返す。
+<code>=~</code> の左右がPerlと逆。</p>
+
+<pre><code>/a./ =~ "abc\nabc\n" # =&gt; 0
+/x./ =~ "abc\nabc\n" # =&gt; nil
+</code></pre>
+
+<p>Rubyでは <code>0</code> も <code>if</code> の条件の中に入れたら <code>true</code> とみなされる。</p>
+
+<p>-&gt; <a href="../boolean/to-boolean.html#ruby">論理値への変換</a></p>
+
+<p><code>!~</code> という演算子は <code>=~</code> の反対で、正規表現にマッチしていたら <code>false</code> を返し、マッチしなければ <code>true</code> を返す。</p>
+
+<pre><code>/a./ !~ "abc\nabc\n" # =&gt; false
+/x./ !~ "abc\nabc\n" # =&gt; true
+</code></pre>
+
+<h2 id="4c4948f">Perl
+<span class="article-date">2013/10/08</span></h2>
+
+<p><code>=~</code> という演算子で、正規表現にマッチしていれば <code>'1'</code> を返し、マッチしていなければ <code>''</code> を返す。
+<code>=~</code> の左右がRubyと逆。</p>
+
+<pre><code>print "abc\nabc\n" =~ /a./;
+# =&gt; 1
+print "abc\nabc\n" =~ /a$/;
+# =&gt; なにも出力しない
+</code></pre>
+
+<p><code>!~</code> という演算子は <code>=~</code> の反対で、マッチしていれば <code>''</code> を返し、マッチしていなければ <code>'1'</code> を返す。</p>
+
+<p>正規表現の中にカッコで囲んだグループがあれば、マッチした場合、
+<code>$1</code>, <code>$2</code>, <code>$3</code>, … にマッチした文字列が入る。<br />
+-&gt; <a href="group.html#perl">正規表現のグルーピングにマッチした文字列</a></p>
+
+<p><code>if</code>文の条件式の中に正規表現だけを書いた場合は、その前に <code>$_ =~</code> を付けたのと同じになる。</p>
+
+<p>正規表現は普通は <code>/</code> で囲むが、文字列として書くこともできる。</p>
+
+<pre><code>print "abc\nabc\n" =~ ('a' . '.');
+# =&gt; 1
+</code></pre>
+
+<h2 id="f151150">JavaScript
+<span class="article-date">2013/04/19</span></h2>
+
+<pre><code>"abc\nabc\n".match(/a./); // =&gt; ["ab"]
+"abc\nabc\n".match(/a(.)(.*)/); // =&gt; ["abc", "b", "c"]
+</code></pre>
+
+<p>マッチしない場合は <code>null</code> を返す。マッチした場合は最初にマッチした部分の文字列を配列で返す。パターンにカッコを使った部分があれば配列の2つ目以降としてそれらの部分を返す。</p>
 
 </div>
 
