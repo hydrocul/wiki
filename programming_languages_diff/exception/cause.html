@@ -55,16 +55,19 @@ Throwable initCause(Throwable cause);
 </code></pre>
 
 <p>メソッドで設定できるのは、これが Java 1.4 で導入された後付の機能のためだと思われる。
-Java 1.4 以前はコンストラクタで <code>cause</code> を設定することができないので、そのときに作られた例外クラスに対しても <code>cause</code> を設定できるようにこのメソッドがある。このメソッドの返り値は例外の例外(<code>cause</code>)ではなく例外自身(<code>this</code>)でメソッドチェーンのためのもの。</p>
+Java 1.4 より前はコンストラクタで <code>cause</code> を設定することができないので、そのときに作られた例外クラスに対しても <code>cause</code> を設定できるようにこのメソッドがある。このメソッドの返り値は例外の例外(<code>cause</code>)ではなく例外自身(<code>this</code>)でメソッドチェーンのためのもの。</p>
 
 <h2 id="4975fba">PHP
-<span class="article-date">2013/09/18</span></h2>
+<span class="article-date">2014/05/26</span></h2>
 
 <p><code>Exception</code>クラスのコンストラクタの3つ目に例外の原因となった例外を指定することができる。ただ、スタックトレースを出力したときに
 Javaのような例外の原因となった例外のスタックトレースまでは出力されないみたい。</p>
 
-<p>例外 | PHPマニュアル
+<p>例外 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.exceptions.php" target="_blank">http://www.php.net/manual/ja/language.exceptions.php</a></p>
+
+<p>例外を拡張する | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/language.exceptions.extending.php" target="_blank">http://www.php.net/manual/ja/language.exceptions.extending.php</a></p>
 
 </div>
 

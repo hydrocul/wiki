@@ -77,8 +77,16 @@
 
 <p>Javaと同じクラスが使われる。ただし、Javaのチェック例外も含めてすべての例外クラスがScalaでは非チェック例外になる。</p>
 
+<h2 id="8b5af01">PHP
+<span class="article-date">2014/05/26</span></h2>
+
+<p>すべての例外クラスは <code>Exception</code> クラスかそのサブクラスである。</p>
+
+<p>例外 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/language.exceptions.php" target="_blank">http://www.php.net/manual/ja/language.exceptions.php</a></p>
+
 <h2 id="e4d4966">Ruby
-<span class="article-date">2013/08/22</span></h2>
+<span class="article-date">2014/05/26</span></h2>
 
 <ul>
   <li><code>Exception</code>
@@ -93,8 +101,7 @@
   </li>
 </ul>
 
-<p>すべての例外クラスの親クラスは <code>Exception</code> で、ユーザ定義のクラスは
-<code>StandardError</code> のサブクラスとするのが推奨。</p>
+<p>すべての例外クラスは <code>Exception</code> クラスかそのサブクラスである。ユーザ定義のクラスは <code>StandardError</code> のサブクラスとするのが推奨。</p>
 
 <p><code>rescue</code>節でクラス名を省略すると <code>StandardError</code> が指定されたとみなされ、それ以外の <code>Exception</code> は補足してくれない。
 <code>StandardError</code> 以外の <code>Exception</code> は、例えばメモリ不足、スクリプトの文法違反などが該当する。</p>
