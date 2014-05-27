@@ -354,9 +354,11 @@ cat ファイル名 | sed -e \$d
 <span class="article-date">2013/07/09</span></h2>
 
 <pre><code>tail -f access_log | sed --unbuffered ...
+# または
+tail -f access_log | sed -u ...
 </code></pre>
 
-<p><code>--unbuffered</code> を付けないとsedがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
+<p><code>--unbuffered</code> または <code>-u</code> を付けないとsedがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
 
 <h2 id="ecac355">空行を削除するには
 <span class="article-date">2014/03/17</span></h2>
