@@ -34,7 +34,7 @@
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
           <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
           <li>文字列の長さを取得するには (length)</li>
-          <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
@@ -49,6 +49,7 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -67,6 +68,8 @@
 <h2 id="1aea694">C言語, C++
 <span class="article-date">2013/09/08</span></h2>
 
+<p>Signature:</p>
+
 <pre><code>int strlen(char *str);
 </code></pre>
 
@@ -82,12 +85,14 @@ int length()
 </code></pre>
 
 <h2 id="dbd1f21">PHP
-<span class="article-date">2013/11/26</span></h2>
+<span class="article-date">2014/05/28</span></h2>
+
+<p>C言事同じ名前の関数 <code>strlen</code> を使う。</p>
 
 <pre><code>$len = strlen($str)
 </code></pre>
 
-<p>strlen | PHPマニュアル<br />
+<p><code>strlen</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.strlen.php" target="_blank">http://www.php.net/manual/ja/function.strlen.php</a></p>
 
 <h2 id="693068d">Python

@@ -263,24 +263,33 @@ do {
 </code></pre>
 
 <h2 id="sh">sh
-<span class="article-date">2013/09/18</span></h2>
+<span class="article-date">2014/05/28</span></h2>
 
-<p>例</p>
+<p>条件式を書ける<code>test</code>コマンド(<code>[</code>)での例</p>
 
 <pre><code>while [ ... ]; do
     ...
 done
 </code></pre>
 
+<p>その他のコマンドでの例</p>
+
+<pre><code>while ...; do
+    ...
+done
+</code></pre>
+
 <p>永久ループの例</p>
 
-<pre><code>while : ; do
+<pre><code>while :; do
     date;
     sleep 1;
 done
 </code></pre>
 
-<p>ループの中では <code>break</code> が使える。</p>
+<p>自分の環境ではループの中身を空にすると Syntax error になった。</p>
+
+<p>ループの中では <a href="break.html#sh"><code>break</code></a> が使える。</p>
 
 <h2 id="d97e98c">R言語
 <span class="article-date">2013/11/20</span></h2>
