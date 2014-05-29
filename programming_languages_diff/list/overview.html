@@ -298,7 +298,7 @@ np.array([1, 2, 3])
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/03/17</span></h2>
+<span class="article-date">2014/05/29</span></h2>
 
 <p><code>Array</code>という可変長配列のクラスが存在する。要素は異なる方のオブジェクトが混ざっていてもよい。</p>
 
@@ -314,7 +314,7 @@ np.array([1, 2, 3])
 <pre><code>arr = %w(abc def ghi) # =&gt; ['abc', 'def', 'ghi'] と同じ
 </code></pre>
 
-<p><code>%w</code> の記法を使うと、カッコは比較的なんでもよくて、以下はすべて同じ意味になる。</p>
+<p>この <code>%w</code> の記法を使うと、カッコは比較的なんでもよくて、以下はすべて同じ意味になる。</p>
 
 <pre><code>['abc', 'def', 'ghi']
 %w(abc def ghi)
@@ -322,7 +322,7 @@ np.array([1, 2, 3])
 %w!abc def ghi!
 </code></pre>
 
-<p><code>%w</code> の記法では要素間はスペースで区切って、コンマで区切ることはできない。</p>
+<p><code>%w</code> の記法では要素間はスペースで区切って、コンマで区切ることはできない。コンマを書いてしまうとそのコンマ辞退も文字列の一部とみなされてしまう。</p>
 
 <p><code>%w</code> の中では <code>#</code> によるコメントアウトが効かないので以下のようになってしまう。</p>
 
@@ -338,6 +338,8 @@ np.array([1, 2, 3])
   # =&gt; ["aaa"]
 </code></pre>
 
+<p><code>%w</code> と似たような仕組みは<a href="../string/overview.html#ruby">文字列</a>にもある。</p>
+
 <p><code>nil</code>で埋められた指定サイズの配列を作成するには、</p>
 
 <pre><code>Array.new(10) # nilが10個の配列
@@ -352,7 +354,7 @@ np.array([1, 2, 3])
 <a href="http://doc.ruby-lang.org/ja/1.9.2/class/Array.html" target="_blank">http://doc.ruby-lang.org/ja/1.9.2/class/Array.html</a></p>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/05/17</span></h2>
+<span class="article-date">2014/05/29</span></h2>
 
 <p>配列の仕組みがある。配列の要素にはスカラ(文字列、数字、レファレンスなど)しか含められない。配列の配列を作ることはできないので、配列へのレファレンスを要素として持たせる必要がある。</p>
 
@@ -376,6 +378,36 @@ np.array([1, 2, 3])
            'ghi',
           );
 </code></pre>
+
+<p>以下のような書き方もできる。これは上記例と同じ文字列の配列となる。</p>
+
+<pre><code>my @arr = qw(abc def ghi);
+</code></pre>
+
+<p>この <code>qw</code> の記法を使うと、カッコは比較的なんでもよくて、以下はすべて同じ意味になる。</p>
+
+<pre><code>('abc', 'def', 'ghi')
+qw(abc def ghi)
+qw[abc def ghi]
+qw{abc def ghi}
+qw&lt;abc def ghi&gt;
+qw!abc def ghi!
+</code></pre>
+
+<p><code>qw</code> の記法では要素間はスペースで区切って、コンマで区切ることはできない。コンマを書いてしまうとそのコンマ辞退も文字列の一部とみなされてしまう。コンマで区切ろうとすると、親切にも
+<code>Possible attempt to separate words with commas</code> という警告が表示されるかもしれない。</p>
+
+<p><code>qw</code> の中では <code>#</code> によるコメントアウトが効かないので以下のようになってしまう。</p>
+
+<pre><code>my @arr = qw(abc # def ghi);
+print "@arr";
+# =&gt; abc # def ghi
+</code></pre>
+
+<p>上記のようにコメントアウトをしようとすると、親切にも
+<code>Possible attempt to put comments in qw()</code> という警告が表示されるかもしれない。</p>
+
+<p><code>qw</code> と似たような仕組みは<a href="../string/overview.html#perl">文字列</a>にもある。</p>
 
 <p>スカラ1つを配列の変数に代入しようとすると、要素が1つだけの配列になる。</p>
 
