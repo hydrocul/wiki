@@ -119,11 +119,17 @@ select undef, undef, undef, 0.1;
 <p>このコードの意味はあまり理解していないが使っている。</p>
 
 <h2 id="51e03a3">sh
-<span class="article-date">2013/09/26</span></h2>
+<span class="article-date">2014/05/29</span></h2>
 
 <p>3秒間停止する例</p>
 
-<pre><code>sleep 3;
+<pre><code>sleep 3
+</code></pre>
+
+<p>自分の環境では1秒未満も指定できた(Ubuntu 13.10 で確認 [2014/05/29])。ただ、環境によっては整数でしか機能しないみたい。</p>
+
+<pre><code># 100ミリ秒スリープ
+sleep 0.1
 </code></pre>
 
 <h2 id="javascript">JavaScript
