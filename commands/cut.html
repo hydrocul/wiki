@@ -47,6 +47,7 @@
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
@@ -132,11 +133,11 @@ cat &lt;file-path&gt; | cut -b4-
 </code></pre>
 
 <h2 id="ea99fad">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには
-<span class="article-date">2013/08/13</span></h2>
+<span class="article-date">2014/05/31</span></h2>
 
 <p>例</p>
 
-<pre><code>cat hoge.txt | sed 's/[\t ]\+/ /g' | cut -d' ' -f1,3
+<pre><code>cat hoge.txt | sed 's/[\t ]\+/\t/g' | cut -f1,3
 </code></pre>
 
 <h2 id="85b0656">タブをコマンドラインから指定するには

@@ -49,6 +49,7 @@
           <li>文字(≠文字列)の文字コードを数字として取得するには</li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -77,34 +78,56 @@ println('あ'.asInstanceOf[Int]) // =&gt; 12354
 </code></pre>
 
 <h2 id="89080a2">Python
-<span class="article-date">2013/10/16</span></h2>
+<span class="article-date">2014/05/30</span></h2>
 
 <p><code>ord</code> という関数に長さ1の文字列を渡す。2文字以上渡すとエラーになる。</p>
 
-<p>Python 2.7 の場合</p>
+<p>Python2での例</p>
 
 <pre><code>print ord("A")
 # =&gt; 65
+
+# 以下は u を付けないとエラーになる
 print ord(u"あ")
 # =&gt; 12354
-# u を付けないとエラーになる
+print ord(u"𪘚")
+# =&gt; 173594
 </code></pre>
 
-<p>Python 3.3 の場合</p>
+<p>Python3での例</p>
 
 <pre><code>print(ord("A"))
 # =&gt; 65
+
 print(ord("あ"))
 # =&gt; 12354
+print(ord("𪘚"))
+# =&gt; 173594
+</code></pre>
+
+<h2 id="5e2b7eb">Ruby
+<span class="article-date">2014/05/30</span></h2>
+
+<p>例</p>
+
+<pre><code>p "A".ord
+# =&gt; 65
+p "あ".ord
+# =&gt; 12354
+p "𪘚".ord
+# =&gt; 173594
 </code></pre>
 
 <h2 id="08818d3">Perl
-<span class="article-date">2013/09/23</span></h2>
+<span class="article-date">2014/05/30</span></h2>
+
+<p>例</p>
 
 <pre><code>use utf8;
 
 print ord("A"); # =&gt; 65
 print ord("あ"); # =&gt; 12354 (0x3042)
+print ord("𪘚"); # =&gt; 173594 (0x0x2A61A)
 </code></pre>
 
 </div>
