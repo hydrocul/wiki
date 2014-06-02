@@ -76,11 +76,11 @@
 
 <p>マルチバイトの文字はそのまま2バイト以上を使って保存する。文字符号化方式(文字コード)に関する情報は文字列自身は持っていないので、使うごとに文字列がなんの文字コードなのかを意識しないといけない。</p>
 
-<p>文字列をソースコード中に書くには <code>"</code> で囲む。これで <code>\x00</code> で終わる <code>char[]</code> 型になる。
+<p>ソースコード中に文字列リテラルを書くには、<code>"</code> で囲む。これで <code>\x00</code> で終わる <code>char[]</code> 型になる。
 <code>'</code> で囲むと文字列ではなく文字(<code>char</code>型)になる。</p>
 
 <h2 id="6b3acc7">Java / Scala
-<span class="article-date">2014/03/21</span></h2>
+<span class="article-date">2014/06/02</span></h2>
 
 <p>Java / Scala における文字列は、長さの情報と<code>char</code>型の配列を持った不変オブジェクトである。長さの情報を持っているため、終端文字を考えなくてよい。</p>
 
@@ -97,6 +97,9 @@
 <p><code>java.lang.String</code> は不変(immutable)であるが、可変(mutable)文字列としては、<code>java.lang.StringBuilder</code>,
 <code>java.lang.StringBuffer</code> がある。</p>
 
+<p>ソースコード中に文字列リテラル(<code>String</code>型)を書くには、<code>"</code> で囲む。
+<code>'</code> で囲むと文字列ではなく文字(Java: <code>char</code>型, Scala: <code>Char</code>型)になる。</p>
+
 <h2 id="37528cf">PHP
 <span class="article-date">2014/03/21</span></h2>
 
@@ -104,7 +107,8 @@
 
 <p>長さの情報を持っているため、本来は終端文字を考えなくてよく、文字列の途中に <code>\x00</code> を含めることもできる。ただし、文字列の途中に <code>\x00</code> を含めた文字列は、バイナリセーフでない関数に渡すとおかしなことになるかもしれないので、やめたほうがよい。</p>
 
-<p>文字列リテラルは、<code>'</code> または <code>"</code> で囲む。または<a href="heredoc.html#php">ヒアドキュメント</a>を使う。</p>
+<p>ソースコード中に文字列リテラルを書くには、
+<code>'</code> または <code>"</code> で囲む。または<a href="heredoc.html#php">ヒアドキュメント</a>を使う。</p>
 
 <p>文字列リテラルは、ソースコードで使われている文字符号化方式(文字コード)でバイナリに変換されて処理される。</p>
 
@@ -137,7 +141,8 @@ echo $str;
 
 <p>Unicode文字列は<code>encode</code>メソッドでバイト列に変換でき、バイト列は<code>decode</code>メソッドでUnicode文字列に変換できる。</p>
 
-<p>文字列リテラルは、<code>'</code> または <code>"</code> で囲む。またはトリプルクオート <code>'''</code> または <code>"""</code> で囲む。トリプルクオートの中には改行をそのまま含めることもできる。複数行の<a href="../comment.html#python">コメント</a>をトリプルクオートの文字列で書くことがよくある。</p>
+<p>文字列をリテラルとしてソースコード中に書くには 
+<code>'</code> または <code>"</code> で囲む。またはトリプルクオート <code>'''</code> または <code>"""</code> で囲む。トリプルクオートの中には改行をそのまま含めることもできる。複数行の<a href="../comment.html#python">コメント</a>をトリプルクオートの文字列で書くことがよくある。</p>
 
 <p><code>'</code>, <code>"</code>, <code>'''</code>, <code>"""</code> の前に <code>r</code> または <code>R</code> をプレフィックスとしてつけると、
 raw文字列というものになり、バックスラッシュによるエスケープシーケンスが無効になる。</p>
@@ -190,10 +195,10 @@ p src.encoding
 
 <p>他の言語と違って、<code>'</code> または <code>"</code> のどちらで囲んでも途中に改行を入れることができる。</p>
 
-<p><code>'...'</code> の代わりに <code>%q(...)</code> も使える。
+<p><code>'...'</code> の代わりに <code>%q(...)</code> という表記も使える。
 <code>%q(...)</code> の中では <code>'</code> をエスケープする必要がないので、文字列の中に <code>'</code> がたくさんある場合には <code>%q(...)</code> のほうが便利。</p>
 
-<p><code>"..."</code> の代わりに <code>%Q(...)</code> も使える。
+<p>同様に <code>"..."</code> の代わりに <code>%Q(...)</code> という表記も使える。
 <code>%Q(...)</code> の中では <code>"</code> をエスケープする必要がないので、文字列の中に <code>"</code> がたくさんある場合には <code>%Q(...)</code> のほうが便利。</p>
 
 <p>例</p>
@@ -259,6 +264,9 @@ UTF8フラグがオフになっている。外界からの入力時に <code>dec
 
 <p>Encode | search.cpan.org<br />
 <a href="http://search.cpan.org/dist/Encode/Encode.pm" target="_blank">http://search.cpan.org/dist/Encode/Encode.pm</a></p>
+
+<p>ソースコード中に文字列リテラルを書くには、
+<code>'</code> または <code>"</code> で囲む。</p>
 
 <h2 id="258dd8e">sh
 <span class="article-date">2014/05/27</span></h2>
