@@ -103,12 +103,25 @@
 <a href="http://www.bookshelf.jp/texi/wget/wget-ja.html" target="_blank">http://www.bookshelf.jp/texi/wget/wget-ja.html</a></p>
 
 <h2 id="basic-auth">BASIC認証のあるサイトをダウンロードするには
-<span class="article-date">2013/04/12</span></h2>
+<span class="article-date">2014/06/04</span></h2>
+
+<p>オプション <code>--http-user</code>, <code>--http-passwd</code> を使って指定する。</p>
 
 <pre><code>wget --http-user=user --http-passwd=password http://www.example.com/
 </code></pre>
 
 <p>-&gt; <a href="curl.html#basic-auth"><code>curl</code>コマンドでのBASIC認証</a></p>
+
+<h2 id="793ef1a">ウェブページ1ページ分のHTMLと依存している画像やCSSやJSなどをまとめてダウンロードするには 
+<span class="article-date">2014/06/04</span></h2>
+
+<p>オプション <code>-p</code> を使うと参照されている画像やCSSやJSも合わせてダウンロードしてくれる。さらに <code>--convert-links</code> を指定すれば、HTMLからこれらへの参照が絶対パスになっていたとしても、相対パスに自動で変換してくれるので、ダウンロードしたHTMLをローカルで開くことができるようになる。</p>
+
+<pre><code>wget -p http://www.example.com/
+
+# HTMLはローカルで閲覧できるように、パスを相対パスに書き換える
+wget -p --convert-links [http://www.example.com/](http://www.example.com/)
+</code></pre>
 
 <h2 id="738dfa1">ウェブサイトを丸ごとダウンロードするには 
 <span class="article-date">2013/04/10</span></h2>
