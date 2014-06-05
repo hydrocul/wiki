@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>コマンドの使い方 | hydrocul のメモ</title>
+<title>trap コマンド | コマンドの使い方 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <span>コマンドの使い方</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方</a> &gt; <span>trap コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>コマンドの使い方
+  <li><a href="../commands/">コマンドの使い方</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
@@ -76,7 +76,7 @@
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
-      <li><a href="../commands/trap.html">trap コマンド</a></li>
+      <li>trap コマンド</li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -91,71 +91,49 @@
 </div>
 
 <div id="content">
-  <h1 id="commands">コマンドの使い方</h1>
+  <h1 id="trap">trap コマンド
+<span class="article-date">2014/06/05</span></h1>
 
-<h2 id="section">目次</h2>
+<p><code>trap</code>は外部コマンドではなく、shの組み込みコマンドで、シェルスクリプトがシグナルを受信したときの動作を設定するもの。シグナルの種類には番号がついていて、番号ごとに受信したときに実行するスクリプトを設定できる。</p>
 
-<ul>
-  <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
-  <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
-  <li><a href="../commands/awk.html">awk コマンド</a></li>
-  <li><a href="../commands/base64.html">base64 コマンド</a></li>
-  <li><a href="../commands/cat.html">cat コマンド</a></li>
-  <li><a href="../commands/cp.html">cp コマンド</a></li>
-  <li><a href="../commands/crontab.html">crontab コマンド</a></li>
-  <li><a href="../commands/curl.html">curl コマンド</a></li>
-  <li><a href="../commands/cut.html">cut コマンド</a></li>
-  <li><a href="../commands/date.html">date コマンド</a></li>
-  <li><a href="../commands/diff.html">diff コマンド</a></li>
-  <li><a href="../commands/du.html">du コマンド</a></li>
-  <li><a href="../commands/find.html">find コマンド</a></li>
-  <li><a href="../commands/git.html">git コマンド</a></li>
-  <li><a href="../commands/grep.html">grep コマンド</a></li>
-  <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
-  <li><a href="../commands/jhead.html">jhead コマンド</a></li>
-  <li><a href="../commands/less.html">less コマンド</a></li>
-  <li><a href="../commands/lftp.html">lftp コマンド</a></li>
-  <li><a href="../commands/lha.html">lha コマンド</a></li>
-  <li><a href="../commands/ls.html">ls コマンド</a></li>
-  <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
-  <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
-  <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
-  <li><a href="../commands/mosh.html">mosh コマンド</a></li>
-  <li><a href="../commands/netstat.html">netstat コマンド</a></li>
-  <li><a href="../commands/nkf.html">nkf コマンド</a></li>
-  <li><a href="../commands/od.html">od コマンド</a></li>
-  <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-  <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
-  <li><a href="../commands/ps.html">ps コマンド</a></li>
-  <li><a href="../commands/pstree.html">pstree コマンド</a></li>
-  <li><a href="../commands/rsync.html">rsync コマンド</a></li>
-  <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
-  <li><a href="../commands/sed.html">sed コマンド</a></li>
-  <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
-  <li><a href="../commands/siege.html">siege コマンド</a></li>
-  <li><a href="../commands/sort.html">sort コマンド</a></li>
-  <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
-  <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
-  <li><a href="../commands/ssh.html">ssh コマンド</a></li>
-  <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
-  <li><a href="../commands/svn.html">Subversion (svn)</a></li>
-  <li><a href="../commands/tac.html">tac コマンド</a></li>
-  <li><a href="../commands/tail.html">tail コマンド</a></li>
-  <li><a href="../commands/tar.html">tar コマンド</a></li>
-  <li><a href="../commands/tee.html">tee コマンド</a></li>
-  <li><a href="../commands/time.html">time コマンド</a></li>
-  <li><a href="../commands/tmux.html">tmux コマンド</a></li>
-  <li><a href="../commands/top.html">top コマンド</a></li>
-  <li><a href="../commands/touch.html">touch コマンド</a></li>
-  <li><a href="../commands/tr.html">tr コマンド</a></li>
-  <li><a href="../commands/trap.html">trap コマンド</a></li>
-  <li><a href="../commands/watch.html">watch コマンド</a></li>
-  <li><a href="../commands/wc.html">wc コマンド</a></li>
-  <li><a href="../commands/wget.html">wget コマンド</a></li>
-  <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
-  <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-  <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
-</ul>
+<p>例</p>
+
+<pre><code># SIGINTを受信したときに interrupted と表示して終了する
+trap "echo interrupted; exit 1" 2
+</code></pre>
+
+<p>シグナルの番号ごとに微妙に癖があるものがある。また本物のシグナルの他に擬似シグナルというのもある。</p>
+
+<h2 id="fe8b4c8">擬似シグナル ERR
+<span class="article-date">2014/06/05</span></h2>
+
+<p>実行したコマンドの終了コードが0以外だったときをトラップできる。途中で実行したすべてのコマンドで0以外だったものをすべてトラップされる。擬似シグナル <code>ERR</code> は <code>bash</code> 独自の機能みたい。</p>
+
+<p>コマンドすべてというわけではなく、<a href="../programming_languages_diff/control_flow/if.html#sh"><code>if</code>文</a>の条件式のコマンドは、0以外を返してもトラップしない。</p>
+
+<p>例</p>
+
+<pre><code>#!/bin/bash
+trap "echo err" ERR
+test 1 = 2
+if test 1 = 2; then
+    echo "message 1"
+fi
+echo "message 2"
+# 出力
+# err
+# message 2
+</code></pre>
+
+<p><code>trap</code> で指定するコードの中に <code>exit</code> を入れれば、そこでスクリプトが終了する。</p>
+
+<pre><code>#!/bin/bash
+trap "echo err; exit 1" ERR
+test 1 = 2
+echo "message"
+# 出力
+# err
+</code></pre>
 
 </div>
 
