@@ -104,12 +104,40 @@ trap "echo interrupted; exit 1" 2
 
 <p>シグナルの番号ごとに微妙に癖があるものがある。また本物のシグナルの他に擬似シグナルというのもある。</p>
 
+<h2 id="5174373">シグナル番号 0 または EXIT
+<span class="article-date">2014/05/31</span></h2>
+
+<p>擬似シグナル <code>EXIT</code> はスクリプトが終了するタイミングをトラップする。<code>0</code>と書いてもよい。</p>
+
+<p><code>trap</code> で指定するコードの中に <code>exit</code> で終了コードを指定すれば、スクリプト全体のもともとの終了コードが上書きされて、それに変わる。</p>
+
+<pre><code>trap "echo trap0" EXIT
+# または
+trap "echo trap0" 0
+
+# =&gt; 終了コード: 0
+
+trap "echo trap0" 0
+exit 1
+
+# =&gt; 終了コード: 1
+
+trap "echo trap0; exit 2" 0
+
+# =&gt; 終了コード: 2
+
+trap "echo trap0; exit 2" 0
+exit 1
+
+# =&gt; 終了コード: 2
+</code></pre>
+
 <h2 id="fe8b4c8">擬似シグナル ERR
 <span class="article-date">2014/06/05</span></h2>
 
 <p>実行したコマンドの終了コードが0以外だったときをトラップできる。途中で実行したすべてのコマンドで0以外だったものをすべてトラップされる。擬似シグナル <code>ERR</code> は <code>bash</code> 独自の機能みたい。</p>
 
-<p>コマンドすべてというわけではなく、<a href="../programming_languages_diff/control_flow/if.html#sh"><code>if</code>文</a>の条件式のコマンドは、0以外を返してもトラップしない。</p>
+<p>コマンドすべてというわけではなく、<a href="../programming_languages_diff/control_flow/if.html#sh"><code>if</code>文</a>の条件式にあるコマンドは、0以外を返してもトラップしない。</p>
 
 <p>例</p>
 

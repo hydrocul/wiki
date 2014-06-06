@@ -176,6 +176,15 @@ echo 'rnorm(n=100,mean=50,sd=10)' | R --vanilla --slave  | sed -e 's/^ \+\[[0-9]
 <pre><code>( echo "pid\tname\tthreads"; find /proc/[0-9]*/status | xargs grep -E '^(Name|Threads)' | perl -nle 'if (/^\/proc\/([0-9]+)\/.+:Name:\s+(.+)$/) { $p=$1; $n=$2 } elsif (/^\/proc\/([0-9]+)\/.+:Threads:\s+(.+)$/ &amp;&amp; $1==$p) { print "$p\t$n\t$2" }' )
 </code></pre>
 
+<h2 id="de31dad">Perlのワンライナーでタブ区切りファイル(TSV)を標準入力から受け付けるには
+<span class="article-date">2014/06/06</span></h2>
+
+<p>行を分割するオプション <code>-a</code> と、区切り文字を指定するオプション <code>-F</code> を付ける。スクリプトの中では配列 <code>@F</code> で参照する。<code>F</code>というのはフィールドの略かな。</p>
+
+<pre><code># タブ区切りの3カラム目だけを出力
+perl -F'\t' -nale 'print $F[2]'
+</code></pre>
+
 <h2 id="b96b86e">commandlinefu.com
 <span class="article-date">2013/04/23</span></h2>
 

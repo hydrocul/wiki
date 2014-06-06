@@ -76,6 +76,7 @@
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
+      <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -512,13 +513,27 @@ git read-tree -m -u HEAD
 
 <p>こうすると、<code>hoge</code>ディレクトリのみになる。<code>hoge</code>ディレクトリ自体がチェックアウトしたディレクトリのルートになるわけではなく、単にその他のディレクトリが削除されるだけである。おそらく<code>.git</code>ディレクトリにはすべてのファイルが保存されたままである。</p>
 
-<h2 id="7d19c3b">追跡するリモートブランチを追加するには
-<span class="article-date">2013/09/17</span></h2>
+<h2 id="dac3b99">追跡するリモートレポジトリを追加するには
+<span class="article-date">2014/06/06</span></h2>
 
 <pre><code>git remote add &lt;remote-name&gt; &lt;remote-repository-uri&gt;
 </code></pre>
 
-<p>&lt;remotename&gt; はワーキングディレクトリの中で通用するリモートブランチの名前。</p>
+<p>&lt;remotename&gt; はワーキングディレクトリの中で通用するリモートレポジトリの名前。</p>
+
+<h2 id="0d56ec0">追跡するリモートレポジトリの設定を削除するには
+<span class="article-date">2014/06/06</span></h2>
+
+<pre><code># git 1.8.1.2 では
+git remote remove &lt;remote-name&gt;
+
+# git 1.7.1 では
+git remote rm &lt;remote-name&gt;
+</code></pre>
+
+<p>上記のように環境によってコマンドが違っていたのだが、gitのバージョンによって違うのかな。</p>
+
+<p>&lt;remotename&gt; はリモートレポジトリの名前。リモートレポジトリ自体が削除されなくなるのではなく、ワーキングディレクトリがそのリモートリポジトリを追跡しなくなるだけ。</p>
 
 <h2 id="5b66da3"><code>clone</code>するときにリモートレポジトリの名前を <code>origin</code> 以外にするには
 <span class="article-date">2013/10/16</span></h2>

@@ -76,6 +76,7 @@
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
+      <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -91,11 +92,11 @@
 
 <div id="content">
   <h1 id="mktemp">mktemp コマンド
-<span class="article-date">2014/01/15</span></h1>
+<span class="article-date">2014/06/06</span></h1>
 
-<p>一時ファイルを作成するコマンド。デフォルトでは <code>/tmp</code> の中にファイルが生成されるが、セキュリティを考慮して自動でパーミッションが600になる。</p>
+<p>一時ファイルを作成するコマンド。デフォルトでは <code>/tmp</code> の中にファイルが生成されるが、セキュリティを考慮して自動でパーミッションが600になる。生成された一時ファイルはサイズ0で、一時ファイルのパスが出力されるので、シェルスクリプトの中では <code>TMP=\</code>mktemp`` のようにしてファイルパスを変数に保存して、あとはこのファイルを自由に書き込み／読み込みをすればよい。</p>
 
-<p><code>-d</code> をつけると一時ディレクトリを作成できる。このときのパーミッションは700になる。</p>
+<p><code>-d</code> をつけるとファイルの代わりにディレクトリを作成できる。このときのパーミッションは700になる。</p>
 
 <h2 id="4203faf">シェルスクリプトの中で一時ファイルを作って、スクリプト終了時に削除されるようにするには
 <span class="article-date">2014/05/03</span></h2>
