@@ -226,17 +226,19 @@ fi
 </code></pre>
 
 <h2 id="special-vars">特殊な変数
-<span class="article-date">2013/04/25</span></h2>
+<span class="article-date">2014/06/07</span></h2>
 
 <dl>
-  <dt><code>$*</code></dt>
-  <dd>シェルスクリプトに渡された引数。<code>"$*"</code> と書くと、引数が複数ある場合に、<code>"param1 param2 param3"</code> のように、全部をスペースでつなげた1つの文字列になる。</dd>
-  <dt><code>$@</code></dt>
-  <dd>シェルスクリプトに渡された引数。<code>"$@"</code> と書くと、引数が複数ある場合に、<code>"param1" "param2" "param3"</code> のようになる。</dd>
   <dt><code>$1</code>, <code>$2</code>, <code>$3</code>, …</dt>
   <dd>シェルスクリプトに渡された引数</dd>
   <dt><code>$0</code></dt>
   <dd>シェルスクリプトのファイル名</dd>
+  <dt><code>$*</code></dt>
+  <dd>シェルスクリプトに渡された引数。<code>"$*"</code> と書くと、引数が複数ある場合に、<code>"param1 param2 param3"</code> のように、全部をスペースでつなげた1つの文字列になる。
+<code>$0</code> は含まれない。</dd>
+  <dt><code>$@</code></dt>
+  <dd>シェルスクリプトに渡された引数。<code>"$@"</code> と書くと、引数が複数ある場合に、<code>"param1" "param2" "param3"</code> のようになる。
+<code>$0</code> は含まれない。</dd>
   <dt><code>$?</code></dt>
   <dd><a href="programming_languages_diff/process/exit_status.html#sh">最後に実行したコマンドの終了コード</a></dd>
   <dt><code>$!</code></dt>
@@ -252,11 +254,6 @@ fi
 </code></pre>
 
 <p>-&gt; <a href="programming_languages_diff/control_flow/while.html#sh">while文</a></p>
-
-<h2 id="1306241">zsh の分かりにくい記号、用語のまとめ
-<span class="article-date">2013/05/01</span></h2>
-
-<p><a href="http://qiita.com/items/26a9ddcb7470f539e575" target="_blank">http://qiita.com/items/26a9ddcb7470f539e575</a></p>
 
 <h2 id="b41b888">複数のコマンドを並べる記号 <code>;</code>, <code>&amp;</code>, <code>&amp;&amp;</code>, <code>||</code>
 <span class="article-date">2013/06/03</span></h2>
@@ -363,6 +360,37 @@ $ ls ^a.txt
 b.txt c.txt a.md b.md c.md
 $ ls ^*.txt
 a.md b.md c.md
+</code></pre>
+
+<h2 id="0bd500d">シェルスクリプトの中で実行するコマンドが異常終了したときにシェルスクリプトも終了させるには
+<span class="article-date">2014/06/06</span></h2>
+
+<p>シェルスクリプトの中で実行する一連のコマンドの中で、終了コードが0以外を返したコマンドがあった場合、その後続のコマンドを実行せずに、シェルスクリプト自体をその終了コードで終了させるには、シェルスクリプトの最初に <code>set -e</code> と書く。</p>
+
+<p>例</p>
+
+<pre><code>set -e
+echo "message 1"
+test 1 = 2
+echo "message 2"
+</code></pre>
+
+<p>これを実行すると、<code>test</code>コマンドで終了コード<code>1</code>を返すので、<code>message 1</code> とだけ表示して、
+<code>message 2</code> とは表示せずに、シェルスクリプト自体が終了コード<code>1</code>を返す。</p>
+
+<p>シェルスクリプトの中のすべてのコマンドではなく、特定のコマンドだけ異常終了を検知したければ、そのコマンドを実行した後の <code>$?</code> をチェックするか <code>||</code> で終了のコードを接続すればよい。</p>
+
+<pre><code>test 1 = 2
+RET=$?
+if [ $RET != 0 ]; then
+    echo $RET # 異常検知時になんらかのどうさをさせたければここに
+    exit $RET
+fi
+</code></pre>
+
+<p>または</p>
+
+<pre><code>test 1 = 2 || { RET=$?; echo $RET; exit $RET; }
 </code></pre>
 
 </div>
