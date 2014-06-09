@@ -226,11 +226,11 @@ fi
 </code></pre>
 
 <h2 id="special-vars">特殊な変数
-<span class="article-date">2014/06/07</span></h2>
+<span class="article-date">2014/06/08</span></h2>
 
 <dl>
   <dt><code>$1</code>, <code>$2</code>, <code>$3</code>, …</dt>
-  <dd>シェルスクリプトに渡された引数</dd>
+  <dd>シェルスクリプトに渡された引数。<code>shift</code> を呼び出すとずれていく。</dd>
   <dt><code>$0</code></dt>
   <dd>シェルスクリプトのファイル名</dd>
   <dt><code>$*</code></dt>
@@ -240,7 +240,7 @@ fi
   <dd>シェルスクリプトに渡された引数。<code>"$@"</code> と書くと、引数が複数ある場合に、<code>"param1" "param2" "param3"</code> のようになる。
 <code>$0</code> は含まれない。</dd>
   <dt><code>$#</code></dt>
-  <dd>シェルスクリプトに渡された引数の数。</dd>
+  <dd>シェルスクリプトに渡された引数の数。<code>shift</code> を呼び出すと1ずつ減っていく。</dd>
   <dt><code>$?</code></dt>
   <dd><a href="programming_languages_diff/process/exit_status.html#sh">最後に実行したコマンドの終了コード</a></dd>
   <dt><code>$!</code></dt>

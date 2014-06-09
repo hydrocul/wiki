@@ -76,6 +76,7 @@
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
+      <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -125,7 +126,7 @@ BASIC認証以外にはDigest認証、NTLM認証に対応している。</p>
 <p>SSLのリモートホストに接続するときにホストによってはこのエラーが出ることがあるので、その場合はオプション <code>--tlsv1</code> を付けるとよい。</p>
 
 <h2 id="8dbf5db">リクエストヘッダやレスポンスヘッダを表示するには
-<span class="article-date">2013/11/01</span></h2>
+<span class="article-date">2014/06/09</span></h2>
 
 <p><code>-v</code> を付けると、リクエストヘッダは <code>&gt;</code> で表示され、レスポンスヘッダは <code>&lt;</code> で表示される。</p>
 
@@ -148,8 +149,9 @@ BASIC認証以外にはDigest認証、NTLM認証に対応している。</p>
 &lt; Content-Type: text/html; charset=UTF-8
 </code></pre>
 
-<p><code>-I</code> を付けると、レスポンス本体を取得せずにレスポンスヘッダのみを表示する。
-<code>-I</code> は実際には、HTTPのHEADコマンドが発行されている。その様子は <code>-Iv</code> とすればわかる。</p>
+<p>リクエストヘッダが不要で単にレスポンスヘッダだけを見たい場合は <code>-I</code> でもいいかもしれない。
+<code>-I</code> は実際には、HTTPのHEADコマンドが発行されている。その様子は <code>-Iv</code> とすればわかる。
+HEADコマンドなので、GETとは違いレスポンス本体がないかもしれない。</p>
 
 <h2 id="773e799">POSTする本体を標準入力から取り込ませてそのままWebサーバにPOSTさせるには
 <span class="article-date">2013/11/12</span></h2>
