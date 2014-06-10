@@ -76,6 +76,7 @@
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
+      <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -91,10 +92,14 @@
 
 <div id="content">
   <h1 id="jhead">jhead コマンド
-<span class="article-date">2013/04/03</span></h1>
+<span class="article-date">2014/05/10</span></h1>
+
+<p>jpegファイルからExif情報を取得したり編集したりしてくれるコマンド。</p>
 
 <p>Exif Jpeg header manipulation tool<br />
 <a href="http://www.sentex.net/~mwandel/jhead/" target="_blank">http://www.sentex.net/~mwandel/jhead/</a></p>
+
+<p>ヘルプを表示したいときに <code>--help</code> では表示できず、<code>-h</code> にする必要がある。</p>
 
 <h2 id="2ac5898">インストール
 <span class="article-date">2013/12/30</span></h2>
@@ -110,6 +115,15 @@
 <span class="article-date">2013/04/03</span></h2>
 
 <pre><code>jhead -nf%Y-%m-%d-%H%M%S IMAG0000.jpg
+</code></pre>
+
+<h2 id="32eb581">Exif情報を削除するには
+<span class="article-date">2014/06/10</span></h2>
+
+<p>以下のようなコマンドでファイルからExif情報を完全に削除してくれる。ファイルを上書きで書き換えてしまうので注意！
+<code>-purejpg</code> のハイフンは1つだけ。</p>
+
+<pre><code>jhead -purejpg IMAG0000.jpg
 </code></pre>
 
 </div>

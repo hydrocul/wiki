@@ -166,11 +166,17 @@ print $s;
 </code></pre>
 
 <h2 id="70f39a9">JavaScript
-<span class="article-date">2013/04/10</span></h2>
+<span class="article-date">2014/06/10</span></h2>
 
-<pre><code>string.substring(from [, to])
-string.substr(from [, len])
+<p>例</p>
+
+<pre><code>var newStr = str.substring(from);
+var newStr = str.substring(from, to);
+var newStr = str.substr(from);
+var newStr = str.substr(from, len);
 </code></pre>
+
+<p><code>from</code>, <code>to</code>, <code>len</code> に範囲外の数字を与えてもエラーになったりはしない。</p>
 
 <h2 id="3bfba26">CoffeeScript
 <span class="article-date">2013/09/07</span></h2>
