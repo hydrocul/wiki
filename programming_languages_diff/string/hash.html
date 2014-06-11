@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>バイナリのハッシュを計算するには (md5) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>文字列</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>バイナリのハッシュを計算するには (md5)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,7 +24,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>文字列
+      <li><a href="../../programming_languages_diff/string/">文字列</a>
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
@@ -49,7 +49,7 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
-          <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5)</a></li>
+          <li>バイナリのハッシュを計算するには (md5)</li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -64,40 +64,45 @@
 </div>
 
 <div id="content">
-  <h1 id="string">文字列</h1>
+  <h1 id="hash">バイナリのハッシュを計算するには (md5)</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="598b4a0">Perl
+<span class="article-date">2014/06/10</span></h2>
 
-<ul>
-  <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
-  <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-  <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
-  <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
-  <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
-  <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
-  <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
-  <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
-  <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
-  <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
-  <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-  <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
-  <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
-  <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-  <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
-  <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
-  <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
-  <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-  <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-  <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
-  <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5)</a></li>
-  <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
-  <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-  <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
-</ul>
+<p><code>Digest::MD5</code> モジュールの <code>md5_hex</code> 関数はバイナリからMD5を計算し、16進数表記にしたものを返す。同じモジュールの <code>md5</code> 関数はMD5を計算し、結果のバイナリをそのまま帰す。</p>
+
+<p>以下はMD5を計算する例。</p>
+
+<pre><code>use utf8;
+use Encode qw/encode/;
+use Digest::MD5 qw/md5_hex/;
+
+# md5関数は計算結果のバイナリそのまま返すので print しようとするとターミナルが文字化けする
+# print md5(encode('utf-8', "あいうえお"));
+
+print md5_hex(encode('utf-8', "あいうえお"));
+# =&gt; 86deb27a32903da70a7b2348fcf36bc3
+</code></pre>
+
+<p>MD5はバイナリを元に計算するので、文字列は<code>encode</code>関数でバイナリに変換する必要がある。</p>
+
+<h2 id="9e61812">PHP
+<span class="article-date">2014/06/10</span></h2>
+
+<p><code>md5</code> という標準の関数でMD5を計算できる。</p>
+
+<pre><code>echo md5("あいうえお");
+// =&gt; 86deb27a32903da70a7b2348fcf36bc3
+</code></pre>
+
+<h2 id="cf20ce5">sh
+<span class="article-date">2014/06/10</span></h2>
+
+<p>以下のように <a href="../../commands/md5sum.html"><code>md5sum</code> コマンド</a>でMD5を計算できる。</p>
+
+<pre><code>$ echo -n "あいうえお" | md5sum
+86deb27a32903da70a7b2348fcf36bc3  -
+</code></pre>
 
 </div>
 
