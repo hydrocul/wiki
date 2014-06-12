@@ -39,7 +39,10 @@
 </div>
 
 <div id="content">
-  <h1 id="multiple-assignment">複数の値をまとめて代入(多重代入)</h1>
+  <h1 id="multiple-assignment">複数の値をまとめて代入(多重代入)
+<span class="article-date">2014/06/11</span></h1>
+
+<p>代入文の左辺と右辺に複数の変数や式を書くことで、1つの代入文でまとめて複数の代入を実行できるものを言語によっては多重代入という。名称は言語によって違うかもしれないが、似たような仕組みがいくつかの言語にある。</p>
 
 <h2 id="8c73cbd">Scala
 <span class="article-date">2013/09/20</span></h2>
@@ -176,6 +179,28 @@ a, b, *c = 1, *[2, 3, 4]
 print a # =&gt; 1
 print b # =&gt; 2
 print c # =&gt; [3, 4]
+</code></pre>
+
+<h2 id="082f337">Perl
+<span class="article-date">2014/06/11</span></h2>
+
+<p>左辺の複数の変数名を <code>()</code> で囲んで、右辺にリストを書けば、それぞれを代入できる。<code>my</code> を書けば変数の宣言も兼ねることができる。</p>
+
+<pre><code>my @arr = (10, 20, 30);
+my ($a, $b, $c) = @arr;
+# $a =&gt; 10
+# $b =&gt; 20
+# $c =&gt; 30
+
+my @arr = (10, 20, 30);
+my ($a, $b) = @arr;
+# $a =&gt; 10
+# $b =&gt; 20
+
+my @arr = (10, 20, 30);
+my ($a, @b) = @arr;
+# $a =&gt; 10
+# $b =&gt; (20, 30)
 </code></pre>
 
 </div>
