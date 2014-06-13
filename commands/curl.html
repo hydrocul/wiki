@@ -203,6 +203,17 @@ curl -b cookie.txt [http://www.example.com/](http://www.example.com/)
 fi
 </code></pre>
 
+<h2 id="0084d64">SSLのエラーを無視するには
+<span class="article-date">2014/06/13</span></h2>
+
+<p>SSL証明書に書いてあるホスト名と実際のアクセスしているホスト名が違っていたりして、
+SSLのエラーが発生してしまう場合は、オプション <code>-k</code> を付けて、エラーを無視させれば良い。</p>
+
+<p>例</p>
+
+<pre><code>curl -k 'http://192.168...../'
+</code></pre>
+
 </div>
 
 <footer>
