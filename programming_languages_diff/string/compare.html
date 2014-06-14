@@ -49,6 +49,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -116,13 +118,23 @@ Javaの <code>equals</code> を呼び出している。</p>
 <code>&lt;=&gt;</code> は<a href="../number/compare.html">数値の比較</a>と同じで、大小関係によって <code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す。</p>
 
 <h2 id="bf47d7f">Perl
-<span class="article-date">2013/09/10</span></h2>
+<span class="article-date">2014/06/14</span></h2>
 
 <p><code>eq</code> は等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>ne</code> はその反対。</p>
 
 <p><code>gt</code>, <code>ge</code>, <code>lt</code>, <code>le</code> もある。</p>
 
+<p><code>cmp</code> <code>&lt;=&gt;</code> はRubyの <code>&lt;=</code> と同じで、大小関係によって <code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す。</p>
+
+<pre><code>print ("abc" cmp "def"); # =&gt; -1
+print ("abc" cmp "DEF"); # =&gt; 1
+print ("def" cmp "def"); # =&gt; 0
+print ("xyz" cmp "def"); # =&gt; 1
+</code></pre>
+
 <p><code>==</code> や <code>&lt;</code> などは数値として比較してしまうので注意。</p>
+
+<p><a href="match.html#perl">正規表現とのマッチングができる <code>=~</code> や <code>!~</code> という演算子</a>もある。</p>
 
 <h2 id="f3384ef">sh
 <span class="article-date">2013/09/25</span></h2>
