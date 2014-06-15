@@ -47,6 +47,7 @@
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
@@ -75,6 +76,7 @@
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
+      <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li>wc コマンド</li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -115,6 +117,18 @@
   <dt><code>-c</code></dt>
   <dd>バイト数を数える。最後に改行がある場合はそれも数える。</dd>
 </dl>
+
+<h2 id="c03403e">標準入力の行数を数えるには
+<span class="article-date">2014/06/14</span></h2>
+
+<pre><code>cat example.txt | wc -l
+</code></pre>
+
+<p>ちなみにPerlのワンライナーを使いたければ、<code>$.</code> という暗黙の変数が便利。
+<code>$.</code> は最後に読み込んだファイルハンドルの現在の行番号を表す。以下のように使える。</p>
+
+<pre><code>perl -nle 'END {print $.}'
+</code></pre>
 
 </div>
 

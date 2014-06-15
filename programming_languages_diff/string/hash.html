@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>バイナリのハッシュを計算するには (md5) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>バイナリのハッシュを計算するには (md5, sha1) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>バイナリのハッシュを計算するには (md5)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>バイナリのハッシュを計算するには (md5, sha1)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -49,7 +49,7 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
-          <li>バイナリのハッシュを計算するには (md5)</li>
+          <li>バイナリのハッシュを計算するには (md5, sha1)</li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -64,7 +64,38 @@
 </div>
 
 <div id="content">
-  <h1 id="hash">バイナリのハッシュを計算するには (md5)</h1>
+  <h1 id="hash">バイナリのハッシュを計算するには (md5, sha1)
+<span class="article-date">2014/06/14</span></h1>
+
+<p>メッセージダイジェストを計算する方法。</p>
+
+<h2 id="073b519">Python
+<span class="article-date">2014/06/14</span></h2>
+
+<p>Python2での例</p>
+
+<pre><code>import hashlib
+
+print hashlib.md5("あいうえお").hexdigest()
+# =&gt; 86deb27a32903da70a7b2348fcf36bc3
+
+print hashlib.sha1("あいうえお").hexdigest()
+# =&gt; 4ab0856318af20fa77d4492684fb8d9789e00cb6
+</code></pre>
+
+<p>Python3での例</p>
+
+<pre><code>import hashlib
+
+print(hashlib.md5("あいうえお".encode('utf-8')).hexdigest())
+# =&gt; 86deb27a32903da70a7b2348fcf36bc3
+
+print(hashlib.sha1("あいうえお".encode('utf-8')).hexdigest())
+# =&gt; 4ab0856318af20fa77d4492684fb8d9789e00cb6
+</code></pre>
+
+<p><code>hashlib</code> モジュール | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/library/hashlib.html" target="_blank">http://docs.python.jp/2/library/hashlib.html</a></p>
 
 <h2 id="598b4a0">Perl
 <span class="article-date">2014/06/10</span></h2>
@@ -96,12 +127,16 @@ print md5_hex(encode('utf-8', "あいうえお"));
 </code></pre>
 
 <h2 id="cf20ce5">sh
-<span class="article-date">2014/06/10</span></h2>
+<span class="article-date">2014/06/14</span></h2>
 
-<p>以下のように <a href="../../commands/md5sum.html"><code>md5sum</code> コマンド</a>でMD5を計算できる。</p>
+<p>以下のように <a href="../../commands/md5sum.html"><code>md5sum</code> コマンド</a>でMD5を計算でき、
+<a href="../../commands/sha1sum.html"><code>sha1sum</code> コマンド</a>でSHA1を計算できる。</p>
 
 <pre><code>$ echo -n "あいうえお" | md5sum
 86deb27a32903da70a7b2348fcf36bc3  -
+
+$ echo -n "あいうえお" | sha1sum
+4ab0856318af20fa77d4492684fb8d9789e00cb6  -
 </code></pre>
 
 </div>
