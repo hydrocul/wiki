@@ -129,7 +129,7 @@ if ($fh) {
 <pre><code>for line in open('./hoge.txt', 'r').readlines():
 </code></pre>
 
-<p>メソッドを書かない最初の例では<code>open</code>メソッドが返すファイルオブジェクトがイテレータ型であることを利用している。イテレータ型であるのでリストのない方表記に使うこともできる。</p>
+<p>メソッドを書かない最初の例では<code>open</code>メソッドが返すファイルオブジェクトがイテレータ型であることを利用している。イテレータ型であるのでリストの内包表記に使うこともできる。</p>
 
 <pre><code>lines = [line for line in open('./hoge.txt')]
 </code></pre>

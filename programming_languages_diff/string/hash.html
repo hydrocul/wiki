@@ -65,9 +65,45 @@
 
 <div id="content">
   <h1 id="hash">バイナリのハッシュを計算するには (md5, sha1)
-<span class="article-date">2014/06/14</span></h1>
+<span class="article-date">2014/06/17</span></h1>
 
-<p>メッセージダイジェストを計算する方法。</p>
+<p>いろいろな言語でMD5やSHA1などのメッセージダイジェストを計算する方法。</p>
+
+<h2 id="071e744">Scala
+<span class="article-date">2014/06/17</span></h2>
+
+<p>Javaの <code>java.securitiy.MessageDigest</code> で計算できる。</p>
+
+<pre><code>val digest = java.security.MessageDigest.getInstance("MD5");
+val hash = digest.digest("あいうえお".getBytes("UTF-8"));
+val hashStr = hash.map { b =&gt; "%02x".format(b); }.mkString;
+println(hashStr);
+// =&gt; 86deb27a32903da70a7b2348fcf36bc3
+
+val digest = java.security.MessageDigest.getInstance("SHA1");
+val hash = digest.digest("あいうえお".getBytes("UTF-8"));
+val hashStr = hash.map { b =&gt; "%02x".format(b); }.mkString;
+println(hashStr);
+// =&gt; 4ab0856318af20fa77d4492684fb8d9789e00cb6
+</code></pre>
+
+<h2 id="9e61812">PHP
+<span class="article-date">2014/06/17</span></h2>
+
+<p><code>md5</code> や <code>sha1</code> という標準の関数で計算できる。</p>
+
+<pre><code>echo md5("あいうえお");
+// =&gt; 86deb27a32903da70a7b2348fcf36bc3
+
+echo sha1("あいうえお");
+// =&gt; 4ab0856318af20fa77d4492684fb8d9789e00cb6
+</code></pre>
+
+<p><code>md5</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net//manual/ja/function.md5.php" target="_blank">http://www.php.net//manual/ja/function.md5.php</a></p>
+
+<p><code>sha1</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net//manual/ja/function.sha1.php" target="_blank">http://www.php.net//manual/ja/function.sha1.php</a></p>
 
 <h2 id="073b519">Python
 <span class="article-date">2014/06/14</span></h2>
@@ -116,15 +152,6 @@ print md5_hex(encode('utf-8', "あいうえお"));
 </code></pre>
 
 <p>MD5はバイナリを元に計算するので、文字列は<code>encode</code>関数でバイナリに変換する必要がある。</p>
-
-<h2 id="9e61812">PHP
-<span class="article-date">2014/06/10</span></h2>
-
-<p><code>md5</code> という標準の関数でMD5を計算できる。</p>
-
-<pre><code>echo md5("あいうえお");
-// =&gt; 86deb27a32903da70a7b2348fcf36bc3
-</code></pre>
 
 <h2 id="cf20ce5">sh
 <span class="article-date">2014/06/14</span></h2>
