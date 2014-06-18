@@ -124,7 +124,7 @@ else
   ...;
 </code></pre>
 
-<p>Scalaのようにif文自体が値を返すことはできない。</p>
+<p>Scalaのように<code>if</code>文自体が値を返すことはできない。</p>
 
 <h2 id="scala">Scala
 <span class="article-date">2013/07/07</span></h2>
@@ -200,8 +200,8 @@ endif;
 {/if}
 </code></pre>
 
-<h2 id="a62547b">Python
-<span class="article-date">2014/03/25</span></h2>
+<h2 id="python">Python
+<span class="article-date">2014/06/18</span></h2>
 
 <pre><code>if ...:
     ...
@@ -219,6 +219,18 @@ else:
 else:
     ...
 </code></pre>
+
+<p><code>if</code>を以下のように書くと結果を返すことができるので、
+<a href="../operator/ternary.html">三項演算子</a>のように使える。この <code>if</code> をPythonでは条件演算子という。</p>
+
+<pre><code>max = a if a &gt; b else b
+</code></pre>
+
+<p>条件演算子 | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/reference/expressions.html#conditional-expressions" target="_blank">http://docs.python.jp/2/reference/expressions.html#conditional-expressions</a></p>
+
+<p>条件演算子 | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/reference/expressions.html#conditional-expressions" target="_blank">http://docs.python.jp/3/reference/expressions.html#conditional-expressions</a></p>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/05/20</span></h2>
@@ -267,8 +279,7 @@ end
 <p><code>unless</code> にも<code>else</code>節を付けられるがわかりづらいので使わないほうがよい。
 <code>elsunless</code> というのはない。</p>
 
-<p>RubyではScalaと同じく <code>if</code> は結果を返すことができるので以下のように
-<a href="../operator/ternary.html">三項演算子</a>の代わりとしても使える。ただし、ネストしていないなどシンプルな構造の場合は素直に三項演算子のほうがわかりやすい。</p>
+<p>RubyではScalaと同じく <code>if</code> は結果を返すことができるので、以下のように<a href="../operator/ternary.html">三項演算子</a>の代わりとしても使える。ただし、ネストしていないなどシンプルな構造の場合は素直に三項演算子のほうがわかりやすい。</p>
 
 <pre><code>max = if a &gt; b
         a
