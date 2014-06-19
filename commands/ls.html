@@ -76,6 +76,7 @@
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
+      <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -98,6 +99,20 @@
 <p>JavaやRubyなどの中でファイル一覧を取得する方法は
 <a href="../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得する方法</a>
 参照。</p>
+
+<h2 id="f18bf0d">オプション
+<span class="article-date">2014/06/18</span></h2>
+
+<dl>
+  <dt><code>-a</code></dt>
+  <dd>ファイル名がドットで始まるものも含めてすべてを表示。
+これを付けないと隠しファイル(=ファイル名がドットで始まるもの)は表示されない</dd>
+  <dt><code>-l</code></dt>
+  <dd>ファイル名だけでなくタイムスタンプやパーミッションの情報も表示</dd>
+  <dt><code>-f</code></dt>
+  <dd>ファイル名でのソートをしない。ディレクトリにあまりに大量のファイルがある場合に、
+これを付けると、表示速度がましになる。<code>-l</code> との両立ができないみたい。</dd>
+</dl>
 
 <h2 id="89213c2">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには
 <span class="article-date">2013/10/12</span></h2>
