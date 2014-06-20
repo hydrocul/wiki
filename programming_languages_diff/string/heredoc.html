@@ -49,6 +49,7 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -197,7 +198,7 @@ bar
 <p>上記の例で1行目にバックスラッシュがあるのは最初の改行を文字列に含めないようにするため。</p>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/03/02</span></h2>
+<span class="article-date">2014/06/19</span></h2>
 
 <p>例</p>
 
@@ -220,6 +221,21 @@ EOS
 <p><code>&lt;&lt;EOS</code>の<code>EOS</code>の部分を終端識別子と言い、裸のままにするかダブルクオートで囲むと、普通のダブルクオートで囲んだ文字列と同様に中の<a href="inline.html#perl">変数名が展開</a>される。シングルクオートで囲めば、普通のシングルクオートで囲んだ文字列と同様に変数名は展開されない。</p>
 
 <p>ヒアドキュメントがファイルの最後まで続くからといって終端の識別子を省略すると、エラーになってしまう。</p>
+
+<p>ファイルの最後にテキストデータを置きたい場合は、ヒアドキュメントの代わりに <code>__DATA__</code> を使うとよい。
+<code>__DATA__</code> とだけ書いた行があると、そこでperlのソースコードが終了しているものとみなし、かつその次の行からは <code>main::DATA</code> というファイルハンドルで読み出すことができる。</p>
+
+<p>例</p>
+
+<pre><code>print foreach (&lt;main::DATA&gt;);
+
+__DATA__
+Hello
+World!
+</code></pre>
+
+<p><code>__DATA__</code> | perldoc.jp<br />
+<a href="http://perldoc.jp/docs/perl/5.18.1/perldata.pod#Special32Literals" target="_blank">http://perldoc.jp/docs/perl/5.18.1/perldata.pod#Special32Literals</a></p>
 
 <h2 id="96fbf7a">sh
 <span class="article-date">2014/03/01</span></h2>

@@ -61,14 +61,14 @@ default:
 }
 </code></pre>
 
-<p><code>break</code> を書かないとswitch文から脱出せずに次のラベルを引き続き実行してしまう。(fall through)</p>
+<p><code>break</code> を書かないと<code>switch</code>文から脱出せずに次のラベルを引き続き実行してしまう。(fall through)</p>
 
 <p><a href="../enum/overview.html#c"><code>enum</code>型</a>も使える。</p>
 
 <h2 id="java">Java
 <span class="article-date">2013/08/20</span></h2>
 
-<p>C言語ライクのswitch文を使える。</p>
+<p>C言語ライクの<code>switch</code>文を使える。</p>
 
 <pre><code>switch(x){
 case 1:
@@ -83,7 +83,7 @@ default:
 }
 </code></pre>
 
-<p><code>break</code> を書かないとswitch文から脱出せずに次のラベルを引き続き実行してしまう。(fall through)</p>
+<p><code>break</code> を書かないと<code>switch</code>文から脱出せずに次のラベルを引き続き実行してしまう。(fall through)</p>
 
 <p><code>x</code> には、<code>byte</code>, <code>short</code>, <code>char</code>, <code>int</code>, <code>Byte</code>, <code>Short</code>, <code>Character</code>, <code>Integer</code>,
 <a href="../enum/overview.html#java"><code>enum</code></a>, <code>String</code> が使える。</p>
@@ -97,7 +97,9 @@ default:
 <p><code>Byte</code>, <code>Short</code>, <code>Character</code>, <code>Integer</code> が使えるのは、たぶん autoboxing が導入された Java5 から。</p>
 
 <h2 id="e18a45b">Scala
-<span class="article-date">2013/09/11</span></h2>
+<span class="article-date">2014/06/19</span></h2>
+
+<p>C言語ライクの構文はないが、より強力な<code>match</code>式がある。</p>
 
 <pre><code>x match {
   case 1 =&gt;
@@ -161,10 +163,10 @@ endswitch;
 <h2 id="b1c5737">Python
 <span class="article-date">2013/12/18</span></h2>
 
-<p>Pythonにはswitch構文はない。</p>
+<p>Pythonには<code>switch</code>構文はない。</p>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/02/20</span></h2>
+<span class="article-date">2014/06/19</span></h2>
 
 <pre><code>case x
 when 1
@@ -178,6 +180,8 @@ end
 
 <p><code>when</code>節で条件にマッチするかどうかの判定は 
 <a href="../class/compare.html#ruby"><code>===</code> 演算子</a>が使われる。</p>
+
+<p>C言語のような fall through は発生しない。</p>
 
 <h2 id="5913ed5">Perl
 <span class="article-date">2013/09/28</span></h2>
