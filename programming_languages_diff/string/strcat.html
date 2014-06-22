@@ -49,6 +49,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li>文字列の連結をするには (strcat)</li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -164,7 +166,7 @@ print(12 + int("42"))
 </code></pre>
 
 <h2 id="ae5553e">Ruby
-<span class="article-date">2014/01/13</span></h2>
+<span class="article-date">2014/06/21</span></h2>
 
 <p>例</p>
 
@@ -177,7 +179,16 @@ print(12 + int("42"))
 
 <pre><code>str = 'abc'
 str.concat('def')
+puts str
+# =&gt; abcdef
+</code></pre>
 
+<p><code>concat</code> の代わりに <code>&lt;&lt;</code> でも同じで破壊的に文字列を連結する。</p>
+
+<p>例</p>
+
+<pre><code>str = 'abc'
+str &lt;&lt; 'def'
 puts str
 # =&gt; abcdef
 </code></pre>
