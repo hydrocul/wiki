@@ -72,7 +72,7 @@
 <p>関数の中や <code>if</code> や <code>for</code> などのブロックの中など、だいたい <code>{}</code> で新しいスコープが作成される。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2014/06/21</span></h2>
+<span class="article-date">2014/06/23</span></h2>
 
 <p>変数の宣言というのはなく、変数への代入があるとローカル変数が作られる。</p>
 
@@ -83,13 +83,19 @@
 <p><code>global</code> | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.variables.scope.php#language.variables.scope.global" target="_blank">http://www.php.net/manual/ja/language.variables.scope.php#language.variables.scope.global</a></p>
 
+<p>グローバル変数は <code>global</code> 宣言しなくても、 <code>$GLOBALS</code> という変数で参照することもできる。</p>
+
+<p><code>$GLOBALS</code> | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/reserved.variables.globals.php" target="_blank">http://www.php.net/manual/ja/reserved.variables.globals.php</a></p>
+
 <p><code>global</code> での宣言は実際にはグローバル変数へのレファレンスをローカルに作成するのと同じである。</p>
 
 <p><code>global</code> リファレンス | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.references.spot.php#references.global" target="_blank">http://www.php.net/manual/ja/language.references.spot.php#references.global</a></p>
 
 <p>スーパーグローバル変数と呼ばれるものは、
-<code>global</code> で宣言しなくても関数の中から使える。</p>
+<code>global</code> で宣言しなくても関数の中から使える。
+<code>$GLOBALS</code> という変数自体もスーパーグローバル変数である。</p>
 
 <p>スーパーグローバル | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.variables.superglobals.php" target="_blank">http://www.php.net/manual/ja/language.variables.superglobals.php</a></p>
