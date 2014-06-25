@@ -65,6 +65,20 @@
 
 <p>以下は、標準出力・標準エラー出力に出力する方法。</p>
 
+<h2 id="46c5ab0">C言語
+<span class="article-date">2014/06/24</span></h2>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+/* 標準出力 */
+puts("OK");
+
+/* 標準エラー出力 */
+fputs("Error\n", stderr);
+</code></pre>
+
+<p><code>puts</code> は最後に改行してくれるのに <code>fputs</code> はなぜしてくれないんだろう？</p>
+
 <h2 id="9e7969c">Java
 <span class="article-date">2014/05/05</span></h2>
 
