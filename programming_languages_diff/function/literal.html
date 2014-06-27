@@ -147,7 +147,7 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 <p>式の中のそれぞれの <code>_</code> が引数になるので、上記の場合は2引数の関数となる。この書き方だと各引数は1回しか式の中に登場できず、引数の順番は、式の中の <code>_</code> と同じ順番になる。</p>
 
 <h2 id="3b01008">PHP
-<span class="article-date">2014/05/16</span></h2>
+<span class="article-date">2014/06/26</span></h2>
 
 <p>PHP5.3以降で使える無名関数の例</p>
 
@@ -160,8 +160,13 @@ $f("Hello");
 <p>無名関数を宣言している外側の変数を無名関数の中から参照・代入するには、
 <code>use</code> で宣言する必要がある。代入する場合はさらに <code>&amp;</code> を付ける。</p>
 
+<p>無名関数は<code>Closure</code>クラスのインスタンスになる。</p>
+
 <p>無名関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/functions.anonymous.php" target="_blank">http://www.php.net/manual/ja/functions.anonymous.php</a></p>
+
+<p><code>Closure</code> クラス | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/class.closure.php" target="_blank">http://www.php.net/manual/ja/class.closure.php</a></p>
 
 <p>無名関数の他に、可変関数という、関数名の文字列が入った変数からその関数を呼び出す仕組みがある。</p>
 
