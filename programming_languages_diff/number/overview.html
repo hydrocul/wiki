@@ -121,7 +121,7 @@ Python3で <code>L</code> を付けると <code>SyntaxError</code> になる。<
 <a href="http://docs.python.jp/3/reference/lexical_analysis.html#numbers" target="_blank">http://docs.python.jp/3/reference/lexical_analysis.html#numbers</a></p>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/02/15</span></h2>
+<span class="article-date">2014/06/29</span></h2>
 
 <p>整数は <code>Fixnum</code> と <code>Bignum</code> というクラスがあるが、普段はそれらのスーパークラスである <code>Integer</code> として認識すればよい。小さい整数は <code>Fixnum</code> になり、大きすぎてオーバーフローしてしまう場合は自動で <code>Bignum</code> になる。</p>
 
@@ -164,6 +164,10 @@ p f.class.superclass
 
 <p>Ruby 2.1からは<code>r</code>サフィックスを使った有理数(<code>Rational</code>型)や、
 <code>i</code>サフィックスを使った複素数(<code>Complex</code>型)を書くこともできる。</p>
+
+<p><code>Integer</code>/<code>Float</code>の区別を動的に行うには、メソッド <code>is_a?</code> を使うとよい。</p>
+
+<p>-&gt; <a href="../class/instance-of.html#ruby">クラスを動的に判定するには</a></p>
 
 <h2 id="perl">Perl
 <span class="article-date">2014/02/06</span></h2>

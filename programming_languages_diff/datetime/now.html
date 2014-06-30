@@ -45,11 +45,20 @@
   <h1 id="now">今日の日付を取得するには／現在時刻を取得するには</h1>
 
 <h2 id="ab4a8d0">PHP
-<span class="article-date">2013/06/11</span></h2>
+<span class="article-date">2014/06/30</span></h2>
 
 <pre><code># 現在日時を YYYY/MM/DD hh:mm:ss の書式の文字列で取得する
-date('Y/m/d H:i:s');
+$now = date('Y/m/d H:i:s');
+
+# 現在日時を DateTime クラスのインスタンスで取得する
+$now = new DateTime();
 </code></pre>
+
+<p><code>date</code> 関数 | PHP Manual<br />
+<a href="http://jp2.php.net/manual/ja/function.date.php" target="_blank">http://jp2.php.net/manual/ja/function.date.php</a></p>
+
+<p><code>DateTime::__construct</code> | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/datetime.construct.php" target="_blank">http://www.php.net/manual/ja/datetime.construct.php</a></p>
 
 <h2 id="2fb3e16">Ruby
 <span class="article-date">2013/06/19</span></h2>

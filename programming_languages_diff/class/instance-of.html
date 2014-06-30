@@ -104,13 +104,26 @@ var_export(is_int($x)); // =&gt; true
   <dd>配列かどうか</dd>
 </dl>
 
-<h2 id="ab12dba">Ruby
-<span class="article-date">2013/06/18</span></h2>
+<h2 id="ruby">Ruby
+<span class="article-date">2014/06/29</span></h2>
 
-<pre><code>num.is_a?(Integer)
-str.is_a?(String)
-arr.is_a?(Array)
-hash.is_a?(Hash)
+<p><code>is_a?</code> メソッドを使うとクラスを判定できる。</p>
+
+<pre><code>num.is_a?(Integer) # 整数かどうか
+str.is_a?(String)  # 文字列かどうか
+arr.is_a?(Array)   # 配列かどうか
+hash.is_a?(Hash)   # ハッシュかどうか
+</code></pre>
+
+<p>例</p>
+
+<pre><code>x = 1
+p x.is_a?(Integer) # =&gt; true
+p x.is_a?(Float)   # =&gt; false
+
+x = 1.0
+p x.is_a?(Integer) # =&gt; false
+p x.is_a?(Float)   # =&gt; true
 </code></pre>
 
 <h2 id="f0e5baa">Perl

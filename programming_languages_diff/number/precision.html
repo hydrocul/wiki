@@ -48,7 +48,7 @@
   <h1 id="precision">浮動小数点数の精度</h1>
 
 <h2 id="dbd5840">PHP
-<span class="article-date">2013/09/21</span></h2>
+<span class="article-date">2014/06/29</span></h2>
 
 <p>以下は私のPHP 5.3.10 の環境で実行した結果。</p>
 
@@ -62,8 +62,10 @@ echo 1e-323;              // 9.8813129168249E-324
 echo 1e-324;              // 0
 </code></pre>
 
+<p>2行目の <code>1.0 + 1e-14</code> は <code>1</code> と表示されるが、そこから <code>1.0</code> を引いても <code>0</code> にならないことから、内部では情報落ちせずに <code>1e-14</code> の情報も保持できていて、文字列に変換する際に丸められるだけのようである。</p>
+
 <h2 id="2a3d7bd">Python
-<span class="article-date">2013/09/21</span></h2>
+<span class="article-date">2014/06/29</span></h2>
 
 <p>以下は私のPython 2.7.3 の環境で実行した結果。</p>
 
@@ -75,6 +77,23 @@ print 1e308;               # 1e+308
 print 1e309;               # inf
 print 1e-323;              # 9.88131291682e-324
 print 1e-324;              # 0.0
+</code></pre>
+
+<p>2行目の <code>1.0 + 1e-12</code> は <code>1</code> と表示されるが、そこから <code>1.0</code> を引いても <code>0</code> にならないことから、内部では情報落ちせずに <code>1e-12</code> の情報も保持できていて、文字列に変換する際に丸められるだけのようである。</p>
+
+<h2 id="8b7cae3">Ruby
+<span class="article-date">2014/06/29</span></h2>
+
+<p>以下は私のRuby 1.9.3p429 の環境で実行した結果。</p>
+
+<pre><code>p 1.0 + 1e-15         # 1.000000000000001
+p 1.0 + 1e-16         # 1.0
+p (1.0 + 1e-15) - 1.0 # 1.1102230246251565e-15
+p (1.0 + 1e-16) - 1.0 # 0.0
+p 1e308               # 1.0e+308
+p 1e309               # Infinity
+p 1e-323              # 1.0e-323
+p 1e-324              # 0.0
 </code></pre>
 
 <h2 id="3c6e02a">Perl
