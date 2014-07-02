@@ -72,6 +72,27 @@ long interval = end - start;
 System.out.println(interval + "ナノ秒");
 </code></pre>
 
+<h2 id="dc93706">Python
+<span class="article-date">2014/07/01</span></h2>
+
+<p>例</p>
+
+<pre><code>import time
+
+starttime = time.time()
+
+# ここでなんらかの処理
+
+endtime = time.time()
+interval = starttime - endtime
+print(str(interval) + "秒")
+</code></pre>
+
+<p><code>time.time()</code> はエポックからの時間を秒単位で浮動小数点数で返す。</p>
+
+<p><code>time.time()</code> | Python 3 documentation<br />
+<a href="http://docs.python.jp/3.3/library/time.html#time.time" target="_blank">http://docs.python.jp/3.3/library/time.html#time.time</a></p>
+
 <h2 id="ea5cab4">Ruby
 <span class="article-date">2013/09/01</span></h2>
 
