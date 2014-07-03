@@ -59,9 +59,11 @@
 
 <div id="content">
   <h1 id="flush">出力をフラッシュするには (flush)
-<span class="article-date">2013/08/17</span></h1>
+<span class="article-date">2014/07/02</span></h1>
 
 <p>プログラムが出力したものの、OSなどがバッファリングをしていて実際にはまだ出力されていないものを出力させる方法。</p>
+
+<p>標準出力への出力は改行ごとに自動でフラッシュされるが、標準出力がパイプで別のプロセスにつながっている場合にはある程度の長さのバッファリングを自動で行われているプログラミング言語が多い。</p>
 
 <h2 id="8e1057c">Java
 <span class="article-date">2014/01/05</span></h2>
@@ -72,6 +74,15 @@ System.out.flush();
 # 標準エラー出力をflush
 System.err.flush();
 </code></pre>
+
+<h2 id="57389e2">Python
+<span class="article-date">2014/07/02</span></h2>
+
+<p>標準出力は改行ごとに自動でflushされるが、パイプで別のプロセスにつながっている場合、バッファリングされてしまう。</p>
+
+<p>python起動時に <code>-u</code> オプションを付けると、バッファリングが無効になる。自分の環境で試したところ、
+Python2で <code>-u</code> を付けると、改行に関係なく、出力した文字がその場でflushされる。
+Python3で <code>-u</code> を付けると、改行ごとにflushされる。</p>
 
 <h2 id="8dbe1c2">Ruby
 <span class="article-date">2014/05/20</span></h2>

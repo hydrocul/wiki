@@ -65,7 +65,7 @@ echo 1e-324;              // 0
 <p>2行目の <code>1.0 + 1e-14</code> は <code>1</code> と表示されるが、そこから <code>1.0</code> を引いても <code>0</code> にならないことから、内部では情報落ちせずに <code>1e-14</code> の情報も保持できていて、文字列に変換する際に丸められるだけのようである。</p>
 
 <h2 id="2a3d7bd">Python
-<span class="article-date">2014/06/29</span></h2>
+<span class="article-date">2014/07/02</span></h2>
 
 <p>以下は私のPython 2.7.3 の環境で実行した結果。</p>
 
@@ -73,13 +73,27 @@ echo 1e-324;              // 0
 print 1.0 + 1e-12          # 1.0
 print (1.0 + 1e-15) - 1.0  # 1.11022302463e-15
 print (1.0 + 1e-16) - 1.0  # 0.0
-print 1e308;               # 1e+308
-print 1e309;               # inf
-print 1e-323;              # 9.88131291682e-324
-print 1e-324;              # 0.0
+print 1e308                # 1e+308
+print 1e309                # inf
+print 1e-323               # 9.88131291682e-324
+print 1e-324               # 0.0
 </code></pre>
 
 <p>2行目の <code>1.0 + 1e-12</code> は <code>1</code> と表示されるが、そこから <code>1.0</code> を引いても <code>0</code> にならないことから、内部では情報落ちせずに <code>1e-12</code> の情報も保持できていて、文字列に変換する際に丸められるだけのようである。</p>
+
+<p>Python 3.3.2 の環境での実行結果。</p>
+
+<pre><code>print(1.0 + 1e-15)          # 1.000000000000001
+print(1.0 + 1e-16)          # 1.0
+print((1.0 + 1e-15) - 1.0)  # 1.1102230246251565e-15
+print((1.0 + 1e-16) - 1.0)  # 0.0
+print(1e308)                # 1e+308
+print(1e309)                # inf
+print(1e-323)               # 1e-323
+print(1e-324)               # 0.0
+</code></pre>
+
+<p>Python2とPython3とで表示時の精度が違うみたい。</p>
 
 <h2 id="8b7cae3">Ruby
 <span class="article-date">2014/06/29</span></h2>

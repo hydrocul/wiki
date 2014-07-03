@@ -34,7 +34,7 @@
           <li>インデックスを指定して文字を取得するには (charAt)</li>
           <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
           <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
-          <li><a href="../../programming_languages_diff/string/is-empty.html">空文字列かどうかを取得するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
@@ -49,6 +49,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -100,7 +102,7 @@ PHP 5.3までだとなぜか <code>$str[0][0]</code> からはエラーになる
 <code>$str[0]</code> が文字列なのは同じなので、なぜだろう？</p>
 
 <h2 id="668d9a9">Python
-<span class="article-date">2013/10/03</span></h2>
+<span class="article-date">2014/07/02</span></h2>
 
 <p>文字列の中の文字はリストやタプルと同じように <code>[]</code> でアクセスできる。</p>
 
@@ -110,6 +112,11 @@ PHP 5.3までだとなぜか <code>$str[0][0]</code> からはエラーになる
 <p>文字というデータ型はないので、取得した結果も文字列である。</p>
 
 <p>文字列はイミュータブルなので、文字を書き換えることはできない。</p>
+
+<p>文字列の中の最後の文字を取得する例</p>
+
+<pre><code>str[-1]
+</code></pre>
 
 <h2 id="6b6cc98">Ruby
 <span class="article-date">2013/10/18</span></h2>

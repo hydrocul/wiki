@@ -45,14 +45,21 @@
 </div>
 
 <div id="content">
-  <h1 id="pow">べき乗演算子</h1>
+  <h1 id="pow">べき乗演算子
+<span class="article-date">2014/07/02</span></h1>
+
+<p>各プログラミング言語におけるべき乗( \(x^y\) )を計算する方法の比較。</p>
 
 <h2 id="983c097">Java / Scala
-<span class="article-date">2014/02/15</span></h2>
+<span class="article-date">2014/07/02</span></h2>
 
-<p><code>Math.pow</code>を利用する。</p>
+<p><code>Math.pow</code>を利用する。引数も返り値も浮動小数点数(<code>double</code>)である。</p>
 
-<pre><code>Math.pow(5, 3); // =&gt; 125.0
+<pre><code>Math.pow(5, 3);
+// =&gt; 125.0
+
+Math.pow(2.72, 3.14);
+// =&gt; 23.149752843459943
 </code></pre>
 
 <h2 id="86eddfa">PHP
@@ -68,17 +75,22 @@
 <a href="http://jp1.php.net/manual/ja/function.pow.php" target="_blank">http://jp1.php.net/manual/ja/function.pow.php</a></p>
 
 <h2 id="2a3e71d">Python
-<span class="article-date">2014/02/19</span></h2>
+<span class="article-date">2014/07/02</span></h2>
 
 <p><code>**</code> 演算子を利用する。または<code>math</code>モジュールにある<code>pow</code>関数でも同じ。</p>
 
+<p>Python2での実行例</p>
+
 <pre><code>import math
 
-print pow(1.2, 3.4)
-# =&gt; 1.85872969198
-print 1.2 ** 3.4
-# =&gt; 1.85872969198
+print 5 ** 3    # =&gt; 125
+print pow(5, 3) # =&gt; 125
+
+print 2.72 ** 3.14    # =&gt; 23.1497528435
+print pow(2.72, 3.14) # =&gt; 23.1497528435
 </code></pre>
+
+<p>Python3だとなぜか浮動小数点数のほうが、<code>23.14975284345994</code> と桁数が多く表示された。</p>
 
 <h2 id="a47c4fc">Ruby
 <span class="article-date">2014/02/14</span></h2>
@@ -101,10 +113,13 @@ print 1.2 ** 3.4
 <p><code>**</code> と <code>^</code> のどちらでもよい。</p>
 
 <h2 id="4bbda68">JavaScript
-<span class="article-date">2014/02/22</span></h2>
+<span class="article-date">2014/07/02</span></h2>
 
-<pre><code>var x = Math.pow(5, 3);
-console.log(x); // =&gt; 125
+<p><code>Math.pow</code> 関数を利用する。</p>
+
+<pre><code>Math.pow(5, 3); // =&gt; 125
+
+Math.pow(2.72, 3.14) // =&gt; 23.14975284345994
 </code></pre>
 
 </div>

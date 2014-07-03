@@ -111,7 +111,7 @@ if ($fh) {
 <p><code>fgets</code> は <code>'\r'</code>(<code>0x0D</code>) を改行としてみなさない。</p>
 
 <h2 id="c8518c1">Python
-<span class="article-date">2014/04/12</span></h2>
+<span class="article-date">2014/07/02</span></h2>
 
 <pre><code>for line in open('./hoge.txt'):
     # line には最後の改行を含む
@@ -132,6 +132,15 @@ if ($fh) {
 <p>メソッドを書かない最初の例では<code>open</code>メソッドが返すファイルオブジェクトがイテレータ型であることを利用している。イテレータ型であるのでリストの内包表記に使うこともできる。</p>
 
 <pre><code>lines = [line for line in open('./hoge.txt')]
+</code></pre>
+
+<p>標準入力から1行ずつ読み込む例</p>
+
+<pre><code>import sys
+
+for line in sys.stdin:
+    # line には最後の改行を含む
+    ...
 </code></pre>
 
 <h2 id="440e06a">Ruby

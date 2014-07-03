@@ -105,10 +105,27 @@ $arr = explode($separator, $str, $limit);
 <a href="http://www.php.net/manual/ja/function.explode.php" target="_blank">http://www.php.net/manual/ja/function.explode.php</a></p>
 
 <h2 id="8c2d0a5">Python
-<span class="article-date">2014/01/23</span></h2>
+<span class="article-date">2014/07/03</span></h2>
 
 <pre><code>lst = str.split(separator)
 </code></pre>
+
+<p>Python3での例</p>
+
+<pre><code>print(''.split(','))     # =&gt; ['']
+print('a'.split(','))    # =&gt; ['a']
+print(','.split(','))    # =&gt; ['', '']
+print('a,,b'.split(',')) # =&gt; ['a', '', 'b']
+print('a,'.split(','))   # =&gt; ['a', '']
+print(',b'.split(','))   # =&gt; ['', 'b']
+
+# 2文字以上のセパレータも設定できる
+print("abcd".split("bc")) # =&gt; ['a', 'd']
+</code></pre>
+
+<p>Python2でも同じであった。</p>
+
+<p>Rubyと違って、セパレータに空文字列を入れることはできず、入れるとエラーになってしまう。また、Rubyのような余計なお世話がなくて、厳密に分割してくれるみたい。</p>
 
 <h2 id="d5b8602">Ruby
 <span class="article-date">2013/11/15</span></h2>

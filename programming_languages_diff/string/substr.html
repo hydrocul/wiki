@@ -49,6 +49,7 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -99,7 +100,7 @@ length を省略した場合は、 start の位置から文字列の最後まで
 <p><code>$length</code>が<code>$string</code>に比べ長すぎる場合は、エラーにならずに<code>$string</code>の最後までを返す。</p>
 
 <h2 id="df3790e">Python
-<span class="article-date">2014/03/14</span></h2>
+<span class="article-date">2014/07/02</span></h2>
 
 <p>スライスを使う。</p>
 
@@ -111,6 +112,10 @@ e = 4
 
 print(a[s:e])
 # =&gt; cd
+
+# 最後の文字だけを削除した文字列を取得
+print(a[0:-1])
+# =&gt; abcde
 </code></pre>
 
 <h2 id="ruby">Ruby
