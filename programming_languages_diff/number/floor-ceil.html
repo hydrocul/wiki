@@ -47,6 +47,30 @@
 <div id="content">
   <h1 id="floor-ceil">小数の切り捨てまたは切り上げをするには (floor, ceil)</h1>
 
+<h2 id="05124d0">PHP
+<span class="article-date">2014/07/05</span></h2>
+
+<p>例</p>
+
+<pre><code>$x = 12.5;
+
+echo floor($x) . "\n"; // =&gt; 12
+
+echo ceil($x) . "\n"; // =&gt; 13
+
+echo round($x) . "\n"; // =&gt; 13
+
+$x = -12.5;
+
+// 負の切り捨ては絶対値の大きい方に丸められる
+echo floor($x) . "\n"; // =&gt; -13
+
+// 負の切り上げは0に近い方に丸められる
+echo ceil($x) . "\n"; // =&gt; -12
+
+echo round($x) . "\n"; // =&gt; -13
+</code></pre>
+
 <h2 id="58c67e2">Python
 <span class="article-date">2014/02/19</span></h2>
 
