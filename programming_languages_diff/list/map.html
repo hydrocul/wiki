@@ -133,9 +133,15 @@ print map((lambda x, y: x + y), lst1, lst2)
 </code></pre>
 
 <h2 id="0a5e55d">Ruby
-<span class="article-date">2013/06/07</span></h2>
+<span class="article-date">2014/07/06</span></h2>
 
-<pre><code>arr.map{|elem| ...}
+<p><code>Enumerable</code> クラスの <code>map</code> メソッドを使う。</p>
+
+<p>例：</p>
+
+<pre><code>arr = [10, 20, 30, 40, 50]
+p arr.map{|i| i * 2}
+# =&gt; [20, 40, 60, 80, 100]
 </code></pre>
 
 <h2 id="66967b5">Perl

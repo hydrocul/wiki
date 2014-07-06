@@ -54,7 +54,7 @@
 <code>char</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code> がある。このうち<code>char</code>は1バイトで、文字の表現に使われる。</p>
 
 <h2 id="7f4d550">Scala
-<span class="article-date">2013/09/21</span></h2>
+<span class="article-date">2014/07/05</span></h2>
 
 <p>Javaのプリミティブ型の名前の先頭が大文字になった名前のクラスがある。</p>
 
@@ -74,6 +74,8 @@
 </dl>
 
 <p>コンパイル後のJVM上ではJavaのプリミティブ型に変換されているので、パフォーマンスの心配はしなくてよい。</p>
+
+<p>整数のリテラルは、10進数表記の他、<code>0x</code>または<code>0X</code>で始まる16進数表記を使える。</p>
 
 <h2 id="37528cf">PHP
 <span class="article-date">2014/06/28</span></h2>
@@ -142,8 +144,7 @@ p b.class.superclass.superclass
 # =&gt; Numeric
 </code></pre>
 
-<p>ソースコードの中で整数リテラルを書くには、
-10進数での表記の他、
+<p>整数リテラルは、10進数での表記の他、
 <code>0</code>で始まる8進数表記、<code>0x</code>または<code>0X</code>で始まる16進数表記、
 <code>0b</code>または<code>0B</code>で始まる2進数表記を使える。
 C言語やJavaなどと違って、Pythonと同様に、
