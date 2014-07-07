@@ -617,6 +617,20 @@ git show 859ffa2:lib/abc.php
 <p>Git のコミットのタイムスタンプには author date と committer date の 2 種類があるという話<br />
 <a href="http://vividcode.hatenablog.com/entry/git/author-date-and-committer-date" target="_blank">http://vividcode.hatenablog.com/entry/git/author-date-and-committer-date</a></p>
 
+<h2 id="37ba5ed"><code>git diff</code> で差分の内容ではなく差分のあるファイル名だけを確認するには
+<span class="article-date">2014/07/07</span></h2>
+
+<p>例：</p>
+
+<pre><code># ファイル名と変更なのか新規なのか削除なのかを表示
+git diff --name-status
+
+# 本当にファイル名だけ表示
+git diff --name-only
+</code></pre>
+
+<p><a href="diff.md#"><code>diff</code>コマンド</a>での同様のことをさせるには <code>-rq</code> を付けるとよい。</p>
+
 </div>
 
 <footer>

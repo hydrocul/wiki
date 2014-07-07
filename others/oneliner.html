@@ -66,7 +66,7 @@
 </code></pre>
 
 <h2 id="urlencode-urldecode">URLエンコード / URLデコード
-<span class="article-date">2014/05/19</span></h2>
+<span class="article-date">2014/07/06</span></h2>
 
 <p>エンコードの例</p>
 
@@ -83,6 +83,11 @@ echo あ | nkf -WMQ | sed 's/=$//g' | tr -d '\n' | tr = %
 </code></pre>
 
 <p><code>nkf -WMQ</code> はよくわからないが文字列が長い場合に改行を入れて、その改行の直前に <code>=</code> を追加するので、途中の <code>sed 's/=$//g' | tr -d '\n'</code> はそれを削除するためのもの。</p>
+
+<p>または、こっちのほうが依存が少なくていいかも。</p>
+
+<pre><code>perl -nle 's/([^\w ])/"%".unpack("H2",$1)/eg; s/ /\+/g; print'
+</code></pre>
 
 <p>デコードの例</p>
 
