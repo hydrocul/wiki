@@ -76,6 +76,7 @@
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
+      <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -199,13 +200,21 @@ cat hoge.txt | perl -nle '(!defined($min) || $min&gt;$_) and $min=$_; END{print 
 <span class="article-date">2014/03/17</span></h2>
 
 <pre><code># 偶数行のみをパイプで抽出
-awk 'NR % 2 == 0 { print $0;}'
+awk 'NR % 2 == 0 { print $0; }'
 
 # 奇数行のみをパイプで抽出
-awk 'NR % 2 == 1 { print $0;}'
+awk 'NR % 2 == 1 { print $0; }'
 </code></pre>
 
 <p><code>NR</code> は行番号が自動で入っている変数で、1から始まる番号になっている。</p>
+
+<h2 id="669f61b">出力でバッファリングをされないようにするには
+<span class="article-date">2014/07/09</span></h2>
+
+<p><code>fflush()</code> を呼び出すとフラッシュしてくれる。</p>
+
+<pre><code>awk '{ print $0; fflush() }'
+</code></pre>
 
 </div>
 
