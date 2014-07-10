@@ -409,11 +409,14 @@ fi
 bashだとタブにならずにそのまま出力されてしまう。</p>
 
 <h2 id="8c284c6">シェルスクリプトの中でテキストに色を付けて表示するには
-<span class="article-date">2014/07/08</span></h2>
+<span class="article-date">2014/07/09</span></h2>
 
 <pre><code># 赤字で Hello と表示
 echo -e "\e[31mHello\e[0m"
 </code></pre>
+
+<p><code>echo</code> コマンドはシェルの組み込みコマンドの場合があって、<code>-e</code> というオプションはシェルによってはサポートされていない。自分の Ubuntu 13.10 の環境では <code>/bin/sh</code> は 
+<code>dash</code> で、この <code>-e</code> オプションが効かなかった。<code>/bin/echo -e ...</code> と書けば回避できる。</p>
 
 </div>
 

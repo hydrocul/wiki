@@ -32,6 +32,7 @@
           <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
           <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
+          <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の切り捨てまたは切り上げをするには (floor, ceil)</a></li>
           <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
           <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
         </ul>
@@ -45,17 +46,11 @@
 
 <div id="content">
   <h1 id="compare">数値の比較演算子
-<span class="article-date">2013/10/14</span></h1>
+<span class="article-date">2014/07/10</span></h1>
 
 <p><code>==</code>, <code>!=</code> で等値性を判定でき、<code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる言語が多い。</p>
 
-<p>また、 <code>&lt;=&gt;</code> という演算子がある言語もある。大小と等値性を一度に検証できる演算子で、</p>
-
-<pre><code>a &lt;=&gt; b
-</code></pre>
-
-<p>と書くと、 <code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。
-RubyやPerlにある。</p>
+<p>また、RubyやPerlには <code>&lt;=&gt;</code> という演算子がある。大小関係により <code>-1</code> か <code>0</code> か <code>1</code> を返す。</p>
 
 <h2 id="ff5136c">Java
 <span class="article-date">2013/10/14</span></h2>
@@ -78,7 +73,7 @@ int compareTo(Double another)
 <p><code>==</code>, <code>!=</code> で等値性を判定でき、 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
 
-<p>Javaと違い、プリミティブ型というのがなくすべてオブジェクトであるが、数値のオブジェクトはだいたい上記の演算子が使えるようになってる。正確には、演算子ではなく <code>&lt;</code> などの名前のメソッドが定義されている。</p>
+<p>Javaと違い、プリミティブ型というのがなくすべてオブジェクトであるが、数値を表すオブジェクトはだいたい上記の演算子が使えるようになってる。正確には、演算子ではなく <code>&lt;</code> などの名前のメソッドが定義されている。</p>
 
 <h2 id="61b0875">PHP
 <span class="article-date">2014/04/12</span></h2>
@@ -104,20 +99,48 @@ int compareTo(Double another)
 <code>a &lt; b &gt; c</code> という書き方も文法上はできて、<code>a &lt; b and b &gt; c</code> の意味になる。</p>
 
 <h2 id="d704d1c">Ruby
-<span class="article-date">2013/10/14</span></h2>
+<span class="article-date">2014/07/10</span></h2>
 
 <p><code>==</code>, <code>!=</code> で等値性を判定でき、 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
 
-<p><code>&lt;=&gt;</code> という、<code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す演算子もある。(ページ冒頭参照)</p>
+<p><code>&lt;=&gt;</code> という、<code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す演算子もある。</p>
+
+<pre><code>a &lt;=&gt; b
+</code></pre>
+
+<p>と書くと、 <code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。
+Perlにも同様のものがある。</p>
 
 <h2 id="bf47d7f">Perl
-<span class="article-date">2013/10/14</span></h2>
+<span class="article-date">2014/07/10</span></h2>
 
 <p><code>==</code>, <code>!=</code> で等値性を判定でき、 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
 
-<p><code>&lt;=&gt;</code> という、<code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す演算子もある。(ページ冒頭参照)</p>
+<p><code>&lt;=&gt;</code> という、<code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す演算子もある。</p>
+
+<pre><code>a &lt;=&gt; b
+</code></pre>
+
+<p>と書くと、 <code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。
+Rubyにも同様のものがある。</p>
+
+<h2 id="f3384ef">sh
+<span class="article-date">2014/07/10</span></h2>
+
+<p><code>test</code> コマンド(<code>\[</code> コマンド)の <code>-eq</code>, <code>-ne</code>, <code>-lt</code>, <code>-le</code>, <code>-ge</code>, <code>-gt</code> で数値として比較する。
+<code>test</code> コマンド(<code>\[</code> コマンド)の <code>=</code>, <code>!=</code> 演算子は文字列として比較してしまい、Perlとは逆。</p>
+
+<p>例</p>
+
+<pre><code>if [ $a -lt $b ]; then
+    # $a が $b よりも小さい場合
+    ...
+fi
+</code></pre>
+
+<p>-&gt; <a href="../../sh.html#operator.html">シェルスクリプトの演算子</a></p>
 
 <h2 id="9da0cb1">JavaScript
 <span class="article-date">2013/09/17</span></h2>
