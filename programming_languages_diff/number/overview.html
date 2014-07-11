@@ -51,12 +51,14 @@
 <span class="article-date">2013/10/15</span></h2>
 
 <p>数値となるプリミティブ型には、
-<code>char</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code> がある。このうち<code>char</code>は1バイトで、文字の表現に使われる。</p>
+<code>char</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code> がある。</p>
+
+<p><code>char</code>は2バイトで、UTF-16の文字の表現に使われる。</p>
 
 <h2 id="7f4d550">Scala
-<span class="article-date">2014/07/05</span></h2>
+<span class="article-date">2014/07/11</span></h2>
 
-<p>Javaのプリミティブ型の名前の先頭が大文字になった名前のクラスがある。</p>
+<p>Javaのプリミティブ型それぞれに対応したScalaのクラスがある。名前は先頭を大文字にしただけである。</p>
 
 <dl>
   <dt><code>scala.Char</code></dt>
@@ -84,7 +86,7 @@
 
 <p>整数は符号付きで、32ビットなのか64ビットなのかは、プラットフォームによる。</p>
 
-<p>整数は、10進数表記の他、
+<p>整数は、10進数表記のほか、
 <code>0x</code>または<code>0X</code>で始まる16進数表記、<code>0</code>で始まる8進数表記、
 <code>0b</code>または<code>0B</code>で始まる2進数表記を使える。
 2進数表記はPHP 5.4.0からなので、5.3以前では使えない。リテラルが整数の範囲を超える場合は自動で浮動小数点数になる。</p>
@@ -107,10 +109,10 @@ Python3で <code>sys.maxint</code> を参照しようとすると <code>SyntaxEr
 
 <p>複素数は実部と虚部がそれぞれC言語の<code>double</code>で実装されている。</p>
 
-<p>整数・長整数は、10進数での表記の他、
+<p>整数・長整数は、10進数での表記のほか、
 <code>0x</code>または<code>0X</code>で始まる16進数表記、<code>0b</code>または<code>0B</code>で始まる2進数表記を使える。
 C言語やJavaなどと違って、8進数表記は<code>0o</code>または<code>0O</code>で始める。
-Python2では8進数表記として<code>0</code>で始めることもできるが、
+Python2ではC言語やJavaなどのように8進数表記として<code>0</code>で始めることもできるが、
 Python3ではこれは <code>SyntaxError</code> になる。</p>
 
 <p>Python2で長整数であることを明示するには数字の最後に <code>L</code> を付けるが、付けなくても大きな数字であれば勝手に長整数になる。
@@ -144,7 +146,7 @@ p b.class.superclass.superclass
 # =&gt; Numeric
 </code></pre>
 
-<p>整数リテラルは、10進数での表記の他、
+<p>整数リテラルは、10進数での表記のほか、
 <code>0</code>で始まる8進数表記、<code>0x</code>または<code>0X</code>で始まる16進数表記、
 <code>0b</code>または<code>0B</code>で始まる2進数表記を使える。
 C言語やJavaなどと違って、Pythonと同様に、

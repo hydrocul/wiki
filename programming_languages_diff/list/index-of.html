@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストから特定の要素(条件を満たす要素)を探してそのインデックスを取得するには (indexOf) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストから特定の要素(条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -36,8 +36,8 @@
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素または特定の条件にマッチする要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li>リストから特定の要素(条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</li>
+          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
+          <li>リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
@@ -77,8 +77,8 @@
 </div>
 
 <div id="content">
-  <h1 id="index-of">リストから特定の要素(条件を満たす要素)を探してそのインデックスを取得するには (indexOf)
-<span class="article-date">2013/10/26</span></h1>
+  <h1 id="index-of">リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)
+<span class="article-date">2014/07/10</span></h1>
 
 <svg id="illustration" height="100"></svg>
 <script>
@@ -97,6 +97,8 @@ for(var i = 0; i < 10; i++){
 var text = snap.text(100, 96, "=> 2");
 text.attr({stroke: "#000", strokeWidth: 1, "font-size": "32px"});
 </script>
+
+<p>インデックスが不要で、存在するかどうかの論理値だけがほしい場合は <a href="contains.html">contains</a> 参照。</p>
 
 <h2 id="82d508d">Java
 <span class="article-date">2014/05/17</span></h2>
