@@ -48,12 +48,28 @@
   <h1 id="overview">数値のデータ型</h1>
 
 <h2 id="ceac745">Java
-<span class="article-date">2013/10/15</span></h2>
+<span class="article-date">2014/07/11</span></h2>
 
 <p>数値となるプリミティブ型には、
 <code>char</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code> がある。</p>
 
-<p><code>char</code>は2バイトで、UTF-16の文字の表現に使われる。</p>
+<p>整数は <code>char</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code> の5種類ある。</p>
+
+<dl>
+  <dt><code>char</code></dt>
+  <dd>1バイトの符号なし整数。文字の表現に使われる。</dd>
+  <dt><code>byte</code></dt>
+  <dd>1バイトの符号付き整数</dd>
+  <dt><code>short</code></dt>
+  <dd>2バイトの符号付き整数</dd>
+  <dt><code>int</code></dt>
+  <dd>4バイトの符号付き整数</dd>
+  <dt><code>long</code></dt>
+  <dd>8バイトの符号付き整数</dd>
+</dl>
+
+<p>整数リテラルは、10進数での表記のほか、
+<code>0x</code>または<code>0X</code>で始まる16進数表記、<code>0</code>で始まる8進数表記を使える。整数リテラルの最後に <code>L</code> を付けると<code>long</code>型の整数になり、付けないと<code>int</code>型の整数になる。それぞれ型の範囲を超える数を書くとコンパイルエラーになる。</p>
 
 <h2 id="7f4d550">Scala
 <span class="article-date">2014/07/11</span></h2>
