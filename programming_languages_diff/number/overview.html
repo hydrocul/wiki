@@ -48,7 +48,7 @@
   <h1 id="overview">数値のデータ型</h1>
 
 <h2 id="ceac745">Java
-<span class="article-date">2014/07/11</span></h2>
+<span class="article-date">2014/07/12</span></h2>
 
 <p>数値となるプリミティブ型には、
 <code>char</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code> がある。</p>
@@ -69,7 +69,21 @@
 </dl>
 
 <p>整数リテラルは、10進数での表記のほか、
-<code>0x</code>または<code>0X</code>で始まる16進数表記、<code>0</code>で始まる8進数表記を使える。整数リテラルの最後に <code>L</code> を付けると<code>long</code>型の整数になり、付けないと<code>int</code>型の整数になる。それぞれ型の範囲を超える数を書くとコンパイルエラーになる。</p>
+<code>0x</code>または<code>0X</code>で始まる16進数表記、<code>0</code>で始まる8進数表記を使える。整数リテラルの最後に <code>l</code> または <code>L</code> を付けると<code>long</code>型の整数になり、付けないと<code>int</code>型の整数になる。それぞれ型の範囲を超える数を書くとコンパイルエラーになる。</p>
+
+<p>浮動小数点数は <code>float</code>, <code>double</code> の2種類ある。</p>
+
+<dl>
+  <dt><code>float</code></dt>
+  <dd>IEEE 754 の32ビット単精度の浮動小数点数</dd>
+  <dt><code>double</code></dt>
+  <dd>IEEE 754 の64ビット倍精度の浮動小数点数</dd>
+</dl>
+
+<p>浮動小数点数のリテラルは、10進数表記のみで、後ろにつける指数表現は <code>e+10</code>, <code>e10</code>, <code>e-10</code> のように書く。
+<code>e</code> の代わりに <code>E</code> でもよい。最後に <code>f</code> または <code>F</code> を付けると<code>float</code>型の浮動小数点数になり、付けないか、または <code>d</code> または <code>D</code> を付けると<code>double</code>型の浮動小数点数になる。それぞれ型の範囲を超える数を書くとコンパイルエラーになる。</p>
+
+<p>NaN値は <code>Float.NaN</code> または <code>Double.NaN</code> と書く。正の無限大は <code>Float.POSITIVE_INFINITY</code> または <code>Double.POSITIVE_INFINITY</code>、負の無限大は <code>Float.NEGATIVE_INFINITY</code> または <code>Double.NEGATIVE_INFINITY</code> と書く。</p>
 
 <h2 id="7f4d550">Scala
 <span class="article-date">2014/07/11</span></h2>
