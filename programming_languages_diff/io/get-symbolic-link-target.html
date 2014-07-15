@@ -71,6 +71,20 @@
 end
 </code></pre>
 
+<h2 id="0b90142">Perl
+<span class="article-date">2014/07/15</span></h2>
+
+<p><code>readlink</code> は引数がシンボリックリンクの場合にリンク先のパスを返す。シンボリックリンクでない場合は <code>undef</code> を返す。
+<code>-l</code> 演算子は<a href="file-type.html#perl">シンボリックリンクかどうかを判定</a>する。</p>
+
+<pre><code>if (-l path) {
+    print readlink(path);
+}
+</code></pre>
+
+<p><code>readlink</code> | perldoc.jp<br />
+<a href="http://perldoc.jp/func/readlink" target="_blank">http://perldoc.jp/func/readlink</a></p>
+
 <h2 id="sh">sh
 <span class="article-date">2013/10/28</span></h2>
 
