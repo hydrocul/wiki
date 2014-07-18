@@ -65,12 +65,15 @@
 <p><code>NULL</code> というのがある。<code>0</code>と同じで、ポインタに0を代入するのと <code>NULL</code> を代入するのはたぶん同じ。</p>
 
 <h2 id="56f9c86">Java
-<span class="article-date">2014/04/12</span></h2>
+<span class="article-date">2014/07/18</span></h2>
 
 <p><code>null</code> というのがある。任意の参照型になりえる。<code>int</code>などのプリミティブ型に<code>null</code>を使うことはできない。</p>
 
-<p>一度も代入されていない変数を参照しようとすると、
+<p>一度も代入されていないローカル変数を参照しようとすると、
 <code>variable x might not have been initialized</code> というようなコンパイルエラーになる。</p>
+
+<p>一度も代入されていないクラスのフィールドや配列の要素を参照しようとすると、
+<code>int</code>などの数値のプリミティブ型は<code>0</code>、<code>boolean</code>は<code>false</code>、参照型(プリミティブ型以外)は <code>null</code> になり、コンパイルエラーにはならない。</p>
 
 <h2 id="3f00d5f">Scala
 <span class="article-date">2014/04/02</span></h2>
@@ -110,10 +113,10 @@
 <p><code>None</code> というのがある。関数に<code>return</code>文がないときに、<code>None</code>が返されるものとみなされる。</p>
 
 <h2 id="5d5f5cc">Ruby
-<span class="article-date">2014/01/26</span></h2>
+<span class="article-date">2014/07/18</span></h2>
 
 <p><code>nil</code> というのがある。Rubyでは <code>nil</code> もオブジェクトであるので、メソッドを呼ぶ出すことができる。
-<code>nil</code> は <code>NilClass</code> というクラスの唯一のインスタンスである。</p>
+<code>nil</code> は <code>NilClass</code> というクラスの唯一のインスタンスである。Scalaの <code>Nil</code> とはぜんぜん意味が違う。</p>
 
 <pre><code>print nil.nil?
 # =&gt; true
@@ -160,10 +163,10 @@
 <pre><code>typeof a === 'undefined'
 </code></pre>
 
-<p>null と undefined の違い<br />
+<p><code>null</code> と <code>undefined</code> の違い<br />
 <a href="http://qiita.com/shuhei/items/199281e07925d24059d5" target="_blank">http://qiita.com/shuhei/items/199281e07925d24059d5</a></p>
 
-<p>undefined値のさまざまな判定方法<br />
+<p><code>undefined</code>値のさまざまな判定方法<br />
 <a href="http://blog.tojiru.net/article/205007468.html" target="_blank">http://blog.tojiru.net/article/205007468.html</a></p>
 
 </div>

@@ -76,6 +76,7 @@
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
+      <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -114,6 +115,16 @@
 <p>参考<br />
 <a href="ls.html#sort-by-timestamp"><code>ls</code>でタイムスタンプの新しい順にファイル一覧を表示するには</a><br />
 <a href="find.html#sort-by-timestamp"><code>find</code>でタイムスタンプの新しい順にファイル一覧を表示するには</a></p>
+
+<h2 id="86ccd62">日本語を含むソートをするには
+<span class="article-date">2014/07/18</span></h2>
+
+<p>漢字やひらがな/カタカナなどが含まれる日本語テキストは、うまくソートできない場合があるみたいで、その場合は環境変数 <code>LC_ALL=C</code> または <code>LANG=ja_JP.UTF-8</code> を設定するとよいみたい。</p>
+
+<p>例</p>
+
+<pre><code>cat foo.txt | LC_ALL=C sort
+</code></pre>
 
 </div>
 
