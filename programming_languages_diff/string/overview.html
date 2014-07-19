@@ -269,6 +269,17 @@ UTF8フラグがオフになっている。外界からの入力時に <code>dec
 <p>ソースコード中に文字列リテラルを書くには、
 <code>'</code> または <code>"</code> で囲む。</p>
 
+<h2 id="694d9bb">Gauche (Scheme)
+<span class="article-date">2014/07/18</span></h2>
+
+<p>Gaucheの文字列は、内部ではUTF-8でバイト列を保持しており、バイト数と文字数の情報も持っている。バイト数の情報があるため内部に終端文字を持っているとは限らず、文字列の途中に <code>\x00</code> を含めることもできる。文字列はJavaなどと同じく不変であり、文字列を書き換える際にはいったんメモリ上でコピーされる。部分文字列を取得する際には内部でバイト列を共有する。</p>
+
+<p>内部の文字符号化方式(エンコーディング)はGauche自身のコンパイル時のconfigureオプションで
+UTF-8以外を選択することもできる。</p>
+
+<p>文字列について | Gaushe<br />
+<a href="http://practical-scheme.net/gauche/memo-str-j.html" target="_blank">http://practical-scheme.net/gauche/memo-str-j.html</a></p>
+
 <h2 id="258dd8e">sh
 <span class="article-date">2014/05/27</span></h2>
 
