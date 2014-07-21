@@ -85,6 +85,32 @@ math.ceil(x)
 
 <p>切り捨てても切り上げても、値としては整数になるが型はfloatのままである。</p>
 
+<h2 id="3e77036">Ruby
+<span class="article-date">2014/07/20</span></h2>
+
+<p><code>floor</code>などは数値のオブジェクトのメソッドとして定義されている。</p>
+
+<p>例</p>
+
+<pre><code>x = 12.5
+
+p x.floor # =&gt; 12
+
+p x.ceil # =&gt; 13
+
+p x.round # =&gt; 13
+
+x = -12.5
+
+# 負の切り捨ては絶対値の大きい方に丸められる
+p x.floor # =&gt; -13
+
+# 負の切り上げは0に近い方に丸められる
+p x.ceil # =&gt; -12
+
+p x.round # =&gt; -13
+</code></pre>
+
 <h2 id="31f8264">Perl
 <span class="article-date">2014/05/10</span></h2>
 
