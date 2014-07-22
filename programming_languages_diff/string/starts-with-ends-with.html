@@ -49,6 +49,7 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -119,7 +120,7 @@ str.end_with?(suffix)
 </code></pre>
 
 <h2 id="a5431b2">Perl
-<span class="article-date">2013/11/13</span></h2>
+<span class="article-date">2014/07/22</span></h2>
 
 <p>文字列の先頭にマッチする正規表現の <code>\A</code> または最後にマッチする正規表現 <code>\Z</code> を使う。</p>
 
@@ -129,6 +130,17 @@ str.end_with?(suffix)
 
 print "abc" =~ /bc\Z/; # =&gt; 1
 </code></pre>
+
+<p>prefixやsuffixが可変の場合は以下のようにするとできる。</p>
+
+<pre><code>if ($str =~ ('\A' . quotemeta($prefix))) {
+    print "match\n";
+} else {
+    print "unmatch\n";
+}
+</code></pre>
+
+<p>上記例のように正規表現全体を <code>()</code> で囲む必要があり、囲まないと <code>=~</code> のほうが先に結合してしまって、常にmatchしてしまう。</p>
 
 <h2 id="af51275">JavaScript
 <span class="article-date">2013/04/10</span></h2>

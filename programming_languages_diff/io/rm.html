@@ -76,7 +76,7 @@
 </code></pre>
 
 <h2 id="10d5340">Perl
-<span class="article-date">2013/08/13</span></h2>
+<span class="article-date">2014/07/21</span></h2>
 
 <pre><code>unlink('./hoge.txt');
 </code></pre>
@@ -85,6 +85,16 @@
 
 <pre><code>unlink('./hoge.txt', './foo.txt');
 unlink(@files);
+</code></pre>
+
+<p>空のディレクトリを削除するには <code>rmdir</code> 関数を使う。</p>
+
+<pre><code>rmdir('./bar);
+</code></pre>
+
+<p>中身が入っている可能性のあるディレクトリをまるごと削除するには <code>File::Path</code> の <code>rmtree</code> 関数を使う。</p>
+
+<pre><code>rmtree('./bar);
 </code></pre>
 
 <h2 id="a051c94">sh

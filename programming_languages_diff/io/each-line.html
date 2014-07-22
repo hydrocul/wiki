@@ -82,15 +82,49 @@ fclose(reader);
 <p><code>BufferedReader#readLine()</code> は <code>"\n"</code>, <code>"\r"</code>, <code>"\r\n"</code> のいずれかを改行としてみなす。</p>
 
 <h2 id="8f757a4">Scala
-<span class="article-date">2013/12/06</span></h2>
+<span class="article-date">2014/07/22</span></h2>
 
-<p>例（標準入力だが）</p>
+<p>Scalaの標準のライブラリを使う例（標準入力だが）</p>
 
 <pre><code>import scala.io.Source;
 
 Source.fromInputStream(System.in).getLines.foreach { line =&gt;
   // line には最後の改行を含まない
   ...;
+}
+</code></pre>
+
+<p><code>scala.collection.Iterator</code> を自作する例</p>
+
+<pre><code>def stdinLineIterator(): Iterator[String] = {
+
+  var fp = new java.io.BufferedReader(new java.io.InputStreamReader(System.in));
+  var nextLine: String = null;
+
+  new Iterator[String] {
+
+    def hasNext: Boolean = {
+      if (fp == null) {
+        false;
+      } else {
+        if (nextLine == null) {
+          nextLine = fp.readLine;
+        }
+        nextLine != null;
+      }
+    }
+
+    def next(): String = {
+      if (!hasNext) {
+        throw new java.util.NoSuchElementException();
+      }
+      val ret = nextLine;
+      nextLine = null;
+      ret;
+    }
+
+  }
+
 }
 </code></pre>
 
