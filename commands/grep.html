@@ -111,7 +111,7 @@
 <p>(grepよりも高速に検索できる <a href="ack-grep.html">ack-grep</a> などもある)</p>
 
 <h2 id="f911d96">オプション
-<span class="article-date">2013/08/28</span></h2>
+<span class="article-date">2014/07/23</span></h2>
 
 <dl>
   <dt><code>-r</code></dt>
@@ -131,6 +131,11 @@
 <code>-E</code> が必要。</dd>
   <dt><code>--line-buffered</code></dt>
   <dd>行ごとのバッファリングにする。<code>tail -f</code> などからパイプで受け取るときに便利。</dd>
+  <dt><code>-a</code>, <code>--text</code>, <code>--binary-files=text</code></dt>
+  <dd>通常だとgrepがバイナリだと認識してしまうファイルも強制的にテキストとして認識させる。
+テキストファイルでも最初の方に少しテキストでないバイナリがゴミとかで含まれちゃっていると、
+grepはバイナリファイルだと勘違いしてしまう。バイナリ扱いになってしまうと、差分の内容が表示されないので、
+無理にテキストファイルとして扱わせるオプション。</dd>
 </dl>
 
 <h2 id="94c118f">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには
