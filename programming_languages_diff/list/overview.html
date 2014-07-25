@@ -36,8 +36,8 @@
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素または特定の条件にマッチする要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素(条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
+          <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
@@ -95,12 +95,15 @@
 </code></pre>
 
 <h2 id="java">Java
-<span class="article-date">2014/05/17</span></h2>
+<span class="article-date">2014/07/25</span></h2>
 
 <p>言語の組み込み型である配列と、クラスライブラリでサポートされている
-<code>java.util.List</code> インターフェースがある。配列はC言語のと似ていて、生成する時点で長さを指定しなければならず、固定長配列になる。</p>
+<code>java.util.List</code> インターフェースなどのコレクションがある。配列はC言語のと似ていて、生成する時点で長さを指定しなければならず、固定長配列になる。</p>
 
 <p>配列も <code>java.util.List</code> もインデックスは0から始まる。</p>
+
+<p>配列は、プリミティブ型や参照型(オブジェクト、配列)を要素として持つことができる。
+<code>java.util.List</code> などのコレクションは、プリミティブ型を要素として持つことができず、参照型(オブジェクト、配列)のみである。</p>
 
 <h3 id="543541c">配列
 <span class="article-date">2013/10/08</span></h3>
