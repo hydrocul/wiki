@@ -63,6 +63,8 @@
 <h2 id="039a13c">Java
 <span class="article-date">2013/10/08</span></h2>
 
+<p>例</p>
+
 <pre><code>import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -79,7 +81,7 @@ while (true) {
 fclose(reader);
 </code></pre>
 
-<p><code>BufferedReader#readLine()</code> は <code>"\n"</code>, <code>"\r"</code>, <code>"\r\n"</code> のいずれかを改行としてみなす。</p>
+<p><code>BufferedReader#readLine()</code> は <code>"\n"</code>, <code>"\r"</code>, <code>"\r\n"</code> のいずれかを改行とみなす。</p>
 
 <h2 id="8f757a4">Scala
 <span class="article-date">2014/07/22</span></h2>
@@ -131,6 +133,8 @@ Source.fromInputStream(System.in).getLines.foreach { line =&gt;
 <h2 id="1c89b86">PHP
 <span class="article-date">2013/10/08</span></h2>
 
+<p>例</p>
+
 <pre><code>$fh = fopen('./hoge.txt', 'r');
 if ($fh) {
   while (!feof($fh)) {
@@ -146,6 +150,8 @@ if ($fh) {
 
 <h2 id="c8518c1">Python
 <span class="article-date">2014/07/02</span></h2>
+
+<p>例</p>
 
 <pre><code>for line in open('./hoge.txt'):
     # line には最後の改行を含む
@@ -180,6 +186,8 @@ for line in sys.stdin:
 <h2 id="440e06a">Ruby
 <span class="article-date">2013/08/22</span></h2>
 
+<p>例</p>
+
 <pre><code>IO.foreach('./hoge.txt') do |line|
   ...
 end
@@ -207,6 +215,8 @@ end
 
 <h2 id="6e71bc4">Perl
 <span class="article-date">2013/11/28</span></h2>
+
+<p>例</p>
 
 <pre><code>open(IN, '&lt;', './hoge.txt') or die "Cannot open";
 while (my $line = &lt;IN&gt;) {
