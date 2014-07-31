@@ -80,10 +80,10 @@
 <p>ソースコード中に文字列リテラルを書くには、<code>"</code> で囲む。これで <code>\x00</code> で終わる <code>char[]</code> 型になる。
 <code>'</code> で囲むと文字列ではなく文字(<code>char</code>型)になる。</p>
 
-<h2 id="6b3acc7">Java / Scala
+<h2 id="ceac745">Java
 <span class="article-date">2014/07/18</span></h2>
 
-<p>Java / Scala における文字列は、<code>String</code>クラスのインスタンスで、長さの情報と<code>char</code>型の配列を持った不変オブジェクトである。長さの情報を持っているため、終端文字を考えなくてよい。</p>
+<p>Javaにおける文字列は、<code>java.lang.String</code>クラスのインスタンスで、長さの情報と<code>char</code>型の配列を持った不変オブジェクトである。長さの情報を持っているため、終端文字を考えなくてよい。</p>
 
 <p>文字列型のクラスは <code>java.lang.String</code> である。
 <code>char</code>型は文字列ではなく1文字だけを表すプリミティブ型で2バイトの整数である。</p>
@@ -100,6 +100,13 @@
 
 <p>ソースコード中に文字列リテラル(<code>String</code>型)を書くには、<code>"</code> で囲む。
 <code>'</code> で囲むと文字列ではなく文字(Java: <code>char</code>型, Scala: <code>Char</code>型)になる。</p>
+
+<h2 id="7f4d550">Scala
+<span class="article-date">2014/07/31</span></h2>
+
+<p>Scalaにおける文字列は、Javaの<code>java.lang.String</code>クラスそのままなので、Javaと同じく、内部ではUTF-16で、不変オブジェクトである。</p>
+
+<p><code>java.lang.String</code> は <code>scala.Predef</code> で <code>scala.collection.immutable.StringOps</code> への暗黙の変換を定義しているので、文字列に対して <code>scala.collection.immutable.StringOps</code> にあるメソッドもそのまま使うことができる。</p>
 
 <h2 id="37528cf">PHP
 <span class="article-date">2014/03/21</span></h2>
