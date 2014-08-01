@@ -36,8 +36,8 @@
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素または特定の条件にマッチする要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
+          <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
@@ -79,8 +79,8 @@
 <div id="content">
   <h1 id="multiply">同じリストを繰り返して連結するには</h1>
 
-<h2 id="1383815">Python
-<span class="article-date">2014/03/17</span></h2>
+<h2 id="python">Python
+<span class="article-date">2014/07/31</span></h2>
 
 <p>例</p>
 
@@ -90,6 +90,15 @@
 print((1, 2, 3) * 3)
 # =&gt; (1, 2, 3, 1, 2, 3, 1, 2, 3)
 </code></pre>
+
+<p><code>*</code> 演算子はシーケンス型に対して共通に使えるので、文字列に対しても同じように使える。
+-&gt;<a href="../string/multiply.html#python">文字列の繰り返し</a></p>
+
+<p>二項算術演算 | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operation" target="_blank">http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operation</a></p>
+
+<p>二項算術演算 | Python 3 documentation<br />
+<a href="http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operations" target="_blank">http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operations</a></p>
 
 <h2 id="a9696fb">Ruby
 <span class="article-date">2014/01/13</span></h2>

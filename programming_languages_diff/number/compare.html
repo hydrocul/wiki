@@ -32,6 +32,7 @@
           <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
           <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
+          <li><a href="../../programming_languages_diff/number/arithmetic-operator.html">代数演算子</a></li>
           <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の切り捨てまたは切り上げをするには (floor, ceil)</a></li>
           <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
           <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
@@ -90,13 +91,24 @@ int compareTo(Double another)
 <a href="http://www.php.net/manual/ja/language.operators.comparison.php" target="_blank">http://www.php.net/manual/ja/language.operators.comparison.php</a></p>
 
 <h2 id="22d8edf">Python
-<span class="article-date">2014/03/25</span></h2>
+<span class="article-date">2014/07/31</span></h2>
 
 <p><code>==</code>, <code>!=</code> で等値性を判定でき、 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
 
+<p>Python2では <code>!=</code> の代わりに <code>&lt;&gt;</code> と書いても同じだが、これは古い書き方で、
+Python3では <code>&lt;&gt;</code> を使えない。</p>
+
 <p><code>a &lt; b &lt; c</code> というような書き方ができ、<code>a &lt; b and b &lt; c</code> の意味になる。
-<code>a &lt; b &gt; c</code> という書き方も文法上はできて、<code>a &lt; b and b &gt; c</code> の意味になる。</p>
+<code>a &lt; b &gt; c</code> という書き方も文法上はできて、<code>a &lt; b and b &gt; c</code> の意味になるが、わかりづらいだけである。</p>
+
+<p><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> を文字列やリストなどのシーケンス型に使うと、各要素同士を比較して、辞書的に比較をする。ディクショナリ同士も比較できる。</p>
+
+<p>比較演算子 | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/reference/expressions.html#comparison" target="_blank">http://docs.python.jp/2/reference/expressions.html#comparison</a></p>
+
+<p>比較演算子 | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/reference/expressions.html#not-in" target="_blank">http://docs.python.jp/3/reference/expressions.html#not-in</a></p>
 
 <h2 id="d704d1c">Ruby
 <span class="article-date">2014/07/10</span></h2>

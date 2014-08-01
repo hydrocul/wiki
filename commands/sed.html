@@ -422,6 +422,14 @@ tail -f access_log | sed -u ...
 
 <p>(違いは調べていない、、、)</p>
 
+<h2 id="128f51e">N行おきに抽出するには
+<span class="article-date">2014/08/01</span></h2>
+
+<p>10行目、20行目、、、と10行おきに抽出する例。</p>
+
+<pre><code>cat ファイル名 | sed -n '0~10p'
+</code></pre>
+
 </div>
 
 <footer>

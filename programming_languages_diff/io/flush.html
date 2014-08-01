@@ -97,18 +97,24 @@ STDERR.flush
 <p>標準出力が端末だと少なくとも行単位ではflushしてくれるが、標準出力がパイプで他のプロセスとつながっていると明示的にflushしないと勝手にバッファリングされてしまうみたい。</p>
 
 <h2 id="156d0bf">Perl
-<span class="article-date">2014/05/08</span></h2>
+<span class="article-date">2014/07/31</span></h2>
 
 <p>以下は、行単位で自動でフラッシュさせる例 (バッファリングを無効にする方法)。</p>
 
-<pre><code># 標準出力のバッファリングを無効に
+<pre><code>use IO::Handle; # autoflush関数を使うのであれば必要
+
+# 標準出力のバッファリングを無効に
 $| = 1;
+# または
+STDOUT-&gt;autoflush(1);
 
 # 任意のファイルハンドルのバッファリングを無効に
 my $tmpFh = select(FH);
 $| = 1;
 select($tmpFh);
 # 一時的にそのファイルハンドルを標準出力にして、$l を設定する
+# または
+FH-&gt;autoflush(1);
 </code></pre>
 
 <p>Perlでバッファリング抑止<br />

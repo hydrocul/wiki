@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>代数演算子 | 数値型 | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>代数演算子</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/number/">数値型</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/number/overview.html">数値のデータ型</a></li>
+          <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
+          <li><a href="../../programming_languages_diff/number/compare.html">数値の比較演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
+          <li>代数演算子</li>
+          <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の切り捨てまたは切り上げをするには (floor, ceil)</a></li>
+          <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="arithmetic-operator">代数演算子
+<span class="article-date">2014/07/15</span></h1>
+
+<p>加算/減算/乗算/除算/剰余の言語ごとの演算子の一覧。</p>
+
+<h2 id="f0b8901">Java
+<span class="article-date">2014/07/16</span></h2>
+
+<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+
+<p>整数同士の演算の結果は <code>int</code> または <code>long</code> になる。浮動小数点数が含まれる演算の結果は <code>float</code> または <code>double</code> になる。</p>
+
+<p><code>String</code> が含まれる<code>+</code>演算子の結果は <code>String</code> になる。</p>
+
+<h2 id="95537e5">PHP
+<span class="article-date">2014/03/29</span></h2>
+
+<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+
+<p>オペランドに文字列が与えられた場合は<a href="../string/to-num.html#php">整数または浮動小数点</a>に変換される。文字列同士の連結は <code>.</code> 演算子なので、加算と連結が混同されることはない。</p>
+
+<pre><code>var_export("10" + "30");
+// =&gt; 40
+</code></pre>
+
+<h2 id="fbfcbef">Python
+<span class="article-date">2014/07/31</span></h2>
+
+<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code></p>
+
+<p><code>*</code> 演算子の片方をシーケンス型(リストや文字列など)、他方を整数にすると、
+<a href="../list/multiply.html#python">シーケンス型の繰り返し</a>になる。</p>
+
+<p><code>//</code> 演算子は除算の結果を整数に切り捨てたものになる。-&gt;<a href="divide.html#python">除算演算子</a></p>
+
+<p><code>%</code> 演算子の左を文字列にすると、<a href="../string/format.html#python"><code>sprintf</code>みたいなこと</a>ができる。</p>
+
+<p>二項算術演算 | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operation" target="_blank">http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operation</a></p>
+
+<p>二項算術演算 | Python 3 documentation<br />
+<a href="http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operations" target="_blank">http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operations</a></p>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
