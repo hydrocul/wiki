@@ -46,7 +46,7 @@
   <h1 id="for">for文(繰り返し)
 <span class="article-date">2013/10/14</span></h1>
 
-<p>特定の条件をみたしている間同じ処理を繰り返す構文。
+<p>特定の条件を満たしている間同じ処理を繰り返す構文。
 <a href="while.html"><code>while</code>文</a>でもループできる。</p>
 
 <p>配列やリストの要素に対して繰り返し処理をさせる方法は
@@ -89,19 +89,19 @@ while(式2){
 <p><code>for</code>の括弧の中の2つ目の部分の条件式はC言語などと違って<code>boolean</code>型以外の式を置くことはできない。</p>
 
 <h2 id="2f5f03e">Scala
-<span class="article-date">2014/04/03</span></h2>
+<span class="article-date">2014/08/01</span></h2>
 
-<pre><code>for(i &lt;- 0 until 10){
+<pre><code>for (i &lt;- 0 until 10) {
     ...;
 }
 
 // 二重ループ
-for(i &lt;- 0 until 10; j &lt;- 0 until 10){
+for (i &lt;- 0 until 10; j &lt;- 0 until 10) {
     ...;
 }
 </code></pre>
 
-<p>または<a href="../list/foreach.html#scala">foreach</a>を使って</p>
+<p>または<a href="../list/foreach.html#scala"><code>foreach</code>メソッド</a>を使って</p>
 
 <pre><code>(0 until 10).foreach { i =&gt;
     ...;

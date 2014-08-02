@@ -36,8 +36,8 @@
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">リストの最初のn個の要素を削除するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素または特定の条件にマッチする要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素(条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
+          <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
@@ -82,7 +82,7 @@
 
 <p>配列やリストの要素に対してではなく、
 0から順番にカウンタを回して繰り返し処理をさせる方法は
-<a href="../control_flow/for.html">for</a>を参照。</p>
+<a href="../control_flow/for.html"><code>for</code>文</a>を参照。</p>
 
 <h2 id="93f5f96">Java
 <span class="article-date">2014/03/15</span></h2>
@@ -113,11 +113,40 @@
 <p>拡張for文の場合 <code>strArr</code> は配列であるか、<code>java.lang.Iterable</code> を実装しているオブジェクトであることが必要。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2013/05/06</span></h2>
+<span class="article-date">2014/08/01</span></h2>
+
+<p>リストなどにある<code>foreach</code>メソッドを使えばよい。</p>
+
+<p>Signature:</p>
 
 <pre><code>// scala.collection.Seq[A]
 def foreach(f: A =&gt; Unit): Unit
 </code></pre>
+
+<p><code>foreach</code> を使ったいろいろな書き方の例</p>
+
+<pre><code>val lst = "a" :: "b" :: "c" :: Nil;
+lst.foreach { (s: String) =&gt; println(s); }
+lst.foreach((s: String) =&gt; println(s));   // {} でなくて () でもよい
+lst.foreach((s) =&gt; println(s));           // 関数の引数の型は推論ができれば省略できる
+lst.foreach(s =&gt; println(s));             // 関数の引数が1つであれば括弧を省略できる
+lst.foreach(println(_));                  // 関数の引数を1回しか使わない単純な関数であれば _ と書ける
+lst.foreach(println);                     // メソッド名だけ
+</code></pre>
+
+<p>一番下は、Perlみたいに省略されまくっているが、Perlの <code>$_</code> のような暗黙の変数があるのではなく、高階関数の引数のように関数を書くべき場所に単にメソッド名だけを書ける機能である。</p>
+
+<p><code>foreach</code>メソッドの代わりに<code>for</code>式を使ってもよい。</p>
+
+<pre><code>for (elem &lt;- list) {
+  ...;
+}
+</code></pre>
+
+<p><code>for</code>式はコンパイラ内部では<code>foreach</code>メソッドの呼び出しに変換されている。</p>
+
+<p>Scala for式の実体<br />
+<a href="http://www.ne.jp/asahi/hishidama/home/tech/scala/collection/for.html" target="_blank">http://www.ne.jp/asahi/hishidama/home/tech/scala/collection/for.html</a></p>
 
 <h2 id="php">PHP
 <span class="article-date">2014/04/27</span></h2>
@@ -194,14 +223,16 @@ var_export($arr);
 </code></pre>
 
 <h2 id="python">Python
-<span class="article-date">2014/04/05</span></h2>
+<span class="article-date">2014/08/01</span></h2>
+
+<p><code>for</code>文の例</p>
 
 <pre><code>for elem in lst:
     ...
     ...
 </code></pre>
 
-<p><code>lst</code> にはリスト、タプル、文字列といったシーケンスを使うことができる。文字列に使うと、その中の1文字ずつでループ処理する。シーケンス以外でもイテレータ型を使うことができる。</p>
+<p><code>lst</code> にはリスト、タプル、文字列といったシーケンスを使うことができる。文字列に使うと、その中の1文字ずつでループ処理する。シーケンス以外にもイテレータ型を使うこともできる。</p>
 
 <p><code>lst</code> の要素がさらにリストやタプルなどになっていれば、<code>elem</code> には複数の変数を書くことができ、要素ごとに<a href="../tuple/multiple-assignment.html#python">アンパック代入</a>されてループが実行される。</p>
 
@@ -214,10 +245,10 @@ for a, b in lst:
 </code></pre>
 
 <p><a href="../vars/scope.html#python">変数のスコープは関数</a>なので、<code>elem</code>に最後に代入された要素は
-<code>for</code>ステートメントから脱出後もそのまま保持される。</p>
+<code>for</code>文から脱出後もそのまま保持される。</p>
 
-<p><a href="../control_flow/while.html#python"><code>while</code>ステートメント</a>と同じく、
-<code>else</code>節を付けることができる。<code>else</code>節は条件を満たさなくなってループを脱出する際に実行される。ただし、<a href="break.html#python"><code>break</code></a>で脱出した場合は実行されない。</p>
+<p><a href="../control_flow/while.html#python"><code>while</code>文</a>と同じく、
+<code>else</code>節を付けることができる。<code>else</code>節は条件を満たさなくなってループを脱出する際に実行される。要素が1つもない場合ではない。ループから<a href="break.html#python"><code>break</code></a>で脱出した場合は実行されない。</p>
 
 <pre><code>for elem in lst:
     ...
@@ -226,6 +257,12 @@ else:
     ...
     ...
 </code></pre>
+
+<p><code>for</code>文 | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/reference/compound_stmts.html#for" target="_blank">http://docs.python.jp/2/reference/compound_stmts.html#for</a></p>
+
+<p><code>for</code>文 | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/reference/compound_stmts.html#the-for-statement" target="_blank">http://docs.python.jp/3/reference/compound_stmts.html#the-for-statement</a></p>
 
 <h2 id="031dbcb">Ruby
 <span class="article-date">2014/03/15</span></h2>

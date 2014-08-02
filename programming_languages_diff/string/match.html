@@ -67,18 +67,26 @@
   <h1 id="match">パターンマッチングするには</h1>
 
 <h2 id="dd36b97">PHP
-<span class="article-date">2014/04/14</span></h2>
+<span class="article-date">2014/08/02</span></h2>
 
-<p><code>preg_match</code> という関数を使い、マッチしたら <code>1</code>, マッチしなかったら <code>0</code> が返される。</p>
+<p><code>preg_match</code> という関数は、正規表現にマッチしたら <code>1</code>, マッチしなかったら <code>0</code> が返される。正規表現が間違っているなどのエラーの際は <code>false</code> が返される。</p>
 
-<pre><code>var_export(preg_match("/a./", "abc\nabc")); // =&gt; 1
-var_export(preg_match("/x./", "abc\nabc")); // =&gt; 0
+<pre><code>preg_match("/a./", "abc\nabc"); // =&gt; 1
+preg_match("/x./", "abc\nabc"); // =&gt; 0
+preg_match("/a", "abc\nabc");   // =&gt; false
 </code></pre>
 
-<p>文字列全体のマッチングではなく、部分マッチングである。</p>
+<p>文字列全体のマッチングではなく、部分マッチングである。全体のマッチングをしたいのであれば、正規表現の <code>'\A'</code>, <code>'\z'</code> を使うとよい。正規表現を <code>""</code> で囲む場合は、<code>"\\A"</code>, <code>"\\z"</code> と書く必要がある。</p>
 
-<p>preg_match | PHP Manual<br />
+<pre><code>preg_match('/bc/', "abc\nabc"); // =&gt; 1
+preg_match('/\Abc\z/', "abc\nabc"); // =&gt; 0
+</code></pre>
+
+<p><code>preg_match</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.preg-match.php" target="_blank">http://www.php.net/manual/ja/function.preg-match.php</a></p>
+
+<p>PCRE(Perlと互換性の高い正規表現)のパターン | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/pcre.pattern.php" target="_blank">http://www.php.net/manual/ja/pcre.pattern.php</a></p>
 
 <h2 id="b02e24c">Ruby
 <span class="article-date">2013/09/18</span></h2>

@@ -93,7 +93,7 @@
 <div id="content">
   <h1 id="tr">tr コマンド</h1>
 
-<h2 id="8cbfc68">ファイルの特定の文字を改行に全置換するには
+<h2 id="77525fb">特定の文字を改行に全置換するには
 <span class="article-date">2013/09/21</span></h2>
 
 <pre><code>cat ./src.txt | tr '&gt;' '\n' &gt; ./dst.txt
@@ -102,6 +102,14 @@
 <p>この例だと、<code>'&gt;'</code> という1文字を削除してかわりに改行にする。
 <code>tr</code>では特定の1文字を別の1文字に置換する、という処理なので、
 <code>'&gt;'</code> の後ろに改行を付ける、ということができない。</p>
+
+<h2 id="6b9abac">改行を特定の文字に全置換するには
+<span class="article-date">2014/08/01</span></h2>
+
+<p>以下は、改行をカンマに変換して全部で1行にする例。</p>
+
+<pre><code>cat ./src.txt | tr '\n' ',' &gt; ./dst.txt
+</code></pre>
 
 <h2 id="rm-char">ファイルの特定の文字を削除するには
 <span class="article-date">2013/12/16</span></h2>
