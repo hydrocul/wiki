@@ -27,15 +27,15 @@
       <li><a href="../../programming_languages_diff/number/">数値型</a>
         <ul>
           <li><a href="../../programming_languages_diff/number/overview.html">数値のデータ型</a></li>
-          <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
+          <li>代数演算子</li>
+          <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
           <li><a href="../../programming_languages_diff/number/compare.html">数値の比較演算子</a></li>
           <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
-          <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
-          <li>代数演算子</li>
           <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の切り捨てまたは切り上げをするには (floor, ceil)</a></li>
-          <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
           <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
         </ul>
       </li>
     </ul>
@@ -51,14 +51,18 @@
 
 <p>加算/減算/乗算/除算/剰余の言語ごとの演算子の一覧。</p>
 
-<h2 id="f0b8901">Java
-<span class="article-date">2014/07/16</span></h2>
+<h2 id="75111ed">Java / Scala
+<span class="article-date">2014/08/02</span></h2>
 
 <p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
 
 <p>整数同士の演算の結果は <code>int</code> または <code>long</code> になる。浮動小数点数が含まれる演算の結果は <code>float</code> または <code>double</code> になる。</p>
 
-<p><code>String</code> が含まれる<code>+</code>演算子の結果は <code>String</code> になる。</p>
+<p><code>String</code> が含まれる<code>+</code>演算子は、両方を文字列に揃えてから文字列として連結され、結果も <code>String</code> になる。</p>
+
+<p>Scalaでは演算子もメソッドであるので、この名前でメソッドを定義すれば別の意味になる。</p>
+
+<p>-&gt; <a href="divide.html#java">除算演算子・剰余演算子</a></p>
 
 <h2 id="95537e5">PHP
 <span class="article-date">2014/03/29</span></h2>
@@ -88,6 +92,23 @@
 
 <p>二項算術演算 | Python 3 documentation<br />
 <a href="http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operations" target="_blank">http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operations</a></p>
+
+<h2 id="f421ffb">Perl
+<span class="article-date">2014/08/02</span></h2>
+
+<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+
+<p>これらは文字列を与えてもそれを数値に変換してから演算をする。</p>
+
+<p>文字列の連結には <code>+</code> ではなく <a href="../string/strcat.html#perl"><code>.</code>演算子</a> を使う。</p>
+
+<p>配列の繰り返しには <a href="../list/multiply.html#perl"><code>x</code>演算子</a> を使う。</p>
+
+<p>加法演算子 | perldoc.jp<br />
+<a href="http://perldoc.jp/docs/perl/perlop.pod#Additive32Operators" target="_blank">http://perldoc.jp/docs/perl/perlop.pod#Additive32Operators</a></p>
+
+<p>乗法演算子 | perldoc.jp<br />
+<a href="http://perldoc.jp/docs/perl/perlop.pod#Multiplicative32Operators" target="_blank">http://perldoc.jp/docs/perl/perlop.pod#Multiplicative32Operators</a></p>
 
 </div>
 
