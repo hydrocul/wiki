@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>三角関数・指数関数 | 数値型 | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>三角関数・指数関数</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/number/">数値型</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/number/overview.html">数値のデータ型</a></li>
+          <li><a href="../../programming_languages_diff/number/arithmetic-operator.html">代数演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/compare.html">数値の比較演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
+          <li>三角関数・指数関数</li>
+          <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
+          <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の切り捨てまたは切り上げをするには (floor, ceil)</a></li>
+          <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="elementary-function">三角関数・指数関数</h1>
+
+<h2 id="94d0de3">Java / Scala
+<span class="article-date">2014/07/11</span></h2>
+
+<p>Signature:</p>
+
+<pre><code>// java.lang.Math
+
+static double PI // 円周率
+static double E  // 自然対数の底
+
+static double abs(int x)    // 絶対値
+static double abs(long x)   // 絶対値
+static double abs(float x)  // 絶対値
+static double abs(double x) // 絶対値
+
+static double sqrt(double x) // 平方根
+static double cbrt(double x) // 立方根
+
+static double exp(double x) // 指数関数
+
+static double log(double x)   // 対数
+static double log10(double x) // 対数
+
+static double cos(double x) // 三角関数
+static double sin(double x) // 三角関数
+static double tan(double x) // 三角関数
+
+static double acos(double x)            // 逆三角関数
+static double asin(double x)            // 逆三角関数
+static double atan(double x)            // 逆三角関数
+static double atan2(double x, double y) // 逆三角関数
+
+static double cosh(double x) // 双曲線関数
+static double sinh(double x) // 双曲線関数
+static double tanh(double x) // 双曲線関数
+</code></pre>
+
+<h2 id="678808a">PHP
+<span class="article-date">2014/07/11</span></h2>
+
+<pre><code>$z = M_PI; // 円周率
+$z = M_E;  // 自然対数の底
+
+$z = abs($x); // 絶対値
+
+$z = sqrt($x); // 平方根
+
+$z = exp($x); // 指数関数
+
+$z = log($x);   // 対数
+$z = log10($x); // 対数
+
+$z = cos($x); // 三角関数
+$z = sin($x); // 三角関数
+$z = tan($x); // 三角関数
+
+$z = acos($x);      // 逆三角関数
+$z = asin($x);      // 逆三角関数
+$z = atan($x);      // 逆三角関数
+$z = atan2($x, $y); // 逆三角関数
+
+$z = cosh($x); // 双曲線関数
+$z = sinh($x); // 双曲線関数
+$z = tanh($x); // 双曲線関数
+</code></pre>
+
+<h2 id="546cc1e">Perl
+<span class="article-date">2014/08/02</span></h2>
+
+<pre><code># 絶対値
+$z = abs($x));  # `use POSIX` が要
+
+# 平方根
+$z = sqrt($x);
+
+# 指数関数
+$z = exp($x);
+
+# 対数
+$z = log($x);
+$z = log10($x)); # `use POSIX` が要
+
+# 三角関数
+$z = sin($x);
+$z = cos($x);
+$z = tan($x));  # `use POSIX` が要
+
+# 逆三角関数
+$z = asin($x)); # `use POSIX` が要
+$z = acos($x)); # `use POSIX` が要
+$z = atan2($x, $y);
+
+# 双曲線関数
+$z = cosh($x)); # `use POSIX` が要
+$z = sinh($x)); # `use POSIX` が要
+$z = tanh($x)); # `use POSIX` が要
+</code></pre>
+
+<p>いくつかの関数は <code>use POSIX;</code> と宣言しないと使えない。</p>
+
+<p><code>sqrt</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/sqrt" target="_blank">http://perldoc.jp/func/sqrt</a></p>
+
+<p><code>exp</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/exp" target="_blank">http://perldoc.jp/func/exp</a></p>
+
+<p><code>log</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/log" target="_blank">http://perldoc.jp/func/log</a></p>
+
+<p><code>sin</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/sin" target="_blank">http://perldoc.jp/func/sin</a></p>
+
+<p><code>cos</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/cos" target="_blank">http://perldoc.jp/func/cos</a></p>
+
+<p><code>atan2</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/atan2" target="_blank">http://perldoc.jp/func/atan2</a></p>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
