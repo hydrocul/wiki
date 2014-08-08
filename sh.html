@@ -278,10 +278,14 @@ fi
 </dl>
 
 <h2 id="c84bb3d">永久ループを書くには
-<span class="article-date">2013/08/20</span></h2>
+<span class="article-date">2014/08/08</span></h2>
+
+<p>例</p>
 
 <pre><code>while : ; do date; sleep 1; done
 </code></pre>
+
+<p><code>:</code> というのはなにもせずに常に終了コード0を返すコマンドで、これを<code>while</code>文の条件式のところに入れれば結果的に永久ループになる。</p>
 
 <p>-&gt; <a href="programming_languages_diff/control_flow/while.html#sh">while文</a></p>
 
