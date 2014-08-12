@@ -67,7 +67,7 @@
   <h1 id="split">特定の文字やパターンで配列などに分割するには (split / explode)</h1>
 
 <h2 id="6df95c0">Java
-<span class="article-date">2013/08/02</span></h2>
+<span class="article-date">2014/08/12</span></h2>
 
 <p>Signature:</p>
 
@@ -76,10 +76,10 @@ String[] split(String regex)
 String[] split(String regex, int limit)
 </code></pre>
 
-<p>空文字列をsplitすると空文字列1つだけの配列を返す。</p>
+<p>空文字列をsplitすると空文字列1つだけの配列を返す。また、分割対象の文字列の最後に区切り文字が1つ以上あると、その部分は単に切り捨てられる。</p>
 
 <h2 id="cd1396e">Scala
-<span class="article-date">2013/08/02</span></h2>
+<span class="article-date">2014/08/12</span></h2>
 
 <p>Signature:</p>
 
@@ -92,7 +92,7 @@ def split(regex: String): Array[String]
 def split(regex: String, limit: Int): Array[String]
 </code></pre>
 
-<p>いずれのメソッドも空文字列をsplitすると空文字列1つだけの配列を返す。</p>
+<p>いずれのメソッドも空文字列をsplitすると空文字列1つだけの配列を返す。また、分割対象の文字列の最後に区切り文字が1つ以上あると、その部分は単に切り捨てられる。</p>
 
 <h2 id="458713a">PHP
 <span class="article-date">2013/11/15</span></h2>
