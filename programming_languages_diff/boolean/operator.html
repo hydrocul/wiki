@@ -41,25 +41,25 @@
 <div id="content">
   <h1 id="operator">論理演算子</h1>
 
-<h2 id="4bd22b8">Java
-<span class="article-date">2014/03/25</span></h2>
+<h2 id="java">Java
+<span class="article-date">2014/08/18</span></h2>
 
-<pre><code>// 論理積(短絡評価あり)
+<pre><code>// 論理積(AND) (短絡評価あり)
 x &amp;&amp; y
 
-// 論理積(短絡評価なし)
+// 論理積(AND) (短絡評価なし/ビット演算子にもなる)
 x &amp; y
 
-// 論理和(短絡評価あり)
+// 論理和(OR) (短絡評価あり)
 x || y
 
-// 論理和(短絡評価なし)
+// 論理和(OR) (短絡評価なし/ビット演算子にもなる)
 x | y
 
-// 排他的論理和(XOR) (短絡評価なし)
+// 排他的論理和(XOR) (短絡評価なし/ビット演算子にもなる)
 x ^ y
 
-// 否定
+// 否定(NOT)
 !x
 </code></pre>
 
@@ -68,7 +68,7 @@ x ^ y
 <p><code>&amp;&amp;</code>, <code>||</code> は左の項から順番に評価し、演算子の結果として true か false のいずれかに決定した段階で評価をやめて <code>true</code> または <code>false</code> を返す
 (短絡評価、ショートサーキット評価)。</p>
 
-<p><code>&amp;</code>, <code>|</code>, <code>^</code> は短絡評価をせずすべての項が評価される。各項が論理値であれば論理積・論理和になるが、整数であればビット演算子になる。なお、ビット演算子の否定は <code>~x</code> と書く。</p>
+<p><code>&amp;</code>, <code>|</code>, <code>^</code> は短絡評価をせずすべての項が評価される。各項が論理値であれば論理積・論理和になるが、整数であれば<a href="../number/bit-operator.html#java">ビット演算子</a>になる。なお、ビット演算子の否定は <code>~x</code> と書く。</p>
 
 <h2 id="401f27a">PHP
 <span class="article-date">2014/04/19</span></h2>

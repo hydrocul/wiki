@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>ビット演算子 | 数値型 | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>ビット演算子</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/number/">数値型</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/number/overview.html">数値のデータ型</a></li>
+          <li><a href="../../programming_languages_diff/number/arithmetic-operator.html">四則演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/compare.html">数値の比較演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
+          <li><a href="../../programming_languages_diff/number/elementary-function.html">三角関数・指数関数</a></li>
+          <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
+          <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の切り捨てまたは切り上げをするには (floor, ceil)</a></li>
+          <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
+          <li>ビット演算子</li>
+          <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="bit-operator">ビット演算子
+<span class="article-date">2014/08/18</span></h1>
+
+<p>ビット演算子を各プログラミング言語で比較。</p>
+
+<h2 id="java">Java
+<span class="article-date">2014/08/18</span></h2>
+
+<dl>
+  <dt><code>&amp;</code></dt>
+  <dd>ビット積(AND)。<code>boolean</code>同士でも使える。</dd>
+  <dt><code>|</code></dt>
+  <dd>ビット和(OR)。<code>boolean</code>同士でも使える。</dd>
+  <dt><code>^</code></dt>
+  <dd>ビットごとの排他的論理和(XOR)。<code>boolean</code>同士でも使える。</dd>
+  <dt><code>~</code></dt>
+  <dd>ビットごとの否定(NOT)</dd>
+  <dt><code>&lt;&lt;</code></dt>
+  <dd>左シフト(整数を2倍)。符号ビットは左端で消えるので符号は保存されない。</dd>
+  <dt><code>&gt;&gt;</code></dt>
+  <dd>右シフト(整数を2分の1)。左端は符号ビットで埋められるので符号は保存される。</dd>
+  <dt><code>&gt;&gt;&gt;</code></dt>
+  <dd>右シフト(整数を2分の1)。左端は0で埋められるので負の場合は符号が保存されない。</dd>
+</dl>
+
+<p><code>&amp;</code>, <code>|</code>, <code>^</code> は整数同士だけでなく、<code>boolean</code> 同士でも使える。
+<a href="../boolean/operator.html#java">論理演算子</a>参照。</p>
+
+<p>シフト演算子は<code>int</code>に対しては31まで、<code>long</code>に対しては63までしかシフトできない。シフト演算子の右に32または64を置くと、一切シフトされず、それを超える場合は32または64で割った余りの数だけシフトされる。つまり<code>int</code>の場合は <code>a &lt;&lt; b</code> は <code>a &lt;&lt; (b &amp; 0x1f)</code> とまったく同じになる。</p>
+
+<p>Bitwise and Logical Operators | Java Language Specification<br />
+<a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.22" target="_blank">http://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.22</a></p>
+
+<p>Bitwise Complement Operator <code>~</code> | Java Language Specification<br />
+<a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.15.5" target="_blank">http://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.15.5</a></p>
+
+<p>Shift Operators | Java Language Specification<br />
+<a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.19" target="_blank">http://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.19</a></p>
+
+<h2 id="7f1bf44">PHP
+<span class="article-date">2014/04/12</span></h2>
+
+<dl>
+  <dt><code>&amp;</code></dt>
+  <dd>ビット積(AND)</dd>
+  <dt><code>|</code></dt>
+  <dd>ビット和(OR)</dd>
+  <dt><code>^</code></dt>
+  <dd>ビットごとの排他的論理和(XOR)</dd>
+  <dt><code>~</code></dt>
+  <dd>ビットごとの否定(NOT)</dd>
+  <dt><code>&lt;&lt;</code></dt>
+  <dd>左シフト(整数を2倍)。符号ビットは左端で消えるので符号は保存されない。</dd>
+  <dt><code>&gt;&gt;</code></dt>
+  <dd>右シフト(整数を2分の1)。左端は符号ビットで埋められるので符号は保存される。</dd>
+</dl>
+
+<p>ビット演算子 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/language.operators.bitwise.php" target="_blank">http://www.php.net/manual/ja/language.operators.bitwise.php</a></p>
+
+<h2 id="bc7d9b6">Python
+<span class="article-date">2014/07/31</span></h2>
+
+<dl>
+  <dt><code>&amp;</code></dt>
+  <dd>ビット積(AND)</dd>
+  <dt><code>|</code></dt>
+  <dd>ビット和(OR)</dd>
+  <dt><code>^</code></dt>
+  <dd>ビットごとの排他的論理和(XOR)</dd>
+  <dt><code>&lt;&lt;</code></dt>
+  <dd>左シフト(整数を2倍)。左端で整数のビット数を超えると <code>OverflowError</code> が発生する。</dd>
+  <dt><code>&gt;&gt;</code></dt>
+  <dd>右シフト(整数を2分の1)。左端は符号ビットで埋められるので符号は保存される。</dd>
+</dl>
+
+<p>ビット演算 | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/reference/expressions.html#binary-bitwise-operation" target="_blank">http://docs.python.jp/2/reference/expressions.html#binary-bitwise-operation</a></p>
+
+<p>ビット演算 | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/reference/expressions.html#binary-bitwise-operations" target="_blank">http://docs.python.jp/3/reference/expressions.html#binary-bitwise-operations</a></p>
+
+<p>シフト演算 | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/reference/expressions.html#shifting-operation" target="_blank">http://docs.python.jp/2/reference/expressions.html#shifting-operation</a></p>
+
+<p>シフト演算 | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/reference/expressions.html#shifting-operations" target="_blank">http://docs.python.jp/3/reference/expressions.html#shifting-operations</a></p>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
