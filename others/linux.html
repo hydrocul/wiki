@@ -170,13 +170,13 @@ fi
 </blockquote>
 
 <h3 id="9920ef9">Ubuntu
-<span class="article-date">2013/05/13</span></h3>
+<span class="article-date">2014/08/19</span></h3>
 
 <p>OSセットアップ時に作成したユーザはデフォルトでsudoという名前のグループに入っていて、そのグループに入っているユーザには任意のコマンドをsudoで実行できるようになっている。</p>
 
 <p>特定のコマンドをパスワードなしでsudoできるようにするには、</p>
 
-<pre><code>sudo ALL=(ALL) NOPASSWD: /etc/init.d/apache2
+<pre><code>%sudo ALL=(ALL) NOPASSWD: /etc/init.d/apache2
 </code></pre>
 
 <p>などと書く。この例ではApacheの起動・終了・リロードなどがsudoグループであればパスワードなしで実行できる。パスワードなしということは、スクリプトの中にこのコマンドを書いて自動実行させることもできる。</p>

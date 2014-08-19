@@ -160,7 +160,7 @@ arr = str.split(pattern, limit)
 </code></pre>
 
 <h2 id="fd4ba15">Perl
-<span class="article-date">2014/06/23</span></h2>
+<span class="article-date">2014/08/19</span></h2>
 
 <pre><code>my @arr = split(/[bd]/, "abcdef");
 print "@arr";
@@ -171,6 +171,7 @@ print "@arr";
 
 <pre><code>my @arr = split(/,/, "");
 print scalar @arr;
+# =&gt; 0
 </code></pre>
 
 <p>2つ目の引数を省略すると <code>$_</code> を対象にsplitする。</p>
