@@ -77,7 +77,21 @@
 </div>
 
 <div id="content">
-  <h1 id="any-all">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</h1>
+  <h1 id="any-all">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)
+<span class="article-date">2014/08/20</span></h1>
+
+<p>-&gt; <a href="contains.html">特定の条件を満たす要素が含まれているかどうかを判定するには</a></p>
+
+<h2 id="e7c44cf">Scala
+<span class="article-date">2014/08/20</span></h2>
+
+<p><code>List</code>クラスなどに<code>exists</code>というメソッドが、Rubyの<code>any?</code>メソッドに相当するものとして存在する。</p>
+
+<p>Signature:</p>
+
+<pre><code>// scala.collection.TraversableOnce[A]
+def exists(p: A =&gt; Boolean): Boolean
+</code></pre>
 
 <h2 id="ed94f7c">Ruby
 <span class="article-date">2014/02/17</span></h2>
