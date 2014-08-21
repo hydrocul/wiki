@@ -302,10 +302,10 @@ sed -n '/^$/p' | wc -l
 </code></pre>
 
 <h2 id="85210e2">1つ以上の連続するスペースまたはタブ文字を1つのスペースに全置換するには
-<span class="article-date">2013/06/17</span></h2>
+<span class="article-date">2014/08/21</span></h2>
 
 <pre><code># タブ文字をスペースに全置換
-sed -E '/[\t ]+/ /g'
+sed -E 's/[\t ]+/ /g'
 </code></pre>
 
 <h2 id="99dcc4b">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには
@@ -423,11 +423,13 @@ tail -f access_log | sed -u ...
 <p>(違いは調べていない、、、)</p>
 
 <h2 id="128f51e">N行おきに抽出するには
-<span class="article-date">2014/08/01</span></h2>
+<span class="article-date">2014/08/21</span></h2>
 
-<p>10行目、20行目、、、と10行おきに抽出する例。</p>
+<pre><code># 10行目、20行目、、、と10行おきに抽出
+cat ファイル名 | sed -ne '0~10p'
 
-<pre><code>cat ファイル名 | sed -n '0~10p'
+# 3行目、13行目、23行目、、、と10行おきに抽出
+cat ファイル名 | sed -ne '3~10p'
 </code></pre>
 
 </div>
