@@ -51,6 +51,7 @@
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -71,25 +72,49 @@
 
 <p>インデックスで範囲を指定して部分文字列を取得する方法は<a href="substr.html">substr</a>参照。</p>
 
-<h2 id="559add2">Java / Scala
+<h2 id="2e8b245">Java
 <span class="article-date">2014/01/26</span></h2>
 
 <p>0から始まるインデックスで <code>char</code> の文字を取得できる。
 <code>char</code> はUTF-16の16ビットでの値なので、サロゲートペアの文字が含まれていた場合、インデックスが文字数単位のインデックスとは一致しないし、サロゲートペアの文字に直撃した場合はその1バイト目または2バイト目のみの取得になってしまう。</p>
 
+<p>Signature:</p>
+
 <pre><code>// java.lang.String
 char charAt(int index)
 </code></pre>
 
+<h2 id="d424e3c">Scala
+<span class="article-date">2014/08/21</span></h2>
+
+<p>Javaと同じく、0から始まるインデックスで <code>Char</code> の文字を取得できる。
+<code>char</code> はUTF-16の16ビットでの値なので、サロゲートペアの文字が含まれていた場合、インデックスが文字数単位のインデックスとは一致しないし、サロゲートペアの文字に直撃した場合はその1バイト目または2バイト目のみの取得になってしまう。</p>
+
+<p>Signature:</p>
+
+<pre><code>// java.lang.String
+def charAt(index: Int): Char
+
+// scala.collection.immutable.StringLike
+def apply(index: Int): Char
+</code></pre>
+
+<p><code>StringLike#apply</code> は内部ではJavaの <code>String#charAt</code> を呼び出している。</p>
+
+<p>例</p>
+
+<pre><code>"abc"(2) // =&gt; 'c'
+</code></pre>
+
 <h2 id="283e923">PHP
-<span class="article-date">2013/10/03</span></h2>
+<span class="article-date">2014/08/21</span></h2>
+
+<p><code>[]</code>演算子で0から始まるインデックスで文字を取得できる。</p>
 
 <pre><code>$str[$index];
 </code></pre>
 
-<p>インデックスは0から始まる。</p>
-
-<p>文字というデータ型はないので、取得した結果も文字列である。従って以下のようなことになる。</p>
+<p>PHP文字というデータ型はないので、取得した結果も1文字ではあるものの文字列である。従って以下のようなことになる。</p>
 
 <pre><code>$str = "abc";
 echo $str[0]; // =&gt; a
@@ -131,7 +156,7 @@ p str[4].class # =&gt; String
 <p>文字というデータ型はないので、取得した結果も文字列である。</p>
 
 <h2 id="5405ebe">Perl
-<span class="article-date">2013/09/10</span></h2>
+<span class="article-date">2014/08/22</span></h2>
 
 <pre><code>use utf8;
 
@@ -141,6 +166,8 @@ print substr($s, 2, 1);
 </code></pre>
 
 <p><code>use utf8;</code> がないと、ASCII以外の文字を正しく扱えない。</p>
+
+<p>文字というデータ型はないので、取得した結果も文字列である。その文字のコードを整数で取得したい場合は <a href="ord.html#perl"><code>ord</code></a> を使う。</p>
 
 <h2 id="ef5bc09">CoffeeScript
 <span class="article-date">2013/09/07</span></h2>

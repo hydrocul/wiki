@@ -51,6 +51,7 @@
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -80,9 +81,15 @@ String substring(int from, int to)
 </code></pre>
 
 <h2 id="ba2a0e1">PHP
-<span class="article-date">2013/07/23</span></h2>
+<span class="article-date">2014/08/21</span></h2>
 
-<pre><code>string substr(string $string, int $start [, int $length])
+<p>例</p>
+
+<pre><code>// $str の $start 以降の部分文字列
+substr($str, $start);
+
+// $str の $start 以降の最大で$len文字の部分文字列
+substr($str, $start, $len])
 </code></pre>
 
 <p><code>substr</code> 関数 | PHP Manual<br />
@@ -97,7 +104,7 @@ length が指定され、かつ 0 である場合は、 空文字列なら NULL�
 length を省略した場合は、 start の位置から文字列の最後までの部分文字列を返します。  </p>
 </blockquote>
 
-<p><code>$length</code>が<code>$string</code>に比べ長すぎる場合は、エラーにならずに<code>$string</code>の最後までを返す。</p>
+<p><code>$len</code>が<code>$str</code>に比べ長すぎる場合は、エラーにならずに<code>$str</code>の最後までを返す。</p>
 
 <h2 id="df3790e">Python
 <span class="article-date">2014/07/02</span></h2>

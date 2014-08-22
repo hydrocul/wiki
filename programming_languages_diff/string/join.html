@@ -51,6 +51,7 @@
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -107,13 +108,20 @@ def mkString(start: String, separator: String, end: String): String
 <a href="http://docs.python.jp/2/library/stdtypes.html?highlight=join#str.join" target="_blank">http://docs.python.jp/2/library/stdtypes.html?highlight=join#str.join</a></p>
 
 <h2 id="683ce52">Ruby
-<span class="article-date">2013/04/10</span></h2>
+<span class="article-date">2014/08/22</span></h2>
 
-<pre><code>Array#join(separator)
+<p><code>Array#join</code> メソッドでできる。</p>
+
+<p>例</p>
+
+<pre><code>arr = ['abc', 'def', 'ghi']
+p arr.join(',') # =&gt; "abc,def,ghi"
 </code></pre>
 
 <h2 id="6a7b6f9">Perl
 <span class="article-date">2013/07/27</span></h2>
+
+<p>例</p>
 
 <pre><code>my @arr = ('abc', 'def', 'ghi');
 print @arr;            # =&gt; abcdefghi
