@@ -51,16 +51,51 @@
   <h1 id="to-string">数値を文字列に変換するには</h1>
 
 <h2 id="f38a8fb">Java
-<span class="article-date">2014/08/24</span></h2>
+<span class="article-date">2014/08/25</span></h2>
 
-<p>プリミティブ型あれば、対応するラッパークラスのsitaticメソッドである 
-<code>Integer.toString</code> などを使う。</p>
+<p>プリミティブ型あれば、対応するラッパークラスのsitaticメソッドの 
+<code>Integer.toString</code> などを使う。すでにラッパークラスのオブジェクトになっていれば、そのインスタンスメソッドの <code>#toString</code> を使う。</p>
 
 <p>Signature:</p>
 
-<pre><code>// java.lang.Integer
+<pre><code>// java.lang.Byte
+static String toString(byte i)
+
+// java.lang.Short
+static String toString(short i)
+
+// java.lang.Integer
 static String toString(int i)
+
+// java.lang.Long
+static String toString(long i)
+
+// java.lang.Float
+static String toString(float i)
+
+// java.lang.Double
+static String toString(float i)
+
+// java.lang.Byte
+String toString()
+
+// java.lang.Short
+String toString()
+
+// java.lang.Integer
+String toString()
+
+// java.lang.Long
+String toString()
+
+// java.lang.Float
+String toString()
+
+// java.lang.Double
+String toString()
 </code></pre>
+
+<p><code>+</code>演算子でオペランドのどちらかが<code>String</code>型であれば、他方の整数または浮動小数点数のプリミティブ型は自動で<code>String</code>型に変換してくれるし、プリミティブ型以外であればもともと<code>toString</code>で<code>String</code>型に変換してくれるので、文字列と連結する際には上記メソッドを使うことはあまりない。</p>
 
 <h2 id="623929e">PHP
 <span class="article-date">2014/03/29</span></h2>
