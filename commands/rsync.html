@@ -145,9 +145,13 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 <p><a href="cp.html"><code>cp</code></a> での同じ役割をはたすのは <code>--parents</code>。</p>
 
 <h2 id="fe293ac">ポートが22以外のSSHサーバにrsyncで接続するには
-<span class="article-date">2013/10/14</span></h2>
+<span class="article-date">2014/08/26</span></h2>
 
-<pre><code>rsync -e "ssh -p &lt;port&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
+<pre><code># リモートからダウンロードする場合
+rsync -e "ssh -p &lt;port&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
+
+# リモートにアップロードする場合
+rsync -e "ssh -p &lt;port&gt;" &lt;local_path&gt; &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt;
 </code></pre>
 
 <p>-&gt; <a href="ssh.html#port">ポートが22以外のSSHサーバに接続するには</a></p>
@@ -163,6 +167,18 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 <p><code>rsync</code> で標準出力させる方法が見つからなかったが、<code>ssh</code> で以下のようにすればよい。</p>
 
 <pre><code>ssh remote "cat abc.txt" | less
+</code></pre>
+
+<h2 id="99025ac">ネットワークの帯域を絞ってゆっくり転送したい場合
+<span class="article-date">2014/08/26</span></h2>
+
+<p>時間がかかってもよいからネットワークの負荷をかけずにゆっくりダウンロードまたはアップロードするには
+<code>--bwlimit</code>オプションを使う。このオプションで指定する数字の単位はKBps(キロバイト毎秒であってキロビット毎秒ではない)。</p>
+
+<p>例</p>
+
+<pre><code># 毎秒100KBに制限してダウンロード
+rsync --bwlimit=100 remote:foo.txt ./
 </code></pre>
 
 </div>
