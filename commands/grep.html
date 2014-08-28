@@ -146,6 +146,18 @@ grepはバイナリファイルだと勘違いしてしまう。バイナリ扱�
 
 <p><code>--line-buffered</code> を付けないとgrepがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
 
+<h2 id="2c2b2ee"><code>Binary file foo.txt matches</code> というように表示されてしまう場合
+<span class="article-date">2014/08/28</span></h2>
+
+<p>テキストファイルをgrepしたつもりなのに、<code>Binary File</code> と言われてしまったら、オプション <code>-a</code> を付ける。</p>
+
+<p>例</p>
+
+<pre><code>grep -a blahbla foo.txt
+</code></pre>
+
+<p><code>-a</code> の代わりに <code>--text</code> や <code>--binary-files=text</code> でもよい。</p>
+
 </div>
 
 <footer>
