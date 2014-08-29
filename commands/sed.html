@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>sed コマンド | コマンドの使い方 | hydrocul のメモ</title>
+<title>sed コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方</a> &gt; <span>sed コマンド</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>sed コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../commands/">コマンドの使い方</a>
+  <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
@@ -92,14 +92,22 @@
 
 <div id="content">
   <h1 id="sed">sed コマンド
-<span class="article-date">2013/06/17</span></h1>
+<span class="article-date">2014/08/29</span></h1>
 
 <p>文字列を全置換したり、行単位で削除したり、いろいろできるコマンド。</p>
 
-<h2 id="1db04e2">基本的な使い方
-<span class="article-date">2014/05/19</span></h2>
+<p>処理内容にもよるが、perlのワンライナーで書くよりも処理が速いことが多い。</p>
 
-<p>標準入力を処理して標準出力に出力する。またはファイル名を指定すればそのファイルを読み込んで標準出力に出力する。ファイル名を指定してオプション <code>-i</code> を使えば、そのファイルを読み込んで、結果をそのファイルに上書きする。処理内容はオプション <code>-e</code> で指定する。</p>
+<h2 id="1db04e2">基本的な使い方
+<span class="article-date">2014/08/29</span></h2>
+
+<p>標準入力をなにかしら処理して標準出力に出力するので、パイプとして使える。</p>
+
+<p>またはファイル名を指定すればそのファイルを読み込んで標準出力に出力する。</p>
+
+<p>ファイル名を指定してオプション <code>-i</code> を使えば、そのファイルを読み込んで、結果をそのファイルに上書きする。ファイル自体を編集したい場合には便利。</p>
+
+<p>処理内容は、置換処理や行の削除、選択などいろいろできて、オプション <code>-e</code> で指定する。</p>
 
 <p>パイプで使う場合の例</p>
 
@@ -116,16 +124,28 @@
 <pre><code>sed -i -e 's/xxx/XXX/g' ./hoge.txt ./hoge2.txt ./hoge3.txt
 </code></pre>
 
+<p><code>-e</code> オプションがない場合は最初のオプション以外の引数が処理内容とみなされるので、たいていは <code>-e</code> を省略できる。</p>
+
+<h2 id="544ea65">複数の処理をさせるには
+<span class="article-date">2014/08/29</span></h2>
+
 <p><code>-e</code>オプションを複数指定すれば、コマンドを複数実行することができる。またはコマンドを <code>;</code> で区切って複数並べることもできる。</p>
 
-<p>コマンドが複数ある場合、コマンド1つずつ全行操作するのではなく、各行ごとにコマンドをすべて実行していく。</p>
+<p>コマンドが複数ある場合、コマンド1つずつ全行操作するのではなく、各行ごとにコマンドをすべて実行していく。つまり、以下の2つのコマンドは結果が違う可能性がある。</p>
+
+<pre><code>cat ... | sed -e ... | sed -e ...
+cat ... | sed -e ... -e ...
+</code></pre>
 
 <p>例えば <code>sed -n -e '11,20!d' -e 6,15p</code> または <code>sed -n -e '11,20!d;6,15p</code> は、
 11行目から20行目以外を削除するコマンドと、
 6行目から15行目のみを抽出するコマンドだが、これは、11行目から20行目以外を削除した結果に対して6行目から15行目を抽出する(つまりトータルでは16行目から20行目のみを抽出する)のではなく、
 11行目から20行目と6行目から15行目が重なる行、つまり11行目から15行目のみを抽出する。</p>
 
-<p><code>-e</code>オプションではアルファベット1文字とその前後のパラメータを与えることで詳細な処理内容を表す。アルファベット1文字は、<code>s</code>, <code>d</code> などがあり、以下のとおり。</p>
+<h2 id="ed756ff"><code>-e</code> で指定する処理内容
+<span class="article-date">2014/08/29</span></h2>
+
+<p><code>-e</code> のあとのパラメータは、アドレス、コマンド1文字、パラメータの順につなげることで、処理内容を表す。アドレスはどの行を処理対象とするかを表し、全行の処理の場合はアドレスを省略でき、コマンドの1文字から始まることになる。コマンドは <code>s</code>, <code>p</code>, <code>d</code> などがある。</p>
 
 <h3 id="replace"><code>s</code>コマンド
 <span class="article-date">2014/07/31</span></h3>
@@ -173,7 +193,7 @@ sed '3,$s/abc/ABC/g'
 
 <p>-&gt; <a href="../programming_languages_diff/string/replace.html">各プログラミング言語での正規表現で置換</a></p>
 
-<h3 id="63c6a61"><code>d</code>コマンド
+<h3 id="ca52b95"><code>d</code>コマンド
 <span class="article-date">2013/10/01</span></h3>
 
 <p>行を削除する。</p>
@@ -193,7 +213,7 @@ sed '1,5!d'
 sed 1,5\!d
 </code></pre>
 
-<h3 id="10e0c12"><code>p</code>コマンド
+<h3 id="6889b9a"><code>p</code>コマンド
 <span class="article-date">2013/10/01</span></h3>
 
 <p>行を単に出力する。通常は <code>-n</code> オプションと組み合わせる。
@@ -201,8 +221,8 @@ sed 1,5\!d
 <code>-n</code> オプションを付けるとデフォルトの出力がされなくなり、
 <code>p</code>コマンドの出力のみになる。</p>
 
-<h3 id="f03a24c">アドレス
-<span class="article-date">2014/05/19</span></h3>
+<h2 id="6c6098f">アドレス
+<span class="article-date">2014/05/19</span></h2>
 
 <p>コマンドの実行対象行を指定する行番号をアドレスという。行番号だけでなくや正規表現で指定して、その正規表現にマッチする行を実行対象とすることもできる。</p>
 
@@ -318,8 +338,8 @@ sed -E 's/[\t ]+/ /g'
 
 <p><code>-e</code> はどういう意味だろう？</p>
 
-<h3 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換するには
-<span class="article-date">2014/05/19</span></h3>
+<h2 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換するには
+<span class="article-date">2014/05/19</span></h2>
 
 <p>置換対象のファイルを <a href="find.html"><code>find</code></a> などでリストアップして、 <code>sed</code> を使う。</p>
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>time コマンド | コマンドの使い方 | hydrocul のメモ</title>
+<title>time コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方</a> &gt; <span>time コマンド</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>time コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../commands/">コマンドの使い方</a>
+  <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
@@ -92,7 +92,7 @@
 
 <div id="content">
   <h1 id="time">time コマンド
-<span class="article-date">2014/06/18</span></h1>
+<span class="article-date">2014/08/29</span></h1>
 
 <p>コマンドの実行時間を計測するコマンド。<code>time</code> のあとに実行するコマンドを引数で渡す。</p>
 
@@ -108,13 +108,15 @@
 <pre><code>time firstcommand | longlongcommand
 </code></pre>
 
-<p>bashの場合、シェルの組み込みコマンド(ビルトインコマンド)は、 
+<p>zshの<code>time</code>コマンドでは、上記のようにパイプで複数つなげたコマンドを対象とする場合は、各コマンドごとの処理時間などを表示してくれる。bashではそれができない。</p>
+
+<p>ヘルプ表示に関して、bashでは、他のシェルの組み込みコマンド(ビルトインコマンド)と同様に、
 <code>help time</code> というふうに <code>help</code> コマンドでヘルプを表示できる。<code>help</code> も組み込みコマンドである。残念ながらzshではできないみたい。</p>
 
 <p>プログラミング言語の中で実行時間を計測するには、
 <a href="../programming_languages_diff/datetime/timer.html">処理時間を計測</a>参照。</p>
 
-<p>現在の時刻を調べるのは<a href="date.html"><code>date</code>コマンド</a>。</p>
+<p>現在の時刻を調べるのは<code>time</code>ではなく、<a href="date.html"><code>date</code>コマンド</a>である。</p>
 
 <h2 id="26be8a1">オプション
 <span class="article-date">2013/11/21</span></h2>
