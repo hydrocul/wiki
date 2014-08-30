@@ -45,12 +45,12 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li>文字列を数値に変換するには</li>
@@ -64,10 +64,22 @@
 </div>
 
 <div id="content">
-  <h1 id="to-num">文字列を数値に変換するには</h1>
+  <h1 id="to-num">文字列を数値に変換するには
+<span class="article-date">2014/08/30</span></h1>
+
+<p>多くの言語では動的/静的の違いはあっても文字列と数値とで型が区別されるので変換が必要になることがある。以下はプログラミング言語ごとの変換の方法のメモ。</p>
+
+<p>逆に数値から文字列に変換する方法は<a href="../number/to-string.html">こちら</a>。</p>
 
 <h2 id="8041b68">Java
-<span class="article-date">2013/10/14</span></h2>
+<span class="article-date">2014/08/30</span></h2>
+
+<p>Signature:</p>
+
+<pre><code>// java.lang.Integer のメソッド
+static parseInt(String str)
+static parseInt(String str, int radix)
+</code></pre>
 
 <p>例</p>
 
@@ -76,6 +88,24 @@ int i = Integer.parseInt(str);
 
 // 16進数の文字列を整数に変換
 int i = Integer.parseInt(str, 16);
+</code></pre>
+
+<p>数値に変換できない文字列の場合は、<code>NumberFormatException</code> がスローされる。</p>
+
+<h2 id="b451d62">Scala
+<span class="article-date">2014/08/30</span></h2>
+
+<p>Javaに比較して、文字列のクラスに以下のメソッドが追加されている。</p>
+
+<p>Signature:</p>
+
+<pre><code>// scala.collection.immutable.StringLike
+def toByte: Byte
+def toShort: Short
+def toInt: Int
+def toLong: Long
+def toFloat: Float
+def toDouble: Double
 </code></pre>
 
 <h2 id="php">PHP

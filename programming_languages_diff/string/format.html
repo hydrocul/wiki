@@ -45,12 +45,12 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -65,9 +65,11 @@
 
 <div id="content">
   <h1 id="format">書式化文字列 (format, printf, sprintf)
-<span class="article-date">2013/10/08</span></h1>
+<span class="article-date">2014/08/30</span></h1>
 
-<p>C言語の <code>printf</code> のような書式で文字列を組み立てられる言語が多い。書式化文字列でなくても<a href="inline.html">文字列の中に変数を埋め込む書き方</a>を使うことで、細かい書式までは指定できないが <code>printf</code> の代わりに文字列を組み立てることもできる。</p>
+<p>C言語の <code>sprintf</code> のような書式で文字列を組み立てられる言語が多い。書式化文字列でなくても<a href="inline.html">文字列の中に変数を埋め込む書き方</a>を使うことで、細かい書式までは指定できないが <code>sprintf</code> の代わりに文字列を組み立てることもできる。</p>
+
+<p>以下はプログラミング言語ごとの<code>sprintf</code>の方法のメモ。</p>
 
 <h2 id="5813254">C言語, C++
 <span class="article-date">2013/09/08</span></h2>
@@ -100,9 +102,12 @@ snprintf(dst, sizeof(dst), "%s %d", str, i);
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax</a></p>
 
 <h2 id="3218db9">Scala
-<span class="article-date">2014/08/10</span></h2>
+<span class="article-date">2014/08/30</span></h2>
 
-<p><code>StringLike#format</code>メソッドでできる。</p>
+<p><code>StringLike#format</code>メソッドでC言語の<code>sprintf</code>と同様のことができる。</p>
+
+<p>Javaの<code>format</code>はクラスメソッド(staticメソッド)だが、
+Scalaの<code>StringLike#format</code>はインスタンスメソッドである。</p>
 
 <p>例</p>
 
@@ -169,15 +174,22 @@ snprintf(dst, sizeof(dst), "%s %d", str, i);
 <a href="http://doc.ruby-lang.org/ja/1.8.7/doc/print_format.html" target="_blank">http://doc.ruby-lang.org/ja/1.8.7/doc/print_format.html</a></p>
 
 <h2 id="c553d6a">Perl
-<span class="article-date">2013/11/26</span></h2>
+<span class="article-date">2014/08/30</span></h2>
+
+<p><code>sprintf</code>関数でC言語の<code>sprintf</code>と同じような書式化文字列が使える。内部でC言語の<code>sprintf</code>を呼び出しているわけではなくPerlで独自に実装されているらしい。</p>
 
 <p>例</p>
 
 <pre><code>sprintf("%s %d", $str, $i)
 </code></pre>
 
-<p>sprintf | perldoc.jp<br />
+<p><code>printf</code>関数で標準出力やファイルへの出力もできる。</p>
+
+<p><code>sprintf</code> 関数 | perldoc.jp<br />
 <a href="http://perldoc.jp/func/sprintf" target="_blank">http://perldoc.jp/func/sprintf</a></p>
+
+<p><code>printf</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/printf" target="_blank">http://perldoc.jp/func/printf</a></p>
 
 <h2 id="adb5d4b">JavaScript
 <span class="article-date">2013/10/12</span></h2>
