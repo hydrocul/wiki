@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>sort コマンド | コマンドの使い方 | hydrocul のメモ</title>
+<title>sort コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方</a> &gt; <span>sort コマンド</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>sort コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../commands/">コマンドの使い方</a>
+  <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
@@ -117,7 +117,7 @@
 <a href="find.html#sort-by-timestamp"><code>find</code>でタイムスタンプの新しい順にファイル一覧を表示するには</a></p>
 
 <h2 id="86ccd62">日本語を含むソートをするには
-<span class="article-date">2014/07/18</span></h2>
+<span class="article-date">2014/08/30</span></h2>
 
 <p>漢字やひらがな/カタカナなどが含まれる日本語テキストは、うまくソートできない場合があるみたいで、その場合は環境変数 <code>LC_ALL=C</code> または <code>LANG=ja_JP.UTF-8</code> を設定するとよいみたい。</p>
 
@@ -125,6 +125,8 @@
 
 <pre><code>cat foo.txt | LC_ALL=C sort
 </code></pre>
+
+<p><code>uniq</code>コマンドでも同様に、行の中に漢字やひらがな/カタカナなどが含まれるとうまくできない場合があるみたい。</p>
 
 <h2 id="fe78c83">ランダムな順番にソートをするには
 <span class="article-date">2014/08/08</span></h2>
