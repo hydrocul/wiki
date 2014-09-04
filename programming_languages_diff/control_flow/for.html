@@ -211,6 +211,31 @@ end
 
 <p>-&gt; <a href="../list/foreach.html#perl">配列でのforeach</a></p>
 
+<h2 id="sh">sh
+<span class="article-date">2014/09/04</span></h2>
+
+<p>bashでは以下のように書ける。</p>
+
+<pre><code># 0から9までの10回処理を繰り返す例
+for((i=0; i &lt; 10; i++)); do
+    echo $i
+done
+</code></pre>
+
+<p>この書き方はUbuntuでのシェルスクリプトのインタプリータでデフォルトとなっているdashでは使えない。</p>
+
+<p><code>seq</code>コマンドを使う以下の方法であれば、bashでもdashでも使える。</p>
+
+<pre><code># 1から10までの10回処理を繰り返す例
+for i in `seq 10`; do
+    echo $i
+done
+</code></pre>
+
+<p>-&gt; <a href="../list/range.html#sh"><code>seq</code>コマンド</a></p>
+
+<p>ループの中では <a href="break.html#sh"><code>break</code></a> が使える。</p>
+
 <h2 id="47d6da8">JavaScript
 <span class="article-date">2013/07/27</span></h2>
 
@@ -222,23 +247,6 @@ end
 </code></pre>
 
 <p><code>var i</code> と書いているが、スコープはfor文を含む関数内であり、for文に限定できるものではない。</p>
-
-<h2 id="sh">sh
-<span class="article-date">2014/05/28</span></h2>
-
-<p>C言語ライクの<code>for</code>文ではないが、特定の回数だけ処理を繰り返すには、
-<code>for</code>文と<code>seq</code>コマンドを利用する。</p>
-
-<p><code>1</code>から<code>10</code>までの10回処理を繰り返す例</p>
-
-<pre><code>for i in `seq 10`; do
-    echo $i
-done
-</code></pre>
-
-<p>-&gt; <a href="../list/range.html#sh"><code>seq</code>コマンド</a></p>
-
-<p>ループの中では <a href="break.html#sh"><code>break</code></a> が使える。</p>
 
 </div>
 

@@ -91,7 +91,23 @@
 </div>
 
 <div id="content">
-  <h1 id="curl">curl コマンド</h1>
+  <h1 id="curl">curl コマンド
+<span class="article-date">2014/09/04</span></h1>
+
+<p>HTTPアクセスをしてコンテンツをファイルに保存するコマンド。
+ftpやscpとかでもファイル転送できるらしいが、自分はhttpやhttpsで使うことがほとんど。
+<a href="wget.html"><code>wget</code></a>でも同じようなことができる。</p>
+
+<p>URLをパラメータにしてそのコンテンツを標準出力させるのが、基本的な使い方。</p>
+
+<pre><code>curl http://www.example.com/
+</code></pre>
+
+<p>ファイルに保存したければ、リダイレクトを使えばよい。
+<code>-o</code> オプションでもファイル保存ができるらしいが、そんなオプションを記憶しておくよりもどのコマンドでも使えるシェルのリダイレクトの方法を覚えておけば、ほとんどの場合に使えるから、自分はそうしている。</p>
+
+<pre><code>curl http://www.example.com/ &gt; example.html
+</code></pre>
 
 <h2 id="basic-auth">BASIC認証のあるサイトをダウンロードするには
 <span class="article-date">2013/11/26</span></h2>
@@ -110,7 +126,9 @@ BASIC認証以外にはDigest認証、NTLM認証に対応している。</p>
 <p>-&gt; <a href="wget.html#basic-auth"><code>wget</code>コマンドでのBASIC認証</a></p>
 
 <h2 id="4b60935">進捗表示をしないようにするには
-<span class="article-date">2013/09/11</span></h2>
+<span class="article-date">2014/09/04</span></h2>
+
+<p><code>-s</code> オプションを使う。</p>
 
 <pre><code>curl -s http://www.example.com/
 </code></pre>
@@ -204,7 +222,7 @@ fi
 </code></pre>
 
 <h2 id="0084d64">SSLのエラーを無視するには
-<span class="article-date">2014/06/13</span></h2>
+<span class="article-date">2014/09/04</span></h2>
 
 <p>SSL証明書に書いてあるホスト名と実際のアクセスしているホスト名が違っていたりして、
 SSLのエラーが発生してしまう場合は、オプション <code>-k</code> を付けて、エラーを無視させれば良い。</p>
@@ -213,6 +231,8 @@ SSLのエラーが発生してしまう場合は、オプション <code>-k</cod
 
 <pre><code>curl -k 'http://192.168...../'
 </code></pre>
+
+<p>httpsのくせにipアドレスでアクセスさせる社内のシステムとか、これでエラーをスキップできる。</p>
 
 </div>
 
