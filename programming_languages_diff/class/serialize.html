@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>オブジェクトをシリアライズ・デシリアライズするには | クラスとオブジェクト | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラスとオブジェクト</a> &gt; <span>オブジェクトをシリアライズ・デシリアライズするには</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/class/">クラスとオブジェクト</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
+          <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
+          <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
+          <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
+          <li><a href="../../programming_languages_diff/class/object-id.html">オブジェクトのIDを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
+          <li><a href="../../programming_languages_diff/class/access-member.html">クラスメンバーへのアクセス</a></li>
+          <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
+          <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
+          <li><a href="../../programming_languages_diff/class/compare.html">オブジェクトの比較演算子</a></li>
+          <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+          <li>オブジェクトをシリアライズ・デシリアライズするには</li>
+          <li><a href="../../programming_languages_diff/class/this.html"><code>this</code></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="serialize">オブジェクトをシリアライズ・デシリアライズするには</h1>
+
+<h2 id="a0c8ed4">PHP</h2>
+
+<h3 id="ed2aa43">JSON形式
+<span class="article-date">2014/04/22</span></h3>
+
+<p>例</p>
+
+<pre><code>// 連想配列からJSONにエンコード
+$json_src = json_encode($arr);
+
+// JSONからオブジェクトにデコード
+$obj = json_decode($json_src);
+
+// JSONから連想配列にデコード
+$arr = json_decode($json_src, true);
+</code></pre>
+
+<p><code>json_encode</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.json-encode.php" target="_blank">http://www.php.net/manual/ja/function.json-encode.php</a></p>
+
+<p><code>json_decode</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.json-decode.php" target="_blank">http://www.php.net/manual/ja/function.json-decode.php</a></p>
+
+<p>要素の最後の余計なカンマがあるとパースできない。</p>
+
+<pre><code>{"a": 1, "b": 2}
+// =&gt; OK
+
+{"a": 1, "b": 2, }
+// =&gt; NG
+</code></pre>
+
+<p>JSONのフォーマットがおかしいなどでデコードできなかった場合は <code>NULL</code> が返される。</p>
+
+<h2 id="33ae729">Python</h2>
+
+<h3 id="6b4aaa3">JSON形式
+<span class="article-date">2014/09/05</span></h3>
+
+<pre><code>import json
+
+src = {'a': 1, 'b': [3, 4, 5]}
+serialized = json.dumps(src)
+print(serialized)
+# =&gt; {"a": 1, "b": [3, 4, 5]}
+
+dst = json.loads(serialized)
+print(dst)
+# =&gt; {'a': 1, 'b': [3, 4, 5]}
+</code></pre>
+
+<p>Python2でもPython3でも動くが、自分の環境でのPython2と3とで表示される要素の順番が少し違った。</p>
+
+<h2 id="c434730">Ruby</h2>
+
+<h3 id="9409c51">Marshal
+<span class="article-date">2014/03/02</span></h3>
+
+<p>Marshalを使ったオブジェクトの書き出しと読み出しの例</p>
+
+<pre><code>src = {'a' =&gt; 1, 'b' =&gt; [3, 4, 5]}
+
+serialized = Marshal.dump(src)
+
+dst = Marshal.load(serialized)
+
+p dst
+# =&gt; {"a"=&gt;1, "b"=&gt;[3, 4, 5]}
+</code></pre>
+
+<p>Marshalを使って書き出されたバイナリデータはRuby独自のもので、他の言語で読み書きするのは困難なようである。</p>
+
+<h3 id="a5d323b">YAML形式
+<span class="article-date">2014/03/02</span></h3>
+
+<p>例</p>
+
+<pre><code>require 'yaml'
+
+src = {'a' =&gt; 1, 'b' =&gt; [3, 4, 5]}
+
+serialized = src.to_yaml
+
+dst = YAML.load(serialized)
+
+p dst
+# =&gt; {"a"=&gt;1, "b"=&gt;[3, 4, 5]}
+</code></pre>
+
+<h3 id="b74061f">JSON形式
+<span class="article-date">2014/05/28</span></h3>
+
+<p>例</p>
+
+<pre><code>require 'json'
+
+src = {'a' =&gt; 1, 'b' =&gt; [3, 4, 5]}
+
+serialized = JSON.generate(src)
+
+puts serialized
+# =&gt; {"a":1,"b":[3,4,5]}
+
+dst = JSON.parse(serialized)
+
+p dst
+# =&gt; {"a"=&gt;1, "b"=&gt;[3, 4, 5]}
+</code></pre>
+
+<p>JSONを改行やインデントを入れて人間にとって読みやすいソースを生成するには
+<code>generate</code>メソッドの代わりに<code>pretty_generate</code>メソッドを使う。</p>
+
+<p>module <code>JSON</code> | Ruby Reference Manual<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/class/JSON.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/class/JSON.html</a></p>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
