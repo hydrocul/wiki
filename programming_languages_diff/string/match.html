@@ -45,12 +45,12 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li>パターンマッチングするには</li>
+          <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -87,6 +87,27 @@ preg_match('/\Abc\z/', "abc\nabc"); // =&gt; 0
 
 <p>PCRE(Perlと互換性の高い正規表現)のパターン | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/pcre.pattern.php" target="_blank">http://www.php.net/manual/ja/pcre.pattern.php</a></p>
+
+<h2 id="48b4b2f">Python
+<span class="article-date">2014/09/07</span></h2>
+
+<p>コンパイルした正規表現をオブジェクトとして保持して、そのオブジェクトの
+<code>match</code>メソッドなどを呼び出す。</p>
+
+<pre><code>import re
+r = re.compile("bc")
+print("match" if r.match("abc") else "unmatch") # =&gt; unmatch
+r = re.compile("ab")
+print("match" if r.match("abc") else "unmatch") # =&gt; match
+</code></pre>
+
+<p><code>match</code>メソッドは、文字列の先頭がマッチするかどうかであり、文字列全体のマッチングではなく、部分マッチングでもない。</p>
+
+<p>正規表現 HOWTO | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/howto/regex.html" target="_blank">http://docs.python.jp/2/howto/regex.html</a></p>
+
+<p>正規表現 HOWTO | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/howto/regex.html" target="_blank">http://docs.python.jp/3/howto/regex.html</a></p>
 
 <h2 id="b02e24c">Ruby
 <span class="article-date">2013/09/18</span></h2>
