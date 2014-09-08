@@ -116,7 +116,7 @@ arange(0, 1, 0.1)
 <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html" target="_blank">http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html</a></p>
 
 <h2 id="c25debe">Ruby
-<span class="article-date">2014/01/05</span></h2>
+<span class="article-date">2014/09/08</span></h2>
 
 <pre><code># 0から9までの配列(範囲オブジェクト)
 0..9
@@ -125,7 +125,15 @@ arange(0, 1, 0.1)
 0..10*10-1
 </code></pre>
 
-<p>この <code>..</code> の表記を使った範囲オブジェクトにメソッドを適用するにはカッコで囲む必要がある。</p>
+<p>上記は範囲オブジェクトで配列ではないので、配列にしたい場合は以下のようにする。</p>
+
+<pre><code>(0..9).to_a
+
+# または
+[*0..9]
+</code></pre>
+
+<p><code>..</code> の表記を使った範囲オブジェクトにメソッドを適用するにはカッコで囲む必要がある。</p>
 
 <p>例</p>
 

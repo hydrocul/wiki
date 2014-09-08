@@ -45,7 +45,6 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
           <li>文字(≠文字列)の文字コードを数字として取得するには</li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
@@ -66,9 +65,11 @@
 
 <div id="content">
   <h1 id="ord">文字(≠文字列)の文字コードを数字として取得するには
-<span class="article-date">2014/01/15</span></h1>
+<span class="article-date">2014/09/07</span></h1>
 
 <p>以下は、文字から文字コードを数字として取得する方法。逆に文字コードの数字から文字に変換するには <a href="chr.html"><code>chr</code></a> を使う。</p>
+
+<p>C言語やJava/Scalaのように、文字列と文字の型が違っていて文字の型が整数としても扱える言語では、文字を文字コードの数字に変換することは何の事もないが、そうでない言語では何らかの関数などで変換する必要がある。</p>
 
 <h2 id="66704d5">Scala
 <span class="article-date">2014/04/18</span></h2>

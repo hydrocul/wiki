@@ -111,10 +111,12 @@ def getOrElse(key: A, default: =&gt; B): B
 </code></pre>
 
 <h2 id="e58800b">Python
-<span class="article-date">2013/10/04</span></h2>
+<span class="article-date">2014/09/07</span></h2>
 
 <pre><code>dic['a']
 </code></pre>
+
+<p>存在しない要素を取得しようとすると <code>KeyError</code> の例外が発生する。存在するかどうかが不確かな場合は事前に<a href="contains-key.html#python"><code>in</code>演算子</a>でチェックする必要がある。</p>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/02/16</span></h2>

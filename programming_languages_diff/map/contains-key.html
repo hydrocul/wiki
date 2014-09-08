@@ -84,13 +84,20 @@ def contains(key: A): Boolean
 一方、 array_key_exists() は TRUE を返します。</p>
 </blockquote>
 
-<h2 id="c2b3de4">Python
-<span class="article-date">2013/10/07</span></h2>
+<h2 id="python">Python
+<span class="article-date">2014/09/07</span></h2>
 
-<pre><code>dic.has_key(key)
+<p>Python3では<code>in</code>演算子を使う。Python2では<code>in</code>演算子に加えて、<code>has_key</code>メソッドも同じように使える。どちらも<code>True</code>か<code>False</code>を返す。</p>
+
+<pre><code>dic = {'a': 1, 'b': 2}
+
+print('a' in dic) # =&gt; True
+print('x' in dic) # =&gt; False
+
+# Python3 ではエラーになる
+print(dic.has_key('a')) # =&gt; True
+print(dic.has_key('x')) # =&gt; False
 </code></pre>
-
-<p><code>True</code>か<code>False</code>を返す。</p>
 
 <h2 id="adedbfb">Ruby
 <span class="article-date">2013/05/06</span></h2>
