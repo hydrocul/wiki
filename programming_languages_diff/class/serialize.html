@@ -51,6 +51,38 @@
 <div id="content">
   <h1 id="serialize">オブジェクトをシリアライズ・デシリアライズするには</h1>
 
+<h2 id="2e9372e">Scala</h2>
+
+<h3 id="1cec4ed">Javaのシリアライズ
+<span class="article-date">2014/09/09</span></h3>
+
+<p>書き出しの例</p>
+
+<pre><code>    val oos = new java.io.ObjectOutputStream(new java.io.FileOutputStream(filePath));
+    try {
+      oos.writeObject(obj);
+    } finally {
+      oos.close();
+    }
+</code></pre>
+
+<p>読み込みの例</p>
+
+<pre><code>    val ois = new java.io.ObjectInputStream(new java.io.FileInputStream(filePath));
+    try {
+      ois.readObject().asInstanceOf[MorphologicalAnalyzer];
+    } finally {
+      ois.close();
+    }
+</code></pre>
+
+<p><code>java.io.Serializable</code> を実装している必要がある。必ずしも <code>extends java.io.Serializable</code> と書かなくても、単に <code>extends Serializable</code> でよい。 <code>scala.Serializable</code> が
+<code>java.io.Serializable</code> をextendsしていて、代わりに使えるためである。</p>
+
+<p>たぶん過去のバージョンではクラス定義に <code>@serializable</code> というアノテーションを付けるだけでもよかったのかもしれないが、手元の Scala 2.10.4 の環境ではこのアノテーションに関して deprecated の警告が出た。</p>
+
+<p>Javaの <code>serialVersionUID</code> フィールドを設定するにはクラス定義に <code>@SerialVersionUID(123456L)</code> というようにアノテーションをつければよい。</p>
+
 <h2 id="a0c8ed4">PHP</h2>
 
 <h3 id="ed2aa43">JSON形式
