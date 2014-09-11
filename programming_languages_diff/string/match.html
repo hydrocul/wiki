@@ -101,7 +101,7 @@ r = re.compile("ab")
 print("match" if r.match("abc") else "unmatch") # =&gt; match
 </code></pre>
 
-<p><code>match</code>メソッドは、文字列の先頭がマッチするかどうかであり、文字列全体のマッチングではなく、部分マッチングでもない。</p>
+<p><code>match</code>メソッドは、文字列の先頭がマッチするかどうかであり、文字列全体のマッチングではなく、部分マッチングでもない。マッチしない場合は <code>None</code> を返す。</p>
 
 <p>正規表現 HOWTO | Python 2.7 documentation<br />
 <a href="http://docs.python.jp/2/howto/regex.html" target="_blank">http://docs.python.jp/2/howto/regex.html</a></p>
