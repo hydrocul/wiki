@@ -57,7 +57,10 @@
 </div>
 
 <div id="content">
-  <h1 id="null"><code>null</code></h1>
+  <h1 id="null"><code>null</code>
+<span class="article-date">2014/09/12</span></h1>
+
+<p><code>null</code> みたいな類の各プログラミング言語での取り扱いの比較。</p>
 
 <h2 id="69daf5a">C言語
 <span class="article-date">2013/10/14</span></h2>
@@ -65,23 +68,23 @@
 <p><code>NULL</code> というのがある。<code>0</code>と同じで、ポインタに0を代入するのと <code>NULL</code> を代入するのはたぶん同じ。</p>
 
 <h2 id="56f9c86">Java
-<span class="article-date">2014/07/18</span></h2>
+<span class="article-date">2014/09/12</span></h2>
 
-<p><code>null</code> というのがある。任意の参照型になりえる。<code>int</code>などのプリミティブ型に<code>null</code>を使うことはできない。</p>
+<p><code>null</code> というのがあり、任意の参照型になりえる。参照型なので、<code>int</code>などのプリミティブ型に<code>null</code>を使うことはできない。</p>
 
 <p>一度も代入されていないローカル変数を参照しようとすると、
-<code>variable x might not have been initialized</code> というようなコンパイルエラーになる。</p>
+<code>variable x might not have been initialized</code> というようなコンパイルエラーになり、デフォルトで<code>null</code>になることはない。</p>
 
-<p>一度も代入されていないクラスのフィールドや配列の要素を参照しようとすると、
-<code>int</code>などの数値のプリミティブ型は<code>0</code>、<code>boolean</code>は<code>false</code>、参照型(プリミティブ型以外)は <code>null</code> になり、コンパイルエラーにはならない。</p>
+<p>一方、一度も代入されていないクラスのフィールドや配列の要素を参照しようとすると、参照型は <code>null</code> になり、
+<code>int</code>などの数値のプリミティブ型は<code>0</code>、<code>boolean</code>は<code>false</code>になり、コンパイルエラーにはならない。</p>
 
 <h2 id="3f00d5f">Scala
-<span class="article-date">2014/04/02</span></h2>
+<span class="article-date">2014/09/12</span></h2>
 
-<p>Javaとの互換性のためにJavaと同じ<code>null</code>があるが、Scalaでは<code>null</code>はJavaのライブラリを使用するときに現れるのみで、通常の利用は推奨されない。
+<p>Javaとの互換性のためにJavaと同じ<code>null</code>があるが、Scalaでは<code>null</code>はJavaのライブラリを使用するときに現れてしまうのみで、通常の利用は推奨されない。
 <code>null</code>を使いたくなる場面ではScalaでは<code>Option</code>型の <code>Some</code>, <code>None</code> を使う。</p>
 
-<p><code>Nil</code> というものもあるが、これは要素が1つもない空の<code>List</code>型のオブジェクトである。</p>
+<p><code>Nil</code> というものもあるが、これは要素が1つもない空の<code>List</code>型のオブジェクトであり、ぜんぜん違う。</p>
 
 <h2 id="php">PHP
 <span class="article-date">2014/04/12</span></h2>

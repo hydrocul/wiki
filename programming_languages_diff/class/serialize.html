@@ -77,11 +77,13 @@
 </code></pre>
 
 <p><code>java.io.Serializable</code> を実装している必要がある。必ずしも <code>extends java.io.Serializable</code> と書かなくても、単に <code>extends Serializable</code> でよい。 <code>scala.Serializable</code> が
-<code>java.io.Serializable</code> をextendsしていて、代わりに使えるためである。</p>
+<code>java.io.Serializable</code> をextendsしていて、代わりに使えるためである。
+<code>case class</code> は勝手に <code>java.io.Serializable</code> を実装してくれている。</p>
 
 <p>たぶん過去のバージョンではクラス定義に <code>@serializable</code> というアノテーションを付けるだけでもよかったのかもしれないが、手元の Scala 2.10.4 の環境ではこのアノテーションに関して deprecated の警告が出た。</p>
 
-<p>Javaの <code>serialVersionUID</code> フィールドを設定するにはクラス定義に <code>@SerialVersionUID(123456L)</code> というようにアノテーションをつければよい。</p>
+<p>Javaの <code>serialVersionUID</code> フィールドを設定するにはクラス定義に <code>@SerialVersionUID(123456L)</code> というようにアノテーションをつければよい。
+SerialVersionUID が<code>int</code>の範囲を超える数の場合、<code>L</code> を最後に付けないとコンパイルエラーになることに注意。</p>
 
 <h2 id="a0c8ed4">PHP</h2>
 
