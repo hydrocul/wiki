@@ -69,9 +69,32 @@
 <a href="null.html#php"><code>NULL</code></a>と同じく大文字小文字が区別されない。</p>
 
 <h2 id="ccd88c1">Python
-<span class="article-date">2013/10/07</span></h2>
+<span class="article-date">2014/09/13</span></h2>
 
 <p><code>True</code>, <code>False</code> という組み込みの定数があり、<code>bool</code> という型がある。</p>
+
+<p>実は <code>True</code> は <code>1</code> と同じで、<code>False</code> は <code>0</code> と同じらしい。</p>
+
+<pre><code># 以下実行例は Python2 でも Python3 でも同じ
+
+# 以下は OK と表示される
+if (True == 1):
+    print("OK")
+else:
+    print("NG")
+
+# 以下は OK と表示される
+if (False == 0):
+    print("OK")
+else:
+    print("NG")
+
+# 以下は NG と表示される
+if (True == 2):
+    print("OK")
+else:
+    print("NG")
+</code></pre>
 
 <h2 id="3f929ef">Ruby
 <span class="article-date">2013/10/20</span></h2>

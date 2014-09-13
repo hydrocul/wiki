@@ -131,7 +131,7 @@ Scalaの<code>StringLike#format</code>はインスタンスメソッドである
 <a href="http://www.php.net/manual/ja/function.sprintf.php" target="_blank">http://www.php.net/manual/ja/function.sprintf.php</a></p>
 
 <h2 id="python">Python
-<span class="article-date">2014/07/28</span></h2>
+<span class="article-date">2014/09/13</span></h2>
 
 <p><code>%</code>演算子でC言語の<code>sprintf</code>と同様のことができる。</p>
 
@@ -140,7 +140,13 @@ Scalaの<code>StringLike#format</code>はインスタンスメソッドである
 <pre><code>"%s %d" % (str, i)
 </code></pre>
 
-<p>引数が1つの場合はカッコを省略できる。</p>
+<p>引数が1つの場合はカッコを省略できる。本当はカッコを付けると複数の引数を渡せるというよりは、タプルを1つ渡している、というイメージみたい。なので、以下のようなコードは見た目は <code>%</code> に1つしか値を渡していないが、中身がタプルなので、括弧で複数の引数を渡したときと同じ扱いになる。</p>
+
+<pre><code># Python2 でも Python3 でもエラー
+# TypeError: not all arguments converted during string formatting
+t = ("Ichiro", "Suzuki")
+"Hello, %s" % t
+</code></pre>
 
 <p>引数をディクショナリにして、書式文字列から名前で値を参照することもできる。</p>
 
