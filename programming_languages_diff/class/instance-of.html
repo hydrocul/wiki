@@ -37,6 +37,7 @@
           <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
           <li><a href="../../programming_languages_diff/class/compare.html">オブジェクトの比較演算子</a></li>
           <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+          <li><a href="../../programming_languages_diff/class/serialize.html">オブジェクトをシリアライズ・デシリアライズするには</a></li>
           <li><a href="../../programming_languages_diff/class/this.html"><code>this</code></a></li>
         </ul>
       </li>
@@ -103,6 +104,24 @@ var_export(is_int($x)); // =&gt; true
   <dt><code>is_array</code></dt>
   <dd>配列かどうか</dd>
 </dl>
+
+<h2 id="0cd4e2f">Python
+<span class="article-date">2014/09/13</span></h2>
+
+<p><code>isinstance</code> という関数でクラスを判定できる。</p>
+
+<pre><code>print(isinstance(100, int))    # True
+print(isinstance(3.14, int))   # False
+print(isinstance(100, float))  # False
+print(isinstance(3.14, float)) # True
+
+print(isinstance(False, bool)) # True
+print(isinstance(True, bool))  # True
+print(isinstance(False, int))  # True
+print(isinstance(True, int))   # True
+
+print(isinstance("foo", str))  # True
+</code></pre>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/06/29</span></h2>
