@@ -82,6 +82,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
+      <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
@@ -97,13 +98,14 @@
 <p>ファイルをコピーするコマンド。別のホストにファイルをコピーするには<a href="rsync.html">rsync</a>を使う。コピーではなく移動させるにはmvを使う。</p>
 
 <h2 id="4590d63">オプション
-<span class="article-date">2013/09/26</span></h2>
+<span class="article-date">2014/09/16</span></h2>
 
 <dl>
   <dt><code>-i</code></dt>
   <dd>コピー先にすでにファイルが存在する場合は、上書きするかどうかを聞いてくる</dd>
   <dt><code>-p</code></dt>
-  <dd>パーミッション、ユーザ・グループ、タイムスタンプもコピーする</dd>
+  <dd>パーミッション、ユーザ・グループ、タイムスタンプもコピーする。
+ちなみに<a href="rsync.html"><code>rsync</code>コマンド</a>では <code>-p</code> ではタイムスタンプを保存してくれず、<code>-t</code> が必要になる。</dd>
   <dt><code>-r</code>, <code>-R</code></dt>
   <dd>ディレクトリの中を再帰的にコピーする</dd>
   <dt><code>-u</code></dt>

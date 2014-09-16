@@ -82,6 +82,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
+      <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
@@ -329,14 +330,23 @@ sed -E 's/[\t ]+/ /g'
 </code></pre>
 
 <h2 id="99dcc4b">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには
-<span class="article-date">2013/06/17</span></h2>
+<span class="article-date">2014/09/16</span></h2>
+
+<p><code>-i</code> オプションを付ければ、ファイルを直接書き換えることができる。</p>
 
 <pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
 </code></pre>
 
-<p><code>-i</code> を取ると、全置換後の結果を標準出力に吐き出して、ファイルは書き換えない。</p>
+<p><code>-i</code> がないと、全置換後の結果を標準出力に吐き出して、ファイルは書き換えない。</p>
 
 <p><code>-e</code> はどういう意味だろう？</p>
+
+<p>ちなみに以下のようにしてもうまくいかない。</p>
+
+<pre><code>cat foo.txt | sed -i -e 's/.../.../g' &gt; foo.txt
+</code></pre>
+
+<p>ファイルからの入力と結果の書き出しは平行して実行されるため、標準入力から読み込もうにも結果を書き出すために先にファイルサイズが0になってしまい、結果として <code>foo.txt</code> はからのファイルになる。</p>
 
 <h2 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換するには
 <span class="article-date">2014/05/19</span></h2>
