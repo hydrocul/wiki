@@ -44,6 +44,18 @@
 
 <p>正規表現の中にカッコで括られた部分がある場合は、そのカッコの中にマッチした部分だけを取り出す手段が言語によっては存在する。</p>
 
+<h2 id="40e002c">Python
+<span class="article-date">2014/09/17</span></h2>
+
+<p>正規表現オブジェクトの<code>match</code>メソッドの返り値に対して、<code>group</code>メソッドを呼び出すと、グルーピングにマッチした文字列を取得できる。</p>
+
+<pre><code>r = re.compile("b(c+)")
+m = r.match("bcccdef")
+if m:
+    print m.group(1)
+    # =&gt; ccc
+</code></pre>
+
 <h2 id="perl">Perl
 <span class="article-date">2013/10/17</span></h2>
 
