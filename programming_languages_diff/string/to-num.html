@@ -162,13 +162,18 @@ p "27".to_i(16)
 </code></pre>
 
 <h2 id="ba8d40a">Perl
-<span class="article-date">2013/09/23</span></h2>
+<span class="article-date">2014/09/18</span></h2>
 
 <p>Perlのスカラには文字列か数字かの区別はなく、数字を前提とした演算子にスカラを与えると数字として振舞おうとする。</p>
 
 <p>16進数表記の文字列を数字に変換するには <code>hex</code> を使う。</p>
 
 <pre><code>print hex("00A0"); # =&gt; 160
+</code></pre>
+
+<p><code>hex</code> は16進数で許されない文字があると、その文字の前までの部分だけで16進数に変換し、エラーにはならない。</p>
+
+<pre><code>print hex("AG"); # =&gt; 10
 </code></pre>
 
 <h2 id="f1d4636">JavaScript

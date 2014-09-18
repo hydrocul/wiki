@@ -58,11 +58,12 @@
 <p>型が静的な言語では、キーと値の型は違っていてもよいが、キーと値はそれぞれすべて同じ型である必要がある。</p>
 
 <h2 id="java">Java
-<span class="article-date">2013/11/01</span></h2>
+<span class="article-date">2014/09/18</span></h2>
 
-<p><code>java.util.Map</code> インターフェースがある。</p>
+<p><code>java.util.Map</code> インターフェースがあり、それを実装したクラスとして、
+<code>java.util.HashMap</code>, <code>java.util.LinkedHashMap</code> などがある。</p>
 
-<p><code>java.util.Map</code> のインスタンスを生成したり、要素にアクセスしたりする言語構造はないので、<code>new</code> 演算子を使ったり、メソッドを使ったりする。</p>
+<p><code>java.util.Map</code> のインスタンスを生成したり、要素にアクセスしたりする言語構造ではなく、<code>new</code> 演算子を使ったり、メソッドを使ったりする。</p>
 
 <p>インスタンス生成の例</p>
 
@@ -87,6 +88,9 @@ map.put("b", 2);
 
 <pre><code>map.get("a");
 </code></pre>
+
+<p>LRUキャッシュを実装するには <code>java.util.LinkedHashMap</code> が便利。
+<code>java.util.LinkedHashMap</code> を継承するクラスを作って、<code>removeEldestEntry</code> をオーバーライドすればよい。</p>
 
 <h2 id="php">PHP
 <span class="article-date">2014/01/29</span></h2>
