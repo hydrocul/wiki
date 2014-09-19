@@ -67,7 +67,7 @@
   <h1 id="trim">前後の空白を削除するには (trim / strip)</h1>
 
 <h2 id="3e1266d">Java / Scala
-<span class="article-date">2013/10/09</span></h2>
+<span class="article-date">2014/09/18</span></h2>
 
 <p>Signature:</p>
 
@@ -75,7 +75,9 @@
 String trim()
 </code></pre>
 
-<p>両端にある文字コードが 0x20 以下の文字をすべて削除するので、スペースだけでなく改行やタブなども削除される。</p>
+<p>Java/Scalaの文字列は不変であるので、このメソッドは元の文字列を変更せずに、両端の空白を削除した新しい文字列を返す。</p>
+
+<p>両端にある文字コードが <code>0x20</code> 以下の文字をすべて削除するので、スペースだけでなく改行やタブなども削除される。</p>
 
 <h2 id="8fb709a">PHP
 <span class="article-date">2013/10/08</span></h2>
@@ -114,14 +116,22 @@ HTMLの余計な空白による悪影響を排除するための機能。</p>
 <p><a href="http://www.smarty.net/docsv2/ja/language.function.strip.tpl" target="_blank">http://www.smarty.net/docsv2/ja/language.function.strip.tpl</a></p>
 
 <h2 id="eddc5a1">Python
-<span class="article-date">2014/08/31</span></h2>
+<span class="article-date">2014/09/18</span></h2>
+
+<p>文字列にあるメソッド <code>strip</code>, <code>lstrip</code>, <code>rstrip</code> を使う。</p>
 
 <pre><code>str.strip() # 先頭と末尾の空白を削除する非破壊的メソッド
 str.lstrip() # 先頭の空白を削除する非破壊的メソッド
 str.rstrip() # 末尾の空白を削除する非破壊的メソッド
 </code></pre>
 
-<p>空白にはタブや改行も含まれるみたい。</p>
+<p>ちょっと調べたところ、空白には<code>" "</code>(<code>\x20</code>)以外にタブ(<code>\t</code>)や改行(<code>\n</code>, <code>\r</code>)も含まれるが、
+<code>0x20</code>以下のすべての制御文字が削除されるわけでもないみたい。以下の例の通り、例えば <code>\a</code> は削除されない。</p>
+
+<pre><code>str = " \r\n\t\aabc"
+print(len(str.strip()))
+# =&gt; 4
+</code></pre>
 
 <p><code>string.strip</code> | Python 2.7 documentation<br />
 <a href="http://docs.python.jp/2/library/string.html#string.strip" target="_blank">http://docs.python.jp/2/library/string.html#string.strip</a></p>
