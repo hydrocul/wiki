@@ -52,19 +52,23 @@
 </div>
 
 <div id="content">
-  <h1 id="matplotlib">Pythonのmatplotlibの使い方メモ</h1>
+  <h1 id="matplotlib">Pythonのmatplotlibの使い方メモ
+<span class="article-date">2014/09/20</span></h1>
 
-<h2 id="9acafae">1変数関数のグラフを書く例
-<span class="article-date">2014/09/19</span></h2>
+<p>以下の実行例は、IPythonで試しているので、Pythonのコードの中に書くには、次のようにインポートが必要かもしれない。</p>
 
 <pre><code>import numpy as np
 import matplotlib.pyplot as plt
+</code></pre>
 
-def p(x):
+<h2 id="9acafae">1変数関数のグラフを書く例
+<span class="article-date">2014/09/20</span></h2>
+
+<pre><code>def f(x):
     return sin(1/x)
 
 X = np.linspace(0, 1, 256, endpoint=True)
-plt.plot(X, p(X))
+plt.plot(X, f(X))
 </code></pre>
 
 <p>\[ f(x) = \sin \frac{1}{x} \]</p>
@@ -258,11 +262,20 @@ RCTjFPQiIhmnoBcRyTgFvYhIxinoRUQy7v8DLrIBtzzMJBMAAAAASUVORK5CYII=
 
 <p>別の例</p>
 
-<pre><code>def p(x):
+<pre><code>def f(x):
     return (x &gt;= 0) * x
-    X = np.linspace(-10, 10, 256)
-    plt.plot(X, p(X))
+X = np.linspace(-10, 10, 256)
+plt.plot(X, f(X))
 </code></pre>
+
+<p>\[
+\begin{equation}
+f(x) = \left\{ \begin{array}{ll}
+x &amp; (x \geqq 0) \\ 
+0 &amp; (x \ &lt; 0) \\ 
+\end{array} \right.
+\end{equation}
+\]</p>
 
 <div style="text-align:center;"><img src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAXEAAAEACAYAAABF+UbAAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -338,10 +351,7 @@ HAAyxiYOABljEweAjLGJA0DG2MQBIGNs4gCQMTZxAMjY/wN9NqjQzkn8UwAAAABJRU5ErkJggg==
 <h2 id="78760c7">等高線のグラフを書く例
 <span class="article-date">2014/09/10</span></h2>
 
-<pre><code>import numpy as np
-import matplotlib.pyplot as plt
-
-def f(x, y):
+<pre><code>def f(x, y):
     return np.sin(np.sqrt(x * x + y * y)) + np.sin(x)
 
 n = 256
