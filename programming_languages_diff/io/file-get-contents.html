@@ -133,7 +133,7 @@ fh.close()
 </code></pre>
 
 <h2 id="a1d2fc4">Ruby
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2014/09/25</span></h2>
 
 <pre><code>str = File.read('./hoge.txt')
 </code></pre>
@@ -141,6 +141,11 @@ fh.close()
 <p>または</p>
 
 <pre><code>str = File.open('./hoge.txt').read
+</code></pre>
+
+<p>標準入力を1つの文字列にしたい場合は</p>
+
+<pre><code>str = STDIN.read
 </code></pre>
 
 <h2 id="ec25104">Perl
