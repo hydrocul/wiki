@@ -45,12 +45,12 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li>文字コードの数字から文字に変換するには</li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -65,9 +65,9 @@
 
 <div id="content">
   <h1 id="chr">文字コードの数字から文字に変換するには
-<span class="article-date">2014/05/16</span></h1>
+<span class="article-date">2014/09/27</span></h1>
 
-<p>Unicodeのコードの数字から、該当する文字を取得する方法。</p>
+<p>Unicodeのコードの数字から、該当する文字を取得する、各プログラミング言語での方法。例えば<code>65</code>という整数から<code>'A'</code>という文字を取得したい場合。</p>
 
 <h2 id="dcf33ad">Scala
 <span class="article-date">2014/04/18</span></h2>
@@ -86,7 +86,7 @@ println(12354.asInstanceOf[Char]) // =&gt; あ
 
 <p>残念ながらUnicodeはサポートされていない。</p>
 
-<p>chr 関数 | PHP Manual<br />
+<p><code>chr</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.chr.php" target="_blank">http://www.php.net/manual/ja/function.chr.php</a></p>
 
 <h2 id="df04c73">Python
