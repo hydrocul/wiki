@@ -45,12 +45,12 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
@@ -240,7 +240,7 @@ p %Q(a"bc")
 <p><code>%q</code> と似たような仕組みは<a href="../list/overview.html#ruby">配列</a>にもある。</p>
 
 <h2 id="3263830">Perl
-<span class="article-date">2013/09/21</span></h2>
+<span class="article-date">2014/09/27</span></h2>
 
 <p>Javaに似ていて、内部ではUnicodeで処理していて、外界との入出力時に必要とする文字符号化方式で変換するのが原則。</p>
 
@@ -251,6 +251,17 @@ $input = decode('utf-8', $input);
 
 # 出力時(外界が UTF-8 の場合)
 print encode('utf-8', $str);
+</code></pre>
+
+<p>または</p>
+
+<pre><code>use Encode qw/decode_utf8 encode_utf8/;
+
+# 入力時(外界が UTF-8 の場合)
+$input = decode_utf8($input);
+
+# 出力時(外界が UTF-8 の場合)
+print encode_utf8($str);
 </code></pre>
 
 <p>以下がわかりやすい。</p>
@@ -270,7 +281,7 @@ UTF8フラグがオフになっている。外界からの入力時に <code>dec
 <p>Perl における Unicode サポート | perldoc.jp<br />
 <a href="http://perldoc.jp/docs/perl/5.12.1/perlunicode.pod" target="_blank">http://perldoc.jp/docs/perl/5.12.1/perlunicode.pod</a></p>
 
-<p>Encode | search.cpan.org<br />
+<p><code>Encode</code> | search.cpan.org<br />
 <a href="http://search.cpan.org/dist/Encode/Encode.pm" target="_blank">http://search.cpan.org/dist/Encode/Encode.pm</a></p>
 
 <p>ソースコード中に文字列リテラルを書くには、

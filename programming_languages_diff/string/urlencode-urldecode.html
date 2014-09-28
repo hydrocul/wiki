@@ -64,7 +64,10 @@
 </div>
 
 <div id="content">
-  <h1 id="urlencode-urldecode">URLエンコード / URLデコードするには</h1>
+  <h1 id="urlencode-urldecode">URLエンコード / URLデコードするには
+<span class="article-date">2014/09/27</span></h1>
+
+<p>各プログラミング言語でのURLエンコードまたはURLデコードする方法。</p>
 
 <h2 id="c53a7a7">PHP
 <span class="article-date">2014/02/18</span></h2>
@@ -94,7 +97,38 @@ puts CGI.escape "+ =&amp;"
 </code></pre>
 
 <h2 id="90886f8">Perl
-<span class="article-date">2013/10/15</span></h2>
+<span class="article-date">2014/09/27</span></h2>
+
+<p>URLエンコードの例</p>
+
+<pre><code>my $str = "abc(def&amp;ghi?jk/lmn)";
+$str =~ s/([^ 0-9a-zA-Z])/"%".uc(unpack("H2",$1))/eg;
+$str =~ s/ /+/g;
+print($str);
+# =&gt; abc%28def%26ghi%3Fjk%2Flmn%29
+</code></pre>
+
+<p>エンコード前はバイナリである必要があるため、日本語が含まれる場合はいったん 
+<code>encode_utf8</code> などで変換する必要がある。</p>
+
+<pre><code>my $str = "あ";
+$str = encode_utf8($str);
+$str =~ s/([^ 0-9a-zA-Z])/"%".uc(unpack("H2",$1))/eg;
+$str =~ s/ /+/g;
+print($str);
+# =&gt; %E3%81%82
+</code></pre>
+
+<p>URLデコードの例</p>
+
+<pre><code>my $str = "%E3%81%82";
+$str =~ s/\+/ /g;
+$str =~ s/%([0-9a-fA-F]{2})/pack("H2",$1)/eg;
+print($str);
+# =&gt; あ
+</code></pre>
+
+<p>以下のように <code>URI::Escape</code> を使ってもよい。</p>
 
 <pre><code>use URI::Escape;
 

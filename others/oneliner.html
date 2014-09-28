@@ -32,6 +32,7 @@
       <li><a href="../others/linux.html">Linux</a></li>
       <li><a href="../others/linux-pkg-manager.html">Linuxでのパッケージ管理</a></li>
       <li><a href="../others/mac.html">Mac</a></li>
+      <li><a href="../others/matplotlib.html">Pythonのmatplotlibの使い方メモ</a></li>
       <li><a href="../others/mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するPHPのライブラリ</a></li>
       <li><a href="../others/mysql.html">MySQLのメモ</a></li>
       <li><a href="../others/numpy.html">NumPy</a></li>
@@ -153,6 +154,18 @@ echo %E3%81%82 | tr % = | nkf -WmQ
 </code></pre>
 
 <p>行は <code>$_</code> で参照できる。</p>
+
+<h2 id="296c55c">Perlで標準入力全体またはファイル全体を <code>$_</code> に入れて一度に処理するには
+<span class="article-date">2014/09/27</span></h2>
+
+<p><code>-0777</code> というオプションを着ける。</p>
+
+<p>例</p>
+
+<pre><code>.... | perl -0777 -nle '....'
+</code></pre>
+
+<p>入力全体を1つの文字列として <code>$_</code> で参照できる。</p>
 
 <h2 id="3cbee31">Perlのワンライナーでバッファリングを解除するには
 <span class="article-date">2014/04/16</span></h2>
