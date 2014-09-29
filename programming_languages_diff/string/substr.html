@@ -45,7 +45,6 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
@@ -107,7 +106,7 @@ length を省略した場合は、 start の位置から文字列の最後まで
 <p><code>$len</code>が<code>$str</code>に比べ長すぎる場合は、エラーにならずに<code>$str</code>の最後までを返す。</p>
 
 <h2 id="df3790e">Python
-<span class="article-date">2014/07/02</span></h2>
+<span class="article-date">2014/09/28</span></h2>
 
 <p>スライスを使う。</p>
 
@@ -123,6 +122,10 @@ print(a[s:e])
 # 最後の文字だけを削除した文字列を取得
 print(a[0:-1])
 # =&gt; abcde
+
+# 2文字目以降を取得
+print(a[1:])
+# =&gt; bcdef
 </code></pre>
 
 <h2 id="ruby">Ruby

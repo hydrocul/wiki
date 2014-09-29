@@ -82,6 +82,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
+      <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
@@ -161,6 +162,18 @@ grepはバイナリファイルだと勘違いしてしまう。バイナリ扱�
 </code></pre>
 
 <p><code>-a</code> の代わりに <code>--text</code> や <code>--binary-files=text</code> でもよい。</p>
+
+<h2 id="23d4fb7">シェルスクリプトでファイルにパターンが見つかるかどうかで分岐をさせるには
+<span class="article-date">2014/09/28</span></h2>
+
+<p>パターンがファイルに見つからない場合に終了コード1を返すので、以下のように書けばよい。</p>
+
+<pre><code>if grep PATTERN FILE_PATH &gt;/dev/null; then
+    # パターンが見つかる場合
+else
+    # パターンが見つからない場合
+fi
+</code></pre>
 
 </div>
 

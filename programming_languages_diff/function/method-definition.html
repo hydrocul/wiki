@@ -238,7 +238,7 @@ end
 </ul>
 
 <h2 id="62acba8">sh
-<span class="article-date">2014/05/27</span></h2>
+<span class="article-date">2014/09/29</span></h2>
 
 <p>関数の定義。</p>
 
@@ -248,6 +248,18 @@ end
     return 0
 }
 </code></pre>
+
+<p>スタイルはなんでもよくて、</p>
+
+<pre><code>f() {
+    ...
+    return 0
+}
+
+f() { ...; return 0; }
+</code></pre>
+
+<p>でもよい。</p>
 
 <p>関数の呼び出し。</p>
 
@@ -260,7 +272,7 @@ end
   <li>関数呼び出しは通常の外部コマンドの呼び出しと同じくカッコを付けずに引数を並べる</li>
 </ul>
 
-<p><code>return 0</code> のように書くと関数の処理から戻り値を指定して脱出できる。</p>
+<p><code>return 0</code> のように書くと関数の処理から戻り値を指定して脱出できる。<code>return</code>文はなくてもよい。</p>
 
 <h2 id="2c87400">JavaScript
 <span class="article-date">2013/10/10</span></h2>
