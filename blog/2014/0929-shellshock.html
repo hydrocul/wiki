@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>shellshockの脆弱性のときのメモ | 2014年 | ブログ | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../">Home</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2014/">2014年</a> &gt; <span>shellshockの脆弱性のときのメモ</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../blog/">ブログ</a>
+    <ul>
+      <li><a href="../../blog/2014/">2014年</a>
+        <ul>
+          <li><a href="../../blog/2014/0111-print-text-into-image.html">jpg画像にテキストを入れるには</a></li>
+          <li><a href="../../blog/2014/0208-unbiased-variance.html">不偏分散はなぜ n - 1 で割るのか？</a></li>
+          <li><a href="../../blog/2014/0216-load-tsv-python.html">PythonのNumPyでTSVファイルを読み込む方法</a></li>
+          <li>shellshockの脆弱性のときのメモ</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="0929-shellshock">shellshockの脆弱性のときのメモ
+<span class="article-date">2014/09/29</span></h1>
+
+<p>2014/09/24発覚のshellschockで知ったbashの仕様</p>
+
+<ul>
+  <li>bashの関数は、環境変数にエクスポートできる</li>
+  <li>bash起動時に環境変数に関数定義として書かれた内容は、関数として使える</li>
+  <li>bash起動時に環境変数に関数定義の後ろにコマンドがあった場合に、それを実行してしまう(shellshock対策前は。対策済みだと、後ろにコマンドがあるとエラーになる)</li>
+</ul>
+
+<p>以下は、検証コード。</p>
+
+<pre><code>#!/bin/bash
+
+myfunc() { echo Hello; }
+
+myfunc
+# 以下の表示
+# =&gt; Hello
+
+echo $myfunc
+# なにもひょうじされない
+
+export -f myfunc
+
+env | grep -A1 myfunc
+# shellshockの脆弱性があると
+# myfunc=() {  echo Hello
+# }
+#
+# shellshockの脆弱性が対策済みだと
+# BASH_FUNC_myfunc()=() {  echo Hello
+# }
+# 
+# 変数名の前に BASH_FUNC_ が、後ろに () が付くようになった
+
+export myfunc2='() { echo Hello2; }'
+
+myfunc2
+# 以下のエラー
+# myfunc2: command not found
+
+bash -c "myfunc"
+# shellshockの脆弱性対策の前後とも以下の表示
+# Hello
+
+bash -c "myfunc2"
+# shellshockの脆弱性があると以下の表示
+# Hello2
+# 
+# shellshockの脆弱性が対策済みだと以下のエラー
+# myfunc2: command not found
+
+bash -c "BASH_FUNC_myfunc"
+# shellshockの脆弱性対策の前後とも以下のエラー
+# BASH_FUNC_myfunc: command not found
+
+# shellshockの脆弱性があると
+env x='() { echo hey;}' bash -c 'x'
+# 以下の表示
+# hey
+env x='() { echo hey;}; echo vulnerable' bash -c 'x'
+# 以下の表示
+# vulnerable
+# hey
+
+# shellshockの脆弱性が対策済みだと
+env "BASH_FUNC_x()"='() { echo hey; }' bash -c 'x'
+# 以下の表示
+# hey
+env "BASH_FUNC_x()"='() { echo hey; }; echo vulnerable' bash -c 'x'
+# 以下のエラー
+# bash: warning: x: ignoring function definition attempt
+# bash: error importing function definition for `BASH_FUNC_x'
+# bash: x: command not found
+</code></pre>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

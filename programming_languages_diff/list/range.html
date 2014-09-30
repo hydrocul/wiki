@@ -39,7 +39,8 @@
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">すべての要素が特定の条件にマッチするかどうかを検査するには (all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
@@ -90,7 +91,7 @@
 </code></pre>
 
 <h2 id="8f0aeca">Python
-<span class="article-date">2014/09/06</span></h2>
+<span class="article-date">2014/09/29</span></h2>
 
 <pre><code># 0から9までのリスト
 range(10)
@@ -108,8 +109,15 @@ range(0, -11, -2)
 <p>NumPyの<code>arange</code>であれば、浮動小数点数の配列も作れる。</p>
 
 <pre><code>import numpy as np
-arange(0, 1, 0.1)
+np.arange(0, 1, 0.1)
 # =&gt; array([ 0. ,  0.1,  0.2,  0.3,  0.4,  0.5,  0.6,  0.7,  0.8,  0.9])
+</code></pre>
+
+<p><code>linspace</code> というのもある。</p>
+
+<pre><code>import numpy as np
+np.linspace(0, 1, 11)
+# =&gt; array([ 0. ,  0.1,  0.2,  0.3,  0.4,  0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
 </code></pre>
 
 <p><code>numpy.arange</code> | NumPy Manual<br />
