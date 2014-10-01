@@ -69,11 +69,14 @@
 <a href="http://perldoc.jp/docs/perl/perlvar.pod" target="_blank">http://perldoc.jp/docs/perl/perlvar.pod</a></p>
 
 <h2 id="sh">sh
-<span class="article-date">2013/09/13</span></h2>
+<span class="article-date">2014/10/01</span></h2>
 
 <p><code>$?</code> という変数で直前に実行したコマンドの終了ステータスが得られる。</p>
 
 <p>-&gt; <a href="../../sh.html#special-vars">特殊な変数</a></p>
+
+<p>パイプで複数のコマンドを接続した場合、<code>$?</code> は最後のコマンドの終了コードしか得られない。
+bashであれば <code>PIPESTATUS</code> という変数でパイプの中のすべてのコマンドの終了コードを取得することができる。</p>
 
 </div>
 

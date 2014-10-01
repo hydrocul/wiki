@@ -72,7 +72,7 @@ Java8からは<a href="literal.html#java">ラムダ式</a>)があるが、それ
 </code></pre>
 
 <h2 id="37048bd">Scala
-<span class="article-date">2014/09/22</span></h2>
+<span class="article-date">2014/10/01</span></h2>
 
 <p>クラス定義の中にメソッドを書く。</p>
 
@@ -89,6 +89,13 @@ Java8からは<a href="literal.html#java">ラムダ式</a>)があるが、それ
 </code></pre>
 
 <p>最後の式が自動で返り値になる(返り値型が<code>Unit</code>でない場合)ので、途中で関数から脱出する場合をのぞいて<code>return</code>は省略できる。</p>
+
+<p>引数がない場合はカッコを省略できる。</p>
+
+<pre><code>def f: String = {
+  ...;
+}
+</code></pre>
 
 <p>メソッド定義の中に入れ子でメソッド定義を書くこともできる。この場合、内側のメソッドは、外側のメソッドの中でしか参照できない。</p>
 
