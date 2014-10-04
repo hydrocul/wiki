@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>BASE64でエンコード・デコードするには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>文字列</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>BASE64でエンコード・デコードするには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,7 +24,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>文字列
+      <li><a href="../../programming_languages_diff/string/">文字列</a>
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
@@ -48,7 +48,7 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
-          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
+          <li>BASE64でエンコード・デコードするには</li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
@@ -65,41 +65,69 @@
 </div>
 
 <div id="content">
-  <h1 id="string">文字列</h1>
+  <h1 id="base64">BASE64でエンコード・デコードするには
+<span class="article-date">2014/09/27</span></h1>
 
-<h2 id="section">目次</h2>
+<p>各プログラミング言語でのBASE64エンコードまたはデコードする方法。</p>
 
-<ul>
-  <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
-  <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-  <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
-  <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
-  <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
-  <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
-  <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
-  <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
-  <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
-  <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
-  <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-  <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
-  <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
-  <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-  <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
-  <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
-  <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
-  <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-  <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-  <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
-  <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
-  <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-  <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
-  <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-  <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-  <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
-</ul>
+<h2 id="c169f59">Java</h2>
+
+<h2 id="97c9fa2">Python
+<span class="article-date">2014/10/04</span></h2>
+
+<p>python2 の場合の例</p>
+
+<pre><code>import base64
+
+# エンコード
+print base64.encodestring(u"あいうえおかきくけこ".encode("utf8")).decode("ascii")
+# =&gt; 44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT
+
+# この書き方でもできる
+print "あいうえおかきくけこ".encode("base64")
+
+# デコード
+print base64.decodestring("44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT")
+# =&gt; あいうえおかきくけこ
+</code></pre>
+
+<p>python3 の場合の例</p>
+
+<pre><code>import base64
+print(base64.encodestring("あいうえおかきくけこ".encode("utf8")).decode("ascii"))
+# =&gt; 44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT
+
+# python3では encode("base64") ではできない
+
+print(base64.decodestring("44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT".encode("ascii")).decode("utf8"))
+# =&gt; あいうえおかきくけこ
+</code></pre>
+
+<h2 id="perl">Perl
+<span class="article-date">2014/09/27</span></h2>
+
+<p><code>MIME::Base64</code> を使う。</p>
+
+<pre><code>use utf8;
+use Encode qw/decode_utf8 encode_utf8/;
+use MIME::Base64;
+
+my $encoded = encode_base64(encode_utf8("あいうえおかきくけこ"));
+print($encoded);
+# =&gt; 44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT
+
+my $decoded = decode_base64($encoded);
+print($decoded . "\n");
+# =&gt; あいうえおかきくけこ
+</code></pre>
+
+<p><code>MIME::Base64</code> | perldoc.jp<br />
+<a href="http://perldoc.jp/docs/modules/MIME-Base64-2.12/Base64.pod" target="_blank">http://perldoc.jp/docs/modules/MIME-Base64-2.12/Base64.pod</a></p>
+
+<h2 id="16245c4">sh
+<span class="article-date">2014/10/04</span></h2>
+
+<p><a href="../../commands/base64.html"><code>base64</code>コマンド</a>参照。</p>
 
 </div>
 

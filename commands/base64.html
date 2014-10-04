@@ -108,6 +108,30 @@ base64 -d # デコード
 
 <p><a href="openssl.html"><code>openssl</code>コマンド</a>でもBASE64をエンコード/デコードできる。</p>
 
+<h2 id="6cdc4f3">PerlのワンライナーでBASE64するには
+<span class="article-date">2014/09/27</span></h2>
+
+<pre><code>$ echo -n "あいうえおかきくけこ" | perl -MMIME::Base64 -0777 -ne 'print encode_base64($_)'
+44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT
+
+$ echo "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT" | perl -MMIME::Base64 -0777 -ne 'print decode_base64($_)'
+あいうえおかきくけこ
+</code></pre>
+
+<h2 id="nkf">nkfでBAE64するには
+<span class="article-date">2014/10/04</span></h2>
+
+<p><a href="nkf.html"><code>nkf</code>コマンド</a>でもBASE64のエンコード・デコードができる。</p>
+
+<pre><code>$ echo -n "あいうえおかきくけこ" | nkf -MB
+44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT
+
+$ echo "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT" | nkf -WmB
+あいうえおかきくけこ
+</code></pre>
+
+<p>よくわからないがデコードのときは文字コード(<code>W</code>)を指定する必要があるみたい。</p>
+
 </div>
 
 <footer>
