@@ -93,28 +93,43 @@
 
 <div id="content">
   <h1 id="ls">ls コマンド
-<span class="article-date">2013/10/14</span></h1>
+<span class="article-date">2014/10/04</span></h1>
 
 <p>ディレクトリの中のファイル一覧を出力するコマンド。</p>
+
+<p>ディレクトリを再帰的にたどって表示したい場合は<a href="find.html"><code>find</code>コマンド</a>を使うとよい。</p>
 
 <p>JavaやRubyなどの中でファイル一覧を取得する方法は
 <a href="../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得する方法</a>
 参照。</p>
 
 <h2 id="f18bf0d">オプション
-<span class="article-date">2014/09/29</span></h2>
+<span class="article-date">2014/10/04</span></h2>
 
 <dl>
   <dt><code>-a</code></dt>
   <dd>ファイル名がドットで始まるものも含めてすべてを表示。
 これを付けないと隠しファイル(=ファイル名がドットで始まるもの)は表示されない</dd>
+  <dt><code>-d</code></dt>
+  <dd>引数にディレクトリを指定すると普通はそのディレクトリの中のファイル一覧を表示するが、
+このオプションを付けると、ディレクトリそのものを表示する</dd>
   <dt><code>-l</code></dt>
-  <dd>ファイル名だけでなくタイムスタンプやパーミッションの情報も表示</dd>
+  <dd>ファイル名だけでなくタイムスタンプやパーミッション、オーナーの情報も表示</dd>
+  <dt><code>-g</code></dt>
+  <dd><code>-l</code> とよく似ているが、ファイルオーナーのグループ名を表示しない。
+<code>-g</code> をつければ <code>-l</code> は付けても付けなくてもおなじになる。</dd>
+  <dt><code>-h</code></dt>
+  <dd><code>-l</code>や<code>-g</code>オプションをと受けたときのファイルサイズの表示を、<code>K</code>, <code>M</code> などの単位を付けて
+人間が読みやすいように表示。</dd>
+  <dt><code>-i</code></dt>
+  <dd>inodeの番号を表示</dd>
+  <dt><code>-s</code></dt>
+  <dd>そのファイルが占めるブロック数を表示</dd>
+  <dt><code>-S</code></dt>
+  <dd>ファイルサイズの大きい順にソート</dd>
   <dt><code>-f</code></dt>
   <dd>ファイル名でのソートをしない。ディレクトリにあまりに大量のファイルがある場合に、
 これを付けると、表示速度がましになる。<code>-l</code> との両立ができないみたい。</dd>
-  <dt><code>-h</code></dt>
-  <dd><code>-l</code>オプションをと受けたときのファイルサイズの表示を、<code>K</code>, <code>M</code> などの単位を付けて人間が読みやすいように表示。</dd>
 </dl>
 
 <h2 id="89213c2">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには

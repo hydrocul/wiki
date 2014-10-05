@@ -93,7 +93,7 @@
 
 <div id="content">
   <h1 id="find">find コマンド
-<span class="article-date">2014/10/02</span></h1>
+<span class="article-date">2014/10/04</span></h1>
 
 <p>ディレクトリの中を再帰的にたどってファイルを検索してきてくれるコマンド。タイムスタンプやファイルサイズ、ファイル名など、さまざまな条件で検索でき、検索条件はオプションで指定する。検索結果を出力するだけでなく、他のコマンドに引数として渡すこともできる。</p>
 
@@ -106,9 +106,26 @@
 
 <p>検索条件を省略すると、すべてのファイル・ディレクトリがマッチするようになる。</p>
 
-<p>アクションを省略すると、単純に見つかったファイル・ディレクトリのパスが改行区切りで出力される。なので、 <code>find .</code> とだけにすると、カレントディレクトリに含まれるすべてのファイル・ディレクトリを、ディレクトリを再帰的にたどりながら表示してくれる。</p>
+<p>アクションを省略すると、<code>-ls</code>アクションと同じで、単純に見つかったファイル・ディレクトリのパスが改行区切りで出力される。なので、 <code>find .</code> とだけにすると、カレントディレクトリに含まれるすべてのファイル・ディレクトリを、ディレクトリを再帰的にたどりながら表示してくれる。</p>
 
-<p>ファイル名でのソートはしてくれないので、必要であればパイプで<a href="sort.html"><code>sort</code>コマンド</a>をつなぐ必要がある。</p>
+<p>ファイル名などでのソートはしてくれないので、必要であればパイプで<a href="sort.html"><code>sort</code>コマンド</a>をつなぐ必要がある。</p>
+
+<h2 id="5ca314b">アクション
+<span class="article-date">2014/10/04</span></h2>
+
+<dl>
+  <dt><code>-ls</code></dt>
+  <dd><a href="ls.html"><code>ls</code>コマンド</a>の <code>-gids</code> オプションと似たような書式で検索結果を表示する</dd>
+  <dt><code>-exec</code> コマンド <code>\;</code></dt>
+  <dd>オプションの後に指定するコマンドを検索結果1つずつに対して実行する。
+最後の <code>\;</code> のバックスラッシュはシェルに対して <code>;</code> をシェルの特殊文字である
+コマンドの境界とみなされないようにするための
+エスケープなので、<code>find</code>コマンド自体には最後に <code>;</code> だけを渡していることになる。</dd>
+  <dt><code>-ok</code> コマンド <code>\;</code></dt>
+  <dd><code>-exec</code> とよく似ているがコマンド実行前に都度確認を求めてくれる。</dd>
+  <dt><code>-exec</code> コマンド <code>+</code></dt>
+  <dd><code>-exec</code> の最後の <code>\;</code> を <code>+</code> にすると、オプションの後に指定するコマンドに検索結果をまとめて渡して実行する。</dd>
+</dl>
 
 <h2 id="e6a98c3">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには
 <span class="article-date">2013/11/12</span></h2>
@@ -133,7 +150,7 @@
 <span class="article-date">2013/11/12</span></h2>
 
 <p><code>-printf</code> オプションでファイル一覧とともにタイムスタンプを出力して、
-<a href="sort.html"><code>sort</code></a>コマンドで並び替えをする。</p>
+<a href="sort.html"><code>sort</code>コマンド</a>で並び替えをする。</p>
 
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n" | sort -r -k6,7
 </code></pre>

@@ -26,7 +26,7 @@
     <ul>
       <li><a href="../../programming_languages_diff/io/">入出力・ファイル操作</a>
         <ul>
-          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身をまとめて1つの文字列として取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
           <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
@@ -61,14 +61,18 @@
   <h1 id="ls">ディレクトリの中のファイル一覧を取得するには</h1>
 
 <h2 id="7cf0993">Java
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2014/10/04</span></h2>
 
-<dl>
-  <dt><code>String[] java.io.File#list()</code></dt>
-  <dd>ディレクトリの中のファイル一覧をファイル名の配列で取得</dd>
-  <dt><code>java.io.File[] java.io.File#listFiles()</code></dt>
-  <dd>ディレクトリの中のファイル一覧を <code>File</code> オブジェクトの配列で取得</dd>
-</dl>
+<p>Signature:</p>
+
+<pre><code>// java.io.File
+
+// ディレクトリの中のファイル一覧をファイル名の配列で取得
+String[] list()
+
+// ディレクトリの中のファイル一覧を `File` オブジェクトの配列で取得
+java.io.File[] listFiles()
+</code></pre>
 
 <h2 id="bf87941">PHP
 <span class="article-date">2013/10/14</span></h2>
@@ -103,7 +107,7 @@ if ($dhandle) {
 <h2 id="3234d06">sh
 <span class="article-date">2013/09/16</span></h2>
 
-<p><a href="../../commands/ls.html"><code>ls</code></a>を使う。</p>
+<p><a href="../../commands/ls.html"><code>ls</code>コマンド</a>を使う。</p>
 
 </div>
 

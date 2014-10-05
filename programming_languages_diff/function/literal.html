@@ -49,11 +49,21 @@
 
 <div id="content">
   <h1 id="literal">無名関数
-<span class="article-date">2013/10/09</span></h1>
+<span class="article-date">2014/10/04</span></h1>
 
-<p>ここでは式の中に書ける関数リテラル(無名関数)の説明をする。</p>
+<p>ここでは式の中に書ける無名関数の各プログラミング言語での書き方の説明をする。</p>
 
-<p>通常のメソッド定義は<a href="method-definition.html">関数定義・メソッド定義</a>参照。</p>
+<p>ラムダ式とかクロージャとかの概念とつながってるかもしれない。</p>
+
+<p>通常の関数定義・メソッド定義は<a href="method-definition.html">関数定義・メソッド定義</a>参照。</p>
+
+<h2 id="80e40fb">C++
+<span class="article-date">2014/10/04</span></h2>
+
+<p>C++11やC++14にはlambda式があるらしい。</p>
+
+<p>本の虫: C++14の新機能: ジェネリックlambda<br />
+<a href="http://cpplover.blogspot.jp/2014/09/c14-lambda_30.html" target="_blank">http://cpplover.blogspot.jp/2014/09/c14-lambda_30.html</a></p>
 
 <h2 id="java">Java</h2>
 
@@ -121,9 +131,11 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 </code></pre>
 
 <h2 id="9d8123c">Scala
-<span class="article-date">2013/08/26</span></h2>
+<span class="article-date">2014/10/04</span></h2>
 
-<p>例</p>
+<p>Scalaは無名関数を簡単に書ける仕組みがいくつかあり、高階関数を使いこなすのが簡単。</p>
+
+<p>2つの文字列を引数にとってそれを比較する関数の例</p>
 
 <pre><code>(str1, str2) =&gt; str1 compareToIgnoreCase str2
 </code></pre>
@@ -135,7 +147,8 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 
 <p>引数が1つの場合は、引数のカッコも省略できる。</p>
 
-<p>引数と本体の間の矢印はJava8では <code>-&gt;</code> だが、Scalaでは <code>=&gt;</code> を使う。</p>
+<p>引数と本体の間の矢印はJava8では <code>-&gt;</code> だが、Scalaでは <code>=&gt;</code> を使う。
+Scalaでは <code>-&gt;</code> は別の意味の演算子として存在する。</p>
 
 <p>本体部分の式が関数のの返り値となる。本体部分を <code>{}</code> で囲むと、複数の式を書けるが、最後の式が返り値となる。</p>
 
@@ -144,7 +157,8 @@ StringBuilder::new // () -&gt; new StringBuilder() と同じ
 <pre><code>_ compareToIgnoreCase _
 </code></pre>
 
-<p>式の中のそれぞれの <code>_</code> が引数になるので、上記の場合は2引数の関数となる。この書き方だと各引数は1回しか式の中に登場できず、引数の順番は、式の中の <code>_</code> と同じ順番になる。</p>
+<p>式の中のそれぞれの <code>_</code> が引数になるので、上記の場合は2引数の関数となる。この書き方だと各引数は1回しか式の中に登場できず、引数の順番は、式の中の <code>_</code> と同じ順番になる。なので複数の引数の関数を書くには制約が多いし、読みづらいが、
+1引数の非常に簡単な式の関数を書くには <code>_</code> は便利である。</p>
 
 <h2 id="3b01008">PHP
 <span class="article-date">2014/06/26</span></h2>

@@ -81,13 +81,21 @@
   <h1 id="range">連続した数値のリストを作成するには (range)</h1>
 
 <h2 id="915c118">Scala
-<span class="article-date">2013/09/21</span></h2>
+<span class="article-date">2014/10/04</span></h2>
 
 <pre><code>// 0から9までのリスト
 0 until 10
 
 // 1から10までのリスト
 1 to 10
+</code></pre>
+
+<p>このコードで <code>scala.collection.immutable.IndexedSeq</code> のオブジェクトを生成できる。</p>
+
+<p>整数のリストしか作れないので、例えば 0.0, 0.1, 0.2,,, のようなのを作りたい場合は以下のようにする。</p>
+
+<pre><code>// 0.0, 0.1, 0.2, ,,, 9.9
+(0 until 100).map(_ / 10.0)
 </code></pre>
 
 <h2 id="8f0aeca">Python
