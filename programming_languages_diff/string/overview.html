@@ -38,6 +38,7 @@
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
@@ -48,8 +49,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -150,7 +151,7 @@ echo $str;
 <p>Unicode文字列は<code>encode</code>メソッドでバイト列に変換でき、バイト列は<code>decode</code>メソッドでUnicode文字列に変換できる。</p>
 
 <p>文字列をリテラルとしてソースコード中に書くには 
-<code>'</code> または <code>"</code> で囲む。またはトリプルクオート <code>'''</code> または <code>"""</code> で囲む。トリプルクオートの中には改行をそのまま含めることもできる。複数行の<a href="../comment.html#python">コメント</a>をトリプルクオートの文字列で書くことがよくある。</p>
+<code>'</code> または <code>"</code> で囲む。または三重引用符(トリプルクオート) <code>'''</code> または <code>"""</code> で囲む。トリプルクオートの中には改行をそのまま含めることもできる。複数行の<a href="../comment.html#python">コメント</a>をトリプルクオートの文字列で書くことがよくある。</p>
 
 <p><code>'</code>, <code>"</code>, <code>'''</code>, <code>"""</code> の前に <code>r</code> または <code>R</code> をプレフィックスとしてつけると、
 raw文字列というものになり、バックスラッシュによるエスケープシーケンスが無効になる。</p>

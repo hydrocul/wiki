@@ -368,6 +368,19 @@ plt.savefig('test.png')
 
 <p><a href="http://wiki.scipy.org/Cookbook/Matplotlib/Show_colormaps" target="_blank">http://wiki.scipy.org/Cookbook/Matplotlib/Show_colormaps</a></p>
 
+<h2 id="0126c78">グラフを画像に書き出すには
+<span class="article-date">2014/10/06</span></h2>
+
+<p>IPythonのnotebookとかだとグラフはインラインに表示されるので便利だが、CUI環境でPythonスクリプトを動かす場合、グラフはもちろんインラインには表示されないので、以下のようにする。</p>
+
+<pre><code>import matplotlib.pyplot as plt
+
+...
+
+# 最後にグラフを画像に出力
+plt.savefig("test.png")
+</code></pre>
+
 </div>
 
 <footer>

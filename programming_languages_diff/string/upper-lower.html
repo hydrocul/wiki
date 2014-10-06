@@ -38,6 +38,7 @@
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li>大文字小文字を変換するには</li>
@@ -48,8 +49,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -67,7 +68,19 @@
   <h1 id="upper-lower">大文字小文字を変換するには</h1>
 
 <h2 id="69c6c0a">Java / Scala
-<span class="article-date">2013/05/06</span></h2>
+<span class="article-date">2014/10/06</span></h2>
+
+<p>Javaでの例</p>
+
+<pre><code>String uppercase_str = str.toUpperCase();
+String lowercase_str = str.toLowerCase();
+</code></pre>
+
+<p>Scalaでの例</p>
+
+<pre><code>val uppercase_str = str.toUpperCase;
+val lowercase_str = str.toLowerCase;
+</code></pre>
 
 <p>Signature:</p>
 
@@ -75,6 +88,12 @@
 String toUpperCase()
 String toLowerCase()
 </code></pre>
+
+<p>java.lang.String#toUpperCase | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toUpperCase--" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toUpperCase–</a></p>
+
+<p>java.lang.String#toLowerCase | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toLowerCase--" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toLowerCase–</a></p>
 
 <h2 id="b46711f">PHP
 <span class="article-date">2013/10/08</span></h2>
