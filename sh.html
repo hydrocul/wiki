@@ -400,7 +400,7 @@ fi
 </code></pre>
 
 <h2 id="8c284c6">シェルスクリプトの中でテキストに色を付けて表示するには
-<span class="article-date">2014/09/28</span></h2>
+<span class="article-date">2014/10/07</span></h2>
 
 <pre><code># 赤字で Hello と表示
 echo -e "\e[31mHello\e[0m"
@@ -420,21 +420,21 @@ echo -e "\e[31mHello\e[0m"
 <p>と書けば、シェルの組み込みコマンドではなく外部コマンドに強制できて、シェルに依存しなくなるので、回避できる。</p>
 
 <dl>
-  <dt><code>\e30m</code></dt>
+  <dt><code>\e[30m</code></dt>
   <dd>黒</dd>
-  <dt><code>\e31m</code></dt>
+  <dt><code>\e[31m</code></dt>
   <dd>赤</dd>
-  <dt><code>\e32m</code></dt>
+  <dt><code>\e[32m</code></dt>
   <dd>緑</dd>
-  <dt><code>\e33m</code></dt>
+  <dt><code>\e[33m</code></dt>
   <dd>黄</dd>
-  <dt><code>\e34m</code></dt>
+  <dt><code>\e[34m</code></dt>
   <dd>青</dd>
-  <dt><code>\e35m</code></dt>
+  <dt><code>\e[35m</code></dt>
   <dd>マゼンタ</dd>
-  <dt><code>\e36m</code></dt>
+  <dt><code>\e[36m</code></dt>
   <dd>シアン</dd>
-  <dt><code>\e37m</code></dt>
+  <dt><code>\e[37m</code></dt>
   <dd>白</dd>
 </dl>
 

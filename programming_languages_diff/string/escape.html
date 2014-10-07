@@ -38,6 +38,7 @@
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
@@ -48,8 +49,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -164,7 +165,7 @@ echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
 <a href="http://php.net/manual/ja/language.types.string.php" target="_blank">http://php.net/manual/ja/language.types.string.php</a></p>
 
 <h2 id="ea15409">Python
-<span class="article-date">2014/10/02</span></h2>
+<span class="article-date">2014/10/07</span></h2>
 
 <p><code>'</code> で囲んだ文字列も <code>"</code> で囲んだ文字列も同じエスケープが使える。三重引用符(トリプルクオート) <code>'''</code>, <code>"""</code> で囲んでも同じ。</p>
 
@@ -212,7 +213,7 @@ Python2ではUnicode文字列リテラル(<code>u"..."</code>)の中でのみ使
 Python2のそれ以外の文字列ではエスケープされずそのまま文字列になる。</dd>
 </dl>
 
-<p>文字列の中で行の最後に <code>\</code> を書いて改行すると、次の行に文字列が継続される。</p>
+<p>文字列の中でバックスラッシュ(<code>\</code>)を書いて改行すると、次の行に文字列が継続され、バックスラッシュと改行は文字列の中にはなかったことになる。</p>
 
 <p>エスケープシーケンスとして成立しない不適切な <code>\</code> があると、それはエスケープされずにそのまま文字列の一部になる。</p>
 
@@ -225,7 +226,7 @@ Python2のそれ以外の文字列ではエスケープされずそのまま文�
 <a href="http://docs.python.jp/3/reference/lexical_analysis.html#string-and-bytes-literals" target="_blank">http://docs.python.jp/3/reference/lexical_analysis.html#string-and-bytes-literals</a></p>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2013/12/01</span></h2>
+<span class="article-date">2014/10/07</span></h2>
 
 <p><code>"</code> で囲んだ文字列は、以下のエスケープが使える。</p>
 
@@ -257,6 +258,35 @@ Python2のそれ以外の文字列ではエスケープされずそのまま文�
   <dt><code>\\</code></dt>
   <dd><code>\</code></dd>
 </dl>
+
+<p>他の言語と違って、<code>'</code> または <code>"</code> のどちらで囲んでも途中に改行を直接入れることができる。ただし <code>"</code> の場合、改行の直前にバックスラッシュ(<code>\</code>)を置くと、バックスラッシュと改行がなかったことになる。</p>
+
+<pre><code>p "あい
+うえお"
+# =&gt; "あい\nうえお"
+
+p 'あい
+うえお'
+# =&gt; "あい\nうえお"
+
+p "あい\
+うえお"
+# =&gt; "あいうえお"
+
+p 'あい\
+うえお'
+# =&gt; "あい\\\nうえお"
+
+# バックスラッシュの後に空白があると
+p "あい\ 
+うえお"
+# =&gt; "あい \nうえお"
+
+# バックスラッシュの後に空白があると
+p 'あい\ 
+うえお'
+# =&gt; "あい\\ \nうえお"
+</code></pre>
 
 <h2 id="sh">sh
 <span class="article-date">2013/09/12</span></h2>

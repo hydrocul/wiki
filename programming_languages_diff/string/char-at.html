@@ -38,6 +38,7 @@
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
@@ -45,12 +46,11 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -73,7 +73,7 @@
 <p>インデックスで範囲を指定して部分文字列を取得する方法は<a href="substr.html">substr</a>参照。</p>
 
 <h2 id="2e8b245">Java
-<span class="article-date">2014/01/26</span></h2>
+<span class="article-date">2014/10/07</span></h2>
 
 <p>0から始まるインデックスで <code>char</code> の文字を取得できる。
 <code>char</code> はUTF-16の16ビットでの値なので、サロゲートペアの文字が含まれていた場合、インデックスが文字数単位のインデックスとは一致しないし、サロゲートペアの文字に直撃した場合はその1バイト目または2バイト目のみの取得になってしまう。</p>
@@ -83,6 +83,11 @@
 <pre><code>// java.lang.String
 char charAt(int index)
 </code></pre>
+
+<p><code>java.lang.String</code> だけでなく <code>java.lang.StringBuilder</code> や <code>java.lang.StringBuffer</code> でも同様に使える。</p>
+
+<p><code>java.lang.String#charAt</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#charAt-int-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#charAt-int-</a></p>
 
 <h2 id="d424e3c">Scala
 <span class="article-date">2014/08/21</span></h2>

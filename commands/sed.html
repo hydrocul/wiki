@@ -356,9 +356,9 @@ sed -E 's/[\t ]+/ /g'
 <p>BSDやMacに入っているsedはGNU sedではなく、<code>-i</code> オプションがないらしい。</p>
 
 <h2 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換するには
-<span class="article-date">2014/05/19</span></h2>
+<span class="article-date">2014/10/07</span></h2>
 
-<p>置換対象のファイルを <a href="find.html"><code>find</code></a> などでリストアップして、 <code>sed</code> を使う。</p>
+<p>GNU sedがあれば、置換対象のファイルを <a href="find.html"><code>find</code></a> などでリストアップして、<code>sed</code>の<code>-i</code>オプションを使う。</p>
 
 <pre><code>find . -name "*.txt" | xargs sed -i 's/置換前/置換後/g'
 </code></pre>
@@ -371,6 +371,11 @@ sed -E 's/[\t ]+/ /g'
 <p><code>find</code> でマッチしたファイルのほとんどが置換されるならこれでもいいと思うが、ごく一部のファイルだけであれば <a href="grep.html"><code>grep</code></a> を使って以下のようにしたほうがいいかもしれない。上記 <code>find</code> のやり方だと、置換文字列が含まれていないファイルもタイムスタンプは変わってしまう。</p>
 
 <pre><code>grep -rl 置換前  | xargs sed -i 's/置換前/置換後/g'
+</code></pre>
+
+<p>カレントディレクトリの中にあるすべてのファイルのすべての行の先頭に <code>//</code> を追加する例</p>
+
+<pre><code>find . -type f -exec sed -i 's/^/\/\//g' {} \;
 </code></pre>
 
 <p>ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法<br />
