@@ -26,7 +26,7 @@
     <ul>
       <li><a href="../../programming_languages_diff/io/">入出力・ファイル操作</a>
         <ul>
-          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身をまとめて1つの文字列として取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
           <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
@@ -59,6 +59,36 @@
 
 <div id="content">
   <h1 id="file-exists">ファイルまたはディレクトリが存在するかどうかを取得するには</h1>
+
+<h2 id="12866fe">Java / Scala
+<span class="article-date">2014/10/08</span></h2>
+
+<p>Javaでの例</p>
+
+<pre><code>import java.io.File;
+
+if (new File("/home/foo/testfile").exists()) {
+  ...;
+}
+</code></pre>
+
+<p>Scalaでの例</p>
+
+<pre><code>import java.io.File;
+
+if (new File("/home/foo/testfile").exists) {
+  ...;
+}
+</code></pre>
+
+<p>Signature:</p>
+
+<pre><code>// java.io.File
+boolean exists()
+</code></pre>
+
+<p><code>java.io.File#exists</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html#exists--" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/io/File.html#exists–</a></p>
 
 <h2 id="99da234">PHP
 <span class="article-date">2013/07/24</span></h2>

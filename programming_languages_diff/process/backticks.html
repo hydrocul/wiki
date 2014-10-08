@@ -44,6 +44,15 @@
 <div id="content">
   <h1 id="backticks">外部コマンドを実行してその出力を文字列として取得するには</h1>
 
+<h2 id="4cc7413">Scala
+<span class="article-date">2014/10/08</span></h2>
+
+<pre><code>import scala.sys.process._;
+
+val ret = "pwd"!!;
+# ret: String = "/home/foo/bar\n"
+</code></pre>
+
 <h2 id="de35eb7">PHP
 <span class="article-date">2014/04/14</span></h2>
 

@@ -44,6 +44,16 @@
 <div id="content">
   <h1 id="system">外部コマンドを実行してその出力をそのまま出力するには</h1>
 
+<h2 id="713e64f">Scala
+<span class="article-date">2014/10/08</span></h2>
+
+<pre><code>import scala.sys.process._;
+
+val ret = "pwd"!;
+# pwdコマンドの標準出力はそのまま標準出力される
+# ret: Int = 0
+</code></pre>
+
 <h2 id="996a180">PHP
 <span class="article-date">2013/11/06</span></h2>
 
