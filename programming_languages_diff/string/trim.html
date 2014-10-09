@@ -38,6 +38,7 @@
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li>前後の空白を削除するには (trim / strip)</li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
@@ -48,8 +49,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -64,20 +65,36 @@
 </div>
 
 <div id="content">
-  <h1 id="trim">前後の空白を削除するには (trim / strip)</h1>
+  <h1 id="trim">前後の空白を削除するには (trim / strip)
+<span class="article-date">2014/10/09</span></h1>
+
+<p>言語によってメソッド名/関数名が <code>trim</code> だったり <code>strip</code> だったり。</p>
 
 <h2 id="3e1266d">Java / Scala
-<span class="article-date">2014/09/18</span></h2>
+<span class="article-date">2014/10/09</span></h2>
+
+<p>Javaでの例</p>
+
+<pre><code>String trimmedStr = str.trim();
+</code></pre>
+
+<p>Scalaでの例</p>
+
+<pre><code>val trimmedStr = str.trim;
+</code></pre>
 
 <p>Signature:</p>
 
-<pre><code>// java.lang.String のメソッド
+<pre><code>// java.lang.String
 String trim()
 </code></pre>
 
 <p>Java/Scalaの文字列は不変であるので、このメソッドは元の文字列を変更せずに、両端の空白を削除した新しい文字列を返す。</p>
 
 <p>両端にある文字コードが <code>0x20</code> 以下の文字をすべて削除するので、スペースだけでなく改行やタブなども削除される。</p>
+
+<p><code>java.lang.String#trim</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#trim--" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#trim–</a></p>
 
 <h2 id="8fb709a">PHP
 <span class="article-date">2013/10/08</span></h2>
