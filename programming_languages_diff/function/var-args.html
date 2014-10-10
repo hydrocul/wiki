@@ -63,11 +63,18 @@
 </code></pre>
 
 <h2 id="9d5f885">Scala
-<span class="article-date">2014/03/23</span></h2>
+<span class="article-date">2014/10/10</span></h2>
+
+<p>可変長引数のメソッド定義の例</p>
 
 <pre><code>def foo(args: Any*): Unit = {
     ...;
 }
+</code></pre>
+
+<p>可変長引数のメソッドに<code>Seq</code>型などのインスタンスを要素を展開して渡す例</p>
+
+<pre><code>foo(lst:_*);
 </code></pre>
 
 <p>名前渡しと可変長引数を組み合わせることはできないみたい。</p>
