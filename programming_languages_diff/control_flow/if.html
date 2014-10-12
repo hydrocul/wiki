@@ -105,7 +105,7 @@ else
 </code></pre>
 
 <h2 id="a7cf68a">Java
-<span class="article-date">2014/08/08</span></h2>
+<span class="article-date">2014/10/12</span></h2>
 
 <pre><code>if (...) {
   ...;
@@ -126,15 +126,17 @@ else
 
 <p><code>else</code> で実行する文がなければ、<code>else</code>節を省略可。</p>
 
-<p>Scalaのように<code>if</code>文自体が値を返すことはできない。</p>
+<p>条件式の部分は他の多くの言語と違いScalaと同様に論理値への自動変換はされないので、
+<code>boolean</code>型でないとコンパイルエラーが発生する。これは <code>a == b</code> のつもりで間違って <code>a = b</code> と書いてしまってもほとんどの場合はコンパイルエラーになってくれるので、実行時にバグとなることを防ぐことができる。
+<code>a</code> や <code>b</code> が<code>boolean</code>型だと、代入文を書いてしまってもコンパイルエラーにはなってくれない。この点はScalaに劣る。</p>
 
-<p>条件式の部分は他の多くの言語と違って<code>boolean</code>型でないとコンパイルエラーが発生する。</p>
+<p>Scalaのように<code>if</code>文自体が値を返すことはできない。</p>
 
 <p>The <code>if</code> Statement | Java Language Specification<br />
 <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.9" target="_blank">http://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.9</a></p>
 
 <h2 id="scala">Scala
-<span class="article-date">2013/07/07</span></h2>
+<span class="article-date">2014/10/12</span></h2>
 
 <pre><code>if (...) {
   ...;
@@ -153,10 +155,34 @@ else
   ...;
 </code></pre>
 
+<p>条件式の部分は他の多くの言語と違いJavaと同様に論理値への自動変換はされないので、
+<code>Boolean</code>型でないとコンパイルエラーが発生する。これは <code>a == b</code> のつもりで間違って <code>a = b</code> と書いてしまってもコンパイルエラーになってくれるので、実行時にバグとなることを防ぐことができる。たとえ <code>a</code> や <code>b</code> が<code>boolean</code>型だとしても、Scalaでは代入文は<code>Unit</code>型になるためである。</p>
+
+<p>これは <code>a == b</code> のつもりで間違って <code>a = b</code> と書いてしまってもほとんどの場合はコンパイルエラーになってくれるので、実行時にバグとなることを防ぐことができる。
+<code>a</code> や <code>b</code> が<code>boolean</code>型だと、代入文を書いてしまってもコンパイルエラーにはなってくれない。</p>
+
 <p>Scalaでは<code>if</code>は式であり、結果を返すことができるので以下のように
 <a href="../operator/ternary.html">三項演算子</a>の代わりとしても使える。</p>
 
 <pre><code>val max = if(a &gt; b) a else b;
+</code></pre>
+
+<p><code>if</code>式の返り値を変数に代入することもできる。</p>
+
+<pre><code>val a = if (...) {
+  ...;
+} else {
+  ...;
+}
+</code></pre>
+
+<p><code>if</code>式にメソッド呼び出しをつなげることもできるが、このときは全体を括弧で囲む必要がある。</p>
+
+<pre><code>(if (...) {
+  ...;
+} else {
+  ...;
+}).foo(...);
 </code></pre>
 
 <h2 id="327a07e">PHP

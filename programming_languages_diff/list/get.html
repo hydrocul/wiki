@@ -39,7 +39,8 @@
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">すべての要素が特定の条件にマッチするかどうかを検査するには (all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
@@ -106,7 +107,7 @@
 </code></pre>
 
 <h2 id="57beaaa">Scala
-<span class="article-date">2013/10/28</span></h2>
+<span class="article-date">2014/10/12</span></h2>
 
 <p><code>Array</code> でも <code>List</code> などの <code>Seq</code> でも同じで、関数呼び出しのように 
 <code>()</code> でアクセスする。
@@ -117,7 +118,7 @@ lst(index)
 </code></pre>
 
 <p>これらには <code>apply</code> というメソッドが定義されていて、
-<code>apply</code> というメソッドがあるオブジェクトは、それ自体が関数であるかのように後ろにカッコで引数を置くことで、<code>apply</code>メソッドを呼び出すことができるScalaの仕組みがあるために、このように書ける。</p>
+<code>apply</code> というメソッドがあるオブジェクトは、それ自体が関数であるかのように後ろにカッコで引数を置くことで、<code>apply</code>メソッドを呼び出すことができるScalaのシンタックスシュガーがあるために、このように書ける。</p>
 
 <p>つまり、これらは以下と同じ意味。</p>
 

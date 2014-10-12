@@ -39,12 +39,13 @@
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">すべての要素が特定の条件にマッチするかどうかを検査するには (all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
           <li><a href="../../programming_languages_diff/list/foreach.html">リストの要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには (foldLeft, reduce)</a></li>
+          <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには (compare)</a></li>
@@ -142,18 +143,20 @@ list.add("c");
 <p><code>java.util.List</code> を配列に変換するには<a href="convert.html#java">相互変換</a>参照。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2013/11/04</span></h2>
+<span class="article-date">2014/10/12</span></h2>
 
 <p>Javaの組み込み型である配列と、Javaのクラスライブラリでサポートされている 
-<code>java.util.List</code> インターフェースのほかに、Scalaのクラスライブラリにある 
-<code>scala.collection.Seq</code> トレイトなどがある。</p>
+<code>java.util.List</code> インターフェースなどのほかに、豊富な種類のコレクション型がScalaのクラスライブラリにある。</p>
 
-<p><code>scala.collection.immutable.List</code> は片方向連結リストを実装した 
-<code>scala.collection.Seq</code> のサブクラスで、Scalaでは非常によく使われる。</p>
+<p><code>scala.collection.immutable.List</code> は不変型の片方向連結リストを実装した 
+<code>scala.collection.Seq</code> のサブクラスで、Scalaでは非常によく使われる。片方向連結リストなので、先頭から順番にアクセスしたり、先頭付近を変更するには速いが、インデックスでのランダムアクセスは遅い。不変(イミュータブル)なので、変更するには変更後の新しいインスタンスを生成することになる。インスタンス自体を変更するには可変型の <code>scala.collection.mutable.ListBuffer</code> を使うとよい。
+<code>scala.collection.immutable.List</code> は特にインポートしなくても <code>List</code> だけで参照できる。</p>
+
+<p>その他にもたくさんのシーケンシャルなコレクション型がある。</p>
 
 <p>Javaの配列は、Scalaでは <code>scala.Array</code> というクラスのインスタンスということになっていて、いくつかのメソッドが存在するが、JVM上での実体はJavaの配列のままになっている。</p>
 
-<p>Javaの配列も Java/Scalaのクラスライブラリでも、インデックスは0から始まる。</p>
+<p>Javaの配列も JavaやScalaのクラスライブラリにあるコレクション型もすべて、インデックスは0から始まる。</p>
 
 <p>Scalaコレクションのアーキテクチャ<br />
 <a href="http://eed3si9n.github.io/scala-collections-impl-doc-ja/" target="_blank">http://eed3si9n.github.io/scala-collections-impl-doc-ja/</a></p>
