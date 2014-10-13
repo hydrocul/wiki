@@ -37,6 +37,7 @@
           <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
           <li>オブジェクトの比較演算子</li>
           <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+          <li><a href="../../programming_languages_diff/class/serialize.html">オブジェクトをシリアライズ・デシリアライズするには</a></li>
           <li><a href="../../programming_languages_diff/class/this.html"><code>this</code></a></li>
         </ul>
       </li>
@@ -72,10 +73,14 @@
 Javaにおける <code>equals</code> はRubyにおける <code>==</code> に似ている。</p>
 
 <h2 id="1af9280">Scala
-<span class="article-date">2013/11/08</span></h2>
+<span class="article-date">2014/10/13</span></h2>
 
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。
 <code>==</code> はJVM上では、プリミティブ型に対してはJavaと同じで、参照型に対してはJavaの <code>equals</code> を呼び出している。</p>
+
+<p><code>==</code> の左右の型が違っていて <code>false</code> にしかなりえない、とコンパイラが判断できる場合はコンパイル時に警告を出してくれる。例えば <code>Int</code> と <code>Boolean</code> を比較しようとすると、
+<code>comparing values of types Boolean and Int using </code>==’ will always yield false`
+と出てくる。(Scala 2.10.2 で確認)</p>
 
 <h2 id="991deb7">Groovy
 <span class="article-date">2013/11/08</span></h2>

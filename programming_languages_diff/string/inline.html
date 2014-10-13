@@ -38,6 +38,7 @@
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
@@ -48,8 +49,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -105,11 +106,14 @@ echo "$map[a]\n"; # =&gt; 100
 <code>{}</code>の中の最初の文字が <code>$</code> である必要がある。</p>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2013/10/31</span></h2>
+<span class="article-date">2014/10/13</span></h2>
+
+<p>Rubyでは式展開といい、変数に限らず、任意の式を文字列に埋め込むことができる。</p>
 
 <p><code>"</code> で囲んだ文字列や<a href="heredoc.html#ruby">ヒアドキュメント</a>は、
-<code>#{...}</code> を使って式を評価した結果を文字列に埋め込むことができる。
-<code>#{...}</code> の中は単純な変数には限らず、関数呼び出しなど任意の式を書ける。</p>
+<code>#{...}</code> を使って式を評価した結果を文字列に埋め込むことができる。</p>
+
+<p>配列の<code>%W</code>記法や<code>%I</code>記法でも式展開される。</p>
 
 <p>例</p>
 
@@ -117,6 +121,9 @@ echo "$map[a]\n"; # =&gt; 100
 
 puts "It is #{DateTime.now} now."
 </code></pre>
+
+<p>式展開 | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/doc/spec=2fliteral.html#exp" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/doc/spec=2fliteral.html#exp</a></p>
 
 <h2 id="perl">Perl
 <span class="article-date">2014/05/19</span></h2>
