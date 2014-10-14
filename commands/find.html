@@ -110,6 +110,32 @@
 
 <p>ファイル名などでのソートはしてくれないので、必要であればパイプで<a href="sort.html"><code>sort</code>コマンド</a>をつなぐ必要がある。</p>
 
+<h2 id="8d2e228">検索条件
+<span class="article-date">2014/10/13</span></h2>
+
+<dl>
+  <dt><code>-name</code> パターン</dt>
+  <dd>ファイル名がパターンにマッチするファイル。パターンは正規表現ではなく、
+シェルで使えるワイルドカードに似ていて、<code>?</code>, <code>*</code>, <code>[...]</code> が使える。</dd>
+  <dt><code>-empty</code></dt>
+  <dd>空のファイル。ディレクトリの場合は中身に要素が1つもない場合に空とみなされる。</dd>
+  <dt><code>-type f</code></dt>
+  <dd>ディレクトリではなくファイル。</dd>
+  <dt><code>-type d</code></dt>
+  <dd>通常のファイルではなくディレクトリ。</dd>
+</dl>
+
+<p>検索条件は複数の条件を組み合わせることができ、単に複数の条件を羅列した場合にはそれらの条件がすべて成立するファイルのみが抽出される。その他に以下の演算子もある。</p>
+
+<dl>
+  <dt>条件 <code>-a</code> 条件</dt>
+  <dd>論理積。単に複数の条件を並べるのと同じ。</dd>
+  <dt>条件 <code>-o</code> 条件</dt>
+  <dd>論理和。どちらかの条件が成立すればよい。</dd>
+  <dt><code>!</code> 条件</dt>
+  <dd>否定</dd>
+</dl>
+
 <h2 id="5ca314b">アクション
 <span class="article-date">2014/10/04</span></h2>
 
@@ -195,11 +221,12 @@ find /home -maxdepth 1 -uid 1000
 <p>ただし、これはホームディレクトリが <code>/home</code> 直下にあることを決め打ちしている。</p>
 
 <h2 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法
-<span class="article-date">2013/09/10</span></h2>
+<span class="article-date">2014/10/13</span></h2>
 
-<p>-&gt; <a href="sed.html#find-sed-recursive">sed</a></p>
+<p><a href="sed.html#find-sed-recursive"><code>sed</code>コマンド</a>参照。</p>
 
-<p>-&gt; <a href="http://d.hatena.ne.jp/hydrocul/20111211/1323595015" target="_blank">http://d.hatena.ne.jp/hydrocul/20111211/1323595015</a></p>
+<p>ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法<br />
+<a href="http://d.hatena.ne.jp/hydrocul/20111211/1323595015" target="_blank">http://d.hatena.ne.jp/hydrocul/20111211/1323595015</a></p>
 
 <h2 id="81e252f">空のディレクトリの一覧を表示するには
 <span class="article-date">2013/08/28</span></h2>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>tmux コマンド | コマンドの使い方 | hydrocul のメモ</title>
+<title>tmux コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方</a> &gt; <span>tmux コマンド</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>tmux コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../commands/">コマンドの使い方</a>
+  <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
@@ -82,6 +82,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
+      <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
@@ -92,9 +93,11 @@
 
 <div id="content">
   <h1 id="tmux">tmux コマンド
-<span class="article-date">2013/10/23</span></h1>
+<span class="article-date">2014/10/14</span></h1>
 
 <p>screenコマンドと同じで、1つの端末の中でタブブラウザのように複数の端末を開けるもの。</p>
+
+<p>自分はこのコマンドのお陰でMac上のターミナルのウィンドウは1つかせいぜい2つしか開かず、中でtmuxで複数の端末を起動している。</p>
 
 <h2 id="2d00375">キーバインド
 <span class="article-date">2014/02/26</span></h2>
@@ -129,11 +132,13 @@
   <dd>ウィンドウの中の1つの端末で、ウィンドウの中を水平や垂直に区切って複数並べることができる。</dd>
 </dl>
 
-<h2 id="00bb43e">コマンドラインでのコマンド
-<span class="article-date">2013/07/24</span></h2>
+<h2 id="da52094">コマンドラインでの主なコマンド
+<span class="article-date">2014/10/14</span></h2>
 
 <pre><code># セッション一覧
 tmux ls
+# または
+tmux list-sessions
 
 # 名前をつけてセッションを開始
 tmux new -s hoge

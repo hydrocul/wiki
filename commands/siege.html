@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>siege コマンド | コマンドの使い方 | hydrocul のメモ</title>
+<title>siege コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方</a> &gt; <span>siege コマンド</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>siege コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../commands/">コマンドの使い方</a>
+  <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
@@ -82,6 +82,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
+      <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
@@ -92,9 +93,12 @@
 
 <div id="content">
   <h1 id="siege">siege コマンド
-<span class="article-date">2013/12/24</span></h1>
+<span class="article-date">2014/10/14</span></h1>
 
 <p>HTTPサーバのパフォーマンスを調べるためのコマンド。同じようにサーバ負荷を検証するツールとして<code>ab</code>コマンドなどがある。</p>
+
+<p>Apacheさえ入っていれば大抵<code>ab</code>コマンドも入っているので、
+<code>ab</code>コマンドのほうを覚えたほうがいいかも。</p>
 
 <h2 id="152740b">残念な話</h2>
 
@@ -115,7 +119,7 @@
 <p>(Ubuntu 13.10 で apt-get でインストールした siege 2.7.0 で確認)</p>
 
 <h2 id="28f99ce">オプション
-<span class="article-date">2013/12/24</span></h2>
+<span class="article-date">2014/10/14</span></h2>
 
 <dl>
   <dt><code>-b</code></dt>
@@ -123,10 +127,12 @@
   <dt><code>-r</code> &lt;回数&gt;</dt>
   <dd>指定の回数だけリクエストを繰り返すことを指示する。
 <code>-c</code> も指定すれば、実際に送信されるリクエストは <code>-c</code> の数との乗算になる。
-<code>-r</code> を指定しないと、Ctrl-C を押すまでリクエストが繰り返される。</dd>
+<code>-r</code> を指定しないと、Ctrl-C を押すまでリクエストが繰り返される。
+<code>-r</code>の値と<code>-c</code>の値の積が<code>ab</code>コマンドでの <code>-n</code> オプションに相当する、たぶん。</dd>
   <dt><code>-c</code> &lt;数&gt;</dt>
   <dd>並行処理の数を指定する。
-<code>-c</code> を省略すると手元の環境では15がデフォルトだった。</dd>
+<code>-c</code> を省略すると手元の環境では15がデフォルトだった。
+たぶん<code>ab</code>コマンドでの <code>-c</code> オプションに相当。</dd>
   <dt><code>-i</code></dt>
   <dd>URLを指定されたファイルの中からリクエストごとにランダムに選ぶことを指示する。</dd>
   <dt><code>-f</code> ファイル名</dt>

@@ -99,7 +99,7 @@
 
 <p>標準入力を文字コードを変換しながらそのまま標準出力に吐き出す。引数にファイル名を指定すれば、標準入力ではなくそのファイルを読み込む。</p>
 
-<p>EUC-JP を UTF-8 に変換するには</p>
+<p>例えば EUC-JP を UTF-8 に変換するには</p>
 
 <pre><code>cat ファイル名 | nkf -Ew
 </code></pre>
@@ -110,19 +110,19 @@
 </code></pre>
 
 <h2 id="4c9d87b">オプション
-<span class="article-date">2013/05/01</span></h2>
+<span class="article-date">2014/10/14</span></h2>
 
 <p>以下のオプションで、大文字が入力の文字コード、小文字が出力の文字コードを表す。</p>
 
 <dl>
   <dt><code>-J</code>, <code>-j</code></dt>
-  <dd>ISO-2022-JP</dd>
+  <dd>ISO-2022-JP (ISO-2022-<strong>J</strong>P の J と覚える)</dd>
   <dt><code>-S</code>, <code>-s</code></dt>
-  <dd>Shift-JIS</dd>
+  <dd>Shift-JIS (<strong>S</strong>hift-JIS の S と覚える)</dd>
   <dt><code>-E</code>, <code>-e</code></dt>
-  <dd>EUC-JP</dd>
+  <dd>EUC-JP (<strong>E</strong>UC-JP の E と覚える)</dd>
   <dt><code>-W</code>, <code>-w</code></dt>
-  <dd>UTF-8</dd>
+  <dd>UTF-8。(由来はよくわからないが<strong>w</strong>orld<strong>w</strong>ideな文字コードと覚えている)</dd>
 </dl>
 
 <h2 id="03d7795">文字コードを調べるには
@@ -151,7 +151,7 @@ cat ファイル名 | nkf --guess
 <h2 id="f774e17">BASE64のエンコード・デコードをするには
 <span class="article-date">2014/10/04</span></h2>
 
-<p><code>nkf</code>コマンドでもBASE64ができるみたいで、<a href="base64.html#nkf">こちら</a>参照。ただ、<code>base</code>コマンドのほうが多くの環境に入っているので、
+<p><code>nkf</code>コマンドでもBASE64ができるみたいで、<a href="base64.html#nkf"><code>base64</code>コマンドのページ</a>参照。ただ、<code>base64</code>コマンドのほうが多くの環境に入っているので、
 <code>nkf</code>をわざわざ使う理由はないかもしれない。</p>
 
 </div>

@@ -82,6 +82,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
+      <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
@@ -92,9 +93,10 @@
 
 <div id="content">
   <h1 id="diff">diff コマンド
-<span class="article-date">2013/10/14</span></h1>
+<span class="article-date">2014/10/13</span></h1>
 
-<p>2つのテキストファイルの差分を抽出するコマンド。</p>
+<p>2つのテキストファイルの差分を抽出するコマンド。
+2つのファイルの内容が一致しているかどうかをチェックする目的でも使える。</p>
 
 <h2 id="aeb82ff">オプション
 <span class="article-date">2014/06/18</span></h2>
@@ -164,9 +166,23 @@ fi
 <p>ちなみに <code>if</code> の中に <code>&gt;/dev/null</code> を付けないと、条件判定するたびに標準出力にいちいち差分が出力されてしまう。</p>
 
 <h2 id="ed0a2a1">差分表示をカラーで見やすく表示するには
-<span class="article-date">2014/07/09</span></h2>
+<span class="article-date">2014/10/14</span></h2>
 
 <p><code>colordiff</code> というツールをインストールして使うとよいらしい。</p>
+
+<pre><code># インストール
+apt-get install colordiff
+</code></pre>
+
+<p>でもインストールするのが面倒なら、<code>colordiff</code>でなくて代わりに最近のたいていの環境に入っている<a href="git.html"><code>git</code>コマンド</a>を使ってもよい。
+<code>git</code>コマンドは <code>git diff ...</code> でgit管理下にあるファイルの差分を表示してくれるが、
+git管理下でないディレクトリでも任意の2つのファイルの差分を表示してくれる便利機能がある。しかも<code>git</code>コマンドでは、ちゃんと設定してあれば、色付きで表示してくれるし、長い差分でも<code>less</code>をパイプで手動でつなぐことなく自動でページャーで表示してくれて使いやすい。</p>
+
+<pre><code>colordiff -u fileA.txt fileB.txt
+
+# gitを使う方法
+git diff fileA.txt fileB.txt
+</code></pre>
 
 </div>
 

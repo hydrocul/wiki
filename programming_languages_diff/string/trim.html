@@ -97,37 +97,42 @@ String trim()
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#trim--" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#trim–</a></p>
 
 <h2 id="8fb709a">PHP
-<span class="article-date">2013/10/08</span></h2>
+<span class="article-date">2014/10/13</span></h2>
+
+<p><code>trim</code>関数でできる。</p>
 
 <pre><code>$str = trim($str);
 $str = trim($str, $charlist);
 </code></pre>
 
-<p><a href="http://www.php.net/manual/ja/function.trim.php" target="_blank">http://www.php.net/manual/ja/function.trim.php</a></p>
+<p>2番目の引数を指定しない場合は、両端にある以下の文字が削除される。</p>
 
-<blockquote>
-  <p>2番目のパラメータを指定しない場合、 trim()は以下の文字を削除します。<br />
-“ “ (ASCII 32 (0x20)), 通常の空白。<br />
-“\t” (ASCII 9 (0x09)), タブ。<br />
-“\n” (ASCII 10 (0x0A)), リターン。<br />
-“\r” (ASCII 13 (0x0D)), 改行。<br />
-“\0” (ASCII 0 (0x00)), NULバイト<br />
-“\x0B” (ASCII 11 (0x0B)), 垂直タブ  </p>
-</blockquote>
+<ul>
+  <li>空白 <code>\x20</code></li>
+  <li>タブ <code>\x09</code> <code>\t</code></li>
+  <li>垂直タブ <code>\x0B</code></li>
+  <li>LF <code>\x0A</code> <code>\n</code></li>
+  <li>CR <code>\x0D</code> <code>\r</code></li>
+  <li>
+    <p>NUL <code>\x00</code></p>
 
-<pre><code># 改行コードのみを削除
-trim($str, "\r\n")
-</code></pre>
+    <p># 改行コードのみを削除
+  trim($str, “\r\n”)</p>
+  </li>
+</ul>
+
+<p><code>trim</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.trim.php" target="_blank">http://www.php.net/manual/ja/function.trim.php</a></p>
 
 <h2 id="b70da1c">Smarty
-<span class="article-date">2013/09/06</span></h2>
+<span class="article-date">2014/10/13</span></h2>
 
 <p>PHPの関数をそのまま修飾子として使えるので、trimして表示したい場合は、以下のように書ける。</p>
 
 <pre><code>{$str|trim}
 </code></pre>
 
-<p><code>{strip}</code> というのがあるが、これは、HTMLタグの間にある改行やスペースを削除してくれるもので、ソースコードのインデントなどを維持したまま、
+<p><code>{strip}</code> というのがあるが、これは、HTMLタグの間にある改行やスペースを削除してくれるもので、<code>trim</code>とは別。ソースコードのインデントなどを維持したまま、
 HTMLの余計な空白による悪影響を排除するための機能。</p>
 
 <p><a href="http://www.smarty.net/docsv2/ja/language.function.strip.tpl" target="_blank">http://www.smarty.net/docsv2/ja/language.function.strip.tpl</a></p>

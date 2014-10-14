@@ -40,14 +40,26 @@
 
 <div id="content">
   <h1 id="return-tuple">複数の返り値(多値返却)
-<span class="article-date">2013/10/28</span></h1>
+<span class="article-date">2014/10/13</span></h1>
 
-<p>関数は普通は返り値を1つだけ返すか、1つも返さない(C言語の<code>void</code>など)ものが多い。ただ、言語によっては複数の値を関数から返す方法がある。</p>
+<p>関数は普通は返り値を1つだけ返すか、1つも返さない(C言語の<code>void</code>など)ものが多い中、プログラミング言語によっては複数の値を関数から返すことができるものもある。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2013/09/20</span></h2>
+<span class="article-date">2014/10/13</span></h2>
 
-<p>タプルを返せばよい。</p>
+<p><a href="overview.html#scala">タプル</a>を返せばよい。</p>
+
+<p>例</p>
+
+<pre><code>def f() = {
+  (1, "abc");
+}
+
+val (a, b) = f();
+
+println(a); // =&gt; 1
+println(b); // =&gt; abc
+</code></pre>
 
 <h2 id="e0f1da3">PHP
 <span class="article-date">2013/05/15</span></h2>
@@ -83,7 +95,7 @@ print(b) # =&gt; abc
 <h2 id="449479d">Ruby
 <span class="article-date">2013/09/06</span></h2>
 
-<p><code>return</code> にカンマ区切りで複数の値を書けば、配列を返すことになり、受け取り側は配列の<a href="multiple-assignment.html#ruby">多重代入</a>を使う。</p>
+<p><code>return</code> にカンマ区切りで複数の値を書けば、<a href="../list/overview.html#ruby">配列</a>を返すことになり、受け取り側は配列の<a href="multiple-assignment.html#ruby">多重代入</a>を使う。</p>
 
 <pre><code>def f
   return 1, "abc"
@@ -94,7 +106,7 @@ num, str = f
 <h2 id="96e30ce">Perl
 <span class="article-date">2013/09/21</span></h2>
 
-<p>リストを返して、受け取り側は多重代入を使えばよい。</p>
+<p><a href="../list/overview.html#perl">リスト</a>を返して、受け取り側は多重代入を使えばよい。</p>
 
 <pre><code>sub f {
     return (1, "abc");

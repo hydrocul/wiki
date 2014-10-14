@@ -43,10 +43,11 @@
 
 <div id="content">
   <h1 id="ternary">三項演算子
-<span class="article-date">2013/10/28</span></h1>
+<span class="article-date">2014/10/14</span></h1>
 
-<p>単項演算子はパラメータが1つの演算子、二項演算子はパラメータが3つの演算子で、三項演算子はパラメータが3つの演算子のことだが、たいていの言語には三項演算子があったとしても <code>? :</code> しかないので、三項演算子といえば <code>? :</code> のことを指すことが多い。
-<code>a ? b : c</code> と書けば、「もし<code>a</code>なら<code>b</code>、そうでなければ<code>c</code>」という意味になる。</p>
+<p>C言語などでは <code>a ? b : c</code> と書けば、「もし<code>a</code>なら<code>b</code>、そうでなければ<code>c</code>」という意味になる。</p>
+
+<p>単項演算子はパラメータが1つの演算子、二項演算子はパラメータが3つの演算子で、三項演算子はパラメータが3つの演算子のことだが、たいていの言語には三項演算子があったとしても <code>? :</code> しかないので、三項演算子といえば <code>? :</code> のことを指すことが多い。</p>
 
 <h2 id="0159b8d">C言語, C++
 <span class="article-date">2013/09/17</span></h2>
@@ -110,15 +111,21 @@ Scalaではifは文ではなく、値を返す式なので、三項演算子と�
 <a href="http://docs.python.jp/3/reference/expressions.html#conditional-expressions" target="_blank">http://docs.python.jp/3/reference/expressions.html#conditional-expressions</a></p>
 
 <h2 id="8fe6afa">Ruby
-<span class="article-date">2013/11/05</span></h2>
+<span class="article-date">2014/10/14</span></h2>
 
-<p>C言語ライクの三項演算子を使える。</p>
+<p>C言語ライクの三項演算子を使える。Rubyでは条件演算子ともいう。</p>
 
 <pre><code>count == 1 ? "foot" : "feet"
 </code></pre>
 
 <p>Scalaと同じく<a href="../control_flow/if.html#ruby">Rubyのif</a>は値を返すので、三項演算子では複雑でわかりにくくなってしまう場合は、
-ifを使ったほうがよい。</p>
+ifを使ったほうがいいかも。</p>
+
+<pre><code>if count == 1 then "foot" else "feet" end
+</code></pre>
+
+<p>条件演算子 | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/doc/spec=2foperator.html#cond" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/doc/spec=2foperator.html#cond</a></p>
 
 <h2 id="4afab82">Perl
 <span class="article-date">2013/07/31</span></h2>

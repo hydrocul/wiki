@@ -66,9 +66,9 @@
 
 <div id="content">
   <h1 id="format">書式化文字列 (format, printf, sprintf)
-<span class="article-date">2014/08/30</span></h1>
+<span class="article-date">2014/10/13</span></h1>
 
-<p>C言語の <code>sprintf</code> のような書式で文字列を組み立てられる言語が多い。書式化文字列でなくても<a href="inline.html">文字列の中に変数を埋め込む書き方</a>を使うことで、細かい書式までは指定できないが <code>sprintf</code> の代わりに文字列を組み立てることもできる。</p>
+<p>C言語の <code>sprintf</code> のような書式で文字列を組み立てられるプログラミング言語が多い。書式化文字列でなくても<a href="inline.html">文字列の中に変数を埋め込む書き方</a>を使うことで、細かい書式までは指定できないが <code>sprintf</code> の代わりに文字列を組み立てることもできる。</p>
 
 <p>以下はプログラミング言語ごとの<code>sprintf</code>の方法のメモ。</p>
 
@@ -84,15 +84,37 @@ int snprintf(char *str, size_t size, const char *format, ...);
 <pre><code>char[] dst = new char[1024];
 sprintf(dst, "%s %d", str, i);
 
-// バッファオーバーラン(バッファオーバーフロー)を防ぐために
+// snprintfはバッファオーバーラン(バッファオーバーフロー)を防ぐために
 // 文字数の限界を指定できる関数
 snprintf(dst, sizeof(dst), "%s %d", str, i);
 </code></pre>
 
 <h2 id="64aa55b">Java
-<span class="article-date">2014/08/10</span></h2>
+<span class="article-date">2014/10/13</span></h2>
 
-<p><code>String.format</code>メソッドでできる。</p>
+<p>Javaでは<code>String.format</code>メソッドでC言語の<code>sprintf</code>と同様のことができる。
+Scalaでは<code>StringLike#format</code>メソッドを使うこともできる。書式化文字列はJava/Scalaで同じ。</p>
+
+<p>Javaでの例 (Javaではクラスメソッド)</p>
+
+<pre><code>String formatted = String.format("%s %d", str, i);
+</code></pre>
+
+<p>Scalaでの例 (Scalaの<code>StringLike#format</code>はインスタンスメソッド)</p>
+
+<pre><code>val formatted = "%s %d".format(str, i);
+</code></pre>
+
+<p>Signature:</p>
+
+<pre><code>// java.lang.String
+static String format(String format, Object... args)
+static String format(java.util.Locale l, String format, Object... args)
+
+// scala.collection.immutable.StringLike
+def format(args: Any*): String
+def formatLocal(l: Locale, args: Any*): String
+</code></pre>
 
 <p>例</p>
 
@@ -102,23 +124,8 @@ snprintf(dst, sizeof(dst), "%s %d", str, i);
 <p>Format String Syntax | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax</a></p>
 
-<h2 id="3218db9">Scala
-<span class="article-date">2014/08/30</span></h2>
-
-<p><code>StringLike#format</code>メソッドでC言語の<code>sprintf</code>と同様のことができる。</p>
-
-<p>Javaの<code>format</code>はクラスメソッド(staticメソッド)だが、
-Scalaの<code>StringLike#format</code>はインスタンスメソッドである。</p>
-
-<p>例</p>
-
-<pre><code>"%s %d".format(str, i)
-</code></pre>
-
-<p>Javaの <code>String.format</code> メソッドと同じ書式が使える。</p>
-
-<p>Format String Syntax | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax</a></p>
+<p><code>java.lang.String.format</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object...-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object…-</a></p>
 
 <h2 id="441b947">PHP
 <span class="article-date">2013/10/15</span></h2>
@@ -128,7 +135,7 @@ Scalaの<code>StringLike#format</code>はインスタンスメソッドである
 <pre><code>sprintf("%s %d", $str, $i);
 </code></pre>
 
-<p>sprintf | PHP Manual<br />
+<p><code>sprintf</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.sprintf.php" target="_blank">http://www.php.net/manual/ja/function.sprintf.php</a></p>
 
 <h2 id="python">Python

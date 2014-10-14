@@ -281,16 +281,25 @@ rm patch.patch
 
 <p>これで hoge というディレクトリが作られる。</p>
 
-<h2 id="be3a536"><code>.gitignore</code> のサンプルファイル
-<span class="article-date">2013/08/04</span></h2>
+<h2 id="be3a536"><code>.gitignore</code> のサンプルファイル</h2>
 
-<h3 id="10510ee">Java</h3>
+<h3 id="10510ee">Java
+<span class="article-date">2014/10/13</span></h3>
 
 <pre><code># Maven2で生成されるファイル
-/target
+/target/
 </code></pre>
 
-<h3 id="da74d5a">Ruby</h3>
+<h3 id="4d0666b">Scala sbt
+<span class="article-date">2014/10/13</span></h3>
+
+<pre><code># sbtで生成されるファイル
+/target/
+/project/target/
+</code></pre>
+
+<h3 id="da74d5a">Ruby
+<span class="article-date">2013/08/04</span></h3>
 
 <pre><code># bundle install --path vendor/bundle
 # で生成されるファイル
@@ -298,7 +307,8 @@ rm patch.patch
 /vendor/bundle
 </code></pre>
 
-<h3 id="6654633">その他</h3>
+<h3 id="6654633">その他
+<span class="article-date">2013/08/04</span></h3>
 
 <pre><code># Windowsで勝手に作られる隠しファイル
 Thumbs.db
@@ -306,11 +316,6 @@ Thumbs.db
 # Macで勝手に作られる隠しファイル
 .DS_Store
 </code></pre>
-
-<h3 id="4bfe923"><code>.gitignore</code> のサンプル集
-<span class="article-date">2013/04/16</span></h3>
-
-<p><a href="https://github.com/github/gitignore" target="_blank">https://github.com/github/gitignore</a></p>
 
 <h2 id="gitignore-recursive"><code>.gitignore</code> のへぇ〜
 <span class="article-date">2013/04/03</span></h2>
