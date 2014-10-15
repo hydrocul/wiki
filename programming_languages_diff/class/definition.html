@@ -37,6 +37,7 @@
           <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
           <li><a href="../../programming_languages_diff/class/compare.html">オブジェクトの比較演算子</a></li>
           <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+          <li><a href="../../programming_languages_diff/class/serialize.html">オブジェクトをシリアライズ・デシリアライズするには</a></li>
           <li><a href="../../programming_languages_diff/class/this.html"><code>this</code></a></li>
         </ul>
       </li>
@@ -69,7 +70,7 @@
 
 <p>例</p>
 
-<pre><code>class FooClass : public SuperFooClass {
+<pre><code>class FooClass : public SuperClass {
 
 private:
     // メンバ変数宣言
@@ -109,19 +110,19 @@ void FooClass::method1(){
 
 <p>例</p>
 
-<pre><code>class FooClass extends SuperFooClass {
+<pre><code>class FooClass extends SuperClass {
     
     // フィールド定義
     private int field1;
     private int field2;
     
     // コンストラクタ定義
-    public FooClass(){
+    public FooClass() {
         ...;
     }
     
     // メソッド定義
-    public void method1(){
+    public void method1() {
         ...;
     }
     
@@ -130,7 +131,7 @@ void FooClass::method1(){
     private static int sfield2;
     
     // staticメソッド定義
-    public static void smethod1(){
+    public static void smethod1() {
         ...;
     }
     

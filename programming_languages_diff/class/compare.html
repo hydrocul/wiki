@@ -52,11 +52,13 @@
   <h1 id="compare">オブジェクトの比較演算子</h1>
 
 <h2 id="ff5136c">Java
-<span class="article-date">2014/03/13</span></h2>
+<span class="article-date">2014/10/15</span></h2>
 
-<p>プリミティブ型の値が等値かどうかを判定するには、演算子 <code>==</code>, <code>=~</code> を使う。</p>
+<p>プリミティブ型の値が等値かどうかを判定するには、演算子 <code>==</code>, <code>!=</code> を使う。</p>
 
 <p>参照型が等値かどうかを判定するには、メソッド <code>equals</code> を使う。</p>
+
+<p>参照型に対して演算子 <code>==</code>, <code>!=</code> を使うと、それは等値かどうかではなく、同じインスタンスを指しているかどうかの判定になる。</p>
 
 <p>例</p>
 
@@ -66,8 +68,6 @@
 </code></pre>
 
 <p>ただし、クラスごとに<code>equals</code>が適切に実装されている必要がある。</p>
-
-<p>参照型が同じインスタンスかどうかを判定するには、演算子 <code>==</code>, <code>=~</code> を使う。</p>
 
 <p>Javaにおける <code>==</code> はRubyにおける <code>equal?</code> に似ていて、
 Javaにおける <code>equals</code> はRubyにおける <code>==</code> に似ている。</p>
