@@ -63,13 +63,20 @@ if (obj instanceof Integer) {
 </code></pre>
 
 <h2 id="749902c">Scala
-<span class="article-date">2014/10/04</span></h2>
+<span class="article-date">2014/10/16</span></h2>
+
+<p>Javaで <code>instanceof</code> キーワードに相当することをするには、<code>isInstanceOf</code> という <code>Any</code> クラスのメソッドを呼び出す。</p>
 
 <pre><code>val obj = ...;
 if (obj.isInstanceOf[Int]) {
     ...;
 }
 </code></pre>
+
+<p>JVM的に本当に <code>isInstanceOf</code> というメソッドがあるのではなく、
+Javaの<code>instanceof</code>キーワードと同じようにコンパイルされるのだと思う、たぶん。</p>
+
+<p>ただ、<code>isInstanceOf</code>メソッドを使うのではなく、<code>match</code>式を使うほうがScalaらしい。</p>
 
 <h2 id="php">PHP
 <span class="article-date">2014/06/28</span></h2>

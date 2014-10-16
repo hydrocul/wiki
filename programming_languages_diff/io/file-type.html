@@ -75,18 +75,46 @@ if (fileperms("/home/foo/testfile") &amp; 0x8000) {
 <a href="http://www.php.net/manual/ja/function.fileperms.php" target="_blank">http://www.php.net/manual/ja/function.fileperms.php</a></p>
 
 <h2 id="88ccf80">Python
-<span class="article-date">2013/10/13</span></h2>
+<span class="article-date">2014/10/16</span></h2>
 
 <p>例</p>
 
 <pre><code>import os
 
-# 通常のファイルかどうかを判定
+# ディレクトリではなく通常のファイルかどうかを判定
 if os.path.isfile("/home/foo/testfile"):
+    ...
+
+# ディレクトリかどうかを判定
+if os.path.isdir("/home/foo/testfile"):
+    ...
+
+# シンボリックリンクかどうかを判定
+if os.path.islink("/home/foo/testfile"):
     ...
 </code></pre>
 
-<p>シンボリックリンクの場合はリンク先がファイルかどうかを見る。存在しない場合は <code>False</code> になる。</p>
+<p><code>os.path.isfile</code> はディレクトリではなく通常のファイルの場合に <code>True</code> を返す。存在しないか、存在してもディレクトリの場合は <code>False</code> を返す。シンボリックリンクの場合はリンク先を見て判定する。</p>
+
+<p><code>os.path.isdir</code> はディレクトリとして存在する場合に <code>True</code> を返す。存在しないか、存在してもディレクトリでない場合は <code>False</code> を返す。シンボリックリンクの場合はリンク先を見て判定する。</p>
+
+<p><code>os.path.isfile</code> | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/library/os.path.html#os.path.isfile" target="_blank">http://docs.python.jp/2/library/os.path.html#os.path.isfile</a></p>
+
+<p><code>os.path.isfile</code> | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/library/os.path.html#os.path.isfile" target="_blank">http://docs.python.jp/3/library/os.path.html#os.path.isfile</a></p>
+
+<p><code>os.path.isdir</code> | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/library/os.path.html#os.path.isdir" target="_blank">http://docs.python.jp/2/library/os.path.html#os.path.isdir</a></p>
+
+<p><code>os.path.isdir</code> | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/library/os.path.html#os.path.isdir" target="_blank">http://docs.python.jp/3/library/os.path.html#os.path.isdir</a></p>
+
+<p><code>os.path.islink</code> | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/library/os.path.html#os.path.islink" target="_blank">http://docs.python.jp/2/library/os.path.html#os.path.islink</a></p>
+
+<p><code>os.path.islink</code> | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/library/os.path.html#os.path.islink" target="_blank">http://docs.python.jp/3/library/os.path.html#os.path.islink</a></p>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2013/12/14</span></h2>
@@ -102,7 +130,7 @@ File.ftype('/home/foo/testfile')
 <dl>
   <dt><code>'file'</code></dt>
   <dd>ファイル</dd>
-  <dt>``directory’`</dt>
+  <dt><code>'directory'</code></dt>
   <dd>ディレクトリ</dd>
   <dt><code>'link'</code></dt>
   <dd>シンボリックリンク。リンク先の種類に依らず。</dd>

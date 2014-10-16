@@ -93,11 +93,11 @@
 
 <div id="content">
   <h1 id="sed">sed コマンド
-<span class="article-date">2014/08/29</span></h1>
+<span class="article-date">2014/10/15</span></h1>
 
-<p>文字列を全置換したり、行単位で削除したり、いろいろできるコマンド。</p>
+<p>文字列を全置換したり、行単位で抽出したり、削除したり、いろいろできるコマンド。処理内容はコマンドラインパラメータで指定する。</p>
 
-<p>処理内容にもよるが、perlのワンライナーで書くよりも処理が速いことが多い。</p>
+<p>sedで書ける処理であれば、処理内容にもよるが、perlのワンライナーで書くよりも速いことが多い。</p>
 
 <h2 id="1db04e2">基本的な使い方
 <span class="article-date">2014/09/22</span></h2>
@@ -268,12 +268,105 @@ sed -n -e /xxx/,+3p
 sed -n -e 20,+3p
 </code></pre>
 
+<h2 id="extended-regexp">基本正規表現と拡張正規表現
+<span class="article-date">2014/10/15</span></h2>
+
+<p>sedで使える正規表現は基本正規表現と拡張正規表現(extended regular expressions)の2種類ある。</p>
+
+<p>オプションをなにも付けないか <code>-e</code> で実行すると基本正規表現で、
+<code>-e</code> の代わりに <code>-E</code> または <code>-r</code> を付けると拡張正規表現になる。</p>
+
+<p>基本正規表現と拡張正規表現とで扱いが異なるのは以下の7文字のみである。</p>
+
+<pre><code>+ ? { } ( ) |
+</code></pre>
+
+<p>これらの文字の前にバックスラッシュでエスケープするかどうかで、正規表現での特殊な意味になるか、単にその文字そのものの意味になるかが、基本正規表現と拡張正規表現とで変わる。拡張正規表現という名前の割には機能が上がっているわけではない。</p>
+
+<p>以下は自分の環境(GNU sed 4.2.2)で検証した結果。</p>
+
+<p>まずは <code>+</code> の例。拡張正規表現では <code>+</code> で直前の文字が1文字以上の意味になり、
+<code>\+</code> で <code>+</code> そのものを表すが、基本正規表現では逆になる(?)。
+(その説明だと2番目の実行例が説明できない)</p>
+
+<pre><code>$ echo '+' | sed 's/+/OK/g'
+OK
+$ echo '+' | sed 's/\+/OK/g'
+OK
+$ echo '+' | sed -E 's/+/OK/g'
+sed: -e expression #1, char 8: Invalid preceding regular expression
+$ echo '+' | sed -E 's/\+/OK/g'
+OK
+$ echo 'x' | sed 's/x+/OK/g'
+x
+$ echo 'x' | sed 's/x\+/OK/g'
+OK
+$ echo 'x' | sed -E 's/x+/OK/g'
+OK
+$ echo 'x' | sed -E 's/x\+/OK/g'
+x
+</code></pre>
+
+<p>次は <code>?</code> の例だが、これは <code>+</code> と同様。拡張正規表現では <code>?</code> で直前の文字が0文字または1文字の意味になり、
+<code>?+</code> で <code>?</code> そのものを表すが、基本正規表現では逆になる(?)。
+(やはり2番目の実行例が説明できない)</p>
+
+<pre><code>$ echo '?' | sed 's/?/OK/g'
+OK
+$ echo '?' | sed 's/\?/OK/g'
+OK
+$ echo '?' | sed -E 's/?/OK/g'
+sed: -e expression #1, char 8: Invalid preceding regular expression
+$ echo '?' | sed -E 's/\?/OK/g'
+OK
+$ echo 'x' | sed 's/x?/OK/g'
+x
+$ echo 'x' | sed 's/x\?/OK/g'
+OK
+$ echo 'x' | sed -E 's/x?/OK/g'
+OK
+$ echo 'x' | sed -E 's/x\?/OK/g'
+x
+</code></pre>
+
+<p>続いて <code>{}</code> の例。<code>{}</code> は正規表現でとしては以下のような意味がある。</p>
+
+<dl>
+  <dt><code>{</code>n<code>}</code></dt>
+  <dd>直前の文字がちょうどn文字の連続</dd>
+  <dt><code>{</code>n,<code>}</code></dt>
+  <dd>直前の文字がn文字以上の連続</dd>
+  <dt><code>{</code>n,m<code>}</code></dt>
+  <dd>直前の文字がn文字以上m文字以下の連続</dd>
+</dl>
+
+<p><code>+</code> や <code>?</code> と同様に拡張正規表現ではそのまま使えるが、基本正規表現ではバックスラッシュを付けないといけない。</p>
+
+<pre><code>$ echo '{' | sed 's/{/OK/g'
+OK
+$ echo '{' | sed 's/\{/OK/g'
+sed: -e expression #1, char 9: Invalid preceding regular expression
+$ echo '{' | sed -E 's/{/OK/g'
+sed: -e expression #1, char 8: Invalid preceding regular expression
+$ echo '{' | sed -E 's/\{/OK/g'
+OK
+$ echo 'xx' | sed 's/x{2}/OK/g'
+xx
+$ echo 'xx' | sed 's/x\{2\}/OK/g'
+OK
+$ echo 'xx' | sed -E 's/x{2}/OK/g'
+OK
+$ echo 'xx' | sed -E 's/x\{2\}/OK/g'
+xx
+</code></pre>
+
 <h2 id="f63e1b3">正規表現の中で ‘{}’ を使うには
-<span class="article-date">2013/06/17</span></h2>
+<span class="article-date">2014/10/15</span></h2>
 
-<p>正規表現で文字数を指定する <code>{}</code> は <code>\</code> でエスケープしないと使えないようだ。</p>
+<p>正規表現で文字数を指定する <code>{}</code> は上で説明したとおり <code>\</code> でエスケープするか、オプション <code>-E</code> または <code>-r</code> を付ける必要がある。</p>
 
-<pre><code>sed 's/x{4}/XXXX/g'       # =&gt; NG
+<pre><code># xxxx を XXXX に置換する例
+sed 's/x{4}/XXXX/g'       # =&gt; NG
 sed 's/x\{4\}/XXXX/g'     # =&gt; OK
 sed "s/x{4}/XXXX/g"       # =&gt; NG
 sed "s/x\{4\}/XXXX/g"     # =&gt; OK
@@ -335,7 +428,7 @@ sed -E 's/[\t ]+/ /g'
 </code></pre>
 
 <h2 id="99dcc4b">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには
-<span class="article-date">2014/09/22</span></h2>
+<span class="article-date">2014/10/15</span></h2>
 
 <p>GNU sedであれば、<code>-i</code> オプションを付ければ、ファイルを直接書き換えることができる。</p>
 
@@ -344,14 +437,12 @@ sed -E 's/[\t ]+/ /g'
 
 <p><code>-i</code> がないと、全置換後の結果を標準出力に吐き出して、ファイルは書き換えない。</p>
 
-<p><code>-e</code> はどういう意味だろう？</p>
-
 <p>ちなみに以下のようにしてもうまくいかない。</p>
 
 <pre><code>cat foo.txt | sed -i -e 's/.../.../g' &gt; foo.txt
 </code></pre>
 
-<p>ファイルからの入力と結果の書き出しは平行して実行されるため、標準入力から読み込もうにも結果を書き出すために先にファイルサイズが0になってしまい、結果として <code>foo.txt</code> はからのファイルになる。</p>
+<p>ファイルからの入力と結果の書き出しは並列で実行されるため、標準入力から読み込もうにも結果を書き出すために先にファイルサイズが0になってしまい、結果として <code>foo.txt</code> はからのファイルになる。</p>
 
 <p>BSDやMacに入っているsedはGNU sedではなく、<code>-i</code> オプションがないらしい。</p>
 

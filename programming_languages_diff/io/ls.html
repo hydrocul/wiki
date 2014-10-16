@@ -75,7 +75,9 @@ java.io.File[] listFiles()
 </code></pre>
 
 <h2 id="bf87941">PHP
-<span class="article-date">2013/10/14</span></h2>
+<span class="article-date">2014/10/16</span></h2>
+
+<p><code>opendir</code>関数でディレクトリハンドルを開いて、<code>readdir</code>関数で1つずつ読み取っていく。</p>
 
 <pre><code>$lst = array();
 $dhandle = opendir($dir);
@@ -86,6 +88,15 @@ if ($dhandle) {
   closedir($dhandle);
 }
 </code></pre>
+
+<p><code>opendir</code> 関数 | PHP Manual<br />
+<a href="http://jp1.php.net/manual/ja/function.opendir.php" target="_blank">http://jp1.php.net/manual/ja/function.opendir.php</a></p>
+
+<p><code>readdir</code> 関数 | PHP Manual<br />
+<a href="http://jp1.php.net/manual/ja/function.readdir.php" target="_blank">http://jp1.php.net/manual/ja/function.readdir.php</a></p>
+
+<p><code>closedir</code> 関数 | PHP Manual<br />
+<a href="http://jp1.php.net/manual/ja/function.closedir.php" target="_blank">http://jp1.php.net/manual/ja/function.closedir.php</a></p>
 
 <h2 id="b3ffd44">Ruby
 <span class="article-date">2013/04/10</span></h2>
