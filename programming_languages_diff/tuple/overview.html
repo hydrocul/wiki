@@ -48,12 +48,9 @@ C言語の構造体から各フィールドの名前がなくなったみたい�
 <p>静的な型付けの言語でないと意味がないかもしれない。要素ごとの型も静的に決まる。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2013/10/28</span></h2>
+<span class="article-date">2014/10/17</span></h2>
 
 <p>コンマ区切りの2つ以上の値を<code>()</code>で囲めば、タプルになる。</p>
-
-<p>関数にタプルを1つだけ渡して呼び出すには、
-<code>()</code>はもともと関数呼び出しの引数を囲む記号なので、二重にカッコで囲まないといけない。</p>
 
 <p>関数の返り値としてタプルを使えば、
 <a href="return-tuple.html">複数の結果を返す</a>ことができる。</p>
@@ -61,10 +58,21 @@ C言語の構造体から各フィールドの名前がなくなったみたい�
 <p>タプルは実際には普通のオブジェクトで、
 2要素であれば <code>scala.Tuple2</code>、3要素であれば <code>scala.Tuple3</code> というクラスのインスタンスである。</p>
 
-<h2 id="ccd88c1">Python
-<span class="article-date">2013/10/05</span></h2>
+<p>関数にタプルを1つだけ渡して呼び出すには、
+<code>()</code>はもともと関数呼び出しの引数を囲む記号なので、本来は二重にカッコで囲まないといけないのだが、省略してカッコを1組だけにしても大丈夫みたい。</p>
 
-<p>Pythonのタプルは、<a href="../list/">リスト</a>がイミュータブルになっただけのようである。</p>
+<pre><code>Some(1, "abc") // =&gt; Some((1, "abc"))
+</code></pre>
+
+<p>これで<code>Any</code>の引数1つだけの関数だと、実質は任意の数の引数を渡せることになる。
+<a href="../function/var-args.html#scala">可変長引数</a>の仕組みは別途あるのだが。</p>
+
+<p>逆にこの<a href="../io/file-get-contents.html#scala-stringbuilder">カッコを省略できる機能でハマる</a>こともある。</p>
+
+<h2 id="ccd88c1">Python
+<span class="article-date">2014/10/17</span></h2>
+
+<p>Pythonでいうタプルは、<a href="../list/">リスト</a>がイミュータブルになっただけのようである。なので、Pythonのタプルはリストとほとんど使い方が同じ。</p>
 
 </div>
 

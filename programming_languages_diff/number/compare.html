@@ -36,6 +36,7 @@
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
           <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の切り捨てまたは切り上げをするには (floor, ceil)</a></li>
           <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/number/bit-operator.html">ビット演算子</a></li>
           <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
         </ul>
       </li>
@@ -55,12 +56,14 @@
 <p>また、RubyやPerlには <code>&lt;=&gt;</code> という演算子がある。大小関係により <code>-1</code> か <code>0</code> か <code>1</code> を返す。</p>
 
 <h2 id="ff5136c">Java
-<span class="article-date">2013/10/14</span></h2>
+<span class="article-date">2014/10/16</span></h2>
 
 <p>プリミティブ型の数値は <code>==</code>, <code>!=</code> で等値性を判定でき、 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
 
-<p>プリミティブ型ではなく数値のオブジェクトの比較は専用のメソッドを使う。</p>
+<p>プリミティブ型以外の数値のオブジェクトの比較は専用のメソッドを使う。</p>
+
+<p>Signature:</p>
 
 <pre><code>// java.lang.Integer
 int compareTo(Integer another)
@@ -69,13 +72,22 @@ int compareTo(Integer another)
 int compareTo(Double another)
 </code></pre>
 
-<h2 id="1af9280">Scala
-<span class="article-date">2013/10/14</span></h2>
+<h2 id="scala">Scala
+<span class="article-date">2014/10/16</span></h2>
 
 <p><code>==</code>, <code>!=</code> で等値性を判定でき、 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
 
-<p>Javaと違い、プリミティブ型というのがなくすべてオブジェクトであるが、数値を表すオブジェクトはだいたい上記の演算子が使えるようになってる。正確には、演算子ではなく <code>&lt;</code> などの名前のメソッドが定義されている。</p>
+<p>Javaと違い、プリミティブ型というのがなくすべてオブジェクトであるが、数値を表すオブジェクトはだいたい上記の演算子が使えるようになってるので、
+<code>compareTo</code> のようなメソッドを使うことはない。</p>
+
+<p>すべてがオブジェクトであるので、
+<code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> に関しては厳密には演算子ではなく 
+<code>&lt;</code> などの名前のメソッドが数値のオブジェクトに存在することになっている。従って <code>a &lt; b</code> は <code>a.&lt;(b)</code> とも書ける。読みづらいのでこんな書き方は普通はしないが。</p>
+
+<p><code>&lt;</code> などの記号にかぎらず、普通の名前のメソッドであっても、引数が1つだけの場合はメソッド呼び出し時にドットと括弧を省略して演算子のように書ける。これを中置記法という。中置記法だと左右が対等に見えるので、自分は<a href="../list.zip.html#scala">リストに対する<code>zip</code>メソッド</a>だとかは、よくこの書き方をする。</p>
+
+<p>JVM上でプリミティブ型にならないオブジェクトに対しての <code>==</code>, <code>!=</code> は実際には <code>equals</code> メソッドが呼び出されている。</p>
 
 <h2 id="61b0875">PHP
 <span class="article-date">2014/04/12</span></h2>
@@ -126,25 +138,27 @@ Python3では <code>&lt;&gt;</code> を使えない。</p>
 Perlにも同様のものがある。</p>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/08/05</span></h2>
+<span class="article-date">2014/10/16</span></h2>
 
 <p><code>==</code>, <code>!=</code> で等値性を判定でき、 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
-
-<p><a href="../string/compare.html#perl">文字列として比較</a>したい場合は <code>eq</code>, <code>ne</code>, <code>gt</code>, <code>ge</code>, <code>lt</code>, <code>le</code> を使う。</p>
 
 <p><code>&lt;=&gt;</code> という、<code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す演算子もある。</p>
 
 <pre><code>a &lt;=&gt; b
 </code></pre>
 
-<p>と書くと、 <code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。Rubyにも同様のものがある。文字列に対しては <code>cmp</code> を使う。</p>
+<p>と書くと、 <code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。Rubyにも同様のものがある。</p>
+
+<p>数値ではなく<a href="../string/compare.html#perl">文字列として比較</a>したい場合は <code>eq</code>, <code>ne</code>, <code>gt</code>, <code>ge</code>, <code>lt</code>, <code>le</code> を使う。
+<code>&lt;=&gt;</code> に対応する文字列としての比較演算子は <code>cmp</code> である。</p>
 
 <h2 id="f3384ef">sh
-<span class="article-date">2014/07/10</span></h2>
+<span class="article-date">2014/10/16</span></h2>
 
 <p><code>test</code> コマンド(<code>[</code> コマンド)の <code>-eq</code>, <code>-ne</code>, <code>-lt</code>, <code>-le</code>, <code>-ge</code>, <code>-gt</code> で数値として比較する。
-<code>test</code> コマンド(<code>[</code> コマンド)の <code>=</code>, <code>!=</code> 演算子は文字列として比較してしまい、Perlとは逆。</p>
+<code>test</code> コマンド(<code>[</code> コマンド)の <code>=</code>, <code>!=</code> 演算子は文字列として比較してしまい、Perlとは逆。
+<code>&lt;</code>, <code>&gt;</code> はシェルスクリプトではリダイレクトになってしまう。</p>
 
 <p>例</p>
 
@@ -154,7 +168,7 @@ Perlにも同様のものがある。</p>
 fi
 </code></pre>
 
-<p>-&gt; <a href="../../sh.html#operator.html">シェルスクリプトの演算子</a></p>
+<p>-&gt; <a href="../../sh.html#operator">シェルスクリプトの演算子</a></p>
 
 <h2 id="9da0cb1">JavaScript
 <span class="article-date">2013/09/17</span></h2>

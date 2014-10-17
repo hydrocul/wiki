@@ -166,7 +166,7 @@ fi
 <p>ちなみに <code>if</code> の中に <code>&gt;/dev/null</code> を付けないと、条件判定するたびに標準出力にいちいち差分が出力されてしまう。</p>
 
 <h2 id="ed0a2a1">差分表示をカラーで見やすく表示するには
-<span class="article-date">2014/10/14</span></h2>
+<span class="article-date">2014/10/16</span></h2>
 
 <p><code>colordiff</code> というツールをインストールして使うとよいらしい。</p>
 
@@ -176,13 +176,15 @@ apt-get install colordiff
 
 <p>でもインストールするのが面倒なら、<code>colordiff</code>でなくて代わりに最近のたいていの環境に入っている<a href="git.html"><code>git</code>コマンド</a>を使ってもよい。
 <code>git</code>コマンドは <code>git diff ...</code> でgit管理下にあるファイルの差分を表示してくれるが、
-git管理下でないディレクトリでも任意の2つのファイルの差分を表示してくれる便利機能がある。しかも<code>git</code>コマンドでは、ちゃんと設定してあれば、色付きで表示してくれるし、長い差分でも<code>less</code>をパイプで手動でつなぐことなく自動でページャーで表示してくれて使いやすい。</p>
+git管理下でないディレクトリでは、任意の2つのファイルの差分を表示してくれる便利機能がある。しかも<code>git</code>コマンドでは、ちゃんと設定してあれば、色付きで表示してくれるし、長い差分でも<code>less</code>をパイプで手動でつなぐことなく自動でページャーで表示してくれて使いやすい。</p>
 
 <pre><code>colordiff -u fileA.txt fileB.txt
 
 # gitを使う方法
 git diff fileA.txt fileB.txt
 </code></pre>
+
+<p>でも、git管理下にあるディレクトリの中で2つのファイルの差分を <code>git diff</code> で見るにはどうしたらいいんだろう？</p>
 
 </div>
 
