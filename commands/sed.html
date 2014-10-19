@@ -269,7 +269,7 @@ sed -n -e 20,+3p
 </code></pre>
 
 <h2 id="extended-regexp">基本正規表現と拡張正規表現
-<span class="article-date">2014/10/15</span></h2>
+<span class="article-date">2014/10/18</span></h2>
 
 <p>sedで使える正規表現は基本正規表現と拡張正規表現(extended regular expressions)の2種類ある。</p>
 
@@ -360,6 +360,27 @@ $ echo 'xx' | sed -E 's/x\{2\}/OK/g'
 xx
 </code></pre>
 
+<p><code>()</code> や <code>|</code> も同様に拡張正規表現ではそのまま使えるが、基本正規表現ではバックスラッシュを付けないといけない。逆にその文字そのものは、基本正規表現ではそのまま書けばよいが、拡張正規表現ではバックスラッシュが必要。</p>
+
+<pre><code>$ echo '(' | sed 's/(/OK/g'
+OK
+$ echo '(' | sed 's/\(/OK/g'
+sed: -e expression #1, char 9: Unmatched ( or \(
+$ echo '(' | sed -E 's/(/OK/g'
+sed: -e expression #1, char 8: Unmatched ( or \(
+$ echo '(' | sed -E 's/\(/OK/g'
+OK
+
+$ echo 'a|b' | sed 's/a|b/OK/g'
+OK
+$ echo 'a|b' | sed 's/a\|b/OK/g'
+OK|OK
+$ echo 'a|b' | sed -E 's/a|b/OK/g'
+OK|OK
+$ echo 'a|b' | sed -E 's/a\|b/OK/g'
+OK
+</code></pre>
+
 <h2 id="f63e1b3">正規表現の中で ‘{}’ を使うには
 <span class="article-date">2014/10/15</span></h2>
 
@@ -374,7 +395,7 @@ sed "s/x\\\{4\\\}/XXXX/g" # =&gt; NG
 </code></pre>
 
 <h2 id="group">正規表現の中の <code>()</code> で囲まれた部分を使って置換するには
-<span class="article-date">2013/10/22</span></h2>
+<span class="article-date">2014/10/18</span></h2>
 
 <p>置換後の文字列には、<code>\1</code>, <code>\2</code> などを指定することで、正規表現にマッチしたグループに置き換えられる。</p>
 
@@ -388,8 +409,8 @@ echo "bc abcc" | sed -E 's/b(c*)/\1/g'
 # =&gt; c acc
 </code></pre>
 
-<p>正規表現の中の <code>()</code> には <code>\</code> でエスケープしないといけないみたい。でもなぜか 
-<code>-E</code> をつけると、エスケープが不要みたい。</p>
+<p>正規表現の中の <code>()</code> には <code>\</code> でエスケープしないといけない。 
+<code>-E</code> をつけると、上で説明したとおり拡張正規表現になってエスケープが不要になる。</p>
 
 <h2 id="a7c5547">タブ文字を全置換するには
 <span class="article-date">2013/06/17</span></h2>
