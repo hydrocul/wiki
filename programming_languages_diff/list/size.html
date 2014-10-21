@@ -39,7 +39,8 @@
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">すべての要素が特定の条件にマッチするかどうかを検査するには (all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
@@ -103,18 +104,24 @@ int size()
 <p>メソッドであるので括弧が必要。</p>
 
 <h2 id="292698e">Scala
-<span class="article-date">2014/05/17</span></h2>
+<span class="article-date">2014/10/20</span></h2>
+
+<p>Javaの配列(<code>Array</code>)であってもScalaのコレクション型であっても <code>size</code> というメソッドが使える。
+Javaの配列ではJavaと同じ<code>length</code>もメソッドとして使える。</p>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Seq[A]
+<pre><code>// scala.Array[A]
 def length: Int
+def size: Int
+
+// scala.collection.Seq[A]
 def size: Int
 </code></pre>
 
-<p>2つのメソッドは全く同じ。Javaの配列に相当する <code>Array</code> でも上の2つのメソッドをどちらも同じように使える。メソッドだが括弧はいらない。</p>
+<p>上記はメソッドだが括弧はいらない。</p>
 
-<h2 id="3922a82">PHP
+<h2 id="php">PHP
 <span class="article-date">2014/05/17</span></h2>
 
 <p>例</p>
@@ -131,23 +138,31 @@ sizeof($arr)
 <p><code>sizeof</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.sizeof.php" target="_blank">http://www.php.net/manual/ja/function.sizeof.php</a></p>
 
-<h2 id="4a021e0">Python
-<span class="article-date">2013/10/04</span></h2>
+<h2 id="python">Python
+<span class="article-date">2014/10/20</span></h2>
 
 <p>以下はPythonのシーケンスといわれるリスト、タプル、文字列で共通操作。</p>
 
 <pre><code>len(lst)
 </code></pre>
 
-<h2 id="ruby">Ruby
-<span class="article-date">2013/09/23</span></h2>
+<p><a href="../map/size.html#python">ディクショナリに対しても同じ関数</a>が使える。</p>
 
-<pre><code>Array#length
-Array#size
+<h2 id="ruby">Ruby
+<span class="article-date">2014/10/20</span></h2>
+
+<p>例</p>
+
+<pre><code>l = arr.length
+# または
+l = arr.size
 </code></pre>
 
 <p>2つのメソッドは全く同じ。<a href="../map/size.html#ruby">ハッシュのサイズ</a>、
 <a href="../string/length.html#ruby">文字列の長さ</a>も同じ名前の2つのメソッドがある。</p>
+
+<p><code>Array#length</code> メソッド, <code>Array#size</code> メソッド | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/class/Array.html#I_LENGTH" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/class/Array.html#I_LENGTH</a></p>
 
 <h2 id="perl">Perl
 <span class="article-date">2013/07/31</span></h2>

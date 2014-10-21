@@ -89,7 +89,7 @@ sprintf(dst, "%s %d", str, i);
 snprintf(dst, sizeof(dst), "%s %d", str, i);
 </code></pre>
 
-<h2 id="64aa55b">Java
+<h2 id="df25ee9">Java / Scala
 <span class="article-date">2014/10/13</span></h2>
 
 <p>Javaでは<code>String.format</code>メソッドでC言語の<code>sprintf</code>と同様のことができる。
@@ -128,7 +128,9 @@ def formatLocal(l: Locale, args: Any*): String
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object...-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object…-</a></p>
 
 <h2 id="441b947">PHP
-<span class="article-date">2013/10/15</span></h2>
+<span class="article-date">2014/10/21</span></h2>
+
+<p><code>sprintf</code> というC言語と同じ名前の関数がある。</p>
 
 <p>例</p>
 
@@ -137,6 +139,11 @@ def formatLocal(l: Locale, args: Any*): String
 
 <p><code>sprintf</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.sprintf.php" target="_blank">http://www.php.net/manual/ja/function.sprintf.php</a></p>
+
+<p>文字列生成ではなく標準出力する <code>printf</code> もある。</p>
+
+<p><code>printf</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.printf.php" target="_blank">http://www.php.net/manual/ja/function.printf.php</a></p>
 
 <h2 id="python">Python
 <span class="article-date">2014/09/13</span></h2>

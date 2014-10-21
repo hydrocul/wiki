@@ -137,11 +137,13 @@
 </dl>
 
 <h2 id="5ca314b">アクション
-<span class="article-date">2014/10/04</span></h2>
+<span class="article-date">2014/10/20</span></h2>
 
 <dl>
   <dt><code>-ls</code></dt>
-  <dd><a href="ls.html"><code>ls</code>コマンド</a>の <code>-gids</code> オプションと似たような書式で検索結果を表示する</dd>
+  <dd><a href="ls.html"><code>ls</code>コマンド</a>の <code>-gids</code> オプションと似たような書式で検索結果を表示する。</dd>
+  <dt><code>-printf</code> 書式</dt>
+  <dd>書式に基づいてファイルのパスを表示する。パスだけでなく、タイムスタンプやファイルサイズも表示できる。</dd>
   <dt><code>-exec</code> コマンド <code>\;</code></dt>
   <dd>オプションの後に指定するコマンドを検索結果1つずつに対して実行する。
 最後の <code>\;</code> のバックスラッシュはシェルに対して <code>;</code> をシェルの特殊文字である
@@ -156,9 +158,18 @@
 <h2 id="e6a98c3">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには
 <span class="article-date">2013/11/12</span></h2>
 
-<p><code>-printf</code> オプションでファイル一覧を表示するときのフォーマットを指定する。</p>
+<p>アクション <code>-printf</code> でファイル一覧を表示するときのフォーマットを指定する。</p>
 
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n"
+</code></pre>
+
+<h2 id="sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには
+<span class="article-date">2014/10/21</span></h2>
+
+<p>アクション <code>-printf</code> でファイル一覧とともにタイムスタンプを出力して、
+<a href="sort.html"><code>sort</code>コマンド</a>で並び替えをする。</p>
+
+<pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n" | sort -r -k6,7
 </code></pre>
 
 <h2 id="b517bc7">特定の日に更新したファイルの一覧を表示するには
@@ -171,15 +182,6 @@
 
 <p>この場合、ちょうど24日前の現在時刻よりも最近で、
 23日前の現在時刻よりも古い時間または23日前の現在時刻ちょうどに更新されたファイルをリスト表示する。”+22”とする必要あり。</p>
-
-<h2 id="sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには
-<span class="article-date">2013/11/12</span></h2>
-
-<p><code>-printf</code> オプションでファイル一覧とともにタイムスタンプを出力して、
-<a href="sort.html"><code>sort</code>コマンド</a>で並び替えをする。</p>
-
-<pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n" | sort -r -k6,7
-</code></pre>
 
 <h2 id="4e2c68a">カレントディレクトリ以下にある <code>.ht</code> で始まるファイルをそれぞれ <code>.ht*.example</code> というファイルにコピーするには
 <span class="article-date">2013/04/16</span></h2>

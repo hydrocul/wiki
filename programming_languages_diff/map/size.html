@@ -62,37 +62,56 @@ int size()
 </code></pre>
 
 <h2 id="292698e">Scala
-<span class="article-date">2013/05/06</span></h2>
+<span class="article-date">2014/10/20</span></h2>
 
 <p>Signature:</p>
 
 <pre><code>// scala.collection.Map[A, B]
-def size(): Int
+def size: Int
 </code></pre>
 
 <h2 id="3922a82">PHP
-<span class="article-date">2013/04/22</span></h2>
+<span class="article-date">2014/10/20</span></h2>
+
+<p>PHPの連想配列は普通の配列と区別がつかないので、<a href="../list/size.html#php">配列と同様に</a>以下の2つの関数を使える。</p>
+
+<p>例</p>
 
 <pre><code>count($map)
+sizeof($map)
 </code></pre>
 
-<h2 id="4a021e0">Python
-<span class="article-date">2013/10/04</span></h2>
+<p>この2つの関数はまったく同じ意味で、配列の要素の数を返す。</p>
+
+<p><code>count</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.count.php" target="_blank">http://www.php.net/manual/ja/function.count.php</a></p>
+
+<p><code>sizeof</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.sizeof.php" target="_blank">http://www.php.net/manual/ja/function.sizeof.php</a></p>
+
+<h2 id="python">Python
+<span class="article-date">2014/10/20</span></h2>
 
 <pre><code>len(dic)
 </code></pre>
 
-<p><code>len</code> という関数は、シーケンス型といわれるリスト、タプル、文字列に対しても使える。</p>
+<p><code>len</code> という関数は、<a href="../list.size.html#python">シーケンス型といわれるリスト、タプル、文字列に対しても</a>使える。</p>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2013/09/23</span></h2>
+<span class="article-date">2014/10/20</span></h2>
 
-<pre><code>Hash#length
-Hash#size
+<p>例</p>
+
+<pre><code>l = hash.length
+# または
+l = hash.size
 </code></pre>
 
 <p>2つのメソッドは全く同じ。<a href="../list/size.html#ruby">配列のサイズ</a>、
 <a href="../string/length.html#ruby">文字列の長さ</a>も同じ名前の2つのメソッドがある。</p>
+
+<p><code>Hash#length</code> メソッド, <code>Hash#size</code> メソッド | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/class/Hash.html#I_LENGTH" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/class/Hash.html#I_LENGTH</a></p>
 
 <h2 id="6ee8f24">Perl
 <span class="article-date">2013/09/14</span></h2>
