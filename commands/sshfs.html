@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>sshfs コマンド | コマンドの使い方 | hydrocul のメモ</title>
+<title>sshfs コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方</a> &gt; <span>sshfs コマンド</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>sshfs コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../commands/">コマンドの使い方</a>
+  <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
@@ -82,6 +82,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
+      <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
@@ -92,22 +93,40 @@
 
 <div id="content">
   <h1 id="sshfs">sshfs コマンド
-<span class="article-date">2013/10/22</span></h1>
+<span class="article-date">2014/10/22</span></h1>
 
 <p>SSHを使ってリモートのファイルシステムをローカルにマウントするためのコマンド。これによってリモートにあるファイルを直接ローカルのエディタで編集したり、
-<code>cp</code>コマンドや<code>mv</code>コマンドなどで操作できるようになる。</p>
+<code>cp</code>コマンドや<code>mv</code>コマンドなどでリモートのファイルを操作できるようになる。</p>
 
 <p>例</p>
 
-<pre><code>sshfs -o auto_cache -o reconnect hogesrv:/ ~/mnt/hogesrv
+<pre><code># リモートのルートをローカルの ~/mnt/hogesrv にマウント
+sshfs -o auto_cache -o reconnect hogesrv:/ ~/mnt/hogesrv
 </code></pre>
 
-<p>-&gt; <a href="ssh.html">ssh</a></p>
+<p>書式は<a href="rsync.html"><code>rsync</code>コマンド</a>に似ているかもしれない。</p>
+
+<p><a href="ssh.html"><code>ssh</code>コマンド</a>も参照。</p>
+
+<p>セキュリティには要注意。操作ミスに対しても要注意。</p>
+
+<p>ほんとうにローカルにあるファイルだと思って気楽に操作していると、実はリモートホストのファイルを破壊している、ということもあり得る。
+rm -rf * とかやって、その中にマウントしているリモートのファイルシステムがあったら、リモートの環境を破壊してしまう。</p>
+
+<h2 id="2ea2270">インストール
+<span class="article-date">2014/10/22</span></h2>
+
+<p>Ubuntuでは<code>apt-get</code>で簡単にインストールできる。</p>
+
+<pre><code>sudo apt-get install sshfs
+</code></pre>
+
+<p>(Ubuntu 13.10, 14.04 で確認)</p>
 
 <h2 id="b068dc6">リモートのファイルシステム上でのファイルオーナーを無視して、全ファイルのオーナーを特定のものにするには
-<span class="article-date">2014/01/07</span></h2>
+<span class="article-date">2014/10/22</span></h2>
 
-<p><code>-o uid=1000 -o gid=1000</code> というようなオプションをつけると、ローカルでの1000番のユーザ、1000番のグループがリモートのファイルのオーナーになっているかのように見せかけることができる。</p>
+<p><code>-o uid=1000 -o gid=1000</code> というようなオプションをつけると、リモートにあるすべてのファイルのオーナーが、ローカルでの1000番のユーザ、1000番のグループであるかのように見せかけることができる。もちろん実際に権限があるかどうかは別。</p>
 
 </div>
 
