@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
@@ -38,6 +38,7 @@
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
@@ -48,8 +49,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li>文字列の連結をするには (strcat)</li>
@@ -104,8 +105,8 @@
 <pre><code>"abc" "def"
 </code></pre>
 
-<h2 id="09ff966">Java / Scala
-<span class="article-date">2014/09/22</span></h2>
+<h2 id="3771d58">Java
+<span class="article-date">2014/10/25</span></h2>
 
 <p>例</p>
 
@@ -114,8 +115,63 @@
 
 <p>静的な文字列同士の連結はコンパイル時に連結される。</p>
 
-<p>Java/Scalaとも、文字列リテラルを演算子を挟まずに並べると、C言語のように連結されることはなく、コンパイルエラーになる。
-Scalaの場合、間に改行を入れてしまうと、セミコロンが省略されたものとみなされて、コンパイルエラーにはならないかもしれず、その場合でも意図した動作にはならない。</p>
+<p>文字列リテラルを演算子を挟まずに並べると、C言語のように連結されることはなく、コンパイルエラーになる。</p>
+
+<h2 id="f8c562c">Scala
+<span class="article-date">2014/10/25</span></h2>
+
+<p>例</p>
+
+<pre><code>"abc" + "def"
+</code></pre>
+
+<p>静的な文字列同士の連結はコンパイル時に連結される。</p>
+
+<p>文字列リテラルを演算子を挟まずに並べると、C言語のように連結されることはなく、コンパイルエラーになる。</p>
+
+<p><code>+</code> の前に改行を入れてしまうと、セミコロンが省略されたものとみなされて、コンパイルエラーになるかもしれない。コンパイルエラーにはならずに、でも意図した動作にはならない場合もある。</p>
+
+<pre><code># 以下はコンパイルエラーになる
+val str = "abc"
+  + "def";
+
+# 以下はコンパイルエラーにならないが意図とは違うかもしれない
+def f(): Int = 10;
+val str = "abc"
+  + f();
+println(str);
+# ここでは abc と表示され、abc10 にはならずにf()の返り値は無視される
+</code></pre>
+
+<h2 id="eb2bac8">Groovy
+<span class="article-date">2014/10/25</span></h2>
+
+<p>JavaやScalaと同様に <code>+</code> 演算子で連結できる。</p>
+
+<p>例</p>
+
+<pre><code>"abc" + "def"
+</code></pre>
+
+<p>文字列リテラルを演算子を挟まずに並べると、C言語のように連結されることはなく、コンパイルエラーになる。</p>
+
+<p>Scalaと同様に <code>+</code> の前に改行を入れてしまうと、セミコロンが省略されたものとみなされて、コンパイルエラーになるかもしれない。コンパイルエラーにはならずに、でも意図した動作にはならない場合もある。行末に <code>\</code> を置くと、セミコロンの補完が抑制されて、コンパイルエラーにはならない。</p>
+
+<pre><code># 以下はコンパイルエラーになる
+str = "abc"
+  + "def"
+
+# 以下は問題なく "abcdef" になる。
+str = "abc" \
+  + "def"
+
+# 以下はコンパイルエラーにならないが意図とは違うかもしれない
+def f() { 10 }
+str = "abc"
+  + f()
+println str
+# ここでは abc と表示され、abc10 にはならずにf()の返り値は無視される
+</code></pre>
 
 <h2 id="3dce465">PHP
 <span class="article-date">2013/07/27</span></h2>

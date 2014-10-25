@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>rsync コマンド | コマンドの使い方 | hydrocul のメモ</title>
+<title>rsync コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方</a> &gt; <span>rsync コマンド</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>rsync コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,7 +22,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../commands/">コマンドの使い方</a>
+  <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
@@ -82,6 +82,7 @@
       <li><a href="../commands/wget.html">wget コマンド</a></li>
       <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
+      <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
     </ul>
   </li>
@@ -92,7 +93,12 @@
 
 <div id="content">
   <h1 id="rsync">rsync コマンド
-<span class="article-date">2013/10/23</span></h1>
+<span class="article-date">2014/10/25</span></h1>
+
+<p>リモートホストとの間でファイルのコピー(アップロード/ダウンロード)をするコマンド。リモートホストとはSSHで通信できることが前提。</p>
+
+<h2 id="36cc530">基本的な使い方
+<span class="article-date">2013/10/23</span></h2>
 
 <pre><code># リモートホストからローカルにダウンロードする
 rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
@@ -111,12 +117,14 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 <p>リモートからローカルへのダウンロード、またはローカルからリモートへのアップロードが可能だが、リモートから別のリモートへの転送はできない。</p>
 
 <h2 id="b39bf91">オプション
-<span class="article-date">2013/12/05</span></h2>
+<span class="article-date">2014/10/25</span></h2>
 
 <dl>
   <dt><code>-r</code></dt>
   <dd>ディレクトリの場合はその中を再帰的にコピー</dd>
   <dt><code>-v</code></dt>
+  <dd>コピーするファイル名を、進捗に合わせて表示</dd>
+  <dt><code>--progress</code></dt>
   <dd>コピーの進捗を表示</dd>
   <dt><code>-t</code></dt>
   <dd>タイムスタンプも保存</dd>
@@ -127,14 +135,10 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
   <dd>タイムスタンプが新しいファイルのみをコピー</dd>
 </dl>
 
-<h2 id="5609052">excludeオプションとincludeオプション
-<span class="article-date">2013/06/06</span></h2>
+<h2 id="25d9119">HOWTO</h2>
 
-<p>rsync の複雑怪奇な exclude と include の適用手順を理解しよう<br />
-<a href="http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/" target="_blank">http://tech.nitoyon.com/ja/blog/2013/03/26/rsync-include-exclude/</a></p>
-
-<h2 id="9fdbbfe">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには
-<span class="article-date">2013/10/14</span></h2>
+<h3 id="95d96b1">ローカルにあるファイルをディレクトリ名も含めてリモートにアップロードするには
+<span class="article-date">2013/10/14</span></h3>
 
 <pre><code>rsync -R abc/def/ghi.dat remote:/home/who/
 </code></pre>
@@ -144,8 +148,8 @@ rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモート
 
 <p><a href="cp.html"><code>cp</code></a> での同じ役割をはたすのは <code>--parents</code>。</p>
 
-<h2 id="fe293ac">ポートが22以外のSSHサーバにrsyncで接続するには
-<span class="article-date">2014/08/26</span></h2>
+<h3 id="9d978a2">ポートが22以外のSSHサーバにrsyncで接続するには
+<span class="article-date">2014/08/26</span></h3>
 
 <pre><code># リモートからダウンロードする場合
 rsync -e "ssh -p &lt;port&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
@@ -156,21 +160,21 @@ rsync -e "ssh -p &lt;port&gt;" &lt;local_path&gt; &lt;ID&gt;@&lt;IP&gt;:&lt;remo
 
 <p>-&gt; <a href="ssh.html#port">ポートが22以外のSSHサーバに接続するには</a></p>
 
-<h2 id="71bbd88">進捗を表示するには
-<span class="article-date">2013/12/05</span></h2>
+<h3 id="e78d718">進捗を表示するには
+<span class="article-date">2013/12/05</span></h3>
 
 <p>転送の進捗をリアルタイムに表示させるには、<code>--progress</code> オプションを使う。プログレスバーのようなビジュアルでの表示ではなく、単に数値で表示するのはちょっと残念。</p>
 
-<h2 id="167dc8c">リモートのファイルをローカルに保存するのではなく、標準出力させて別のコマンドにパイプでつなぐには
-<span class="article-date">2014/01/29</span></h2>
+<h3 id="b42ded7">リモートのファイルをローカルに保存するのではなく、標準出力させて別のコマンドにパイプでつなぐには
+<span class="article-date">2014/01/29</span></h3>
 
 <p><code>rsync</code> で標準出力させる方法が見つからなかったが、<code>ssh</code> で以下のようにすればよい。</p>
 
 <pre><code>ssh remote "cat abc.txt" | less
 </code></pre>
 
-<h2 id="99025ac">ネットワークの帯域を絞ってゆっくり転送したい場合
-<span class="article-date">2014/08/26</span></h2>
+<h3 id="4ca749a">ネットワークの帯域を絞ってゆっくり転送するには
+<span class="article-date">2014/08/26</span></h3>
 
 <p>時間がかかってもよいからネットワークの負荷をかけずにゆっくりダウンロードまたはアップロードするには
 <code>--bwlimit</code>オプションを使う。このオプションで指定する数字の単位はKBps(キロバイト毎秒であってキロビット毎秒ではない)。</p>

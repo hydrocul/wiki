@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ヒアドキュメント | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>複数行文字列 / ヒアドキュメント | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>ヒアドキュメント</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>複数行文字列 / ヒアドキュメント</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li>ヒアドキュメント</li>
+          <li>複数行文字列 / ヒアドキュメント</li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
@@ -65,17 +65,19 @@
 </div>
 
 <div id="content">
-  <h1 id="heredoc">ヒアドキュメント
-<span class="article-date">2013/11/06</span></h1>
+  <h1 id="heredoc">複数行文字列 / ヒアドキュメント
+<span class="article-date">2014/10/24</span></h1>
 
-<p>改行を含むテキストをソースコードの中で普通に複数行で書いて、それを文字列として処理させる方法がプログラミング言語によっては存在し、それをヒアドキュメントと呼ばれることが多い。</p>
+<p>改行を含むテキストをソースコードの中で普通に複数行で書いて、それを文字列として処理させる、各プログラミング言語ごとの方法のメモ。</p>
+
+<p>ヒアドキュメントとか複数行文字列と読んだりする。</p>
 
 <p>改行だけでなくタブなど、普通であればエスケープ処理をしないといけないコントロール文字もそのまま書ける。</p>
 
 <h2 id="30beb6b">C言語, C++
-<span class="article-date">2013/11/06</span></h2>
+<span class="article-date">2014/10/24</span></h2>
 
-<p>ない。と思っていたけど、C++11にはあるらしい。</p>
+<p>ない。と思っていたけど、C++11には Raw String Literal というのがあるらしい。</p>
 
 <h2 id="596639a">Java
 <span class="article-date">2013/11/06</span></h2>
@@ -94,9 +96,9 @@ bar""";
 </code></pre>
 
 <h2 id="224544a">Groovy
-<span class="article-date">2014/03/05</span></h2>
+<span class="article-date">2014/10/24</span></h2>
 
-<p>シングルクオーテーションまたはダブルクオーテーション3つ連続でヒアドキュメントのようなことができる。</p>
+<p>シングルクオーテーションまたはダブルクオーテーション3つ連続でヒアドキュメントのように複数行文字列を書くことができる。</p>
 
 <p>シングルクオーテーション3つ連続とダブルクオーテーション3つ連続の両方が含まれる文字列はどうやって書くんだろう？</p>
 
@@ -107,11 +109,24 @@ bar""";
 
 <p>NowdocはPHP5.3以降でのみ使える。</p>
 
-<p>ヒアドキュメント | PHPマニュアル<br />
+<p>ヒアドキュメント | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc" target="_blank">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc</a></p>
 
-<p>Nowdoc | PHPマニュアル<br />
+<p>Nowdoc | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc" target="_blank">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc</a></p>
+
+<h2 id="49a0135">Python
+<span class="article-date">2014/10/07</span></h2>
+
+<p>三重引用符(トリプルクオート) <code>'''</code> または <code>"""</code> で囲むと改行を含む文字列を書くことができる。</p>
+
+<pre><code>"""\
+foo
+bar
+"""
+</code></pre>
+
+<p>上記の例で1行目にバックスラッシュがあるのは最初の改行を文字列に含めないようにするため。</p>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/03/19</span></h2>
@@ -184,19 +199,6 @@ EOS
 
 <p>Ruby 1.9.3 リファレンスマニュアル &gt; ヒアドキュメント<br />
 <a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
-
-<h2 id="49a0135">Python
-<span class="article-date">2014/10/07</span></h2>
-
-<p>三重引用符(トリプルクオート) <code>'''</code> または <code>"""</code> で囲むと改行を含む文字列を書くことができる。</p>
-
-<pre><code>"""\
-foo
-bar
-"""
-</code></pre>
-
-<p>上記の例で1行目にバックスラッシュがあるのは最初の改行を文字列に含めないようにするため。</p>
 
 <h2 id="perl">Perl
 <span class="article-date">2014/06/19</span></h2>
