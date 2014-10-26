@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
@@ -37,7 +37,7 @@
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li>特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</li>
+          <li>特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith)</li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
@@ -65,7 +65,7 @@
 </div>
 
 <div id="content">
-  <h1 id="starts-with-ends-with">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</h1>
+  <h1 id="starts-with-ends-with">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith)</h1>
 
 <h2 id="bf5b877">Java / Scala
 <span class="article-date">2013/04/10</span></h2>
@@ -94,9 +94,11 @@ String endsWith(String suffix)
 <p>ただ、これらは、<code>$str</code>が長い文字列の時にいちいち<code>$str</code>を全部なめてしまい効率よくなさそう。</p>
 
 <h2 id="3b34aaf">Python
-<span class="article-date">2014/03/14</span></h2>
+<span class="article-date">2014/10/26</span></h2>
 
-<p><code>startswith</code>メソッド、<code>endswith</code>メソッドを使う。</p>
+<p>文字列にある <code>startswith</code>メソッド、<code>endswith</code>メソッドを使う。</p>
+
+<p>例</p>
 
 <pre><code>str = "abcabc"
 
@@ -112,6 +114,18 @@ print str.endswith("ab")
 print str.endswith("bc")
 # =&gt; True
 </code></pre>
+
+<p><code>string.startswith</code> | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/library/stdtypes.html#str.startswith" target="_blank">http://docs.python.jp/2/library/stdtypes.html#str.startswith</a></p>
+
+<p><code>string.endswith</code> | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/library/stdtypes.html#str.endswith" target="_blank">http://docs.python.jp/2/library/stdtypes.html#str.endswith</a></p>
+
+<p><code>string.startswith</code> | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/library/stdtypes.html#str.startswith" target="_blank">http://docs.python.jp/3/library/stdtypes.html#str.startswith</a></p>
+
+<p><code>string.endswith</code> | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/library/stdtypes.html#str.endswith" target="_blank">http://docs.python.jp/3/library/stdtypes.html#str.endswith</a></p>
 
 <h2 id="c49a5a6">Ruby
 <span class="article-date">2013/04/10</span></h2>
