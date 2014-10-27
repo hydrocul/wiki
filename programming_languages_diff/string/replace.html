@@ -114,8 +114,22 @@ echo str_replace("\n", "&lt;br /&gt;", "abc\nabc\n");    // =&gt; abc&lt;br /&gt
 {$str2 = $str|replace:"a":"A"} {* $str2 に "Abc" を代入 *}
 </code></pre>
 
-<p>replace | Smarty Manual<br />
+<p><code>replace</code> 修飾子 | Smarty Manual<br />
 <a href="http://www.smarty.net/docs/ja/language.modifier.replace.tpl" target="_blank">http://www.smarty.net/docs/ja/language.modifier.replace.tpl</a></p>
+
+<h2 id="d76ecb8">Python
+<span class="article-date">2014/10/26</span></h2>
+
+<p>文字列にあるメソッド <code>replace</code> を使う。</p>
+
+<pre><code>"abc\nabc\n".replace("\n", "&lt;br /&gt;")
+</code></pre>
+
+<p><code>string.replace</code> | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/library/stdtypes.html#str.replace" target="_blank">http://docs.python.jp/2/library/stdtypes.html#str.replace</a></p>
+
+<p><code>string.replace</code> | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/library/stdtypes.html#str.replace" target="_blank">http://docs.python.jp/3/library/stdtypes.html#str.replace</a></p>
 
 <h2 id="080e875">Ruby
 <span class="article-date">2014/02/27</span></h2>
