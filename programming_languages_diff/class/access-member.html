@@ -30,13 +30,15 @@
           <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
           <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
           <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
-          <li><a href="../../programming_languages_diff/class/object-id.html">オブジェクトのIDを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/class/object-id.html">identityHashCode / object_id: オブジェクトのIDを取得するには</a></li>
           <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
           <li>クラスメンバーへのアクセス</li>
           <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
           <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
           <li><a href="../../programming_languages_diff/class/compare.html">オブジェクトの比較演算子</a></li>
           <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+          <li><a href="../../programming_languages_diff/class/generics.html">総称型 / ジェネリクス</a></li>
+          <li><a href="../../programming_languages_diff/class/serialize.html">オブジェクトをシリアライズ・デシリアライズするには</a></li>
           <li><a href="../../programming_languages_diff/class/this.html"><code>this</code></a></li>
         </ul>
       </li>
@@ -75,6 +77,38 @@ FooClass::method1(arg1, arg2)
 </code></pre>
 
 <p>構造体やクラスの変数名からはドット(<code>.</code>)で、ポインタからは <code>-&gt;</code> で、クラス名から静的メンバには二重コロン(<code>::</code>)でアクセスする。</p>
+
+<h2 id="d7c89f1">Java
+<span class="article-date">2014/10/27</span></h2>
+
+<pre><code>// インスタンスフィールド
+obj.field1;
+
+// クラスフィールド
+FooClass.staticField1;
+
+// インスタンスメソッド
+obj.method1(arg1, arg2);
+
+// クラスメソッド
+FooClass.method1(arg1, arg2);
+</code></pre>
+
+<h2 id="ac9e2a6">Scala
+<span class="article-date">2014/10/27</span></h2>
+
+<pre><code>// フィールド
+obj.field1;
+
+// コンパニオンオブジェクトのフィールド
+FooClass.staticField1;
+
+// メソッド
+obj.method1(arg1, arg2);
+
+// コンパニオンオブジェクトのメソッド
+FooClass.method1(arg1, arg2);
+</code></pre>
 
 <h2 id="8310e4a">PHP
 <span class="article-date">2013/11/15</span></h2>

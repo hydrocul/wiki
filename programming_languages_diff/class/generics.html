@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>総称型 / ジェネリクス | クラスとオブジェクト | プログラミング言語の比較 | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラスとオブジェクト</a> &gt; <span>総称型 / ジェネリクス</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/class/">クラスとオブジェクト</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/class/definition.html">クラスの定義</a></li>
+          <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
+          <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
+          <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
+          <li><a href="../../programming_languages_diff/class/object-id.html">identityHashCode / object_id: オブジェクトのIDを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
+          <li><a href="../../programming_languages_diff/class/access-member.html">クラスメンバーへのアクセス</a></li>
+          <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
+          <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
+          <li><a href="../../programming_languages_diff/class/compare.html">オブジェクトの比較演算子</a></li>
+          <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+          <li>総称型 / ジェネリクス</li>
+          <li><a href="../../programming_languages_diff/class/serialize.html">オブジェクトをシリアライズ・デシリアライズするには</a></li>
+          <li><a href="../../programming_languages_diff/class/this.html"><code>this</code></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="generics">総称型 / ジェネリクス
+<span class="article-date">2014/10/27</span></h1>
+
+<p>値の型として、例えば単なる「リスト」ではなく、「整数のリスト」や、「文字列のリストのリスト」など、要素の型も指定できるような機能。要素の型の部分を型パラメータと言ったりする。</p>
+
+<h2 id="0eed588">C++
+<span class="article-date">2014/10/27</span></h2>
+
+<p>クラステンプレートや関数テンプレートの機能があるが、詳細はもう忘れた。</p>
+
+<p>型パラメータの表記はJavaと似ていて、<code>&lt;...&gt;</code> を使う。</p>
+
+<h2 id="2b1d5cd">Java
+<span class="article-date">2014/10/01</span></h2>
+
+<p>「整数のリスト」は <code>List&lt;Integer&gt;</code> のように書く。</p>
+
+<p>Java7からは <code>&lt;...&gt;</code> の内側は省略できる場合もあり、中身が省略された <code>&lt;&gt;</code> をダイアモンド演算子という。</p>
+
+<p>例</p>
+
+<pre><code>Map&lt;String, List&lt;Integer&gt;&gt; map = new HashMap&lt;&gt;();
+</code></pre>
+
+<h2 id="6dcfdcb">Scala
+<span class="article-date">2014/10/27</span></h2>
+
+<p>Javaでは型パラメータを囲むのに <code>&lt;&gt;</code> を使っているが、
+Scalaでは <code>[]</code> を使う。</p>
+
+<p>例</p>
+
+<pre><code>val map: Map[String, List[Int]] = Map.empty;
+</code></pre>
+
+<h2 id="fc86b67">クラス定義でのジェネリクス</h2>
+
+<h3 id="ec0a287">Java
+<span class="article-date">2014/10/27</span></h3>
+
+<p>例</p>
+
+<pre><code>public class Foo&lt;T1, T2&gt; {
+    
+    ...
+    
+}
+</code></pre>
+
+<h3 id="29d1af0">Scala
+<span class="article-date">2014/10/27</span></h3>
+
+<p>例</p>
+
+<pre><code>class Foo[T1, T2] {
+    
+    ...
+    
+}
+</code></pre>
+
+<h2 id="d159e6b">メソッド定義でのジェネリクス
+<span class="article-date">2014/10/27</span></h2>
+
+<p>クラス定義に存在する型パラメータはそのままメソッド定義でも使える。</p>
+
+<p>クラス定義に存在する型パラメータをメソッド単位で新たに導入したい場合には、メソッド定義で型パラメータを宣言する。</p>
+
+<h3 id="e0abe41">Java
+<span class="article-date">2014/10/27</span></h3>
+
+<p>例</p>
+
+<pre><code>public &lt;T1, T2&gt; T1 bar(T2: arg) {
+    ...;
+}
+</code></pre>
+
+<h3 id="caffac6">Scala
+<span class="article-date">2014/10/27</span></h3>
+
+<p>例</p>
+
+<pre><code>def bar[T1, T2](T2: arg): T1 = {
+    ...;
+}
+</code></pre>
+
+<h2 id="e8f6b1c">型パラメータの制約の宣言
+<span class="article-date">2014/10/27</span></h2>
+
+<p>型パラメータに当てはまる型を、特定の型またはそれを継承する型(子クラス、孫クラス、、、)に限定したい場合に、それを上限境界という。</p>
+
+<p>逆に、型パラメータに当てはまる型を、特定の型またはそれの親となる型(親クラス、祖父母クラス、、、)に限定したい場合に、それを下限境界という。</p>
+
+<p>Scalaではさらに、ダックタイピングみたいに、特定のシグニチャのメソッドを実装している型という制約もできる。</p>
+
+<h3 id="c2989d2">Java
+<span class="article-date">2014/10/27</span></h3>
+
+<p><code>&lt;T exnteds Bar&gt;</code> で<code>Bar</code>または<code>Bar</code>の任意のサブクラスを表す。</p>
+
+<p>上限境界の例</p>
+
+<pre><code>public class Foo&lt;T1 extends Bar, T2&gt; {
+    
+    ...
+    
+}
+</code></pre>
+
+<p>複数の上限境界の例</p>
+
+<pre><code>public class Foo&lt;T1 extends BarClass &amp; IHoge1, T2&gt; {
+    
+    ...
+    
+}
+</code></pre>
+
+<p>クラス<code>BarClass</code>のサブクラスでかつインターフェース<code>IHoge1</code>, <code>IHoge2</code>を実装している型は 
+<code>&lt;T extends BarClass &amp; IHoge1 &amp; IHoge2&gt;</code> と <code>&amp;</code> でつないで書く。<code>&amp;</code> で連結する型のうち、クラスは必ず先頭に書く。</p>
+
+<h3 id="2a6d42e">Scala
+<span class="article-date">2014/10/27</span></h3>
+
+<p>上限境界の例</p>
+
+<pre><code>class Foo[T1 &lt;: Bar, T2] {
+    
+    ...
+    
+}
+</code></pre>
+
+<p>複数の上限境界の例 (いったん複数の上限を1つのクラスで定義してしまう)</p>
+
+<pre><code>class B extends BarClass with IHoge1;
+
+class Foo[T1 &lt;: B, T2] {
+    
+    ...
+    
+}
+</code></pre>
+
+<p>下限境界の例</p>
+
+<pre><code>class Foo[T1 &gt;: Bar, T2] {
+    
+    ...
+    
+}
+</code></pre>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

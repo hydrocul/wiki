@@ -30,13 +30,15 @@
           <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
           <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
           <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
-          <li><a href="../../programming_languages_diff/class/object-id.html">オブジェクトのIDを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/class/object-id.html">identityHashCode / object_id: オブジェクトのIDを取得するには</a></li>
           <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
           <li><a href="../../programming_languages_diff/class/access-member.html">クラスメンバーへのアクセス</a></li>
           <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
           <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
           <li><a href="../../programming_languages_diff/class/compare.html">オブジェクトの比較演算子</a></li>
           <li>コンストラクタとデストラクタ</li>
+          <li><a href="../../programming_languages_diff/class/generics.html">総称型 / ジェネリクス</a></li>
+          <li><a href="../../programming_languages_diff/class/serialize.html">オブジェクトをシリアライズ・デシリアライズするには</a></li>
           <li><a href="../../programming_languages_diff/class/this.html"><code>this</code></a></li>
         </ul>
       </li>
@@ -65,13 +67,14 @@
 <p>コンストラクタは、返り値型は書かず返り値がない。<code>void</code>でもない。</p>
 
 <h2 id="d962df6">Scala
-<span class="article-date">2013/10/14</span></h2>
+<span class="article-date">2014/10/27</span></h2>
 
-<p>クラス名の後にコンストラクタの引数を書いて、処理内容をクラス定義の中に直接書く。</p>
+<p>クラス名の後にコンストラクタの引数(クラスパラメータ)を書いて、処理内容をクラス定義の中に直接書く。</p>
 
-<p>クラスの中に複数のコンストラクタを定義したい場合は、基本のコンストラクタを上述のように定義して、それ以外のオーバーロードするコンストラクタは、
-<code>this</code> という名前のメソッドで定義する。
-<code>this</code> というメソッドの実装な中で他のコンストラクタを呼び出さないといけない。</p>
+<p>クラスの中に複数のコンストラクタを定義したい場合は、そのうち1つを基本コンストラクタ(primary constructor)といい、上述のように定義して、それ以外のコンストラクタを補助コンストラクタ(auxiliary constructor)といい、<code>this</code> という名前のメソッドで定義する。
+<code>this</code> というメソッドの実装の中で他のコンストラクタを呼び出さないといけない。</p>
+
+<p><code>trait</code>ではコンストラクタのパラメータを持つことができず、また基本コンストラクタのみで、補助コンストラクタを定義できない。</p>
 
 <p>Javaと同じく、デストラクタは存在しない。</p>
 

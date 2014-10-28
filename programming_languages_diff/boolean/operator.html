@@ -65,10 +65,41 @@ x ^ y
 
 <p>論理演算子の結果の値はPythonやRubyなどと違って常に <code>true</code> または <code>false</code> のいずれかになる。</p>
 
-<p><code>&amp;&amp;</code>, <code>||</code> は左の項から順番に評価し、演算子の結果として true か false のいずれかに決定した段階で評価をやめて <code>true</code> または <code>false</code> を返す
+<p><code>&amp;&amp;</code>, <code>||</code> は左の項から順番に評価し、演算子の結果として <code>true</code> か <code>false</code> のいずれかに決定した段階で評価をやめて <code>true</code> または <code>false</code> を返す
 (短絡評価、ショートサーキット評価)。</p>
 
 <p><code>&amp;</code>, <code>|</code>, <code>^</code> は短絡評価をせずすべての項が評価される。各項が論理値であれば論理積・論理和になるが、整数であれば<a href="../number/bit-operator.html#java">ビット演算子</a>になる。なお、ビット演算子の否定は <code>~x</code> と書く。</p>
+
+<h2 id="5b1cc31">Scala
+<span class="article-date">2014/10/27</span></h2>
+
+<p>Javaと同じ書き方ができるが、Javaと違って演算子ではなくすべてメソッドとして定義されている。</p>
+
+<pre><code>// 論理積(AND) (短絡評価あり)
+x &amp;&amp; y
+
+// 論理積(AND) (短絡評価なし/ビット演算子にもなる)
+x &amp; y
+
+// 論理和(OR) (短絡評価あり)
+x || y
+
+// 論理和(OR) (短絡評価なし/ビット演算子にもなる)
+x | y
+
+// 排他的論理和(XOR) (短絡評価なし/ビット演算子にもなる)
+x ^ y
+
+// 否定(NOT)
+!x
+</code></pre>
+
+<p>論理演算子の結果の値はPythonやRubyなどと違ってJavaと同様に常に <code>true</code> または <code>false</code> のいずれかになる。</p>
+
+<p><code>&amp;&amp;</code>, <code>||</code> は左の項から順番に評価し、演算子の結果として <code>true</code> か <code>false</code> のいずれかに決定した段階で評価をやめて <code>true</code> または <code>false</code> を返す
+(短絡評価、ショートサーキット評価)。</p>
+
+<p><code>&amp;</code>, <code>|</code>, <code>^</code> は短絡評価をせずすべての項が評価される。各項が論理値であれば論理積・論理和になるが、整数であれば<a href="../number/bit-operator.html#scala">ビット演算子</a>になる。なお、ビット演算子の否定は <code>~x</code> と書く。</p>
 
 <h2 id="401f27a">PHP
 <span class="article-date">2014/04/19</span></h2>

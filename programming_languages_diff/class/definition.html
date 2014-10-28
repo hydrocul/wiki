@@ -30,13 +30,14 @@
           <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
           <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
           <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
-          <li><a href="../../programming_languages_diff/class/object-id.html">オブジェクトのIDを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/class/object-id.html">identityHashCode / object_id: オブジェクトのIDを取得するには</a></li>
           <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
           <li><a href="../../programming_languages_diff/class/access-member.html">クラスメンバーへのアクセス</a></li>
           <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
           <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
           <li><a href="../../programming_languages_diff/class/compare.html">オブジェクトの比較演算子</a></li>
           <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+          <li><a href="../../programming_languages_diff/class/generics.html">総称型 / ジェネリクス</a></li>
           <li><a href="../../programming_languages_diff/class/serialize.html">オブジェクトをシリアライズ・デシリアライズするには</a></li>
           <li><a href="../../programming_languages_diff/class/this.html"><code>this</code></a></li>
         </ul>
@@ -106,13 +107,13 @@ void FooClass::method1(){
 <p>またクラス宣言の中にはメンバ関数(メソッド)はシグニチャの宣言のみを書いて、メンバ関数の定義はクラス宣言の外側に書く。クラス宣言の外側ではクラス名とメソッド名を二重コロン(<code>::</code>)でつなぐ。普通はクラス宣言はヘッダファイルに書き、メンバ関数定義はソースファイルに書く。</p>
 
 <h2 id="e8f6b75">Java
-<span class="article-date">2013/12/14</span></h2>
+<span class="article-date">2014/10/27</span></h2>
 
 <p>例</p>
 
 <pre><code>class FooClass extends SuperClass {
     
-    // フィールド定義
+    // インスタンスフィールド定義
     private int field1;
     private int field2;
     
@@ -121,16 +122,16 @@ void FooClass::method1(){
         ...;
     }
     
-    // メソッド定義
+    // インスタンスメソッド定義
     public void method1() {
         ...;
     }
     
-    // staticフィールド定義
+    // クラスフィールド定義
     private static int sfield1;
     private static int sfield2;
     
-    // staticメソッド定義
+    // クラスメソッド定義
     public static void smethod1() {
         ...;
     }

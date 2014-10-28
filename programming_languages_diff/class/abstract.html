@@ -30,13 +30,14 @@
           <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
           <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
           <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
-          <li><a href="../../programming_languages_diff/class/object-id.html">オブジェクトのIDを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/class/object-id.html">identityHashCode / object_id: オブジェクトのIDを取得するには</a></li>
           <li>抽象クラス・インターフェース</li>
           <li><a href="../../programming_languages_diff/class/access-member.html">クラスメンバーへのアクセス</a></li>
           <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
           <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
           <li><a href="../../programming_languages_diff/class/compare.html">オブジェクトの比較演算子</a></li>
           <li><a href="../../programming_languages_diff/class/contructor.html">コンストラクタとデストラクタ</a></li>
+          <li><a href="../../programming_languages_diff/class/generics.html">総称型 / ジェネリクス</a></li>
           <li><a href="../../programming_languages_diff/class/serialize.html">オブジェクトをシリアライズ・デシリアライズするには</a></li>
           <li><a href="../../programming_languages_diff/class/this.html"><code>this</code></a></li>
         </ul>
@@ -52,9 +53,9 @@
   <h1 id="abstract">抽象クラス・インターフェース</h1>
 
 <h2 id="6e7a6b7">Java
-<span class="article-date">2013/12/02</span></h2>
+<span class="article-date">2014/10/27</span></h2>
 
-<p>抽象クラスの例</p>
+<p>抽象クラス(abstract class)の例</p>
 
 <pre><code>public abstract class AbstractHoge {
 
@@ -63,13 +64,13 @@
     public abstract void fooMethod(String s);
 
     public void barMethod(String s){
-        ...
+        ...;
     }
 
 }
 </code></pre>
 
-<p>インターフェースの例</p>
+<p>インターフェース(interface)の例</p>
 
 <pre><code>public interface IHoge {
 
@@ -84,14 +85,15 @@
 </code></pre>
 
 <ul>
-  <li>抽象クラスの多重継承はできないが、インターフェースの多重継承はできる。</li>
+  <li>抽象クラスの多重継承はできないが、インターフェースの多重継承はできる。
+抽象クラス1つとインターフェース1つ以上を同時に継承することもできる。</li>
   <li>抽象クラスはフィールドを定義できるが、インターフェースはフィールドを定義できない。</li>
   <li>抽象クラスはコンストラクタを定義できるが、インターフェースはコンストラクタを定義できない。</li>
   <li>インターフェースのメソッドは <code>abstract</code> を付けなくてもすべて実装のない抽象メソッドになる。</li>
 </ul>
 
 <h3 id="105aaf1">Java8からの機能
-<span class="article-date">2013/12/02</span></h3>
+<span class="article-date">2014/10/27</span></h3>
 
 <p>Java7までは実装を持つメソッドをインターフェースに定義できないが、
 Java8からはデフォルト実装というものを持つことができる。デフォルト実装を持つメソッドには修飾子として <code>default</code> と書く。
@@ -102,10 +104,51 @@ Java8からはデフォルト実装というものを持つことができる。
 <p>また、Java8からはインターフェースにstaticメソッドを定義することもできる。
 staticメソッドには <code>default</code> の修飾子は不要。</p>
 
-<h2 id="c720731">Scala
-<span class="article-date">2013/09/21</span></h2>
+<p>Java8で、Objectが持つメソッドについてはインターフェースでdefault実装をできないようにしている理由<br />
+<a href="http://namihira.hatenablog.com/entry/2014/10/26/202423" target="_blank">http://namihira.hatenablog.com/entry/2014/10/26/202423</a></p>
 
-<p>Javaと同様の抽象クラス・インターフェースのほかにトレイトがある。</p>
+<h2 id="c720731">Scala
+<span class="article-date">2014/10/27</span></h2>
+
+<p>Javaと同様の抽象クラス(abstract class)ののほかにJavaのインターフェース(interface)に似たトレイト(trait)がある。</p>
+
+<p>抽象クラス(abstract class)の例</p>
+
+<pre><code>abstract class AbstractHoge {
+
+    protected[this] val hogeField = ...;
+
+    def fooMethod(s: String);
+
+    def barMethod(s: String) {
+        ...;
+    }
+
+}
+</code></pre>
+
+<p>トレイト(trait)の例</p>
+
+<pre><code>trait IHoge {
+
+    def fooMethod(s: String);
+
+    // Java8のデフォルト実装みたいなものは普通にできる
+    def barMethod(s: String) {
+        ...
+    }
+
+}
+</code></pre>
+
+<ul>
+  <li>抽象クラスの多重継承はできないが、トレイトの多重継承はできる。
+抽象クラス1つとトレイト1つ以上を同時に継承することもできる。</li>
+  <li>抽象クラスもトレイトもフィールドを定義できる。</li>
+  <li>トレイトはクラスパラメータを持てない(コンストラクタにパラメータを持てない)。
+トレイト定義の中にステートメントを書くことで、コンストラクタの処理を書くことはできる。</li>
+  <li>抽象クラスもトレイトも、実装のないメソッドは抽象メソッドになる。</li>
+</ul>
 
 </div>
 

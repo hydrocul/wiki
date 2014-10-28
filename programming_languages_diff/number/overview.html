@@ -51,48 +51,37 @@
   <h1 id="overview">数値のデータ型</h1>
 
 <h2 id="java">Java
-<span class="article-date">2014/08/01</span></h2>
+<span class="article-date">2014/10/27</span></h2>
 
 <p>数値となるプリミティブ型には、
-<code>char</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code> がある。</p>
-
-<p>整数は <code>char</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code> の5種類ある。</p>
+<code>char</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code> があり、それぞれに対応するクラスもある。対応するクラスというのは、プリミティブ型とはまったく別の型で、プリミティブ型をオブジェクトにラップしているクラスであり、プリミティブ型と対応するクラスはboxing/unboxingによて相互に変換できる。</p>
 
 <dl>
   <dt><code>char</code></dt>
-  <dd>1バイトの符号なし整数。文字の表現に使われる。</dd>
+  <dd>1バイトの符号なし整数。文字の表現に使われる。対応するクラスは <code>java.lang.Character</code></dd>
   <dt><code>byte</code></dt>
-  <dd>1バイトの符号付き整数</dd>
+  <dd>1バイトの符号付き整数。対応するクラスは <code>java.lang.Byte</code></dd>
   <dt><code>short</code></dt>
-  <dd>2バイトの符号付き整数</dd>
+  <dd>2バイトの符号付き整数。対応するクラスは <code>java.lang.Short</code></dd>
   <dt><code>int</code></dt>
-  <dd>4バイトの符号付き整数</dd>
+  <dd>4バイトの符号付き整数。対応するクラスは <code>java.lang.Integer</code></dd>
   <dt><code>long</code></dt>
-  <dd>8バイトの符号付き整数</dd>
+  <dd>8バイトの符号付き整数。対応するクラスは <code>java.lang.Long</code></dd>
+  <dt><code>float</code></dt>
+  <dd>IEEE 754 の32ビット単精度の浮動小数点数。対応するクラスは <code>java.lang.Float</code></dd>
+  <dt><code>double</code></dt>
+  <dd>IEEE 754 の64ビット倍精度の浮動小数点数。対応するクラスは <code>java.lang.Double</code></dd>
 </dl>
 
 <p>整数リテラルは、10進数での表記のほか、
 <code>0x</code>または<code>0X</code>で始まる16進数表記、<code>0</code>で始まる8進数表記を使える。整数リテラルの最後に <code>l</code> または <code>L</code> を付けると<code>long</code>型の整数になり、付けないと<code>int</code>型の整数になる。それぞれ型の範囲を超える数を書くとコンパイルエラーになる。</p>
-
-<p>浮動小数点数は <code>float</code>, <code>double</code> の2種類ある。</p>
-
-<dl>
-  <dt><code>float</code></dt>
-  <dd>IEEE 754 の32ビット単精度の浮動小数点数</dd>
-  <dt><code>double</code></dt>
-  <dd>IEEE 754 の64ビット倍精度の浮動小数点数</dd>
-</dl>
 
 <p>浮動小数点数のリテラルは、10進数表記のみで、後ろにつける指数表現は <code>e+10</code>, <code>e10</code>, <code>e-10</code> のように書く。
 <code>e</code> の代わりに <code>E</code> でもよい。最後に <code>f</code> または <code>F</code> を付けると<code>float</code>型の浮動小数点数になり、なにも付けないか、または <code>d</code> または <code>D</code> を付けると<code>double</code>型の浮動小数点数になる。それぞれ型の範囲を超える数を書くとコンパイルエラーになる。</p>
 
 <p>NaN値は <code>Float.NaN</code> または <code>Double.NaN</code> と書く。正の無限大は <code>Float.POSITIVE_INFINITY</code> または <code>Double.POSITIVE_INFINITY</code>、負の無限大は <code>Float.NEGATIVE_INFINITY</code> または <code>Double.NEGATIVE_INFINITY</code> と書く。</p>
 
-<p>プリミティブ型 <code>char</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code> に対応するクラスは、
-<code>java.lang.Character</code>, <code>java.lang.Byte</code>, <code>java.lang.Short</code>, <code>java.lang.Integer</code>, <code>java.lang.Long</code>, 
-<code>java.lang.Float</code>, <code>java.lang.Double</code> である。</p>
-
-<p>プリミティブ型としては他には <a href="../boolean/overview.html#java"><code>boolean</code></a> がある。</p>
+<p>プリミティブ型としては上記の他に <a href="../boolean/overview.html#java"><code>boolean</code></a> がある。</p>
 
 <p>Integer Literals | The Java Language Specification Java SE 8 Edition<br />
 <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.10.1" target="_blank">http://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.10.1</a></p>
@@ -103,7 +92,7 @@
 <h3 id="fe47068">Java7から使える書き方
 <span class="article-date">2013/10/15</span></h3>
 
-<p>Java7からの機能では、<code>0b</code>または<code>0B</code>で始まる2進数表記もできる(<strong>バイナリリテラル</strong>))。
+<p>Java7からの機能では、<code>0b</code>または<code>0B</code>で始まる2進数表記もできる(<strong>バイナリリテラル</strong>)。
 2進数表記でも最後に <code>l</code> または <code>L</code> を付けることで<code>long</code>型になる。</p>
 
 <p>同じくJava7からは、整数は3ケタごとの区切りなどとして途中にアンダースコアを入れることができる。
@@ -112,9 +101,10 @@
 <p>入れる場所はどこでもよく、コンパイラは単に途中のアンダースコアを無視する。ただし、最初や最後にアンダースコアを置くことはできない。最初に置くと識別子になってしまう。アンダースコアは2つ以上連続させることもできる(使い道がわからないが)。</p>
 
 <h2 id="7f4d550">Scala
-<span class="article-date">2014/09/12</span></h2>
+<span class="article-date">2014/10/27</span></h2>
 
-<p>Javaのプリミティブ型それぞれに対応したScalaのクラスがある。名前は先頭を大文字にしただけである。</p>
+<p>Javaのプリミティブ型それぞれに対応したScalaのクラスがある。名前は先頭を大文字にしただけである。
+Javaの<code>int</code>と<code>java.lang.Integer</code>は別物だが、Javaの<code>int</code>は<code>scala.Int</code>と同一視できる。</p>
 
 <dl>
   <dt><code>scala.Char</code></dt>
@@ -131,9 +121,10 @@
   <dd>Javaの<code>double</code></dd>
 </dl>
 
-<p>ScalaではこれらJavaのプリミティブ型もプリミティブ型であることを意識しないといけないケースは少ない。</p>
+<p>Scalaではこれらをプリミティブ型であると意識しないといけないケースは少ない。</p>
 
-<p>コンパイル後のJVM上ではJavaのプリミティブ型に変換されているので、パフォーマンスの心配はしなくてよい。けど、オートボクシングの処理が挟まるケースもある。</p>
+<p>コンパイル後のJVM上ではJavaのプリミティブ型に変換されているので、パフォーマンスの心配はしなくてよい。けど、オートボクシングの処理が挟まるケースもある。
+<code>scala.Int</code>などにはメソッドがあるが、JVM上ではプリミティブ型にメソッドがあるわけではない。</p>
 
 <p>整数のリテラルは、10進数表記の他、<code>0x</code>または<code>0X</code>で始まる16進数表記を使える。</p>
 
@@ -241,9 +232,10 @@ p f.class.superclass
 3ケタごとの区切りなどとして途中にアンダースコアを入れることができる。入れる場所はどこでもよく、インタプリタ単に途中のアンダースコアを無視する。</p>
 
 <h2 id="258dd8e">sh
-<span class="article-date">2014/05/27</span></h2>
+<span class="article-date">2014/10/27</span></h2>
 
-<p>変数に入れる値やコマンドに渡すパラメータなどはすべて文字列で、数値も文字列で表され、区別がない。</p>
+<p>変数に入れる値やコマンドに渡すパラメータなどはすべて文字列で、数値も文字列で表され、区別がない。
+<code>expr</code>コマンドにパラメータで渡せば数値として計算されるかもしれない。</p>
 
 </div>
 
