@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
           <li>エスケープシーケンス</li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
@@ -37,7 +37,7 @@
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
@@ -126,7 +126,7 @@ println("\\\uu3044"); // =&gt; \い
 <p>Javaと同じ。Unicodeエスケープが使えるのも同じ。</p>
 
 <h2 id="77f7831">PHP
-<span class="article-date">2014/10/02</span></h2>
+<span class="article-date">2014/10/29</span></h2>
 
 <p><code>'</code> で囲めば、エスケープが必要になるのは <code>'</code> と <code>\</code> のみになる。<code>'\n'</code> などと書いても <code>\n</code> そのものになって改行にはならない。つまり <code>'</code> で囲まれている場合、 <code>\</code> の次に <code>'</code> または <code>\</code> 以外が来ても特別な意味にはならない。</p>
 
@@ -139,6 +139,8 @@ echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
 <p><code>"</code> で囲んだ文字列は、以下のエスケープが使える。</p>
 
 <dl>
+  <dt><code>\0</code></dt>
+  <dd>0x00 (Null文字)</dd>
   <dt><code>\t</code></dt>
   <dd>0x09 タブ</dd>
   <dt><code>\n</code></dt>

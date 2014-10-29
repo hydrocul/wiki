@@ -27,12 +27,13 @@
       <li><a href="../../programming_languages_diff/set/">セット(集合型)</a>
         <ul>
           <li>概要</li>
-          <li><a href="../../programming_languages_diff/set/contains.html">セットに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li><a href="../../programming_languages_diff/set/contains-all.html">セットに別のセットの要素がすべて含まれているかどうかを判定するには (containsAll)</a></li>
-          <li><a href="../../programming_languages_diff/set/to-list.html">セット(集合)からリストに変換するには (toSet)</a></li>
-          <li><a href="../../programming_languages_diff/set/add.html">セットに要素を追加するには (add)</a></li>
-          <li><a href="../../programming_languages_diff/set/remove.html">セットから要素を削除するには (remove)</a></li>
-          <li><a href="../../programming_languages_diff/set/flatten.html">セットのセットをセットに平坦化するには (flatten)</a></li>
+          <li><a href="../../programming_languages_diff/set/contains.html">contains: セットに特定の要素が含まれているかどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll: セットに別のセットの要素がすべて含まれているかどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/set/to-list.html">toList: セット(集合)からリストに変換するには</a></li>
+          <li><a href="../../programming_languages_diff/set/add.html">add: セットに要素を追加するには</a></li>
+          <li><a href="../../programming_languages_diff/set/remove.html">remove: セットから要素を削除するには</a></li>
+          <li><a href="../../programming_languages_diff/set/flatten.html">flatten: セットのセットをセットに平坦化するには</a></li>
+          <li><a href="../../programming_languages_diff/set/convert.html">convert: セット(集合)の種類を相互に変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -44,9 +45,9 @@
 
 <div id="content">
   <h1 id="overview">概要
-<span class="article-date">2013/11/08</span></h1>
+<span class="article-date">2014/10/29</span></h1>
 
-<p>同じ型のオブジェクトの集合を表すコンテナ型。順序の概念がなく、また同じオブジェクトを複数格納することはできない。</p>
+<p>集合を表すコンテナ型。複数のオブジェクトを順序の概念なしに格納するが、等値のオブジェクトを複数格納することはできない。</p>
 
 <p>型が静的な言語では、格納されている要素の型も静的に決定されている必要がある。</p>
 
@@ -56,11 +57,18 @@
 <p><code>java.util.Set</code> インターフェースがある。</p>
 
 <h2 id="7f4d550">Scala
-<span class="article-date">2013/10/05</span></h2>
+<span class="article-date">2014/10/29</span></h2>
 
 <p><code>java.util.Set</code> インターフェースの他に <code>scala.collection.Set</code> トレイトがある。
 <code>scala.collection.Set</code> は <code>scala.collection.Iterable</code>,
 <code>scala.collection.Traversable</code>, <code>scala.collection.TraversableOnce</code> を継承している。</p>
+
+<p>順序が関係なく同じオブジェクトを複数角のする必要がない場合はリストだとかよりもセットを使うべきときも、自分は<code>scala.collection.Set</code>が共変でないのが邪魔で<code>Seq</code>の類を使ってしまう場合がある。</p>
+
+<p><code>Set</code>の生成の例</p>
+
+<pre><code>val st: Set[Int] = Set(3, 4, 5);
+</code></pre>
 
 <h2 id="ccd88c1">Python
 <span class="article-date">2014/09/17</span></h2>

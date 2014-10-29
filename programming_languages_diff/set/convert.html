@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>containsAll: セットに別のセットの要素がすべて含まれているかどうかを判定するには | セット(集合型) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>convert: セット(集合)の種類を相互に変換するには | セット(集合型) | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">セット(集合型)</a> &gt; <span>containsAll: セットに別のセットの要素がすべて含まれているかどうかを判定するには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">セット(集合型)</a> &gt; <span>convert: セット(集合)の種類を相互に変換するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -28,11 +28,12 @@
         <ul>
           <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/set/contains.html">contains: セットに特定の要素が含まれているかどうかを判定するには</a></li>
-          <li>containsAll: セットに別のセットの要素がすべて含まれているかどうかを判定するには</li>
+          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll: セットに別のセットの要素がすべて含まれているかどうかを判定するには</a></li>
           <li><a href="../../programming_languages_diff/set/to-list.html">toList: セット(集合)からリストに変換するには</a></li>
           <li><a href="../../programming_languages_diff/set/add.html">add: セットに要素を追加するには</a></li>
-          <li><a href="../../programming_languages_diff/set/remove.html">セットから要素を削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/set/remove.html">remove: セットから要素を削除するには</a></li>
           <li><a href="../../programming_languages_diff/set/flatten.html">セットのセットをセットに平坦化するには (flatten)</a></li>
+          <li>convert: セット(集合)の種類を相互に変換するには</li>
         </ul>
       </li>
     </ul>
@@ -43,38 +44,25 @@
 </div>
 
 <div id="content">
-  <h1 id="contains-all">containsAll: セットに別のセットの要素がすべて含まれているかどうかを判定するには</h1>
+  <h1 id="convert">convert: セット(集合)の種類を相互に変換するには</h1>
 
-<h2 id="83b2631">Java
-<span class="article-date">2013/11/06</span></h2>
+<h2 id="d0572be">Scala
+<span class="article-date">2014/10/28</span></h2>
 
-<p>Signature:</p>
-
-<pre><code>// java.util.Set&lt;E&gt;
-boolean containsAll(Collection&lt;?&gt; elems);
-</code></pre>
+<p>ScalaのコレクションからJavaのセット(<code>java.util.Set</code>)に変換するには
+<code>scala.collection.JavaConverters._</code> をimportした上で、<code>asJava</code>メソッドを呼ぶ。</p>
 
 <p>例</p>
 
-<pre><code>// set が elems のすべてを含んでいるかどうか
-set.containsAll(elems);
+<pre><code>import scala.collection.JavaConverters._;
+
+val st = Set(1, 3, 5);
+val javaSet: java.util.Set[Int] = st.asJava;
 </code></pre>
 
-<h2 id="2f78606">Python
-<span class="article-date">2013/10/05</span></h2>
-
-<pre><code># set が elems のすべてを含んでいるかどうか
-# elems のすべてが set に含まれているかどうか
-# elems も set も集合型
-elems.issubset(set)
-# または
-elems &lt;= set
-set.issuperset(elems)
-# または
-set &gt;= elems
-</code></pre>
-
-<p><code>issubset</code>, <code>issuperset</code> はセット(集合型)以外にリストなども受け入れる。</p>
+<p>セットに限らず、ScalaのコレクションをJavaのコレクションに変換したい場合は、
+Scalaのコレクションに対して <code>asJava</code> メソッドを呼び出せばよい。逆に、JavaのコレクションからScalaのコレクションに変換したい場合は、
+Javaのコレクションに対して <code>asScala</code> メソッドを呼び出せばよい。このとき上記の<code>import</code>は必要である。</p>
 
 </div>
 

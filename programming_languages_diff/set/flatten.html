@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>セットのセットをセットに平坦化するには (flatten) | セット(集合型) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>flatten: セットのセットをセットに平坦化するには | セット(集合型) | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">セット(集合型)</a> &gt; <span>セットのセットをセットに平坦化するには (flatten)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">セット(集合型)</a> &gt; <span>flatten: セットのセットをセットに平坦化するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -27,12 +27,13 @@
       <li><a href="../../programming_languages_diff/set/">セット(集合型)</a>
         <ul>
           <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/set/contains.html">セットに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li><a href="../../programming_languages_diff/set/contains-all.html">セットに別のセットの要素がすべて含まれているかどうかを判定するには (containsAll)</a></li>
-          <li><a href="../../programming_languages_diff/set/to-list.html">セット(集合)からリストに変換するには (toSet)</a></li>
-          <li><a href="../../programming_languages_diff/set/add.html">セットに要素を追加するには (add)</a></li>
-          <li><a href="../../programming_languages_diff/set/remove.html">セットから要素を削除するには (remove)</a></li>
-          <li>セットのセットをセットに平坦化するには (flatten)</li>
+          <li><a href="../../programming_languages_diff/set/contains.html">contains: セットに特定の要素が含まれているかどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll: セットに別のセットの要素がすべて含まれているかどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/set/to-list.html">toList: セット(集合)からリストに変換するには</a></li>
+          <li><a href="../../programming_languages_diff/set/add.html">add: セットに要素を追加するには</a></li>
+          <li><a href="../../programming_languages_diff/set/remove.html">remove: セットから要素を削除するには</a></li>
+          <li>flatten: セットのセットをセットに平坦化するには</li>
+          <li><a href="../../programming_languages_diff/set/convert.html">convert: セット(集合)の種類を相互に変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -43,10 +44,10 @@
 </div>
 
 <div id="content">
-  <h1 id="flatten">セットのセットをセットに平坦化するには (flatten)</h1>
+  <h1 id="flatten">flatten: セットのセットをセットに平坦化するには</h1>
 
 <h2 id="scala">Scala
-<span class="article-date">2013/10/05</span></h2>
+<span class="article-date">2014/10/29</span></h2>
 
 <p>Signature:</p>
 
@@ -57,6 +58,22 @@ def flatten[B]: Set[B]
 <p>処理結果のセットを返し、自身は変更しない。<code>A</code> は <code>Seq[B]</code>, <code>Set[B]</code> などである必要がある。</p>
 
 <p><a href="../list/flatten.html#scala"><code>Seq#flatten</code></a> と使い方が同じ。</p>
+
+<p>例</p>
+
+<pre><code>val st = Set(List(3, 4, 5), List(4, 6, 8));
+println(st.flatten);
+// =&gt; Set(5, 6, 3, 8, 4)
+
+// 以下と同じになる
+println(st.flatMap(e =&gt; e));
+// =&gt; Set(5, 6, 3, 8, 4)
+</code></pre>
+
+<h2 id="44a59c8">Ruby
+<span class="article-date">2014/10/29</span></h2>
+
+<p>配列に対しては<a href="../list/flatten.html#ruby"><code>flatten</code></a>というメソッドがこの動作になる。</p>
 
 </div>
 

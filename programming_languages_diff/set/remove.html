@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>セットから要素を削除するには (remove) | セット(集合型) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>remove: セットから要素を削除するには | セット(集合型) | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">セット(集合型)</a> &gt; <span>セットから要素を削除するには (remove)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">セット(集合型)</a> &gt; <span>remove: セットから要素を削除するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -27,12 +27,13 @@
       <li><a href="../../programming_languages_diff/set/">セット(集合型)</a>
         <ul>
           <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/set/contains.html">セットに特定の要素が含まれているかどうかを判定するには (contains)</a></li>
-          <li><a href="../../programming_languages_diff/set/contains-all.html">セットに別のセットの要素がすべて含まれているかどうかを判定するには (containsAll)</a></li>
-          <li><a href="../../programming_languages_diff/set/to-list.html">セット(集合)からリストに変換するには (toSet)</a></li>
-          <li><a href="../../programming_languages_diff/set/add.html">セットに要素を追加するには (add)</a></li>
-          <li>セットから要素を削除するには (remove)</li>
+          <li><a href="../../programming_languages_diff/set/contains.html">contains: セットに特定の要素が含まれているかどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll: セットに別のセットの要素がすべて含まれているかどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/set/to-list.html">toList: セット(集合)からリストに変換するには</a></li>
+          <li><a href="../../programming_languages_diff/set/add.html">add: セットに要素を追加するには</a></li>
+          <li>remove: セットから要素を削除するには</li>
           <li><a href="../../programming_languages_diff/set/flatten.html">セットのセットをセットに平坦化するには (flatten)</a></li>
+          <li><a href="../../programming_languages_diff/set/convert.html">convert: セット(集合)の種類を相互に変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -43,7 +44,7 @@
 </div>
 
 <div id="content">
-  <h1 id="remove">セットから要素を削除するには (remove)</h1>
+  <h1 id="remove">remove: セットから要素を削除するには</h1>
 
 <h2 id="fd8416d">Java
 <span class="article-date">2013/11/26</span></h2>
@@ -55,6 +56,23 @@ boolean remove(Object o)
 </code></pre>
 
 <p>セットに含まれていた場合は <code>true</code> を返す。もともと含まれていなかった場合は <code>false</code> を返す。</p>
+
+<h2 id="69ae27f">Scala
+<span class="article-date">2014/10/28</span></h2>
+
+<p>Signature:</p>
+
+<pre><code>// scala.collection.Set[A]
+def - (elem: A): Set[A]
+</code></pre>
+
+<p>例</p>
+
+<pre><code>// 集合stから要素elemを削除した新しい集合を取得
+st - elem
+</code></pre>
+
+<p>もともと含まれない要素を削除しようとしてもなにも変化せずに同じ集合が得られる。</p>
 
 <h2 id="49fabee">Python
 <span class="article-date">2013/10/08</span></h2>

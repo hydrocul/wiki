@@ -81,7 +81,7 @@
   <h1 id="flatten">リストのリストをリストに平坦化するには (flatten)</h1>
 
 <h2 id="scala">Scala
-<span class="article-date">2013/10/05</span></h2>
+<span class="article-date">2014/10/29</span></h2>
 
 <p>Signature:</p>
 
@@ -89,10 +89,21 @@
 def flatten[B]: Seq[B]
 </code></pre>
 
-<p>処理結果のリストを返し、自身は変更しない。<code>A</code> は <code>Seq[B]</code>, <code>Set[B]</code> など 
+<p>処理結果の<code>Seq</code>を返し、自身は変更しない。<code>A</code> は <code>Seq[B]</code>, <code>Set[B]</code> など 
 <code>B</code> のコレクションである必要がある。Rubyの <code>arr.flatten(1)</code> と同じ動き。</p>
 
 <p><a href="../set/flatten.html#scala"><code>Set#flatten</code></a> と使い方が同じ。</p>
+
+<p>例</p>
+
+<pre><code>val lst = List(List(3, 4, 5), List(4, 6, 8));
+println(lst.flatten);
+// =&gt; List(3, 4, 5, 4, 6, 8)
+
+// 以下と同じになる
+println(lst.flatMap(e =&gt; e));
+// =&gt; List(3, 4, 5, 4, 6, 8)
+</code></pre>
 
 <h2 id="f11cfdb">PHP
 <span class="article-date">2014/01/13</span></h2>

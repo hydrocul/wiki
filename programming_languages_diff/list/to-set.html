@@ -39,7 +39,8 @@
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">すべての要素が特定の条件にマッチするかどうかを検査するには (all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
@@ -93,15 +94,34 @@ Set&lt;String&gt; st = new HashSet&lt;String&gt;(lst);
 </code></pre>
 
 <h2 id="fdc7246">Scala
-<span class="article-date">2013/11/05</span></h2>
-
-<pre><code>val set = lst.toSet;
-</code></pre>
+<span class="article-date">2014/10/29</span></h2>
 
 <p>Signature:</p>
 
 <pre><code>// scala.collection.Seq[A]
 def toSet: Set[A]
+</code></pre>
+
+<p>例</p>
+
+<pre><code>val set = lst.toSet;
+
+// セットにしてからリストにすることで重複要素を削除
+// ただし、順番は保存されない
+lst.toSet.toList
+</code></pre>
+
+<p>単に重複した要素を削除したいだけであれば以下のようにすればよい。順番もできるだけ保持している。</p>
+
+<pre><code>def uniq[A](lst: List[A]): List[A] = {
+  lst.foldLeft[List[A]](Nil) { (b, a) =&gt;
+    if (b.contains(a)) {
+      b;
+    } else {
+      a :: b;
+    }
+  }.reverse;
+}
 </code></pre>
 
 <h2 id="e4aaa8f">Python
