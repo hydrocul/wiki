@@ -143,10 +143,12 @@ list.add("c");
 <p><code>java.util.List</code> を配列に変換するには<a href="convert.html#java">相互変換</a>参照。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2014/10/12</span></h2>
+<span class="article-date">2014/10/29</span></h2>
 
 <p>Javaの組み込み型である配列と、Javaのクラスライブラリでサポートされている 
 <code>java.util.List</code> インターフェースなどのほかに、豊富な種類のコレクション型がScalaのクラスライブラリにある。</p>
+
+<p>Scalaでは、コレクションはJavaでいうプリミティブ型も要素として持つことができる。たぶんJVM上では対応するラッパークラスにボクシングされているのだとは思うが。</p>
 
 <p><code>scala.collection.immutable.List</code> は不変型の片方向連結リストを実装した 
 <code>scala.collection.Seq</code> のサブクラスで、Scalaでは非常によく使われる。片方向連結リストなので、先頭から順番にアクセスしたり、先頭付近を変更するには速いが、インデックスでのランダムアクセスは遅い。不変(イミュータブル)なので、変更するには変更後の新しいインスタンスを生成することになる。インスタンス自体を変更するには可変型の <code>scala.collection.mutable.ListBuffer</code> を使うとよい。

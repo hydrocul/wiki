@@ -31,8 +31,9 @@
           <li>containsAll: セットに別のセットの要素がすべて含まれているかどうかを判定するには</li>
           <li><a href="../../programming_languages_diff/set/to-list.html">toList: セット(集合)からリストに変換するには</a></li>
           <li><a href="../../programming_languages_diff/set/add.html">add: セットに要素を追加するには</a></li>
-          <li><a href="../../programming_languages_diff/set/remove.html">セットから要素を削除するには (remove)</a></li>
-          <li><a href="../../programming_languages_diff/set/flatten.html">セットのセットをセットに平坦化するには (flatten)</a></li>
+          <li><a href="../../programming_languages_diff/set/remove.html">remove: セットから要素を削除するには</a></li>
+          <li><a href="../../programming_languages_diff/set/flatten.html">flatten: セットのセットをセットに平坦化するには</a></li>
+          <li><a href="../../programming_languages_diff/set/convert.html">convert: セット(集合)の種類を相互に変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -61,14 +62,17 @@ set.containsAll(elems);
 </code></pre>
 
 <h2 id="2f78606">Python
-<span class="article-date">2013/10/05</span></h2>
+<span class="article-date">2014/10/29</span></h2>
 
-<pre><code># set が elems のすべてを含んでいるかどうか
+<pre><code># elems も set も集合型として
+
 # elems のすべてが set に含まれているかどうか
-# elems も set も集合型
 elems.issubset(set)
 # または
 elems &lt;= set
+
+# または
+# set が elems のすべてを含んでいるかどうか
 set.issuperset(elems)
 # または
 set &gt;= elems
