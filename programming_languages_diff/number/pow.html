@@ -54,18 +54,20 @@
 <p>各プログラミング言語におけるべき乗( \(x^y\) )を計算する方法の比較。</p>
 
 <h2 id="983c097">Java / Scala
-<span class="article-date">2014/10/05</span></h2>
+<span class="article-date">2014/10/31</span></h2>
 
 <p><code>Math.pow</code>を利用する。引数も返り値も浮動小数点数(<code>double</code>)である。</p>
 
-<pre><code>Math.pow(5, 3);
+<p>Javaでの例</p>
+
+<pre><code>System.out.println(Math.pow(5, 3));
 // =&gt; 125.0
 
-Math.pow(2.72, 3.14);
-// =&gt; 23.149752843459943
+System.out.println(Math.pow(1.01, 100));
+// =&gt; 2.7048138294215285
 </code></pre>
 
-<p>java.lang.Math.pow | Java Platform SE 8 Javadoc<br />
+<p><code>java.lang.Math.pow</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#pow-double-double-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#pow-double-double-</a></p>
 
 <h2 id="86eddfa">PHP
@@ -117,11 +119,11 @@ p 1.01 ** 100  # =&gt; 2.7048138294215285
 </code></pre>
 
 <p><code>**</code> 演算子 | Ruby 2.1 リファレンスマニュアル<br />
-[http://docs.ruby-lang.org/ja/2.1.0/class/Bignum.html#I<em>–2A–2A](http://docs.ruby-lang.org/ja/2.1.0/class/Bignum.html#I</em>–2A–2A)<br />
-[http://docs.ruby-lang.org/ja/2.1.0/class/Fixnum.html#I<em>–2A–2A](http://docs.ruby-lang.org/ja/2.1.0/class/Fixnum.html#I</em>–2A–2A)<br />
-[http://docs.ruby-lang.org/ja/2.1.0/class/Float.html#I<em>–2A–2A](http://docs.ruby-lang.org/ja/2.1.0/class/Float.html#I</em>–2A–2A)<br />
-[http://docs.ruby-lang.org/ja/2.1.0/class/Complex.html#I<em>–2A–2A](http://docs.ruby-lang.org/ja/2.1.0/class/Complex.html#I</em>–2A–2A)<br />
-[http://docs.ruby-lang.org/ja/2.1.0/class/Rational.html#I<em>–2A–2A](http://docs.ruby-lang.org/ja/2.1.0/class/Rational.html#I</em>–2A–2A)</p>
+http://docs.ruby-lang.org/ja/2.1.0/class/Bignum.html#I_–2A–2A<br />
+http://docs.ruby-lang.org/ja/2.1.0/class/Fixnum.html#I_–2A–2A<br />
+http://docs.ruby-lang.org/ja/2.1.0/class/Float.html#I_–2A–2A<br />
+http://docs.ruby-lang.org/ja/2.1.0/class/Complex.html#I_–2A–2A<br />
+http://docs.ruby-lang.org/ja/2.1.0/class/Rational.html#I_–2A–2A</p>
 
 <h2 id="3e3e26c">Perl
 <span class="article-date">2014/08/02</span></h2>

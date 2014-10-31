@@ -57,13 +57,17 @@
 <p><code>java.util.Set</code> インターフェースがある。</p>
 
 <h2 id="7f4d550">Scala
-<span class="article-date">2014/10/29</span></h2>
+<span class="article-date">2014/10/30</span></h2>
 
 <p><code>java.util.Set</code> インターフェースの他に <code>scala.collection.Set</code> トレイトがある。
 <code>scala.collection.Set</code> は <code>scala.collection.Iterable</code>,
 <code>scala.collection.Traversable</code>, <code>scala.collection.TraversableOnce</code> を継承している。</p>
 
-<p>順序が関係なく同じオブジェクトを複数角のする必要がない場合はリストだとかよりもセットを使うべきときも、自分は<code>scala.collection.Set</code>が共変でないのが邪魔で<a href="../list/overview.html#scala"><code>Seq</code>の類</a>を使ってしまう場合がある。</p>
+<p>順序が関係なく同じオブジェクトを複数格納する必要がない場合はリストだとかよりもセットを使うべき。ただそんなときも、自分は<code>scala.collection.Set</code>が共変でないのが邪魔で
+<a href="../list/overview.html#scala"><code>Seq</code>の類</a>を使ってしまう場合がある。</p>
+
+<p><code>scala.collection.Set</code> は <code>scala.Predef</code> にも <code>Set</code> として宣言してあるので、
+<code>import</code>しなくても <code>Set</code> として型を参照できる。</p>
 
 <p><code>Set</code>の生成の例</p>
 

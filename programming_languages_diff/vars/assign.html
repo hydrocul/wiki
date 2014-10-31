@@ -59,7 +59,7 @@ x = "Hello";
 <p><code>final</code>変数を除き、同じ変数へ何度も代入することは可能。</p>
 
 <h2 id="d6163d7">Scala
-<span class="article-date">2014/04/03</span></h2>
+<span class="article-date">2014/10/30</span></h2>
 
 <pre><code>// 変数の宣言と代入
 val x: String = "Hello";
@@ -73,6 +73,8 @@ x = "Hello";
 
 <p><code>val</code> で宣言した変数は再代入が不可。<code>var</code> は再代入が可能だが、
 Scalaでは <code>val</code> で再代入できないようにすることが推奨されている。</p>
+
+<p>変数に代入するというよりは、値(オブジェクト)に名前を付ける、というイメージ。違う値に同じ名前をつける訳にはいかないから、再代入ができない。名前をつけられるオブジェクト自体も不変にするのが普通。</p>
 
 <p>宣言時の型は多くの場合省略できる。</p>
 

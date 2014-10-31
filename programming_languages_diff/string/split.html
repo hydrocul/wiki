@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
@@ -37,7 +37,8 @@
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
@@ -48,8 +49,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -67,7 +68,7 @@
   <h1 id="split">特定の文字やパターンで配列などに分割するには (split / explode)</h1>
 
 <h2 id="6df95c0">Java
-<span class="article-date">2014/08/12</span></h2>
+<span class="article-date">2014/10/31</span></h2>
 
 <p>Signature:</p>
 
@@ -78,8 +79,14 @@ String[] split(String regex, int limit)
 
 <p>空文字列をsplitすると空文字列1つだけの配列を返す。また、分割対象の文字列の最後に区切り文字が1つ以上あると、その部分は単に切り捨てられる。</p>
 
+<p>パターンは正規表現で指定できる。
+Java7以降では、正規表現で意味のある記号類以外の普通の1文字を指定した場合には、正規表現で処理せずに、高速な分割処理がなされるらしい。</p>
+
+<p>Java 7 時代の String#split() 事情<br />
+<a href="http://blog.k11i.biz/2013/05/java-7-stringsplit.html" target="_blank">http://blog.k11i.biz/2013/05/java-7-stringsplit.html</a></p>
+
 <h2 id="cd1396e">Scala
-<span class="article-date">2014/08/12</span></h2>
+<span class="article-date">2014/10/31</span></h2>
 
 <p>Signature:</p>
 
@@ -93,6 +100,8 @@ def split(regex: String, limit: Int): Array[String]
 </code></pre>
 
 <p>いずれのメソッドも空文字列をsplitすると空文字列1つだけの配列を返す。また、分割対象の文字列の最後に区切り文字が1つ以上あると、その部分は単に切り捨てられる。</p>
+
+<p><code>scala.collection.immutable.StringLike</code> にある<code>Char</code>型で分割文字列を指定するメソッドも、結局は中で正規表現にされて、<code>java.lang.String#split</code> が呼び出される。</p>
 
 <h2 id="458713a">PHP
 <span class="article-date">2013/11/15</span></h2>
