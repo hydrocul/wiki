@@ -104,15 +104,33 @@ int length()
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#length--" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#length–</a></p>
 
 <h2 id="dbd1f21">PHP
-<span class="article-date">2014/05/28</span></h2>
+<span class="article-date">2014/11/01</span></h2>
 
-<p>C言事同じ名前の関数 <code>strlen</code> を使う。</p>
+<p>C言語と同じ名前の関数 <code>strlen</code> を使えるが、これは単にバイト配列の長さを返すだけなので、マルチバイトの文字が含まれる場合は文字数とは一致しない。マルチバイトにも対応して文字数を取得したい場合には <code>mb_strlen</code> を使う。</p>
 
-<pre><code>$len = strlen($str)
+<pre><code>$str = "あ";
+
+$len = strlen($str);
+// =&gt; 3
+
+$len = mb_strlen($str, "UTF-8");
+// =&gt; 1
+
+// \u1F30D 地球の絵文字
+$str = "\xF0\x9F\x8C\x8D";
+
+$len = strlen($str);
+// =&gt; 4
+
+$len = mb_strlen($str, "UTF-8");
+// =&gt; 1
 </code></pre>
 
 <p><code>strlen</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.strlen.php" target="_blank">http://www.php.net/manual/ja/function.strlen.php</a></p>
+<a href="http://php.net/manual/ja/function.strlen.php" target="_blank">http://php.net/manual/ja/function.strlen.php</a></p>
+
+<p><code>mb_strlen</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.mb-strlen.php" target="_blank">http://php.net/manual/ja/function.mb-strlen.php</a></p>
 
 <h2 id="693068d">Python
 <span class="article-date">2013/08/30</span></h2>

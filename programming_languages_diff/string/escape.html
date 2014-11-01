@@ -126,7 +126,7 @@ println("\\\uu3044"); // =&gt; \い
 <p>Javaと同じ。Unicodeエスケープが使えるのも同じ。</p>
 
 <h2 id="77f7831">PHP
-<span class="article-date">2014/10/29</span></h2>
+<span class="article-date">2014/11/01</span></h2>
 
 <p><code>'</code> で囲めば、エスケープが必要になるのは <code>'</code> と <code>\</code> のみになる。<code>'\n'</code> などと書いても <code>\n</code> そのものになって改行にはならない。つまり <code>'</code> で囲まれている場合、 <code>\</code> の次に <code>'</code> または <code>\</code> 以外が来ても特別な意味にはならない。</p>
 
@@ -165,6 +165,14 @@ echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
 
 <p>文字列 | PHP Manual<br />
 <a href="http://php.net/manual/ja/language.types.string.php" target="_blank">http://php.net/manual/ja/language.types.string.php</a></p>
+
+<p>PHPはUnicodeにネイティブには対応しておらず、
+8ビットを超える文字を16進数で表記する手段がない。
+UTF8でコードを書いている場合は、文字列もUTF8で16進数表記することは可能。</p>
+
+<pre><code>// \u1F30D 地球の絵文字
+$str = "\xF0\x9F\x8C\x8D";
+</code></pre>
 
 <h2 id="ea15409">Python
 <span class="article-date">2014/10/07</span></h2>
