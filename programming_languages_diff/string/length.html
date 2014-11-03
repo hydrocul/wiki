@@ -141,7 +141,7 @@ $len = mb_strlen($str, "UTF-8");
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/11/01</span></h2>
+<span class="article-date">2014/11/02</span></h2>
 
 <p>例</p>
 
@@ -153,13 +153,13 @@ l = str.size
 <p>2つのメソッドは全く同じ。<a href="../list/size.html#ruby">配列のサイズ</a>、
 <a href="../map/size.html#ruby">ハッシュのサイズ</a>も同じ名前の2つのメソッドがある。</p>
 
-<p>マルチバイトの文字が含まれていても文字数を正しく取得できる。</p>
+<p>Unicode拡張領域の文字も含めマルチバイトの文字が含まれていても文字数を正しく取得できる。</p>
 
 <p><code>String#length</code> メソッド, <code>String#size</code> メソッド | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/class/String.html#I_LENGTH" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/class/String.html#I_LENGTH</a></p>
 
 <h2 id="04f5aa6">Perl
-<span class="article-date">2013/09/23</span></h2>
+<span class="article-date">2014/11/02</span></h2>
 
 <p>例</p>
 
@@ -168,7 +168,8 @@ l = str.size
 length($str)
 </code></pre>
 
-<p>文字列をソースコード中に直接書いた場合は <code>use utf8;</code> としないと、マルチバイトの文字列でもバイト数を数えてしまう。</p>
+<p>文字列をソースコード中に直接書いた場合は <code>use utf8;</code> としないと、マルチバイトの文字列でもバイト数を数えてしまう。
+<code>use utf8;</code> と書いておけば、Unicode拡張領域の文字も含めマルチバイトの文字が含まれていても文字数を正しく取得できる。</p>
 
 <h2 id="5233c7b">CoffeeScript
 <span class="article-date">2013/09/07</span></h2>

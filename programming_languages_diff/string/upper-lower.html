@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
@@ -37,7 +37,7 @@
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
@@ -67,8 +67,8 @@
 <div id="content">
   <h1 id="upper-lower">大文字小文字を変換するには</h1>
 
-<h2 id="69c6c0a">Java / Scala
-<span class="article-date">2014/10/06</span></h2>
+<h2 id="3830f85">Java / Scala / Groovy
+<span class="article-date">2014/11/02</span></h2>
 
 <p>Javaでの例</p>
 
@@ -80,6 +80,12 @@ String lowercase_str = str.toLowerCase();
 
 <pre><code>val uppercase_str = str.toUpperCase;
 val lowercase_str = str.toLowerCase;
+</code></pre>
+
+<p>Groovyでの例</p>
+
+<pre><code>def uppercase_str = str.toUpperCase()
+def lowercase_str = str.toLowerCase()
 </code></pre>
 
 <p>Signature:</p>
@@ -100,6 +106,13 @@ String toLowerCase()
 
 <pre><code>$uppercase_str = strtoupper($str)
 $lowercase_str = strtolower($str)
+</code></pre>
+
+<h2 id="1799318">Python
+<span class="article-date">2014/11/02</span></h2>
+
+<pre><code>uppercase_str = str.upper()
+lowercase_str = str.lower()
 </code></pre>
 
 <h2 id="543e568">Ruby

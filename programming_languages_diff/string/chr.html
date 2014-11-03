@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
@@ -37,7 +37,8 @@
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
@@ -48,8 +49,8 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li>文字コードの数字から文字に変換するには</li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
@@ -115,14 +116,25 @@ print(chr(0x2A61A))    # =&gt; 𪘚
 というエラーになってしまう。</p>
 
 <h2 id="0c845c2">Ruby
-<span class="article-date">2014/05/16</span></h2>
+<span class="article-date">2014/11/02</span></h2>
 
-<p><code>Fixnum</code>クラスの<code>chr</code>メソッドでできるが、0xFFまでしか使えない。代わりに配列の<code>pack</code>メソッドで代用できる。</p>
+<p><code>Fixnum</code>クラスの<code>chr</code>メソッドでできる。文字エンコーディングを引数で与える必要がある。省略もできるがその場合は0xFFまでしか使えない。</p>
+
+<p>0xFFを超える数値でパラメータを渡さずに<code>chr</code>メソッドを呼び出すと、
+<code>out of char range (RangeError)</code> という例外が発生する。</p>
+
+<p>配列の<code>pack</code>メソッドでも代用できる。</p>
+
+<p>例</p>
 
 <pre><code>p 65.chr              # =&gt; "A"
+p 127757.chr("UTF-8") # =&gt; "🌍"
 p [0x3042].pack('U')  # =&gt; "あ"
 p [0x2A61A].pack('U') # =&gt; "𪘚"
 </code></pre>
+
+<p><code>Integer#chr</code> メソッド | Ruby レファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/class/Integer.html#I_CHR" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/class/Integer.html#I_CHR</a></p>
 
 <p>pack テンプレート文字列 | Ruby レファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/doc/pack_template.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/doc/pack_template.html</a></p>
