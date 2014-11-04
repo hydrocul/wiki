@@ -54,7 +54,8 @@
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt/toInt)</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicodeの拡張領域の取り扱い</a></li>
         </ul>
       </li>
     </ul>
@@ -73,13 +74,15 @@
 <p>C言語やJava/Scalaのように、文字列と文字の型が違っていて文字の型が整数としても扱える言語では、文字型はすなわち符号位置の数字となっているのだが、そうでない言語では何らかの関数などで変換する必要がある。</p>
 
 <h2 id="66704d5">Scala
-<span class="article-date">2014/04/18</span></h2>
+<span class="article-date">2014/11/03</span></h2>
 
 <p><code>Char</code>型を<code>Int</code>にキャストすればよい。</p>
 
 <pre><code>println('A'.asInstanceOf[Int]) // =&gt; 65
 println('あ'.asInstanceOf[Int]) // =&gt; 12354
 </code></pre>
+
+<p>Unicodeの拡張領域の文字はJVM上では2つのchar型として表現されるので、この方法では拡張領域に対応できない。</p>
 
 <h2 id="89080a2">Python
 <span class="article-date">2014/05/30</span></h2>

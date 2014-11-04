@@ -54,7 +54,8 @@
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicodeの拡張領域の取り扱い</a></li>
         </ul>
       </li>
     </ul>
@@ -95,10 +96,10 @@ String toUpperCase()
 String toLowerCase()
 </code></pre>
 
-<p>java.lang.String#toUpperCase | Java Platform SE 8 Javadoc<br />
+<p><code>java.lang.String#toUpperCase</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toUpperCase--" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toUpperCase–</a></p>
 
-<p>java.lang.String#toLowerCase | Java Platform SE 8 Javadoc<br />
+<p><code>java.lang.String#toLowerCase</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toLowerCase--" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toLowerCase–</a></p>
 
 <h2 id="b46711f">PHP
@@ -123,11 +124,17 @@ lowercase_str = str.downcase
 </code></pre>
 
 <h2 id="2c66eae">Perl
-<span class="article-date">2013/09/10</span></h2>
+<span class="article-date">2014/11/03</span></h2>
 
 <pre><code>my $uppercase_str = uc($str);
 my $lowercase_str = lc($str);
 </code></pre>
+
+<p><code>uc</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/uc" target="_blank">http://perldoc.jp/func/uc</a></p>
+
+<p><code>lc</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/lc" target="_blank">http://perldoc.jp/func/lc</a></p>
 
 <h2 id="f365308">JavaScript / CoffeeScript
 <span class="article-date">2013/09/11</span></h2>

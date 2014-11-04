@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列を数値に変換するには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>文字列を数値に変換するには (parseInt / toInt) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列を数値に変換するには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列を数値に変換するには (parseInt / toInt)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
@@ -37,7 +37,8 @@
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
@@ -48,12 +49,13 @@
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-          <li>文字列を数値に変換するには</li>
+          <li>文字列を数値に変換するには (parseInt / toInt)</li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicodeの拡張領域の取り扱い</a></li>
         </ul>
       </li>
     </ul>
@@ -64,12 +66,12 @@
 </div>
 
 <div id="content">
-  <h1 id="to-num">文字列を数値に変換するには
-<span class="article-date">2014/08/30</span></h1>
+  <h1 id="to-num">文字列を数値に変換するには (parseInt / toInt)
+<span class="article-date">2014/11/03</span></h1>
 
-<p>多くの言語では動的/静的の違いはあっても文字列と数値とで型が区別されるので変換が必要になることがある。以下はプログラミング言語ごとの変換の方法のメモ。</p>
+<p>多くの言語では動的/静的の違いはあっても文字列と数値とで型が区別されるので、文字列から数値への変換が必要なことが多い。以下はプログラミング言語ごとの変換の方法のメモ。</p>
 
-<p>逆に数値から文字列に変換する方法は<a href="../number/to-string.html">こちら</a>。</p>
+<p>逆の<a href="../number/to-string.html">数値から文字列に変換する方法</a>も参照。</p>
 
 <h2 id="8041b68">Java
 <span class="article-date">2014/08/30</span></h2>
@@ -162,19 +164,25 @@ p "27".to_i(16)
 </code></pre>
 
 <h2 id="ba8d40a">Perl
-<span class="article-date">2014/09/18</span></h2>
+<span class="article-date">2014/11/03</span></h2>
 
-<p>Perlのスカラには文字列か数字かの区別はなく、数字を前提とした演算子にスカラを与えると数字として振舞おうとする。</p>
+<p>Perlのスカラには文字列か数字かの区別はなく、数字を前提とした演算子に文字列のスカラを与えると数字として振舞おうとするので、明示的に変換する必要はない。</p>
 
 <p>16進数表記の文字列を数字に変換するには <code>hex</code> を使う。</p>
 
-<pre><code>print hex("00A0"); # =&gt; 160
+<pre><code>print hex("00A0");   # =&gt; 160
+print hex("0x00A0"); # =&gt; 160
 </code></pre>
+
+<p><code>0x</code> または <code>0X</code> で始まる文字列の場合はその後続文字列を16進数表記とみなして変換する。</p>
 
 <p><code>hex</code> は16進数で許されない文字があると、その文字の前までの部分だけで16進数に変換し、エラーにはならない。</p>
 
 <pre><code>print hex("AG"); # =&gt; 10
 </code></pre>
+
+<p><code>hex</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/hex" target="_blank">http://perldoc.jp/func/hex</a></p>
 
 <h2 id="f1d4636">JavaScript
 <span class="article-date">2013/10/26</span></h2>
