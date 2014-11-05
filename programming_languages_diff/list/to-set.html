@@ -94,7 +94,7 @@ Set&lt;String&gt; st = new HashSet&lt;String&gt;(lst);
 </code></pre>
 
 <h2 id="fdc7246">Scala
-<span class="article-date">2014/10/29</span></h2>
+<span class="article-date">2014/11/05</span></h2>
 
 <p>Signature:</p>
 
@@ -111,7 +111,7 @@ def toSet: Set[A]
 lst.toSet.toList
 </code></pre>
 
-<p>単に重複した要素を削除したいだけであれば以下のようにすればよい。順番もできるだけ保持している。</p>
+<p>単に重複した要素を削除したいだけであれば以下のようにすればよい。順番もできるだけ保持している。要素数が少なければ、いったん<code>Set</code>に変換してしまうよりも速い。</p>
 
 <pre><code>def uniq[A](lst: List[A]): List[A] = {
   lst.foldLeft[List[A]](Nil) { (b, a) =&gt;
