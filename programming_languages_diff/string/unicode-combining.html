@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>Unicode結合文字の取り扱い | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>文字列</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>Unicode結合文字の取り扱い</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,7 +24,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>文字列
+      <li><a href="../../programming_languages_diff/string/">文字列</a>
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
@@ -55,7 +55,7 @@
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
-          <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li>Unicode結合文字の取り扱い</li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicodeの拡張領域の取り扱い</a></li>
         </ul>
       </li>
@@ -67,43 +67,75 @@
 </div>
 
 <div id="content">
-  <h1 id="string">文字列</h1>
+  <h1 id="unicode-combining">Unicode結合文字の取り扱い
+<span class="article-date">2014/11/06</span></h1>
 
-<h2 id="section">目次</h2>
+<p>ちょっと調べた範囲では結合文字は、文字数のカウントなどで特別扱いしたりせずに普通の文字と同じ扱いになる。結合文字を考慮して、人間の直感と一致する文字単位で文字を取得したり、文字数を調べたりする方法はないものか。</p>
 
-<ul>
-  <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
-  <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-  <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
-  <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
-  <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
-  <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
-  <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
-  <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
-  <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
-  <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
-  <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-  <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith)</a></li>
-  <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
-  <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
-  <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-  <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
-  <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
-  <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
-  <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-  <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-  <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
-  <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
-  <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-  <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-  <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-  <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
-  <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
-  <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicodeの拡張領域の取り扱い</a></li>
-</ul>
+<h2 id="07f3628">Java / Scala
+<span class="article-date">2014/11/06</span></h2>
+
+<p>Scalaでの例</p>
+
+<pre><code>val str = "a\u0304";
+println(str);
+// =&gt; ā
+
+val len = str.length();
+println(len);
+// =&gt; 2
+
+println(str.codePointCount(0, len));
+// =&gt; 2
+
+val str2 = "\u0101";
+println(str2);
+// =&gt; ā
+
+println(str == str2);
+// =&gt; false
+</code></pre>
+
+<h2 id="af7a525">Python
+<span class="article-date">2014/11/06</span></h2>
+
+<pre><code>str = "a\u0304"
+print(str)
+# =&gt; ā
+
+print(len(str))
+# =&gt; 2
+
+str2 = "\u0101"
+print(str2)
+# =&gt; ā
+
+print(str == str2)
+# =&gt; False
+</code></pre>
+
+<h2 id="9ff7553">Perl
+<span class="article-date">2014/11/02</span></h2>
+
+<pre><code>use utf8;
+use Encode qw/encode_utf8/;
+
+print encode_utf8("a\x{0304}\n");
+# =&gt; ā
+
+print length("a\x{0304}");
+# =&gt; 2
+
+print encode_utf8("\x{0101}\n");
+# =&gt; ā
+
+if ("\x{0101}" eq "a\x{0304}") {
+    print "equals";
+} else {
+    print "not equals";
+}
+# =&gt; not equals
+</code></pre>
 
 </div>
 
