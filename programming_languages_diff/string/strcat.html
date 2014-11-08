@@ -37,7 +37,7 @@
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
@@ -54,7 +54,9 @@
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li>文字列の連結をするには (strcat)</li>
-          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
     </ul>
@@ -190,7 +192,7 @@ println str
 </code></pre>
 
 <h2 id="a0e23d0">Python
-<span class="article-date">2014/10/01</span></h2>
+<span class="article-date">2014/11/08</span></h2>
 
 <p>例</p>
 
@@ -220,12 +222,15 @@ print(12 + int("42"))
 "def"
 </code></pre>
 
-<p>この2行の文字列は下のと同じになる。</p>
+<p>この2行の文字列は下のものすべてと同じになる。</p>
 
-<pre><code>"abc" 'def'
+<pre><code>"abcdef"
+"abc" "def"
+"abc" 'def'
 </code></pre>
 
-<p>従って、以下のコードはぱっと見に反して4つの要素のリストになる。この類はわかりづらいバグの元になるので要注意。</p>
+<p>以下のコードはぱっと見に反して4つの要素のリストになる。
+2箇所が連結されている。この類はわかりづらいバグの元になるので要注意。</p>
 
 <pre><code>["1", "22", "333"
  "4444," "55555", "666666"]

@@ -56,7 +56,7 @@
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
-          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicodeの拡張領域の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
     </ul>
@@ -103,7 +103,7 @@ U+10000以上はサロゲートペアを使う必要がある。</dd>
 <span class="article-date">2014/09/28</span></h3>
 
 <p>Unicodeエスケープは、文字列リテラルの機能ではなく、
-Javaソースコードをコンパイラがトークンに分割する前の処理として機能する。従って、<code>"\u005C\"</code> というのはコンパイルエラーになる。
+Javaソースコードをコンパイラがトークンに分割する前の処理として機能する。従って、<code>"\u005C"</code> というのはコンパイルエラーになる。
 <code>\u005C</code> を <code>\</code> に変換してからトークンに分割しようとするが、
 <code>"\"</code> は文字列が終了していないためである。文字列リテラルではなく、コンパイラの前処理として働くUnicodeエスケープは、他の言語にはあまり見られない。</p>
 
@@ -177,15 +177,16 @@ UTF8でソースコードを書いている場合は、文字列もUTF8を16進�
 $str = "\xF0\x9F\x8C\x8D";
 </code></pre>
 
-<h2 id="ea15409">Python
-<span class="article-date">2014/11/06</span></h2>
+<h2 id="python">Python
+<span class="article-date">2014/11/08</span></h2>
 
 <p><code>'</code> で囲んだ文字列も <code>"</code> で囲んだ文字列も同じエスケープが使える。三重引用符(トリプルクオート) <code>'''</code>, <code>"""</code> で囲んでも同じ。</p>
 
 <p><code>'</code>, <code>"</code>, <code>'''</code>, <code>"""</code> の前に <code>r</code> または <code>R</code> をプレフィックスとしてつけると、
 raw文字列というものになり、バックスラッシュによるエスケープシーケンスが無効になる。ただ、<code>\'</code> または <code>\"</code> は <code>'</code>, <code>"</code> になったりせずに <code>\'</code>, <code>\"</code> のままだが、文字列リテルの終端の意味だけはなくなる。従ってraw文字列はバックスラッシュで終わる文字列を書くことができない。このようにraw文字列はPHPの <code>'</code> とは少しだけ挙動が異なる。</p>
 
-<p>Python2で<code>ur</code>(大文字小文字区別なく)を付けると、<code>\u</code>hhhh と <code>\U</code>hhhhhhhh のエスケープシーケンスだけは使える。</p>
+<p>Python2で<code>ur</code>(大文字小文字区別なく)を付けると、raw文字列であっても
+<code>\u</code>hhhh と <code>\U</code>hhhhhhhh のエスケープシーケンスだけは使える。</p>
 
 <dl>
   <dt><code>\0</code></dt>

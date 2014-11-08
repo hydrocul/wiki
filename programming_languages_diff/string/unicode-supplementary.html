@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Unicodeの拡張領域の取り扱い | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>Unicode拡張領域の取り扱い | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>Unicodeの拡張領域の取り扱い</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>Unicode拡張領域の取り扱い</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -54,8 +54,9 @@
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt/toInt)</a></li>
-          <li>Unicodeの拡張領域の取り扱い</li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li>Unicode拡張領域の取り扱い</li>
         </ul>
       </li>
     </ul>
@@ -66,7 +67,7 @@
 </div>
 
 <div id="content">
-  <h1 id="unicode-supplementary">Unicodeの拡張領域の取り扱い</h1>
+  <h1 id="unicode-supplementary">Unicode拡張領域の取り扱い</h1>
 
 <h2 id="d5690e6">Java / Scala
 <span class="article-date">2014/11/03</span></h2>
@@ -77,7 +78,7 @@
 
 <p>Scalaでの例</p>
 
-<pre><code>println("地球🌍");
+<pre><code>println("地球🌍"); // 3文字目は地球の絵文字
 // =&gt; 地球🌍
 
 val str = "\u5730\u7403\uD83C\uDF0D";
@@ -100,13 +101,74 @@ println(str3);
 // =&gt; 🌍
 </code></pre>
 
+<h2 id="ef8bec7">Python
+<span class="article-date">2014/11/08</span></h2>
+
+<p>Python3では文字列に直接拡張領域の文字を書くこともできるし、
+<code>\U00</code>hhhhhh の形式の<a href="escape.html#python">エスケープシーケンス</a>でも拡張領域の文字を使える。</p>
+
+<p>拡張領域の文字を気にすることなく各種関数をそのまま使える。</p>
+
+<p>Python3での例</p>
+
+<pre><code>str = "地球🌍" # 3文字目は地球の絵文字
+print(str)
+# =&gt; 地球🌍
+
+str = "\u5730\u7403\U0001F30D"
+print(str)
+# =&gt; 地球🌍
+
+print(len(str))
+# =&gt; 3
+
+str = "\U0001F30D"
+print(ord(str))
+# =&gt; 127757
+
+print(chr(127757))
+# =&gt; 🌍
+
+str = "\u5730\u7403\U0001F30E\U0001F30D"
+print(str.find("\U0001F30D"))
+# =&gt; 3
+</code></pre>
+
+<p>Python2ではUnicodeのエスケープを使えるのはUnicode文字列リテラル(<code>u"..."</code>)の中のみである。
+<code>chr</code>関数は8ビットを超えるUnicode文字を扱えず、代わりに <code>unichr</code> 関数を使う必要がある。</p>
+
+<p>Python2での例</p>
+
+<pre><code>str = "地球🌍" # 3文字目は地球の絵文字
+print(str)
+# =&gt; 地球🌍
+
+str = u"\u5730\u7403\U0001F30D"
+print(str)
+# =&gt; 地球🌍
+
+print(len(str))
+# =&gt; 3
+
+str = u"\U0001F30D"
+print(ord(str))
+# =&gt; 127757
+
+print(unichr(127757))
+# =&gt; 🌍
+
+str = u"\u5730\u7403\U0001F30E\U0001F30D"
+print(str.find(u"\U0001F30D"))
+# =&gt; 3
+</code></pre>
+
 <h2 id="fe52a68">Ruby
 <span class="article-date">2014/11/03</span></h2>
 
 <p>文字列には直接拡張領域の文字を書くこともできるし、
 <code>\u{</code>hhhhh<code>}</code> の形式の<a href="escape.html#ruby">エスケープシーケンス</a>でも拡張領域の文字を使える。</p>
 
-<pre><code>p "地球🌍"
+<pre><code>p "地球🌍" # 3文字目は地球の絵文字
 # =&gt; "地球🌍"
 p "\u{5730 7403 1F30D}"
 # =&gt; "地球🌍"
@@ -133,7 +195,7 @@ p "\u{5730 7403 1F30E 1F30D}".index("\u{1F30D}")
 <pre><code>use utf8;
 use Encode qw/encode_utf8/;
 
-print encode_utf8("地球🌍\n");
+print encode_utf8("地球🌍\n"); # 3文字目は地球の絵文字
 # =&gt; 地球🌍
 print encode_utf8("\x{5730}\x{7403}\x{1F30D}\n");
 # =&gt; 地球🌍

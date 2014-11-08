@@ -109,6 +109,32 @@ echo "OK\n";
 fputs(STDERR, "Error\n");
 </code></pre>
 
+<h2 id="71e888b">Python
+<span class="article-date">2014/11/08</span></h2>
+
+<p>Python2での例</p>
+
+<pre><code>print "OK"  # 最後に改行される
+print "OK", # 最後に改行されないが、最後に空白が出力されてしまう
+</code></pre>
+
+<p>Python2では <code>print</code> は予約語であり、関数ではなく文の扱いだったので、括弧を使わずにこのような書き方が可能であるが、
+Python3では関数になっている。</p>
+
+<p>Python3での例</p>
+
+<pre><code>print("OK")  # 最後に改行される
+</code></pre>
+
+<p>最後に改行や空白が出力されてしまうのを抑制するには <code>sys.stdout.write</code> を使うしかない。</p>
+
+<p>Python2/Python3での例</p>
+
+<pre><code>import sys
+
+sys.stdout.write("OK\n")
+</code></pre>
+
 <h2 id="dfe2647">Ruby
 <span class="article-date">2014/01/19</span></h2>
 
