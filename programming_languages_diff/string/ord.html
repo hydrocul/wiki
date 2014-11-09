@@ -54,8 +54,9 @@
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt/toInt)</a></li>
-          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicodeの拡張領域の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
     </ul>
@@ -83,6 +84,23 @@ println('あ'.asInstanceOf[Int]) // =&gt; 12354
 </code></pre>
 
 <p>Unicodeの拡張領域の文字はJVM上では2つのchar型として表現されるので、この方法では拡張領域に対応できない。</p>
+
+<h2 id="8965784">PHP
+<span class="article-date">2014/11/09</span></h2>
+
+<p><code>ord</code>関数を利用すればよいが、これは実際には文字列をバイナリの配列と見たときの最初の8ビットを整数にしているだけなので、マルチバイトには対応していない。</p>
+
+<pre><code>echo ord('A');
+// =&gt; 65
+
+// UTF-8の環境で実行したとき
+echo ord('あ');
+// =&gt; 227
+// `あ` がUTF-8では227,129,130という3バイトになるため
+</code></pre>
+
+<p><code>ord</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.ord.php" target="_blank">http://php.net/manual/ja/function.ord.php</a></p>
 
 <h2 id="89080a2">Python
 <span class="article-date">2014/05/30</span></h2>

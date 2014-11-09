@@ -54,7 +54,9 @@
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
     </ul>
@@ -66,21 +68,44 @@
 
 <div id="content">
   <h1 id="chr">文字コードの数字から文字に変換するには
-<span class="article-date">2014/09/28</span></h1>
+<span class="article-date">2014/11/09</span></h1>
 
 <p>Unicodeの符号位置の数字から、該当する文字を取得する、各プログラミング言語での方法。例えば<code>65</code>という整数から<code>'A'</code>という文字を取得したい場合。</p>
+
+<p>逆に文字から符号位置を取得するには<a href="ord.html"><code>ord</code></a>参照。</p>
 
 <h2 id="dcf33ad">Scala
 <span class="article-date">2014/04/18</span></h2>
 
 <p>整数を <code>Char</code> にキャストすればよい。</p>
 
-<pre><code>println(65.asInstanceOf[Char]) // =&gt; A
-println(12354.asInstanceOf[Char]) // =&gt; あ
+<pre><code>println(65.asInstanceOf[Char])
+// =&gt; A
+
+println(12354.asInstanceOf[Char])
+// =&gt; あ
+</code></pre>
+
+<h2 id="0599e0e">Groovy
+<span class="article-date">2014/11/08</span></h2>
+
+<p>整数を <code>char</code> にキャストすればよい。</p>
+
+<pre><code>println((char)65)
+// =&gt; A
+
+println((char)12354)
+// =&gt; あ
+</code></pre>
+
+<p>16ビットを超える文字は<code>char</code>では表現できず、<code>String</code>を生成する必要がある。</p>
+
+<pre><code>println(new String([127757] as int[], 0, 1))
+// =&gt; 🌍
 </code></pre>
 
 <h2 id="683f2e9">PHP
-<span class="article-date">2013/11/26</span></h2>
+<span class="article-date">2014/11/09</span></h2>
 
 <pre><code>echo chr(65); // =&gt; A
 </code></pre>
@@ -88,7 +113,13 @@ println(12354.asInstanceOf[Char]) // =&gt; あ
 <p>残念ながらUnicodeはサポートされていない。</p>
 
 <p><code>chr</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.chr.php" target="_blank">http://www.php.net/manual/ja/function.chr.php</a></p>
+<a href="http://php.net/manual/ja/function.chr.php" target="_blank">http://php.net/manual/ja/function.chr.php</a></p>
+
+<p>HTML出力でブラウザにその文字が表示されればよいのであれば、HTMLの文字参照をすればよい。</p>
+
+<pre><code>$c = 12354;
+echo "&amp;#$c"
+</code></pre>
 
 <h2 id="df04c73">Python
 <span class="article-date">2014/05/16</span></h2>
