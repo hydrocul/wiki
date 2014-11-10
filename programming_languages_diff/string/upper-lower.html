@@ -55,7 +55,8 @@
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
-          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicodeの拡張領域の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
     </ul>
@@ -110,10 +111,58 @@ $lowercase_str = strtolower($str)
 </code></pre>
 
 <h2 id="1799318">Python
-<span class="article-date">2014/11/02</span></h2>
+<span class="article-date">2014/11/09</span></h2>
 
-<pre><code>uppercase_str = str.upper()
-lowercase_str = str.lower()
+<p><code>upper</code>メソッド、<code>lower</code>メソッドを使う。
+1文字目を大文字、2文字目以降を小文字にするには、
+<code>title</code>メソッドを使うとちゃんとUnicodeの仕様に従った変換をしてくれる。</p>
+
+<p>Python3での例</p>
+
+<pre><code>str = "heLLO"
+
+print(str.upper());
+# =&gt; HELLO
+
+print(str.title());
+# =&gt; Hello
+
+print(str.lower());
+# =&gt; hello
+
+str = "\u00DF" # ß
+
+print(str.upper());
+# =&gt; SS
+
+print(str.title());
+# =&gt; Ss
+
+print(str.lower());
+# =&gt; ß
+
+str = "\uFB01" # ﬁ
+
+print(str.upper());
+# =&gt; FI
+
+print(str.title());
+# =&gt; Fi
+
+print(str.lower());
+# =&gt; ﬁ
+
+str = "\u03A3\u03A3\u03A3" # ΣΣΣ
+
+print(str.upper());
+# =&gt; ΣΣΣ
+
+# Σの小文字は語末とそれ以外とで形が違う
+print(str.title());
+# =&gt; Σσς
+
+print(str.lower());
+# =&gt; σσς
 </code></pre>
 
 <h2 id="543e568">Ruby

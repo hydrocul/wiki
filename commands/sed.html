@@ -224,7 +224,7 @@ sed 1,5\!d
 <code>p</code>コマンドの出力のみになる。</p>
 
 <h2 id="6c6098f">アドレス
-<span class="article-date">2014/09/22</span></h2>
+<span class="article-date">2014/11/09</span></h2>
 
 <p>コマンドの実行対象行を指定する行番号をアドレスという。行番号だけでなくや正規表現で指定して、その正規表現にマッチする行を実行対象とすることもできる。</p>
 
@@ -263,6 +263,10 @@ sed -n -e '\%xxx%p'
 # 正規表現にマッチする行から3行分を出力
 # 正規表現にマッチするごとに最低3行が出力される
 sed -n -e /xxx/,+3p
+
+# 正規表現にマッチする行から最後までを出力
+# $ が最後という意味になる
+sed -n -e '/xxx/,$p'
 
 # 20行目から23行目までの4行分を出力
 sed -n -e 20,+3p
@@ -381,8 +385,10 @@ $ echo 'a|b' | sed -E 's/a\|b/OK/g'
 OK
 </code></pre>
 
-<h2 id="f63e1b3">正規表現の中で ‘{}’ を使うには
-<span class="article-date">2014/10/15</span></h2>
+<h2 id="a94f4da">HOWTO</h2>
+
+<h3 id="9c4c9bd">正規表現の中で ‘{}’ を使うには
+<span class="article-date">2014/10/15</span></h3>
 
 <p>正規表現で文字数を指定する <code>{}</code> は上で説明したとおり <code>\</code> でエスケープするか、オプション <code>-E</code> または <code>-r</code> を付ける必要がある。</p>
 
@@ -394,8 +400,8 @@ sed "s/x\{4\}/XXXX/g"     # =&gt; OK
 sed "s/x\\\{4\\\}/XXXX/g" # =&gt; NG
 </code></pre>
 
-<h2 id="group">正規表現の中の <code>()</code> で囲まれた部分を使って置換するには
-<span class="article-date">2014/10/18</span></h2>
+<h3 id="group">正規表現の中の <code>()</code> で囲まれた部分を使って置換するには
+<span class="article-date">2014/10/18</span></h3>
 
 <p>置換後の文字列には、<code>\1</code>, <code>\2</code> などを指定することで、正規表現にマッチしたグループに置き換えられる。</p>
 
@@ -412,15 +418,15 @@ echo "bc abcc" | sed -E 's/b(c*)/\1/g'
 <p>正規表現の中の <code>()</code> には <code>\</code> でエスケープしないといけない。 
 <code>-E</code> をつけると、上で説明したとおり拡張正規表現になってエスケープが不要になる。</p>
 
-<h2 id="a7c5547">タブ文字を全置換するには
-<span class="article-date">2013/06/17</span></h2>
+<h3 id="a79f8f1">タブ文字を全置換するには
+<span class="article-date">2013/06/17</span></h3>
 
 <pre><code># タブ文字をスペースに全置換
 sed '/\t/ /g'
 </code></pre>
 
-<h2 id="3c28adf">正規表現にマッチする行を削除するには
-<span class="article-date">2013/06/17</span></h2>
+<h3 id="1bcb217">正規表現にマッチする行を削除するには
+<span class="article-date">2013/06/17</span></h3>
 
 <pre><code># '2013' が含まれる行を削除
 sed '/^2013/d'
@@ -429,8 +435,8 @@ sed '/^2013/d'
 sed '/^$/d'
 </code></pre>
 
-<h2 id="9fce4d9">正規表現にマッチする行を抽出するには
-<span class="article-date">2013/09/25</span></h2>
+<h3 id="fbbb15e">正規表現にマッチする行を抽出するには
+<span class="article-date">2013/09/25</span></h3>
 
 <pre><code># '2013' が含まれる行のみを出力
 sed '/^2013/!d'
@@ -441,15 +447,15 @@ sed -n '/^2013/p'
 sed -n '/^$/p' | wc -l
 </code></pre>
 
-<h2 id="85210e2">1つ以上の連続するスペースまたはタブ文字を1つのスペースに全置換するには
-<span class="article-date">2014/08/21</span></h2>
+<h3 id="4dac891">1つ以上の連続するスペースまたはタブ文字を1つのスペースに全置換するには
+<span class="article-date">2014/08/21</span></h3>
 
 <pre><code># タブ文字をスペースに全置換
 sed -E 's/[\t ]+/ /g'
 </code></pre>
 
-<h2 id="99dcc4b">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには
-<span class="article-date">2014/10/15</span></h2>
+<h3 id="3d97fb0">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには
+<span class="article-date">2014/10/15</span></h3>
 
 <p>GNU sedであれば、<code>-i</code> オプションを付ければ、ファイルを直接書き換えることができる。</p>
 
@@ -467,8 +473,8 @@ sed -E 's/[\t ]+/ /g'
 
 <p>BSDやMacに入っているsedはGNU sedではなく、<code>-i</code> オプションがないらしい。</p>
 
-<h2 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換するには
-<span class="article-date">2014/10/07</span></h2>
+<h3 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換するには
+<span class="article-date">2014/10/07</span></h3>
 
 <p>GNU sedがあれば、置換対象のファイルを <a href="find.html"><code>find</code></a> などでリストアップして、<code>sed</code>の<code>-i</code>オプションを使う。</p>
 
@@ -493,16 +499,16 @@ sed -E 's/[\t ]+/ /g'
 <p>ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法<br />
 <a href="http://d.hatena.ne.jp/hydrocul/20111211/1323595015" target="_blank">http://d.hatena.ne.jp/hydrocul/20111211/1323595015</a></p>
 
-<h2 id="843a0db">2つ以上の全置換を一括で実行するには
-<span class="article-date">2013/06/17</span></h2>
+<h3 id="538fd69">2つ以上の全置換を一括で実行するには
+<span class="article-date">2013/06/17</span></h3>
 
 <p><code>-e</code> で2つ以上の全置換を実行できる。</p>
 
 <pre><code>cat ファイル名 | sed -e 's/置換前/置換後/g' -e 's/別の置換前/別の置換後/g'
 </code></pre>
 
-<h2 id="bc7f63d">行番号で指定する範囲のみを抽出するには
-<span class="article-date">2013/06/14</span></h2>
+<h3 id="6503925">行番号で指定する範囲のみを抽出するには
+<span class="article-date">2013/06/14</span></h3>
 
 <pre><code># 2行目から4行目を抽出(4行目を含む)
 cat ファイル名 | sed -n 2,4p
@@ -516,8 +522,8 @@ cat ファイル名 | sed -n '2,$p'
 cat ファイル名 | sed -n 2,\$p
 </code></pre>
 
-<h2 id="c845011">行番号で指定する範囲のみを削除するには
-<span class="article-date">2013/06/14</span></h2>
+<h3 id="62fe470">行番号で指定する範囲のみを削除するには
+<span class="article-date">2013/06/14</span></h3>
 
 <pre><code># 2行目から4行目を削除(4行目も削除)
 cat ファイル名 | sed -e 2,4d
@@ -536,8 +542,8 @@ cat ファイル名 | head -n 1
 cat ファイル名 | sed -e \$d
 </code></pre>
 
-<h2 id="1f85bb3">パスなどを全置換する際にスラッシュをエスケープするのが面倒な場合
-<span class="article-date">2013/06/18</span></h2>
+<h3 id="c83bda2">パスなどを全置換する際にスラッシュをエスケープするのが面倒な場合
+<span class="article-date">2013/06/18</span></h3>
 
 <p><code>s/.../..../g</code> の記法のスラッシュは記号なら比較的なんでもよくて、3つ同じ記号を使っていることに意味があるので、<code>s@...@...@g</code> のようにも書ける。</p>
 
@@ -546,8 +552,8 @@ cat ファイル名 | sed -e \$d
 <pre><code>cat ファイル名 | sed -e 's@/etc/foo/bar@/home/my/etc/foo/bar@g'
 </code></pre>
 
-<h2 id="5e23def">ログファイルなどの <code>tail -f</code> の出力をsedで処理しながら表示するには
-<span class="article-date">2013/07/09</span></h2>
+<h3 id="d51903a">ログファイルなどの <code>tail -f</code> の出力をsedで処理しながら表示するには
+<span class="article-date">2013/07/09</span></h3>
 
 <pre><code>tail -f access_log | sed --unbuffered ...
 # または
@@ -556,8 +562,8 @@ tail -f access_log | sed -u ...
 
 <p><code>--unbuffered</code> または <code>-u</code> を付けないとsedがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
 
-<h2 id="ecac355">空行を削除するには
-<span class="article-date">2014/03/17</span></h2>
+<h3 id="bf49847">空行を削除するには
+<span class="article-date">2014/03/17</span></h3>
 
 <p><code>^$</code> という正規表現と、<code>d</code>での削除コマンドを使う。</p>
 
@@ -576,8 +582,8 @@ tail -f access_log | sed -u ...
 
 <p>(違いは調べていない、、、)</p>
 
-<h2 id="128f51e">N行おきに抽出するには
-<span class="article-date">2014/09/05</span></h2>
+<h3 id="0ceaeb5">N行おきに抽出するには
+<span class="article-date">2014/09/05</span></h3>
 
 <pre><code># 10行目、20行目、、、と10行おきに抽出
 cat ファイル名 | sed -ne '0~10p'
