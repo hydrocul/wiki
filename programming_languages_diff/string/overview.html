@@ -36,10 +36,10 @@
           <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
-          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith, endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
-          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
+          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
@@ -48,7 +48,7 @@
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
@@ -56,7 +56,7 @@
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
-          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicodeの拡張領域の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
     </ul>
@@ -143,9 +143,11 @@ echo $str;
 </code></pre>
 
 <h2 id="ccd88c1">Python
-<span class="article-date">2014/03/12</span></h2>
+<span class="article-date">2014/11/12</span></h2>
 
-<p>Pythonの文字列は不変オブジェクトで、単なるバイト列の文字列とUnicode文字列の2種類ある。</p>
+<p>Pythonの文字列は不変オブジェクトで、単なるバイト列とUnicode文字列(Unicodeコードポイントの列)の2種類の文字列がある。</p>
+
+<p>長さの情報を持っているため、終端文字を考えなくてよく、文字列の途中に <code>\x00</code> を含めることもできる。</p>
 
 <p>Python2ではデフォルトはバイト列になる。<code>u"..."</code> と書くとUnicode文字列になる。</p>
 
@@ -161,7 +163,9 @@ echo $str;
 <code>'</code> または <code>"</code> で囲む。または三重引用符(トリプルクオート) <code>'''</code> または <code>"""</code> で囲む。トリプルクオートの中には改行をそのまま含めることもできる。複数行の<a href="../comment.html#python">コメント</a>をトリプルクオートの文字列で書くことがよくある。</p>
 
 <p><code>'</code>, <code>"</code>, <code>'''</code>, <code>"""</code> の前に <code>r</code> または <code>R</code> をプレフィックスとしてつけると、
-raw文字列というものになり、バックスラッシュによるエスケープシーケンスが無効になる。</p>
+raw文字列というものになり、バックスラッシュによるエスケープシーケンスの多くが無効になる。</p>
+
+<p><a href="escape.html#python">エスケープシーケンス</a>も参照。</p>
 
 <p>文字列リテラル | Python 2.7 documentation<br />
 <a href="http://docs.python.jp/2/reference/lexical_analysis.html#strings" target="_blank">http://docs.python.jp/2/reference/lexical_analysis.html#strings</a></p>
