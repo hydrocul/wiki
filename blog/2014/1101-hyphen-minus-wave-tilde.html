@@ -58,62 +58,80 @@ S字カーブを超えて複雑な曲線も除いています。ただ、文字�
 
 <p>これらで全部かどうかはわかりません。自分が目で探しただけなので、見落としもあると思います。</p>
 
-<h2 id="16c77a9">ハイフン/マイナス</h2>
+<h2 id="16c77a9">ハイフン/マイナス
+<span class="article-date">2014/11/15</span></h2>
 
-<p>ハイフンとマイナスの両方の意味で使われるもの。</p>
+<p>ハイフンとマイナスの両方の意味で使われるものです。</p>
+
+<p>Unicodeでは、同じ形の文字でも別の意味や使われ方をするものは別の文字として区別されます。漢字は国を超えて統合されていますが、ひらがなの”へ”とカタカナの”ヘ”は区別されていますよね。同様にハイフンとマイナスも本来別の文字になりますが、Unicode以前から使われていた文字コードの多くで
+0x2Dがハイフンとマイナスの両方の意味で使われていましたので、Unicodeでは互換性のためにU+002Dとそれに関連するいくつかはハイフンとマイナスの両方の意味の文字になっており、引き続き両方の意味で広く使われています。</p>
 
 <p><a href="http://unicode-table.com/en/002D/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">-</a> U+002D Hyphen-Minus: よく使われる普通の半角ハイフンマイナス<br />
 <a href="http://unicode-table.com/en/FE63/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">﹣</a> U+FE63 Small Hyphen-Minus: 小さいハイフンマイナス。NFKD/NFKC正規化で U+002D<br />
 <a href="http://unicode-table.com/en/FF0D/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">－</a> U+FF0D Fullwidth Hyphen-Minus: 全角ハイフンマイナス。NFKD/NFKC正規化で U+002D  </p>
 
-<h2 id="d91fdeb">ハイフン</h2>
+<h2 id="d91fdeb">ハイフン
+<span class="article-date">2014/11/15</span></h2>
 
-<p>マイナスではなくもっぱらハイフンの意味で使われるもの。</p>
+<p>U+002Dが過去との互換性のためにハイフンとマイナスの両方の意味を持つのに対して、以下はもっぱらハイフンの意味を持ちます。</p>
 
-<p><a href="http://unicode-table.com/en/00AD/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">­</a> U+00AD Soft Hyphen: <a href="http://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%95%E3%83%88%E3%83%8F%E3%82%A4%E3%83%95%E3%83%B3" target="_blank">ソフトハイフン</a><br />
-<a href="http://unicode-table.com/en/2010/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">‐</a> U+2010 Hyphen: ハイフン。U+002Dがハイフンとマイナスの両方の意味に使われるのに対して、これはハイフンのみの意味<br />
-<a href="http://unicode-table.com/en/2011/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">‑</a> U+2011 Non-Breaking Hyphen: 折り返しをしないハイフン。NFKD/NFKC正規化で U+2010<br />
+<p>ソフトハイフンは、普段は表示されない見えない文字ですが、単語の中に埋め込むことでここで折り返しをしてもよいことを示し、折り返された場合にハイフンが表示されます。</p>
+
+<p><a href="http://unicode-table.com/en/00AD/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">­</a> U+00AD Soft Hyphen: ソフトハイフン<br />
+<a href="http://unicode-table.com/en/2010/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">‐</a> U+2010 Hyphen: U+002Dとは別の普通のハイフン<br />
+<a href="http://unicode-table.com/en/2011/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">‑</a> U+2011 Non-Breaking Hyphen: 折り返しをしないハイフン。NFKD/NFKC正規化でU+2010になる<br />
 <a href="http://unicode-table.com/en/2043/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">⁃</a> U+2043 Hyphen Bullet: ビュレットとして使うハイフン(ビューレットとは箇条書きの先頭につける記号)  </p>
 
-<h2 id="467c40a">マイナス</h2>
+<p>その他にヘブライ語のハイフン(U+05BE)というのもあります。その他の言語の文字として別途下の方に掲げております。</p>
 
-<p>ハイフンではなくもっぱらマイナスの意味で使われるもの。</p>
+<h2 id="467c40a">マイナス
+<span class="article-date">2014/11/15</span></h2>
+
+<p>ハイフンではなくもっぱらマイナスの意味で使われるものです。</p>
 
 <p><a href="http://unicode-table.com/en/02D7/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">˗</a> U+02D7 Modifier Letter Minus Sign<br />
-<a href="http://unicode-table.com/en/2212/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">−</a> U+2212 Minus Sign: マイナス。U+002Dがハイフンとマイナスの両方の意味に使われるのに対して、これはマイナスのみの意味<br />
+<a href="http://unicode-table.com/en/2212/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">−</a> U+2212 Minus Sign: U+002Dとは別の普通のマイナス<br />
 <a href="http://unicode-table.com/en/2796/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">➖</a> U+2796 Heavy Minus Sign: 太いマイナス記号  </p>
 
-<h2 id="9e83a92">ダッシュ</h2>
+<h2 id="9e83a92">ダッシュ
+<span class="article-date">2014/11/15</span></h2>
+
+<p>Unicode以前のISO-8859-1などの文字コードでは0x2Dを単独または2つ並べてダッシュとして使うこともありますが、ダッシュは本来ハイフン/マイナスとは違う意味なので、Unicodeでは別の文字として扱われます。</p>
+
+<p>ShiftJISの全角ダッシュ(0x815C)がUnicodeとの変換でよく混乱しているのは、ここにあるU+2014とU+2015です。</p>
 
 <p><a href="http://unicode-table.com/en/2012/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">‒</a> U+2012 Figure Dash<br />
 <a href="http://unicode-table.com/en/2013/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">–</a> U+2013 En Dash: “n”と同じ横幅のダッシュ<br />
-<a href="http://unicode-table.com/en/2014/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">—</a> U+2014 Em Dash: “m”と同じ横幅のダッシュ。Shift-JISの全角ダッシュ(\x815C)がこれか次のU+2015にマッピング<br />
-<a href="http://unicode-table.com/en/2015/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">―</a> U+2015 Horizontal Bar: クォーテーションダッシュ。Shift-JISの全角ダッシュ(\x815C)がこれか上のU+2014にマッピング<br />
+<a href="http://unicode-table.com/en/2014/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">—</a> U+2014 Em Dash: “m”と同じ横幅のダッシュ<br />
+<a href="http://unicode-table.com/en/2015/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">―</a> U+2015 Horizontal Bar: クォーテーションダッシュ<br />
 <a href="http://unicode-table.com/en/23AF/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">⎯</a> U+23AF Horizontal Line Extension<br />
 <a href="http://unicode-table.com/en/2E3A/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">⸺</a> U+2E3A Two-Em Dash: “m”の2倍の横幅のダッシュ<br />
 <a href="http://unicode-table.com/en/2E3B/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">⸻</a> U+2E3B Three-Em Dash: “m”の3倍の横幅のダッシュ<br />
-<a href="http://unicode-table.com/en/FE58/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">﹘</a> U+FE58 Small Em Dash: NFKD/NFKC正規化で U+2014  </p>
+<a href="http://unicode-table.com/en/FE58/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">﹘</a> U+FE58 Small Em Dash: NFKD/NFKC正規化でU+2014になる  </p>
 
-<h2 id="c8e5a2a">その他横線</h2>
+<h2 id="c8e5a2a">その他横線
+<span class="article-date">2014/11/15</span></h2>
 
-<p><a href="http://unicode-table.com/en/23E4/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">⏤</a> U+23E4 Straightness<br />
-<a href="http://unicode-table.com/en/268A/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">⚊</a> U+268A Monogram for Yang<br />
-<a href="http://unicode-table.com/en/1D116/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𝄖</a> U+1D116 Musical Symbol One-Line Staff<br />
-<a href="http://unicode-table.com/en/1D17D/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𝅽</a> U+1D17D Musical Symbol Combining Tenuto<br />
-<a href="http://unicode-table.com/en/1D360/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𝍠</a> U+1D360 Counting Rod Unit Digit One: 自分の環境では縦棒に見えるのですが、、、  </p>
+<p><a href="http://unicode-table.com/en/23E4/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">⏤</a> U+23E4 Straightness: 直線を表す技術的な記号(として本当に使われるのか不明)<br />
+<a href="http://unicode-table.com/en/268A/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">⚊</a> U+268A Monogram for Yang: 中国の易経で使われる符号<br />
+<a href="http://unicode-table.com/en/1D116/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𝄖</a> U+1D116 Musical Symbol One-Line Staff: 五線譜にある5つの横線またはその上や下に書き足す横線(たぶん)<br />
+<a href="http://unicode-table.com/en/1D17D/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𝅽</a> U+1D17D Musical Symbol Combining Tenuto: テヌート。音符の上や下に書き足す横線で、その音を十分に保つ印<br />
+<a href="http://unicode-table.com/en/1D369/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𝍩</a> U+1D369 Counting Rod Tens Digit One: 中国や日本の古くで計算に使われていた算木の10。似たものに算木の1(U+1D360)がありこれは縦棒。Unicode ConsortiumのPDFでは1が横で10が縦なのだが、算木では1を縦、10を横にすることが多いようで、多くのフォントも10を横線にしている。ここでは10を横線ということにした</p>
 
-<h2 id="75d7459">罫線</h2>
+<h2 id="75d7459">罫線
+<span class="article-date">2014/11/08</span></h2>
 
-<p><a href="http://unicode-table.com/en/2500/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">─</a> U+2500 Box Drawings Light Horizontal: 罫線<br />
-<a href="http://unicode-table.com/en/2501/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">━</a> U+2501 Box Drawings Heavy Horizontal: 罫線<br />
-<a href="http://unicode-table.com/en/2574/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">╴</a> U+2574 Box Drawings Light Left: 罫線<br />
-<a href="http://unicode-table.com/en/2576/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">╶</a> U+2576 Box Drawings Light Right: 罫線<br />
-<a href="http://unicode-table.com/en/2578/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">╸</a> U+2578 Box Drawings Heavy Left: 罫線<br />
-<a href="http://unicode-table.com/en/257A/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">╺</a> U+257A Box Drawings Heavy Right: 罫線<br />
-<a href="http://unicode-table.com/en/257C/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">╼</a> U+257C Box Drawings Light Left and Heavy Right: 罫線<br />
-<a href="http://unicode-table.com/en/257E/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">╾</a> U+257E Box Drawings Heavy Left and Light Right: 罫線  </p>
+<p><a href="http://unicode-table.com/en/2500/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">─</a> U+2500 Box Drawings Light Horizontal<br />
+<a href="http://unicode-table.com/en/2501/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">━</a> U+2501 Box Drawings Heavy Horizontal<br />
+<a href="http://unicode-table.com/en/2574/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">╴</a> U+2574 Box Drawings Light Left<br />
+<a href="http://unicode-table.com/en/2576/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">╶</a> U+2576 Box Drawings Light Right<br />
+<a href="http://unicode-table.com/en/2578/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">╸</a> U+2578 Box Drawings Heavy Left<br />
+<a href="http://unicode-table.com/en/257A/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">╺</a> U+257A Box Drawings Heavy Right<br />
+<a href="http://unicode-table.com/en/257C/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">╼</a> U+257C Box Drawings Light Left and Heavy Right<br />
+<a href="http://unicode-table.com/en/257E/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">╾</a> U+257E Box Drawings Heavy Left and Light Right  </p>
 
-<h2 id="3988938">上付き横線(ハイフン/マイナスを含む)</h2>
+<h2 id="3988938">上付き横線(ハイフン/マイナスを含む)
+<span class="article-date">2014/11/08</span></h2>
 
 <p><a href="http://unicode-table.com/en/00AF/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">¯</a> U+00AF Macron: NFKD/NFKC正規化で U+0020 U+0304<br />
 <a href="http://unicode-table.com/en/02C9/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ˉ</a> U+02C9 Modifier Letter Macron<br />
@@ -124,7 +142,8 @@ S字カーブを超えて複雑な曲線も除いています。ただ、文字�
 <a href="http://unicode-table.com/en/2594/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">▔</a> U+2594 Upper One Eighth Block: ブロック要素<br />
 <a href="http://unicode-table.com/en/FFE3/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">￣</a> U+FFE3 Fullwidth Macron。NFKD/NFKC正規化で U+0020 U+0304  </p>
 
-<h2 id="2baf4da">下付き横線(ハイフン/マイナスを含む)</h2>
+<h2 id="2baf4da">下付き横線(ハイフン/マイナスを含む)
+<span class="article-date">2014/11/08</span></h2>
 
 <p><a href="http://unicode-table.com/en/005F/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">_</a> U+005F Low Line: 半角アンダースコア(アンダーライン/アンダーバー/下線)<br />
 <a href="http://unicode-table.com/en/02CD/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ˍ</a> U+02CD Modifier Letter Low Macron<br />
@@ -137,7 +156,8 @@ S字カーブを超えて複雑な曲線も除いています。ただ、文字�
 <a href="http://unicode-table.com/en/2E0F/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">⸏</a> U+2E0F Paragraphos<br />
 <a href="http://unicode-table.com/en/FF3F/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">＿</a> U+FF3F Fullwidth Low Line: 全角アンダースコア(アンダーライン/アンダーバー/下線)。NFKD/NFKC正規化で U+005F  </p>
 
-<h2 id="ac564f1">横線の結合文字</h2>
+<h2 id="ac564f1">横線の結合文字
+<span class="article-date">2014/11/08</span></h2>
 
 <p><a href="http://unicode-table.com/en/0304/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">̄</a> U+0304 Combining Macron: 結合文字 <span style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%;">ā</span><br />
 <a href="http://unicode-table.com/en/0305/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">̅</a> U+0305 Combining Overline: 結合文字 <span style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%;">a̅</span><br />
@@ -152,22 +172,29 @@ S字カーブを超えて複雑な曲線も除いています。ただ、文字�
 <a href="http://unicode-table.com/en/FE25/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">︥</a> U+FE25 Combining Macron Right Half<br />
 <a href="http://unicode-table.com/en/FE26/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">︦</a> U+FE26 Combining Conjoining Macron  </p>
 
-<h2 id="7491554">仮名長音符</h2>
+<h2 id="7491554">仮名長音符
+<span class="article-date">2014/11/15</span></h2>
+
+<p>カタカナまたはひらがなで伸ばす音です。普通の全角の長音記号の他に、ShiftJISなどにある半角カナとの互換性のために用意されているものがあります。</p>
 
 <p><a href="http://unicode-table.com/en/30FC/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ー</a> U+30FC Katakana-Hiragana Prolonged Sound Mark: カタカナの長音記号(長音符)<br />
-<a href="http://unicode-table.com/en/FF70/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ｰ</a> U+FF70 Halfwidth Katakana-Hiragana Prolonged Sound Mark: 半角カタカナ長音記号(長音符)。NFKD/NFKC正規化で U+30FC  </p>
+<a href="http://unicode-table.com/en/FF70/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ｰ</a> U+FF70 Halfwidth Katakana-Hiragana Prolonged Sound Mark: 半角カタカナ長音記号(長音符)。NFKD/NFKC正規化で全角の長音記号(U+30FC)になる  </p>
 
-<h2 id="48cd205">その他の東アジアの横線のような文字</h2>
+<h2 id="48cd205">その他の東アジアの横線のような文字
+<span class="article-date">2014/11/15</span></h2>
 
-<p><a href="http://unicode-table.com/en/1173/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ᅳ</a> U+1173 Hangul Jungseong Eu: ハングルのウの発音<br />
-<a href="http://unicode-table.com/en/2F00/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">⼀</a> U+2F00 Kangxi Radical One: 漢字の部首としての”一”。NFKD/NFKC正規化で U+4E00<br />
-<a href="http://unicode-table.com/en/3161/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ㅡ</a> U+3161 Hangul Letter Eu: ハングルのウの発音。NFKD/NFKC正規化で U+1173<br />
-<a href="http://unicode-table.com/en/3192/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">㆒</a> U+3192 Ideographic Annotation One Mark: 日本での漢文の返り点”一”。NFKD/NFKC正規化で U+4E00<br />
+<p>単独で普通の文字となりえるのは漢数字の”一”だけだと思いますが、その他に漢字の部首、漢字の筆画、ハングル字母、漢文の返り点があります。</p>
+
+<p><a href="http://unicode-table.com/en/1173/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ᅳ</a> U+1173 Hangul Jungseong Eu: ハングルのウの発音を表す字母<br />
+<a href="http://unicode-table.com/en/2F00/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">⼀</a> U+2F00 Kangxi Radical One: 漢字の部首としての”一”。NFKD/NFKC正規化でU+4E00になる<br />
+<a href="http://unicode-table.com/en/3161/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ㅡ</a> U+3161 Hangul Letter Eu: ハングルのウの発音を表す字母。NFKD/NFKC正規化でU+1173になる<br />
+<a href="http://unicode-table.com/en/3192/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">㆒</a> U+3192 Ideographic Annotation One Mark: 日本での漢文の返り点”一”。NFKD/NFKC正規化でU+4E00になる<br />
 <a href="http://unicode-table.com/en/31D0/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">㇐</a> U+31D0 Cjk Stroke H: 漢字の筆画としての”一”<br />
 <a href="http://unicode-table.com/en/4E00/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">一</a> U+4E00 CJK Unified Ideograph-4E00: 漢数字の”一”<br />
-<a href="http://unicode-table.com/en/FFDA/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ￚ</a> U+FFDA Halfwidth Hangul Letter Eu: ハングルのウの発音の半角。NFKD/NFKC正規化で U+1173  </p>
+<a href="http://unicode-table.com/en/FFDA/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ￚ</a> U+FFDA Halfwidth Hangul Letter Eu: ハングルのウの発音の字母の半角。NFKD/NFKC正規化でU+1173になる  </p>
 
-<h2 id="71a1c0d">その他の言語の横線のような文字</h2>
+<h2 id="71a1c0d">その他の言語の横線のような文字
+<span class="article-date">2014/11/08</span></h2>
 
 <p><a href="http://unicode-table.com/en/05BE/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none; direction:ltr; unicode-bidi:bidi-override;">־</a> U+05BE Hebrew Punctuation Maqaf: ヘブライ語でのハイフン  </p>
 
@@ -214,7 +241,7 @@ S字カーブを超えて複雑な曲線も除いています。ただ、文字�
 <a href="http://unicode-table.com/en/A8FB/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ꣻ</a> U+A8FB Devanagari Headstroke: <a href="http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%83%B4%E3%82%A1%E3%83%8A%E3%83%BC%E3%82%AC%E3%83%AA%E3%83%BC" target="_blank">デーヴァナーガリー文字</a><br />
 <a href="http://unicode-table.com/en/ABED/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">꯭</a> U+ABED Meetei Mayek Apun Iyek: マニプリ文字 (?)<br />
 <a href="http://unicode-table.com/en/10110/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𐄐</a> U+10110 Aegean Number Ten: エーゲ文明で使われていた数字(?)<br />
-<a href="http://unicode-table.com/en/10191/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𐆑</a> U+10191 Roman Uncia Sign: 古代の記号(?)<br />
+<a href="http://unicode-table.com/en/10191/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𐆑</a> U+10191 Roman Uncia Sign: 古代ギリシャで使われていた長さや重さの単位の記号<br />
 <a href="http://unicode-table.com/en/10A38/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𐨸</a> U+10A38 Kharoshthi Sign Bar Above<br />
 <a href="http://unicode-table.com/en/11038/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𑀸</a> U+11038 Brahmi Vowel Sign Aa<br />
 <a href="http://unicode-table.com/en/1103C/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𑀼</a> U+1103C Brahmi Vowel Sign U<br />
@@ -233,7 +260,10 @@ S字カーブを超えて複雑な曲線も除いています。ただ、文字�
 <a href="http://unicode-table.com/en/1D047/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𝁇</a> U+1D047 Byzantine Musical Symbol Oligon Neo<br />
 <a href="http://unicode-table.com/en/1D05B/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𝁛</a> U+1D05B Byzantine Musical Symbol Omalon  </p>
 
-<h2 id="cda2a06">波線</h2>
+<h2 id="cda2a06">波線
+<span class="article-date">2014/11/15</span></h2>
+
+<p>ShiftJISの全角波ダッシュ(0x8160)がUnicodeとの変換でよく混乱しているのは、ここにあるU+301CとU+FF5Eです。</p>
 
 <p><a href="http://unicode-table.com/en/007E/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">~</a> U+007E Tilde: 半角チルダ<br />
 <a href="http://unicode-table.com/en/02DC/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">˜</a> U+02DC Small Tilde: NFKD/NFKC正規化で U+0020 U+0303<br />
@@ -243,13 +273,14 @@ S字カーブを超えて複雑な曲線も除いています。ただ、文字�
 <a href="http://unicode-table.com/en/223D/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">∽</a> U+223D Reversed Tilde<br />
 <a href="http://unicode-table.com/en/223E/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">∾</a> U+223E Inverted Lazy S<br />
 <a href="http://unicode-table.com/en/223F/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">∿</a> U+223F Sine Wave<br />
-<a href="http://unicode-table.com/en/301C/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">〜</a> U+301C Wave Dash: 波ダッシュ。Shift-JISの全角波ダッシュ(\x8160)がこれかU+FF5Eにマッピング<br />
+<a href="http://unicode-table.com/en/301C/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">〜</a> U+301C Wave Dash: 波ダッシュ。ShiftJISの全角波ダッシュ(0x8160)がこれにマッピングされることがある<br />
 <a href="http://unicode-table.com/en/3030/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">〰</a> U+3030 Wavy Dash<br />
 <a href="http://unicode-table.com/en/FE4B/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">﹋</a> U+FE4B Wavy Overline: NFKD/NFKC正規化で U+0020 U+0305<br />
 <a href="http://unicode-table.com/en/FE4F/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">﹏</a> U+FE4F Wavy Low Line: NFKD/NFKC正規化で U+005F<br />
-<a href="http://unicode-table.com/en/FF5E/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">～</a> U+FF5E Fullwidth Tilde: 全角チルダ。Shift-JISの全角波ダッシュ(\x8160)がこれかU+301Cにマッピング。NFKD/NFKC正規化で U+007E  </p>
+<a href="http://unicode-table.com/en/FF5E/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">～</a> U+FF5E Fullwidth Tilde: 全角チルダ。ShiftJISの全角波ダッシュ(0x8160)がこれにマッピングされることがある  </p>
 
-<h2 id="f1f6ed6">その他の波線のような文字</h2>
+<h2 id="f1f6ed6">その他の波線のような文字
+<span class="article-date">2014/11/08</span></h2>
 
 <p><a href="http://unicode-table.com/en/05AE/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">֮</a> U+05AE Hebrew Accent Zinor<br />
 <a href="http://unicode-table.com/en/06E4/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ۤ</a> U+06E4 Arabic Small High Madda<br />
@@ -272,7 +303,8 @@ S字カーブを超えて複雑な曲線も除いています。ただ、文字�
 <a href="http://unicode-table.com/en/1D008/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𝀈</a> U+1D008 Byzantine Musical Symbol Syrmatiki<br />
 <a href="http://unicode-table.com/en/1D066/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">𝁦</a> U+1D066 Byzantine Musical Symbol Syrma  </p>
 
-<h2 id="497222e">波線の結合文字</h2>
+<h2 id="497222e">波線の結合文字
+<span class="article-date">2014/11/08</span></h2>
 
 <p><a href="http://unicode-table.com/en/0303/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">̃</a> U+0303 Combining Tilde: 結合文字 <span style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%;">ã</span><br />
 <a href="http://unicode-table.com/en/0330/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">̰</a> U+0330 Combining Tilde Below: 結合文字 <span style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%;">a̰</span><br />

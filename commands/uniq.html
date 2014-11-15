@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>sort コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>uniq コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>sort コマンド</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>uniq コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -61,7 +61,7 @@
       <li><a href="../commands/sed.html">sed コマンド</a></li>
       <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
       <li><a href="../commands/siege.html">siege コマンド</a></li>
-      <li>sort コマンド</li>
+      <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
@@ -77,7 +77,7 @@
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
       <li><a href="../commands/trap.html">trap コマンド</a></li>
-      <li><a href="../commands/uniq.html">uniq コマンド</a></li>
+      <li>uniq コマンド</li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -93,55 +93,72 @@
 </div>
 
 <div id="content">
-  <h1 id="sort">sort コマンド
-<span class="article-date">2014/09/09</span></h1>
+  <h1 id="uniq">uniq コマンド
+<span class="article-date">2014/11/14</span></h1>
 
-<p>行単位で並び替えができる。列は1つ以上のスペースで区切られるようだが、これは<code>-t</code>オプションで変更できる。</p>
-
-<h2 id="8e99451">オプション
-<span class="article-date">2014/09/10</span></h2>
-
-<dl>
-  <dt><code>-r</code></dt>
-  <dd>逆順に並び替える</dd>
-  <dt><code>-k</code></dt>
-  <dd>どの列で並び替えるかを指定する。 <code>-k 6,7</code> は、6列目で比較し、6列目が同じ場合は
-7列目で比較する。列番号は1から始まる。<code>-k6 -k7</code> でもよい。← この説明、間違っていると思う。</dd>
-  <dt><code>-t</code></dt>
-  <dd>列の区切り文字を指定する。デフォルトはスペース。 <code>-t,</code> でコンマ区切りになる。
-<code>-t $'\t'</code> でタブ区切りのファイルを処理できるようになる。
-ただし、Ubuntuの <code>/bin/sh</code> はdashで、dashではこのタブの書き方ができない。</dd>
-  <dt><code>-n</code></dt>
-  <dd>列のデータを数字とみなして並び替える。</dd>
-</dl>
-
-<p>参考<br />
-<a href="ls.html#sort-by-timestamp"><code>ls</code>でタイムスタンプの新しい順にファイル一覧を表示するには</a><br />
-<a href="find.html#sort-by-timestamp"><code>find</code>でタイムスタンプの新しい順にファイル一覧を表示するには</a></p>
-
-<h2 id="9cb9c44">HOWTO</h2>
-
-<h3 id="lcall">日本語を含むソートをするには
-<span class="article-date">2014/08/30</span></h3>
-
-<p>漢字やひらがな/カタカナなどが含まれる日本語テキストは、うまくソートできない場合があるみたいで、その場合は環境変数 <code>LC_ALL=C</code> または <code>LANG=ja_JP.UTF-8</code> を設定するとよいみたい。</p>
+<p>重複した行を1つにまとめるコマンド。連続して同じ内容の行が続いた場合に2行目以降を削除してくれるだけなので、
+<a href="sort.html"><code>sort</code>コマンド</a>でソートしてからこのコマンドで重複を削除するのが基本。</p>
 
 <p>例</p>
 
-<pre><code>cat foo.txt | LC_ALL=C sort
+<pre><code>cat foo.txt | LC_ALL=C uniq
 </code></pre>
 
-<p><a href="uniq.html"><code>uniq</code>コマンド</a>でも同様に、行の中に漢字やひらがな/カタカナなどが含まれるとうまくできない場合があるみたい。</p>
+<h2 id="42da630">オプション
+<span class="article-date">2014/11/14</span></h2>
 
-<h3 id="c0b8325">ランダムな順番にソートをするには
-<span class="article-date">2014/08/08</span></h3>
+<dl>
+  <dt><code>-c</code></dt>
+  <dd>重複している行数を先頭に付加する。重複していない行は1になる。</dd>
+  <dt><code>-d</code></dt>
+  <dd>逆に重複している行のみを抽出する。2行以上同じ行が連続した場合にそれを1行のみ出力する。
+<code>-c</code> と組み合わせると結果的にカウントが2以上のもののみになる。</dd>
+  <dt><code>-u</code></dt>
+  <dd>重複した行をまとめるのではなく削除してしまう。
+<code>-c</code> と組み合わせると結果的にカウントが1のもののみになる。</dd>
+</dl>
 
-<p><code>-R</code>オプションを使う。ただ、同じデータがある場合はそれらがバラバラにはならず、ひとまとめになるみたい。環境によっては<code>sort</code>コマンドに<code>-R</code>オプションがない場合があるみたい。</p>
+<h2 id="e56717c">HOWTO</h2>
 
-<h3 id="dc86968">重複している数の多い順にソートするには
+<h3 id="lcall">日本語を含むファイルを処理するには
+<span class="article-date">2014/09/16</span></h3>
+
+<p>漢字やひらがな/カタカナなどが含まれる日本語テキストは、うまくユニーク判定できない場合があるみたいで、その場合は環境変数 <code>LC_ALL=C</code> または <code>LANG=ja_JP.UTF-8</code> を設定するとよいみたい。</p>
+
+<p>例</p>
+
+<pre><code>cat foo.txt | LC_ALL=C uniq
+</code></pre>
+
+<p>これは<a href="sort.html#lcall"><code>sort</code>コマンド</a>でも事情が同じ。</p>
+
+<h3 id="sort-count">重複している数の多い順にソートするには
 <span class="article-date">2014/11/14</span></h3>
 
-<p><a href="uniq.html#sort-count"><code>uniq</code>コマンド</a>の例を参照。</p>
+<p><code>foo.txt</code> というファイルが以下の内容だったとして、</p>
+
+<pre><code>aaa
+bbb
+aaa
+ccc
+aaa
+bbb
+aaa
+</code></pre>
+
+<p>次のコマンドを実行すると</p>
+
+<pre><code>cat foo.txt | LC_ALL=C sort | LC_ALL=C uniq -c | sort -k1 -n -r
+</code></pre>
+
+<p>次のような結果が表示される。</p>
+
+<pre><code>4 aaa
+2 bbb
+1 ccc
+</code></pre>
+
+<p><a href="sort.html"><code>sort</code>コマンド</a>を2回使っている。</p>
 
 </div>
 
