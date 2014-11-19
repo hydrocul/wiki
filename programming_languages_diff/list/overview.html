@@ -193,7 +193,7 @@ list = scala.collection.immutable.List.apply();
 </code></pre>
 
 <h2 id="php">PHP
-<span class="article-date">2014/01/29</span></h2>
+<span class="article-date">2014/11/19</span></h2>
 
 <p>組み込み型の連想配列のキーに整数を使えば、配列として使うことができる。-&gt; <a href="../map/overview.html#php">連想配列</a></p>
 
@@ -226,6 +226,21 @@ var_export($arr);
 // =&gt; array (
 //      1 =&gt; 10,
 //      3 =&gt; 30,
+//    )
+</code></pre>
+
+<p>要素への代入はまだその変数が存在していなくてもできるみたいで、個人的には非常に気持ち悪い。</p>
+
+<pre><code>// $a はまだ存在していない状況で
+// 勝手に $a という配列が存在しているものとして、
+// 要素に代入できる。
+$a["a"] = 1;
+$a["b"] = 1;
+
+var_export($a);
+// =&gt; array (
+//      'a' =&gt; 1,
+//      'b' =&gt; 1,
 //    )
 </code></pre>
 

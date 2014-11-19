@@ -77,6 +77,7 @@
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
       <li><a href="../commands/trap.html">trap コマンド</a></li>
+      <li><a href="../commands/uniq.html">uniq コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -146,10 +147,18 @@
 </code></pre>
 
 <h2 id="sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには
-<span class="article-date">2013/06/18</span></h2>
+<span class="article-date">2014/11/19</span></h2>
 
 <pre><code>ls -alF --time-style="+%Y-%m-%d %H:%M:%S" | sort -r -k6,7
 </code></pre>
+
+<p>逆に古い順にソートするには</p>
+
+<pre><code>ls -alF --time-style="+%Y-%m-%d %H:%M:%S" | sort -k6,7
+</code></pre>
+
+<p>ディレクトリを階層的にたどってすべてのファイルを新しい順に並べるには<code>ls</code>コマンドでなく、
+<a href="find.html#sort-by-timestamp"><code>find</code>コマンド</a>を使う。</p>
 
 </div>
 
