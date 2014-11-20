@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>文字列リテラル中の文字をUnicodeのコードポイントで指定するには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>文字列</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列リテラル中の文字をUnicodeのコードポイントで指定するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,7 +24,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>文字列
+      <li><a href="../../programming_languages_diff/string/">文字列</a>
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
@@ -56,7 +56,7 @@
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
-          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
+          <li>文字列リテラル中の文字をUnicodeのコードポイントで指定するには</li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
@@ -68,44 +68,75 @@
 </div>
 
 <div id="content">
-  <h1 id="string">文字列</h1>
+  <h1 id="unicode-escape">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="java">Java / Scala
+<span class="article-date">2014/11/06</span></h2>
 
-<ul>
-  <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
-  <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-  <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
-  <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
-  <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
-  <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
-  <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
-  <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
-  <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
-  <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
-  <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
-  <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith, endsWith)</a></li>
-  <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
-  <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
-  <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-  <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
-  <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
-  <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
-  <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-  <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-  <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
-  <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
-  <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-  <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-  <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
-  <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-  <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
-  <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
-  <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
-  <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
-</ul>
+<p>Java/ScalaにはUnicodeエスケープという仕組みがある。</p>
+
+<p>Unicodeエスケープは、文字列リテラルの機能ではなく、
+Java/Scalaソースコードをコンパイラがトークンに分割する前の処理として機能する。従って、<code>"\u005C"</code> というのはコンパイルエラーになる。
+<code>\u005C</code> を <code>\</code> に変換してからトークンに分割しようとするが、
+<code>"\"</code> は文字列が終了していないためである。文字列リテラルではなく、コンパイラの前処理として働くUnicodeエスケープは、他の言語にはあまり見られない。</p>
+
+<p>16ビットを超える文字(拡張領域)は、サロゲートペアで2つの16ビットに分割する必要がある。</p>
+
+<p>以下は、微妙なケースの例(Scalaでのコードだが、Javaでも同じ結果であった。
+Java 1.7.0_05, Scala 2.9.2 で確認)</p>
+
+<pre><code>println("\u3044");    // =&gt; い
+println("\\u3044");   // =&gt; \u3044
+println("\\\u3044");  // =&gt; \い
+println("\\\\u3044"); // =&gt; \\u3044
+println("\uu3044");   // =&gt; い
+println("\uuu3044");  // =&gt; い
+println("\\\uu3044"); // =&gt; \い
+</code></pre>
+
+<p><code>u</code>が連続する場合の解釈がちょっと不思議。</p>
+
+<h2 id="php">PHP
+<span class="article-date">2014/11/06</span></h2>
+
+<p>PHPはUnicodeにネイティブには対応しておらず、
+8ビットを超える文字(U+0100以上)を文字単位で直接16進数で表記する手段がない。
+UTF8でソースコードを書いている場合は、文字列もUTF8にしてバイト単位で16進数表記することは可能。</p>
+
+<pre><code>// \u1F30D 地球の絵文字は4バイトに分割して表記
+$str = "\xF0\x9F\x8C\x8D";
+</code></pre>
+
+<h2 id="47713b6">Python
+<span class="article-date">2014/11/19</span></h2>
+
+<p><code>\u</code>hhhh または <code>\U00</code>hhhhhh の形式で16進数表記できる。
+16ビットまでの文字(基本多言語面)は2つの形式のどちらも使えるが、
+16ビットを超える文字(拡張領域)は16進数で4桁を超えるので <code>\U00</code>hhhhhh の形式しか使えない。</p>
+
+<p>Python2ではUnicode文字列リテラル(<code>u"..."</code>)の中でのみ使用可能。
+Python2での、<code>u"..."</code> 以外の文字列ではエスケープされずそのまま文字列になる。</p>
+
+<p>rawo文字列 <code>r"..."</code> の形式ではPython2でもPython3でもこのエスケープは使えない。</p>
+
+<h2 id="ruby">Ruby
+<span class="article-date">2014/11/19</span></h2>
+
+<p><code>\u</code>hhhh または <code>\u{</code>hhhhhh<code>}</code> の形式で16進数表記できる。</p>
+
+<p><code>\u</code>hhhh の形式では16進数4桁で表記する。<code>\u{</code>hhhhh<code>}</code> の形式では16進数2桁〜6桁で表記する。</p>
+
+<p>16ビットまでの文字(基本多言語面)は2つの形式のどちらも使えるが、
+16ビットを超える文字(拡張領域)は16進数で4桁を超えるので <code>\u{</code>hhhhh<code>}</code> の形式しか使えない。</p>
+
+<p>また、<code>\u{</code>hhhhh<code>}</code> の形式では<code>{}</code>の中にスペース区切りで複数の文字をまとめて書くこともできる。</p>
+
+<p>例</p>
+
+<pre><code>p "\u{5730 7403 1F30D}"
+# =&gt; "地球🌍"
+# 3文字目は地球の絵文字
+</code></pre>
 
 </div>
 

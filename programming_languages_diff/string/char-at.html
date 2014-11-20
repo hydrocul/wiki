@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li>インデックスを指定して文字を取得するには (charAt)</li>
@@ -36,10 +36,10 @@
           <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
-          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith, endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
-          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
+          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
@@ -48,13 +48,16 @@
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
     </ul>
@@ -75,8 +78,9 @@
 <h2 id="2e8b245">Java
 <span class="article-date">2014/10/07</span></h2>
 
-<p>0から始まるインデックスで <code>char</code> の文字を取得できる。
-<code>char</code> はUTF-16の16ビットでの値なので、サロゲートペアの文字が含まれていた場合、インデックスが文字数単位のインデックスとは一致しないし、サロゲートペアの文字に直撃した場合はその1バイト目または2バイト目のみの取得になってしまう。</p>
+<p>0から始まるインデックスで <code>char</code> の文字を取得できる。</p>
+
+<p><code>char</code> はUTF-16の16ビットでの値なので、サロゲートペアの文字が含まれていた場合、インデックスが文字単位のインデックスとは一致しないし、サロゲートペアの文字に直撃した場合はその1バイト目または2バイト目のみの取得になってしまう。</p>
 
 <p>Signature:</p>
 
@@ -90,10 +94,11 @@ char charAt(int index)
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#charAt-int-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#charAt-int-</a></p>
 
 <h2 id="d424e3c">Scala
-<span class="article-date">2014/08/21</span></h2>
+<span class="article-date">2014/11/19</span></h2>
 
-<p>Javaと同じく、0から始まるインデックスで <code>Char</code> の文字を取得できる。
-<code>char</code> はUTF-16の16ビットでの値なので、サロゲートペアの文字が含まれていた場合、インデックスが文字数単位のインデックスとは一致しないし、サロゲートペアの文字に直撃した場合はその1バイト目または2バイト目のみの取得になってしまう。</p>
+<p>Javaと同じく、0から始まるインデックスで <code>Char</code> の文字を取得できる。</p>
+
+<p><code>char</code> はUTF-16の16ビットでの値なので、サロゲートペアの文字が含まれていた場合、インデックスが文字単位のインデックスとは一致しないし、サロゲートペアの文字に直撃した場合はその1バイト目または2バイト目のみの取得になってしまう。</p>
 
 <p>Signature:</p>
 
@@ -104,12 +109,40 @@ def charAt(index: Int): Char
 def apply(index: Int): Char
 </code></pre>
 
+<p><code>apply</code>メソッドが定義されているので、<code>str(2)</code> のように配列の要素へのアクセスと同じように文字を取得できる。</p>
+
 <p><code>StringLike#apply</code> は内部ではJavaの <code>String#charAt</code> を呼び出している。</p>
 
 <p>例</p>
 
 <pre><code>"abc"(2) // =&gt; 'c'
 </code></pre>
+
+<h2 id="28801a2">Groovy
+<span class="article-date">2014/11/19</span></h2>
+
+<p>Javaと同じく、0から始まるインデックスで <code>Char</code> の文字を取得できる。</p>
+
+<p><code>char</code> はUTF-16の16ビットでの値なので、サロゲートペアの文字が含まれていた場合、インデックスが文字単位のインデックスとは一致しないし、サロゲートペアの文字に直撃した場合はその1バイト目または2バイト目のみの取得になってしまう。</p>
+
+<p>Signature:</p>
+
+<pre><code>// java.lang.String
+char charAt(int index)
+String getAt(int index)
+</code></pre>
+
+<p>Javaにはないメソッドとして<code>getAt</code>メソッドが定義されており、
+Groovyの演算子オーバーロードにより <code>str[2]</code> のように配列の要素へのアクセスと同じように文字を取得できる。</p>
+
+<p><code>getAt</code>では負を指定すると、後ろから数えてくれる。</p>
+
+<p><code>charAt</code>も<code>getAt</code>も範囲外のインデックスを指定すると
+<code>java.lang.StringIndexOutOfBoundsException</code> がスローされる。妥当な範囲は <code>charAt</code> では <code>0</code> から <code>str.length - 1</code> まで、
+<code>getAt</code> では <code>-str.length</code> から <code>str.length - 1</code> までである。</p>
+
+<p><code>java.lang.String#getAt</code> | Groovy JDK API Documentation<br />
+<a href="http://beta.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html#getAt(int)" target="_blank">http://beta.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html#getAt(int)</a></p>
 
 <h2 id="283e923">PHP
 <span class="article-date">2014/08/21</span></h2>
@@ -173,6 +206,18 @@ print substr($s, 2, 1);
 <p><code>use utf8;</code> がないと、ASCII以外の文字を正しく扱えない。</p>
 
 <p>文字というデータ型はないので、取得した結果も文字列である。その文字のコードを整数で取得したい場合は <a href="ord.html#perl"><code>ord</code></a> を使う。</p>
+
+<h2 id="bab2933">JavaScript
+<span class="article-date">2014/11/19</span></h2>
+
+<p>例</p>
+
+<pre><code>str[index]
+</code></pre>
+
+<p>インデックスは0から始まる。</p>
+
+<p>範囲外のインデックスを指定すると <code>undefined</code> が返される。</p>
 
 <h2 id="ef5bc09">CoffeeScript
 <span class="article-date">2013/09/07</span></h2>
