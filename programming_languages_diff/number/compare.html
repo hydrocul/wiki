@@ -89,6 +89,20 @@ int compareTo(Double another)
 
 <p>JVM上でプリミティブ型にならないオブジェクトに対しての <code>==</code>, <code>!=</code> は実際には <code>equals</code> メソッドが呼び出されている。</p>
 
+<h2 id="groovy">Groovy
+<span class="article-date">2014/11/21</span></h2>
+
+<p><code>==</code>, <code>!=</code> で等値性を判定でき、 
+<code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
+
+<p><code>&lt;=&gt;</code> という、<code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す演算子もある。</p>
+
+<pre><code>a &lt;=&gt; b
+</code></pre>
+
+<p>と書くと、 <code>a</code> の方が小さければ、<code>-1</code> を返し、大きければ <code>1</code> を返し、等しければ <code>0</code> を返す。
+RubyやPerlにも同様のものがある。</p>
+
 <h2 id="61b0875">PHP
 <span class="article-date">2014/04/12</span></h2>
 
@@ -123,7 +137,7 @@ Python3では <code>&lt;&gt;</code> を使えない。</p>
 <p>比較演算子 | Python 3 documentation<br />
 <a href="http://docs.python.jp/3/reference/expressions.html#not-in" target="_blank">http://docs.python.jp/3/reference/expressions.html#not-in</a></p>
 
-<h2 id="d704d1c">Ruby
+<h2 id="ruby">Ruby
 <span class="article-date">2014/07/10</span></h2>
 
 <p><code>==</code>, <code>!=</code> で等値性を判定でき、 

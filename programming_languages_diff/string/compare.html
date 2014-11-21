@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
@@ -36,9 +36,10 @@
           <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li>2つの文字列を比較するには</li>
-          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
+          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith, endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
@@ -47,13 +48,16 @@
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
     </ul>
@@ -79,6 +83,15 @@
 <p><code>==</code>演算子は等値の場合に <code>true</code> を返す。<code>!=</code>演算子はその反対。
 <code>==</code>演算子はJavaの <code>equals</code> を呼び出している。</p>
 
+<h2 id="991deb7">Groovy
+<span class="article-date">2014/11/21</span></h2>
+
+<p><code>==</code>演算子で比較し、等値の場合に <code>true</code> を返す。<code>!=</code>演算子のはその反対。
+<code>==</code>演算子はJavaの <code>equals</code> を呼び出している。</p>
+
+<p><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&gt;</code>, <code>&lt;=&gt;</code> で文字列の辞書順の比較ができる。
+<code>&lt;=&gt;</code> は<a href="../number/compare.html#groovy">数値の比較</a>と同じで、大小関係によって <code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す。</p>
+
 <h2 id="61b0875">PHP
 <span class="article-date">2013/08/26</span></h2>
 
@@ -99,10 +112,10 @@
 </code></pre>
 
 <p><code>strcmp</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.strcmp.php" target="_blank">http://www.php.net/manual/ja/function.strcmp.php</a></p>
+<a href="http://php.net/manual/ja/function.strcmp.php" target="_blank">http://php.net/manual/ja/function.strcmp.php</a></p>
 
 <p><code>strcasecmp</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.strcasecmp.php" target="_blank">http://www.php.net/manual/ja/function.strcasecmp.php</a></p>
+<a href="http://php.net/manual/ja/function.strcasecmp.php" target="_blank">http://php.net/manual/ja/function.strcasecmp.php</a></p>
 
 <h2 id="22d8edf">Python
 <span class="article-date">2014/01/23</span></h2>
@@ -115,7 +128,7 @@
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
 
 <p><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&gt;</code>, <code>&lt;=&gt;</code> で文字列の辞書順の比較ができる。
-<code>&lt;=&gt;</code> は<a href="../number/compare.html">数値の比較</a>と同じで、大小関係によって <code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す。</p>
+<code>&lt;=&gt;</code> は<a href="../number/compare.html#ruby">数値の比較</a>と同じで、大小関係によって <code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す。</p>
 
 <h2 id="perl">Perl
 <span class="article-date">2014/09/08</span></h2>
