@@ -56,6 +56,7 @@
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
@@ -95,20 +96,22 @@ snprintf(dst, sizeof(dst), "%s %d", str, i);
 </code></pre>
 
 <h2 id="df25ee9">Java / Scala
-<span class="article-date">2014/10/13</span></h2>
+<span class="article-date">2014/11/22</span></h2>
 
 <p>Javaでは<code>String.format</code>メソッドでC言語の<code>sprintf</code>と同様のことができる。
-Scalaでは<code>StringLike#format</code>メソッドを使うこともできる。書式化文字列はJava/Scalaで同じ。</p>
+Scalaでは<code>StringOps#format</code>メソッドを使うこともできる。書式化文字列のフォーマットはJava/Scalaで同じ。</p>
 
 <p>Javaでの例 (Javaではクラスメソッド)</p>
 
 <pre><code>String formatted = String.format("%s %d", str, i);
 </code></pre>
 
-<p>Scalaでの例 (Scalaの<code>StringLike#format</code>はインスタンスメソッド)</p>
+<p>Scalaでの例 (Scalaの<code>StringOps#format</code>はインスタンスメソッド)</p>
 
 <pre><code>val formatted = "%s %d".format(str, i);
 </code></pre>
+
+<p>ScalaでJavaのクラスメソッドを使うこともできるが、インスタンスメソッドのほうが短く書ける。</p>
 
 <p>Signature:</p>
 
@@ -145,13 +148,13 @@ def formatLocal(l: Locale, args: Any*): String
 <p><code>sprintf</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.sprintf.php" target="_blank">http://www.php.net/manual/ja/function.sprintf.php</a></p>
 
-<p>文字列生成ではなく標準出力する <code>printf</code> もある。</p>
+<p>文字列生成ではなく直接標準出力する <code>printf</code> もある。</p>
 
 <p><code>printf</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.printf.php" target="_blank">http://www.php.net/manual/ja/function.printf.php</a></p>
 
 <h2 id="python">Python
-<span class="article-date">2014/09/13</span></h2>
+<span class="article-date">2014/11/22</span></h2>
 
 <p><code>%</code>演算子でC言語の<code>sprintf</code>と同様のことができる。</p>
 
@@ -160,7 +163,8 @@ def formatLocal(l: Locale, args: Any*): String
 <pre><code>"%s %d" % (str, i)
 </code></pre>
 
-<p>引数が1つの場合はカッコを省略できる。本当はカッコを付けると複数の引数を渡せるというよりは、タプルを1つ渡している、というイメージみたい。なので、以下のようなコードは見た目は <code>%</code> に1つしか値を渡していないが、中身がタプルなので、括弧で複数の引数を渡したときと同じ扱いになる。</p>
+<p>引数が1つの場合はカッコを省略できる。本当はカッコを付けると複数の引数を渡せるというよりは、<a href="../list/overview.html#python">タプル</a>を
+1つ渡している、というイメージみたい。なので、以下のようなコードは見た目は <code>%</code> に1つしか値を渡していないが、中身がタプルなので、括弧で複数の引数を渡したときと同じ扱いになる。</p>
 
 <pre><code># Python2 でも Python3 でもエラー
 # TypeError: not all arguments converted during string formatting
@@ -173,13 +177,16 @@ t = ("Ichiro", "Suzuki")
 <p>書式指定ミニ言語仕様 | Python 2.7 documentation<br />
 <a href="http://docs.python.jp/2/library/string.html#format-specification-mini-language" target="_blank">http://docs.python.jp/2/library/string.html#format-specification-mini-language</a></p>
 
-<p>書式指定ミニ言語仕様 | Python 3.3 documentation<br />
-<a href="http://docs.python.jp/3.3/library/string.html#format-specification-mini-language" target="_blank">http://docs.python.jp/3.3/library/string.html#format-specification-mini-language</a></p>
+<p>書式指定ミニ言語仕様 | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/library/string.html#format-specification-mini-language" target="_blank">http://docs.python.jp/3/library/string.html#format-specification-mini-language</a></p>
 
 <p><code>%</code> 演算子以外に、<code>format</code>という文字列のメソッドもある。</p>
 
-<p><code>format</code> | Python 2.7 documentation<br />
+<p><code>string.format</code> | Python 2.7 documentation<br />
 <a href="http://docs.python.jp/2/library/stdtypes.html#str.format" target="_blank">http://docs.python.jp/2/library/stdtypes.html#str.format</a></p>
+
+<p><code>string.format</code> | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/library/stdtypes.html#str.format" target="_blank">http://docs.python.jp/3/library/stdtypes.html#str.format</a></p>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/10/13</span></h2>
@@ -218,7 +225,7 @@ t = ("Ichiro", "Suzuki")
 <a href="http://perldoc.jp/func/printf" target="_blank">http://perldoc.jp/func/printf</a></p>
 
 <h2 id="adb5d4b">JavaScript
-<span class="article-date">2013/10/12</span></h2>
+<span class="article-date">2014/11/22</span></h2>
 
 <p><code>sprintf</code>のようなものがない。</p>
 
@@ -228,6 +235,10 @@ t = ("Ichiro", "Suzuki")
 </code></pre>
 
 <p>のようにする。ただし<code>num</code>は0以上の整数であることが前提。</p>
+
+<p><a href="substr.html#javascript"><code>substr</code></a> では後ろから4文字を取得するので、<code>num</code>が0から9999までの整数であれば、結果的に<code>%04d"</code>のフォーマットを取得できる。負だったり5桁以上の整数だと意図したとおりにはならない。</p>
+
+<p><code>sprintf</code>みたいなものを多くの人が独自に実装しているようなので、探すといいかも。</p>
 
 </div>
 
