@@ -26,7 +26,7 @@
     <ul>
       <li><a href="../../programming_languages_diff/io/">入出力・ファイル操作</a>
         <ul>
-          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身をまとめて1つの文字列として取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
           <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
@@ -86,12 +86,15 @@ end
 <a href="http://perldoc.jp/func/readlink" target="_blank">http://perldoc.jp/func/readlink</a></p>
 
 <h2 id="sh">sh
-<span class="article-date">2013/10/28</span></h2>
+<span class="article-date">2014/11/23</span></h2>
+
+<p><a href="../../commands/readlink.html"><code>readlink</code>コマンド</a>を使える。</p>
 
 <pre><code>readlink -f シンボリックリンク
 </code></pre>
 
-<p><a href="../../commands/ls.html"><code>ls</code>コマンド</a>を使って無理やりやる方法</p>
+<p>以下は<a href="../../commands/ls.html"><code>ls</code>コマンド</a>を使って無理やりやる方法。
+<code>ls</code>コマンドの出力フォーマットが違う環境だとうまくいかないかもしれない。</p>
 
 <pre><code>ls -l シンボリックリンク | perl -anle '$_ =~ /-&gt; (.+)$/; print $1'
 </code></pre>

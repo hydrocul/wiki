@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ランダム文字列を生成するには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>正規表現のグルーピングにマッチした文字列を使うには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>ランダム文字列を生成するには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>正規表現のグルーピングにマッチした文字列を使うには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -45,14 +45,14 @@
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
-          <li>ランダム文字列を生成するには</li>
+          <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
+          <li>正規表現のグルーピングにマッチした文字列を使うには</li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
@@ -69,50 +69,38 @@
 </div>
 
 <div id="content">
-  <h1 id="random">ランダム文字列を生成するには
-<span class="article-date">2013/11/21</span></h1>
+  <h1 id="regexp-group">正規表現のグルーピングにマッチした文字列を使うには
+<span class="article-date">2014/11/23</span></h1>
 
-<p>パスワードの自動生成が必要な場合など。</p>
+<p>正規表現の中にカッコで括られた部分がある場合は、そのカッコの中にマッチした部分だけを取り出す方法のメモ。</p>
 
-<h2 id="733a11a">PHP
-<span class="article-date">2013/07/24</span></h2>
+<h2 id="f82f669">Python
+<span class="article-date">2014/09/17</span></h2>
 
-<p>サンプル</p>
+<p>正規表現オブジェクトの<code>match</code>メソッドの返り値に対して、<code>group</code>メソッドを呼び出すと、グルーピングにマッチした文字列を取得できる。</p>
 
-<pre><code>function createpasswd() {
-  $data = 'abcdefghkmnprstuvwxyzABCDEFGHJKLMNPRSTUVWXYZ2345678';
-  $n = strlen($data);
-  $ret = '';
-  for ($ii=0; $ii &lt; 8; $ii++) {
-    $ret .= $data[rand(0, $n - 1)];
-  }
-  return $ret;
-}
+<pre><code>r = re.compile("b(c+)")
+m = r.match("bcccdef")
+if m:
+    print m.group(1)
+    # =&gt; ccc
 </code></pre>
 
-<h2 id="c2c10f6">Python
-<span class="article-date">2013/11/21</span></h2>
+<h2 id="perl">Perl
+<span class="article-date">2013/10/17</span></h2>
 
-<p>サンプル</p>
+<p>正規表現に掛けると <code>$1</code>, <code>$2</code>, <code>$3</code>, … にグルーピングにマッチした文字列が入る。
+<a href="../vars/argv.html#perl"><code>$0</code></a> は実行されているPerlスクリプトファイル名が入っていて、正規表現とは関係ないので注意。</p>
 
-<pre><code>import string
-import random
+<p><code>${^POSTMATCH}</code> にはマッチした部分より後ろの文字列が入る。</p>
 
-def createpasswd():
-    data = 'abcdefghkmnprstuvwxyzABCDEFGHJKLMNPRSTUVWXYZ2345678'
-    n = len(data)
-    return ''.join(data[random.randrange(n)] for i in xrange(8))
-</code></pre>
+<h2 id="cd27768">sh
+<span class="article-date">2013/10/22</span></h2>
 
-<h2 id="cebeee2">sh
-<span class="article-date">2014/11/23</span></h2>
+<p><code>sed</code>コマンドで正規表現による置換ができるが、<code>()</code>でのグルーピングを参照するには
+<code>$1</code>, <code>$2</code>, <code>$3</code> などではなく、<code>\1</code>, <code>\2</code>, <code>\3</code> を使う。</p>
 
-<p><code>/dev/urandom</code> を使う例</p>
-
-<pre><code>cat /dev/urandom | tr -dc 'abcdefghkmnprstuvwxyzABCDEFGHJKLMNPRSTUVWXYZ2345678' | head -c 8
-</code></pre>
-
-<p><a href="../../commands/tr.html#dc"><code>tr -dc</code></a>はパラメータに指定した文字以外をすべて削除するコマンド。</p>
+<p>-&gt; <a href="../../commands/sed.html#group"><code>sed</code>コマンド</a></p>
 
 </div>
 
