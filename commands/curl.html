@@ -56,6 +56,7 @@
       <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
+      <li><a href="../commands/readlink.html">readlink コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
@@ -77,6 +78,7 @@
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
       <li><a href="../commands/trap.html">trap コマンド</a></li>
+      <li><a href="../commands/uniq.html">uniq コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -118,13 +120,16 @@ FTPやSCPとかでもファイル転送できるらしいが、自分はHTTPやH
 </code></pre>
 
 <h2 id="9273204">オプション
-<span class="article-date">2014/10/22</span></h2>
+<span class="article-date">2014/11/25</span></h2>
 
 <dl>
   <dt><code>-o</code> ファイル名</dt>
   <dd>取得結果をファイルに保存する。このオプションを指定しないと、標準出力に吐き出される。</dd>
   <dt><code>-s</code></dt>
-  <dd>ダウンロードの進捗を表示しない。このオプションを指定しないと、標準エラー出力に進捗を表示する。</dd>
+  <dd>ダウンロードの進捗とエラーメッセージを表示しない。このオプションを指定しないと、標準エラー出力に進捗を表示する。</dd>
+  <dt><code>-S</code></dt>
+  <dd><code>-s</code> を使うとエラーメッセージも表示しなくなってしまうが、<code>-s</code> と <code>-S</code> を併用すると、エラーメッセージは表示する。
+エラーメッセージは例えば <code>curl: (6) Could not resolve host</code> のようなもの。</dd>
   <dt><code>-f</code> または <code>--fail</code></dt>
   <dd>HTTPで400番台のレスポンスコードが返ってきたときに<code>curl</code>コマンドを異常終了する。このオプションを指定しないと、
 400番台でも<code>curl</code>コマンドの終了コードは0になる。</dd>
