@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>PHPのmb_convert_kanaとUnicodeのNFKC正規化 | 2014年 | ブログ | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../">Home</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2014/">2014年</a> &gt; <span>PHPのmb_convert_kanaとUnicodeのNFKC正規化</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../blog/">ブログ</a>
+    <ul>
+      <li><a href="../../blog/2014/">2014年</a>
+        <ul>
+          <li><a href="../../blog/2014/0111-print-text-into-image.html">jpg画像にテキストを入れるには</a></li>
+          <li><a href="../../blog/2014/0208-unbiased-variance.html">不偏分散はなぜ n - 1 で割るのか？</a></li>
+          <li><a href="../../blog/2014/0216-load-tsv-python.html">PythonのNumPyでTSVファイルを読み込む方法</a></li>
+          <li><a href="../../blog/2014/0929-shellshock.html">shellshockの脆弱性のときのメモ</a></li>
+          <li><a href="../../blog/2014/1101-hyphen-minus-wave-tilde.html">Unicodeにあるハイフン/マイナス/長音符/波線/チルダのコレクション</a></li>
+          <li><a href="../../blog/2014/1109-upper-lower-title.html">Unicodeの大文字と小文字のまとめ</a></li>
+          <li>PHPのmb_convert_kanaとUnicodeのNFKC正規化</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="1127-unicode-nfkd-mb-convert-kana">PHPのmb_convert_kanaとUnicodeのNFKC正規化
+<span class="article-date">2014/11/27</span></h1>
+
+<p>アルファベットや仮名などの文字列に対して検索などの目的で全角半角統一などの正規化をしたい場合に、
+PHPでは <code>mb_convert_kana</code> を使うことがある。同じ目的でJavaなどではUnicodeのNFKC正規化を使うことがある。</p>
+
+<p>NFKC正規化では大雑把にいうと、半角カナは全角カタカナに変換され、全角の英数字や記号は半角に変換される。これはなんとなくPHPの <code>mb_convert_kana($str, 'asKV', 'UTF-8')</code> と同じになりそうな気がするのであるが、厳密に同じになるわけではない。その違いを調べてみた。</p>
+
+<p><code>mb_convert_kana</code> の2つ目の引数はどんな変換をするかを表し、以下の意味がある。</p>
+
+<dl>
+  <dt><code>a</code></dt>
+  <dd>全角英数字を半角に</dd>
+  <dt><code>s</code></dt>
+  <dd>全角スペース(U+3000)を半角(U+0020)に</dd>
+  <dt><code>K</code></dt>
+  <dd>半角カタカナを全角カタカナに</dd>
+  <dt><code>V</code></dt>
+  <dd>半角カタカナの濁点を全角カタカナに変換する際に前の文字と結合する</dd>
+</dl>
+
+<p><code>mb_convert_kana</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.mb-convert-kana.php" target="_blank">http://php.net/manual/ja/function.mb-convert-kana.php</a></p>
+
+<p>NFKC正規化と <code>mb_convert_kana($str, 'asKV', 'UTF-8')</code> でいくつかの文字をサンプル的に調べたところ、以下のとおりであった。</p>
+
+<ul>
+  <li>アルファベット26文字は同じ結果になり、どちらの方法でも全角英字26文字は半角になる。</li>
+  <li>数字10文字は同じ結果になり、どちらの方法でも全角数字10文字は半角になる。</li>
+  <li>丸数字はNFKCでは半角数字に変換されるが、<code>mb_convert_kana</code> では変換されない。</li>
+  <li>全角半角のある記号はどちらもだいたい半角に変換されるが、<code>" ' \ ~</code> の4つの全角は <code>mb_convert_kana</code> では変換されない。この4文字だけ変換されないことはPHPマニュアルにも書いてある。</li>
+  <li>全角仮名の結合文字である濁点(U+3099)・半濁点(U+309A)は、直前の文字が濁音・半濁音になりうる仮名の場合に、NFKCでは前の文字と合成されるが、<code>mb_convert_kana</code> では合成されない。</li>
+  <li>全角仮名の結合文字でない単独の濁点(U+309B)・半濁点(U+309C)は、NFKCでは空白(U+0020)が直前に挿入され、濁点・半濁点は結合文字(U+3099, U+309A)に変換されるが、<code>mb_convert_kana</code> ではそのままである。</li>
+  <li>半角カタカナの濁点・半濁点は、直前の文字が濁音・半濁音になりうる仮名の場合にNFKCも<code>mb_convert_kana</code>もその文字と合成されるが、なりえない仮名の場合には、NFKCでは結合文字の濁点(U+3099)・半濁点(U+309A)になり、<code>mb_convert_kana</code> では単独の濁点(U+309B)・半濁点(U+309C)になる。</li>
+</ul>
+
+<p>以下は実行例。</p>
+
+<p>英数字の全角半角に関して</p>
+
+<pre><code>$str = "AaＡａ1１\n";
+echo $str;
+// 出力結果をUnicodeコードポイントで表すと
+// 0041 0061 FF21 FF41 0031 FF11
+// これをUnicode NFKC正規化すると
+// 0041 0061 0041 0061 0031 0031
+
+echo mb_convert_kana($str, 'asKV', 'UTF-8');
+// 出力結果をUnicodeコードポイントで表すと
+// 0041 0061 0041 0061 0031 0031
+// これはUnicode NFKC正規化と一致する
+</code></pre>
+
+<p>丸付き数字に関して</p>
+
+<pre><code>$str = "①➀㉑\n";
+echo $str;
+// 出力結果をUnicodeコードポイントで表すと
+// 2460 2780 3251
+// これをUnicode NFKC正規化すると
+// 0031 2780 0032 0031
+
+echo mb_convert_kana($str, 'asKV', 'UTF-8');
+// 出力結果をUnicodeコードポイントで表すと
+// 2460 2780 3251
+// これはなにも変換されておらず、Unicode NFKC正規化と一致しない
+</code></pre>
+
+<p>記号に関して</p>
+
+<pre><code>$str = "!\"#\$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~\n";
+echo $str;
+// 出力結果をUnicodeコードポイントで表すと
+// 0021 0022 0023 0024 0025 0026 0027 0028 0029 002A 002B 002C 002D 002E 002F 003A 003B 003C 003D 003E 003F 0040 005B 005C 005D 005E 005F 0060 007B 007C 007D 007E
+// これをUnicode NFKC正規化しても変化しない
+
+echo mb_convert_kana($str, 'asKV', 'UTF-8');
+// 出力結果をUnicodeコードポイントで表すと
+// 0021 0022 0023 0024 0025 0026 0027 0028 0029 002A 002B 002C 002D 002E 002F 003A 003B 003C 003D 003E 003F 0040 005B 005C 005D 005E 005F 0060 007B 007C 007D 007E
+// これも変化しないので、Unicode NFKC正規化と一致する
+
+$str = "！＂＃＄％＆＇（）＊＋，－．／：；＜＝＞？＠［＼］＾＿｀｛｜｝～\n";
+echo $str;
+// 出力結果をUnicodeコードポイントで表すと
+// FF01 FF02 FF03 FF04 FF05 FF06 FF07 FF08 FF09 FF0A FF0B FF0C FF0D FF0E FF0F FF1A FF1B FF1C FF1D FF1E FF1F FF20 FF3B FF3C FF3D FF3E FF3F FF40 FF5B FF5C FF5D FF5E
+// これをUnicode NFKC正規化すると
+// 0021 0022 0023 0024 0025 0026 0027 0028 0029 002A 002B 002C 002D 002E 002F 003A 003B 003C 003D 003E 003F 0040 005B 005C 005D 005E 005F 0060 007B 007C 007D 007E
+
+echo mb_convert_kana($str, 'asKV', 'UTF-8');
+// 出力結果をUnicodeコードポイントで表すと
+// 0021 FF02 0023 0024 0025 0026 FF07 0028 0029 002A 002B 002C 002D 002E 002F 003A 003B 003C 003D 003E 003F 0040 005B FF3C 005D 005E 005F 0060 007B 007C 007D FF5E
+// これはUnicode NFKC正規化とは違う
+</code></pre>
+
+<p>全角ひらがなに関して</p>
+
+<pre><code>$str = "ああ゙あ゛かががか゛\n";
+echo $str;
+// 出力結果をUnicodeコードポイントで表すと
+// U+3042 U+3042 U+3099 U+3042 U+309B U+304B U+304C U+304B U+3099 U+304B U+309B
+// これをUnicode NFKC正規化すると
+// U+3042 U+3042 U+3099 U+3042 U+0020 U+3099 U+304B U+304C U+304C U+304B U+0020 U+3099
+
+echo mb_convert_kana($str, 'asKV', 'UTF-8');
+// 出力結果をUnicodeコードポイントで表すと
+// U+3042 U+3042 U+3099 U+3042 U+309B U+304B U+304C U+304B U+3099 U+304B U+309B
+// これはなにも変換されておらず、Unicode NFKC正規化と一致しない
+</code></pre>
+
+<p>半角カタカナに関して</p>
+
+<pre><code>$str = "ｱｱﾞｶｶﾞ\n";
+echo $str;
+// 出力結果をUnicodeコードポイントで表すと
+// U+FF71 U+FF71 U+FF9E U+FF76 U+FF76 U+FF9E
+// これをUnicode NFKC正規化すると
+// U+30A2 U+30A2 U+3099 U+30AB U+30AC
+
+echo mb_convert_kana($str, 'asKV', 'UTF-8');
+// 出力結果をUnicodeコードポイントで表すと
+// U+30A2 U+30A2 U+309B U+30AB U+30AC
+// これはUnicode NFKC正規化と一致しない
+// さらにこれをUnicode NFKC正規化すると
+// U+30A2 U+30A2 U+0020 U+3099 U+30AB U+30AC
+</code></pre>
+
+<p>上記実行例は PHP 5.5.3 で確認。</p>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>

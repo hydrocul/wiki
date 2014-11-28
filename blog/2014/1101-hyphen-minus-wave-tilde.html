@@ -32,6 +32,7 @@
           <li><a href="../../blog/2014/0929-shellshock.html">shellshockの脆弱性のときのメモ</a></li>
           <li>Unicodeにあるハイフン/マイナス/長音符/波線/チルダのコレクション</li>
           <li><a href="../../blog/2014/1109-upper-lower-title.html">Unicodeの大文字と小文字のまとめ</a></li>
+          <li><a href="../../blog/2014/1127-unicode-nfkd-mb-convert-kana.html">PHPのmb_convert_kanaとUnicodeのNFKC正規化</a></li>
         </ul>
       </li>
     </ul>
@@ -195,7 +196,7 @@ S字カーブを超えて複雑な曲線も除いています。ただ、文字�
 <a href="http://unicode-table.com/en/FFDA/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ￚ</a> U+FFDA Halfwidth Hangul Letter Eu: ハングルのウの発音の字母の半角。NFKD/NFKC正規化でU+1173になる  </p>
 
 <h2 id="71a1c0d">その他の言語の横線のような文字
-<span class="article-date">2014/11/18</span></h2>
+<span class="article-date">2014/11/28</span></h2>
 
 <p>ラテン文字やCJK以外の各言語にもたくさんありすぎて、1つ1つ詳細を調べきれていません。多くは文字というよりはダイアクリティカルマークのようなものや句読点のような使われ方なのだとは思います。自分の環境ではほとんどがフォントがなくて表示できません。</p>
 
@@ -217,7 +218,7 @@ S字カーブを超えて複雑な曲線も除いています。ただ、文字�
 <a href="http://unicode-table.com/en/0C7C/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">౼</a> U+0C7C Telugu Fraction Digit One for Even Powers of Four<br />
 <a href="http://unicode-table.com/en/108D/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ႍ</a> U+108D Myanmar Sign Shan Council Emphatic Tone: ミャンマー文字<br />
 <a href="http://unicode-table.com/en/1397/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">᎗</a> U+1397 Ethiopic Tonal Mark Hidet: ゲエズ文字(エチオピア文字)<br />
-<a href="http://unicode-table.com/en/1428/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ᐨ</a> U+1428 Canadian Syllabics Final Short Horizontal Stroke: カナダ先住民文字<br />
+<a href="http://unicode-table.com/en/1428/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ᐨ</a> U+1428 Canadian Syllabics Final Short Horizontal Stroke: カナダを中心とする北米のイヌイットの文字<br />
 <a href="http://unicode-table.com/en/1680/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;"> </a> U+1680 Ogham Space Mark: オガム文字の空白。オガム文字は長い横線に縦や斜めの線を重ねる文字なので、横線だけだと空白の意味になる。縦書の場合は縦線になる。意味としては空白なのでコピペしたときに環境によっては空白(U+0020)になる<br />
 <a href="http://unicode-table.com/en/172D/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ᜭ</a> U+172D Hanunoo Letter Ra: フィリピンのハヌノオ文字<br />
 <a href="http://unicode-table.com/en/1732/" target="_blank" style="border:1px solid #99F; padding:2px; background-color:#FFF; color:#000; font-size:300%; text-decoration:none;">ᜲ</a> U+1732 Hanunoo Vowel Sign I: フィリピンのハヌノオ文字<br />
