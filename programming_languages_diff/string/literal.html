@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li>文字列の書き方</li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
@@ -36,24 +36,29 @@
           <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
-          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっているかどうか / 終わっているかどうかを見るには (startsWith / endsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
+          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith, endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/to-int.html">文字列を整数に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
-          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
     </ul>
@@ -92,21 +97,71 @@
 
 <p><code>"</code> で囲んだ場合とヒアドキュメントでは <code>$</code> で始まる部分が変数名として値に展開される。</p>
 
-<h2 id="100dce2">Ruby
-<span class="article-date">2013/09/10</span></h2>
+<h2 id="python">Python
+<span class="article-date">2014/11/29</span></h2>
+
+<p><code>'</code> または <code>"</code> で囲む。または三重引用符(トリプルクオート) <code>'''</code> または <code>"""</code> で囲む。</p>
+
+<p>トリプルクオートの中には改行をそのまま含めることもできる。トリプルクオートの文字列を<a href="../comment.html#python">複数行コメント</a>の代わりとしてよく使われる。</p>
+
+<p><code>'</code>, <code>"</code>, <code>'''</code>, <code>"""</code> の前に <code>r</code> または <code>R</code> をプレフィックスとしてつけると、
+raw文字列というものになり、バックスラッシュによるエスケープシーケンスの多くが無効になる。</p>
+
+<p><a href="escape.html#python">エスケープシーケンス</a>も参照。</p>
+
+<p>文字列リテラル | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/reference/lexical_analysis.html#strings" target="_blank">http://docs.python.jp/2/reference/lexical_analysis.html#strings</a></p>
+
+<p>文字列リテラル | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/reference/lexical_analysis.html#string-and-bytes-literals" target="_blank">http://docs.python.jp/3/reference/lexical_analysis.html#string-and-bytes-literals</a></p>
+
+<h2 id="ruby">Ruby
+<span class="article-date">2014/11/29</span></h2>
 
 <p><code>'</code> または <code>"</code> で囲む。または<a href="heredoc.html#ruby">ヒアドキュメント</a>を使う。</p>
 
-<p><code>"</code> で囲んだ文字列は、<a href="inline.html#ruby">中に式を埋め込む</a>ことができる。</p>
+<p><code>"</code> で囲んだ文字列は、<a href="inline.html#ruby">中に式を埋め込むこと(式展開)</a>ができ、
+<a href="escape.html#ruby">エスケープ</a>の種類も <code>"..."</code> のほうが多い。</p>
 
-<p>-&gt; <a href="overview.html">概要</a></p>
+<p>他の言語と違って、<code>'</code> または <code>"</code> のどちらで囲んでも途中に改行を入れることができる。</p>
 
-<h2 id="a1b63e2">Python
-<span class="article-date">2013/08/06</span></h2>
+<p><code>'...'</code> の代わりに <code>%q(...)</code> という表記も使える。
+<code>%q(...)</code> の中では <code>'</code> をエスケープする必要がないので、文字列の中に <code>'</code> がたくさんある場合には <code>%q(...)</code> のほうが便利。</p>
 
-<p><code>'</code> または <code>"</code> で囲む。</p>
+<p>同様に <code>"..."</code> の代わりに <code>%Q(...)</code> という表記も使える。
+<code>%Q(...)</code> の中では <code>"</code> をエスケープする必要がないので、文字列の中に <code>"</code> がたくさんある場合には <code>%Q(...)</code> のほうが便利。</p>
 
-<h2 id="269ff61">Perl
+<p>例</p>
+
+<pre><code>p 'abc\ndef'
+# =&gt; "abc\\ndef"
+# シングルクオートでは \n と書いても改行にはならず \n の2文字になる
+
+p "abc\ndef"
+# =&gt; "abc\ndef"
+
+p 'abc
+def'
+# =&gt; "abc\ndef"
+# 途中に改行をそのまま入れることができる
+
+p "abc
+def"
+# =&gt; "abc\ndef"
+# 途中に改行をそのまま入れることができる
+
+p %q(a'bc')
+# =&gt; "a'bc'"
+# %q(...) はシングルクオートと同じ
+
+p %Q(a"bc")
+# =&gt; "a\"bc\""
+# %Q(...) はダブルクオートと同じ
+</code></pre>
+
+<p><code>%q</code> と似たような仕組みは<a href="../list/overview.html#ruby">配列</a>にもある。</p>
+
+<h2 id="perl">Perl
 <span class="article-date">2014/03/02</span></h2>
 
 <p><code>'</code> または <code>"</code> で囲む。または、<code>q//</code>, <code>qq//</code> の表記も使える。
@@ -136,14 +191,20 @@ print Dumper($str2);
 # def';
 </code></pre>
 
+<h2 id="09296ce">JavaScript
+<span class="article-date">2014/11/29</span></h2>
+
+<p>ソースコード中に文字列リテラルを書くには、
+<code>'</code> または <code>"</code> で囲む。</p>
+
+<p>CoffeeScriptにあるような変数展開の機能はない。</p>
+
 <h2 id="60cafab">CoffeeScript
-<span class="article-date">2013/09/10</span></h2>
+<span class="article-date">2014/11/29</span></h2>
 
 <p><code>'</code> または <code>"</code> で囲む。</p>
 
-<p><code>"</code> で囲んだ文字列は、<a href="inline.html#coffeescript">中に式を埋め込む</a>ことができる。</p>
-
-<p>-&gt; <a href="overview.html">概要</a></p>
+<p><code>"</code> で囲んだ文字列は、<a href="inline.html#coffeescript">変数展開</a>することができる。</p>
 
 </div>
 

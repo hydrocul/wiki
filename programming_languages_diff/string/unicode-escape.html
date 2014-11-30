@@ -46,12 +46,13 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
@@ -108,7 +109,7 @@ $str = "\xF0\x9F\x8C\x8D";
 </code></pre>
 
 <h2 id="47713b6">Python
-<span class="article-date">2014/11/19</span></h2>
+<span class="article-date">2014/11/30</span></h2>
 
 <p><code>\u</code>hhhh または <code>\U00</code>hhhhhh の形式で16進数表記できる。
 16ビットまでの文字(基本多言語面)は2つの形式のどちらも使えるが、
@@ -118,6 +119,20 @@ $str = "\xF0\x9F\x8C\x8D";
 Python2での、<code>u"..."</code> 以外の文字列ではエスケープされずそのまま文字列になる。</p>
 
 <p>rawo文字列 <code>r"..."</code> の形式ではPython2でもPython3でもこのエスケープは使えない。</p>
+
+<p>Python2での例</p>
+
+<pre><code>print u"\u5730\u7403\U0001F30D"
+# =&gt; 地球🌍
+# 3文字目は地球の絵文字
+</code></pre>
+
+<p>Python3での例</p>
+
+<pre><code>print("\u5730\u7403\U0001F30D")
+# =&gt; 地球🌍
+# 3文字目は地球の絵文字
+</code></pre>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/11/19</span></h2>

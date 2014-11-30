@@ -56,6 +56,7 @@
       <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
+      <li><a href="../commands/readlink.html">readlink コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
@@ -77,6 +78,7 @@
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
       <li><a href="../commands/trap.html">trap コマンド</a></li>
+      <li><a href="../commands/uniq.html">uniq コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -111,7 +113,7 @@
 <p>ファイル名などでのソートはしてくれないので、必要であればパイプで<a href="sort.html"><code>sort</code>コマンド</a>をつなぐ必要がある。</p>
 
 <h2 id="8d2e228">検索条件
-<span class="article-date">2014/10/13</span></h2>
+<span class="article-date">2014/11/29</span></h2>
 
 <dl>
   <dt><code>-name</code> パターン</dt>
@@ -123,6 +125,15 @@
   <dd>ディレクトリではなくファイル。</dd>
   <dt><code>-type d</code></dt>
   <dd>通常のファイルではなくディレクトリ。</dd>
+  <dt><code>-perm</code></dt>
+  <dd>後ろにパラメータを付けて、パーミッションを条件判定する。
+ユーザに対する書き込み権限があるファイルを探すには <code>-perm -u=w</code> とする。</dd>
+  <dt><code>-perm -u=r</code></dt>
+  <dd>ユーザに対する読み込み権限があるファイル。</dd>
+  <dt><code>-perm -u=w</code></dt>
+  <dd>ユーザに対する書き込み権限があるファイル。</dd>
+  <dt><code>-perm -u=x</code></dt>
+  <dd>ユーザに対する実行権限があるファイル。ディレクトリにもマッチすることに注意。</dd>
 </dl>
 
 <p>検索条件は複数の条件を組み合わせることができ、単に複数の条件を羅列した場合にはそれらの条件がすべて成立するファイルのみが抽出される。その他に以下の演算子もある。</p>
@@ -155,16 +166,18 @@
   <dd><code>-exec</code> の最後の <code>\;</code> を <code>+</code> にすると、オプションの後に指定するコマンドに検索結果をまとめて渡して実行する。</dd>
 </dl>
 
-<h2 id="e6a98c3">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには
-<span class="article-date">2013/11/12</span></h2>
+<h2 id="a9437ee">HOWTO</h2>
+
+<h3 id="ad90cc9">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには
+<span class="article-date">2013/11/12</span></h3>
 
 <p>アクション <code>-printf</code> でファイル一覧を表示するときのフォーマットを指定する。</p>
 
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n"
 </code></pre>
 
-<h2 id="sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには
-<span class="article-date">2014/10/21</span></h2>
+<h3 id="sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには
+<span class="article-date">2014/10/21</span></h3>
 
 <p>アクション <code>-printf</code> でファイル一覧とともにタイムスタンプを出力して、
 <a href="sort.html"><code>sort</code>コマンド</a>で並び替えをする。</p>
@@ -172,8 +185,8 @@
 <pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n" | sort -r -k6,7
 </code></pre>
 
-<h2 id="b517bc7">特定の日に更新したファイルの一覧を表示するには
-<span class="article-date">2009/11/29</span></h2>
+<h3 id="3580372">特定の日に更新したファイルの一覧を表示するには
+<span class="article-date">2009/11/29</span></h3>
 
 <p>例えば、24日前～23日前に更新したファイルの一覧を表示したい場合、</p>
 
@@ -183,28 +196,28 @@
 <p>この場合、ちょうど24日前の現在時刻よりも最近で、
 23日前の現在時刻よりも古い時間または23日前の現在時刻ちょうどに更新されたファイルをリスト表示する。”+22”とする必要あり。</p>
 
-<h2 id="4e2c68a">カレントディレクトリ以下にある <code>.ht</code> で始まるファイルをそれぞれ <code>.ht*.example</code> というファイルにコピーするには
-<span class="article-date">2013/04/16</span></h2>
+<h3 id="a649e9d">カレントディレクトリ以下にある <code>.ht</code> で始まるファイルをそれぞれ <code>.ht*.example</code> というファイルにコピーするには
+<span class="article-date">2013/04/16</span></h3>
 
 <pre><code>find . -name ".ht*" | awk '{print "cp " $1 " " $1 ".example"}' | sh
 </code></pre>
 
-<h2 id="0270de7">カレントディレクトリ以下にあるすべてのシンボリックリンクを探すには
-<span class="article-date">2013/04/23</span></h2>
+<h3 id="2867db3">カレントディレクトリ以下にあるすべてのシンボリックリンクを探すには
+<span class="article-date">2013/04/23</span></h3>
 
 <pre><code>find . -type l -exec ls -l {} \;
 </code></pre>
 
-<h2 id="f54e7fb"><code>Permission denied</code> を表示しないようにするには
-<span class="article-date">2014/05/15</span></h2>
+<h3 id="cb3d850"><code>Permission denied</code> を表示しないようにするには
+<span class="article-date">2014/05/15</span></h3>
 
 <p><code>find</code> で <code>/</code> などを検索すると、 <code>Permission denied</code> というエラーメッセージが大量に出力されてしまう。このメッセージが邪魔なので抑制するには、以下のように単に標準エラー出力を捨てればよい。</p>
 
 <pre><code>find / ... 2&gt;/dev/null
 </code></pre>
 
-<h2 id="5ccfd97">別のマウント領域の中は探索しないようにするには
-<span class="article-date">2013/06/25</span></h2>
+<h3 id="412c842">別のマウント領域の中は探索しないようにするには
+<span class="article-date">2013/06/25</span></h3>
 
 <p><code>-mount</code> を使う。</p>
 
@@ -213,8 +226,8 @@
 find / -mount -name "hoge" 2&gt;/dev/null
 </code></pre>
 
-<h2 id="4c2810c">UIDからそのユーザのホームディレクトリを調べる簡単な方法
-<span class="article-date">2013/07/03</span></h2>
+<h3 id="23f6923">UIDからそのユーザのホームディレクトリを調べる簡単な方法
+<span class="article-date">2013/07/03</span></h3>
 
 <pre><code># UIDが1000のユーザのホームディレクトリ
 find /home -maxdepth 1 -uid 1000
@@ -222,29 +235,43 @@ find /home -maxdepth 1 -uid 1000
 
 <p>ただし、これはホームディレクトリが <code>/home</code> 直下にあることを決め打ちしている。</p>
 
-<h2 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法
-<span class="article-date">2014/10/13</span></h2>
+<h3 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法
+<span class="article-date">2014/10/13</span></h3>
 
 <p><a href="sed.html#find-sed-recursive"><code>sed</code>コマンド</a>参照。</p>
 
 <p>ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法<br />
 <a href="http://d.hatena.ne.jp/hydrocul/20111211/1323595015" target="_blank">http://d.hatena.ne.jp/hydrocul/20111211/1323595015</a></p>
 
-<h2 id="81e252f">空のディレクトリの一覧を表示するには
-<span class="article-date">2013/08/28</span></h2>
+<h3 id="fea87f7">空のディレクトリの一覧を表示するには
+<span class="article-date">2013/08/28</span></h3>
 
 <pre><code>find . -type d -empty
 </code></pre>
 
-<h2 id="7dc77aa">サイズ0のファイルの一覧を表示するには
-<span class="article-date">2013/08/28</span></h2>
+<h3 id="f86ec0d">サイズ0のファイルの一覧を表示するには
+<span class="article-date">2013/08/28</span></h3>
 
 <pre><code>find . -type f -empty
 </code></pre>
 
-<h2 id="aa97425">たくさんのファイルをまとめて less で閲覧するには</h2>
+<h3 id="381242f">たくさんのファイルをまとめて less で閲覧するには</h3>
 
 <p>-&gt; <a href="less.html#less-many-files">たくさんのファイルをまとめて less で閲覧するには</a></p>
+
+<h3 id="b08d147">実行可能なファイルを検索するには
+<span class="article-date">2014/11/29</span></h3>
+
+<p>検索条件として <code>-perm -u=x -type f</code> を付ける。
+<code>-perm -u=x</code> で実行権限のあるファイルを条件にするのだが、これだとディレクトリにもマッチしてしまう。</p>
+
+<p>ディレクトリに対する実行権限というのは、ディレクトリが本当に実行可能というわけではなく、そのディレクトリの中に<code>cd</code>できる、という意味なので、本当に実行可能なファイルを検索するには、
+<code>-type f</code> を付けてディレクトリを除外しないといけない。</p>
+
+<p>例</p>
+
+<pre><code>find . -perm -u=x -type f
+</code></pre>
 
 <h2 id="15af3f8">リンク集
 <span class="article-date">2013/04/03</span></h2>

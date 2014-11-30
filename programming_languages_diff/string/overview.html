@@ -46,16 +46,18 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
@@ -143,7 +145,7 @@ echo $str;
 </code></pre>
 
 <h2 id="ccd88c1">Python
-<span class="article-date">2014/11/12</span></h2>
+<span class="article-date">2014/11/29</span></h2>
 
 <p>Pythonの文字列は不変オブジェクトで、単なるバイト列とUnicode文字列(Unicodeコードポイントの列)の2種類の文字列がある。</p>
 
@@ -160,21 +162,14 @@ echo $str;
 <p>Unicode文字列は<code>encode</code>メソッドでバイト列に変換でき、バイト列は<code>decode</code>メソッドでUnicode文字列に変換できる。</p>
 
 <p>文字列をリテラルとしてソースコード中に書くには 
-<code>'</code> または <code>"</code> で囲む。または三重引用符(トリプルクオート) <code>'''</code> または <code>"""</code> で囲む。トリプルクオートの中には改行をそのまま含めることもできる。複数行の<a href="../comment.html#python">コメント</a>をトリプルクオートの文字列で書くことがよくある。</p>
+<code>'</code> または <code>"</code> で囲む。または三重引用符(トリプルクオート) <code>'''</code> または <code>"""</code> で囲む。</p>
 
-<p><code>'</code>, <code>"</code>, <code>'''</code>, <code>"""</code> の前に <code>r</code> または <code>R</code> をプレフィックスとしてつけると、
-raw文字列というものになり、バックスラッシュによるエスケープシーケンスの多くが無効になる。</p>
+<p>トリプルクオートの中には改行をそのまま含めることもでき、複数行の<a href="../comment.html#python">コメント</a>をトリプルクオートの文字列で書くことがよくある。</p>
 
-<p><a href="escape.html#python">エスケープシーケンス</a>も参照。</p>
-
-<p>文字列リテラル | Python 2.7 documentation<br />
-<a href="http://docs.python.jp/2/reference/lexical_analysis.html#strings" target="_blank">http://docs.python.jp/2/reference/lexical_analysis.html#strings</a></p>
-
-<p>文字列リテラル | Python 3 documentation<br />
-<a href="http://docs.python.jp/3/reference/lexical_analysis.html#string-and-bytes-literals" target="_blank">http://docs.python.jp/3/reference/lexical_analysis.html#string-and-bytes-literals</a></p>
+<p>-&gt; <a href="literal.html#python">文字列リテラル</a></p>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/10/13</span></h2>
+<span class="article-date">2014/11/29</span></h2>
 
 <p>Ruby 1.8以前と1.9以降とでは文字列の扱いが大きく異なる。</p>
 
@@ -210,49 +205,10 @@ p src.encoding
 <p>ソースコード中に文字列リテラルを書くには、
 <code>'</code> または <code>"</code> で囲む。または<a href="heredoc.html#ruby">ヒアドキュメント</a>を使う。</p>
 
-<p><code>"</code> で囲んだ文字列は、<a href="inline.html#ruby">中に式を埋め込むこと(式展開)</a>ができ、
-<a href="escape.html#ruby">エスケープ</a>の種類も <code>"..."</code> のほうが多い。</p>
-
-<p>他の言語と違って、<code>'</code> または <code>"</code> のどちらで囲んでも途中に改行を入れることができる。</p>
-
-<p><code>'...'</code> の代わりに <code>%q(...)</code> という表記も使える。
-<code>%q(...)</code> の中では <code>'</code> をエスケープする必要がないので、文字列の中に <code>'</code> がたくさんある場合には <code>%q(...)</code> のほうが便利。</p>
-
-<p>同様に <code>"..."</code> の代わりに <code>%Q(...)</code> という表記も使える。
-<code>%Q(...)</code> の中では <code>"</code> をエスケープする必要がないので、文字列の中に <code>"</code> がたくさんある場合には <code>%Q(...)</code> のほうが便利。</p>
-
-<p>例</p>
-
-<pre><code>p 'abc\ndef'
-# =&gt; "abc\\ndef"
-# シングルクオートでは \n と書いても改行にはならず \n の2文字になる
-
-p "abc\ndef"
-# =&gt; "abc\ndef"
-
-p 'abc
-def'
-# =&gt; "abc\ndef"
-# 途中に改行をそのまま入れることができる
-
-p "abc
-def"
-# =&gt; "abc\ndef"
-# 途中に改行をそのまま入れることができる
-
-p %q(a'bc')
-# =&gt; "a'bc'"
-# %q(...) はシングルクオートと同じ
-
-p %Q(a"bc")
-# =&gt; "a\"bc\""
-# %Q(...) はダブルクオートと同じ
-</code></pre>
-
-<p><code>%q</code> と似たような仕組みは<a href="../list/overview.html#ruby">配列</a>にもある。</p>
+<p>-&gt; <a href="literal.html#ruby">文字列リテラル</a></p>
 
 <h2 id="3263830">Perl
-<span class="article-date">2014/09/27</span></h2>
+<span class="article-date">2014/11/29</span></h2>
 
 <p>Javaに似ていて、内部ではUnicodeで処理していて、外界との入出力時に必要とする文字符号化方式で変換するのが原則。</p>
 
@@ -298,6 +254,8 @@ UTF8フラグがオフになっている。外界からの入力時に <code>dec
 
 <p>ソースコード中に文字列リテラルを書くには、
 <code>'</code> または <code>"</code> で囲む。</p>
+
+<p>-&gt; <a href="literal.html#perl">文字列リテラル</a></p>
 
 <h2 id="694d9bb">Gauche (Scheme)
 <span class="article-date">2014/07/18</span></h2>

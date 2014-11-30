@@ -46,16 +46,18 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
         </ul>
       </li>
@@ -70,19 +72,25 @@
   <h1 id="index-of">部分文字列を検索するには (indexOf, lastIndexOf)</h1>
 
 <h2 id="7a05641">Java / Scala / Groovy
-<span class="article-date">2014/11/11</span></h2>
+<span class="article-date">2014/11/30</span></h2>
 
 <p>Signature:</p>
 
 <pre><code>// java.lang.String
 int indexOf(int ch)
+int indexOf(int ch, int fromIndex)
 int indexOf(String str)
+int indexOf(String str, int fromIndex)
 
 int lastIndexOf(int ch)
+int lastIndexOf(int ch, int fromIndex)
 int lastIndexOf(String str)
+int lastIndexOf(String str, int fromIndex)
 </code></pre>
 
 <p>いずれも見つからない場合は <code>-1</code> を返す。</p>
+
+<p><code>lastIndexOf</code> で <code>fromIndex</code> を指定すると、そのインデックスより前を走査する。</p>
 
 <p>Groovyでの例</p>
 
