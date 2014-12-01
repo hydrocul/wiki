@@ -108,18 +108,21 @@ Java5からはサロゲートペアによって<code>char</code>2つで拡張さ
 <p><code>java.lang.String</code> は不変(immutable)であるが、可変(mutable)文字列としては、<code>java.lang.StringBuilder</code>,
 <code>java.lang.StringBuffer</code> がある。</p>
 
-<p>ソースコード中に文字列リテラル(<code>String</code>型)を書くには、<code>"</code> で囲む。
-<code>'</code> で囲むと文字列ではなく文字(Java: <code>char</code>型, Scala: <code>Char</code>型)になる。</p>
+<p>ソースコード中に<a href="literal.html#java">文字列リテラル(<code>String</code>型)</a>を書くには、<code>"</code> で囲む。
+<code>'</code> で囲むと文字列ではなく文字(<code>char</code>型)になる。</p>
 
 <h2 id="7f4d550">Scala
-<span class="article-date">2014/07/31</span></h2>
+<span class="article-date">2014/11/30</span></h2>
 
 <p>Scalaにおける文字列は、Javaの<code>java.lang.String</code>クラスそのままなので、Javaと同じく、内部ではUTF-16で、不変オブジェクトである。</p>
 
 <p><code>java.lang.String</code> は <code>scala.Predef</code> で <code>scala.collection.immutable.StringOps</code> への暗黙の変換を定義しているので、文字列に対して <code>scala.collection.immutable.StringOps</code> にあるメソッドもそのまま使うことができる。</p>
 
+<p>ソースコード中に<a href="literal.html#java">文字列リテラル(<code>String</code>型)</a>を書くには、Javaと同じく <code>"</code> で囲む。
+<code>'</code> で囲むと文字列ではなく文字(<code>scala.Char</code>型)になる。</p>
+
 <h2 id="37528cf">PHP
-<span class="article-date">2014/03/21</span></h2>
+<span class="article-date">2014/11/30</span></h2>
 
 <p>PHPでは文字列は長さの情報と単なるバイト配列であり、可変である。</p>
 
@@ -128,9 +131,9 @@ Java5からはサロゲートペアによって<code>char</code>2つで拡張さ
 <p>ソースコード中に文字列リテラルを書くには、
 <code>'</code> または <code>"</code> で囲む。または<a href="heredoc.html#php">ヒアドキュメント</a>を使う。</p>
 
-<p>文字列リテラルは、ソースコードで使われている文字符号化方式(文字コード)でバイナリに変換されて処理される。</p>
+<p>-&gt; <a href="literal.html#php">文字列リテラル</a></p>
 
-<p><code>"</code> で囲んだ場合とヒアドキュメントでは <code>$</code> で始まる部分が変数名として値に展開される。</p>
+<p>文字列リテラルは、ソースコードで使われている文字符号化方式(文字コード)でバイナリに変換されて処理される。</p>
 
 <p>単なるバイト配列であり可変オブジェクトであるので、
 C言語のようにインデックスで指定して文字を変更してしまうことが可能。</p>
