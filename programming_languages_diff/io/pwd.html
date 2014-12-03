@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ディレクトリを作成するには (mkdir) | hydrocul のメモ</title>
+<title>カレントディレクトリを取得するには (pwd) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ディレクトリを作成するには (mkdir)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>カレントディレクトリを取得するには (pwd)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -33,7 +33,7 @@
           <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
           <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには</a></li>
-          <li>ディレクトリを作成するには (mkdir)</li>
+          <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには (mkdir)</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには (rm / unlink)</a></li>
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには</a></li>
@@ -48,7 +48,7 @@
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/puts.html">標準出力・標準エラー出力するには</a></li>
-          <li><a href="../../programming_languages_diff/io/pwd.html">カレントディレクトリを取得するには (pwd)</a></li>
+          <li>カレントディレクトリを取得するには (pwd)</li>
         </ul>
       </li>
     </ul>
@@ -59,47 +59,41 @@
 </div>
 
 <div id="content">
-  <h1 id="mkdir">ディレクトリを作成するには (mkdir)</h1>
+  <h1 id="pwd">カレントディレクトリを取得するには (pwd)</h1>
 
-<h2 id="f658d18">Java
-<span class="article-date">2013/11/25</span></h2>
+<h2 id="4e286db">Ruby
+<span class="article-date">2014/12/03</span></h2>
 
-<p>Signature:</p>
+<p>例</p>
 
-<pre><code>// java.io.File
-boolean mkdir()
-boolean mkdirs()
+<pre><code>p Dir::pwd
 </code></pre>
 
-<p>これらのメソッドは作成するディレクトリを引数で渡すのではなく、作成するパスの <code>File</code> オブジェクトを先に生成してからそのインスタンスのこのメソッドを呼び出す。作成できたら <code>true</code> を返す。
-<code>mkdir</code> は1階層のみの作成で、それに対し、 <code>mkdirs</code> は <code>mkdir -p</code> に相当し、複数の階層をまとめて作成できる。</p>
+<h2 id="b630a64">Perl
+<span class="article-date">2013/11/17</span></h2>
 
-<h2 id="1642748">Ruby
-<span class="article-date">2013/06/24</span></h2>
+<p>例</p>
 
-<pre><code>Dir::mkdir('foodir')
+<pre><code>use Cwd;
+
+print Cwd::getcwd();
 </code></pre>
 
-<p>または、<code>mkdir -p</code> に相当する方法として</p>
+<p>任意のファイルパスをカレントディレクトリを基準に絶対パスに変換する例</p>
 
-<pre><code>require 'fileutls'
-FileUtils::mkdir_p('foodir/bardir')
+<pre><code>use File::Spec;
+
+print File::Spec-&gt;rel2abs('foo/bar/txt);
 </code></pre>
 
-<h2 id="9a801b4">Perl
-<span class="article-date">2013/11/25</span></h2>
+<p>絶対パスを入れたら変換せずにそのまま返される。</p>
 
-<pre><code>mkdir('foodir');
-</code></pre>
+<h2 id="f21194d">sh
+<span class="article-date">2014/12/03</span></h2>
 
-<p><code>use ...</code> はなにもいらない。</p>
+<p><code>pwd</code>コマンドでカレントディレクトリが出力される。</p>
 
-<p>または、<code>mkdir -p</code> に相当する方法として</p>
-
-<pre><code>use File::Path;
-
-mkpath("foodir/bardir");
-</code></pre>
+<p>bashやzshでは<code>pwd</code>は組み込みコマンドとして存在する。</p>
 
 </div>
 
