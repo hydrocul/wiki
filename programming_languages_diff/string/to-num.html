@@ -77,7 +77,7 @@
 <p>逆の<a href="../number/to-string.html">数値から文字列に変換する方法</a>も参照。</p>
 
 <h2 id="8041b68">Java
-<span class="article-date">2014/11/30</span></h2>
+<span class="article-date">2014/12/05</span></h2>
 
 <p>Signature:</p>
 
@@ -96,6 +96,9 @@ int i = Integer.parseInt(str, 16);
 </code></pre>
 
 <p>数値に変換できない文字列の場合は、<code>java.lang.NumberFormatException</code> がスローされる。</p>
+
+<p>文字列が “0” で始まっていてもそれは単に無視されて変換されるので、
+<code>"09"</code> は <code>9</code> になる。</p>
 
 <h2 id="b451d62">Scala
 <span class="article-date">2014/11/30</span></h2>
