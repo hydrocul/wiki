@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ファイルの中身を1行ずつテキスト処理するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>ファイルの中身を1行ずつテキスト処理するには | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -33,7 +33,7 @@
           <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
           <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
+          <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには (mkdir)</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには (rm / unlink)</a></li>
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには</a></li>
@@ -41,13 +41,14 @@
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
-          <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
+          <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
           <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/puts.html">標準出力・標準エラー出力するには</a></li>
+          <li><a href="../../programming_languages_diff/io/pwd.html">カレントディレクトリを取得するには (pwd)</a></li>
         </ul>
       </li>
     </ul>
@@ -131,7 +132,7 @@ Source.fromInputStream(System.in).getLines.foreach { line =&gt;
 </code></pre>
 
 <h2 id="1c89b86">PHP
-<span class="article-date">2013/10/08</span></h2>
+<span class="article-date">2014/12/08</span></h2>
 
 <p>例</p>
 
@@ -147,6 +148,20 @@ if ($fh) {
 </code></pre>
 
 <p><code>fgets</code> は <code>'\r'</code>(<code>0x0D</code>) を改行としてみなさない。</p>
+
+<p>標準入力に対しては</p>
+
+<pre><code>$fh = fopen('php://stdin', 'r');
+</code></pre>
+
+<p>としてファイルポインタを取得するか、もしくは<code>fopen</code>せずにファイルポインタを以下のように <code>STDIN</code> と書けばよい。</p>
+
+<pre><code>while (!feof(STDIN)) {
+  $line = fgets(STDIN);
+  // $line には最後の改行を含む
+  ...;
+}
+</code></pre>
 
 <h2 id="c8518c1">Python
 <span class="article-date">2014/07/02</span></h2>

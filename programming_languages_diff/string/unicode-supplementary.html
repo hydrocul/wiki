@@ -36,26 +36,28 @@
           <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
-          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format, printf, sprintf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith, endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
-          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf / lastIndexOf)</a></li>
+          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
           <li>Unicode拡張領域の取り扱い</li>
         </ul>
       </li>
@@ -70,9 +72,7 @@
   <h1 id="unicode-supplementary">Unicode拡張領域の取り扱い</h1>
 
 <h2 id="d5690e6">Java / Scala
-<span class="article-date">2014/11/03</span></h2>
-
-<p>文字列には直接拡張領域の文字を書くことができる。</p>
+<span class="article-date">2014/12/08</span></h2>
 
 <p>Unicodeエスケープは16ビットまでの文字しか書けないので、拡張領域の文字をUnicodeエスケープで書くにはサロゲートペアで2つの16ビットに分割する必要がある。</p>
 
@@ -209,6 +209,30 @@ print ord("🌍");
 print encode_utf8(chr(127757));
 # =&gt; 🌍
 </code></pre>
+
+<h2 id="ed73c79">JavaScript
+<span class="article-date">2014/12/08</span></h2>
+
+<p>Javaと同じく、Unicodeエスケープは16ビットまでの文字しか書けないので、拡張領域の文字をUnicodeエスケープで書くにはサロゲートペアで2つの16ビットに分割する必要がある。</p>
+
+<pre><code>console.log("地球🌍"); // 3文字目は地球の絵文字
+// =&gt; 地球🌍
+
+var str = "\u5730\u7403\uD83C\uDF0D";
+console.log(str);
+// =&gt; 地球🌍
+
+var len = str.length;
+console.log(len);
+// =&gt; 4
+</code></pre>
+
+<p>上記実行例は nodejs v0.10.15 で確認。</p>
+
+<p>サロゲートペアに対応した文字数取得などはJavaScriptには存在せず、以下のようなライブラリが必要。</p>
+
+<p>javascript - でBMP以外のUnicode文字をきちんと扱う<br />
+<a href="http://blog.livedoor.jp/dankogai/archives/51861512.html" target="_blank">http://blog.livedoor.jp/dankogai/archives/51861512.html</a></p>
 
 </div>
 

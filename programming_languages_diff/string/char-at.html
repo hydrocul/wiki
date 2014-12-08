@@ -46,12 +46,13 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
@@ -208,7 +209,7 @@ print substr($s, 2, 1);
 <p>文字というデータ型はないので、取得した結果も文字列である。その文字のコードを整数で取得したい場合は <a href="ord.html#perl"><code>ord</code></a> を使う。</p>
 
 <h2 id="bab2933">JavaScript
-<span class="article-date">2014/11/19</span></h2>
+<span class="article-date">2014/12/08</span></h2>
 
 <p>例</p>
 
@@ -218,6 +219,8 @@ print substr($s, 2, 1);
 <p>インデックスは0から始まる。</p>
 
 <p>範囲外のインデックスを指定すると <code>undefined</code> が返される。</p>
+
+<p><code>charCodeAt</code> というメソッドだと文字をコードポイントで取得できる。ただし、サロゲートペアには対応していない。</p>
 
 <h2 id="ef5bc09">CoffeeScript
 <span class="article-date">2013/09/07</span></h2>
