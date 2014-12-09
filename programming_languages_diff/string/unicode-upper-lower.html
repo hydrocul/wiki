@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Unicodeの仕様に基づいた大文字小文字を変換するには | hydrocul のメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body>
+
+<div id="breadcrumb">
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>Unicodeの仕様に基づいた大文字小文字を変換するには</span>
+</div>
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/string/">文字列</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
+          <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
+          <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
+          <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
+          <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
+          <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
+          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith, endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
+          <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
+          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
+          <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
+          <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
+          <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
+          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
+          <li>Unicodeの仕様に基づいた大文字小文字を変換するには</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div id="content">
+  <h1 id="unicode-upper-lower">Unicodeの仕様に基づいた大文字小文字を変換するには
+<span class="article-date">2014/12/08</span></h1>
+
+<p>アルファベット26文字以外の大文字小文字の変換ルールは意外と複雑で、以下は言語ごとにどう変換してくれるかの比較。</p>
+
+<p>Unicodeの大文字小文字の変換ルールに関しては
+<a href="../../blog/2014/1109-upper-lower-title.html">Unicodeの大文字と小文字のまとめ</a>も参照。</p>
+
+<p>試した言語の中ではPythonが一番優秀のようだ。</p>
+
+<h2 id="e18efd6">Scala
+<span class="article-date">2014/11/13</span></h2>
+
+<p>Scalaでの例</p>
+
+<pre><code>println("heLLO");
+// =&gt; heLLO
+
+// 文字列中のすべての文字を小文字にする
+println("heLLO".toLowerCase);
+// =&gt; hello
+
+// 文字列の先頭の文字を大文字にし、2文字目以降はそのままにする
+// 2文字目以降を小文字にすることはしない
+println("heLLO".capitalize);
+// =&gt; HeLLO
+
+// 文字列中のすべての文字を大文字にする
+println("heLLO".toUpperCase);
+// =&gt; HELLO
+
+println("\u00E6\u00E6\u00E6");
+// =&gt; æææ
+
+// 7ビットを超えるUnicodeの文字も正しく変換する
+println("\u00E6\u00E6\u00E6".capitalize);
+// =&gt; Æææ
+
+// 7ビットを超えるUnicodeの文字も正しく変換する
+println("\u00E6\u00E6\u00E6".toUpperCase);
+// =&gt; ÆÆÆ
+
+println("\u00DF");
+// =&gt; ß
+
+// "Ss" が期待されるが、変換しない
+println("\u00DF\u00DF\u00DF".capitalize);
+// =&gt; ß
+
+// 大文字への変換であれば、2文字以上への変換もする
+println("\u00DF".toUpperCase);
+// =&gt; SS
+
+println("\uFB01ght");
+// =&gt; ﬁght
+
+println("\uFB01ght".toLowerCase);
+// =&gt; ﬁght
+
+// "Fight" が期待されるが、なぜかこれは変換しない
+println("\uFB01ght".capitalize);
+// =&gt; ﬁght
+
+// 大文字への変換であれば、リガチャーも分解して変換する
+println("\uFB01ght".toUpperCase);
+// =&gt; FIGHT
+
+println("\u03A3\u03A3\u03A3");
+// =&gt; ΣΣΣ
+
+// ギリシャ文字シグマ小文字は単語の最後では形が違うが、正しく変換する
+println("\u03A3\u03A3\u03A3".toLowerCase);
+// =&gt; σσς
+
+// 1文字の場合は語末形にはならない
+println("\u03A3".toLowerCase);
+// =&gt; σ
+
+// 1文字目はハンガリー語で1文字として扱われる"dz"
+println("\u01F3s\u00FAsz");
+// =&gt; ǳsúsz
+
+println("\u01F3s\u00FAsz".toLowerCase);
+// =&gt; ǳsúsz
+
+// "ǲsúsz" が期待されるが、"dz"全体を大文字にしてしまい、正しく変換しない
+println("\u01F3s\u00FAsz".capitalize);
+// =&gt; Ǳsúsz
+
+// 大文字への変換であれば、正しく変換する
+println("\u01F3s\u00FAsz".toUpperCase);
+// =&gt; ǱSÚSZ
+</code></pre>
+
+<p>これは以下の環境での実行例である。</p>
+
+<pre><code>$ java -version
+java version "1.7.0_21"
+Java(TM) SE Runtime Environment (build 1.7.0_21-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 23.21-b01, mixed mode)
+$ scala -version
+Scala code runner version 2.10.2 -- Copyright 2002-2013, LAMP/EPFL
+</code></pre>
+
+<h2 id="1d67176">PHP
+<span class="article-date">2014/12/05</span></h2>
+
+<p>例</p>
+
+<pre><code>$str = "heLLO";
+echo $str . "\n";
+// =&gt; heLLO
+echo mb_convert_case($str, MB_CASE_LOWER, "UTF-8") . "\n";
+// =&gt; hello
+echo mb_convert_case($str, MB_CASE_TITLE, "UTF-8") . "\n";
+// =&gt; Hello
+echo mb_convert_case($str, MB_CASE_UPPER, "UTF-8") . "\n";
+// =&gt; HELLO
+
+$str = "\xC3\xA6";
+echo $str . "\n";
+// =&gt;  æ
+echo mb_convert_case($str, MB_CASE_LOWER, "UTF-8") . "\n";
+// =&gt;  æ
+echo mb_convert_case($str, MB_CASE_TITLE, "UTF-8") . "\n";
+// =&gt;  Æ
+echo mb_convert_case($str, MB_CASE_UPPER, "UTF-8") . "\n";
+// =&gt;  Æ
+
+$str = "\xC3\x9F";
+echo $str . "\n";
+// =&gt;  ß
+echo mb_convert_case($str, MB_CASE_LOWER, "UTF-8") . "\n";
+// =&gt;  ß
+echo mb_convert_case($str, MB_CASE_TITLE, "UTF-8") . "\n";
+// =&gt;  ß
+echo mb_convert_case($str, MB_CASE_UPPER, "UTF-8") . "\n";
+// =&gt;  ß
+
+$str = "\xEF\xAC\x81ght";
+echo $str . "\n";
+// =&gt; ﬁght
+echo mb_convert_case($str, MB_CASE_LOWER, "UTF-8") . "\n";
+// =&gt; ﬁght
+echo mb_convert_case($str, MB_CASE_TITLE, "UTF-8") . "\n";
+// =&gt; ﬁght
+echo mb_convert_case($str, MB_CASE_UPPER, "UTF-8") . "\n";
+// =&gt; ﬁGHT
+
+$str = "\xCE\xA3\xCE\xA3\xCE\xA3";
+echo $str . "\n";
+// =&gt; ΣΣΣ
+echo mb_convert_case($str, MB_CASE_LOWER, "UTF-8") . "\n";
+// =&gt; σσσ
+echo mb_convert_case($str, MB_CASE_TITLE, "UTF-8") . "\n";
+// =&gt; Σσσ
+echo mb_convert_case($str, MB_CASE_UPPER, "UTF-8") . "\n";
+// =&gt; ΣΣΣ
+
+$str = "\xC7\xB3s\xC3\xBAsz";
+echo $str . "\n";
+// =&gt; ǳsúsz
+echo mb_convert_case($str, MB_CASE_LOWER, "UTF-8") . "\n";
+// =&gt; ǳsúsz
+echo mb_convert_case($str, MB_CASE_TITLE, "UTF-8") . "\n";
+// =&gt; ǲsúsz
+echo mb_convert_case($str, MB_CASE_UPPER, "UTF-8") . "\n";
+// =&gt; ǲSÚSZ
+</code></pre>
+
+<p>上記実行例のPHPのバージョンは5.5.3。</p>
+
+<h2 id="72aeaee">Python
+<span class="article-date">2014/11/14</span></h2>
+
+<p>Python3での例</p>
+
+<pre><code>str = "heLLO"
+print(str);
+# =&gt; heLLO
+
+# 文字列中のすべての文字を小文字にする
+print(str.lower());
+# =&gt; hello
+
+# 文字列の先頭の文字を大文字にし、2文字目以降を小文字にする
+print(str.title());
+# =&gt; Hello
+
+# 文字列中のすべての文字を大文字にする
+print(str.upper());
+# =&gt; HELLO
+
+str = "\u00E6\u00E6\u00E6"
+print(str);
+# =&gt; æææ
+
+print(str.lower());
+# =&gt; æææ
+
+# 7ビットを超えるUnicodeの文字も正しく変換する
+print(str.title());
+# =&gt; Æææ
+
+# 7ビットを超えるUnicodeの文字も正しく変換する
+print(str.upper());
+# =&gt; ÆÆÆ
+
+str = "\u00DF" # ß
+print(str);
+# =&gt; ß
+
+print(str.lower());
+# =&gt; ß
+
+# 1文字から2文字への変換もする
+print(str.title());
+# =&gt; Ss
+
+# 1文字から2文字への変換もする
+print(str.upper());
+# =&gt; SS
+
+str = "\uFB01ght"
+print(str);
+# =&gt; ﬁght
+
+print(str.lower());
+# =&gt; ﬁght
+
+# リガチャも2文字に分解した上で、1文字目のみを大文字に変換する
+print(str.title());
+# =&gt; Fight
+
+# 全部大文字にする場合もリガチャを分解する
+print(str.upper());
+# =&gt; FIGHT
+
+str = "\u03A3\u03A3\u03A3"
+print(str);
+# =&gt; ΣΣΣ
+
+# ギリシャ文字シグマ小文字は単語の最後では形が違うが、正しく変換する
+print(str.lower());
+# =&gt; σσς
+
+# 1文字の場合は語末形にはならない
+str = "\u03A3"
+print(str.lower());
+# =&gt; σ
+
+# 1文字目はハンガリー語で1文字として扱われる"dz"
+str = "\u01F3s\u00FAsz"
+print(str);
+# =&gt; ǳsúsz
+
+print(str.lower());
+# =&gt; ǳsúsz
+
+# 本当の1文字目のみを大文字に変換する
+print(str.title());
+# =&gt; ǲsúsz
+
+# 全体を大文字に変換する
+print(str.upper());
+# =&gt; ǱSÚSZ
+</code></pre>
+
+<h2 id="c165f0c">JavaScript
+<span class="article-date">2014/12/08</span></h2>
+
+<p>1文字目だけを大文字にするための便利なメソッドはないようだ。</p>
+
+<p>例</p>
+
+<pre><code>var str = "heLLO";
+console.log(str);
+// =&gt; heLLO
+
+// 文字列中のすべての文字を小文字にする
+console.log(str.toLowerCase());
+// =&gt; hello
+
+// 文字列中のすべての文字を大文字にする
+console.log(str.toUpperCase());
+// =&gt; HELLO
+
+str = "\u00E6\u00E6\u00E6";
+console.log(str);
+// =&gt; æææ
+
+// 7ビットを超えるUnicodeの文字も正しく変換する
+console.log(str.toUpperCase());
+// =&gt; ÆÆÆ
+
+str = "\u00DF";
+console.log(str);
+// =&gt; ß
+
+// 大文字への変換であれば、2文字以上への変換もする
+console.log(str.toUpperCase());
+// =&gt; SS
+// Firefoxでは ß のままになってしまう
+
+str = "\uFB01ght";
+console.log(str);
+// =&gt; ﬁght
+
+console.log(str.toLowerCase());
+// =&gt; ﬁght
+
+// 大文字への変換であれば、リガチャーも分解して変換する
+console.log(str.toUpperCase());
+// =&gt; FIGHT
+
+str = "\u03A3\u03A3\u03A3";
+console.log(str);
+// =&gt; ΣΣΣ
+
+// ギリシャ文字シグマ小文字は単語の最後では形が違うが、正しく変換する
+console.log(str.toLowerCase());
+// =&gt; σσς
+// Firefoxでは語末形にしてくれず3文字とも同じになってしまう
+
+str = "\u03A3";
+// 1文字の場合も語末形にはなる
+console.log(str.toLowerCase());
+// =&gt; ς
+// Firefoxでは語末形にしてくれない
+
+str = "\u01F3s\u00FAsz";
+// 1文字目はハンガリー語で1文字として扱われる"dz"
+console.log(str);
+// =&gt; ǳsúsz
+
+console.log(str.toLowerCase());
+// =&gt; ǳsúsz
+
+console.log(str.toUpperCase());
+// =&gt; ǱSÚSZ
+</code></pre>
+
+<p>上記実行例は nodejs v0.10.15, Chrome 40, Firefox 32 で確認。</p>
+
+</div>
+
+<footer>
+  <a href="../../">目次</a>
+  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+</footer>
+
+</body>
+</html>
