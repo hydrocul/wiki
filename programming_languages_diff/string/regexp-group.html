@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>正規表現のグルーピングにマッチした文字列を使うには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>正規表現のグルーピングにマッチした文字列を取得するには | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>正規表現のグルーピングにマッチした文字列を使うには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>正規表現のグルーピングにマッチした文字列を取得するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -46,19 +46,20 @@
           <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)の文字コードを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">文字コードの数字から文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li>正規表現のグルーピングにマッチした文字列を使うには</li>
-          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
+          <li>正規表現のグルーピングにマッチした文字列を取得するには</li>
+          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-upper-lower.html">Unicodeの仕様に基づいた大文字小文字を変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -69,10 +70,10 @@
 </div>
 
 <div id="content">
-  <h1 id="regexp-group">正規表現のグルーピングにマッチした文字列を使うには
-<span class="article-date">2014/11/23</span></h1>
+  <h1 id="regexp-group">正規表現のグルーピングにマッチした文字列を取得するには
+<span class="article-date">2014/12/11</span></h1>
 
-<p>正規表現の中にカッコで括られた部分がある場合は、そのカッコの中にマッチした部分だけを取り出す方法のメモ。</p>
+<p>正規表現の中にカッコで括られた部分がある場合は、そのカッコの中にマッチした部分だけを取り出す機能があるが、以下は各プログラミング言語別のその方法のメモ。</p>
 
 <h2 id="f82f669">Python
 <span class="article-date">2014/09/17</span></h2>
@@ -95,12 +96,11 @@ if m:
 <p><code>${^POSTMATCH}</code> にはマッチした部分より後ろの文字列が入る。</p>
 
 <h2 id="cd27768">sh
-<span class="article-date">2013/10/22</span></h2>
+<span class="article-date">2014/12/10</span></h2>
 
-<p><code>sed</code>コマンドで正規表現による置換ができるが、<code>()</code>でのグルーピングを参照するには
+<p><a href="../../commands/sed.html#group"><code>sed</code>コマンド</a>で正規表現による置換ができるが、
+<code>()</code>でのグルーピングを参照するには
 <code>$1</code>, <code>$2</code>, <code>$3</code> などではなく、<code>\1</code>, <code>\2</code>, <code>\3</code> を使う。</p>
-
-<p>-&gt; <a href="../../commands/sed.html#group"><code>sed</code>コマンド</a></p>
 
 </div>
 
