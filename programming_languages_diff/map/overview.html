@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>概要 | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>連想配列(マップ)のデータ型の各プログラミング言語別の概要 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>概要</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)のデータ型の各プログラミング言語別の概要</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,9 +24,9 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/map/">マップ(連想配列)</a>
+      <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
-          <li>概要</li>
+          <li>連想配列(マップ)のデータ型の各プログラミング言語別の概要</li>
           <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/map/get.html">キーで値を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/map/put.html">キーで要素を設定するには (put)</a></li>
@@ -35,7 +35,7 @@
           <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">マップをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">マップから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li><a href="../../programming_languages_diff/map/is-empty.html">マップが空かどうかを判定するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/map/is-empty.html">連想配列(マップ)が空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
@@ -50,12 +50,12 @@
 </div>
 
 <div id="content">
-  <h1 id="overview">概要
-<span class="article-date">2013/11/01</span></h1>
+  <h1 id="overview">連想配列(マップ)のデータ型の各プログラミング言語別の概要
+<span class="article-date">2014/12/13</span></h1>
 
-<p>キーと値の2つのオブジェクトのペアを複数保持し、キーからオブジェクトを取得できるコンテナオブジェクト。配列の数字を添字とするものに対し、任意のオブジェクトを添字にできるもの。連想配列、マップ、ディクショナリなど、言語によって呼び方は違う。</p>
+<p>キーと値の2つのオブジェクトのペアを複数保持し、キーからオブジェクトを取得できるコンテナオブジェクト。配列が数字を添字とするものに対し、連想配列は任意のオブジェクトを添字にできるもの。任意といっても添字(キー)にできるオブジェクトには制限のある言語もある。連想配列、マップ、ディクショナリなど、言語によって呼び方は違う。</p>
 
-<p>型が静的な言語では、キーと値の型は違っていてもよいが、キーと値はそれぞれすべて同じ型である必要がある。</p>
+<p>静的な型の言語では、キーと値はそれぞれすべて同じ型である必要がある。キーと値の型は違っていてもよい。</p>
 
 <h2 id="java">Java
 <span class="article-date">2014/09/18</span></h2>
@@ -176,7 +176,7 @@ dic = dict()
 <h2 id="perl">Perl
 <span class="article-date">2014/02/07</span></h2>
 
-<p>Perlではハッシュという。ハッシュの値にはスカラ(文字列、数字、レファレンスなど)しか含められないので、配列やハッシュを値として持たせるには、レファレンスにする必要がある。</p>
+<p>Perlではハッシュという。ハッシュの値にはスカラ(文字列、数字、レファレンスなど)しか含められないので、配列やハッシュ自体を値として持たせるには、レファレンスにする必要がある。</p>
 
 <p>ハッシュを入れる変数は名前が <code>%</code> で始まり、要素を参照するには <code>$</code> で始める。</p>
 

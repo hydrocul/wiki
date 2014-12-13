@@ -105,10 +105,15 @@ if (FALSE == '') {
 }
 </code></pre>
 
-<h2 id="ccd88c1">Python
-<span class="article-date">2014/12/07</span></h2>
+<h2 id="python">Python
+<span class="article-date">2014/12/13</span></h2>
 
 <p><code>True</code>, <code>False</code> という組み込みの定数があり、<code>bool</code> という型がある。</p>
+
+<p>if文の条件式など、論理値が必要な箇所に
+<code>False, </code>None<code>, </code>[]<code>, </code>()<code>, </code>{}<code>, </code>””<code>, </code>0<code>, </code>0L<code>, </code>0.0<code>, </code>0j<code> があると 
+</code>False<code> の扱いになる。その他に </code>nonzero()<code> や </code>len()<code> メソッドがあるオブジェクトで 
+</code>False<code> や </code>0<code> を返すものも </code>False<code> の扱いになる。それ以外は </code>True` とみなされる。</p>
 
 <p>実は <code>True</code> は <code>1</code> と同じで、<code>False</code> は <code>0</code> と同じらしい。</p>
 
@@ -146,6 +151,15 @@ print(isinstance(True, int))   # True
 <p>if文の条件式など、論理値が必要な箇所に
 <code>false</code>, <code>nil</code> が入ると <code>false</code> の扱いになり、それ以外はすべて <code>true</code> の扱いになる。
 <code>0</code> も <code>''</code> も <code>[]</code> も <code>true</code>。</p>
+
+<h2 id="cfdef73">JRuby
+<span class="article-date">2014/12/13</span></h2>
+
+<p>Rubyと同じ仕様で、<code>true</code>, <code>false</code> というキーワードがある。</p>
+
+<p>Javaのライブラリに論理値を渡すときにはRubyの論理値から暗黙のうちにJavaの <code>boolean</code> または <code>java.lang.Boolean</code> に変換してくれるみたい。</p>
+
+<p>逆にJavaのライブラリから文字列を受け取るときには <code>boolean</code> または <code>java.lang.Boolean</code> から暗黙のうちにRubyの論理値に変換してくれる。</p>
 
 <h2 id="perl">Perl
 <span class="article-date">2014/02/06</span></h2>

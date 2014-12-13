@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>キーで値を参照するには (get) | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>連想配列(マップ)の要素の値を参照するには (get) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>キーで値を参照するには (get)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)の要素の値を参照するには (get)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,18 +24,18 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/map/">マップ(連想配列)</a>
+      <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
-          <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/map/overview.html">連想配列(マップ)のデータ型の各プログラミング言語別の概要</a></li>
           <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
-          <li>キーで値を参照するには (get)</li>
-          <li><a href="../../programming_languages_diff/map/put.html">キーで要素を設定するには (put)</a></li>
+          <li>連想配列(マップ)の要素の値を参照するには (get)</li>
+          <li><a href="../../programming_languages_diff/map/put.html">連想配列(マップ)の要素の値を設定するには (put)</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">マップの要素を1つずつ順番に処理するには (foreach)</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
           <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
-          <li><a href="../../programming_languages_diff/map/clone.html">マップをコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">マップから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li><a href="../../programming_languages_diff/map/is-empty.html">マップが空かどうかを判定するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/map/is-empty.html">連想配列(マップ)が空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
@@ -50,7 +50,7 @@
 </div>
 
 <div id="content">
-  <h1 id="get">キーで値を参照するには (get)</h1>
+  <h1 id="get">連想配列(マップ)の要素の値を参照するには (get)</h1>
 
 <h2 id="java">Java
 <span class="article-date">2013/09/05</span></h2>
@@ -111,15 +111,22 @@ def getOrElse(key: A, default: =&gt; B): B
 </code></pre>
 
 <h2 id="e58800b">Python
-<span class="article-date">2014/09/07</span></h2>
+<span class="article-date">2014/12/13</span></h2>
 
 <pre><code>dic['a']
 </code></pre>
 
 <p>存在しない要素を取得しようとすると <code>KeyError</code> の例外が発生する。存在するかどうかが不確かな場合は事前に<a href="contains-key.html#python"><code>in</code>演算子</a>でチェックする必要がある。</p>
 
-<h2 id="ruby">Ruby
-<span class="article-date">2014/02/16</span></h2>
+<p><code>get</code>メソッでであれば存在しない要素であっても例外が発生しない。</p>
+
+<pre><code>dic = {'a': 1, 'b': 2}
+print(dic.get('c'))
+# =&gt; None
+</code></pre>
+
+<h2 id="ruby">Ruby / JRuby
+<span class="article-date">2014/12/13</span></h2>
 
 <pre><code>hash['a']
 </code></pre>

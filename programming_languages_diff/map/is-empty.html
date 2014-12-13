@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>マップが空かどうかを判定するには (isEmpty) | マップ(連想配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>連想配列(マップ)が空かどうかを判定するには (isEmpty) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">マップ(連想配列)</a> &gt; <span>マップが空かどうかを判定するには (isEmpty)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)が空かどうかを判定するには (isEmpty)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,9 +24,9 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/map/">マップ(連想配列)</a>
+      <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
-          <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/map/overview.html">連想配列(マップ)のデータ型の各プログラミング言語別の概要</a></li>
           <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/map/get.html">キーで値を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/map/put.html">キーで要素を設定するには (put)</a></li>
@@ -35,7 +35,7 @@
           <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">マップをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">マップから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li>マップが空かどうかを判定するには (isEmpty)</li>
+          <li>連想配列(マップ)が空かどうかを判定するには (isEmpty)</li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
@@ -50,10 +50,11 @@
 </div>
 
 <div id="content">
-  <h1 id="is-empty">マップが空かどうかを判定するには (isEmpty)</h1>
+  <h1 id="is-empty">連想配列(マップ)が空かどうかを判定するには (isEmpty)</h1>
 
-<p>参考<br />
-<a href="../list/is-empty.html">リストが空かどうか</a></p>
+<p>連想配列(マップ)が空かどうかを判定するメソッドは、配列と同じ名前のメソッドになっていることが多いかもしれない。</p>
+
+<p>-&gt; <a href="../list/is-empty.html">配列(リスト)が空かどうか</a></p>
 
 <h2 id="4319d3c">Java
 <span class="article-date">2013/10/14</span></h2>
@@ -73,14 +74,25 @@ boolean isEmpty();
 def isEmpty: Boolean
 </code></pre>
 
-<h2 id="d0f8174">Ruby
-<span class="article-date">2014/02/16</span></h2>
+<h2 id="9f87779">Python
+<span class="article-date">2014/12/13</span></h2>
+
+<p>ディクショナリはif文などの条件式に入れると、空のときに <code>false</code>、そうでないときに <code>true</code> の扱いになる。</p>
+
+<p>-&gt; <a href="../boolean/overview.html#python">論理値への変換</a></p>
+
+<h2 id="e085a80">Ruby / JRuby
+<span class="article-date">2014/12/13</span></h2>
 
 <pre><code>hash.empty?
 </code></pre>
 
 <h2 id="192b08b">Perl
-<span class="article-date">2013/07/30</span></h2>
+<span class="article-date">2014/12/13</span></h2>
+
+<p>ハッシュはif文などの条件式に入れると、空のときに <code>false</code>、そうでないときに <code>true</code> の扱いになる。</p>
+
+<p>-&gt; <a href="../boolean/overview.html#perl">論理値への変換</a></p>
 
 <p>例</p>
 
