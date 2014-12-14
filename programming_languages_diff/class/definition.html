@@ -27,7 +27,7 @@
       <li><a href="../../programming_languages_diff/class/">クラスとオブジェクト</a>
         <ul>
           <li>クラスの定義</li>
-          <li><a href="../../programming_languages_diff/class/new.html">インスタンス生成</a></li>
+          <li><a href="../../programming_languages_diff/class/new.html">インスタンスを生成する各プログラミング言語別の方法</a></li>
           <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
           <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには</a></li>
           <li><a href="../../programming_languages_diff/class/object-id.html">identityHashCode / object_id: オブジェクトのIDを取得するには</a></li>
@@ -179,8 +179,8 @@ void FooClass::method1(){
 }
 </code></pre>
 
-<h2 id="61545c9">Ruby
-<span class="article-date">2014/04/05</span></h2>
+<h2 id="f86230b">Ruby / JRuby
+<span class="article-date">2014/12/13</span></h2>
 
 <p>例</p>
 
@@ -225,7 +225,7 @@ void FooClass::method1(){
 end
 </code></pre>
 
-<p>こういったクラスの定義式は、新しいクラスを生成してそれを <code>FooClass</code> という名前の<a href="../vars/const.html#ruby">定数</a>)に割り当てる定数定義である。つまりクラス名は定数の名前にすぎない。
+<p>こういったクラスの定義式は、新しいクラスを生成してそれを <code>FooClass</code> という名前の<a href="../vars/const.html#ruby">定数</a>)に割り当てる定数定義の動作である。つまりクラス名は定数の名前にすぎない。
 Rubyの文法では定数は大文字で始まる必要があるので、クラス名も大文字ではじめなければならない。</p>
 
 <p>定数定義と同じなので、モジュールの中でクラスが定義されれば二重コロン <code>::</code> を使ってアクセスできる。</p>
@@ -237,6 +237,10 @@ end
 
 a = Foo::Bar.new
 </code></pre>
+
+<p>Rubyにはオープンクラスという他の言語にはない特徴もある。すでに定義済みのクラス名で、クラスの定義式を再度書くと、再度書いたクラス定義の中に含まれるメソッドを定義済みのクラスに追加するような動作になる。</p>
+
+<p>オープンクラスの性質により、例えば組み込みのクラス<code>String</code>にメソッドを追加するということもできる。</p>
 
 </div>
 
