@@ -130,10 +130,16 @@
 <pre><code>cat ./src.txt | tr -dc '0123456789abcdef' &gt; ./dst.txt
 </code></pre>
 
-<h2 id="89d97ef">連続したスペースを単一のスペースに変換するには
+<h2 id="dc9cd7f">連続したスペース(半角空白)を単一のスペースに変換するには
 <span class="article-date">2013/04/18</span></h2>
 
 <pre><code>cat ./src.txt | tr -s ' ' &gt; ./dst.txt
+</code></pre>
+
+<h2 id="104e43d">単一のスペース(半角空白)をタブに変換するには
+<span class="article-date">2014/12/18</span></h2>
+
+<pre><code>cat ./src.txt | tr ' ' '\t' &gt; ./dst.txt
 </code></pre>
 
 </div>
