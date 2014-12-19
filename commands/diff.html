@@ -56,6 +56,7 @@
       <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
+      <li><a href="../commands/readlink.html">readlink コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
@@ -77,6 +78,7 @@
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
       <li><a href="../commands/trap.html">trap コマンド</a></li>
+      <li><a href="../commands/uniq.html">uniq コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -98,10 +100,23 @@
 <p>2つのテキストファイルの差分を抽出するコマンド。
 2つのファイルの内容が一致しているかどうかをチェックする目的でも使える。</p>
 
+<h2 id="38b8551">基本的な使い方
+<span class="article-date">2014/12/19</span></h2>
+
+<p>2つのファイル名を引数で渡すと、差分が標準出力される。</p>
+
+<p>例</p>
+
+<pre><code>diff -u foo.txt bar.txt
+</code></pre>
+
 <h2 id="aeb82ff">オプション
-<span class="article-date">2014/10/15</span></h2>
+<span class="article-date">2014/12/19</span></h2>
 
 <dl>
+  <dt><code>-u</code></dt>
+  <dd>差分をunified形式というフォーマットで表示する。<code>git diff</code> で表示されるフォーマットもunified形式な気がする。
+慣れの問題かもしれないが、自分はこの形式が一番見やすくてaliasの設定をしている。<code>alias diff='diff -u'</code></dd>
   <dt><code>-b</code></dt>
   <dd>連続する空白の長さの違いは無視する。たぶん<a href="git.html#diff-ignore-space"><code>git diff</code></a>のオプションと同じ。</dd>
   <dt><code>-w</code></dt>
@@ -114,10 +129,12 @@
   <dd>差分のあったファイル名のみを表示し、差分の内容は表示しない。<code>-r</code> と組み合わせでよく使う</dd>
 </dl>
 
-<h2 id="66259e4">2つのコマンドの出力を比較するには
-<span class="article-date">2014/10/24</span></h2>
+<h2 id="b0b2daa">HOWTO</h2>
 
-<p>以下のようにすることで、2つのコマンドの出力を diff にかけることができる。</p>
+<h3 id="4c5fd52">2つのコマンドの出力を比較するには
+<span class="article-date">2014/12/19</span></h3>
+
+<p>以下のようにすることで、2つのコマンドの出力をファイルに落とすことなく直接 diff にかけることができる。</p>
 
 <pre><code>diff &lt;(cat foo.txt) &lt;(cat bar.txt)
 </code></pre>
@@ -133,8 +150,8 @@
 <p>とすると、<code>/proc/self/fd/11 /proc/self/fd/12</code> のように出力される。
 (bash, zsh で動作確認済み)</p>
 
-<h2 id="08143d0">コマンドの出力とファイルを比較するには(標準入力と比較)
-<span class="article-date">2014/10/24</span></h2>
+<h3 id="87acd34">コマンドの出力とファイルを比較するには(標準入力と比較)
+<span class="article-date">2014/10/24</span></h3>
 
 <p>以下のように、 <code>-</code> を使うと、比較対象の片方を標準入力にすることができる。</p>
 
@@ -143,19 +160,23 @@
 
 <p>これは上の2つのコマンドの比較方法と違って、シェルががんばっているわけではなく、<code>diff</code>の機能である。</p>
 
-<h2 id="sdiff">2つのファイルを左右に並べて表示するには (sdiff)
-<span class="article-date">2013/06/14</span></h2>
+<h3 id="sdiff">2つのファイルを左右に並べて表示するには (sdiff)
+<span class="article-date">2014/12/19</span></h3>
+
+<p>例</p>
 
 <pre><code>diff --side-by-side foo.txt bar.txt
 </code></pre>
 
-<p>または、<a href="sdiff.html">sdiff</a> というコマンドを使う。</p>
+<p>side-by-side出力形式というらしい。</p>
+
+<p><code>diff</code>コマンドの代わりに<a href="sdiff.html"><code>sdiff</code></a> というコマンドを使ってもいいかも。</p>
 
 <pre><code>sdiff foo.txt bar.txt
 </code></pre>
 
-<h2 id="1f69732">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには
-<span class="article-date">2014/05/21</span></h2>
+<h3 id="41156bc">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには
+<span class="article-date">2014/05/21</span></h3>
 
 <p><code>diff</code> は2つのファイルが同じだった場合に成功の終了コード(0)を返し、違いがあった場合には異常終了(0以外)を返すので、以下のように書ける。</p>
 
@@ -170,8 +191,8 @@ fi
 
 <p>ちなみに <code>if</code> の中に <code>&gt;/dev/null</code> を付けないと、条件判定するたびに標準出力にいちいち差分が出力されてしまう。</p>
 
-<h2 id="ed0a2a1">差分表示をカラーで見やすく表示するには
-<span class="article-date">2014/10/16</span></h2>
+<h3 id="83c4f55">差分表示をカラーで見やすく表示するには
+<span class="article-date">2014/10/16</span></h3>
 
 <p><code>colordiff</code> というツールをインストールして使うとよいらしい。</p>
 
