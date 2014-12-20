@@ -56,6 +56,7 @@
       <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
+      <li><a href="../commands/readlink.html">readlink コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
@@ -77,6 +78,7 @@
       <li><a href="../commands/touch.html">touch コマンド</a></li>
       <li><a href="../commands/tr.html">tr コマンド</a></li>
       <li><a href="../commands/trap.html">trap コマンド</a></li>
+      <li><a href="../commands/uniq.html">uniq コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
@@ -92,22 +94,21 @@
 </div>
 
 <div id="content">
-  <h1 id="git">git コマンド</h1>
+  <h1 id="git">git コマンド
+<span class="article-date">2014/12/20</span></h1>
 
-<p>参考</p>
+<p>バージョン管理ね。</p>
 
-<ul>
-  <li><a href="../blog/2013/1125-git-rebase-is-better.html">git merge よりも git rebase の勧め</a></li>
-</ul>
+<h2 id="bec2ff4">HOWTO</h2>
 
-<h2 id="color">カラフルにログを見るには
-<span class="article-date">2013/04/03</span></h2>
+<h3 id="color">カラフルにログを見るには
+<span class="article-date">2013/04/03</span></h3>
 
 <pre><code>git log --graph --date-order --branches --pretty=format:"%Cblue%h %d %Cgreen%ai %Cblue%ae %Creset%s"
 </code></pre>
 
-<h2 id="diff-ignore-space">diffでインデントなどの空白の違いを無視するには
-<span class="article-date">2013/09/25</span></h2>
+<h3 id="diff-ignore-space">diffでインデントなどの空白の違いを無視するには
+<span class="article-date">2013/09/25</span></h3>
 
 <p>以下のオプションを <code>git diff</code> に付ける。このオプションは普通の<a href="diff.html"><code>diff</code>コマンド</a>と同じ。</p>
 
@@ -118,26 +119,26 @@
   <dd><code>-b</code> と同じだが、空白の定義がこっちのほうが広い。タブとか？</dd>
 </dl>
 
-<h2 id="diff-not-display-rename">diffでリネームされたファイルを表示されないようにするには
-<span class="article-date">2013/04/03</span></h2>
+<h3 id="diff-not-display-rename">diffでリネームされたファイルを表示されないようにするには
+<span class="article-date">2013/04/03</span></h3>
 
 <pre><code>git diff --cached --find-renames
 </code></pre>
 
-<h2 id="checkout-remote">リモートにあってローカルにはないブランチをチェックアウトするには
-<span class="article-date">2013/04/03</span></h2>
+<h3 id="checkout-remote">リモートにあってローカルにはないブランチをチェックアウトするには
+<span class="article-date">2013/04/03</span></h3>
 
 <pre><code>git checkout -b &lt;branch-name&gt; origin/&lt;branch-name&gt;
 </code></pre>
 
-<h2 id="remove-remote-branch">ローカルにはすでに存在せずリモートに残っているブランチを削除するには
-<span class="article-date">2013/04/03</span></h2>
+<h3 id="remove-remote-branch">ローカルにはすでに存在せずリモートに残っているブランチを削除するには
+<span class="article-date">2013/04/03</span></h3>
 
 <pre><code>git push origin :&lt;branch-name&gt;
 </code></pre>
 
-<h2 id="remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには
-<span class="article-date">2013/08/12</span></h2>
+<h3 id="remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには
+<span class="article-date">2013/08/12</span></h3>
 
 <p>リモートブランチが削除されていても、ローカルで <code>git branch -a</code> とすると、出てきてしまう場合、</p>
 
@@ -149,8 +150,8 @@
 <pre><code>git fetch --prune
 </code></pre>
 
-<h2 id="stash">まだコミットしていない修正を一時保存しておいて、最後のコミットの状態に戻すには
-<span class="article-date">2013/04/15</span></h2>
+<h3 id="stash">まだコミットしていない修正を一時保存しておいて、最後のコミットの状態に戻すには
+<span class="article-date">2013/04/15</span></h3>
 
 <pre><code>git stash save 名前
 </code></pre>
@@ -210,8 +211,8 @@
 <pre><code>git stash drop stash@{0}
 </code></pre>
 
-<h2 id="undo">いろいろと元に戻す方法
-<span class="article-date">2013/08/12</span></h2>
+<h3 id="undo">いろいろと元に戻す方法
+<span class="article-date">2013/08/12</span></h3>
 
 <p>Git のさまざまなツール - 歴史の書き換え<br />
 <a href="http://git-scm.com/book/ja/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E6%AD%B4%E5%8F%B2%E3%81%AE%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88" target="_blank">http://git-scm.com/book/ja/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E6%AD%B4%E5%8F%B2%E3%81%AE%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88</a><br />
@@ -238,41 +239,16 @@
 <p>前回のコミットを取り消す方法<br />
 [http://es.sourceforge.jp/projects/setucocms/wiki/Git<em>%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28–soft.29.20HEAD.EF.BC.89](http://es.sourceforge.jp/projects/setucocms/wiki/Git</em>%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28–soft.29.20HEAD.EF.BC.89)</p>
 
-<h2 id="assume-unchanged">既に git で管理しているファイルの変更を git に無視させるには
-<span class="article-date">2013/04/03</span></h2>
-
-<p><a href="http://qiita.com/items/56d0d3ba7a1300625f92" target="_blank">http://qiita.com/items/56d0d3ba7a1300625f92</a></p>
-
-<pre><code>git update-index --assume-unchanged ファイル名
-</code></pre>
-
-<p>または</p>
-
-<pre><code>git update-index --skip-worktree ファイル名
-</code></pre>
-
-<blockquote>
-  <p>作業ツリー上でもリポジトリ上でもファイル更新があって、それをマージするとき  </p>
-
-  <p>assume-unchanged : 作業ツリー上の更新は破棄されて、リポジトリの内容が取り込まれます。<br />
-skip-worktree : 作業ツリー上の更新は保持されて、リポジトリの内容は取り込まれません。  </p>
-</blockquote>
-
-<h2 id="add-ignore-space-change">gitで空白の違いだけの行を除いてaddするには
-<span class="article-date">2013/04/03</span></h2>
-
-<p><a href="http://qiita.com/items/b75de424038d616868db" target="_blank">http://qiita.com/items/b75de424038d616868db</a></p>
-
-<h2 id="diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには
-<span class="article-date">2013/04/05</span></h2>
+<h3 id="diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには
+<span class="article-date">2013/04/05</span></h3>
 
 <pre><code>git diff コミットハッシュ~..コミットハッシュ &gt; patch.patch
 patch -p1 &lt; patch.patch
 rm patch.patch
 </code></pre>
 
-<h2 id="git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには
-<span class="article-date">2013/04/12</span></h2>
+<h3 id="git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには
+<span class="article-date">2013/04/12</span></h3>
 
 <p><code>clone</code> の2つ目の引数にディレクトリを指定する。</p>
 
@@ -280,6 +256,264 @@ rm patch.patch
 </code></pre>
 
 <p>これで hoge というディレクトリが作られる。</p>
+
+<h3 id="gitignore-only-me">無視するファイルをみんなで共有せずに自分のディレクトリにだけ設定するには
+<span class="article-date">2013/04/19</span></h3>
+
+<p><code>.git/info/exclude</code> に <code>.gitignore</code> と同じフォーマットで書けば、自分のワーキングディレクトリにだけ無視ファイルを設定できる。自分のディレクトリにだけ一時的に何かファイルを置きたい場合などに使える。</p>
+
+<h3 id="112a07e"><code>~/.ssh/config</code> をgit専用に設定するには
+<span class="article-date">2013/04/23</span></h3>
+
+<p>環境変数 <code>GIT_SSH</code> を使用する。</p>
+
+<p><a href="http://qiita.com/items/c397370862095c305cbe" target="_blank">http://qiita.com/items/c397370862095c305cbe</a></p>
+
+<h3 id="59a89f9">gitの過去のログから特定の名前のファイルを削除するには
+<span class="article-date">2013/04/29</span></h3>
+
+<p>拡張子が <code>.pw</code> のファイルをすべて削除する例</p>
+
+<pre><code>git filter-branch --tree-filter 'rm -f *.pw' HEAD
+</code></pre>
+
+<p>この例の場合は、ディレクトリの中までは削除してくれない。サブディレクトリも含めて全て削除するには</p>
+
+<pre><code>git filter-branch --tree-filter 'find . -name "*.pw" -exec rm -f {} \;' HEAD
+</code></pre>
+
+<h3 id="7d774b3">初めてコミットする前に間違って <code>git add</code> してしまったファイルをもとに戻そうと <code>git reset</code> しようとしてもエラーになってしまう場合
+<span class="article-date">2013/04/30</span></h3>
+
+<pre><code>fatal: Failed to resolve 'HEAD' as a valid ref.
+</code></pre>
+
+<p><code>git reset</code> しようとすると、上記のエラーが出てしまう。<code>reset</code> してもとに戻すべきコミットが見つからないためと思われる。その場合は</p>
+
+<pre><code>git rm --cached -r directory_name
+</code></pre>
+
+<p>またはファイル1つの場合は</p>
+
+<pre><code>git rm --cached file_name
+</code></pre>
+
+<p>とする。</p>
+
+<h3 id="e5119a6">エンバグしたコミットを探すには
+<span class="article-date">2013/05/08</span></h3>
+
+<p><code>git-bisect</code> は、エンバグしたコミットを二分探索して探す支援をするコマンド。</p>
+
+<pre><code>git bisect start バグのあるコミット バグのないコミット
+</code></pre>
+
+<p>とすると、中間のコミットがチェックアウトされるので、ここでバグが再現するかどうかをテストして、</p>
+
+<pre><code>git bisect good
+</code></pre>
+
+<p>または</p>
+
+<pre><code>git bisect bad
+</code></pre>
+
+<p>とすると、また適当なコミットをチェックアウトされるので、また再現テストをする。これを繰り返すと、最終的にバグを組み込んだコミットが表示される。最後に</p>
+
+<pre><code>git bisect reset
+</code></pre>
+
+<p>として、<code>bisect</code> を終了させる。</p>
+
+<h3 id="3369839"><code>git push</code> したときに warning: push.default is unset などと表示された場合
+<span class="article-date">2013/05/29</span></h3>
+
+<pre><code>warning: push.default is unset; its implicit value is changing in Git 2.0 from 'matching' to 'simple'.
+</code></pre>
+
+<p>Git 2.0 からpushの仕様が少し変わり、 push.default のデフォルト値が 
+matching から simple に変わる予定とのこと。simple にする場合は以下のようにでもしておく。</p>
+
+<pre><code>git config --global push.default simple
+</code></pre>
+
+<p>ただし、simpleは、Git 1.8からなのでこの ~/.gitconfig を複数のホストで共有している場合でGit 1.7のホストが混ざっていると、そこでは <code>git push</code> ができなくなってしまう。Git 1.7と互換性を保ちたければ、以下のようにしておく。</p>
+
+<pre><code>git config --global push.default matching
+</code></pre>
+
+<h3 id="b202381">git clone するときにディレクトリを作成するのではなく、カレントディレクトリにそのまま展開させるには
+<span class="article-date">2013/06/15</span></h3>
+
+<p>uriの次にclone先のディレクトリを指定できる。</p>
+
+<pre><code>git clone &lt;remote-repository-uri&gt; .
+</code></pre>
+
+<h3 id="301f5d1">zshのプロンプトにgitのメールアドレスを表示させるには
+<span class="article-date">2013/07/10</span></h3>
+
+<p>~/.zshrc に以下のような記述をしている。ブランチ名をプロンプトに表示させるところまではよくある例だが、その中に無理やり <code>git config user.email</code> という記述を入れて、メールアドレスも追加で表示させている。プライベートのレポジトリと会社のレポジトリとが混在していて、会社のレポジトリに間違ってプライベートのメールアドレスでコミットしちゃわないようにするためのものである。</p>
+
+<pre><code>autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '[%b]'
+precmd () {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] &amp;&amp; psvar[1]="$vcs_info_msg_0_`if git status &gt;/dev/null 2&gt;&amp;1; then git config user.email; fi`"
+}
+export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
+</code></pre>
+
+<p>svnなどgit以外のワーキングディレクトリではメールアドレスを表示できないので、
+<code>git config user.email</code> する前にif文で分岐させている。</p>
+
+<h3 id="0e90500">ファイル単位ではなくファイルの中の差分ごとに git add するには
+<span class="article-date">2013/07/19</span></h3>
+
+<p>以下のコマンドで差分を1つずつインタラクティブに確認しながら git add できる。</p>
+
+<pre><code>git add -p
+</code></pre>
+
+<p>特定のファイルまたはディレクトリに限定して、インタラクティブに git add することもできる。</p>
+
+<pre><code>git add -p ./hoge.txt
+</code></pre>
+
+<p><code>-p</code> のかわりに <code>--patch</code> でも同じ。</p>
+
+<h3 id="f202683">いまチェックアウトしているブランチの名前を変更するには
+<span class="article-date">2013/09/09</span></h3>
+
+<pre><code>git branch -m newbranchname
+</code></pre>
+
+<h3 id="5f2d5e8">特定のディレクトリだけをチェックアウトするには
+<span class="article-date">2013/09/13</span></h3>
+
+<p>いったんチェックアウトしたディレクトリにて以下を実行する。</p>
+
+<pre><code>git config core.sparsecheckout true
+echo hoge &gt; .git/info/sparse-checkout
+git read-tree -m -u HEAD
+</code></pre>
+
+<p>こうすると、<code>hoge</code>ディレクトリのみになる。<code>hoge</code>ディレクトリ自体がチェックアウトしたディレクトリのルートになるわけではなく、単にその他のディレクトリが削除されるだけである。おそらく<code>.git</code>ディレクトリにはすべてのファイルが保存されたままである。</p>
+
+<h3 id="fe20d55">追跡するリモートレポジトリを追加するには
+<span class="article-date">2014/09/24</span></h3>
+
+<pre><code>git remote add &lt;remote-name&gt; &lt;remote-repository-uri&gt;
+</code></pre>
+
+<p>&lt;remotename&gt; はワーキングディレクトリの中で通用するリモートレポジトリの名前。</p>
+
+<p>すべてのリモートレポジトリに対して <code>git fetch</code> するには <code>--all</code> オプションを付ける。</p>
+
+<pre><code>git fetch --all
+</code></pre>
+
+<p>これを付けないと、<code>origin</code>リモートレポジトリのみfetchされる。</p>
+
+<p>特定のリモートレポジトリのみfetchするには <code>git fetch リモートレポジトリ名</code> とする。</p>
+
+<h3 id="c27627c">追跡するリモートレポジトリの設定を削除するには
+<span class="article-date">2014/06/06</span></h3>
+
+<pre><code># git 1.8.1.2 では
+git remote remove &lt;remote-name&gt;
+
+# git 1.7.1 では
+git remote rm &lt;remote-name&gt;
+</code></pre>
+
+<p>上記のように環境によってコマンドが違っていたのだが、gitのバージョンによって違うのかな。</p>
+
+<p>&lt;remotename&gt; はリモートレポジトリの名前。リモートレポジトリ自体が削除されなくなるのではなく、ワーキングディレクトリがそのリモートリポジトリを追跡しなくなるだけ。</p>
+
+<h3 id="c817842"><code>clone</code>するときにリモートレポジトリの名前を <code>origin</code> 以外にするには
+<span class="article-date">2013/10/16</span></h3>
+
+<p><code>-o</code> で指定する。</p>
+
+<pre><code>git clone -o &lt;remote-name&gt; &lt;remote-repository-uri&gt;
+</code></pre>
+
+<h3 id="b67605d"><code>git diff</code> で差分を見るときにリネームして編集されたファイルを削除と作成ではなく、編集の差分を見るには
+<span class="article-date">2013/10/18</span></h3>
+
+<p><code>--find-renames</code> を付ける。</p>
+
+<pre><code># ステージングされた編集の差分をリネームを考慮して表示
+git diff --cached --find-renames
+</code></pre>
+
+<h3 id="216e50b">ローカルでのファイルの編集をgitで無視したい場合
+<span class="article-date">2013/11/21</span></h3>
+
+<p>すでにgit管理下にあるファイルは <code>.gitignore</code> に入れても無視してくれない。
+gitにコミットされているファイルを一時的にローカルで変更してもそれの差分をgitでは無視してほしい場合には以下のようなコマンドを打つ。</p>
+
+<pre><code>git update-index --assume-unchanged &lt;file-path&gt;
+# または
+git update-index --skip-worktree  &lt;file-path&gt;
+</code></pre>
+
+<p>上記により無視されているファイルを再び無視されないようにしたい場合は以下のような解除のコマンドを打つ。</p>
+
+<pre><code>git update-index --no-assume-unchanged &lt;file-path&gt;
+# または
+git update-index --no-skip-worktree  &lt;file-path&gt;
+</code></pre>
+
+<p><code>--assume-unchanged</code> / <code>--no-assume-unchanged</code> と <code>--skip-worktree</code> / <code>--no-skip-worktree</code> は厳密には違うものなので、解除コマンドはそれぞれに対応するものを打つ必要がある。</p>
+
+<h3 id="50edbb0">過去の特定のバージョンでの特定のファイルをチェックアウトせずに閲覧するには
+<span class="article-date">2014/01/15</span></h3>
+
+<pre><code>git cat-file -p &lt;commit sha1&gt;:&lt;path&gt;
+# または
+git show &lt;commit sha1&gt;:&lt;path&gt;
+</code></pre>
+
+<p><code>git show</code> のほうが自動でページングもしてくれて便利。</p>
+
+<p>例</p>
+
+<pre><code>git cat-file -p 859ffa2:lib/abc.php
+# または
+git show 859ffa2:lib/abc.php
+</code></pre>
+
+<h3 id="2a11ce9">特定の日時でコミットするには
+<span class="article-date">2014/03/20</span></h3>
+
+<p>環境変数 <code>GIT_AUTHOR_DATE</code> を設定するとその日時を author date にしてコミットできる。</p>
+
+<p>例</p>
+
+<pre><code>GIT_AUTHOR_DATE=2013-11-26T15:18:04 git commit
+</code></pre>
+
+<p><code>GIT_COMMITTER_DATE</code> を設定しうると committer date を指定できる。</p>
+
+<p>Git のコミットのタイムスタンプには author date と committer date の 2 種類があるという話<br />
+<a href="http://vividcode.hatenablog.com/entry/git/author-date-and-committer-date" target="_blank">http://vividcode.hatenablog.com/entry/git/author-date-and-committer-date</a></p>
+
+<h3 id="79e20cc"><code>git diff</code> で差分の内容ではなく差分のあるファイル名だけを確認するには
+<span class="article-date">2014/07/07</span></h3>
+
+<p>例：</p>
+
+<pre><code># ファイル名と変更なのか新規なのか削除なのかを表示
+git diff --name-status
+
+# 本当にファイル名だけ表示
+git diff --name-only
+</code></pre>
+
+<p><a href="diff.html"><code>diff</code>コマンド</a>での同様のことをさせるには <code>-rq</code> を付けるとよい。</p>
 
 <h2 id="be3a536"><code>.gitignore</code> のサンプルファイル</h2>
 
@@ -331,15 +565,6 @@ Thumbs.db
 <p>Git に関する良記事<br />
 <a href="http://d.hatena.ne.jp/kazu-yamamoto/20130402/1364887137" target="_blank">http://d.hatena.ne.jp/kazu-yamamoto/20130402/1364887137</a></p>
 
-<h2 id="gitlab">GitLab</h2>
-
-<p>-&gt; ../gitlab.md</p>
-
-<h2 id="gitignore-only-me">無視するファイルをみんなで共有せずに自分のディレクトリにだけ設定するには
-<span class="article-date">2013/04/19</span></h2>
-
-<p><code>.git/info/exclude</code> に <code>.gitignore</code> と同じフォーマットで書けば、自分のワーキングディレクトリにだけ無視ファイルを設定できる。自分のディレクトリにだけ一時的に何かファイルを置きたい場合などに使える。</p>
-
 <h2 id="71be702">GitのURI
 <span class="article-date">2013/04/23</span></h2>
 
@@ -357,44 +582,6 @@ Thumbs.db
 
 <pre><code>ssh://username@hostname:port/path/foo/bar.git
 </code></pre>
-
-<h2 id="1d0f793"><code>~/.ssh/config</code> をgit専用に設定するには
-<span class="article-date">2013/04/23</span></h2>
-
-<p>環境変数 <code>GIT_SSH</code> を使用する。</p>
-
-<p><a href="http://qiita.com/items/c397370862095c305cbe" target="_blank">http://qiita.com/items/c397370862095c305cbe</a></p>
-
-<h2 id="970aa9b">gitの過去のログから特定の名前のファイルを削除するには
-<span class="article-date">2013/04/29</span></h2>
-
-<p>拡張子が <code>.pw</code> のファイルをすべて削除する例</p>
-
-<pre><code>git filter-branch --tree-filter 'rm -f *.pw' HEAD
-</code></pre>
-
-<p>この例の場合は、ディレクトリの中までは削除してくれない。サブディレクトリも含めて全て削除するには</p>
-
-<pre><code>git filter-branch --tree-filter 'find . -name "*.pw" -exec rm -f {} \;' HEAD
-</code></pre>
-
-<h2 id="0c44e48">初めてコミットする前に間違って <code>git add</code> してしまったファイルをもとに戻そうと <code>git reset</code> しようとしてもエラーになってしまう場合
-<span class="article-date">2013/04/30</span></h2>
-
-<pre><code>fatal: Failed to resolve 'HEAD' as a valid ref.
-</code></pre>
-
-<p><code>git reset</code> しようとすると、上記のエラーが出てしまう。<code>reset</code> してもとに戻すべきコミットが見つからないためと思われる。その場合は</p>
-
-<pre><code>git rm --cached -r directory_name
-</code></pre>
-
-<p>またはファイル1つの場合は</p>
-
-<pre><code>git rm --cached file_name
-</code></pre>
-
-<p>とする。</p>
 
 <h2 id="c5f0095">Gitblit
 <span class="article-date">2013/05/05</span></h2>
@@ -418,155 +605,6 @@ fatal: The remote end hung up unexpectedly
 
 <p>shallow repository には <code>.git/shallow</code> というファイルがあり、省略された過去のコミットが参照されていて、このファイルにより shallow repository であることを示している。このファイルを削除すると、ローカルではcloneすることができるが、リモートへのcloneでは過去のコミットが見つからない、というエラーが出て、やっぱりcloneできない。</p>
 
-<h2 id="fcbcd15">エンバグしたコミットを探すには
-<span class="article-date">2013/05/08</span></h2>
-
-<p><code>git-bisect</code> は、エンバグしたコミットを二分探索して探す支援をするコマンド。</p>
-
-<pre><code>git bisect start バグのあるコミット バグのないコミット
-</code></pre>
-
-<p>とすると、中間のコミットがチェックアウトされるので、ここでバグが再現するかどうかをテストして、</p>
-
-<pre><code>git bisect good
-</code></pre>
-
-<p>または</p>
-
-<pre><code>git bisect bad
-</code></pre>
-
-<p>とすると、また適当なコミットをチェックアウトされるので、また再現テストをする。これを繰り返すと、最終的にバグを組み込んだコミットが表示される。最後に</p>
-
-<pre><code>git bisect reset
-</code></pre>
-
-<p>として、<code>bisect</code> を終了させる。</p>
-
-<h2 id="3dbe2bf"><code>git push</code> したときに warning: push.default is unset などと表示された場合
-<span class="article-date">2013/05/29</span></h2>
-
-<pre><code>warning: push.default is unset; its implicit value is changing in Git 2.0 from 'matching' to 'simple'.
-</code></pre>
-
-<p>Git 2.0 からpushの仕様が少し変わり、 push.default のデフォルト値が 
-matching から simple に変わる予定とのこと。simple にする場合は以下のようにでもしておく。</p>
-
-<pre><code>git config --global push.default simple
-</code></pre>
-
-<p>ただし、simpleは、Git 1.8からなのでこの ~/.gitconfig を複数のホストで共有している場合でGit 1.7のホストが混ざっていると、そこでは <code>git push</code> ができなくなってしまう。Git 1.7と互換性を保ちたければ、以下のようにしておく。</p>
-
-<pre><code>git config --global push.default matching
-</code></pre>
-
-<h2 id="985755d">git clone するときにディレクトリを作成するのではなく、カレントディレクトリにそのまま展開させるには
-<span class="article-date">2013/06/15</span></h2>
-
-<p>uriの次にclone先のディレクトリを指定できる。</p>
-
-<pre><code>git clone &lt;remote-repository-uri&gt; .
-</code></pre>
-
-<h2 id="efb3955">zshのプロンプトにgitのメールアドレスを表示させるには
-<span class="article-date">2013/07/10</span></h2>
-
-<p>~/.zshrc に以下のような記述をしている。ブランチ名をプロンプトに表示させるところまではよくある例だが、その中に無理やり <code>git config user.email</code> という記述を入れて、メールアドレスも追加で表示させている。プライベートのレポジトリと会社のレポジトリとが混在していて、会社のレポジトリに間違ってプライベートのメールアドレスでコミットしちゃわないようにするためのものである。</p>
-
-<pre><code>autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '[%b]'
-precmd () {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] &amp;&amp; psvar[1]="$vcs_info_msg_0_`if git status &gt;/dev/null 2&gt;&amp;1; then git config user.email; fi`"
-}
-export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
-</code></pre>
-
-<p>svnなどgit以外のワーキングディレクトリではメールアドレスを表示できないので、
-<code>git config user.email</code> する前にif文で分岐させている。</p>
-
-<h2 id="03bf941">ファイル単位ではなくファイルの中の差分ごとに git add するには
-<span class="article-date">2013/07/19</span></h2>
-
-<p>以下のコマンドで差分を1つずつインタラクティブに確認しながら git add できる。</p>
-
-<pre><code>git add -p
-</code></pre>
-
-<p>特定のファイルまたはディレクトリに限定して、インタラクティブに git add することもできる。</p>
-
-<pre><code>git add -p ./hoge.txt
-</code></pre>
-
-<p><code>-p</code> のかわりに <code>--patch</code> でも同じ。</p>
-
-<h2 id="ffc60a9">いまチェックアウトしているブランチの名前を変更するには
-<span class="article-date">2013/09/09</span></h2>
-
-<pre><code>git branch -m newbranchname
-</code></pre>
-
-<h2 id="62b6234">特定のディレクトリだけをチェックアウトするには
-<span class="article-date">2013/09/13</span></h2>
-
-<p>いったんチェックアウトしたディレクトリにて以下を実行する。</p>
-
-<pre><code>git config core.sparsecheckout true
-echo hoge &gt; .git/info/sparse-checkout
-git read-tree -m -u HEAD
-</code></pre>
-
-<p>こうすると、<code>hoge</code>ディレクトリのみになる。<code>hoge</code>ディレクトリ自体がチェックアウトしたディレクトリのルートになるわけではなく、単にその他のディレクトリが削除されるだけである。おそらく<code>.git</code>ディレクトリにはすべてのファイルが保存されたままである。</p>
-
-<h2 id="dac3b99">追跡するリモートレポジトリを追加するには
-<span class="article-date">2014/09/24</span></h2>
-
-<pre><code>git remote add &lt;remote-name&gt; &lt;remote-repository-uri&gt;
-</code></pre>
-
-<p>&lt;remotename&gt; はワーキングディレクトリの中で通用するリモートレポジトリの名前。</p>
-
-<p>すべてのリモートレポジトリに対して <code>git fetch</code> するには <code>--all</code> オプションを付ける。</p>
-
-<pre><code>git fetch --all
-</code></pre>
-
-<p>これを付けないと、<code>origin</code>リモートレポジトリのみfetchされる。</p>
-
-<p>特定のリモートレポジトリのみfetchするには <code>git fetch リモートレポジトリ名</code> とする。</p>
-
-<h2 id="0d56ec0">追跡するリモートレポジトリの設定を削除するには
-<span class="article-date">2014/06/06</span></h2>
-
-<pre><code># git 1.8.1.2 では
-git remote remove &lt;remote-name&gt;
-
-# git 1.7.1 では
-git remote rm &lt;remote-name&gt;
-</code></pre>
-
-<p>上記のように環境によってコマンドが違っていたのだが、gitのバージョンによって違うのかな。</p>
-
-<p>&lt;remotename&gt; はリモートレポジトリの名前。リモートレポジトリ自体が削除されなくなるのではなく、ワーキングディレクトリがそのリモートリポジトリを追跡しなくなるだけ。</p>
-
-<h2 id="5b66da3"><code>clone</code>するときにリモートレポジトリの名前を <code>origin</code> 以外にするには
-<span class="article-date">2013/10/16</span></h2>
-
-<p><code>-o</code> で指定する。</p>
-
-<pre><code>git clone -o &lt;remote-name&gt; &lt;remote-repository-uri&gt;
-</code></pre>
-
-<h2 id="e387862"><code>git diff</code> で差分を見るときにリネームして編集されたファイルを削除と作成ではなく、編集の差分を見るには
-<span class="article-date">2013/10/18</span></h2>
-
-<p><code>--find-renames</code> を付ける。</p>
-
-<pre><code># ステージングされた編集の差分をリネームを考慮して表示
-git diff --cached --find-renames
-</code></pre>
-
 <h2 id="4839fbf"><code>git svn</code> で作成したレポジトリで使えるコマンド
 <span class="article-date">2013/11/07</span></h2>
 
@@ -580,71 +618,9 @@ git svn dcommit
 # 自分はあまり試していない
 </code></pre>
 
-<h2 id="4409020">ローカルでのファイルの編集をgitで無視したい場合
-<span class="article-date">2013/11/21</span></h2>
+<h2 id="56b67ac">git merge よりも git rebase の勧め</h2>
 
-<p>すでにgit管理下にあるファイルは <code>.gitignore</code> に入れても無視してくれない。
-gitにコミットされているファイルを一時的にローカルで変更してもそれの差分をgitでは無視してほしい場合には以下のようなコマンドを打つ。</p>
-
-<pre><code>git update-index --assume-unchanged &lt;file-path&gt;
-# または
-git update-index --skip-worktree  &lt;file-path&gt;
-</code></pre>
-
-<p>上記により無視されているファイルを再び無視されないようにしたい場合は以下のような解除のコマンドを打つ。</p>
-
-<pre><code>git update-index --no-assume-unchanged &lt;file-path&gt;
-# または
-git update-index --no-skip-worktree  &lt;file-path&gt;
-</code></pre>
-
-<p><code>--assume-unchanged</code> / <code>--no-assume-unchanged</code> と <code>--skip-worktree</code> / <code>--no-skip-worktree</code> は厳密には違うものなので、解除コマンドはそれぞれに対応するものを打つ必要がある。</p>
-
-<h2 id="d52818a">過去の特定のバージョンでの特定のファイルをチェックアウトせずに閲覧するには
-<span class="article-date">2014/01/15</span></h2>
-
-<pre><code>git cat-file -p &lt;commit sha1&gt;:&lt;path&gt;
-# または
-git show &lt;commit sha1&gt;:&lt;path&gt;
-</code></pre>
-
-<p><code>git show</code> のほうが自動でページングもしてくれて便利。</p>
-
-<p>例</p>
-
-<pre><code>git cat-file -p 859ffa2:lib/abc.php
-# または
-git show 859ffa2:lib/abc.php
-</code></pre>
-
-<h2 id="3ab3a75">特定の日時でコミットするには
-<span class="article-date">2014/03/20</span></h2>
-
-<p>環境変数 <code>GIT_AUTHOR_DATE</code> を設定するとその日時を author date にしてコミットできる。</p>
-
-<p>例</p>
-
-<pre><code>GIT_AUTHOR_DATE=2013-11-26T15:18:04 git commit
-</code></pre>
-
-<p><code>GIT_COMMITTER_DATE</code> を設定しうると committer date を指定できる。</p>
-
-<p>Git のコミットのタイムスタンプには author date と committer date の 2 種類があるという話<br />
-<a href="http://vividcode.hatenablog.com/entry/git/author-date-and-committer-date" target="_blank">http://vividcode.hatenablog.com/entry/git/author-date-and-committer-date</a></p>
-
-<h2 id="37ba5ed"><code>git diff</code> で差分の内容ではなく差分のあるファイル名だけを確認するには
-<span class="article-date">2014/07/07</span></h2>
-
-<p>例：</p>
-
-<pre><code># ファイル名と変更なのか新規なのか削除なのかを表示
-git diff --name-status
-
-# 本当にファイル名だけ表示
-git diff --name-only
-</code></pre>
-
-<p><a href="diff.html"><code>diff</code>コマンド</a>での同様のことをさせるには <code>-rq</code> を付けるとよい。</p>
+<p>-&gt; <a href="../blog/2013/1125-git-rebase-is-better.html">git merge よりも git rebase の勧め</a></p>
 
 </div>
 

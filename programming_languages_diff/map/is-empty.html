@@ -27,14 +27,14 @@
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">連想配列(マップ)のデータ型の各プログラミング言語別の概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
-          <li><a href="../../programming_languages_diff/map/get.html">キーで値を参照するには (get)</a></li>
-          <li><a href="../../programming_languages_diff/map/put.html">キーで要素を設定するには (put)</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">マップの要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
-          <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
-          <li><a href="../../programming_languages_diff/map/clone.html">マップをコピーするには (clone)</a></li>
-          <li><a href="../../programming_languages_diff/map/filter.html">マップから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">連想配列(マップ)の要素の数を取得するには (size)</a></li>
+          <li><a href="../../programming_languages_diff/map/get.html">連想配列(マップ)の要素の値を参照するには (get)</a></li>
+          <li><a href="../../programming_languages_diff/map/put.html">連想配列(マップ)の要素の値を設定するには (put)</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">連想配列(マップ)の要素を1つずつ順番に処理するには (foreach)</a></li>
+          <li><a href="../../programming_languages_diff/map/contains-key.html">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
+          <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
+          <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li>連想配列(マップ)が空かどうかを判定するには (isEmpty)</li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
@@ -62,7 +62,7 @@
 <p>Signature:</p>
 
 <pre><code>// java.util.Map&lt;K, V&gt;
-boolean isEmpty();
+boolean isEmpty()
 </code></pre>
 
 <h2 id="4df1d65">Scala
@@ -73,6 +73,29 @@ boolean isEmpty();
 <pre><code>// scala.collection.Map[A, B]
 def isEmpty: Boolean
 </code></pre>
+
+<h2 id="php">PHP
+<span class="article-date">2014/12/20</span></h2>
+
+<p>例</p>
+
+<pre><code>if (empty($arr)) {
+  echo "empty\n";
+} else {
+  echo "not empty\n";
+}
+</code></pre>
+
+<p><code>$arr</code> が配列でない場合でも、論理値に変換したときに<code>FALSE</code>になるものや、変数が定義されていない場合にはemptyの扱いになる。</p>
+
+<p>-&gt; <a href="../boolean/overview.html#php">論理値への変換</a></p>
+
+<p>PHPの連想配列は普通の配列と同じなので<code>empty</code>の使い方は同じ。</p>
+
+<p>-&gt; <a href="../list/is-empty.html#php">配列が空かどうかを判定するには</a></p>
+
+<p><code>empty</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.empty.php" target="_blank">http://php.net/manual/ja/function.empty.php</a></p>
 
 <h2 id="9f87779">Python
 <span class="article-date">2014/12/13</span></h2>

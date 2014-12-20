@@ -71,10 +71,16 @@
 <code>java.lang.Boolean</code>型はオートボクシングにより<code>boolean</code>型になるので、条件式に入れてもコンパイルエラーにはならない。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2014/09/14</span></h2>
+<span class="article-date">2014/12/20</span></h2>
 
 <p>論理型があり、<code>TRUE</code>, <code>FALSE</code> というキーワードがある。
 <a href="../null.html#php"><code>NULL</code></a>と同じく大文字小文字が区別されない。</p>
+
+<p>if文の条件式など、論理値が必要な箇所に
+<code>FALSE</code>, <code>null</code>, <code>0</code>, <code>0.0</code>, <code>''</code>, <code>'0'</code>, <code>array()</code> があると <code>FALSE</code> の扱いになり、それ以外は <code>TRUE</code> の扱いになる。文字列 <code>'0'</code> は <code>FALSE</code> だが、文字列 <code>'FALSE'</code> や <code>'0.0'</code> は <code>TRUE</code> になる。</p>
+
+<p>型の比較表 | PHP Manual<br />
+<a href="http://php.net/manual/ja/types.comparisons.php" target="_blank">http://php.net/manual/ja/types.comparisons.php</a></p>
 
 <pre><code>// 以下は OK と表示される
 if (TRUE == 1) {

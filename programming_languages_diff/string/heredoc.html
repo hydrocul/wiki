@@ -52,13 +52,14 @@
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
-          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-upper-lower.html">Unicodeの仕様に基づいた大文字小文字を変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -205,9 +206,9 @@ EOS
 <a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/06/19</span></h2>
+<span class="article-date">2014/12/20</span></h2>
 
-<p>例</p>
+<p>変数展開されるヒアドキュメントの例</p>
 
 <pre><code>my $str = &lt;&lt;EOS;
 aaa
@@ -218,8 +219,11 @@ my $str = &lt;&lt;"EOS";
 aaa
 bbb
 EOS
+</code></pre>
 
-my $str = &lt;&lt;'EOS';
+<p>変数展開されないヒアドキュメントの例</p>
+
+<pre><code>my $str = &lt;&lt;'EOS';
 aaa
 bbb
 EOS
@@ -232,7 +236,7 @@ EOS
 <p>ファイルの最後にテキストデータを置きたい場合は、ヒアドキュメントの代わりに <code>__DATA__</code> を使うとよい。
 <code>__DATA__</code> とだけ書いた行があると、そこでperlのソースコードが終了しているものとみなし、かつその次の行からは <code>main::DATA</code> というファイルハンドルで読み出すことができる。</p>
 
-<p>例</p>
+<p><code>__DATA__</code> を使う例</p>
 
 <pre><code>print foreach (&lt;main::DATA&gt;);
 

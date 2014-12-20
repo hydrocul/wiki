@@ -32,9 +32,9 @@
           <li><a href="../../programming_languages_diff/map/put.html">連想配列(マップ)の要素の値を設定するには (put)</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">連想配列(マップ)の要素を1つずつ順番に処理するには (foreach)</a></li>
           <li>連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</li>
-          <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
+          <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
-          <li><a href="../../programming_languages_diff/map/filter.html">マップから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">連想配列(マップ)が空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
@@ -62,7 +62,7 @@ boolean containsKey(Object key)
 </code></pre>
 
 <h2 id="854c97e">Scala
-<span class="article-date">2014/10/27</span></h2>
+<span class="article-date">2014/12/20</span></h2>
 
 <p>Signature:</p>
 
@@ -72,19 +72,50 @@ def contains(key: A): Boolean
 
 <p>Javaとメソッド名が違う。</p>
 
-<h2 id="0009c2f">PHP
-<span class="article-date">2013/04/22</span></h2>
+<p>例</p>
 
-<pre><code>array_key_exists($key, $map)
+<pre><code>val map = Map("a" -&gt; 1, "b" -&gt; 2, "c" -&gt; 3);
+println(map.contains("a"));
+// =&gt; true
+println(map.contains("A"));
+// =&gt; false
+</code></pre>
+
+<h2 id="0009c2f">PHP
+<span class="article-date">2014/12/20</span></h2>
+
+<pre><code>array_key_exists($key, $arr)
+</code></pre>
+
+<p>または</p>
+
+<pre><code>isset($arr[$key]))
 </code></pre>
 
 <p><code>array_key_exists</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.array-key-exists.php" target="_blank">http://www.php.net/manual/ja/function.array-key-exists.php</a></p>
+<a href="http://php.net/manual/ja/function.array-key-exists.php" target="_blank">http://php.net/manual/ja/function.array-key-exists.php</a></p>
 
-<blockquote>
-  <p>isset() は NULL 値を持つ配列キーに対して TRUE を返しません。
-一方、 array_key_exists() は TRUE を返します。</p>
-</blockquote>
+<p><code>isset</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.isset.php" target="_blank">http://php.net/manual/ja/function.isset.php</a></p>
+
+<p><code>isset</code>は値が<code>NULL</code>の場合に要素が存在していても<code>FALSE</code>を返してしまう。</p>
+
+<pre><code>$arr = array('a' =&gt; 1, 'b' =&gt; 2, 'c' =&gt; NULL);
+
+if (array_key_exists('c', $arr)) {
+  echo "exists\n";
+} else {
+  echo "not exists\n";
+}
+# =&gt; exists
+
+if (isset($arr['c'])) {
+  echo "exists\n";
+} else {
+  echo "not exists or NULL\n";
+}
+# =&gt; not exists or NULL
+</code></pre>
 
 <h2 id="python">Python
 <span class="article-date">2014/09/07</span></h2>
@@ -102,9 +133,9 @@ print(dic.has_key('x')) # =&gt; False
 </code></pre>
 
 <h2 id="716b05c">Ruby / JRuby
-<span class="article-date">2013/05/06</span></h2>
+<span class="article-date">2014/12/20</span></h2>
 
-<p>以下の4つはすべて同じ意味。</p>
+<p>以下の4つのメソッドはすべて同じ意味。</p>
 
 <pre><code>Hash#has_key?(key)
 Hash#key?(key)

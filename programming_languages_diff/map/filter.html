@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>マップから特定の条件にマッチする要素のみを取り出すには (filter) | 連想配列(マップ) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>マップから特定の条件にマッチする要素のみを取り出すには (filter)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -27,14 +27,14 @@
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">連想配列(マップ)のデータ型の各プログラミング言語別の概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">連想配列(マップ)の要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/map/get.html">連想配列(マップ)の要素の値を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/map/put.html">連想配列(マップ)の要素の値を設定するには (put)</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">連想配列(マップ)の要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
-          <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
+          <li><a href="../../programming_languages_diff/map/contains-key.html">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
+          <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
-          <li>マップから特定の条件にマッチする要素のみを取り出すには (filter)</li>
+          <li>連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">連想配列(マップ)が空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
@@ -50,7 +50,26 @@
 </div>
 
 <div id="content">
-  <h1 id="filter">マップから特定の条件にマッチする要素のみを取り出すには (filter)</h1>
+  <h1 id="filter">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</h1>
+
+<h2 id="3fa5067">Scala
+<span class="article-date">2014/12/19</span></h2>
+
+<p>Signature:</p>
+
+<pre><code>// scala.collection.Map[A, B]
+def filter(p: ((A, B) =&gt; Boolean): Map[A, B]
+</code></pre>
+
+<p>例</p>
+
+<pre><code>val map = Map("a" -&gt; 1, "b" -&gt; 2, "c" -&gt; 3);
+val filtered = map.filter { case (key, value) =&gt;
+  value % 2 != 0;
+}
+println(filtered);
+// =&gt; Map(a -&gt; 1, c -&gt; 3)
+</code></pre>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/02/18</span></h2>

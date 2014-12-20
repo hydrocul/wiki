@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストが空かどうかを判定するには (isEmpty) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>配列(リスト)が空かどうかを判定するには (isEmpty) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストが空かどうかを判定するには (isEmpty)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>配列(リスト)が空かどうかを判定するには (isEmpty)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
-          <li>リストが空かどうかを判定するには (isEmpty)</li>
+          <li>配列(リスト)が空かどうかを判定するには (isEmpty)</li>
           <li><a href="../../programming_languages_diff/list/get.html">インデックスで要素を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
           <li><a href="../../programming_languages_diff/list/head-last.html">リストの先頭または最後の要素を取得するには (head, last)</a></li>
@@ -39,7 +39,8 @@
           <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li><a href="../../programming_languages_diff/list/any-all.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには / すべての要素が特定の条件にマッチするかどうかを検査するには (any / all)</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">すべての要素が特定の条件にマッチするかどうかを検査するには (all)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
@@ -77,7 +78,7 @@
 </div>
 
 <div id="content">
-  <h1 id="is-empty">リストが空かどうかを判定するには (isEmpty)</h1>
+  <h1 id="is-empty">配列(リスト)が空かどうかを判定するには (isEmpty)</h1>
 
 <p>参考<br />
 <a href="../map/is-empty.html">マップが空かどうか</a></p>
@@ -103,14 +104,28 @@ def isEmpty: Boolean
 def nonEmpty: Boolean
 </code></pre>
 
-<h2 id="c15998b">PHP
-<span class="article-date">2013/07/23</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2014/12/20</span></h2>
 
-<pre><code>bool empty($arr)
+<p>例</p>
+
+<pre><code>if (empty($arr)) {
+  echo "empty\n";
+} else {
+  echo "not empty\n";
+}
 </code></pre>
 
-<p>empty 関数 | PHPマニュアル<br />
-<a href="http://www.php.net/manual/ja/function.empty.php" target="_blank">http://www.php.net/manual/ja/function.empty.php</a></p>
+<p><code>$arr</code> が配列でない場合でも、論理値に変換したときに<code>FALSE</code>になるものや、変数が定義されていない場合にはemptyの扱いになる。</p>
+
+<p>-&gt; <a href="../boolean/overview.html#php">論理値への変換</a></p>
+
+<p>PHPの配列は連想配列と同じなので<code>empty</code>の使い方は同じ。</p>
+
+<p>-&gt; <a href="../map/is-empty.html#php">連想配列が空かどうかを判定するには</a></p>
+
+<p><code>empty</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.empty.php" target="_blank">http://php.net/manual/ja/function.empty.php</a></p>
 
 <h2 id="9f87779">Python
 <span class="article-date">2013/10/21</span></h2>

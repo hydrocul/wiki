@@ -27,14 +27,14 @@
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
           <li>連想配列(マップ)のデータ型の各プログラミング言語別の概要</li>
-          <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
-          <li><a href="../../programming_languages_diff/map/get.html">キーで値を参照するには (get)</a></li>
-          <li><a href="../../programming_languages_diff/map/put.html">キーで要素を設定するには (put)</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">マップの要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
-          <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
-          <li><a href="../../programming_languages_diff/map/clone.html">マップをコピーするには (clone)</a></li>
-          <li><a href="../../programming_languages_diff/map/filter.html">マップから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">連想配列(マップ)の要素の数を取得するには (size)</a></li>
+          <li><a href="../../programming_languages_diff/map/get.html">連想配列(マップ)の要素の値を参照するには (get)</a></li>
+          <li><a href="../../programming_languages_diff/map/put.html">連想配列(マップ)の要素の値を設定するには (put)</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">連想配列(マップ)の要素を1つずつ順番に処理するには (foreach)</a></li>
+          <li><a href="../../programming_languages_diff/map/contains-key.html">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
+          <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
+          <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">連想配列(マップ)が空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
@@ -91,6 +91,25 @@ map.put("b", 2);
 
 <p>LRUキャッシュを実装するには <code>java.util.LinkedHashMap</code> が便利。
 <code>java.util.LinkedHashMap</code> を継承するクラスを作って、<code>removeEldestEntry</code> をオーバーライドすればよい。</p>
+
+<h2 id="7f4d550">Scala
+<span class="article-date">2014/12/19</span></h2>
+
+<p>Javaのクラスライブラリでサポートされている 
+<code>java.util.Map</code> インターフェースなどのほかに、豊富な種類のコレクション型がScalaのクラスライブラリにある。</p>
+
+<p><code>scala.collection.immutable.Map</code> は特にインポートしなくても <code>Map</code> だけで参照できる。</p>
+
+<p><code>scala.collection.immutable.Map</code> のインスタンス生成の例</p>
+
+<pre><code>val map = Map("a" -&gt; 1, "b" -&gt; 2);
+</code></pre>
+
+<p>これは以下のシンタックスシュガー。</p>
+
+<pre><code>val map = scala.collection.immutable.Map.apply(scala.Predef.any2ArrowAssoc("a").-&gt;(1),
+                                               scala.Predef.any2ArrowAssoc("a").-&gt;(2));
+</code></pre>
 
 <h2 id="php">PHP
 <span class="article-date">2014/01/29</span></h2>
