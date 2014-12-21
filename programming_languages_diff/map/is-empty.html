@@ -36,7 +36,7 @@
           <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li>連想配列(マップ)が空かどうかを判定するには (isEmpty)</li>
-          <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">連想配列(マップ)のキーを集合(セット)または配列(リスト)で取得するには (keys)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/map/values.html">マップの各エントリの値をセットまたはリストで取得するには (values)</a></li>
@@ -105,9 +105,17 @@ def isEmpty: Boolean
 <p>-&gt; <a href="../boolean/overview.html#python">論理値への変換</a></p>
 
 <h2 id="e085a80">Ruby / JRuby
-<span class="article-date">2014/12/13</span></h2>
+<span class="article-date">2014/12/21</span></h2>
 
-<pre><code>hash.empty?
+<p>ハッシュの <code>empty?</code> というメソッドを使う。</p>
+
+<p>例</p>
+
+<pre><code>if hash.empty?
+  puts "empty";
+else
+  puts "not empty";
+end
 </code></pre>
 
 <h2 id="192b08b">Perl

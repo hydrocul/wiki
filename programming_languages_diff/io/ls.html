@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ディレクトリの中のファイル一覧を取得するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>ディレクトリの中のファイル一覧を取得するには (ls) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ディレクトリの中のファイル一覧を取得するには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ディレクトリの中のファイル一覧を取得するには (ls)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -32,8 +32,8 @@
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
           <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
           <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
-          <li>ディレクトリの中のファイル一覧を取得するには</li>
-          <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
+          <li>ディレクトリの中のファイル一覧を取得するには (ls)</li>
+          <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには (mkdir)</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには (rm / unlink)</a></li>
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには</a></li>
@@ -41,13 +41,14 @@
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
-          <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
+          <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
           <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/puts.html">標準出力・標準エラー出力するには</a></li>
+          <li><a href="../../programming_languages_diff/io/pwd.html">カレントディレクトリを取得するには (pwd)</a></li>
         </ul>
       </li>
     </ul>
@@ -58,7 +59,7 @@
 </div>
 
 <div id="content">
-  <h1 id="ls">ディレクトリの中のファイル一覧を取得するには</h1>
+  <h1 id="ls">ディレクトリの中のファイル一覧を取得するには (ls)</h1>
 
 <h2 id="7cf0993">Java
 <span class="article-date">2014/10/04</span></h2>
@@ -90,13 +91,13 @@ if ($dhandle) {
 </code></pre>
 
 <p><code>opendir</code> 関数 | PHP Manual<br />
-<a href="http://jp1.php.net/manual/ja/function.opendir.php" target="_blank">http://jp1.php.net/manual/ja/function.opendir.php</a></p>
+<a href="http://php.net/manual/ja/function.opendir.php" target="_blank">http://php.net/manual/ja/function.opendir.php</a></p>
 
 <p><code>readdir</code> 関数 | PHP Manual<br />
-<a href="http://jp1.php.net/manual/ja/function.readdir.php" target="_blank">http://jp1.php.net/manual/ja/function.readdir.php</a></p>
+<a href="http://php.net/manual/ja/function.readdir.php" target="_blank">http://php.net/manual/ja/function.readdir.php</a></p>
 
 <p><code>closedir</code> 関数 | PHP Manual<br />
-<a href="http://jp1.php.net/manual/ja/function.closedir.php" target="_blank">http://jp1.php.net/manual/ja/function.closedir.php</a></p>
+<a href="http://php.net/manual/ja/function.closedir.php" target="_blank">http://php.net/manual/ja/function.closedir.php</a></p>
 
 <h2 id="b3ffd44">Ruby
 <span class="article-date">2013/04/10</span></h2>
