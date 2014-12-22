@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>連想配列(マップ) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>連想配列(マップ)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,7 +24,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>連想配列(マップ)
+      <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">連想配列(マップ)のデータ型の各プログラミング言語別の概要</a></li>
           <li><a href="../../programming_languages_diff/map/size.html">連想配列(マップ)の要素の数を取得するには (size)</a></li>
@@ -34,7 +34,7 @@
           <li><a href="../../programming_languages_diff/map/contains-key.html">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
           <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
-          <li><a href="../../programming_languages_diff/map/entries.html">連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries)</a></li>
+          <li>連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries)</li>
           <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">連想配列(マップ)が空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">連想配列(マップ)のキーを集合(セット)または配列(リスト)で取得するには (keys)</a></li>
@@ -51,31 +51,39 @@
 </div>
 
 <div id="content">
-  <h1 id="map">連想配列(マップ)
-<span class="article-date">2013/07/27</span></h1>
+  <h1 id="entries">連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries)</h1>
 
-<p>Java, Scala ではマップ、PHPでは連想配列、Rubyではハッシュ、
-Perlでは連想配列またはハッシュという。</p>
+<h2 id="a0057e4">Python
+<span class="article-date">2014/03/17</span></h2>
 
-<h2 id="section">目次</h2>
+<pre><code>dic.items()
+</code></pre>
 
-<ul>
-  <li><a href="../../programming_languages_diff/map/overview.html">連想配列(マップ)のデータ型の各プログラミング言語別の概要</a></li>
-  <li><a href="../../programming_languages_diff/map/size.html">連想配列(マップ)の要素の数を取得するには (size)</a></li>
-  <li><a href="../../programming_languages_diff/map/get.html">連想配列(マップ)の要素の値を参照するには (get)</a></li>
-  <li><a href="../../programming_languages_diff/map/put.html">連想配列(マップ)の要素の値を設定するには (put)</a></li>
-  <li><a href="../../programming_languages_diff/map/foreach.html">連想配列(マップ)の要素を1つずつ順番に処理するには (foreach)</a></li>
-  <li><a href="../../programming_languages_diff/map/contains-key.html">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
-  <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
-  <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
-  <li><a href="../../programming_languages_diff/map/entries.html">連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries)</a></li>
-  <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-  <li><a href="../../programming_languages_diff/map/is-empty.html">連想配列(マップ)が空かどうかを判定するには (isEmpty)</a></li>
-  <li><a href="../../programming_languages_diff/map/keys.html">連想配列(マップ)のキーを集合(セット)または配列(リスト)で取得するには (keys)</a></li>
-  <li><a href="../../programming_languages_diff/map/put-all.html">連想配列(マップ)に別の連想配列にある複数の要素をまとめて追加するには (putAll / merge)</a></li>
-  <li><a href="../../programming_languages_diff/map/remove.html">連想配列(マップ)から要素をキーで指定して削除するには (remove)</a></li>
-  <li><a href="../../programming_languages_diff/map/values.html">連想配列(マップ)の各エントリの値を集合(セット)または配列(リスト)で取得するには (values)</a></li>
-</ul>
+<p>例</p>
+
+<pre><code>dic = {'a': 1, 'b': 2}
+print(dic.items())
+# Python2では
+# [('a', 1), ('b', 2)]
+# Python3では
+# dict_items([('b', 2), ('a', 1)])
+
+for d in dic.items():
+    print(d)
+# =&gt; ('a', 1)
+# =&gt; ('b', 2)
+</code></pre>
+
+<h2 id="64c0f41">Ruby / JRuby
+<span class="article-date">2014/12/22</span></h2>
+
+<p><code>Hash#to_a</code> メソッドを利用すると、長さ2の配列を要素とした配列を取得できる。</p>
+
+<pre><code>hash = {'a' =&gt; 10, 'b' =&gt; 20, 'c' =&gt; 30}
+
+p hash.to_a
+# =&gt; [["a", 10], ["b", 20], ["c", 30]]
+</code></pre>
 
 </div>
 

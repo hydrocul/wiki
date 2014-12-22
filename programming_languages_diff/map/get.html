@@ -27,19 +27,20 @@
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">連想配列(マップ)のデータ型の各プログラミング言語別の概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">連想配列(マップ)の要素の数を取得するには (size)</a></li>
           <li>連想配列(マップ)の要素の値を参照するには (get)</li>
           <li><a href="../../programming_languages_diff/map/put.html">連想配列(マップ)の要素の値を設定するには (put)</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">マップの要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
-          <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">連想配列(マップ)の要素を1つずつ順番に処理するには (foreach)</a></li>
+          <li><a href="../../programming_languages_diff/map/contains-key.html">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
+          <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
-          <li><a href="../../programming_languages_diff/map/filter.html">マップから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
+          <li><a href="../../programming_languages_diff/map/entries.html">連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries)</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">連想配列(マップ)が空かどうかを判定するには (isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
-          <li><a href="../../programming_languages_diff/map/values.html">マップの各エントリの値をセットまたはリストで取得するには (values)</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">連想配列(マップ)のキーを集合(セット)または配列(リスト)で取得するには (keys)</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">連想配列(マップ)に別の連想配列にある複数の要素をまとめて追加するには (putAll / merge)</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">連想配列(マップ)から要素をキーで指定して削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/map/values.html">連想配列(マップ)の各エントリの値を集合(セット)または配列(リスト)で取得するには (values)</a></li>
         </ul>
       </li>
     </ul>
@@ -105,18 +106,31 @@ def getOrElse(key: A, default: =&gt; B): B
 <p>2つ目の引数がデフォルト値となる。要素が存在する場合には、2つ目の引数が評価されないので、計算に時間のかかるデフォルト値を設定してもよい。</p>
 
 <h2 id="6fa8328">PHP
-<span class="article-date">2013/09/03</span></h2>
+<span class="article-date">2014/12/22</span></h2>
 
-<pre><code>arr['a']
+<p>配列の要素は <code>[]</code> でアクセスする。</p>
+
+<pre><code>$arr['a']
 </code></pre>
 
+<p>ただし、存在しない要素を取得しようとすると
+<code>PHP Notice:  Undefined index: a</code>
+というようなNoticeが発生する。</p>
+
+<pre><code>@$arr['a']
+</code></pre>
+
+<p>と書けば、Noticeは発生しない。</p>
+
 <h2 id="e58800b">Python
-<span class="article-date">2014/12/13</span></h2>
+<span class="article-date">2014/12/22</span></h2>
+
+<p>ディクショナリの要素は <code>[]</code> でアクセスする。</p>
 
 <pre><code>dic['a']
 </code></pre>
 
-<p>存在しない要素を取得しようとすると <code>KeyError</code> の例外が発生する。存在するかどうかが不確かな場合は事前に<a href="contains-key.html#python"><code>in</code>演算子</a>でチェックする必要がある。</p>
+<p>ただし、存在しない要素を取得しようとすると <code>KeyError</code> の例外が発生する。存在するかどうかが不確かな場合は事前に<a href="contains-key.html#python"><code>in</code>演算子</a>でチェックする必要がある。</p>
 
 <p><code>get</code>メソッでであれば存在しない要素であっても例外が発生しない。</p>
 

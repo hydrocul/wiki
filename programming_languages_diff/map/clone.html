@@ -27,19 +27,20 @@
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">連想配列(マップ)のデータ型の各プログラミング言語別の概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">マップの要素の数を取得するには (size)</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">連想配列(マップ)の要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/map/get.html">連想配列(マップ)の要素の値を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/map/put.html">連想配列(マップ)の要素の値を設定するには (put)</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">マップの要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
-          <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">連想配列(マップ)の要素を1つずつ順番に処理するには (foreach)</a></li>
+          <li><a href="../../programming_languages_diff/map/contains-key.html">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
+          <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
           <li>連想配列(マップ)をコピーするには (clone)</li>
-          <li><a href="../../programming_languages_diff/map/filter.html">マップから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
+          <li><a href="../../programming_languages_diff/map/entries.html">連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries)</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">連想配列(マップ)が空かどうかを判定するには (isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
-          <li><a href="../../programming_languages_diff/map/values.html">マップの各エントリの値をセットまたはリストで取得するには (values)</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">連想配列(マップ)のキーを集合(セット)または配列(リスト)で取得するには (keys)</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">連想配列(マップ)に別の連想配列にある複数の要素をまとめて追加するには (putAll / merge)</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">連想配列(マップ)から要素をキーで指定して削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/map/values.html">連想配列(マップ)の各エントリの値を集合(セット)または配列(リスト)で取得するには (values)</a></li>
         </ul>
       </li>
     </ul>
@@ -70,13 +71,26 @@ $src['a'][0] = 100; // $dst['a'][0] は 10 のまま
 <pre><code>dic2 = dic.copy()
 </code></pre>
 
-<h2 id="0e16599">Ruby
-<span class="article-date">2014/02/27</span></h2>
+<h2 id="19e4557">Ruby / JRuby
+<span class="article-date">2014/12/22</span></h2>
 
 <p>shallow copy</p>
 
 <pre><code>Object#clone
 Object#dup
+</code></pre>
+
+<p>shallow copyなので、コピー元の要素のオブジェクト自体を変更した場合は、コピー先にも伝搬する。</p>
+
+<pre><code>hash = {'a' =&gt; 10, 'b' =&gt; 20, 'c' =&gt; [30, 31, 32]}
+
+hash2 = hash.clone
+
+hash['b'] = 21     # 要素の変更はコピー先には影響しない
+hash['c'][2] = 320 # 要素のオブジェクト自体の変更はコピー先に影響する
+
+p hash2
+# =&gt; {"a"=&gt;10, "b"=&gt;20, "c"=&gt;[30, 31, 320]}
 </code></pre>
 
 <h2 id="96029a6">Perl

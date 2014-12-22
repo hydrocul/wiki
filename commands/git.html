@@ -515,6 +515,27 @@ git diff --name-only
 
 <p><a href="diff.html"><code>diff</code>コマンド</a>での同様のことをさせるには <code>-rq</code> を付けるとよい。</p>
 
+<h3 id="d79d85e"><code>git clone</code> しようとしたら <code>fatal: Unable to find remote helper for 'https'</code> と表示された場合
+<span class="article-date">2014/12/22</span></h3>
+
+<p><code>git clone</code> を実行したら以下のようなエラーが表示されることがある。</p>
+
+<pre><code>fatal: Unable to find remote helper for 'https'
+</code></pre>
+
+<p>gitインストール時に必要なライブラリを参照できないと、こうなるらしい。</p>
+
+<p>自分はgitはソースからコンパイルしてインストールしているが、こういうエラーが出てしまった場合、Ubuntuの場合は</p>
+
+<pre><code>sudo apt-get install libcurl4-openssl-dev
+</code></pre>
+
+<p>として、gitを再コンパイル&amp;インストールすればよい。
+gitコンパイル&amp;インストールはconfigureオプションを付けることなく
+<code>./configure &amp;&amp; make &amp;&amp; sudo make install</code> だけで解決した。</p>
+
+<p>(git 1.8.3.2 &amp; Ubuntu 14.04 で確認)</p>
+
 <h2 id="be3a536"><code>.gitignore</code> のサンプルファイル</h2>
 
 <h3 id="10510ee">Java
