@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>デバッグのためにオブジェクトの中身を表示させるには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>デバッグのためにオブジェクトの中身を表示させるには (dump) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>デバッグのためにオブジェクトの中身を表示させるには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>デバッグのためにオブジェクトの中身を表示させるには (dump)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -26,28 +26,29 @@
     <ul>
       <li><a href="../../programming_languages_diff/io/">入出力・ファイル操作</a>
         <ul>
-          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身を1つの文字列として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身をまとめて1つの文字列として取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
           <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
           <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
           <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
-          <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには</a></li>
-          <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには</a></li>
+          <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには (ls)</a></li>
+          <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには (mkdir)</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには (rm / unlink)</a></li>
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
-          <li>デバッグのためにオブジェクトの中身を表示させるには</li>
+          <li>デバッグのためにオブジェクトの中身を表示させるには (dump)</li>
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
-          <li><a href="../../programming_languages_diff/io/flush.html">出力をフラッシュするには (flush)</a></li>
+          <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
           <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/puts.html">標準出力・標準エラー出力するには</a></li>
+          <li><a href="../../programming_languages_diff/io/pwd.html">カレントディレクトリを取得するには (pwd)</a></li>
         </ul>
       </li>
     </ul>
@@ -58,7 +59,7 @@
 </div>
 
 <div id="content">
-  <h1 id="dump">デバッグのためにオブジェクトの中身を表示させるには</h1>
+  <h1 id="dump">デバッグのためにオブジェクトの中身を表示させるには (dump)</h1>
 
 <h2 id="5097f98">PHP
 <span class="article-date">2014/04/15</span></h2>
@@ -105,16 +106,33 @@ pprint(a)
 
 <p><code>p</code>メソッドはオブジェクトの<code>inspect</code>メソッドを呼び出して文字列表現を手に入れ、それを標準出力する。</p>
 
-<p>これに対して<code>puts</code>メソッドは<code>to_s</code>メソッドを呼び出して、それを標準出力する。</p>
+<p>これに対して<a href="puts.html#ruby"><code>puts</code>メソッド</a>は<code>to_s</code>メソッドを呼び出して、それを標準出力する。</p>
 
 <h2 id="fe4ad45">Perl
-<span class="article-date">2013/10/20</span></h2>
+<span class="article-date">2014/12/21</span></h2>
 
-<p><code>Data::Dumper</code> を使うとできる。</p>
+<p><code>Data::Dumper</code> でできる。</p>
 
-<pre><code>use Data::Dumper;
+<p>例</p>
 
-print Dumper $hoge;
+<pre><code>use utf8;
+
+my $data = {'a' =&gt; 10, 'b' =&gt; 20, 'c' =&gt; [30, 31, 32], 'd' =&gt; 'あいうえお'};
+print Dumper $data;
+</code></pre>
+
+<p>出力例</p>
+
+<pre><code>$VAR1 = {
+          'c' =&gt; [
+                   30,
+                   31,
+                   32
+                 ],
+          'a' =&gt; 10,
+          'b' =&gt; 20,
+          'd' =&gt; "\x{3042}\x{3044}\x{3046}\x{3048}\x{304a}"
+        };
 </code></pre>
 
 <p><code>Data::Dumper</code> | perldoc.perl.org<br />

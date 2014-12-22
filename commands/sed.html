@@ -556,7 +556,7 @@ cat ファイル名 | sed -e \$d
 <pre><code>cat ファイル名 | sed -e 's@/etc/foo/bar@/home/my/etc/foo/bar@g'
 </code></pre>
 
-<h3 id="d51903a">ログファイルなどの <code>tail -f</code> の出力をsedで処理しながら表示するには
+<h3 id="tailf">ログファイルなどの <code>tail -f</code> の出力をsedで処理しながら表示するには
 <span class="article-date">2013/07/09</span></h3>
 
 <pre><code>tail -f access_log | sed --unbuffered ...
