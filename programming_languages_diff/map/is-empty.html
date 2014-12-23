@@ -34,12 +34,13 @@
           <li><a href="../../programming_languages_diff/map/contains-key.html">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
           <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/map/entries.html">連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries)</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li>連想配列(マップ)が空かどうかを判定するには (isEmpty)</li>
           <li><a href="../../programming_languages_diff/map/keys.html">連想配列(マップ)のキーを集合(セット)または配列(リスト)で取得するには (keys)</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
-          <li><a href="../../programming_languages_diff/map/values.html">マップの各エントリの値をセットまたはリストで取得するには (values)</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">連想配列(マップ)に別の連想配列にある複数の要素をまとめて追加するには (putAll / merge)</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">連想配列(マップ)から要素をキーで指定して削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/map/values.html">連想配列(マップ)の各エントリの値を集合(セット)または配列(リスト)で取得するには (values)</a></li>
         </ul>
       </li>
     </ul>
@@ -52,7 +53,7 @@
 <div id="content">
   <h1 id="is-empty">連想配列(マップ)が空かどうかを判定するには (isEmpty)</h1>
 
-<p>連想配列(マップ)が空かどうかを判定するメソッドは、配列と同じ名前のメソッドになっていることが多いかもしれない。</p>
+<p>連想配列(マップ)が空かどうかを判定するメソッドは、配列と同じ名前のメソッドになっていることが多い。</p>
 
 <p>-&gt; <a href="../list/is-empty.html">配列(リスト)が空かどうか</a></p>
 
@@ -100,7 +101,7 @@ def isEmpty: Boolean
 <h2 id="9f87779">Python
 <span class="article-date">2014/12/13</span></h2>
 
-<p>ディクショナリはif文などの条件式に入れると、空のときに <code>false</code>、そうでないときに <code>true</code> の扱いになる。</p>
+<p>ディクショナリは<code>if</code>文などの条件式に入れると、空のときに <code>false</code>、そうでないときに <code>true</code> の扱いになる。</p>
 
 <p>-&gt; <a href="../boolean/overview.html#python">論理値への変換</a></p>
 
@@ -119,22 +120,35 @@ end
 </code></pre>
 
 <h2 id="192b08b">Perl
-<span class="article-date">2014/12/13</span></h2>
+<span class="article-date">2014/12/22</span></h2>
 
-<p>ハッシュはif文などの条件式に入れると、空のときに <code>false</code>、そうでないときに <code>true</code> の扱いになる。</p>
+<p>ハッシュは<code>if</code>文などの条件式に入れると、空のときに <code>false</code>、そうでないときに <code>true</code> の扱いになる。</p>
 
 <p>-&gt; <a href="../boolean/overview.html#perl">論理値への変換</a></p>
 
-<p>例</p>
+<p>ハッシュでの例</p>
 
-<pre><code>if (%map) {
-    # 空でない場合の処理
+<pre><code>if (%hash) {
+    print "not empty\n";
 } else {
-    # 空の場合の処理
+    print "empty\n";
 }
 
-if (!%map) {
-    # 空の場合の処理
+if (!%hash) {
+    print "empty\n";
+}
+</code></pre>
+
+<p>ハッシュへのレファレンスでの例</p>
+
+<pre><code>if (%$hash) {
+    print "not empty\n";
+} else {
+    print "empty\n";
+}
+
+if (!%$hash) {
+    print "empty\n";
 }
 </code></pre>
 
