@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>複数の返り値(多値返却) | タプル | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>関数/メソッドから複数の値を返すには(多値返却) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/tuple/">タプル</a> &gt; <span>複数の返り値(多値返却)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/tuple/">タプル</a> &gt; <span>関数/メソッドから複数の値を返すには(多値返却)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/tuple/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/tuple/multiple-assignment.html">複数の値をまとめて代入(多重代入)</a></li>
-          <li>複数の返り値(多値返却)</li>
+          <li>関数/メソッドから複数の値を返すには(多値返却)</li>
         </ul>
       </li>
     </ul>
@@ -39,10 +39,15 @@
 </div>
 
 <div id="content">
-  <h1 id="return-tuple">複数の返り値(多値返却)
+  <h1 id="return-tuple">関数/メソッドから複数の値を返すには(多値返却)
 <span class="article-date">2014/10/13</span></h1>
 
 <p>関数は普通は返り値を1つだけ返すか、1つも返さない(C言語の<code>void</code>など)ものが多い中、プログラミング言語によっては複数の値を関数から返すことができるものもある。</p>
+
+<h2 id="8508166">Java
+<span class="article-date">2014/12/24</span></h2>
+
+<p>簡単に複数の戻り値を返す方法はなさそう。</p>
 
 <h2 id="scala">Scala
 <span class="article-date">2014/10/13</span></h2>
@@ -69,6 +74,7 @@ println(b); // =&gt; abc
 <pre><code>function f(){
   return array(1, "abc");
 }
+
 list($num, $str) = f();
 </code></pre>
 
@@ -92,15 +98,18 @@ print(a) # =&gt; 1
 print(b) # =&gt; abc
 </code></pre>
 
-<h2 id="449479d">Ruby
-<span class="article-date">2013/09/06</span></h2>
+<h2 id="ee3804b">Ruby / JRuby
+<span class="article-date">2014/12/24</span></h2>
 
 <p><code>return</code> にカンマ区切りで複数の値を書けば、<a href="../list/overview.html#ruby">配列</a>を返すことになり、受け取り側は配列の<a href="multiple-assignment.html#ruby">多重代入</a>を使う。</p>
 
 <pre><code>def f
   return 1, "abc"
 end
+
 num, str = f
+p num # =&gt; 1
+p str # =&gt; "abc"
 </code></pre>
 
 <h2 id="96e30ce">Perl
