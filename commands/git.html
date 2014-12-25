@@ -536,6 +536,24 @@ gitコンパイル&amp;インストールはconfigureオプションを付ける
 
 <p>(git 1.8.3.2 &amp; Ubuntu 14.04 で確認)</p>
 
+<h3 id="307881a"><code>git checkout</code> で特定のブランチをチェックアウトしようとしたらローカルでの変更と衝突してエラーが表示された場合
+<span class="article-date">2014/12/25</span></h3>
+
+<p>ローカルでファイルを編集してそれをコミットもなにもしていない状態で、他のブランチをチェックアウトしようとしたときに、そのブランチでもそのファイルが変更されている場合は、衝突が起きてチェックアウトできずに以下のようなエラーメッセージが表示される。</p>
+
+<pre><code>error: You have local changes to 'foo/bar.txt'; cannot switch branches.
+</code></pre>
+
+<p>ローカルでの編集を一切保存せずに上書きしてもよい場合、いったん</p>
+
+<pre><code>git checkout foo/bar.txt
+</code></pre>
+
+<p>として元に戻してからブランチをチェックアウトしてもいいけど、それをせずにチェックアウトのときに <code>-f</code> を付ければ、強制的にファイルを上書きしてくれる。</p>
+
+<pre><code>git checkout -f hogehoge-branch
+</code></pre>
+
 <h2 id="be3a536"><code>.gitignore</code> のサンプルファイル</h2>
 
 <h3 id="10510ee">Java
