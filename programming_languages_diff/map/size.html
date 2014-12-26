@@ -32,14 +32,15 @@
           <li><a href="../../programming_languages_diff/map/put.html">連想配列(マップ)の要素の値を設定するには (put)</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">連想配列(マップ)の要素を1つずつ順番に処理するには (foreach)</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
-          <li><a href="../../programming_languages_diff/map/convert.html">マップの種類を相互に変換するには (convert)</a></li>
+          <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
-          <li><a href="../../programming_languages_diff/map/filter.html">マップから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
+          <li><a href="../../programming_languages_diff/map/entries.html">連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries)</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">連想配列(マップ)が空かどうかを判定するには (isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
-          <li><a href="../../programming_languages_diff/map/values.html">マップの各エントリの値をセットまたはリストで取得するには (values)</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">連想配列(マップ)のキーを集合(セット)または配列(リスト)で取得するには (keys)</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">連想配列(マップ)に別の連想配列にある複数の要素をまとめて追加するには (putAll / merge)</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">連想配列(マップ)から要素をキーで指定して削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/map/values.html">連想配列(マップ)の各エントリの値を集合(セット)または配列(リスト)で取得するには (values)</a></li>
         </ul>
       </li>
     </ul>
@@ -90,9 +91,9 @@ sizeof($map)
 <a href="http://www.php.net/manual/ja/function.sizeof.php" target="_blank">http://www.php.net/manual/ja/function.sizeof.php</a></p>
 
 <h2 id="python">Python
-<span class="article-date">2014/10/20</span></h2>
+<span class="article-date">2014/12/26</span></h2>
 
-<pre><code>len(dic)
+<pre><code>l = len(dic)
 </code></pre>
 
 <p><code>len</code> という関数は、<a href="../list.size.html#python">シーケンス型といわれるリスト、タプル、文字列に対しても</a>使える。</p>
@@ -114,12 +115,13 @@ l = hash.size
 <a href="http://docs.ruby-lang.org/ja/2.1.0/class/Hash.html#I_LENGTH" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/class/Hash.html#I_LENGTH</a></p>
 
 <h2 id="6ee8f24">Perl
-<span class="article-date">2013/09/14</span></h2>
+<span class="article-date">2014/12/26</span></h2>
 
 <p>キーの配列をスカラコンテキストで参照すると、要素の数を取得できる。</p>
 
 <pre><code>my %hash = (a =&gt; 1, b =&gt; 2);
 print scalar keys %hash;
+# =&gt; 2
 </code></pre>
 
 </div>

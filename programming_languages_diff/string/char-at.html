@@ -52,13 +52,14 @@
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
-          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-upper-lower.html">Unicodeの仕様に基づいた大文字小文字を変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -146,7 +147,7 @@ Groovyの演算子オーバーロードにより <code>str[2]</code> のよう�
 <a href="http://beta.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html#getAt(int)" target="_blank">http://beta.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html#getAt(int)</a></p>
 
 <h2 id="283e923">PHP
-<span class="article-date">2014/08/21</span></h2>
+<span class="article-date">2014/12/26</span></h2>
 
 <p><code>[]</code>演算子で0から始まるインデックスで文字を取得できる。</p>
 
@@ -164,6 +165,13 @@ echo $str[0][0][0]; // =&gt; a
 <p>ただしこれはPHP 5.4以降の話で、
 PHP 5.3までだとなぜか <code>$str[0][0]</code> からはエラーになる。 
 <code>$str[0]</code> が文字列なのは同じなので、なぜだろう？</p>
+
+<p>PHP 5.4までは文字列リテラルに直接 <code>[]</code> でアクセスすることができない。</p>
+
+<pre><code>echo "abc"[1];
+</code></pre>
+
+<p>このコードをPHP 5.4以前で実行すると <code>PHP Parse error:  syntax error, unexpected '['</code> というエラーになる。</p>
 
 <h2 id="668d9a9">Python
 <span class="article-date">2014/07/02</span></h2>

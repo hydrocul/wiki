@@ -127,12 +127,19 @@ lst.apply(index)
 </code></pre>
 
 <h2 id="6fa8328">PHP
-<span class="article-date">2013/10/28</span></h2>
+<span class="article-date">2014/12/26</span></h2>
 
 <p>配列の要素は <code>[]</code> でアクセスする。</p>
 
 <pre><code>$arr[$index]
 </code></pre>
+
+<p>PHP 5.4までは配列のリテラルに直接 <code>[]</code> でアクセスすることができない。</p>
+
+<pre><code>echo [10, 20, 30][1];
+</code></pre>
+
+<p>このコードをPHP 5.4以前で実行すると <code>PHP Parse error:  syntax error, unexpected '['</code> というエラーになる。</p>
 
 <h2 id="e58800b">Python
 <span class="article-date">2013/10/28</span></h2>

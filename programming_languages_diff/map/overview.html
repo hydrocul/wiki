@@ -34,12 +34,13 @@
           <li><a href="../../programming_languages_diff/map/contains-key.html">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
           <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/map/entries.html">連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries)</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">連想配列(マップ)が空かどうかを判定するには (isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
-          <li><a href="../../programming_languages_diff/map/values.html">マップの各エントリの値をセットまたはリストで取得するには (values)</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">連想配列(マップ)のキーを集合(セット)または配列(リスト)で取得するには (keys)</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">連想配列(マップ)に別の連想配列にある複数の要素をまとめて追加するには (putAll / merge)</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">連想配列(マップ)から要素をキーで指定して削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/map/values.html">連想配列(マップ)の各エントリの値を集合(セット)または配列(リスト)で取得するには (values)</a></li>
         </ul>
       </li>
     </ul>
@@ -192,20 +193,22 @@ dic = dict()
 <pre><code>hash['a']
 </code></pre>
 
-<h2 id="perl">Perl
-<span class="article-date">2014/02/07</span></h2>
+<h2 id="perl">Perl</h2>
+
+<h3 id="6772527">ハッシュ
+<span class="article-date">2014/12/26</span></h3>
 
 <p>Perlではハッシュという。ハッシュの値にはスカラ(文字列、数字、レファレンスなど)しか含められないので、配列やハッシュ自体を値として持たせるには、レファレンスにする必要がある。</p>
 
 <p>ハッシュを入れる変数は名前が <code>%</code> で始まり、要素を参照するには <code>$</code> で始める。</p>
 
-<p>以下の2つはまったく同じ意味で、どちらもハッシュを <code>%hash</code> に代入している。</p>
+<p>ハッシュの変数に要素数が偶数このリストを代入すると、それがハッシュになる。以下の2つはまったく同じ意味で、どちらもハッシュを <code>%hash</code> に代入している。</p>
 
 <pre><code>my %hash = (a =&gt; 1, b =&gt; 2);
 my %hash = ('a', 1, 'b', 2);
 </code></pre>
 
-<p>上記の <code>(...)</code> の表記をリストという。偶数個の要素のリストを <code>%</code> で始まる変数に代入するとハッシュになる。</p>
+<p>上記の <code>(...)</code> の表記をリストという。</p>
 
 <p>リストの中の <code>=&gt;</code> は <code>,</code> とまったく同じ意味で、以下のように書いても差支えない。こんな書き方は普通はしないが。</p>
 
@@ -233,7 +236,7 @@ my %hash = ('a', 1, 'b', 2);
 </code></pre>
 
 <h3 id="920a94a">ハッシュへのレファレンス
-<span class="article-date">2013/11/01</span></h3>
+<span class="article-date">2014/12/26</span></h3>
 
 <p><code>{}</code> を使うと、ハッシュへのレファレンスを直接書くことができる。</p>
 
@@ -249,6 +252,12 @@ my $hash = \%h;
 <p>レファレンスの実体を取り出すには、</p>
 
 <pre><code>%$hash;
+</code></pre>
+
+<p>レファレンスから直接要素を参照するには <code>-&gt;{}</code> を使う。
+-&gt; <a href="get.html#perl">キーで値を参照するには</a></p>
+
+<pre><code>$hash-&gt;{a}
 </code></pre>
 
 <h2 id="javascript">JavaScript
