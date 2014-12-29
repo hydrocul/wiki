@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>インデックスで要素を参照するには (get) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>配列(リスト)からインデックスで要素を参照するには (get) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>インデックスで要素を参照するには (get)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)からインデックスで要素を参照するには (get)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,12 +24,12 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/list/">リスト(配列)</a>
+      <li><a href="../../programming_languages_diff/list/">配列(リスト)</a>
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/is-empty.html">配列(リスト)が空かどうかを判定するには (isEmpty)</a></li>
-          <li>インデックスで要素を参照するには (get)</li>
+          <li>配列(リスト)からインデックスで要素を参照するには (get)</li>
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
           <li><a href="../../programming_languages_diff/list/head-last.html">リストの先頭または最後の要素を取得するには (head, last)</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の残りの要素をリストで取得するには (tail)</a></li>
@@ -44,7 +44,7 @@
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
-          <li><a href="../../programming_languages_diff/list/foreach.html">リストの要素を1つずつ順番に処理するには (foreach)</a></li>
+          <li><a href="../../programming_languages_diff/list/foreach.html">配列(リスト)の要素を1つずつ順番に処理するには (foreach)</a></li>
           <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
@@ -78,13 +78,12 @@
 </div>
 
 <div id="content">
-  <h1 id="get">インデックスで要素を参照するには (get)
-<span class="article-date">2014/05/16</span></h1>
+  <h1 id="get">配列(リスト)からインデックスで要素を参照するには (get)
+<span class="article-date">2014/12/28</span></h1>
+
+<p>配列の要素を参照する方法の、プログラミング言語ごとのメモ。</p>
 
 <p>多くの言語では先頭が0から始まるインデックスで要素を参照する。</p>
-
-<p>配列の先頭要素が「0番目」であることは気持ち悪いか…「N番目」という言葉を考察してみる<br />
-<a href="http://d.hatena.ne.jp/rubikitch/20080524/1211627661" target="_blank">http://d.hatena.ne.jp/rubikitch/20080524/1211627661</a></p>
 
 <h2 id="1d21255">Java</h2>
 
@@ -107,7 +106,7 @@
 </code></pre>
 
 <h2 id="57beaaa">Scala
-<span class="article-date">2014/10/12</span></h2>
+<span class="article-date">2014/12/28</span></h2>
 
 <p><code>Array</code> でも <code>List</code> などの <code>Seq</code> でも同じで、関数呼び出しのように 
 <code>()</code> でアクセスする。
@@ -117,8 +116,8 @@ Javaでは <code>[]</code> でアクセスする配列もScalaでは <code>()</c
 lst(index)
 </code></pre>
 
-<p>これらには <code>apply</code> というメソッドが定義されていて、
-<code>apply</code> というメソッドがあるオブジェクトは、それ自体が関数であるかのように後ろにカッコで引数を置くことで、<code>apply</code>メソッドを呼び出すことができるScalaのシンタックスシュガーがあるために、このように書ける。</p>
+<p><code>apply</code> というメソッドがあるオブジェクトは、それ自体が関数であるかのように後ろにカッコで引数を置くことで、<code>apply</code>メソッドを呼び出すことができるScalaのシンタックスシュガーがあり、
+<code>Array</code> や <code>List</code> などには <code>apply</code> メソッドが定義されているのでこのように書ける。</p>
 
 <p>つまり、これらは以下と同じ意味。</p>
 
@@ -165,9 +164,9 @@ lst[-2]; # 最後から2番目の要素
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/05/16</span></h2>
+<span class="article-date">2014/12/28</span></h2>
 
-<p>配列そのもののシジルは <code>@</code> だが、インデックスで参照するには、要素がスカラのためシジルとして <code>$</code> を使う。</p>
+<p>配列そのもののシジルは <code>@</code> だが、インデックスで参照するには、要素がスカラのためシジル(sigil)として <code>$</code> を使う。</p>
 
 <p>インデックスは0から始まる。</p>
 

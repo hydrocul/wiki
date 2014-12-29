@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストの要素を1つずつ順番に処理するには (foreach) | リスト(配列) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>配列(リスト)の要素を1つずつ順番に処理するには (foreach) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">リスト(配列)</a> &gt; <span>リストの要素を1つずつ順番に処理するには (foreach)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)の要素を1つずつ順番に処理するには (foreach)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,12 +24,12 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/list/">リスト(配列)</a>
+      <li><a href="../../programming_languages_diff/list/">配列(リスト)</a>
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
-          <li><a href="../../programming_languages_diff/list/is-empty.html">リストが空かどうかを判定するには (isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/list/get.html">インデックスで要素を参照するには (get)</a></li>
+          <li><a href="../../programming_languages_diff/list/is-empty.html">配列(リスト)が空かどうかを判定するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/list/get.html">配列(リスト)からインデックスで要素を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
           <li><a href="../../programming_languages_diff/list/head-last.html">リストの先頭または最後の要素を取得するには (head, last)</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">リストの先頭以外の残りの要素をリストで取得するには (tail)</a></li>
@@ -44,7 +44,7 @@
           <li><a href="../../programming_languages_diff/list/map.html">リストの要素1つずつに関数を適用して新しいリストを作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">リストの要素1つずつにリストを返す関数を適用して新しいリストを作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">リストのリストをリストに平坦化するには (flatten)</a></li>
-          <li>リストの要素を1つずつ順番に処理するには (foreach)</li>
+          <li>配列(リスト)の要素を1つずつ順番に処理するには (foreach)</li>
           <li><a href="../../programming_languages_diff/list/fold-left.html">リストの要素を先頭から順番に畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
@@ -78,8 +78,11 @@
 </div>
 
 <div id="content">
-  <h1 id="foreach">リストの要素を1つずつ順番に処理するには (foreach)
-<span class="article-date">2013/09/10</span></h1>
+  <h1 id="foreach">配列(リスト)の要素を1つずつ順番に処理するには (foreach)
+<span class="article-date">2014/12/28</span></h1>
+
+<p>配列の要素ごとになんらかの処理をする方法の、プログラミング言語ごとのメモ。
+<code>for</code>などの繰り返しの構文が使える言語が多い。</p>
 
 <p>配列やリストの要素に対してではなく、
 0から順番にカウンタを回して繰り返し処理をさせる方法は
@@ -114,9 +117,9 @@
 <p>拡張for文の場合 <code>strArr</code> は配列であるか、<code>java.lang.Iterable</code> を実装しているオブジェクトであることが必要。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2014/08/01</span></h2>
+<span class="article-date">2014/12/28</span></h2>
 
-<p>リストなどにある<code>foreach</code>メソッドを使えばよい。</p>
+<p><code>List</code>や<code>Map</code>などたいていのコレクション型にある<code>foreach</code>メソッドを使えばよい。</p>
 
 <p>Signature:</p>
 
@@ -150,7 +153,7 @@ lst.foreach(println);                     // メソッド名だけ
 <a href="http://www.ne.jp/asahi/hishidama/home/tech/scala/collection/for.html" target="_blank">http://www.ne.jp/asahi/hishidama/home/tech/scala/collection/for.html</a></p>
 
 <h2 id="php">PHP
-<span class="article-date">2014/04/27</span></h2>
+<span class="article-date">2014/12/28</span></h2>
 
 <p>配列をループする例</p>
 
@@ -159,19 +162,35 @@ lst.foreach(println);                     // メソッド名だけ
 }
 </code></pre>
 
-<p>またはC言語風に</p>
+<p>インデックスと値の両方を変数に入れることもできる。</p>
+
+<pre><code>foreach ($arr as $index =&gt; $elem) {
+  ...
+}
+</code></pre>
+
+<p>この書き方は普通の配列でなくて<a href="../map/foreach.html#php">連想配列の場合</a>に特に便利。</p>
+
+<pre><code>foreach ($arr as $elem):
+  ...
+endforeach;
+</code></pre>
+
+<p>中括弧(<code>{}</code>)の代わりに以下のようなコロンを使った記法も可能。</p>
+
+<p>または別の書き方としてC言語風に</p>
 
 <pre><code>for ($i = 0; $i &lt; $arr.length; $i++) {
   ...
 }
 </code></pre>
 
-<p>要素の変数名にループの中で値を代入しても配列には影響しないが、
+<p>ループの中で要素の変数名に値を代入しても配列には影響しないが、
 <code>&amp;$elem</code> というふうに書くと、配列に変更を反映させることができる。</p>
 
 <pre><code>$arr = array(10, 20, 30);
 foreach ($arr as $elem) {
-    $elem = $elem * 10;
+    $elem = $elem * 10; # この書き方では配列自体には影響しない
 }
 var_export($arr);
 # =&gt; array (
@@ -181,7 +200,7 @@ var_export($arr);
 #    )
 
 foreach ($arr as &amp;$elem) { # &amp;$elem と書いて参照渡しにする
-    $elem = $elem * 10;
+    $elem = $elem * 10; # 配列に影響する
 }
 var_export($arr);
 # =&gt; array (

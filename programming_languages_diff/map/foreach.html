@@ -34,12 +34,13 @@
           <li><a href="../../programming_languages_diff/map/contains-key.html">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
           <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/map/entries.html">連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries)</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">連想配列(マップ)が空かどうかを判定するには (isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">マップのキーをセットまたはリストで取得するには (keys)</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">マップにマップで複数の要素を追加するには (putAll)</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
-          <li><a href="../../programming_languages_diff/map/values.html">マップの各エントリの値をセットまたはリストで取得するには (values)</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">連想配列(マップ)のキーを集合(セット)または配列(リスト)で取得するには (keys)</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">連想配列(マップ)に別の連想配列にある複数の要素をまとめて追加するには (putAll / merge)</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">連想配列(マップ)から要素をキーで指定して削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/map/values.html">連想配列(マップ)の各エントリの値を集合(セット)または配列(リスト)で取得するには (values)</a></li>
         </ul>
       </li>
     </ul>
@@ -57,14 +58,16 @@
 
 <p>Java5からは、以下の拡張for文(foreach構文)の利用が可能。</p>
 
-<pre><code>for(String key: map.keySet()){
+<pre><code>for (String key: map.keySet()){
   String value = map.get(key);
   ...;
 }
 </code></pre>
 
 <h2 id="0e0a342">Scala
-<span class="article-date">2014/12/19</span></h2>
+<span class="article-date">2014/12/28</span></h2>
+
+<p><code>Map</code>にあるメソッドでできる。これは<a href="../list/foreach.html#scala"><code>List</code></a>と同じ。</p>
 
 <p>Signature:</p>
 
@@ -84,13 +87,25 @@ map.foreach { case (key, value) =&gt;
 // key=c value=3
 </code></pre>
 
-<h2 id="f9a8f84">PHP
-<span class="article-date">2013/04/27</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2014/12/28</span></h2>
 
-<pre><code>foreach($arr as $key =&gt; $value){
+<p>PHPの連想配列は普通の配列と同じなので、配列で使える<a href="../list/foreach.html#php"><code>foreach</code>の構文</a>をそのまま使える。</p>
+
+<pre><code>foreach ($arr as $key =&gt; $value) {
   ...
 }
 </code></pre>
+
+<p>コロンを使った記法も可能。</p>
+
+<pre><code>foreach ($arr as $key =&gt; $value):
+  ...
+endforeach;
+</code></pre>
+
+<p><code>foreach</code>文 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/control-structures.foreach.php" target="_blank">http://www.php.net/manual/ja/control-structures.foreach.php</a></p>
 
 <h2 id="4bdf58a">Python
 <span class="article-date">2014/09/07</span></h2>
