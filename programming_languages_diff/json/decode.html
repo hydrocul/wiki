@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>JSONからオブジェクトに変換 | JSON | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>JSONからオブジェクトに変換するには | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/json/">JSON</a> &gt; <span>JSONからオブジェクトに変換</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/json/">JSON</a> &gt; <span>JSONからオブジェクトに変換するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -26,8 +26,8 @@
     <ul>
       <li><a href="../../programming_languages_diff/json/">JSON</a>
         <ul>
-          <li><a href="../../programming_languages_diff/json/encode.html">オブジェクトからJSONに変換</a></li>
-          <li>JSONからオブジェクトに変換</li>
+          <li><a href="../../programming_languages_diff/json/encode.html">オブジェクトからJSONに変換するには</a></li>
+          <li>JSONからオブジェクトに変換するには</li>
         </ul>
       </li>
     </ul>
@@ -38,7 +38,7 @@
 </div>
 
 <div id="content">
-  <h1 id="decode">JSONからオブジェクトに変換</h1>
+  <h1 id="decode">JSONからオブジェクトに変換するには</h1>
 
 <h2 id="f400173">Java
 <span class="article-date">2013/09/25</span></h2>
@@ -62,7 +62,7 @@ pom.xml に以下のように書く。</p>
 </code></pre>
 
 <h2 id="php">PHP
-<span class="article-date">2013/10/18</span></h2>
+<span class="article-date">2014/12/30</span></h2>
 
 <pre><code>// JSONからオブジェクトにデコード
 $obj = json_decode($json_src);
@@ -71,8 +71,8 @@ $obj = json_decode($json_src);
 $arr = json_decode($json_src, true);
 </code></pre>
 
-<p>json_decode 関数 | PHPマニュアル<br />
-<a href="http://www.php.net/manual/ja/function.json-decode.php" target="_blank">http://www.php.net/manual/ja/function.json-decode.php</a></p>
+<p><code>json_decode</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.json-decode.php" target="_blank">http://php.net/manual/ja/function.json-decode.php</a></p>
 
 <p>要素の最後の余計なカンマがあるとパースできない。</p>
 
