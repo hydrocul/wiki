@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>nkf コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>paste コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>nkf コマンド</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>paste コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -50,11 +50,11 @@
       <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
-      <li>nkf コマンド</li>
+      <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
       <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
-      <li><a href="../commands/paste.html">paste コマンド</a></li>
+      <li>paste コマンド</li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
@@ -95,69 +95,40 @@
 </div>
 
 <div id="content">
-  <h1 id="nkf">nkf コマンド
-<span class="article-date">2013/12/16</span></h1>
+  <h1 id="paste">paste コマンド
+<span class="article-date">2014/12/29</span></h1>
 
-<p>文字コードを変換するツール。</p>
+<p>複数のファイルを行単位で結合するコマンド。結合の際の区切り文字はデフォルトではタブになる。</p>
 
-<p>標準入力を文字コードを変換しながらそのまま標準出力に吐き出す。引数にファイル名を指定すれば、標準入力ではなくそのファイルを読み込む。</p>
+<p>結合した結果は標準出力するので、ファイルを作成したい場合はリダイレクトを使う。</p>
 
-<p>例えば EUC-JP を UTF-8 に変換するには</p>
+<p>例</p>
 
-<pre><code>cat ファイル名 | nkf -Ew
+<pre><code>$ cat test.1.txt
+あいうえお
+かきくけこ
+あいうえお
+さしすせそ
+$ cat test.2.txt
+10
+20
+30
+40
+$ paste test.1.txt test.2.txt
+あいうえお      10
+かきくけこ      20
+あいうえお      30
+さしすせそ      40
 </code></pre>
 
-<p>または</p>
-
-<pre><code>nkf -Ew ファイル名
-</code></pre>
-
-<h2 id="4c9d87b">オプション
+<h2 id="19e9210">区切り文字を指定するには
 <span class="article-date">2014/12/29</span></h2>
 
-<p>以下のオプションで、大文字が入力の文字コード、小文字が出力の文字コードを表す。</p>
+<p><code>-d</code> オプションで指定する。</p>
 
-<dl>
-  <dt><code>-J</code>, <code>-j</code></dt>
-  <dd>ISO-2022-JP (ISO-2022-<strong>J</strong>P の J と覚える)</dd>
-  <dt><code>-S</code>, <code>-s</code></dt>
-  <dd>Shift-JIS (<strong>S</strong>hift-JIS の S と覚える)</dd>
-  <dt><code>-E</code>, <code>-e</code></dt>
-  <dd>EUC-JP (<strong>E</strong>UC-JP の E と覚える)</dd>
-  <dt><code>-W</code>, <code>-w</code></dt>
-  <dd>UTF-8。(由来はよくわからないが<strong>w</strong>orld<strong>w</strong>ideな文字コードと覚えている)</dd>
-  <dt><code>-x</code></dt>
-  <dd>半角カナを半角のままにする。このオプションを付けないと全角に変換される</dd>
-</dl>
-
-<h2 id="03d7795">文字コードを調べるには
-<span class="article-date">2013/06/24</span></h2>
-
-<p>文字コードが不明で、判別させるには、<code>--guess</code> を使う。改行コードも判別してくれる。</p>
-
-<pre><code>nkf --guess ファイル名
-
-# パイプでの使用例
-cat ファイル名 | nkf --guess
+<pre><code># コンマ区切りで結合
+paste -d, test.1.txt test.2.txt
 </code></pre>
-
-<h2 id="853c2f5">改行コードを変換するには
-<span class="article-date">2013/09/18</span></h2>
-
-<dl>
-  <dt><code>-Lu</code></dt>
-  <dd>LF(Unix形式)に変換</dd>
-  <dt><code>-Lw</code></dt>
-  <dd>CRLF(Windows形式)に変換</dd>
-  <dt><code>-Lm</code></dt>
-  <dd>CR(mac形式)に変換</dd>
-</dl>
-
-<h2 id="f774e17">BASE64のエンコード・デコードをするには
-<span class="article-date">2014/10/04</span></h2>
-
-<p><code>nkf</code>コマンドでもBASE64ができるみたいで、<a href="base64.html#nkf"><code>base64</code>コマンドのページ</a>参照。ただ、<code>base64</code>コマンドのほうが多くの環境に入っているので、
-<code>nkf</code>をわざわざ使う理由はないかもしれない。</p>
 
 </div>
 

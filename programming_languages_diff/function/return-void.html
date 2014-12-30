@@ -80,7 +80,7 @@
 <a href="http://shugo.net/jit/20120229.html" target="_blank">http://shugo.net/jit/20120229.html</a></p>
 
 <h2 id="0b32633">Perl
-<span class="article-date">2013/11/22</span></h2>
+<span class="article-date">2014/12/29</span></h2>
 
 <p><code>return</code>文がない場合は、最後に評価された式の結果が返り値となる。変数への代入文が最後だとしてもその代入された値が返り値になる。でも <code>=~</code> が最後の場合はその変数が返されるわけではないみたい。</p>
 
@@ -89,6 +89,29 @@
 
 <p>本体が何もないサブルーチンや、返り値を指定せずに<code>return</code>だけを書いた場合は、
 <code>undef</code>が返り値となる。</p>
+
+<p>なお、<code>return;</code> と <code>return undef;</code> には微妙な違いがあり、関数をリストコンテキストの中で評価すると結果が異なる。
+<code>return;</code> だとリストコンテキストでは空のリストになり、
+<code>return undef;</code> だと <code>undef</code> が1つ含まれるリストになる。</p>
+
+<pre><code>sub f {
+    return;
+}
+my @ret = f;
+print Dumper \@ret;
+# 出力結果
+# $VAR1 = [];
+
+sub f {
+    return undef;
+}
+my @ret = f;
+print Dumper \@ret;
+# 出力結果
+# $VAR1 = [
+#           undef
+#         ];
+</code></pre>
 
 <h2 id="b464215">JavaScript
 <span class="article-date">2013/09/06</span></h2>

@@ -179,8 +179,10 @@ p hash['b']
 # KeyError がスローされる
 </code></pre>
 
-<h2 id="perl">Perl
-<span class="article-date">2014/02/26</span></h2>
+<h2 id="perl">Perl</h2>
+
+<h3 id="d27e9a3">ハッシュ
+<span class="article-date">2014/12/28</span></h3>
 
 <p>以下のように <code>{}</code> でキーを指定し、先頭は <code>$</code> を使う。</p>
 
@@ -198,7 +200,10 @@ $hash{'a'} # =&gt; 1
 
 <p>注意点として、<code>undef</code> という値の要素が存在することもあり得る。</p>
 
-<p>ハッシュへのレファレンスから要素を取り出すには</p>
+<h3 id="bbfbf10">ハッシュへのレファレンス
+<span class="article-date">2014/12/28</span></h3>
+
+<p>ハッシュへのレファレンスから要素を取り出すには <code>-&gt;{}</code> を使う。</p>
 
 <pre><code>my $hash = {a =&gt; 1, b =&gt; 2};
 
