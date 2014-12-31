@@ -26,7 +26,7 @@
     <ul>
       <li><a href="../../programming_languages_diff/list/">配列(リスト)</a>
         <ul>
-          <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/list/overview.html">配列(リスト)のデータ型の各プログラミング言語別の概要</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/is-empty.html">配列(リスト)が空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/list/get.html">配列(リスト)からインデックスで要素を参照するには (get)</a></li>
@@ -49,7 +49,7 @@
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数のリストの要素同士をかけ合わせてリストのリストを作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">リストの中身を比較するには (compare)</a></li>
-          <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べたリストを作成するには (fill)</a></li>
+          <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べた配列(リスト)を作成するには (fill)</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値のリストを作成するには (range)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">リストを一定の数ごとにグルーピングするには (grouped)</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
@@ -133,6 +133,22 @@ var_export($new_arr);
 // )
 </code></pre>
 
+<h2 id="e3520af">Ruby / JRuby
+<span class="article-date">2014/12/31</span></h2>
+
+<p><code>Array#-</code> を使うと、複数の要素をまとめて全部削除できる。</p>
+
+<pre><code>arr = [10, 20, 30, 40, 50, 30]
+
+p arr - [20, 30]
+# =&gt; [10, 40, 50]
+</code></pre>
+
+<p>同じ値の要素が複数あるとすべて削除してくれる。</p>
+
+<p><code>Array#-</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=2d.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=2d.html</a></p>
+
 <h2 id="1fa6f80">Python
 <span class="article-date">2014/12/31</span></h2>
 
@@ -140,7 +156,7 @@ var_export($new_arr);
 
 <p>Python2/Python3での例</p>
 
-<pre><code>lst = [10, 20, 30, 40, 50]
+<pre><code>lst = [10, 20, 30, 40, 50, 30]
 lst.remove(30)
 print(lst)
 # =&gt; [10, 20, 40, 50, 30]

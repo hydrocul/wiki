@@ -119,15 +119,17 @@ def mkString(start: String, separator: String, end: String): String
 <p><code>str.join</code> | Python 3 documentation<br />
 <a href="http://docs.python.jp/3/library/stdtypes.html?highlight=join#str.join" target="_blank">http://docs.python.jp/3/library/stdtypes.html?highlight=join#str.join</a></p>
 
-<h2 id="683ce52">Ruby
-<span class="article-date">2014/08/22</span></h2>
+<h2 id="c4745b0">Ruby / JRuby
+<span class="article-date">2014/12/31</span></h2>
 
-<p><code>Array#join</code> メソッドでできる。</p>
+<p><code>Array#join</code> メソッドまたは <code>Array#*</code> メソッドでできる。</p>
 
 <p>例</p>
 
 <pre><code>arr = ['abc', 'def', 'ghi']
+
 p arr.join(',') # =&gt; "abc,def,ghi"
+p arr * ","     # =&gt; "abc,def,ghi"
 </code></pre>
 
 <h2 id="6a7b6f9">Perl
