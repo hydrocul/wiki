@@ -55,7 +55,7 @@
           <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/shift-unshift-pop-push.html">リストの先頭または最後の要素を削除したり、先頭または最後に要素を追加するには (shift, unshift, pop, push)</a></li>
           <li><a href="../../programming_languages_diff/list/set.html">インデックスで要素を設定するには (set)</a></li>
-          <li><a href="../../programming_languages_diff/list/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove.html">配列(リスト)から特定の要素をインデックスで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">配列(リスト)から特定の値の要素をすべて削除するには (remove-by-value)</a></li>
           <li><a href="../../programming_languages_diff/list/clone.html">リストをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
@@ -94,10 +94,10 @@
 
 <p>インデックスを負にすると後ろから数えてくれるが、後ろから数えて先頭よりも前になってしまうと、やはり例外がスローされる。</p>
 
-<h2 id="ruby">Ruby
-<span class="article-date">2013/11/05</span></h2>
+<h2 id="ruby">Ruby / JRuby
+<span class="article-date">2015/01/01</span></h2>
 
-<p><code>nil</code> が返される。インデックスをマイナスにすると後ろから数えてくれる。</p>
+<p><code>Array#[]</code> や <code>Array#at</code> では <code>nil</code> が返される。インデックスをマイナスにすると後ろから数えてくれる。</p>
 
 <pre><code>arr = [1, 2, 3]
 p arr[2]  # =&gt; 3
@@ -106,6 +106,39 @@ p arr[-1] # =&gt; 3
 p arr[-3] # =&gt; 1
 p arr[-4] # =&gt; nil
 </code></pre>
+
+<p><code>Array#fetch</code> では範囲外だった場合の動作を2番目の引数またはブロックで指定できる。指定しなかった場合は <code>nil</code> ではなく、<code>IndexError</code> が発生する。インデックスをマイナスにすると後ろから数えてくれるのは <code>Array#[]</code> や <code>Array#at</code> と同じ。</p>
+
+<pre><code>arr = [1, 2, 3]
+
+p arr.fetch(-1)
+# 出力結果
+# 3
+
+begin
+  p arr.fetch(-4)
+rescue IndexError =&gt; e
+  puts e
+end
+# IndexError が発生する。
+# 出力結果
+# index -4 outside of array bounds: -3...3
+
+p arr.fetch(-4, -1)
+# 出力結果
+# -1
+
+p arr.fetch(-4) { |index| puts "Hello #{index}"; -2}
+# 出力結果
+# Hello -4
+# -2
+</code></pre>
+
+<p><code>Array#[]</code>, <code>Array#at</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=5b=5d.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=5b=5d.html</a></p>
+
+<p><code>Array#fetch</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/fetch.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/fetch.html</a></p>
 
 <h2 id="perl">Perl
 <span class="article-date">2013/11/05</span></h2>

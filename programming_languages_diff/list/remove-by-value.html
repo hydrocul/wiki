@@ -134,7 +134,7 @@ var_export($new_arr);
 </code></pre>
 
 <h2 id="ruby">Ruby / JRuby
-<span class="article-date">2014/12/31</span></h2>
+<span class="article-date">2015/01/01</span></h2>
 
 <p><code>Array#delete</code> で指定した要素をすべて削除できる。これは破壊的な操作。</p>
 
@@ -154,6 +154,8 @@ arr.delete(30)
 p arr
 # =&gt; [10, 20, 40, 50]
 </code></pre>
+
+<p>2つは値の比較の基準が違うみたい。<code>delete</code>は<code>==</code>を使い、<code>-</code>は<code>eql?</code>が使われる。</p>
 
 <p><code>Array#delete</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/delete.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/delete.html</a></p>

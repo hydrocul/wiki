@@ -158,7 +158,7 @@ lst[-2]; # 最後から2番目の要素
 <p>-&gt; <a href="index-out-of-bounds-exception.html#python">範囲外のインデックスにアクセスしたときにどうなるか?</a></p>
 
 <h2 id="ruby">Ruby / JRuby
-<span class="article-date">2014/12/31</span></h2>
+<span class="article-date">2015/01/01</span></h2>
 
 <p>配列の要素には <code>[]</code> でアクセスする。</p>
 
@@ -178,8 +178,10 @@ lst[-2]; # 最後から2番目の要素
 arr[-2] # 最後から2番目の要素
 </code></pre>
 
-<p>インデックスが最後よりも後ろになったり、負のインデックスが先頭よりも前になってしまうと、
+<p><code>Array#[]</code> や <code>Array#at</code> ではインデックスが最後よりも後ろになったり、負のインデックスが先頭よりも前になってしまうと、
 <code>nil</code> になる。</p>
+
+<p><code>Array#fetch</code> というのもあり、これはインデックスが最後よりも後ろになったり、負のインデックスが先頭よりも前になってしまう場合の動作を2番目の引数またはブロックで指定することができる。</p>
 
 <p>-&gt; <a href="index-out-of-bounds-exception.html#ruby">範囲外のインデックスにアクセスしたときにどうなるか?</a></p>
 
@@ -189,6 +191,9 @@ arr[-2] # 最後から2番目の要素
 
 <p><code>Array#[]</code>, <code>Array#at</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=5b=5d.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=5b=5d.html</a></p>
+
+<p><code>Array#fetch</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/fetch.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/fetch.html</a></p>
 
 <h2 id="perl">Perl
 <span class="article-date">2014/12/31</span></h2>
