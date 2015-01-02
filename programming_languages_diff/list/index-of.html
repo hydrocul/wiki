@@ -169,7 +169,21 @@ def indexWhere(p: A =&gt; Boolean, from: Int): Int
 
 <p><code>Array#index</code> または <code>Array#find_index</code> を使う。2つはまったく同じ。</p>
 
+<p>引数に値を渡すと、<code>==</code> で要素と比較して最初に見つかったインデックスを返す。ブロックを渡すと、要素を引数として要素ごとにブロックが評価されて、trueを返した最初のインデックスを返す。</p>
+
 <p>見つからなかった場合は <code>nil</code> を返す。</p>
+
+<pre><code>arr = [10, 20, 30, 40, 50]
+
+p arr.index(20)
+# =&gt; 1
+
+p arr.index(60)
+# =&gt; nil
+
+p arr.index { |v| v % 7 == 2 }
+# =&gt; 2
+</code></pre>
 
 <p><code>Array#index</code>, <code>Array#find_index</code>| Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/find_index.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/find_index.html</a></p>

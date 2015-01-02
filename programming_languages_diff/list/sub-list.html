@@ -55,7 +55,7 @@
           <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/shift-unshift-pop-push.html">リストの先頭または最後の要素を削除したり、先頭または最後に要素を追加するには (shift, unshift, pop, push)</a></li>
           <li><a href="../../programming_languages_diff/list/set.html">インデックスで要素を設定するには (set)</a></li>
-          <li><a href="../../programming_languages_diff/list/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove.html">配列(リスト)から特定の要素をインデックスで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">配列(リスト)から特定の値の要素をすべて削除するには (remove-by-value)</a></li>
           <li><a href="../../programming_languages_diff/list/clone.html">リストをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
@@ -139,7 +139,7 @@ lst[::-1]   # 逆順
 <a href="http://docs.python.jp/2.7/reference/expressions.html#slicing" target="_blank">http://docs.python.jp/2.7/reference/expressions.html#slicing</a></p>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/12/31</span></h2>
+<span class="article-date">2015/01/01</span></h2>
 
 <p><code>Array#slice</code> または <code>Array#[]</code> を使う。</p>
 
@@ -151,7 +151,8 @@ arr.slice(index)        # indexの要素のみを取得
 <p><code>length</code> を省略したら、from以降の部分配列ではなく、その場所の要素を返す(<code>[]</code> でインデックスを使った要素へのアクセスと同じ)。
 <code>arr.slice(index, 1)</code> はその場所の要素だけの配列を返すので、これとも違う。</p>
 
-<p><code>slice</code> メソッドの代わりに <code>[]</code> も同じ使い方ができる。</p>
+<p><code>slice</code> メソッドの代わりに <code>[]</code> も同じ使い方ができる。
+<code>at</code> はこの使い方ができない。</p>
 
 <p><code>slice</code> や <code>[]</code> を使った要素へのアクセスや範囲を指定してのアクセスは、
 <a href="../string/substr.html#ruby">文字列</a>に対しても全く同じ使い方ができる。</p>
