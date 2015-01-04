@@ -120,17 +120,27 @@ def mkString(start: String, separator: String, end: String): String
 <a href="http://docs.python.jp/3/library/stdtypes.html?highlight=join#str.join" target="_blank">http://docs.python.jp/3/library/stdtypes.html?highlight=join#str.join</a></p>
 
 <h2 id="c4745b0">Ruby / JRuby
-<span class="article-date">2014/12/31</span></h2>
+<span class="article-date">2015/01/04</span></h2>
 
 <p><code>Array#join</code> メソッドまたは <code>Array#*</code> メソッドでできる。</p>
 
-<p>例</p>
+<p><code>Array#join</code> は引数を省略すると、<code>$,</code> という変数に入っている文字列で連結する。</p>
 
 <pre><code>arr = ['abc', 'def', 'ghi']
 
 p arr.join(',') # =&gt; "abc,def,ghi"
 p arr * ","     # =&gt; "abc,def,ghi"
+
+p arr.join # =&gt; "abcdefghi"
+$, = "::"
+p arr.join # =&gt; "abc::def::ghi"
 </code></pre>
+
+<p><code>Array#join</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/join.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/join.html</a></p>
+
+<p><code>Array#*</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=2a.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=2a.html</a></p>
 
 <h2 id="6a7b6f9">Perl
 <span class="article-date">2013/07/27</span></h2>

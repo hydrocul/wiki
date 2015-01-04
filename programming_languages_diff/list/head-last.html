@@ -98,10 +98,10 @@ def lastOption: Option[A]
 <p>空の<code>Seq</code>に対して、<code>head</code> や <code>last</code> を呼び出すと、
 <code>java.util.NoSuchElementException</code> の例外がスローされてしまう。</p>
 
-<h2 id="dae6bcb">Ruby / JRuby
-<span class="article-date">2015/01/01</span></h2>
+<h2 id="ruby">Ruby / JRuby
+<span class="article-date">2015/01/04</span></h2>
 
-<p><code>Array#first</code>, <code>Array#last</code> というメソッドがある。</p>
+<p><code>Array#first</code>, <code>Array#last</code> というメソッドを使う。配列が空の場合は <code>nil</code> になる。</p>
 
 <pre><code>arr = [10, 20, 30, 40, 50]
 
@@ -116,10 +116,29 @@ p arr[-1]
 # =&gt; 50
 </code></pre>
 
-<p><code>Array#first</code>| Ruby 2.1 リファレンスマニュアル<br />
+<p><code>first</code>や<code>last</code>は数字を引数で与えると、先頭または最後からその数だけ要素を抜き出して、配列で返してくれる。</p>
+
+<pre><code>arr = [10, 20, 30, 40, 50]
+
+p arr.first
+# =&gt; 10
+p arr.first(1)
+# =&gt; [10]
+p arr.first(3)
+# =&gt; [10, 20, 30]
+
+p arr.last
+# =&gt; 50
+p arr.last(1)
+# =&gt; [50]
+p arr.last(3)
+# =&gt; [30, 40, 50]
+</code></pre>
+
+<p><code>Array#first</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/first.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/first.html</a></p>
 
-<p><code>Array#last</code>| Ruby 2.1 リファレンスマニュアル<br />
+<p><code>Array#last</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/last.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/last.html</a></p>
 
 <h2 id="perl">Perl

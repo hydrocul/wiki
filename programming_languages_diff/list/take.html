@@ -107,7 +107,7 @@ def take(n: Int): Seq[A]
 <a href="http://www.php.net/manual/ja/function.array-slice.php" target="_blank">http://www.php.net/manual/ja/function.array-slice.php</a></p>
 
 <h2 id="335ef92">Ruby / JRuby
-<span class="article-date">2015/01/01</span></h2>
+<span class="article-date">2015/01/03</span></h2>
 
 <p><a href="sub-list.html#ruby">スライス</a>を使うか、<code>Array#first</code> というメソッドを使う。</p>
 
@@ -121,6 +121,18 @@ p arr.first(n)
 # =&gt; [10, 20, 30]
 </code></pre>
 
+<p><code>first</code> は引数を付けないと<a href="head-last.html#ruby">配列の先頭の要素を取得</a>するが、引数を与えると先頭からその数だけ要素を抜き出した配列を取得できる。</p>
+
+<pre><code>arr = [10, 20, 30, 40, 50]
+
+p arr.first
+# =&gt; 10
+p arr.first(1)
+# =&gt; [10]
+p arr.first(3)
+# =&gt; [10, 20, 30]
+</code></pre>
+
 <p><code>Array#[]</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=5b=5d.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=5b=5d.html</a></p>
 
@@ -129,9 +141,6 @@ p arr.first(n)
 
 <p><code>Array#first</code>| Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/first.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/first.html</a></p>
-
-<p><code>Array#last</code>| Ruby 2.1 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/last.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/last.html</a></p>
 
 <h2 id="e87fbcb">sh
 <span class="article-date">2014/05/17</span></h2>

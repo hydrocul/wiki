@@ -157,7 +157,7 @@ print [x for x in lst if x &lt; 30]
 </code></pre>
 
 <h2 id="ruby">Ruby / JRuby
-<span class="article-date">2014/12/31</span></h2>
+<span class="article-date">2015/01/04</span></h2>
 
 <p><code>Enumerable#select</code> は条件にマッチする要素のみを抽出した配列を返す。</p>
 
@@ -180,6 +180,8 @@ positive, negative_or_zero = arr.partition {|elem| elem &gt; 0}
 <pre><code>should_be_positive.delete_if {|elem| elem &lt;= 0}
 </code></pre>
 
+<p><code>Array#keep_if</code> や <code>Array#select!</code> は <code>Array#delete_if</code> とは逆に条件にマッチしない要素を配列から削除する破壊的なメソッド。</p>
+
 <p><code>Enumerable#select</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/find_all.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/find_all.html</a></p>
 
@@ -191,6 +193,12 @@ positive, negative_or_zero = arr.partition {|elem| elem &gt; 0}
 
 <p><code>Array#delete_if</code>, <code>Array#reject!</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/delete_if.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/delete_if.html</a></p>
+
+<p><code>Array#keep_if</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/keep_if.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/keep_if.html</a></p>
+
+<p><code>Array#select!</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/select=21.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/select=21.html</a></p>
 
 <h2 id="perl">Perl
 <span class="article-date">2014/07/23</span></h2>
