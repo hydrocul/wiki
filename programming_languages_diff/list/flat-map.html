@@ -108,11 +108,33 @@ print(lst2)
 # =&gt; [0, 0, 1, 0, 1, 2]
 </code></pre>
 
-<h2 id="7352d58">Ruby
-<span class="article-date">2013/05/04</span></h2>
+<h2 id="ce93910">Ruby / JRuby
+<span class="article-date">2014/01/04</span></h2>
 
-<pre><code>arr.map{|elem| ...}.flatten(1)
+<p><code>Enumerable#flat_map</code> を使う。
+<code>Array</code>は<code>Enumerable</code>をインクルードしているので、配列でも<code>Enumerable</code>のメソッドを使える。</p>
+
+<p>または <code>Enumerable#map</code> と <code>Array#flatten</code> を組み合わせても同じことはできる。</p>
+
+<pre><code>arr = [1, 2, 3]
+
+p arr.flat_map { |i| (0..i).to_a }
+# =&gt; [0, 1, 0, 1, 2, 0, 1, 2, 3]
+
+p arr.map { |i| (0..i).to_a }.flatten(1)
+# =&gt; [0, 1, 0, 1, 2, 0, 1, 2, 3]
 </code></pre>
+
+<p><code>Enumerable#flat_map</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/collect_concat.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/collect_concat.html</a></p>
+
+<p><code>Enumerable#map</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/collect.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/collect.html</a></p>
+
+<p><code>Array#flatten</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/flatten.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/flatten.html</a></p>
+
+<p><code>Enumerable#flat_map</code> はRuby 1.9かららしい。</p>
 
 <h2 id="beed08d">Perl
 <span class="article-date">2013/09/10</span></h2>

@@ -165,11 +165,11 @@ def indexWhere(p: A =&gt; Boolean, from: Int): Int
 <p>複数ある場合は最初の要素のインデックスを返す。</p>
 
 <h2 id="2515a58">Ruby / JRuby
-<span class="article-date">2015/01/01</span></h2>
+<span class="article-date">2015/01/04</span></h2>
 
-<p><code>Array#index</code> または <code>Array#find_index</code> を使う。2つはまったく同じ。</p>
+<p><code>Array#index</code> または <code>Array#find_index</code> を使う。2つはまったく同じで、引数に値を渡すと、<code>==</code> で要素と比較して最初に見つかったインデックスを返す。ブロックを渡すと、要素を引数として要素ごとにブロックが評価されて、trueを返した最初のインデックスを返す。</p>
 
-<p>引数に値を渡すと、<code>==</code> で要素と比較して最初に見つかったインデックスを返す。ブロックを渡すと、要素を引数として要素ごとにブロックが評価されて、trueを返した最初のインデックスを返す。</p>
+<p><code>Array#rindex</code> は逆に最後から順番に探す。</p>
 
 <p>見つからなかった場合は <code>nil</code> を返す。</p>
 
@@ -187,6 +187,9 @@ p arr.index { |v| v % 7 == 2 }
 
 <p><code>Array#index</code>, <code>Array#find_index</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/find_index.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/find_index.html</a></p>
+
+<p><code>Array#rindex</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/rindex.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/rindex.html</a></p>
 
 </div>
 

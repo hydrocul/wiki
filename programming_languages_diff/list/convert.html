@@ -55,7 +55,7 @@
           <li><a href="../../programming_languages_diff/list/group-by.html">リストを要素に応じてグルーピングするには (groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/shift-unshift-pop-push.html">リストの先頭または最後の要素を削除したり、先頭または最後に要素を追加するには (shift, unshift, pop, push)</a></li>
           <li><a href="../../programming_languages_diff/list/set.html">インデックスで要素を設定するには (set)</a></li>
-          <li><a href="../../programming_languages_diff/list/remove.html">特定の要素をキーで指定して削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove.html">配列(リスト)から特定の要素をインデックスで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">配列(リスト)から特定の値の要素をすべて削除するには (remove-by-value)</a></li>
           <li><a href="../../programming_languages_diff/list/clone.html">リストをコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
@@ -136,6 +136,26 @@ lst = list(tpl)
 # 文字列を1文字ずつの要素のリストに変換
 lst = list(str)
 </code></pre>
+
+<h2 id="03e852d">Ruby</h2>
+
+<h3 id="f1454ed">範囲オブジェクトから配列に変換
+<span class="article-date">2015/01/04</span></h3>
+
+<p><code>Enumerable#to_a</code> または <code>Enumerable#entries</code> を使う。範囲オブジェクト(<code>Range</code>)は<code>Enumerable</code>をインクルードしているので、
+<code>Enumerable</code>にあるメソッドを使える。</p>
+
+<pre><code># 範囲オブジェクト
+p (1 .. 10)
+# =&gt; 1..10
+
+# 配列に変換
+p (1 .. 10).to_a
+# =&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</code></pre>
+
+<p><code>Array#to_a</code>, <code>Array#entries</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/entries.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/entries.html</a></p>
 
 <h2 id="86cdb22">JRuby</h2>
 
