@@ -36,7 +36,7 @@
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">配列(リスト)の最初のn個の要素を除いた配列を取得するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">リストに特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">配列(リスト)に特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/any.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</a></li>
@@ -111,25 +111,47 @@ seq.filter(_ != elem)
 <p><code>ListBuffer</code>などの可変(ミュータブル)なリストには <code>-</code> や <code>-=</code> がある。</p>
 
 <h2 id="84837c7">PHP
-<span class="article-date">2014/01/29</span></h2>
+<span class="article-date">2015/01/06</span></h2>
 
-<p>例</p>
+<p>新しい配列に1つずつ要素をコピーしていく方法</p>
 
-<pre><code>$elem = 20;
+<pre><code>$target_elem = 30;
 
-$arr = array(10, 20, 30);
+$arr = array(10, 20, 30, 40, 50, 30);
 $new_arr = array();
 foreach ($arr as $v) {
-    if ($v != $elem) {
+    if ($v != $target_elem) {
         $new_arr[] = $v;
     }
 }
 
 var_export($new_arr);
-// 出漁結果
+// 出力結果
 // array (
 //   0 =&gt; 10,
-//   1 =&gt; 30,
+//   1 =&gt; 20,
+//   2 =&gt; 40,
+//   3 =&gt; 50,
+// )
+</code></pre>
+
+<p><code>unset</code> を使う方法。</p>
+
+<pre><code>$target_elem = 30;
+
+$arr = array(10, 20, 30, 40, 50, 30);
+while (($index = array_search($target_elem, $arr)) !== false) {
+  unset($arr[$index]);
+}
+$arr = array_values($arr);
+
+var_export($arr);
+// 出力結果
+// array (
+//   0 =&gt; 10,
+//   1 =&gt; 20,
+//   2 =&gt; 40,
+//   3 =&gt; 50,
 // )
 </code></pre>
 

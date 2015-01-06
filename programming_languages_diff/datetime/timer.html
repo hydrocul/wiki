@@ -83,6 +83,23 @@ long interval = end - start;
 System.out.println(interval + "ナノ秒");
 </code></pre>
 
+<h2 id="c940305">PHP
+<span class="article-date">2015/01/06</span></h2>
+
+<p>例</p>
+
+<pre><code>$starttime =  microtime(true);
+
+// ここでなんらかの処理
+
+$endtime =  microtime(true);
+$interval = $endtime - $starttime;
+echo "${interval}秒"; // 精度はマイクロ秒で $interval は浮動小数点数になる
+</code></pre>
+
+<p><code>microtime</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.microtime.php" target="_blank">http://php.net/manual/ja/function.microtime.php</a></p>
+
 <h2 id="dc93706">Python
 <span class="article-date">2014/07/01</span></h2>
 
