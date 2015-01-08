@@ -179,37 +179,50 @@ dic = dict()
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/01/24</span></h2>
+<span class="article-date">2015/01/07</span></h2>
 
-<p><code>Hash</code>というハッシュテーブルのクラスが存在する。</p>
+<p><code>Hash</code>というハッシュ(ハッシュテーブル)のクラスが存在する。ハッシュは <code>{}</code> で表すことができる。</p>
 
 <pre><code>hash = {'a' =&gt; 1, 'b' =&gt; 2}
 </code></pre>
 
 <p>Perlと同じく、<code>=&gt;</code> の代わりに <code>,</code> でキーと値を区切ってもよいらしい。</p>
 
+<p>最後に余計なカンマがあっても問題ない。</p>
+
+<pre><code>hash = {
+  'a' =&gt; 1,
+  'b' =&gt; 2,
+}
+p hash
+# =&gt; {"a"=&gt;1, "b"=&gt;2}
+</code></pre>
+
 <p>要素を参照するには <code>[]</code> を使う。-&gt; <a href="get.html#ruby">キーで値を参照するには</a></p>
 
 <pre><code>hash['a']
 </code></pre>
 
+<p><code>Hash</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/class/Hash.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/class/Hash.html</a></p>
+
 <h2 id="perl">Perl</h2>
 
 <h3 id="6772527">ハッシュ
-<span class="article-date">2014/12/28</span></h3>
+<span class="article-date">2015/01/07</span></h3>
 
 <p>Perlではハッシュという。ハッシュの値にはスカラ(文字列、数字、レファレンスなど)しか含められないので、配列やハッシュ自体を値として持たせるには、レファレンスにする必要がある。</p>
 
 <p>ハッシュを入れる変数は名前が <code>%</code> で始まり、要素を参照するには <code>$</code> で始める。
 <code>%</code> や <code>$</code> をシジル(sigil)と言う。</p>
 
-<p>ハッシュの変数に要素数が偶数このリストを代入すると、それがハッシュになる。以下の2つはまったく同じ意味で、どちらもハッシュを <code>%hash</code> に代入している。</p>
+<p>ハッシュの変数に要素数が偶数個のリストを代入すると、それがハッシュになる。以下の2つはまったく同じ意味で、どちらもハッシュを <code>%hash</code> に代入している。</p>
 
 <pre><code>my %hash = (a =&gt; 1, b =&gt; 2);
 my %hash = ('a', 1, 'b', 2);
 </code></pre>
 
-<p>上記の <code>(...)</code> の表記をリストという。</p>
+<p>上記のカッコで囲む表記をリストという。</p>
 
 <p>リストの中の <code>=&gt;</code> は <code>,</code> とまったく同じ意味で、以下のように書いても差支えない。こんな書き方は普通はしないが。</p>
 
@@ -237,25 +250,25 @@ my %hash = ('a', 1, 'b', 2);
 </code></pre>
 
 <h3 id="920a94a">ハッシュへのレファレンス
-<span class="article-date">2014/12/26</span></h3>
+<span class="article-date">2015/01/07</span></h3>
 
-<p><code>{}</code> を使うと、ハッシュへのレファレンスを直接書くことができる。</p>
+<p>リスト表記の <code>()</code> の代わりに <code>{}</code> を使うと、ハッシュへのレファレンスを直接書くことができる。</p>
 
 <pre><code>my $hash = {a =&gt; 1, b =&gt; 2};
 </code></pre>
 
-<p>で、これは以下と同じ。</p>
+<p>これは以下と同じ。</p>
 
 <pre><code>my %h = (a =&gt; 1, b =&gt; 2);
 my $hash = \%h;
 </code></pre>
 
-<p>レファレンスの実体を取り出すには、</p>
+<p>ハッシュへのレファレンスはスカラなので、これ自体を別のハッシュや配列の要素にすることもできる。</p>
 
-<pre><code>%$hash;
-</code></pre>
+<p>レファレンスの実体を取り出すには、<code>%$hash</code> のように頭に <code>%</code> を付ける。</p>
 
-<p>レファレンスから直接要素を参照するには <code>-&gt;{}</code> を使う。
+<p>要素を参照するにはいったんハッシュの実体を取り出してからでもいいが、
+<code>-&gt;{}</code> を使うとレファレンスから要素を直接参照することができる。
 -&gt; <a href="get.html#perl">キーで値を参照するには</a></p>
 
 <pre><code>$hash-&gt;{a}

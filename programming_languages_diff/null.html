@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>`null` | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>null | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>`null`</span>
+  <a href="../">Home</a> &gt; <a href="../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>null</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -48,7 +48,7 @@
       <li><a href="../programming_languages_diff/json/">JSON</a></li>
       <li><a href="../programming_languages_diff/regexp/">正規表現</a></li>
       <li><a href="../programming_languages_diff/process/">プロセス管理</a></li>
-      <li><code>null</code></li>
+      <li>null</li>
     </ul>
   </li>
 </ul>
@@ -57,15 +57,15 @@
 </div>
 
 <div id="content">
-  <h1 id="null"><code>null</code>
+  <h1 id="null">null
 <span class="article-date">2014/09/12</span></h1>
 
 <p><code>null</code> みたいな類の各プログラミング言語での取り扱いの比較。</p>
 
 <h2 id="69daf5a">C言語
-<span class="article-date">2013/10/14</span></h2>
+<span class="article-date">2015/01/08</span></h2>
 
-<p><code>NULL</code> というのがある。<code>0</code>と同じで、ポインタに0を代入するのと <code>NULL</code> を代入するのはたぶん同じ。</p>
+<p><code>NULL</code> というのがある。<code>0</code>と同じで、ポインタに0を代入するのと <code>NULL</code> を代入するのはたぶん同じで、ポインタがなにも指していないことを意味するのに使われる。</p>
 
 <h2 id="56f9c86">Java
 <span class="article-date">2014/09/12</span></h2>
@@ -87,7 +87,7 @@
 <p><code>Nil</code> というものもあるが、これは要素が1つもない空の<code>List</code>型のオブジェクトであり、ぜんぜん違う。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2014/04/12</span></h2>
+<span class="article-date">2015/01/08</span></h2>
 
 <p><code>NULL</code> というのがある。<a href="boolean/overview.html#php"><code>TRUE</code> / <code>FALSE</code></a>と同じく大文字小文字が区別されない。</p>
 
@@ -103,6 +103,9 @@
     # 未定義の場合
 }
 </code></pre>
+
+<p><code>isset</code> は変数だけでなく連想配列の要素が存在するかどうかにも使われる。
+-&gt; <a href="map/contains-key.html#php">連想配列に特定のキーが含まれているかどうかを判定するには</a></p>
 
 <p><code>NULL</code> | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.types.null.php" target="_blank">http://www.php.net/manual/ja/language.types.null.php</a></p>

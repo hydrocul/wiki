@@ -95,14 +95,22 @@
 <code>&lt;=&gt;</code> は<a href="../number/compare.html#groovy">数値の比較</a>と同じで、大小関係によって <code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2014/12/24</span></h2>
+<span class="article-date">2015/01/08</span></h2>
 
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
 
-<p>または <code>strcmp</code> も使える。</p>
+<p><code>strcmp</code>関数で文字列の辞書順の比較ができる。</p>
 
 <pre><code>if (strcmp($str1, $str2) === 0) {
   // $str1 と $str2 が等しい場合の処理
+}
+
+if (strcmp($str1, $str2) &lt; 0) {
+  // $str1 が $str2 よりも辞書順で前に来る場合の処理
+}
+
+if (strcmp($str1, $str2) &gt; 0) {
+  // $str1 が $str2 よりも辞書順で後に来る場合の処理
 }
 </code></pre>
 
@@ -132,15 +140,16 @@
 
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
 
-<p><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&gt;</code>, <code>&lt;=&gt;</code> で文字列の辞書順の比較ができる。
-<code>&lt;=&gt;</code> は<a href="../number/compare.html#ruby">数値の比較</a>と同じで、大小関係によって <code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す。</p>
+<p><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&gt;</code>, <code>&lt;=&gt;</code> で文字列の辞書順の比較ができる。</p>
+
+<p><code>&lt;=&gt;</code> は<a href="../number/compare.html#ruby">数値の比較</a>と同じで、大小関係によって <code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す。</p>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/09/08</span></h2>
+<span class="article-date">2015/01/08</span></h2>
 
 <p><code>eq</code> は等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>ne</code> はその反対。</p>
 
-<p><code>gt</code>, <code>ge</code>, <code>lt</code>, <code>le</code> もある。</p>
+<p><code>gt</code>, <code>ge</code>, <code>lt</code>, <code>le</code> で文字列の辞書順の比較ができる。</p>
 
 <p><code>cmp</code> はRubyの <code>&lt;=&gt;</code> と同じで、文字列の辞書順の関係によって <code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す。</p>
 
