@@ -32,7 +32,7 @@
           <li><a href="../../programming_languages_diff/map/put.html">連想配列(マップ)の要素の値を設定するには (put)</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">連想配列(マップ)の要素を1つずつ順番に処理するには (foreach)</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (containsKey)</a></li>
-          <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには (convert)</a></li>
+          <li><a href="../../programming_languages_diff/map/convert.html">連想配列(マップ)の種類を相互に変換するには</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">連想配列(マップ)をコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/map/entries.html">連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (entries)</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">連想配列(マップ)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
@@ -182,7 +182,7 @@ p hash['b']
 <h2 id="perl">Perl</h2>
 
 <h3 id="d27e9a3">ハッシュ
-<span class="article-date">2014/12/28</span></h3>
+<span class="article-date">2015/01/08</span></h3>
 
 <p>以下のように <code>{}</code> でキーを指定し、先頭は <code>$</code> を使う。</p>
 
@@ -198,10 +198,10 @@ $hash{'a'} # =&gt; 1
 <code>undef</code> が代入された変数を実際に使おうとするときに
 <code>Use of uninitialized value</code> という警告が表示される。</p>
 
-<p>注意点として、<code>undef</code> という値の要素が存在することもあり得る。</p>
+<p><code>undef</code> という値の要素が存在することもあり得る。</p>
 
 <h3 id="bbfbf10">ハッシュへのレファレンス
-<span class="article-date">2014/12/28</span></h3>
+<span class="article-date">2015/01/08</span></h3>
 
 <p>ハッシュへのレファレンスから要素を取り出すには <code>-&gt;{}</code> を使う。</p>
 
@@ -209,6 +209,8 @@ $hash{'a'} # =&gt; 1
 
 $hash-&gt;{a} # =&gt; 1
 </code></pre>
+
+<p>存在しない要素の場合の取り扱いはハッシュと同じ。</p>
 
 <h2 id="0c67a07">JavaScript
 <span class="article-date">2014/01/22</span></h2>

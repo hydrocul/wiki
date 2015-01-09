@@ -109,13 +109,14 @@ pprint(a)
 <p>これに対して<a href="puts.html#ruby"><code>puts</code>メソッド</a>は<code>to_s</code>メソッドを呼び出して、それを標準出力する。</p>
 
 <h2 id="fe4ad45">Perl
-<span class="article-date">2014/12/21</span></h2>
+<span class="article-date">2015/01/08</span></h2>
 
 <p><code>Data::Dumper</code> でできる。</p>
 
 <p>例</p>
 
 <pre><code>use utf8;
+use Data::Dumper;
 
 my $data = {'a' =&gt; 10, 'b' =&gt; 20, 'c' =&gt; [30, 31, 32], 'd' =&gt; 'あいうえお'};
 print Dumper $data;
