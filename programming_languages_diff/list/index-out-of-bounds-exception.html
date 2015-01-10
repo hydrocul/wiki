@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>範囲外のインデックスにアクセスしたときにどうなるか? | 配列(リスト) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>配列(リスト)の範囲外のインデックスにアクセスしたときにどうなるか? | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>範囲外のインデックスにアクセスしたときにどうなるか?</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)の範囲外のインデックスにアクセスしたときにどうなるか?</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -30,7 +30,7 @@
           <li><a href="../../programming_languages_diff/list/size.html">リストの要素の数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/list/is-empty.html">配列(リスト)が空かどうかを判定するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/list/get.html">配列(リスト)からインデックスで要素を参照するには (get)</a></li>
-          <li>範囲外のインデックスにアクセスしたときにどうなるか?</li>
+          <li>配列(リスト)の範囲外のインデックスにアクセスしたときにどうなるか?</li>
           <li><a href="../../programming_languages_diff/list/head-last.html">リストの先頭または最後の要素を取得するには (head, last)</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">配列(リスト)の先頭以外の残りの要素を配列(リスト)で取得するには (tail)</a></li>
           <li><a href="../../programming_languages_diff/list/take.html">リストから最初のn個の要素のみを取得するには (take)</a></li>
@@ -78,12 +78,21 @@
 </div>
 
 <div id="content">
-  <h1 id="index-out-of-bounds-exception">範囲外のインデックスにアクセスしたときにどうなるか?</h1>
+  <h1 id="index-out-of-bounds-exception">配列(リスト)の範囲外のインデックスにアクセスしたときにどうなるか?</h1>
 
 <h2 id="a66fbc6">Java
 <span class="article-date">2013/11/05</span></h2>
 
 <p>配列も <code>java.util.List</code> もインデックスが範囲外の場合は例外がスローされる。</p>
+
+<p>インデックスを負にすると後ろから数えてくれる機能などはない。</p>
+
+<h2 id="php">PHP
+<span class="article-date">2015/01/10</span></h2>
+
+<p><code>NULL</code>が返される。このとき、<code>PHP Notice:  Undefined offset: 10</code> というようなNoticeが発生する。</p>
+
+<p>前に<code>@</code>を付けて <code>@$arr[10]</code> のようにアクセスすると、Noticeの発生は抑えられる。</p>
 
 <p>インデックスを負にすると後ろから数えてくれる機能などはない。</p>
 
