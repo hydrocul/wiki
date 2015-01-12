@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf) | 配列(リスト) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>配列(リスト)から特定の要素を探してそのインデックスを取得するには (indexOf) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)から特定の要素を探してそのインデックスを取得するには (indexOf)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -38,7 +38,8 @@
           <li><a href="../../programming_languages_diff/list/drop.html">配列(リスト)の最初のn個の要素を除いた配列を取得するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">リストの一部をリストとして取り出すには (subList / slice)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">配列(リスト)に特定の要素(特定の条件を満たす要素)が含まれているかどうかを判定するには (contains)</a></li>
-          <li>リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)</li>
+          <li>配列(リスト)から特定の要素を探してそのインデックスを取得するには (indexOf)</li>
+          <li><a href="../../programming_languages_diff/list/index-where.html">配列(リスト)から特定の条件を満たす要素を探してそのインデックスを取得するには (indexWhere)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">リストから特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
           <li><a href="../../programming_languages_diff/list/any.html">リストに特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">すべての要素が特定の条件にマッチするかどうかを検査するには (all)</a></li>
@@ -59,10 +60,10 @@
           <li><a href="../../programming_languages_diff/list/remove.html">配列(リスト)から特定の要素をインデックスで指定して削除するには (remove)</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">配列(リスト)から特定の値の要素をすべて削除するには (remove-by-value)</a></li>
           <li><a href="../../programming_languages_diff/list/clone.html">リストをコピーするには (clone)</a></li>
-          <li><a href="../../programming_languages_diff/list/reverse.html">リストを逆順に並び替えるには (reverse)</a></li>
+          <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">リストの要素をソートするには (sort)</a></li>
           <li><a href="../../programming_languages_diff/list/convert.html">配列(リスト)の種類を相互に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">リストからマップを生成するには (toMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列(リスト)から連想配列(マップ)を生成するには (toMap)</a></li>
           <li><a href="../../programming_languages_diff/list/to-set.html">リストからセットを生成する方法 (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">リストの中の最大値・最小値を求めるには (max, min)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数のリストの合計を計算するには (sum)</a></li>
@@ -80,8 +81,8 @@
 </div>
 
 <div id="content">
-  <h1 id="index-of">リストから特定の要素(特定の条件を満たす要素)を探してそのインデックスを取得するには (indexOf)
-<span class="article-date">2014/07/10</span></h1>
+  <h1 id="index-of">配列(リスト)から特定の要素を探してそのインデックスを取得するには (indexOf)
+<span class="article-date">2015/01/11</span></h1>
 
 <svg id="illustration" height="100"></svg>
 <script>
@@ -101,7 +102,12 @@ var text = snap.text(100, 96, "=> 2");
 text.attr({stroke: "#000", strokeWidth: 1, "font-size": "32px"});
 </script>
 
-<p>インデックスが不要で、存在するかどうかの論理値だけがほしい場合は <a href="contains.html">contains</a> 参照。</p>
+<p>関連</p>
+
+<ul>
+  <li><a href="contains.html">存在するかどうかの論理値だけがほしい場合</a></li>
+  <li><a href="index-where.html">特定の条件を満たす要素を探してそのインデックスを取得するには</a></li>
+</ul>
 
 <h2 id="82d508d">Java
 <span class="article-date">2014/05/17</span></h2>
@@ -109,8 +115,8 @@ text.attr({stroke: "#000", strokeWidth: 1, "font-size": "32px"});
 <p>Signature:</p>
 
 <pre><code>// java.util.List
-int indexOf(Object obj)
-int lastIndexOf(Object obj)
+int indexOf(Object nemo)
+int lastIndexOf(Object nemo)
 </code></pre>
 
 <p>要素が見つからなかった場合は <code>-1</code> を返す。</p>
@@ -125,41 +131,38 @@ int lastIndexOf(Object obj)
 <p>Signature:</p>
 
 <pre><code>// scala.collection.Seq
-def indexOf(obj: A): Int
-def indexOf(obj: A, from: Int): Int
-def indexWhere(p: A =&gt; Boolean): Int
-def indexWhere(p: A =&gt; Boolean, from: Int): Int
+def indexOf(nemo: A): Int
+def indexOf(nemo: A, from: Int): Int
 </code></pre>
 
 <p>要素が見つからなかった場合は <code>-1</code> を返す。(<code>Option[Int]</code>じゃないところがちょっと気持ち悪い)</p>
 
 <p>複数ある場合は最初の要素のインデックスを返す。</p>
 
-<p><code>indexOf</code>メソッドでの要素の比較は<code>equals</code>メソッドで行われる。
-<code>indexWhere</code>メソッドでは<code>p</code>関数が<code>true</code>を返す要素を取得する。</p>
+<p><code>indexOf</code>メソッドでの要素の比較は<code>equals</code>メソッドで行われる。</p>
 
 <h2 id="18e1bfa">PHP
 <span class="article-date">2013/06/11</span></h2>
 
-<pre><code>array_search($obj, $arr)
+<pre><code>array_search($nemo, $arr)
 </code></pre>
 
 <p>見つからなかった場合は <code>false</code> を返す。<code>0</code> を返す場合と区別するために以下のように <code>===</code> または <code>!==</code> での比較が必要。</p>
 
-<pre><code>if(array_search($obj, $arr) === false){
+<pre><code>if(array_search($nemo, $arr) === false){
     ...
 }
 </code></pre>
 
 <p><code>array_search</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.array-search.php" target="_blank">http://www.php.net/manual/ja/function.array-search.php</a></p>
+<a href="http://php.net/manual/ja/function.array-search.php" target="_blank">http://php.net/manual/ja/function.array-search.php</a></p>
 
 <h2 id="20e105a">Python
 <span class="article-date">2013/10/03</span></h2>
 
 <p>例</p>
 
-<pre><code>lst.index(obj);
+<pre><code>lst.index(nemo);
 </code></pre>
 
 <p>要素が見つからなかった場合はエラーを吐く。</p>
