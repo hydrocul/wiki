@@ -27,7 +27,7 @@
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">連想配列(マップ)のデータ型の各プログラミング言語別の概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">連想配列(マップ)の要素の数を取得するには (size)</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">連想配列(マップ)の要素数を取得するには (size)</a></li>
           <li><a href="../../programming_languages_diff/map/get.html">連想配列(マップ)の要素の値を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/map/put.html">連想配列(マップ)の要素の値を設定するには (put)</a></li>
           <li>連想配列(マップ)の要素を1つずつ順番に処理するには (foreach)</li>
@@ -88,9 +88,9 @@ map.foreach { case (key, value) =&gt;
 </code></pre>
 
 <h2 id="php">PHP
-<span class="article-date">2014/12/28</span></h2>
+<span class="article-date">2015/01/13</span></h2>
 
-<p>PHPの連想配列は普通の配列と同じなので、配列で使える<a href="../list/foreach.html#php"><code>foreach</code>の構文</a>をそのまま使える。</p>
+<p>PHPの連想配列は普通の配列と同じなので、配列で使える<a href="../list/foreach.html#php"><code>foreach</code>の構文</a>をそのまま使える。キーと値の2つをループの中で使うには以下のように <code>foreach</code> の括弧の中で <code>=&gt;</code> で区切る。</p>
 
 <pre><code>foreach ($arr as $key =&gt; $value) {
   ...
