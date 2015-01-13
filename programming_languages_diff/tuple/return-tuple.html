@@ -44,6 +44,13 @@
 
 <p>関数は普通は返り値を1つだけ返すか、1つも返さない(C言語の<code>void</code>など)ものが多い中、プログラミング言語によっては複数の値を関数から返すことができるものもある。</p>
 
+<h2 id="8d30e2b">C言語 / C++
+<span class="article-date">2015/01/13</span></h2>
+
+<p>簡単に複数の戻り値を返す方法はなさそう。</p>
+
+<p>値を受け取る専用の変数をポインタで引数として渡して、関数からは結果をポインタの指す先に書き込むことができる。このポインタを複数受け渡しすれば結果的に複数の結果を受け渡すことができる。</p>
+
 <h2 id="8508166">Java
 <span class="article-date">2014/12/24</span></h2>
 
@@ -67,7 +74,7 @@ println(b); // =&gt; abc
 </code></pre>
 
 <h2 id="e0f1da3">PHP
-<span class="article-date">2013/05/15</span></h2>
+<span class="article-date">2015/01/13</span></h2>
 
 <p>複数の値を直接返すことはできないが、配列を使って無理やりやろうと思えばできなくもない。</p>
 
@@ -76,6 +83,8 @@ println(b); // =&gt; abc
 }
 
 list($num, $str) = f();
+echo "$num\n"; # =&gt; 1
+echo "$str\n"; # =&gt; abc
 </code></pre>
 
 <p>返り値 | PHP Manual<br />
@@ -113,9 +122,9 @@ p str # =&gt; "abc"
 </code></pre>
 
 <h2 id="96e30ce">Perl
-<span class="article-date">2013/09/21</span></h2>
+<span class="article-date">2015/01/13</span></h2>
 
-<p><a href="../list/overview.html#perl">リスト</a>を返して、受け取り側は多重代入を使えばよい。</p>
+<p>関数からは<a href="../list/overview.html#perl">リスト</a>を返して、受け取り側は多重代入を使えばよい。</p>
 
 <pre><code>sub f {
     return (1, "abc");
