@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>リストの要素を先頭から順番に畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce) | 配列(リスト) | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>リストの要素を先頭から順番に畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -47,7 +47,7 @@
           <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列(リスト)を連結した新しい配列(リスト)を作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">配列(リスト)の配列(リスト)を配列(リスト)に平坦化するには (flatten)</a></li>
           <li><a href="../../programming_languages_diff/list/foreach.html">配列(リスト)の要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li>リストの要素を先頭から順番に畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</li>
+          <li>配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数のリストを要素ごとにタプルにまとめて1つのリストを作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数の配列(リスト)の要素同士をかけ合わせて配列(タプル)の配列(リスト)を作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
@@ -81,7 +81,7 @@
 </div>
 
 <div id="content">
-  <h1 id="fold-left">リストの要素を先頭から順番に畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</h1>
+  <h1 id="fold-left">配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</h1>
 
 <h2 id="6874f00">Scala
 <span class="article-date">2013/09/23</span></h2>
@@ -107,16 +107,37 @@ f(f(10, 20), 30)
 
 <p>になる。</p>
 
-<h2 id="db31974">Ruby
-<span class="article-date">2013/05/07</span></h2>
+<h2 id="f918969">PHP
+<span class="article-date">2015/01/15</span></h2>
 
-<pre><code>arr = [1, 2, 3]
-arr.inject(:+)               # =&gt; 6
-arr.inject {|i, x| i + x}    # =&gt; 6
-arr.inject(0) {|i, x| i + x} # =&gt; 6
+<p><code>array_reduce</code>関数を使う。</p>
+
+<pre><code>$arr = array(10, 20, 30, 40, 50);
+
+$sum = array_reduce($arr, function($result, $elem) { return $result + $elem; }, 0);
+
+echo $sum;
+// =&gt; 150
 </code></pre>
 
-<p><code>inject</code> に初期値を与えないと、1つ目の要素が初期値であるかのような動作をする。配列の要素が1つもなくて初期値も与えないと、<code>nil</code> が返される。</p>
+<p><code>array_reduce</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.array-reduce.php" target="_blank">http://php.net/manual/ja/function.array-reduce.php</a></p>
+
+<h2 id="ea6828e">Ruby / JRuby
+<span class="article-date">2015/01/15</span></h2>
+
+<p><code>Enumerable#inject</code> または <code>Enumerable#reduce</code> メソッドを使う。2つのメソッドはまったく同じ。</p>
+
+<pre><code>arr = [1, 2, 3]
+p arr.inject(:+)               # =&gt; 6
+p arr.inject {|i, x| i + x}    # =&gt; 6
+p arr.inject(0) {|i, x| i + x} # =&gt; 6
+</code></pre>
+
+<p><code>inject</code>または<code>reduce</code> に初期値を与えないと、1つ目の要素が初期値であるかのような動作をする。配列の要素が1つもなくて初期値も与えないと、<code>nil</code> が返される。</p>
+
+<p><code>Enumerable#recude</code>, <code>Enumerable#inject</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/inject.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/inject.html</a></p>
 
 </div>
 
