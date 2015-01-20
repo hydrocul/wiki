@@ -60,10 +60,12 @@
 <a href="http://docs.ruby-lang.org/ja/1.9.3/method/Kernel/v/=3f.html" target="_blank">http://docs.ruby-lang.org/ja/1.9.3/method/Kernel/v/=3f.html</a></p>
 
 <h2 id="perl">Perl
-<span class="article-date">2015/01/19</span></h2>
+<span class="article-date">2015/01/20</span></h2>
 
 <p><code>$?</code> を256で割ると、終了した子プロセスの終了ステータスを得られる。
 <code>wait</code>や<code>waitpid</code>を呼び出した後で使える。その他の関数を呼び出したあとでも使えるかも。</p>
+
+<p>256で割るのは <code>$? / 256</code> でなくて <code>$? &gt;&gt; 8</code> でもよい。</p>
 
 <p>Perl で定義済みの変数 | perldoc.jp<br />
 <a href="http://perldoc.jp/docs/perl/perlvar.pod" target="_blank">http://perldoc.jp/docs/perl/perlvar.pod</a></p>
