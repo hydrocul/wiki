@@ -136,16 +136,20 @@ puts ([str] * 3).join(",")
 # =&gt; abc,abc,abc
 </code></pre>
 
-<h2 id="958f737">Perl
-<span class="article-date">2013/08/11</span></h2>
+<h2 id="perl">Perl
+<span class="article-date">2015/01/21</span></h2>
 
-<p><code>x</code> という演算子で文字列の繰り返しができる。</p>
-
-<p>例</p>
+<p><code>x</code> という演算子で文字列の繰り返しができる。左辺に数字を与えられてもそれを文字列として繰り返す。数字の乗算演算子と記号が違うおかげである。<code>x</code> は<a href="../list/multiply.html#perl">配列に対しても使える</a>。</p>
 
 <pre><code>print "abc" x 3;
 # =&gt; abcabcabc
+
+print 1 x 3;
+# =&gt; 111
 </code></pre>
+
+<p>乗法演算子 | perldoc.jp<br />
+<a href="http://perldoc.jp/docs/perl/5.20.1/perlop.pod#Multiplicative32Operators" target="_blank">http://perldoc.jp/docs/perl/5.20.1/perlop.pod#Multiplicative32Operators</a></p>
 
 </div>
 
