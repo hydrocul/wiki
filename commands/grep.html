@@ -54,6 +54,7 @@
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
       <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+      <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
@@ -95,7 +96,7 @@
 
 <div id="content">
   <h1 id="grep">grep コマンド
-<span class="article-date">2014/01/16</span></h1>
+<span class="article-date">2015/01/22</span></h1>
 
 <p>ファイルなどの中から正規表現でマッチする行を探し出すコマンド。</p>
 
@@ -106,12 +107,14 @@
 
 <p>私がソースコード一式のディレクトリの中から特定の単語を探すときには、再帰的に検索、かつ行番号もほしいので、たいてい</p>
 
-<pre><code>grep -rn foo .
+<pre><code>grep -rn foo *
 </code></pre>
 
-<p>のように <code>-rn</code> オプションを付けて使っている。</p>
+<p>のように <code>-rn</code> オプションを付けて使っている。最後の<code>*</code>を<code>.</code>にすると<code>.git</code>の中も検索されちゃう。</p>
 
 <p>(grepよりも高速に検索できる <a href="ack-grep.html">ack-grep</a> などもある)</p>
+
+<p>(Perlには<a href="../programming_languages_diff/list/filter.html#perl"><code>grep</code></a>という関数がある)</p>
 
 <h2 id="f911d96">オプション
 <span class="article-date">2014/08/31</span></h2>

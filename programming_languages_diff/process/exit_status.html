@@ -71,7 +71,7 @@
 <a href="http://perldoc.jp/docs/perl/perlvar.pod" target="_blank">http://perldoc.jp/docs/perl/perlvar.pod</a></p>
 
 <h2 id="sh">sh
-<span class="article-date">2014/10/01</span></h2>
+<span class="article-date">2015/01/21</span></h2>
 
 <p><code>$?</code> という変数で直前に実行したコマンドの終了ステータスが得られる。</p>
 
@@ -79,6 +79,14 @@
 
 <p>パイプで複数のコマンドを接続した場合、<code>$?</code> は最後のコマンドの終了コードしか得られない。
 bashであれば <code>PIPESTATUS</code> という変数でパイプの中のすべてのコマンドの終了コードを取得することができる。</p>
+
+<p>以下のコードでは終了コードを受け取ってそれを計算して結果を終了コードで返している。</p>
+
+<pre><code>(
+    exit 10
+) || exit `expr $? + 2`
+# =&gt; 終了コード 12
+</code></pre>
 
 </div>
 
