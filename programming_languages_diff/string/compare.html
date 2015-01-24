@@ -145,9 +145,11 @@ if (strcmp($str1, $str2) &gt; 0) {
 <p><code>&lt;=&gt;</code> は<a href="../number/compare.html#ruby">数値の比較</a>と同じで、大小関係によって <code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す。</p>
 
 <h2 id="perl">Perl
-<span class="article-date">2015/01/08</span></h2>
+<span class="article-date">2015/01/24</span></h2>
 
 <p><code>eq</code> は等値の場合に <code>'1'</code> を返し、そうでない場合は、 <code>''</code> を返す。 <code>ne</code> はその反対。</p>
+
+<p><code>undef</code> と <code>''</code> を <code>eq</code> で比較すると <code>Use of uninitialized value</code> という警告が出るが、等値との判定はされる。</p>
 
 <p><code>gt</code>, <code>ge</code>, <code>lt</code>, <code>le</code> で文字列の辞書順の比較ができる。</p>
 
