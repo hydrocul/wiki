@@ -58,16 +58,21 @@ Throwable initCause(Throwable cause);
 Java 1.4 より前はコンストラクタで <code>cause</code> を設定することができないので、そのときに作られた例外クラスに対しても <code>cause</code> を設定できるようにこのメソッドがある。このメソッドの返り値は例外の例外(<code>cause</code>)ではなく例外自身(<code>this</code>)でメソッドチェーンのためのもの。</p>
 
 <h2 id="4975fba">PHP
-<span class="article-date">2014/05/26</span></h2>
+<span class="article-date">2015/01/26</span></h2>
 
-<p><code>Exception</code>クラスのコンストラクタの3つ目に例外の原因となった例外を指定することができる。ただ、スタックトレースを出力したときに
+<p><code>Exception</code>クラスのコンストラクタの3つ目の引数に例外の原因となった例外を指定することができる。ただ、スタックトレースを出力したときに
 Javaのような例外の原因となった例外のスタックトレースまでは出力されないみたい。</p>
 
+<p>例外の原因となった例外を取得するには <code>$e-&gt;getPrevious()</code> のように <code>Exception::getPrevious</code> を呼び出す。</p>
+
 <p>例外 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/language.exceptions.php" target="_blank">http://www.php.net/manual/ja/language.exceptions.php</a></p>
+<a href="http://php.net/manual/ja/language.exceptions.php" target="_blank">http://php.net/manual/ja/language.exceptions.php</a></p>
 
 <p>例外を拡張する | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/language.exceptions.extending.php" target="_blank">http://www.php.net/manual/ja/language.exceptions.extending.php</a></p>
+<a href="http://php.net/manual/ja/language.exceptions.extending.php" target="_blank">http://php.net/manual/ja/language.exceptions.extending.php</a></p>
+
+<p><code>Exception::getPrevious</code> | PHP Manual<br />
+<a href="http://php.net/manual/ja/exception.getprevious.php" target="_blank">http://php.net/manual/ja/exception.getprevious.php</a></p>
 
 </div>
 
