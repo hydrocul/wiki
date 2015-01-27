@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>小数の切り捨てまたは切り上げをするには (floor, ceil) | 数値型 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>小数の四捨五入/切り捨て/切り上げをするには (round, floor, ceil) | 数値型 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>小数の切り捨てまたは切り上げをするには (floor, ceil)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>小数の四捨五入/切り捨て/切り上げをするには (round, floor, ceil)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -34,7 +34,7 @@
           <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
           <li><a href="../../programming_languages_diff/number/elementary-function.html">三角関数・指数関数</a></li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
-          <li>小数の切り捨てまたは切り上げをするには (floor, ceil)</li>
+          <li>小数の四捨五入/切り捨て/切り上げをするには (round, floor, ceil)</li>
           <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
           <li><a href="../../programming_languages_diff/number/bit-operator.html">ビット演算子</a></li>
           <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
@@ -48,7 +48,7 @@
 </div>
 
 <div id="content">
-  <h1 id="floor-ceil">小数の切り捨てまたは切り上げをするには (floor, ceil)</h1>
+  <h1 id="floor-ceil">小数の四捨五入/切り捨て/切り上げをするには (round, floor, ceil)</h1>
 
 <h2 id="php">PHP
 <span class="article-date">2014/07/05</span></h2>
@@ -75,7 +75,7 @@ echo round($x) . "\n"; // =&gt; -13
 </code></pre>
 
 <h2 id="58c67e2">Python
-<span class="article-date">2014/02/19</span></h2>
+<span class="article-date">2015/01/27</span></h2>
 
 <pre><code>import math
 
@@ -84,9 +84,15 @@ math.floor(x)
 
 # 切り上げ
 math.ceil(x)
+
+# 四捨五入
+round(x)
 </code></pre>
 
-<p>切り捨てても切り上げても、値としては整数になるが型はfloatのままである。</p>
+<p>Python2では結果の値としては整数になるが型はfloatのままである。
+Python3では型もintになる。</p>
+
+<p><code>round</code>はPython3ではちょうど中間(0.5)の場合は偶数の方に丸められる。Python2では絶対値の大きい方に丸められる。</p>
 
 <h2 id="3e77036">Ruby
 <span class="article-date">2014/07/20</span></h2>

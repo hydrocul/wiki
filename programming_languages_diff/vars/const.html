@@ -49,13 +49,13 @@
 <h2 id="php">PHP</h2>
 
 <h3 id="61f408f">定数
-<span class="article-date">2014/04/02</span></h3>
+<span class="article-date">2015/01/27</span></h3>
 
-<p>定数は普通の変数とは違い代入文ではなく、定数定義専用の関数を使って定義する。グローバルのスコープを持つ。</p>
+<p>定数は普通の変数とは違い代入文ではなく、定数定義専用の関数を使って定義する。グローバルのスコープを持つので、一度定義すればどこからでもその定数名だけで参照できる。</p>
 
 <p>定数名は先頭に <code>$</code> が付かない点を除いて普通の変数名と同じルールだが、慣例では定数はすべて大文字にする。</p>
 
-<p><code>$</code> が先頭につかないので普通のグローバル変数と名前空間は衝突しない。</p>
+<p><code>$</code> が先頭につかないので普通のグローバル変数と名前が衝突することはない。</p>
 
 <pre><code>// グローバル空間に定数を定義
 // 配列を設定することはできない
@@ -65,7 +65,10 @@ define("FOO", 10);
 FOO;
 </code></pre>
 
-<p>定数の定義で定数を文字列で指定するのがちょっと気持ち悪い。</p>
+<p>同じ名前で2回以上定義しようとすると <code>Constant FOO already defined</code> というようなNoticeが発生し、
+2回目以降の定義は無視される。</p>
+
+<p>定数の定義で定数名を文字列で指定するのがちょっと気持ち悪い。</p>
 
 <p>定数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.constants.php" target="_blank">http://www.php.net/manual/ja/language.constants.php</a></p>

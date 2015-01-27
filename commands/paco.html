@@ -104,6 +104,11 @@
 
 <p><code>yum</code>や<code>apt-get</code>などのパッケージ管理ツールに存在せず、ソースからコンパイルしてインストールしたパッケージは、アンインストールができなかったり、そもそもインストールされたファイルがなんなのかわからなくなったりするが、このツールを使うと、そういうパッケージを管理できるようになる。</p>
 
+<p>2014年ごろpacoはメンテナンスされなくなって、porgというプロジェクトが後継になっているらしい。</p>
+
+<p>porg<br />
+<a href="http://porg.sourceforge.net/" target="_blank">http://porg.sourceforge.net/</a></p>
+
 <h2 id="9631c92">pacoのインストール
 <span class="article-date">2013/11/06</span></h2>
 
@@ -120,10 +125,6 @@ sudo PATH=$PATH make logme
 
 <p>sudoのバージョン1.6.9以降では環境変数PATHの仕様が変わったために 
 <code>make logme</code> を実行するときにpacoコマンドが見つからない、というエラーが出てしまう。pacoのMakefileがおかしい気がする。</p>
-
-<p>以下に詳細が書かれている。</p>
-
-<p><a href="http://d.hatena.ne.jp/bannyan/20090813/1250162107" target="_blank">http://d.hatena.ne.jp/bannyan/20090813/1250162107</a></p>
 
 <h2 id="29be445">基本操作</h2>
 
