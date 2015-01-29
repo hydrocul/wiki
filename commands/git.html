@@ -139,17 +139,26 @@
 </code></pre>
 
 <h3 id="remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには
-<span class="article-date">2013/08/12</span></h3>
+<span class="article-date">2015/01/29</span></h3>
 
-<p>リモートブランチが削除されていても、ローカルで <code>git branch -a</code> とすると、出てきてしまう場合、</p>
+<p>リモートで削除されているブランチがあり、それらのリモート追跡用ブランチをまとめて削除するには</p>
+
+<pre><code>git fetch --prune
+</code></pre>
+
+<p>または</p>
+
+<pre><code>git fetch --prune origin
+</code></pre>
+
+<p>特定のリモートブランチだけ <code>fetch</code> を介さずに直接削除するには</p>
 
 <pre><code>git branch -d -r origin/&lt;branch-name&gt;
 </code></pre>
 
-<p>リモートで複数のブランチが削除されていて、それらのリモート追跡用ブランチをまとめて削除するには</p>
+<p><code>-d</code> は <code>-D</code> にする必要はないみたい。</p>
 
-<pre><code>git fetch --prune
-</code></pre>
+<p>リモートブランチ名が<code>origin</code>でない場合は、<code>origin</code>のところはその名前にする。</p>
 
 <h3 id="stash">まだコミットしていない修正を一時保存しておいて、最後のコミットの状態に戻すには
 <span class="article-date">2013/04/15</span></h3>
