@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -156,12 +156,14 @@ p arr.first(3)
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/first.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/first.html</a></p>
 
 <h2 id="e87fbcb">sh
-<span class="article-date">2014/05/17</span></h2>
+<span class="article-date">2015/01/29</span></h2>
 
-<p>複数行のテキストを標準入力で読み込んで、そのうちの先頭のn行だけを標準出力させる例</p>
+<p>配列ではないが、テキストファイルに関して、先頭のn行だけを標準出力させる例</p>
 
 <pre><code># 最初の3行を出力
-head -n3
+head -n3 foo.txt
+# または
+cat foo.txt | head -n3
 </code></pre>
 
 </div>

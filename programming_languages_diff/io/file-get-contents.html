@@ -65,6 +65,24 @@
 <p>ファイル名から簡単にその中のテキストを文字列として取得する方法のまとめ。
 PHPだと <code>file_get_contents</code> という1つの関数で簡単にできるんだが。</p>
 
+<h2 id="d30a751">Go言語
+<span class="article-date">2015/01/29</span></h2>
+
+<pre><code>package main
+
+import "os"
+import "io/ioutil"
+
+func main() {
+    var input, _ = os.Open("./foo.txt"))
+    var content, _ = ioutil.ReadAll(input)
+    input.Close()
+    os.Stdout.Write(content)
+}
+</code></pre>
+
+<p>この例ではエラーを無視しちゃってる、、、</p>
+
 <h2 id="scala">Scala
 <span class="article-date">2014/09/02</span></h2>
 

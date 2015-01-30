@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -197,6 +197,21 @@ print "@arr[0..1]";     # =&gt; abc def
 print "@arr[0,2]";      # =&gt; abc ghi
 print "@arr[1..$#arr]"; # =&gt; def ghi
 </code></pre>
+
+<h2 id="dfadcfa">sh
+<span class="article-date">2015/01/29</span></h2>
+
+<p>配列ではないが、テキストファイルの一部を抽出するには <code>sed</code> を使うと簡単。</p>
+
+<pre><code># 2行目から4行目を抽出(4行目を含む)
+cat ファイル名 | sed -n 2,4p
+</code></pre>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="../../commands/sed.html#slice"><code>sed</code>コマンドで行番号で範囲を指定して抽出するには</a></li>
+</ul>
 
 <h2 id="a825858">JavaScript
 <span class="article-date">2013/04/20</span></h2>

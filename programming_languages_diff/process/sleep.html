@@ -44,6 +44,29 @@
 <div id="content">
   <h1 id="sleep">自身のスレッドを一定時間停止させるには</h1>
 
+<h2 id="543b74d">Go言語
+<span class="article-date">2015/01/29</span></h2>
+
+<p>3秒停止する例</p>
+
+<pre><code>package main
+
+import "fmt"
+import "time"
+//import "os"
+//import "io/ioutil"
+
+func main() {
+    fmt.Printf("Start\n")
+
+    // 3秒停止
+    // ナノ秒単位で指定
+    time.Sleep(3000000000)
+
+    fmt.Printf("Finished\n")
+}
+</code></pre>
+
 <h2 id="4e85d24">Java
 <span class="article-date">2014/06/17</span></h2>
 

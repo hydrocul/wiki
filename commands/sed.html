@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -103,11 +103,11 @@
 <p>sedで書ける処理であれば、処理内容にもよるが、perlのワンライナーで書くよりも速いことが多い。</p>
 
 <h2 id="1db04e2">基本的な使い方
-<span class="article-date">2014/09/22</span></h2>
+<span class="article-date">2015/01/29</span></h2>
 
-<p>標準入力をなにかしら処理して標準出力に出力するので、パイプとして使える。</p>
+<p>標準入力をなにかしら処理して標準出力に出力するので、パイプとして使える。まあたいていのコマンドはパイプとして使えるのだが。</p>
 
-<p>またはファイル名を指定すればそのファイルを読み込んで標準出力に出力する。</p>
+<p>ファイル名を指定すればそのファイルを読み込んで処理して標準出力に出力する。</p>
 
 <p>ファイル名を指定してオプション <code>-i</code> を使えば、そのファイルを読み込んで、結果をそのファイルに上書きする。ファイル自体を編集したい場合には便利。
 (<code>-i</code> はGNU sed限定)</p>
@@ -129,7 +129,8 @@
 <pre><code>sed -i -e 's/xxx/XXX/g' ./hoge.txt ./hoge2.txt ./hoge3.txt
 </code></pre>
 
-<p><code>-e</code> オプションがない場合は最初のオプション以外の引数が処理内容とみなされるので、たいていは <code>-e</code> を省略できる。</p>
+<p><code>-e</code> オプションがない場合はオプション以外の最初の引数が処理内容とみなされるので、たいていは <code>-e</code> を省略できる。処理内容を指示する引数に拡張正規表現を使いたい場合は、
+<a href="#extended-regexp">後述</a>のように <code>-e</code> の代わりに <code>-E</code> または <code>-r</code> を付ける。</p>
 
 <h2 id="544ea65">複数の処理をさせるには
 <span class="article-date">2014/08/29</span></h2>
@@ -148,9 +149,9 @@ cat ... | sed -e ... -e ...
 11行目から20行目と6行目から15行目が重なる行、つまり11行目から15行目のみを抽出する。</p>
 
 <h2 id="ed756ff"><code>-e</code> で指定する処理内容
-<span class="article-date">2014/08/29</span></h2>
+<span class="article-date">2015/01/29</span></h2>
 
-<p><code>-e</code> のあとのパラメータは、アドレス、コマンド1文字、パラメータの順につなげることで、処理内容を表す。アドレスはどの行を処理対象とするかを表し、全行の処理の場合はアドレスを省略でき、コマンドの1文字から始まることになる。コマンドは <code>s</code>, <code>p</code>, <code>d</code> などがある。</p>
+<p><code>-e</code> のあとのパラメータは、アドレス、コマンド1文字、コマンドパラメータの順につなげることで、処理内容を表す。アドレスはどの行を処理対象とするかを表し、すべての行を処理する場合はアドレスを省略でき、コマンドの1文字から始まることになる。コマンドは <code>s</code>, <code>d</code> , <code>p</code>などがある。</p>
 
 <h3 id="replace"><code>s</code>コマンド
 <span class="article-date">2014/07/31</span></h3>
@@ -227,9 +228,11 @@ sed 1,5\!d
 <code>p</code>コマンドの出力のみになる。</p>
 
 <h2 id="6c6098f">アドレス
-<span class="article-date">2014/11/09</span></h2>
+<span class="article-date">2015/01/29</span></h2>
 
 <p>コマンドの実行対象行を指定する行番号をアドレスという。行番号だけでなくや正規表現で指定して、その正規表現にマッチする行を実行対象とすることもできる。</p>
+
+<p>アドレスは <code>-e</code> のあとの処理内容を表す引数の先頭に付ける。</p>
 
 <p>以下の例は<code>p</code>コマンドでの例だが、<code>s</code>, <code>y</code>, <code>d</code> コマンドなどでも使える。</p>
 
@@ -512,8 +515,10 @@ sed -E 's/[\t ]+/ /g'
 <pre><code>cat ファイル名 | sed -e 's/置換前/置換後/g' -e 's/別の置換前/別の置換後/g'
 </code></pre>
 
-<h3 id="6503925">行番号で指定する範囲のみを抽出するには
-<span class="article-date">2013/06/14</span></h3>
+<h3 id="slice">行番号で範囲を指定して抽出するには
+<span class="article-date">2015/01/29</span></h3>
+
+<p>プログラミング言語でいう<a href="../programming_languages_diff/list/sub-list.html">部分配列とかスライス</a>みたいな。</p>
 
 <pre><code># 2行目から4行目を抽出(4行目を含む)
 cat ファイル名 | sed -n 2,4p
@@ -527,7 +532,7 @@ cat ファイル名 | sed -n '2,$p'
 cat ファイル名 | sed -n 2,\$p
 </code></pre>
 
-<h3 id="62fe470">行番号で指定する範囲のみを削除するには
+<h3 id="e829c7d">行番号で範囲を指定して削除するには
 <span class="article-date">2013/06/14</span></h3>
 
 <pre><code># 2行目から4行目を削除(4行目も削除)

@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -160,15 +160,24 @@ arr[n, arr.size]
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/slice.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/slice.html</a></p>
 
 <h2 id="eb5499b">sh
-<span class="article-date">2015/01/15</span></h2>
+<span class="article-date">2015/01/29</span></h2>
 
-<p><a href="../../commands/tail.html"><code>tail</code>コマンド</a>を使うと、複数行テキストに対して、最初のn行を削除する処理をできる。</p>
+<p>配列ではないが、テキストファイルに関しては、
+<a href="../../commands/tail.html"><code>tail</code>コマンド</a>を使うと、最初のn行を削除する処理をできる。</p>
 
 <p><code>-n</code> オプションの後に <code>+</code> と数字をつけると、その行番号から後ろだけを出力してくれる。従って先頭の2行を削除するには3行目から出力すればよいので、
 <code>-n+3</code> と指定する。</p>
 
 <pre><code># 最初の2行を除く後続の行を出力
 tail -n+3 foo.txt
+</code></pre>
+
+<p><a href="../../commands/sed.html"><code>sed</code>コマンド</a> でもできる。</p>
+
+<pre><code># 2行目から最後まで抽出
+sed -n '2,$p' foo.txt
+# または
+sed -n 2,\$p foo.txt
 </code></pre>
 
 </div>
