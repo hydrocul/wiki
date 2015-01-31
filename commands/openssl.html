@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -54,6 +54,7 @@
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li>openssl コマンド</li>
       <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+      <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
@@ -96,10 +97,10 @@
 <div id="content">
   <h1 id="openssl">openssl コマンド</h1>
 
-<p>-&gt; <a href="../others/apache.html#create-csr">SSLのCSRの作成方法</a>  </p>
+<h2 id="bb43ea5">HOWTO</h2>
 
-<h2 id="231f92c">SSLサーバ証明書ファイルと秘密鍵の組み合わせが正しいことを確認するには
-<span class="article-date">2013/10/12</span></h2>
+<h3 id="060bba5">SSLサーバ証明書ファイルと秘密鍵の組み合わせが正しいことを確認するには
+<span class="article-date">2013/10/12</span></h3>
 
 <p><a href="http://www.webimpact.co.jp/banchoblog/?p=624" target="_blank">http://www.webimpact.co.jp/banchoblog/?p=624</a></p>
 
@@ -112,26 +113,26 @@ openssl x509 -noout -modulus -in サーバ証明書ファイル(CRT) | openssl m
 
 <p>もし違う場合は、SSLが間違っているのでApacheが起動しない。</p>
 
-<h2 id="6dea887">SSLサーバ証明書の期限を確認するには
-<span class="article-date">2013/05/11</span></h2>
+<h3 id="494bb65">SSLサーバ証明書の期限を確認するには
+<span class="article-date">2013/05/11</span></h3>
 
 <pre><code>openssl x509 -in サーバ証明書ファイル(CRT) -noout -dates
 </code></pre>
 
-<h2 id="619c9d5">SSLサーバ証明書の内容を確認するには
-<span class="article-date">2013/05/11</span></h2>
+<h3 id="6a392aa">SSLサーバ証明書の内容を確認するには
+<span class="article-date">2013/05/11</span></h3>
 
 <pre><code>openssl x509 -in サーバ証明書ファイル(CRT) -noout -text
 </code></pre>
 
-<h2 id="8a2f222">SSLサーバ証明書と中間証明書の組み合わせが正しいことを確認するには
-<span class="article-date">2013/05/11</span></h2>
+<h3 id="8066e88">SSLサーバ証明書と中間証明書の組み合わせが正しいことを確認するには
+<span class="article-date">2013/05/11</span></h3>
 
 <pre><code>openssl verify -CAfile 中間証明書ファイル サーバ証明書ファイル
 </code></pre>
 
-<h2 id="983112d">BASE64エンコードまたはBASE64デコードをするには
-<span class="article-date">2013/10/14</span></h2>
+<h3 id="0f13342">BASE64エンコードまたはBASE64デコードをするには
+<span class="article-date">2013/10/14</span></h3>
 
 <pre><code># エンコード。-e は省略可。
 openssl enc -e -base64
@@ -142,8 +143,8 @@ openssl enc -d -base64
 
 <p>BASE64は<a href="base64.html"><code>base64</code>コマンド</a>でもできる。</p>
 
-<h2 id="2e23572">opensslのバージョン番号を確認するには
-<span class="article-date">2014/12/02</span></h2>
+<h3 id="94908f9">opensslのバージョン番号を確認するには
+<span class="article-date">2014/12/02</span></h3>
 
 <p><code>version</code> を付ける。<code>--</code> はいらない。</p>
 
@@ -151,6 +152,10 @@ openssl enc -d -base64
 
 <pre><code>openssl version
 </code></pre>
+
+<h3 id="5436b1d">SSLのCSRを作成するには</h3>
+
+<p>-&gt; <a href="../others/apache.html#create-csr">SSLのCSRの作成方法</a>  </p>
 
 </div>
 
