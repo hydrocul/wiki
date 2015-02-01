@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>BASE64でエンコード・デコードするには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>BASE64でエンコード・デコードするには | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -52,13 +52,14 @@
           <li>BASE64でエンコード・デコードするには</li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
-          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-upper-lower.html">Unicodeの仕様に基づいた大文字小文字を変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -74,7 +75,47 @@
 
 <p>各プログラミング言語でのBASE64エンコードまたはデコードする方法。</p>
 
-<h2 id="c169f59">Java</h2>
+<h2 id="4881bf3">Go言語
+<span class="article-date">2015/02/01</span></h2>
+
+<p>BASE64にエンコードするには <code>encoding/base64</code> パッケージの <code>base64.StdEncoding.Encode</code> 
+または <code>base64.StdEncoding.EncodeToString</code> を使う。</p>
+
+<p><code>base64.StdEncoding.Encode</code> での例</p>
+
+<pre><code>package main
+
+import "os"
+//import "fmt"
+import "encoding/base64"
+
+func main() {
+    src := []byte("あいうえおかきくけこ")
+    dst := make([]byte, base64.StdEncoding.EncodedLen(len(src)))
+    base64.StdEncoding.Encode(dst, src)
+    //fmt.Printf(dst)
+    // =&gt; 44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT
+    os.Stdout.Write(dst)
+    // =&gt; 44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT
+}
+</code></pre>
+
+<p><code>base64.StdEncoding.EncodeToString</code> での例</p>
+
+<pre><code>package main
+
+import "fmt"
+import "encoding/base64"
+
+func main() {
+    src := []byte("あいうえおかきくけこ")
+    dst := base64.StdEncoding.EncodeToString(src)
+    fmt.Printf(dst)
+    // =&gt; 44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT
+}
+</code></pre>
+
+<p>どちらもどんなに長くなっても途中で改行を入れることはないみたい。</p>
 
 <h2 id="26a9842">PHP
 <span class="article-date">2014/12/02</span></h2>
