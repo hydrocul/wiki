@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -52,13 +52,14 @@
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></li>
-          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li>文字列を数値に変換するには (parseInt / toInt)</li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-upper-lower.html">Unicodeの仕様に基づいた大文字小文字を変換するには</a></li>
         </ul>
       </li>
     </ul>
@@ -101,9 +102,9 @@ int i = Integer.parseInt(str, 16);
 <code>"09"</code> は <code>9</code> になる。</p>
 
 <h2 id="b451d62">Scala
-<span class="article-date">2014/11/30</span></h2>
+<span class="article-date">2015/02/01</span></h2>
 
-<p>Javaでの方法をそのままScalaでも使えるが、Scalaでは文字列のクラスに以下のメソッドが追加されている。</p>
+<p>Javaでの方法はそのままScalaでも使えるが、Scalaでは文字列のクラスに以下のメソッドが追加されているので、それを使ってもよい。</p>
 
 <p>Signature:</p>
 
@@ -114,6 +115,19 @@ def toInt: Int
 def toLong: Long
 def toFloat: Float
 def toDouble: Double
+</code></pre>
+
+<p>例</p>
+
+<pre><code>val str = "10";
+val i: Int = str.toInt; // =&gt; 10
+
+val str = "1.5";
+val f: Double = str.toDouble; // =&gt; 1.5
+
+val str = "1.5";
+val i: Int = str.toInt;
+// java.lang.NumberFormatException がスローされる
 </code></pre>
 
 <h2 id="php">PHP

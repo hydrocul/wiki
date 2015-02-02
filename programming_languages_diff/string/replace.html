@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -199,26 +199,30 @@ print $str; # =&gt; abC{}Def
 <p><code>quotemeta</code> は正規表現中で特別な意味を持つかもしれない記号類をごっそりエスケープ処理してしまう関数である。</p>
 
 <h2 id="a8b5980">sh
-<span class="article-date">2014/07/31</span></h2>
+<span class="article-date">2015/02/01</span></h2>
 
-<p><a href="../../commands/sed.html#replace"><code>sed</code>コマンド</a>を使うとよい。</p>
+<p><a href="../../commands/sed.html#replace"><code>sed</code>コマンドの<code>s</code>での置換</a>を使うとよい。</p>
 
 <p><code>abc</code> を <code>ABC</code> に置換する例</p>
 
-<pre><code>sed -e 's/abc/ABC/g'
+<pre><code>cat foo.txt | sed -e 's/abc/ABC/g'
 </code></pre>
 
 <p><code>s</code> が置換コマンドを意味し、最後の <code>g</code> はすべてのマッチした文字列を置換することを意味する。
 <code>g</code> がなくても全行で置換を実行するが、1行に2つ以上マッチした場合は
 1つ目しか置換されない。</p>
 
-<p><code>-e</code> の代わりに <code>-E</code> を使うと、置換後の文字列には <code>&amp;</code> を指定するとマッチした文字列の部分が出力され、
+<p>置換後の文字列に <code>&amp;</code> を指定するとマッチした文字列の部分が出力され、
 <code>\1</code>, <code>\2</code>… を指定するとマッチした文字列のうち正規表現内でカッコでグルーピングされた部分が出力される。</p>
 
-<p>例</p>
+<p>グルーピングのための <code>()</code> は <code>\(\)</code> のようにバックスラッシュでエスケープが必要になる。
+<code>-e</code> の代わりに <code>-E</code> を使うとこのエスケープが不要になる。</p>
 
-<pre><code>echo xx34 | sed -E 's/xx(.)/&amp;&amp;\1\1/g'
-# =&gt; xx3xx3334
+<pre><code>echo xx34 | sed -e 's/xx\(.\)/-&amp; \1-/g'
+# =&gt; -xx3 3-4
+
+echo xx34 | sed -E 's/xx(.)/-&amp; \1-/g'
+# =&gt; -xx3 3-4
 </code></pre>
 
 </div>

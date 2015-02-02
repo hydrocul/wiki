@@ -70,6 +70,18 @@
 System.out.println(pwd);
 </code></pre>
 
+<p>または <code>java.io.File</code> を使って無理やり取得する。</p>
+
+<pre><code>import java.io.File;
+
+String pwd = new File(".").getAbsoluteFile().getParent();
+System.out.println(pwd);
+
+// 以下の例だと最後に /. が付いてしまう
+String pwd2 = new File(".").getAbsolutePath();
+System.out.println(pwd2);
+</code></pre>
+
 <h2 id="4e286db">Ruby
 <span class="article-date">2014/12/03</span></h2>
 

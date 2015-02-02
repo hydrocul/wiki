@@ -86,15 +86,12 @@
 <pre><code>package main
 
 import "os"
-//import "fmt"
 import "encoding/base64"
 
 func main() {
     src := []byte("あいうえおかきくけこ")
     dst := make([]byte, base64.StdEncoding.EncodedLen(len(src)))
     base64.StdEncoding.Encode(dst, src)
-    //fmt.Printf(dst)
-    // =&gt; 44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT
     os.Stdout.Write(dst)
     // =&gt; 44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT
 }
