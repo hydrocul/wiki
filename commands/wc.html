@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -54,6 +54,7 @@
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
       <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+      <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
@@ -95,10 +96,10 @@
 
 <div id="content">
   <h1 id="wc">wc コマンド
-<span class="article-date">2013/11/16</span></h1>
+<span class="article-date">2015/02/03</span></h1>
 
 <p><code>wc オプション ファイル名</code> またはパイプの形式で <code>cat ファイル名 | wc オプション</code> 
-のような形式で、行数や文字数などを数える。</p>
+のような形式で、行数や文字数などを数える。ファイルの行数を数えるのなら、パイプを使わずにファイル名をパラメータに渡したほうが速い。他のコマンドの出力を数えるにはパイプの形式を使う。</p>
 
 <p>ファイル名は複数の引数で渡すこともできる。</p>
 
@@ -132,6 +133,26 @@
 
 <pre><code>perl -nle 'END {print $.}'
 </code></pre>
+
+<h2 id="2b36974">grepで行数をカウントするには
+<span class="article-date">2015/02/03</span></h2>
+
+<pre><code>grep -c '' example.txt
+</code></pre>
+
+<p>わずかに <code>wc -l</code> のほうが速い。一行がとても長いファイルだと、<code>wc -l</code> のほうが5倍以上速いケースもあるみたいで、わざわざ <code>grep</code> を使う必要性はないかもしれない。</p>
+
+<p>ただ、正規表現にマッチする行のみの行数をカウントするには</p>
+
+<pre><code>grep PATTERN example.txt | wc -l
+</code></pre>
+
+<p>よりも</p>
+
+<pre><code>grep -c PATTERN example.txt
+</code></pre>
+
+<p>のほうが速い。</p>
 
 </div>
 
