@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -54,6 +54,7 @@
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
       <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+      <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li>ps コマンド</li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
@@ -117,21 +118,26 @@
 <p>-&gt; <a href="pstree.html">pstree</a></p>
 
 <h2 id="32008b1">特定の名前のプロセスをすべてkillするには
-<span class="article-date">2013/04/18</span></h2>
+<span class="article-date">2015/02/04</span></h2>
 
 <p>たとえば <code>"ruby"</code> が名前に含まれるプロセスの場合、</p>
 
-<p>まず一覧を表示してkill対象を確認する</p>
+<p>まず一覧を表示してkill対象を確認する。</p>
+
+<pre><code>ps aux | grep ruby
+</code></pre>
+
+<p>これだと、<code>grep ruby</code> しているプロセス自体も表示されることがあるので、以下のようにすると <code>grep</code> が含まれるプロセスを除外できる。</p>
 
 <pre><code>ps aux | grep ruby | grep -v grep
 </code></pre>
 
-<p>次にプロセスIDの一覧だけにする</p>
+<p>次にプロセスIDの一覧だけにする。</p>
 
 <pre><code>ps aux | grep ruby | grep -v grep | tr -s ' ' | cut -d ' ' -f2
 </code></pre>
 
-<p>それをkillする</p>
+<p>それをkillする。</p>
 
 <pre><code>kill `ps aux | grep ruby | grep -v grep | tr -s ' ' | cut -d ' ' -f2`
 </code></pre>

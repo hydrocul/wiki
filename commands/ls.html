@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -107,7 +107,7 @@
 参照。</p>
 
 <h2 id="f18bf0d">オプション
-<span class="article-date">2014/11/25</span></h2>
+<span class="article-date">2015/02/04</span></h2>
 
 <dl>
   <dt><code>-a</code></dt>
@@ -135,8 +135,14 @@
   <dt><code>-S</code></dt>
   <dd>ファイルサイズの大きい順にソート</dd>
   <dt><code>-f</code></dt>
-  <dd>ファイル名でのソートをしない。ディレクトリにあまりに大量のファイルがある場合に、
-これを付けると、表示速度がましになる。<code>-l</code> との両立ができないみたい。</dd>
+  <dd>ファイル名でのソートをしない。ディレクトリにあまりに大量のファイルがある場合に
+デフォルトだとソートに時間がかかってしまうので、
+これを付けることで表示速度がましになる。<code>-l</code> との両立ができないみたい。
+<a href="find.html"><code>find</code>コマンド</a>では、デフォルトでソートされない。</dd>
+  <dt><code>-t</code></dt>
+  <dd>タイムスタンプの新しい順に表示。<code>-f</code> は無視される。</dd>
+  <dt><code>-r</code></dt>
+  <dd>逆順に表示。デフォルトではアルファベットの逆順。<code>-t</code> と併用するとタイムスタンプの古い順。</dd>
 </dl>
 
 <h2 id="89213c2">タイムスタンプを <code>YYYY-MM-DD hh:mm:ss</code> のフォーマットで表示するには
@@ -153,7 +159,11 @@
 </code></pre>
 
 <h2 id="sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには
-<span class="article-date">2014/11/19</span></h2>
+<span class="article-date">2015/02/04</span></h2>
+
+<p><code>ls -lt</code> とすればよい。古い順にするには <code>ls -ltr</code> とする。</p>
+
+<p><code>-t</code>というオプションを知らなかったときは以下の方法を使っていた。</p>
 
 <pre><code>ls -alF --time-style="+%Y-%m-%d %H:%M:%S" | sort -r -k6,7
 </code></pre>
