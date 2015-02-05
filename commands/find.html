@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -272,6 +272,15 @@ find /home -maxdepth 1 -uid 1000
 <p>例</p>
 
 <pre><code>find . -perm -u=x -type f
+</code></pre>
+
+<h3 id="83af10d">ファイル名を正規表現で検索するには
+<span class="article-date">2015/02/05</span></h3>
+
+<p><code>find</code> または <code>ls -aR</code> に <code>grep</code> を組み合わせるのがいいかも。</p>
+
+<pre><code>find . | grep PATTERN
+ls -aR | grep PATTERN
 </code></pre>
 
 <h2 id="15af3f8">リンク集
