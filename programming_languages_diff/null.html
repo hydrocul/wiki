@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -32,7 +32,7 @@
       <li><a href="../programming_languages_diff/operator/">演算子</a></li>
       <li><a href="../programming_languages_diff/function/">関数・メソッド</a></li>
       <li><a href="../programming_languages_diff/data_type.html">データ型</a></li>
-      <li><a href="../programming_languages_diff/class/">クラスとオブジェクト</a></li>
+      <li><a href="../programming_languages_diff/class/">型とクラスとオブジェクト</a></li>
       <li><a href="../programming_languages_diff/exception/">例外処理</a></li>
       <li><a href="../programming_languages_diff/boolean/">論理型</a></li>
       <li><a href="../programming_languages_diff/number/">数値型</a></li>
@@ -87,7 +87,7 @@
 <p><code>Nil</code> というものもあるが、これは要素が1つもない空の<code>List</code>型のオブジェクトであり、ぜんぜん違う。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2015/01/08</span></h2>
+<span class="article-date">2015/02/09</span></h2>
 
 <p><code>NULL</code> というのがある。<a href="boolean/overview.html#php"><code>TRUE</code> / <code>FALSE</code></a>と同じく大文字小文字が区別されない。</p>
 
@@ -95,6 +95,7 @@
 
 <p>変数が定義済みかどうかをチェックするには <code>isset</code> で調べれば良い。
 <code>isset</code> は引数に与えた変数が定義済みかどうかを <code>TRUE</code> か <code>FALSE</code> で返す。
+<code>NULL</code> を明示的に代入した変数に対しても <code>FALSE</code> が返される。
 <code>isset</code> は通常の関数ではなく、言語構造である。</p>
 
 <pre><code>if (isset($a)) {

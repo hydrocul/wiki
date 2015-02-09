@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -26,7 +26,7 @@
     <ul>
       <li><a href="../../programming_languages_diff/io/">入出力・ファイル操作</a>
         <ul>
-          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイルの中身をまとめて1つの文字列として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイル・標準入力の中身をまとめて1つの文字列として取得するには</a></li>
           <li>ファイルの中身を1行ずつテキスト処理するには</li>
           <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
@@ -60,6 +60,45 @@
 
 <div id="content">
   <h1 id="each-line">ファイルの中身を1行ずつテキスト処理するには</h1>
+
+<h2 id="58d4fd0">Go言語
+<span class="article-date">2015/02/09</span></h2>
+
+<p>例</p>
+
+<pre><code>package main
+
+import "io"
+import "os"
+import "bufio"
+
+func main() {
+    var fp *os.File
+    var err error
+    if len(os.Args) &lt; 2 {
+        fp = os.Stdin
+    } else {
+        fp, err = os.Open(os.Args[1])
+        if err != nil {
+            panic(err)
+        }
+    }
+    reader := bufio.NewReader(fp)
+    for {
+        line, err := reader.ReadString('\n')
+        if err != nil &amp;&amp; err != io.EOF {
+            panic(err)
+        }
+
+        // line には最後の改行を含む
+        os.Stdout.Write([]byte(line));
+
+        if err == io.EOF {
+            break
+        }
+    }
+}
+</code></pre>
 
 <h2 id="039a13c">Java
 <span class="article-date">2013/10/08</span></h2>
