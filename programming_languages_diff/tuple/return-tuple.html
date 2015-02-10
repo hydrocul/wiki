@@ -54,6 +54,26 @@ Scalaのタプルで返す仕組みは扱いやすい、と感じるが、静的
 
 <p>値を受け取る専用の変数をポインタで引数として渡して、関数からは結果をポインタの指す先に書き込むことができる。このポインタを複数受け渡しすれば結果的に複数の結果を受け渡すことができる。</p>
 
+<h2 id="05feb8c">Go言語
+<span class="article-date">2015/02/10</span></h2>
+
+<p>普通に関数から多値を返却できる。</p>
+
+<pre><code>package main
+
+import "fmt"
+
+func main() {
+    i, s := f()
+    fmt.Printf("%d %s", i, s)
+    // =&gt; 1 abc
+}
+
+func f() (int, string) {
+    return 1, "abc"
+}
+</code></pre>
+
 <h2 id="8508166">Java
 <span class="article-date">2014/12/24</span></h2>
 
