@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>2つの文字列を比較するには | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>2つの文字列を比較するには | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -72,18 +72,23 @@
 <div id="content">
   <h1 id="compare">2つの文字列を比較するには</h1>
 
+<h2 id="3cfb785">Go言語 (golang)
+<span class="article-date">2015/02/13</span></h2>
+
+<p><code>==</code>演算子で比較する。等値の場合に <code>true</code> になり、そうでない場合に <code>false</code> になる。</p>
+
 <h2 id="ff5136c">Java
-<span class="article-date">2013/07/31</span></h2>
+<span class="article-date">2015/02/12</span></h2>
 
-<p><code>obj1.equals(obj2)</code> で値を比較する。</p>
+<p><code>equals</code>メソッドで比較する。等値の場合に <code>true</code> になり、そうでない場合に <code>false</code> になる。例: <code>obj1.equals(obj2)</code></p>
 
-<p><code>==</code> は同じインスタンスかどうかをチェックするもので同じ文字列かどうかはわからない。</p>
+<p><code>==</code> は同じインスタンスかどうかをチェックするもので、たとえ同じ内容の文字列でも <code>==</code> が <code>false</code> を返す場合もある。</p>
 
 <h2 id="1af9280">Scala
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2015/02/12</span></h2>
 
-<p><code>==</code>演算子は等値の場合に <code>true</code> を返す。<code>!=</code>演算子はその反対。
-<code>==</code>演算子はJavaの <code>equals</code> を呼び出している。</p>
+<p><code>==</code>演算子で比較する。等値の場合に <code>true</code> になり、そうでない場合に <code>false</code> になる。<code>!=</code>演算子はその反対。
+Scalaの<code>==</code>演算子はJavaの<code>equals</code>メソッドを呼び出している。</p>
 
 <h2 id="991deb7">Groovy
 <span class="article-date">2014/11/21</span></h2>
