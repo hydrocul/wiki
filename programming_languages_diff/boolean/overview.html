@@ -47,28 +47,25 @@
 <p><code>true</code>, <code>false</code> というキーワードはなく、論理値の型もない。</p>
 
 <p>if文などの条件式には、
-<code>NULL</code>, <code>0</code>, <code>0.0, </code>‘\x00’<code> が入ると </code>false<code> の扱いになり、それ以外は </code>true` の扱いになる。</p>
-
-<p>空文字列は、<code>NULL</code>でないので、<code>true</code> になる。</p>
+<code>NULL</code>, <code>0</code>, <code>0.0</code>, <code>'\x00'</code> が入ると <code>false</code> の扱いになり、それ以外は <code>true</code> の扱いになる。</p>
 
 <h2 id="578d49b">C++
-<span class="article-date">2014/12/07</span></h2>
+<span class="article-date">2015/02/14</span></h2>
 
-<p><code>true</code>, <code>false</code> というキーワードがあり、<code>bool</code> という型である。</p>
+<p><code>bool</code>という型があり、<code>true</code>, <code>false</code>という<code>bool</code>型の値を表すキーワードがある。</p>
 
-<p>if文などの条件式には、<code>bool</code>型の他にC言語と同様に
-<code>NULL</code>, <code>0</code>, <code>0.0, </code>‘\x00’<code> が入ると </code>false<code> の扱いになり、それ以外は </code>true` の扱いになる。</p>
-
-<p>空文字列は、<code>NULL</code>でないので、<code>true</code> になる。</p>
+<p>if文などの条件式には、<code>bool</code>型の<code>false</code>の他にC言語と同様に
+<code>NULL</code>, <code>0</code>, <code>0.0, </code>‘\x00’<code> が入ると</code>false<code>の扱いになり、それ以外は </code>true` の扱いになる。</p>
 
 <h2 id="java">Java
-<span class="article-date">2014/07/15</span></h2>
+<span class="article-date">2015/02/14</span></h2>
 
-<p><code>true</code>, <code>false</code> というキーワードがあり、これらは <code>boolean</code> というプリミティブ型である。このプリミティブ型に対応するクラスは <code>java.lang.Boolean</code> である。</p>
+<p><code>boolean</code>というプリミティブ型があり、<code>true</code>, <code>false</code> という<code>boolean</code>型の値を表すキーワードがある。このプリミティブ型に対応するクラスは <code>java.lang.Boolean</code> である。</p>
 
-<p><code>boolean</code>型以外(<code>true</code>, <code>false</code>以外のいっさい)を
-<code>if</code>文などの条件式として入れるとコンパイルエラーになる。
-<code>java.lang.Boolean</code>型はオートボクシングにより<code>boolean</code>型になるので、条件式に入れてもコンパイルエラーにはならない。</p>
+<p><code>boolean</code>型と<code>java.lang.Boolean</code>型以外を
+<code>if</code>文などの条件式として入れるとコンパイルエラーになる。</p>
+
+<p><code>java.lang.Boolean</code>型はオートボクシングにより<code>boolean</code>型になるので、条件式に入れてもコンパイルエラーにはならない。</p>
 
 <h2 id="php">PHP
 <span class="article-date">2014/12/20</span></h2>

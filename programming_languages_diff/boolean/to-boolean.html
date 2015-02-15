@@ -93,17 +93,18 @@
 </table>
 
 <h2 id="9a1bb7a">C言語 / C++
-<span class="article-date">2014/12/07</span></h2>
+<span class="article-date">2015/02/14</span></h2>
 
-<p><code>NULL</code>, <code>0</code>, <code>0.0, </code>‘\x00’<code> が入ると </code>false<code> の扱いになり、それ以外は </code>true` の扱いになる。</p>
+<p><code>NULL</code>, <code>0</code>, <code>0.0</code>, <code>'\x00'</code> が入ると <code>false</code> の扱いになり、それ以外は <code>true</code> の扱いになる。</p>
 
 <p>空文字列は、<code>NULL</code>でないので、<code>true</code> になる。</p>
 
-<h2 id="f99ea29">Java / Scala
-<span class="article-date">2014/07/18</span></h2>
+<p>C++ではキーワード<code>true</code>/<code>false</code>もある。</p>
 
-<p><code>boolean</code>型(Scalaは<code>Boolean</code>型)以外が暗黙のうちに論理値に変換されることはない。つまり、<code>false</code> のみが <code>false</code>、<code>true</code> のみが <code>true</code> になる。
-<code>if</code>文や<code>while</code>文などの条件式には<code>boolean</code>型(Scalaは<code>Boolean</code>型)以外を置くことはできない。</p>
+<h2 id="f99ea29">Java / Scala
+<span class="article-date">2015/02/14</span></h2>
+
+<p><code>if</code>文や<code>while</code>文などの条件式には<code>boolean</code>型(Scalaは<code>Boolean</code>型)と<code>java.lang.Boolean</code>型以外を置くことはできない。置こうとしてもコンパイルエラーになる。</p>
 
 <h2 id="php">PHP</h2>
 
@@ -113,9 +114,12 @@
 
 <p>-&gt; <a href="overview.html#python">概要</a></p>
 
-<h2 id="ruby">Ruby</h2>
+<h2 id="ruby">Ruby / JRuby
+<span class="article-date">2014/12/07</span></h2>
 
-<p>-&gt; <a href="overview.html#ruby">概要</a></p>
+<p>if文の条件式など、論理値が必要な箇所に
+<code>false</code>, <code>nil</code> が入ると <code>false</code> の扱いになり、それ以外はすべて <code>true</code> の扱いになる。
+<code>0</code> も <code>''</code> も <code>[]</code> も <code>true</code>。</p>
 
 <h2 id="ac8e0fa">Perl</h2>
 

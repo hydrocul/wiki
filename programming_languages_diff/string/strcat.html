@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列の連結をするには (strcat) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>文字列の連結をするには (strcat) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -73,11 +73,12 @@
   <h1 id="strcat">文字列の連結をするには (strcat)
 <span class="article-date">2014/05/19</span></h1>
 
-<p><code>+</code> か <code>.</code> という演算子でできる言語が多い。</p>
+<p><code>+</code> または <code>.</code> という演算子でできる言語が多い。</p>
 
 <table>
   <tbody>
     <tr>
+      <td>Go言語</td>
       <td>Java</td>
       <td>Scala</td>
       <td>PHP</td>
@@ -88,6 +89,7 @@
       <td>Haskell</td>
     </tr>
     <tr>
+      <td><code>+</code></td>
       <td><code>+</code></td>
       <td><code>+</code></td>
       <td><code>.</code></td>
@@ -110,10 +112,20 @@
 <pre><code>"abc" "def"
 </code></pre>
 
-<h2 id="3771d58">Java
-<span class="article-date">2014/10/25</span></h2>
+<h2 id="e9173fb">Go言語 (golang)
+<span class="article-date">2015/02/14</span></h2>
 
-<p>例</p>
+<p><code>+</code> 演算子で連結できる。</p>
+
+<pre><code>"abc" + "def"
+</code></pre>
+
+<p>文字列リテラルを演算子を挟まずに並べると、C言語のように連結されることはなく、コンパイルエラーになる。</p>
+
+<h2 id="3771d58">Java
+<span class="article-date">2015/02/14</span></h2>
+
+<p><code>+</code> 演算子で連結できる。</p>
 
 <pre><code>"abc" + "def"
 </code></pre>
@@ -123,9 +135,9 @@
 <p>文字列リテラルを演算子を挟まずに並べると、C言語のように連結されることはなく、コンパイルエラーになる。</p>
 
 <h2 id="f8c562c">Scala
-<span class="article-date">2014/10/25</span></h2>
+<span class="article-date">2015/02/14</span></h2>
 
-<p>例</p>
+<p>Javaと同様に <code>+</code> 演算子で連結できる。</p>
 
 <pre><code>"abc" + "def"
 </code></pre>
@@ -152,8 +164,6 @@ println(str);
 <span class="article-date">2014/10/25</span></h2>
 
 <p>JavaやScalaと同様に <code>+</code> 演算子で連結できる。</p>
-
-<p>例</p>
 
 <pre><code>"abc" + "def"
 </code></pre>
