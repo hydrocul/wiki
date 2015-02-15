@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -78,7 +78,7 @@
 <p>インデックスで範囲を指定して部分文字列を取得する方法は<a href="substr.html">substr</a>参照。</p>
 
 <h2 id="2e8b245">Java
-<span class="article-date">2014/10/07</span></h2>
+<span class="article-date">2015/02/15</span></h2>
 
 <p>0から始まるインデックスで <code>char</code> の文字を取得できる。</p>
 
@@ -92,11 +92,13 @@ char charAt(int index)
 
 <p><code>java.lang.String</code> だけでなく <code>java.lang.StringBuilder</code> や <code>java.lang.StringBuffer</code> でも同様に使える。</p>
 
+<p>文字列(<code>java.lang.String</code>)はイミュータブルなので、文字を取得できるのみで、書き換えることはできない。</p>
+
 <p><code>java.lang.String#charAt</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#charAt-int-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#charAt-int-</a></p>
 
 <h2 id="d424e3c">Scala
-<span class="article-date">2014/11/19</span></h2>
+<span class="article-date">2015/02/15</span></h2>
 
 <p>Javaと同じく、0から始まるインデックスで <code>Char</code> の文字を取得できる。</p>
 
@@ -111,7 +113,7 @@ def charAt(index: Int): Char
 def apply(index: Int): Char
 </code></pre>
 
-<p><code>apply</code>メソッドが定義されているので、<code>str(2)</code> のように配列の要素へのアクセスと同じように文字を取得できる。</p>
+<p><code>apply</code>メソッドが定義されているので、<code>str(2)</code> のように<a href="../list/get.html#scala">配列の要素へのアクセス</a>と同じように文字を取得できる。</p>
 
 <p><code>StringLike#apply</code> は内部ではJavaの <code>String#charAt</code> を呼び出している。</p>
 
@@ -119,6 +121,8 @@ def apply(index: Int): Char
 
 <pre><code>"abc"(2) // =&gt; 'c'
 </code></pre>
+
+<p>文字列(<code>java.lang.String</code>)はイミュータブルなので、文字を取得できるのみで、書き換えることはできない。</p>
 
 <h2 id="28801a2">Groovy
 <span class="article-date">2014/11/19</span></h2>
@@ -174,9 +178,9 @@ PHP 5.3までだとなぜか <code>$str[0][0]</code> からはエラーになる
 <p>このコードをPHP 5.4以前で実行すると <code>PHP Parse error:  syntax error, unexpected '['</code> というエラーになる。</p>
 
 <h2 id="668d9a9">Python
-<span class="article-date">2014/07/02</span></h2>
+<span class="article-date">2015/02/15</span></h2>
 
-<p>文字列の中の文字はリストやタプルと同じように <code>[]</code> でアクセスできる。</p>
+<p>文字列の中の文字は、<a href="../list/get.html#python">リストやタプルから要素を取得</a>するのと同じように <code>[]</code> でアクセスできる。</p>
 
 <pre><code>str[index]
 </code></pre>
@@ -191,7 +195,11 @@ PHP 5.3までだとなぜか <code>$str[0][0]</code> からはエラーになる
 </code></pre>
 
 <h2 id="6b6cc98">Ruby
-<span class="article-date">2013/10/18</span></h2>
+<span class="article-date">2015/02/15</span></h2>
+
+<p>文字列の中の文字は、<a href="../list/get.html#ruby">配列から要素を取得</a>するのと同じように <code>[]</code> でアクセスできる。</p>
+
+<p>文字というデータ型はないので、取得した結果も文字列である。</p>
 
 <pre><code>str = "abcあいう"
 
@@ -200,7 +208,12 @@ p str[4] # =&gt; "い"
 p str[4].class # =&gt; String
 </code></pre>
 
-<p>文字というデータ型はないので、取得した結果も文字列である。</p>
+<p>文字を書き換えることもできる。しかも1文字を2文字以上に置き換えることもできる。</p>
+
+<pre><code>str = "abcあいう"
+str[4] = "II"
+p str # =&gt; abcあIIう
+</code></pre>
 
 <h2 id="5405ebe">Perl
 <span class="article-date">2014/08/22</span></h2>

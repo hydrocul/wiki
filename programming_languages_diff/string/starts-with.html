@@ -2,8 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="refresh" content="0;URL=starts-with-ends-with.html" />
-<title>特定の文字や文字列で始まっているかどうかを見るには (startsWith) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -15,16 +14,142 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>特定の文字や文字列で始まっているかどうかを見るには (startsWith)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</span>
 </div>
 <div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/string/">文字列</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
+          <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
+          <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
+          <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
+          <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
+          <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
+          <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith, endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
+          <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
+          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
+          <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
+          <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
+          <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
+          <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
+          <li>文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</li>
+          <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
+          <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-upper-lower.html">Unicodeの仕様に基づいた大文字小文字を変換するには</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
 </div>
 
 <div id="content">
-  <h1 id="starts-with">特定の文字や文字列で始まっているかどうかを見るには (startsWith)</h1>
+  <h1 id="starts-with">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</h1>
 
-<p>-&gt; <a href="starts-with-ends-with.html">startsWith / endsWith</a>。</p>
+<h2 id="c0345f6">Java / Scala
+<span class="article-date">2013/04/10</span></h2>
 
+<p>Signature:</p>
+
+<pre><code>// java.lang.String
+String startsWith(String prefix)
+String startsWith(String prefix, int offset)
+</code></pre>
+
+<h2 id="8b940f4">PHP
+<span class="article-date">2013/07/23</span></h2>
+
+<p>よく使う方法。</p>
+
+<pre><code>strpos($str, $prefix) === 0
+</code></pre>
+
+<p>ただ、<code>$str</code>が長い文字列の時にいちいち<code>$str</code>を全部なめてしまい効率よくなさそう。</p>
+
+<h2 id="0980cdf">Python
+<span class="article-date">2014/10/26</span></h2>
+
+<p>文字列にある <code>startswith</code>メソッド、<code>endswith</code>メソッドを使う。</p>
+
+<p>例</p>
+
+<pre><code>str = "abcabc"
+
+print str.startswith("ab")
+# =&gt; True
+
+print str.startswith("bc")
+# =&gt; False
+</code></pre>
+
+<p><code>string.startswith</code> | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/library/stdtypes.html#str.startswith" target="_blank">http://docs.python.jp/2/library/stdtypes.html#str.startswith</a></p>
+
+<p><code>string.startswith</code> | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/library/stdtypes.html#str.startswith" target="_blank">http://docs.python.jp/3/library/stdtypes.html#str.startswith</a></p>
+
+<h2 id="ba22f12">Ruby
+<span class="article-date">2013/04/10</span></h2>
+
+<pre><code>str.start_with?(prefix)
+</code></pre>
+
+<h2 id="45ac0dd">Perl
+<span class="article-date">2014/12/24</span></h2>
+
+<p>文字列の先頭にマッチする正規表現の <code>\A</code> を使う。</p>
+
+<pre><code>print "abc" =~ /\Aab/; # =&gt; 1
+</code></pre>
+
+<p>prefixが可変の場合は以下のようにするとできる。</p>
+
+<pre><code>if ($str =~ ('\A' . quotemeta($prefix))) {
+    print "match\n";
+} else {
+    print "unmatch\n";
+}
+</code></pre>
+
+<p>上記例のように正規表現全体を <code>()</code> で囲む必要があり、囲まないと <code>=~</code> のほうが先に結合してしまって、常にmatchしてしまう。</p>
+
+<h2 id="c3bd6c7">JavaScript
+<span class="article-date">2013/04/10</span></h2>
+
+<p>よく使う方法。</p>
+
+<pre><code>str.indexOf(prefix) == 0
+</code></pre>
+
+<p>ただ、これだと、<code>str</code>が長い文字列の時にいちいち<code>str</code>の最後までなめるのが効率よくなさそう。</p>
 
 </div>
 

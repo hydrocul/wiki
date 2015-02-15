@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>バイナリのハッシュを計算するには (md5, sha1) | 文字列 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>バイナリのハッシュを計算するには (md5, sha1) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -52,8 +52,10 @@
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li>バイナリのハッシュを計算するには (md5, sha1)</li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
@@ -106,10 +108,10 @@ echo sha1("あいうえお");
 </code></pre>
 
 <p><code>md5</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net//manual/ja/function.md5.php" target="_blank">http://www.php.net//manual/ja/function.md5.php</a></p>
+<a href="http://php.net/manual/ja/function.md5.php" target="_blank">http://php.net/manual/ja/function.md5.php</a></p>
 
 <p><code>sha1</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net//manual/ja/function.sha1.php" target="_blank">http://www.php.net//manual/ja/function.sha1.php</a></p>
+<a href="http://php.net/manual/ja/function.sha1.php" target="_blank">http://php.net/manual/ja/function.sha1.php</a></p>
 
 <h2 id="073b519">Python
 <span class="article-date">2014/06/14</span></h2>
@@ -160,7 +162,7 @@ print md5_hex(encode('utf-8', "あいうえお"));
 <p>MD5はバイナリを元に計算するので、文字列は<code>encode</code>関数でバイナリに変換する必要がある。</p>
 
 <h2 id="cf20ce5">sh
-<span class="article-date">2014/06/14</span></h2>
+<span class="article-date">2015/02/15</span></h2>
 
 <p>以下のように <a href="../../commands/md5sum.html"><code>md5sum</code> コマンド</a>でMD5を計算でき、
 <a href="../../commands/sha1sum.html"><code>sha1sum</code> コマンド</a>でSHA1を計算できる。</p>
@@ -171,6 +173,8 @@ print md5_hex(encode('utf-8', "あいうえお"));
 $ echo -n "あいうえお" | sha1sum
 4ab0856318af20fa77d4492684fb8d9789e00cb6  -
 </code></pre>
+
+<p><code>echo</code>に<code>-n</code>を付けているのは最後に改行を付けられるのを防ぐため。</p>
 
 </div>
 

@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -52,8 +52,10 @@
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
@@ -72,113 +74,8 @@
 <div id="content">
   <h1 id="starts-with-ends-with">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith, endsWith)</h1>
 
-<h2 id="bf5b877">Java / Scala
-<span class="article-date">2013/04/10</span></h2>
-
-<p>Signature:</p>
-
-<pre><code>// java.lang.String
-String startsWith(String prefix)
-String startsWith(String prefix, int offset)
-String endsWith(String suffix)
-</code></pre>
-
-<h2 id="0a2ff0b">PHP
-<span class="article-date">2013/07/23</span></h2>
-
-<p>startsWithに相当するよく使う方法。</p>
-
-<pre><code>strpos($str, $prefix) === 0
-</code></pre>
-
-<p>endsWithに相当するよく使う方法。</p>
-
-<pre><code>strrpos($str, $suffix) === strlen($str) - strlen($suffix)
-</code></pre>
-
-<p>ただ、これらは、<code>$str</code>が長い文字列の時にいちいち<code>$str</code>を全部なめてしまい効率よくなさそう。</p>
-
-<h2 id="3b34aaf">Python
-<span class="article-date">2014/10/26</span></h2>
-
-<p>文字列にある <code>startswith</code>メソッド、<code>endswith</code>メソッドを使う。</p>
-
-<p>例</p>
-
-<pre><code>str = "abcabc"
-
-print str.startswith("ab")
-# =&gt; True
-
-print str.startswith("bc")
-# =&gt; False
-
-print str.endswith("ab")
-# =&gt; False
-
-print str.endswith("bc")
-# =&gt; True
-</code></pre>
-
-<p><code>string.startswith</code> | Python 2.7 documentation<br />
-<a href="http://docs.python.jp/2/library/stdtypes.html#str.startswith" target="_blank">http://docs.python.jp/2/library/stdtypes.html#str.startswith</a></p>
-
-<p><code>string.endswith</code> | Python 2.7 documentation<br />
-<a href="http://docs.python.jp/2/library/stdtypes.html#str.endswith" target="_blank">http://docs.python.jp/2/library/stdtypes.html#str.endswith</a></p>
-
-<p><code>string.startswith</code> | Python 3 documentation<br />
-<a href="http://docs.python.jp/3/library/stdtypes.html#str.startswith" target="_blank">http://docs.python.jp/3/library/stdtypes.html#str.startswith</a></p>
-
-<p><code>string.endswith</code> | Python 3 documentation<br />
-<a href="http://docs.python.jp/3/library/stdtypes.html#str.endswith" target="_blank">http://docs.python.jp/3/library/stdtypes.html#str.endswith</a></p>
-
-<h2 id="c49a5a6">Ruby
-<span class="article-date">2013/04/10</span></h2>
-
-<pre><code>str.start_with?(prefix)
-
-str.end_with?(suffix)
-</code></pre>
-
-<h2 id="a5431b2">Perl
-<span class="article-date">2014/12/24</span></h2>
-
-<p>文字列の先頭にマッチする正規表現の <code>\A</code> または最後にマッチする正規表現 <code>\z</code> を使う。</p>
-
-<p>例</p>
-
-<pre><code>print "abc" =~ /\Aab/; # =&gt; 1
-
-print "abc" =~ /bc\z/; # =&gt; 1
-</code></pre>
-
-<p>prefixやsuffixが可変の場合は以下のようにするとできる。</p>
-
-<pre><code>if ($str =~ ('\A' . quotemeta($prefix))) {
-    print "match\n";
-} else {
-    print "unmatch\n";
-}
-</code></pre>
-
-<p>上記例のように正規表現全体を <code>()</code> で囲む必要があり、囲まないと <code>=~</code> のほうが先に結合してしまって、常にmatchしてしまう。</p>
-
-<h2 id="af51275">JavaScript
-<span class="article-date">2013/04/10</span></h2>
-
-<p>startsWithに相当するよく使う方法。</p>
-
-<pre><code>str.indexOf(prefix) == 0
-</code></pre>
-
-<p>ただ、これだと、<code>str</code>が長い文字列の時にいちいち<code>str</code>の最後までなめるのが効率よくなさそう。</p>
-
-<p>endsWithに相当するよく使う方法。</p>
-
-<pre><code>str.substr(str.length - prefix.length) == prefix
-</code></pre>
-
-<p>ただ、これだと、<code>prefix</code>が<code>str</code>より長い場合にどうなることやら。</p>
+<p>-&gt; <a href="starts-with.html">特定の文字や文字列で始まっているかどうかを見るには</a>
+-&gt; <a href="ends-with.html">特定の文字や文字列で終わっているかどうかを見るには</a></p>
 
 </div>
 

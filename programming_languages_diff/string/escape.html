@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -52,8 +52,10 @@
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
@@ -102,19 +104,20 @@
 U+10000以上はサロゲートペアを使う必要がある。</dd>
 </dl>
 
-<h3 id="3fd6e17">Unicodeエスケープ</h3>
-
-<p>-&gt; <a href="unicode-escape.html#java">Unicodeエスケープ</a></p>
-
 <h2 id="3e2a23f">Scala
-<span class="article-date">2013/10/16</span></h2>
+<span class="article-date">2015/02/15</span></h2>
 
-<p>Javaと同じ。<a href="unicode-escape.html#java">Unicodeエスケープ</a>が使えるのも同じ。</p>
+<p>ダブルクオーテーション1つの文字列リテラル <code>"..."</code> では
+Javaとまったく同じエスケープシーケンスを使える。</p>
+
+<p><a href="unicode-escape.html#java">Unicodeエスケープ</a>が文字列リテラルにかぎらずソースコード中の任意の場所で使えるのもJavaと同じ。</p>
+
+<p>ダブルクオーテーション3つの文字列リテラル <code>"""..."""</code> ではUnicodeエスケープ以外のエスケープが効かない。この種類の文字列リテラルはJavaにはない。</p>
 
 <h2 id="77f7831">PHP
-<span class="article-date">2014/11/19</span></h2>
+<span class="article-date">2015/02/15</span></h2>
 
-<p><code>'</code> で囲めば、エスケープが必要になるのは <code>'</code> と <code>\</code> のみになる。<code>'\n'</code> などと書いても <code>\n</code> そのものになって改行にはならない。つまり <code>'</code> で囲まれている場合、 <code>\</code> の次に <code>'</code> または <code>\</code> 以外が来ても特別な意味にはならない。</p>
+<p>シングルクオーテーションの文字列リテラル <code>'...'</code> は、エスケープが必要になるのは <code>'</code> と <code>\</code> のみになる。<code>'\n'</code> などと書いても <code>\n</code> そのものになって改行にはならない。つまり <code>'</code> で囲まれている場合、 <code>\</code> の次に <code>'</code> または <code>\</code> 以外が来ても特別な意味にはならない。</p>
 
 <pre><code>echo 'aaa\nttt'; // =&gt; aaa\nttt // \n は改行にはならない
 echo 'aaa\'ttt'; // =&gt; aaa'ttt
@@ -122,7 +125,7 @@ echo 'aaa\ttt'; // =&gt; aaa\ttt // \t はタブにはならずに \t のまま
 echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
 </code></pre>
 
-<p><code>"</code> で囲んだ文字列は、以下のエスケープが使える。</p>
+<p>ダブルクオーテーションの文字列リテラル <code>"..."</code> は、以下のエスケープが使える。</p>
 
 <dl>
   <dt><code>\0</code></dt>
@@ -154,12 +157,12 @@ echo 'aaa\\ttt'; // =&gt; aaa\ttt // \\ は \ になる
 <a href="http://php.net/manual/ja/language.types.string.php" target="_blank">http://php.net/manual/ja/language.types.string.php</a></p>
 
 <h2 id="python">Python
-<span class="article-date">2014/11/19</span></h2>
+<span class="article-date">2015/02/15</span></h2>
 
-<p><code>'</code> で囲んだ文字列も <code>"</code> で囲んだ文字列も同じエスケープが使える。三重引用符(トリプルクオート) <code>'''</code>, <code>"""</code> で囲んでも同じ。</p>
+<p>シングルクオーテーションの文字列リテラル <code>'...'</code> もダブルクオーテーションの文字列リテラル <code>"..."</code> も同じエスケープが使える。三重引用符(トリプルクオート、シングルクオーテーション3つまたはダブルクオーテーション3つ)の文字列リテラル <code>'''...'''</code>, <code>"""..."""</code> も同じ。</p>
 
-<p><code>'</code>, <code>"</code>, <code>'''</code>, <code>"""</code> の前に <code>r</code> または <code>R</code> をプレフィックスとしてつけると、
-raw文字列というものになり、バックスラッシュによるエスケープシーケンスが無効になる。ただ、<code>\'</code> または <code>\"</code> は <code>'</code>, <code>"</code> になったりせずに <code>\'</code>, <code>\"</code> のままだが、文字列リテルの終端の意味だけはなくなる。従ってraw文字列はバックスラッシュで終わる文字列を書くことができない。このようにraw文字列はPHPの <code>'</code> とは少しだけ挙動が異なる。</p>
+<p><code>'</code>, <code>"</code>, <code>'''</code>, <code>"""</code> の直前に <code>r</code> または <code>R</code> をプレフィックスとしてつけると、
+raw文字列というものになり、バックスラッシュによるエスケープシーケンスが無効になる。ただし、<code>\'</code> または <code>\"</code> は <code>'</code> や <code>"</code> になったりせずに <code>\'</code> や <code>\"</code> のままだが、文字列リテルの終端の意味だけはエスケープされる。結果的にraw文字列はバックスラッシュで終わる文字列を書くことができない。このようにraw文字列はPHPの <code>'...'</code> とは少しだけ挙動が異なる。</p>
 
 <p>Python2で<code>ur</code>(大文字小文字区別なく)を付けると、raw文字列であっても
 <code>\u</code>hhhh と <code>\U</code>hhhhhhhh のエスケープシーケンスだけは使える。</p>
@@ -193,14 +196,15 @@ raw文字列というものになり、バックスラッシュによるエス�
   <dd>ASCII文字を16進数表記2桁で表現</dd>
   <dt><code>\u</code>hhhh</dt>
   <dd>16ビットまでのUnicodeを16進数表記4桁で表現。
-Python2ではUnicode文字列リテラル(<code>u"..."</code>)の中でのみ使用可能。
+Python2ではUnicode文字列リテラルの中でのみ使用可能。
+Unicode文字列リテラルとは、<code>u"..."</code> または <code>ur"..."</code> のように <code>u</code> または <code>ur</code> を前置した文字列リテラルのこと。
 Python2のそれ以外の文字列ではエスケープされずそのまま文字列になる。
 Javaと違い、<code>\u</code>hhhh は文字列の中でのみ使えるエスケープシーケンスである。
 16ビットを超える拡張領域のUnicodeはサロゲートペアを使うのではなく下の <code>\U00</code>hhhhhh を使う。</dd>
   <dt><code>\U00</code>hhhhhh</dt>
   <dd>Unicodeを16進数表記8桁で表現。
 Unicodeは最大で21ビットなので、最初の2桁は常に<code>0</code>にせざるを得ない気がする。
-Python2ではUnicode文字列リテラル(<code>u"..."</code>)の中でのみ使用可能。
+Python2ではUnicode文字列リテラルの中でのみ使用可能。
 Python2のそれ以外の文字列ではエスケープされずそのまま文字列になる。</dd>
 </dl>
 
@@ -208,7 +212,7 @@ Python2のそれ以外の文字列ではエスケープされずそのまま文�
 
 <p>エスケープシーケンスとして成立しない不適切な <code>\</code> があると、それはエスケープされずにそのまま文字列の一部になる。</p>
 
-<p>三重引用符(トリプルクオート) <code>'''</code>, <code>"""</code> での文字列は、改行や三重でない引用符 <code>'</code>, <code>"</code> はエスケープ処理しなくてもそのまま使える。</p>
+<p>三重引用符(トリプルクオート) <code>'''...'''</code>, <code>"""..."""</code> での文字列は、改行や三重でない引用符 <code>'</code>, <code>"</code> はエスケープ処理しなくてもそのまま使える。</p>
 
 <p>文字列リテラル | Python 2.7 documentation<br />
 <a href="http://docs.python.jp/2/reference/lexical_analysis.html#strings" target="_blank">http://docs.python.jp/2/reference/lexical_analysis.html#strings</a></p>
@@ -217,9 +221,9 @@ Python2のそれ以外の文字列ではエスケープされずそのまま文�
 <a href="http://docs.python.jp/3/reference/lexical_analysis.html#string-and-bytes-literals" target="_blank">http://docs.python.jp/3/reference/lexical_analysis.html#string-and-bytes-literals</a></p>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/11/19</span></h2>
+<span class="article-date">2015/02/15</span></h2>
 
-<p><code>"</code> で囲んだ文字列は、以下のエスケープが使える。</p>
+<p>ダブルクオーテーションの文字列リテラル <code>"..."</code> は、以下のエスケープが使える。シングルクオーテーションの文字列リテラル <code>'...'</code> ではエスケープが効かない。</p>
 
 <dl>
   <dt><code>\t</code></dt>
@@ -259,7 +263,7 @@ Javaと違い、<code>\u</code>hhhh は文字列の中でのみ使えるエス�
 <a href="unicode-escape.html#ruby">Unicodeエスケープ</a>参照。</dd>
 </dl>
 
-<p>他の言語と違って、<code>'</code> または <code>"</code> のどちらで囲んでも途中に改行を直接入れることができる。ただし <code>"</code> の場合、改行の直前にバックスラッシュ(<code>\</code>)を置くと、バックスラッシュと改行がなかったことになる。</p>
+<p>他の言語と違って、ダブルクオーテーションの文字列リテラル <code>'...'</code> とシングルクオーテーションの文字列リテラル <code>"..."</code> のどちらでも途中に改行を直接入れることができる。ただし <code>"..."</code> の場合、改行の直前にバックスラッシュ(<code>\</code>)を置くと、バックスラッシュと改行がなかったことになる。</p>
 
 <pre><code>p "あい
 うえお"
@@ -290,6 +294,65 @@ p 'あい\
 
 <p>バックスラッシュ記法 | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/doc/spec=2fliteral.html#backslash" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/doc/spec=2fliteral.html#backslash</a></p>
+
+<h2 id="607e916">Perl
+<span class="article-date">2015/02/15</span></h2>
+
+<p>ダブルクオーテーションの文字列リテラル <code>"..."</code> または <code>qq/.../</code> は、以下のエスケープが使える。シングルクオーテーションの文字列リテラル <code>'...'</code> または <code>q/.../</code> ではエスケープが効かない。</p>
+
+<p>文字列リテラル以外にも外部コマンドを実行するバッククオート <code>`...`</code> または <code>qx/.../</code> でも以下のエスケープが使える。</p>
+
+<dl>
+  <dt><code>\a</code></dt>
+  <dd>0x07 ベル</dd>
+  <dt><code>\b</code></dt>
+  <dd>0x08 バックスペース</dd>
+  <dt><code>\t</code></dt>
+  <dd>0x09 タブ</dd>
+  <dt><code>\n</code></dt>
+  <dd>0x0a LF</dd>
+  <dt><code>\f</code></dt>
+  <dd>0x0c</dd>
+  <dt><code>\r</code></dt>
+  <dd>0x0d CR</dd>
+  <dt><code>\e</code></dt>
+  <dd>0x1B ESC</dd>
+  <dt><code>\$</code></dt>
+  <dd><code>$</code>。<a href="inline.html#perl">変数展開</a>を回避するために <code>$</code> はエスケープが必要。</dd>
+  <dt><code>\@</code></dt>
+  <dd><code>@</code>。<a href="inline.html#perl">変数展開</a>を回避するために <code>@</code> はエスケープが必要。</dd>
+  <dt><code>\c</code>c</dt>
+  <dd><code>\c</code> のあとに続く文字によって制御文字を表現。文字がアルファベットの場合大文字小文字を区別しない。<br />
+<code>\c@</code>: <code>\x00</code><br />
+<code>\cA</code>: <code>\x01</code><br />
+<code>\cB</code>: <code>\x02</code><br />
+…<br />
+<code>\cZ</code>: <code>\x1A</code><br />
+<code>\c[</code>: <code>\x1B</code><br />
+<code>\c\</code>: <code>\x1C</code><br />
+<code>\c]</code>: <code>\x1D</code><br />
+<code>\c^</code>: <code>\x1E</code><br />
+<code>\c_</code>: <code>\x1F</code><br />
+<code>\c?</code>: <code>\x7F</code></dd>
+  <dt><code>\o{</code>ooo<code>}</code></dt>
+  <dd>Unicode文字を8進数で表現。これはPerl5.14以降の機能</dd>
+  <dt><code>\</code>ooo</dt>
+  <dd>Unicode文字を8進数で表現</dd>
+  <dt><code>\x</code>hh</dt>
+  <dd>ASCII文字を16進数表記1桁または2桁で表現</dd>
+  <dt><code>\x{</code>hhhh<code>}</code></dt>
+  <dd>Unicodeの文字をコードポイント16進数表記6桁までで表現</dd>
+  <dt><code>\N{</code>name<code>}</code></dt>
+  <dd>Unicodeの文字をUnicode文字名で表現</dd>
+  <dt><code>\N{U+</code>hhhh<code>}</code></dt>
+  <dd>Unicodeの文字をコードポイント16進数表記6桁までで表現</dd>
+</dl>
+
+<p><code>\x1C</code> を表す <code>\c\</code> の2つ目のバックスラッシュはさらにエスケープする必要はなく、単独でよいのだが、その後に続く文字をエスケープする場合があるみたいで、よくわからない。</p>
+
+<p>Pythonにもある垂直タブ0x0bのための特別なエスケープシーケンスはない。</p>
+
+<p><code>"</code> で囲んだ文字列の中では <code>@</code> も配列として展開されてしまうので、メールアドレスを文字列で表現したい場合には、<code>'</code> を使うのが無難。</p>
 
 <h2 id="sh">sh
 <span class="article-date">2013/09/12</span></h2>
