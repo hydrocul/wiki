@@ -300,7 +300,10 @@ p 'あい\
 
 <p>ダブルクオーテーションの文字列リテラル <code>"..."</code> または <code>qq/.../</code> は、以下のエスケープが使える。シングルクオーテーションの文字列リテラル <code>'...'</code> または <code>q/.../</code> ではエスケープが効かない。</p>
 
-<p>文字列リテラル以外にも外部コマンドを実行するバッククオート <code>`...`</code> または <code>qx/.../</code> でも以下のエスケープが使える。</p>
+<p>文字列リテラル以外にも外部コマンドを実行する<a href="../process/backticks.html#perl">バッククオート</a> 
+<code>`...`</code> または <code>qx/.../</code> でも以下のエスケープが使える。</p>
+
+<p>シングルクオーテーションの文字列リテラル <code>'...'</code> は、エスケープが必要になるのは <code>'</code> と <code>\</code> のみになる。<code>'\n'</code> などと書いても <code>\n</code> そのものになって改行にはならない。つまり <code>'</code> で囲まれている場合、 <code>\</code> の次に <code>'</code> または <code>\</code> 以外が来ても特別な意味にはならない。</p>
 
 <dl>
   <dt><code>\a</code></dt>
@@ -353,6 +356,11 @@ p 'あい\
 <p>Pythonにもある垂直タブ0x0bのための特別なエスケープシーケンスはない。</p>
 
 <p><code>"</code> で囲んだ文字列の中では <code>@</code> も配列として展開されてしまうので、メールアドレスを文字列で表現したい場合には、<code>'</code> を使うのが無難。</p>
+
+<p>その他にも特別な意味のあるエスケープシーケンスとして <code>\l</code>, <code>\u</code>, <code>\L</code>, <code>\U</code>, <code>\F</code>, <code>\Q</code>, <code>\E</code> がある。</p>
+
+<p>クォートとクォート風の演算子 | perldoc.jp<br />
+<a href="http://perldoc.jp/docs/perl/5.18.1/perlop.pod#Quote32and32Quote-like32Operators" target="_blank">http://perldoc.jp/docs/perl/5.18.1/perlop.pod#Quote32and32Quote-like32Operators</a></p>
 
 <h2 id="sh">sh
 <span class="article-date">2013/09/12</span></h2>

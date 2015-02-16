@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -54,6 +54,7 @@
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
       <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+      <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
@@ -100,7 +101,7 @@
 <p>テキストファイルの中身をターミナル上でスクロールしながら閲覧できるコマンド。表示中はスペースで下にスクロール、<code>b</code> で上にスクロールできる。</p>
 
 <h2 id="cc7b066">オプション
-<span class="article-date">2013/08/06</span></h2>
+<span class="article-date">2015/02/16</span></h2>
 
 <dl>
   <dt><code>-N</code></dt>
@@ -109,10 +110,14 @@
   <dd>less 終了時に画面をクリアしない。</dd>
   <dt><code>-F</code></dt>
   <dd>行数が短くて位置画面に収まる場合は less がすぐに終了する。</dd>
+  <dt><code>-r</code></dt>
+  <dd>エスケープシーケンスなどのバイナリをエスケープシーケンスとして解釈せずに、
+そのまま出力される。</dd>
   <dt><code>-R</code></dt>
-  <dd>色などのエスケープシーケンスをそのとおりに解釈して
-色付きで表示する。 <a href="ls.html"><code>ls</code></a> は <code>--color</code> を付け、 
-<a href="grep.html"><code>grep</code></a> は <code>--color=always</code> を付けると
+  <dd>色のエスケープシーケンスをそのとおりに解釈して
+色付きで表示する。 色以外のエスケープシーケンスは解釈せず、
+そのまま出力される。
+<a href="ls.html"><code>ls</code></a> は <code>--color</code>、 <a href="grep.html"><code>grep</code></a> は <code>--color=always</code> を付けると
 色付きで出力される。</dd>
   <dt><code>-S</code></dt>
   <dd>長い行を折り返さずに横方向にもページングできるようにする。</dd>

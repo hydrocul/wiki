@@ -52,8 +52,10 @@
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li>文字列を数値に変換するには (parseInt / toInt)</li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
@@ -194,9 +196,9 @@ p "27".to_i(16)
 </code></pre>
 
 <h2 id="ba8d40a">Perl
-<span class="article-date">2014/11/03</span></h2>
+<span class="article-date">2015/02/15</span></h2>
 
-<p>Perlのスカラには文字列か数字かの区別はなく、数字を前提とした演算子に文字列のスカラを与えると数字として振舞おうとするので、明示的に変換する必要はない。</p>
+<p>Perlのスカラには文字列か数字かの区別はなく、数字を前提とした演算子に文字列のスカラを与えると数字として振舞おうとするので、明示的に変換する必要はない。その代わり比較演算子などは数字と文字列とで別々の演算子になっている。</p>
 
 <p>16進数表記の文字列を数字に変換するには <code>hex</code> を使う。</p>
 
