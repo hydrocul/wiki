@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -52,8 +52,10 @@
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
@@ -71,6 +73,25 @@
 
 <div id="content">
   <h1 id="multiply">同じ文字列を繰り返して連結するには</h1>
+
+<h2 id="fb32250">Go言語 (golang)
+<span class="article-date">2015/02/16</span></h2>
+
+<p><code>strings</code>パッケージの<code>Repeat</code>関数を使う。</p>
+
+<pre><code>package main
+
+import "fmt"
+import "strings"
+//import "math/rand"
+//import "time"
+
+func main() {
+    str := "abc"
+    fmt.Println(strings.Repeat(str, 3));
+    // =&gt; abcabcabc
+}
+</code></pre>
 
 <h2 id="3a9fc0c">Scala
 <span class="article-date">2013/11/28</span></h2>

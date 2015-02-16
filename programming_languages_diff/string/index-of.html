@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -52,8 +52,10 @@
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
@@ -70,10 +72,40 @@
 </div>
 
 <div id="content">
-  <h1 id="index-of">部分文字列を検索するには (indexOf, lastIndexOf)</h1>
+  <h1 id="index-of">部分文字列を検索するには (indexOf, lastIndexOf)
+<span class="article-date">2015/02/16</span></h1>
+
+<p>文字列の中から特定の部分文字列を検索する方法。</p>
+
+<h2 id="692e7c5">Go言語 (golang)
+<span class="article-date">2015/02/16</span></h2>
+
+<p><code>strings</code>パッケージの<code>Index</code>関数または<code>LastIndex</code>関数を使う。
+<code>Index</code>関数は前から検索し、<code>LastIndex</code>関数は後ろから検索する。</p>
+
+<p>いずれも見つからない場合は <code>-1</code> を返す。</p>
+
+<pre><code>package main
+
+import "fmt"
+import "strings"
+
+func main() {
+    str := "abcabc!"
+    fmt.Printf("%d\n", strings.Index(str, "bc"))
+    // =&gt; 1
+    fmt.Printf("%d\n", strings.LastIndex(str, "bc"))
+    // =&gt; 4
+}
+</code></pre>
 
 <h2 id="7a05641">Java / Scala / Groovy
-<span class="article-date">2014/11/30</span></h2>
+<span class="article-date">2015/02/16</span></h2>
+
+<p><code>String</code>クラスの<code>indexOf</code>メソッドまたは<code>lastIndexOf</code>メソッドを使う。
+<code>indexOf</code>メソッドは前から検索し、<code>lastIndexOf</code>メソッドは後ろから検索する。</p>
+
+<p>いずれも見つからない場合は <code>-1</code> を返す。</p>
 
 <p>Signature:</p>
 
@@ -88,8 +120,6 @@ int lastIndexOf(int ch, int fromIndex)
 int lastIndexOf(String str)
 int lastIndexOf(String str, int fromIndex)
 </code></pre>
-
-<p>いずれも見つからない場合は <code>-1</code> を返す。</p>
 
 <p><code>lastIndexOf</code> で <code>fromIndex</code> を指定すると、そのインデックスより前を走査する。</p>
 
