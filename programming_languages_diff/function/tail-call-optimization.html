@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>末尾最適化 (Tail Call Optimization) | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>末尾呼び出し最適化 (Tail Call Optimization) | 関数・メソッド | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,11 +14,11 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>末尾最適化 (Tail Call Optimization)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/function/">関数・メソッド</a> &gt; <span>末尾呼び出し最適化 (Tail Call Optimization)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -35,7 +35,7 @@
           <li><a href="../../programming_languages_diff/function/return-tuple.html">複数の返り値(多値返却)</a></li>
           <li><a href="../../programming_languages_diff/function/var-args.html">可変長引数やさまざまな引数の渡し方</a></li>
           <li><a href="../../programming_languages_diff/function/shortage-of-argument.html">関数呼び出し時に引数が足りない場合</a></li>
-          <li>末尾最適化 (Tail Call Optimization)</li>
+          <li>末尾呼び出し最適化 (Tail Call Optimization)</li>
           <li><a href="../../programming_languages_diff/function/name-binding.html">関数の内側から外側のスコープの変数にアクセスできるかどうか</a></li>
           <li><a href="../../programming_languages_diff/function/args-tuple.html">タプルで複数の引数をまとめて渡すには</a></li>
         </ul>
@@ -48,7 +48,7 @@
 </div>
 
 <div id="content">
-  <h1 id="tail-call-optimization">末尾最適化 (Tail Call Optimization)</h1>
+  <h1 id="tail-call-optimization">末尾呼び出し最適化 (Tail Call Optimization)</h1>
 
 <h2 id="2ef5b1f">C言語, C++
 <span class="article-date">2013/10/08</span></h2>
@@ -90,6 +90,7 @@ def fib(n: Int): Int = {
 
 // 末尾再帰のフィボナッチ
 def fib_r(n: Int): Int = fib_r_sub(n, 1, 0);
+
 @tailrec
 def fib_r_sub(n: Int, a: Int, b: Int): Int = {
   if (n &lt;= 1) {
@@ -119,9 +120,76 @@ println(fib_r(8));
 <p>末尾の関数コールの最適化はしてくれない。</p>
 
 <h2 id="6bd738a">Ruby
-<span class="article-date">2013/10/08</span></h2>
+<span class="article-date">2015/02/17</span></h2>
+
+<p>標準では末尾の関数コールの最適化はしてくれないが、Ruby 2.0.0以降ではオプションで最適化を有効にできる。</p>
+
+<p>フィボナッチ数列を計算する例 (この例では再帰が浅すぎて最適化してなくても実行できてしまうが)</p>
+
+<pre><code>RubyVM::InstructionSequence.compile_option = {
+  tailcall_optimization: true,
+  trace_instruction: false
+}
+
+RubyVM::InstructionSequence.new(&lt;&lt;-'EOF').eval
+
+  def fib_r(n)
+    fib_r_sub(n, 1, 0)
+  end
+
+  def fib_r_sub(n, a, b)
+    if n &lt;= 1
+      a
+    elsif n == 2
+      a + b
+    else
+      fib_r_sub(n - 1, a + b, a)
+    end
+  end
+
+  p fib_r(8)
+  # =&gt; 21
+
+EOF
+</code></pre>
+
+<p>3つのメソッドの相互再帰呼び出しの例 (無限再帰なので最適化が必須)</p>
+
+<pre><code>RubyVM::InstructionSequence.compile_option = {
+  tailcall_optimization: true,
+  trace_instruction: false
+}
+
+RubyVM::InstructionSequence.new(&lt;&lt;-'EOF').eval
+
+  def f(a)
+    puts "f: #{a}"
+    g(a + 1)
+  end
+
+  def g(a)
+    puts "g: #{a}"
+    h(a + 1)
+  end
+
+  def h(a)
+    puts "h: #{a}"
+    f(a + 1)
+  end
+
+  f(0)
+
+EOF
+</code></pre>
+
+<h2 id="24da423">JRuby
+<span class="article-date">2015/02/17</span></h2>
 
 <p>末尾の関数コールの最適化はしてくれない。</p>
+
+<p>上記のRubyのサンプルを実行しようとすると、
+<code>NameError: uninitialized constant RubyVM</code>
+というエラーが発生してしまう。</p>
 
 <h2 id="3082009">Perl
 <span class="article-date">2014/01/15</span></h2>
