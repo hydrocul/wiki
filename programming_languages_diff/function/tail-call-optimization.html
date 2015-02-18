@@ -122,7 +122,7 @@ println(fib_r(8));
 <h2 id="6bd738a">Ruby
 <span class="article-date">2015/02/17</span></h2>
 
-<p>標準では末尾の関数コールの最適化はしてくれないが、Ruby 2.0.0以降ではオプションで最適化を有効にできる。</p>
+<p>標準では末尾の関数コールの最適化はしてくれないが、最近のRubyではオプションで最適化を有効にできる。</p>
 
 <p>フィボナッチ数列を計算する例 (この例では再帰が浅すぎて最適化してなくても実行できてしまうが)</p>
 
@@ -181,6 +181,15 @@ RubyVM::InstructionSequence.new(&lt;&lt;-'EOF').eval
 
 EOF
 </code></pre>
+
+<p>以下のバージョンで試したが全部この方法で実行できた。</p>
+
+<ul>
+  <li>1.9.2-p330</li>
+  <li>1.9.3-p551</li>
+  <li>2.0.0-p598</li>
+  <li>2.1.5</li>
+</ul>
 
 <h2 id="24da423">JRuby
 <span class="article-date">2015/02/17</span></h2>
