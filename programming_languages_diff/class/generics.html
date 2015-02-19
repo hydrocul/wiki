@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>総称型 / ジェネリクス | クラスとオブジェクト | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>総称型 / ジェネリクス | 型とクラスとオブジェクト | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,17 +14,17 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラスとオブジェクト</a> &gt; <span>総称型 / ジェネリクス</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">型とクラスとオブジェクト</a> &gt; <span>総称型 / ジェネリクス</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/class/">クラスとオブジェクト</a>
+      <li><a href="../../programming_languages_diff/class/">型とクラスとオブジェクト</a>
         <ul>
           <li><a href="../../programming_languages_diff/class/definition.html">クラスを定義するには</a></li>
           <li><a href="../../programming_languages_diff/class/new.html">インスタンスを生成するには</a></li>
@@ -63,15 +63,31 @@
 <p>型パラメータの表記はJavaと似ていて、<code>&lt;...&gt;</code> を使う。</p>
 
 <h2 id="2b1d5cd">Java
-<span class="article-date">2014/10/01</span></h2>
+<span class="article-date">2015/02/19</span></h2>
+
+<p>Genericsとか総称型とも言ったりする。</p>
 
 <p>「整数のリスト」は <code>List&lt;Integer&gt;</code> のように書く。</p>
 
 <p>Java7からは <code>&lt;...&gt;</code> の内側は省略できる場合もあり、中身が省略された <code>&lt;&gt;</code> をダイアモンド演算子という。</p>
 
-<p>例</p>
+<p>インスタンス生成の例</p>
 
 <pre><code>Map&lt;String, List&lt;Integer&gt;&gt; map = new HashMap&lt;&gt;();
+</code></pre>
+
+<p>クラス定義の例</p>
+
+<pre><code>public class FooClass&lt;A, B&gt; extends SuperClass {
+    ...
+}
+</code></pre>
+
+<p>メソッド定義の例</p>
+
+<pre><code>public &lt;A, B&gt; B bar(A a) {
+    ...
+}
 </code></pre>
 
 <h2 id="6dcfdcb">Scala
