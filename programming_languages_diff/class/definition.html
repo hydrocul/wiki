@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">クラスとオブジェクト</a> &gt; <span>クラスを定義するには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">型とクラスとオブジェクト</a> &gt; <span>クラスを定義するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -24,7 +24,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/class/">クラスとオブジェクト</a>
+      <li><a href="../../programming_languages_diff/class/">型とクラスとオブジェクト</a>
         <ul>
           <li>クラスを定義するには</li>
           <li><a href="../../programming_languages_diff/class/new.html">インスタンスを生成するには</a></li>
@@ -107,9 +107,10 @@ void FooClass::method1(){
 <p>またクラス宣言の中にはメンバ関数(メソッド)はシグニチャの宣言のみを書いて、メンバ関数の定義はクラス宣言の外側に書く。クラス宣言の外側ではクラス名とメソッド名を二重コロン(<code>::</code>)でつなぐ。普通はクラス宣言はヘッダファイルに書き、メンバ関数定義はソースファイルに書く。</p>
 
 <h2 id="e8f6b75">Java
-<span class="article-date">2014/10/27</span></h2>
+<span class="article-date">2015/02/20</span></h2>
 
-<p>例</p>
+<p>Javaのソースファイル名はクラス名と一致させないといけない。
+<code>FooClass</code>というクラスを定義したソースファイルであれば <code>FooClass.java</code> という名前のファイルである必要がある。内部クラスなどを除いて、1クラスに1ソースファイル必要である。</p>
 
 <pre><code>class FooClass extends SuperClass {
     
@@ -138,10 +139,6 @@ void FooClass::method1(){
     
 }
 </code></pre>
-
-<ul>
-  <li>クラスの中にクラスを定義することもできる。</li>
-</ul>
 
 <h2 id="11e8b3e">PHP
 <span class="article-date">2013/11/15</span></h2>
