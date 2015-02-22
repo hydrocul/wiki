@@ -103,6 +103,61 @@
 
 <p>配列の変数は配列の先頭を指すポインタのように振る舞う。</p>
 
+<h2 id="39bb19b">Go言語 (golang)
+<span class="article-date">2015/01/13</span></h2>
+
+<p>配列の仕組みとスライスというのがある。</p>
+
+<h3 id="6f97f5f">配列(Array)
+<span class="article-date">2015/02/22</span></h3>
+
+<p>配列の型は大きさと要素の型で表す。他の言語の配列と違って大きさも型の一部であり、大きさの異なる配列は型が違いう扱いになる。</p>
+
+<p>Go言語の配列はC言語の配列と違って、配列の先頭のポインタというわけではなく、配列の大きさの情報も含めた配列全体を表す。</p>
+
+<p>配列生成の例</p>
+
+<pre><code>arr := [...]string{"abc", "def", "ghi"}
+
+var arr = [...]string{"abc", "def", "ghi"}
+
+var arr [3]string = [...]string{"abc", "def", "ghi"}
+</code></pre>
+
+<p>以下のように初期化しないとすべての要素がゼロ値の配列になる。ゼロ値は、数値は<code>0</code>または<code>0.0</code>、<code>bool</code>型は<code>false</code>、文字列は空文字列(<code>""</code>)、ポインタやスライスなどは<code>nil</code>である。</p>
+
+<pre><code>var arr [3]string
+</code></pre>
+
+<h3 id="851bbf6">スライス(Slice)
+<span class="article-date">2015/02/22</span></h3>
+
+<p>スライス生成の例</p>
+
+<pre><code>sl := []string{"abc", "def", "ghi"}
+
+var sl = []string{"abc", "def", "ghi"}
+
+var sl []string = []string{"abc", "def", "ghi"}
+</code></pre>
+
+<p>以下の生成方法では、配列と同じく要素がゼロ値で初期化される。</p>
+
+<pre><code>sl := make([]int, size)
+
+var sl = make([]int, size)
+
+var sl []int = make([]int, size)
+</code></pre>
+
+<p><code>make</code>は組み込み関数で、1つ目の引数には型を渡す。このようにGo言語の組み込み関数の中には引数に型を受け取るものがある。</p>
+
+<p>以下のようにスライス自体を初期化しないと <code>nil</code> になる。</p>
+
+<pre><code>var sl []string
+// sl == nil
+</code></pre>
+
 <h2 id="java">Java
 <span class="article-date">2014/07/25</span></h2>
 

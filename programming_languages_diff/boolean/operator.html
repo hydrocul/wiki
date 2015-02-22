@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -40,6 +40,24 @@
 
 <div id="content">
   <h1 id="operator">論理演算子</h1>
+
+<h2 id="0c912b3">Go言語 (golang)
+<span class="article-date">2015/02/21</span></h2>
+
+<pre><code>// 論理積(AND) (短絡評価あり)
+x &amp;&amp; y
+
+// 論理和(OR) (短絡評価あり)
+x || y
+
+// 否定(NOT)
+!x
+</code></pre>
+
+<p>オペランドはPythonやRubyなどと違ってbool型に限られる。</p>
+
+<p><code>&amp;&amp;</code>, <code>||</code> は左の項から順番に評価し、演算子の結果として <code>true</code> か <code>false</code> のいずれかに決定した段階で評価をやめて <code>true</code> または <code>false</code> を返す
+(短絡評価、ショートサーキット評価)。</p>
 
 <h2 id="java">Java
 <span class="article-date">2014/08/18</span></h2>
