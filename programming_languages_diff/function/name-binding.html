@@ -51,15 +51,18 @@
   <h1 id="name-binding">関数の内側から外側のスコープの変数にアクセスできるかどうか</h1>
 
 <h2 id="920ffb1">Java
-<span class="article-date">2013/08/26</span></h2>
+<span class="article-date">2015/02/25</span></h2>
 
-<p>匿名クラスからはその外側のスコープの変数にアクセスできるが、変数の書き換えをすることはできない。</p>
+<p>Java8ではメソッド内に<a href="literal.html#java">ラムダ式</a>を書くことができるようになったが、
+Java7までは、メソッド定義の中に関数を書くことはできない。ただ、メソッド定義の中に内部クラスとそのメソッドを書くことはできる。</p>
+
+<p>その内側のメソッド(内部クラスのメソッド)からは、外側のメソッドの変数を参照することはできるが、変数の書き換えをすることはできない。</p>
 
 <p>Java7までは、その変数が <code>final</code> で指定されている必要がある。</p>
 
-<p>Java8からは、<code>final</code> 指定がなくてもよいが、実質 <code>final</code> である必要がある。つまり、その変数がどこからも書き換えられていないこと。</p>
+<p>Java8からは、<code>final</code> 指定がなくてもよいが、実質 <code>final</code> である必要がある。つまり、その変数がどこからも書き換えられていないことが必要である。</p>
 
-<p><a href="literal.html#java">Java8からのラムダ式</a>でも同じである。</p>
+<p>Java8からは<a href="literal.html#java">ラムダ式</a>を書けるが、外側の変数を書き換えられないのは同じである。</p>
 
 <h2 id="74802b5">PHP
 <span class="article-date">2013/11/16</span></h2>

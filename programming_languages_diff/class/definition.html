@@ -57,7 +57,7 @@
 
 <p>C言語にはクラスはないが、データ構造を作れる構造体というものがある。</p>
 
-<p>構造体の例</p>
+<p>構造体定義の例</p>
 
 <pre><code>struct FooStruct {
     /* フィールド宣言 */
@@ -69,7 +69,7 @@
 <h2 id="b6e3b6a">C++
 <span class="article-date">2014/01/26</span></h2>
 
-<p>例</p>
+<p>クラス定義の例</p>
 
 <pre><code>class FooClass : public SuperClass {
 
@@ -107,10 +107,9 @@ void FooClass::method1(){
 <p>またクラス宣言の中にはメンバ関数(メソッド)はシグニチャの宣言のみを書いて、メンバ関数の定義はクラス宣言の外側に書く。クラス宣言の外側ではクラス名とメソッド名を二重コロン(<code>::</code>)でつなぐ。普通はクラス宣言はヘッダファイルに書き、メンバ関数定義はソースファイルに書く。</p>
 
 <h2 id="e8f6b75">Java
-<span class="article-date">2015/02/20</span></h2>
+<span class="article-date">2015/02/25</span></h2>
 
-<p>Javaのソースファイル名はクラス名と一致させないといけない。
-<code>FooClass</code>というクラスを定義したソースファイルであれば <code>FooClass.java</code> という名前のファイルである必要がある。内部クラスなどを除いて、1クラスに1ソースファイル必要である。</p>
+<p>クラス定義の例</p>
 
 <pre><code>class FooClass extends SuperClass {
     
@@ -139,6 +138,10 @@ void FooClass::method1(){
     
 }
 </code></pre>
+
+<p>この例はトップレベルクラスのクラス定義の例であるが、トップレベルのクラス定義を書くソースファイルのファイル名はクラス名と一致させないといけない。<code>FooClass</code>というクラスを定義したソースファイルであれば 
+<code>FooClass.java</code> という名前のファイルである必要がある。
+1クラスに1ソースファイル必要である。</p>
 
 <h2 id="11e8b3e">PHP
 <span class="article-date">2013/11/15</span></h2>
