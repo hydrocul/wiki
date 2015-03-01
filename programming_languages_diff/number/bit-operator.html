@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -34,10 +34,11 @@
           <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
           <li><a href="../../programming_languages_diff/number/elementary-function.html">三角関数・指数関数</a></li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
-          <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の切り捨てまたは切り上げをするには (floor, ceil)</a></li>
+          <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の四捨五入/切り捨て/切り上げをするには (round, floor, ceil)</a></li>
           <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
           <li>ビット演算子</li>
           <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
+          <li><a href="../../programming_languages_diff/number/random.html">乱数を生成するには</a></li>
         </ul>
       </li>
     </ul>
@@ -49,9 +50,30 @@
 
 <div id="content">
   <h1 id="bit-operator">ビット演算子
-<span class="article-date">2014/08/18</span></h1>
+<span class="article-date">2015/03/01</span></h1>
 
 <p>ビット演算子を各プログラミング言語で比較。</p>
+
+<p>ビット演算子のオペランドは整数に限られるが、論理型でも同じ演算子が使えるものもある。</p>
+
+<h2 id="c13326d">Go言語 (golang)
+<span class="article-date">2015/03/01</span></h2>
+
+<dl>
+  <dt><code>&amp;</code></dt>
+  <dd>ビット積(AND)。オペランドは整数に限られ、<code>bool</code>では使えない。</dd>
+  <dt><code>|</code></dt>
+  <dd>ビット和(OR)。オペランドは整数に限られ、<code>bool</code>では使えない。</dd>
+  <dt><code>^</code></dt>
+  <dd>ビットごとの否定(NOT)。符号は反転される。オペランドは整数に限られ、<code>bool</code>では使えない。</dd>
+  <dt><code>&amp;^</code></dt>
+  <dd>ビットクリア(AND NOT)。オペランドは整数に限られ、<code>bool</code>では使えない。</dd>
+  <dt><code>&lt;&lt;</code></dt>
+  <dd>左シフト(整数を2倍)。符号ビットは左端で消えるので符号は保存されない。</dd>
+  <dt><code>&gt;&gt;</code></dt>
+  <dd>右シフト(整数を2分の1)。左オペランドが符号ありの場合は、左端は符号ビットで埋められるので符号は保存される。
+左オペランドが符号なしの場合は、左端は0で埋められる。</dd>
+</dl>
 
 <h2 id="java">Java
 <span class="article-date">2014/08/18</span></h2>

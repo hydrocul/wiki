@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<meta http-equiv="refresh" content="0;URL=../etc/ternary.html" />
 <title>三項演算子 | 演算子 | プログラミング言語の比較 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -17,133 +18,12 @@
   <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/operator/">演算子</a> &gt; <span>三項演算子</span>
 </div>
 <div id="side-menu">
-  <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
-  </div>
-  <div id="side-menu-ls">
-    <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
-    <ul>
-      <li><a href="../../programming_languages_diff/operator/">演算子</a>
-        <ul>
-          <li><a href="../../programming_languages_diff/operator/compare.html">比較演算子</a></li>
-          <li><a href="../../programming_languages_diff/operator/increment.html">インクリメント・デクリメント演算子</a></li>
-          <li>三項演算子</li>
-          <li><a href="../../programming_languages_diff/operator/elvis.html">エルビス演算子</a></li>
-          <li><a href="../../programming_languages_diff/operator/list.html">演算子の一覧と優先順位</a></li>
-          <li><a href="../../programming_languages_diff/operator/op-assignment.html">複合代入演算子</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-  </div>
 </div>
 
 <div id="content">
-  <h1 id="ternary">三項演算子
-<span class="article-date">2014/10/14</span></h1>
+  <h1 id="ternary">三項演算子</h1>
 
-<p>C言語などでは <code>a ? b : c</code> と書けば、「もし<code>a</code>なら<code>b</code>、そうでなければ<code>c</code>」という意味になる。</p>
-
-<p>単項演算子はパラメータが1つの演算子、二項演算子はパラメータが3つの演算子で、三項演算子はパラメータが3つの演算子のことだが、たいていの言語には三項演算子があったとしても <code>? :</code> しかないので、三項演算子といえば <code>? :</code> のことを指すことが多い。</p>
-
-<h2 id="0159b8d">C言語, C++
-<span class="article-date">2013/09/17</span></h2>
-
-<p>例</p>
-
-<pre><code>count == 1 ? "foot" : "feet"
-</code></pre>
-
-<p>右結合であるので以下のような書き方が可能。</p>
-
-<pre><code>count == 0 ? "zero" : count == 1 ? "one" : "many"
-</code></pre>
-
-<h2 id="c71acfc">Java
-<span class="article-date">2013/09/17</span></h2>
-
-<p>C言語ライクの三項演算子を使える。</p>
-
-<pre><code>count == 1 ? "foot" : "feet"
-</code></pre>
-
-<p>C言語と同じく右結合。</p>
-
-<h2 id="5b824a9">Scala
-<span class="article-date">2013/10/28</span></h2>
-
-<p>三項演算子がなく、代わりに<a href="../control_flow/if.html#scala">if式</a>を使う。
-Scalaではifは文ではなく、値を返す式なので、三項演算子と同じ使い方ができる。</p>
-
-<pre><code>if(count == 1) "foot" else "feet";
-</code></pre>
-
-<h2 id="php">PHP
-<span class="article-date">2014/04/14</span></h2>
-
-<p>C言語ライクの三項演算子を使える。</p>
-
-<pre><code>count == 1 ? "foot" : "feet"
-</code></pre>
-
-<p>PHP 5.3以降では、2項目を省略して<a href="elvis.html#php">エルビス演算子</a>として使うこともできる。</p>
-
-<p>他の言語と違いPHPでは左結合なので、三項演算子を入れ子にして使うのはやめたほうがよさそう。</p>
-
-<p>PHPの三項演算子が左結合なのは、PHP言語仕様のバグだ<br />
-<a href="http://d.hatena.ne.jp/RepsolFireBlade/20130220/1361332690" target="_blank">http://d.hatena.ne.jp/RepsolFireBlade/20130220/1361332690</a></p>
-
-<h2 id="a4d5c53">Python
-<span class="article-date">2014/07/31</span></h2>
-
-<p>C言語ライクではないが、<a href="../control_flow/if.html#python">条件演算子<code>if</code></a>を使って以下のように書ける。</p>
-
-<pre><code>"foot" if count == 1 else "feet"
-</code></pre>
-
-<p>条件演算子 | Python 2.7 documentation<br />
-<a href="http://docs.python.jp/2/reference/expressions.html#conditional-expressions" target="_blank">http://docs.python.jp/2/reference/expressions.html#conditional-expressions</a></p>
-
-<p>条件演算子 | Python 3 documentation<br />
-<a href="http://docs.python.jp/3/reference/expressions.html#conditional-expressions" target="_blank">http://docs.python.jp/3/reference/expressions.html#conditional-expressions</a></p>
-
-<h2 id="8fe6afa">Ruby
-<span class="article-date">2014/10/14</span></h2>
-
-<p>C言語ライクの三項演算子を使える。Rubyでは条件演算子ともいう。</p>
-
-<pre><code>count == 1 ? "foot" : "feet"
-</code></pre>
-
-<p>Scalaと同じく<a href="../control_flow/if.html#ruby">Rubyのif</a>は値を返すので、三項演算子では複雑でわかりにくくなってしまう場合は、
-ifを使ったほうがいいかも。</p>
-
-<pre><code>if count == 1 then "foot" else "feet" end
-</code></pre>
-
-<p>条件演算子 | Ruby 2.1 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.1.0/doc/spec=2foperator.html#cond" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/doc/spec=2foperator.html#cond</a></p>
-
-<h2 id="4afab82">Perl
-<span class="article-date">2013/07/31</span></h2>
-
-<p>C言語ライクの三項演算子を使える。</p>
-
-<pre><code>$count == 1 ? 'foot' : 'feet'
-</code></pre>
-
-<h2 id="6dd1d73">JavaScript
-<span class="article-date">2013/09/30</span></h2>
-
-<p>C言語ライクの三項演算子を使える。</p>
-
-<pre><code>count == 1 ? 'foot' : 'feet'
-</code></pre>
-
-<p>C言語と同じく右結合。</p>
+<p>-&gt; <a href="../etc/ternary.html">三項演算子</a></p>
 
 </div>
 

@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -34,10 +34,11 @@
           <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
           <li><a href="../../programming_languages_diff/number/elementary-function.html">三角関数・指数関数</a></li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
-          <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の切り捨てまたは切り上げをするには (floor, ceil)</a></li>
+          <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の四捨五入/切り捨て/切り上げをするには (round, floor, ceil)</a></li>
           <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
           <li><a href="../../programming_languages_diff/number/bit-operator.html">ビット演算子</a></li>
           <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
+          <li><a href="../../programming_languages_diff/number/random.html">乱数を生成するには</a></li>
         </ul>
       </li>
     </ul>
@@ -49,22 +50,26 @@
 
 <div id="content">
   <h1 id="arithmetic-operator">四則演算子
-<span class="article-date">2014/08/04</span></h1>
+<span class="article-date">2015/02/28</span></h1>
 
 <p>加算/減算/乗算/除算/剰余の言語ごとの四則演算子(代数演算子)の一覧。</p>
 
+<p>関連</p>
+
+<ul>
+  <li><a href="divide.html">除算演算子・剰余演算子</a></li>
+</ul>
+
 <h2 id="75111ed">Java / Scala
-<span class="article-date">2014/08/02</span></h2>
+<span class="article-date">2015/02/28</span></h2>
 
 <p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
 
 <p>整数同士の演算の結果は <code>int</code> または <code>long</code> になる。浮動小数点数が含まれる演算の結果は <code>float</code> または <code>double</code> になる。</p>
 
-<p><code>String</code> が含まれる<code>+</code>演算子は、両方を文字列に揃えてから文字列として連結され、結果も <code>String</code> になる。</p>
+<p><code>+</code>演算子のオペランド左右の少なくともどちらかが<code>String</code>の場合は、両方を文字列に揃えてから文字列として連結され、結果も <code>String</code> になる。</p>
 
 <p>Scalaでは演算子もメソッドであるので、この名前でメソッドを定義すれば別の意味になる。</p>
-
-<p>-&gt; <a href="divide.html#java">除算演算子・剰余演算子</a></p>
 
 <h2 id="95537e5">PHP
 <span class="article-date">2014/03/29</span></h2>
@@ -85,7 +90,7 @@
 <p><code>*</code> 演算子の片方をシーケンス型(リストや文字列など)、他方を整数にすると、
 <a href="../list/multiply.html#python">シーケンス型の繰り返し</a>になる。</p>
 
-<p><code>//</code> 演算子は除算の結果を整数に切り捨てたものになり、<code>/</code> はPython2とPython3とで挙動が異なる。
+<p><code>//</code> 演算子は除算の結果を整数に切り捨てたものになる。<code>/</code> はPython2とPython3とで挙動が異なる。
 -&gt;<a href="divide.html#python">除算演算子</a></p>
 
 <p><code>%</code> 演算子の左を文字列にすると、<a href="../string/format.html#python"><code>sprintf</code>みたいなこと</a>ができる。</p>
@@ -113,9 +118,9 @@
 
 <p>これらは文字列を与えてもそれを数値に変換してから演算をする。</p>
 
-<p>文字列の連結には <code>+</code> ではなく <a href="../string/strcat.html#perl"><code>.</code>演算子</a> を使う。</p>
+<p>文字列の連結には <code>+</code> ではなく <a href="../string/strcat.html#perl"><code>.</code></a> を使う。</p>
 
-<p>配列の繰り返しには <a href="../list/multiply.html#perl"><code>x</code>演算子</a> を使う。</p>
+<p>配列の繰り返しには <a href="../list/multiply.html#perl"><code>x</code></a> を使う。</p>
 
 <p>加法演算子 | perldoc.jp<br />
 <a href="http://perldoc.jp/docs/perl/perlop.pod#Additive32Operators" target="_blank">http://perldoc.jp/docs/perl/perlop.pod#Additive32Operators</a></p>
