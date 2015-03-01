@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -34,10 +34,11 @@
           <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
           <li><a href="../../programming_languages_diff/number/elementary-function.html">三角関数・指数関数</a></li>
           <li>浮動小数点数の精度</li>
-          <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の切り捨てまたは切り上げをするには (floor, ceil)</a></li>
+          <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の四捨五入/切り捨て/切り上げをするには (round, floor, ceil)</a></li>
           <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
           <li><a href="../../programming_languages_diff/number/bit-operator.html">ビット演算子</a></li>
           <li><a href="../../programming_languages_diff/number/literal.html">数値の書き方</a></li>
+          <li><a href="../../programming_languages_diff/number/random.html">乱数を生成するには</a></li>
         </ul>
       </li>
     </ul>
@@ -50,10 +51,58 @@
 <div id="content">
   <h1 id="precision">浮動小数点数の精度</h1>
 
+<h2 id="1350b65">Go言語 (golang)
+<span class="article-date">2015/03/01</span></h2>
+
+<p>以下は私の Go 1.4.1 の環境で実行した結果。</p>
+
+<p><code>float32</code>の場合</p>
+
+<pre><code>package main
+
+import "fmt"
+//import "strings"
+//import "math/rand"
+//import "time"
+
+func main() {
+    var x float32
+
+    x = 1.0 + 1e-7; fmt.Println(x)          // 1.0000001
+    x = 1.0 + 1e-8; fmt.Println(x)          // 1
+    x = (1.0 + 1e-45) - 1.0; fmt.Println(x) // 1e-45
+    x = (1.0 + 1e-46) - 1.0; fmt.Println(x) // 0
+    x = 1e38; fmt.Println(x);               // 1e+38
+    //x = 1e39; fmt.Println(x);             // コンパイルエラー constant 1e+39 overflows float32
+    x = 1e-45; fmt.Println(x);              // 1e-45
+    x = 1e-46; fmt.Println(x);              // 0
+}
+</code></pre>
+
+<p>定数の場合</p>
+
+<pre><code>package main
+
+import "fmt"
+
+func main() {
+    fmt.Println(1.0 + 1e-15)          // 1.000000000000001
+    fmt.Println(1.0 + 1e-16)          // 1
+    fmt.Println((1.0 + 1e-130) - 1.0) // 9.016580681431383e-131
+    fmt.Println((1.0 + 1e-131) - 1.0) // 0
+    fmt.Println(1e308);               // 1e+308
+    //fmt.Println(1e309);             // コンパイルエラー constant 1.00000e+309 overflows float64
+    fmt.Println(1e-323);              // 1e-323
+    fmt.Println(1e-324);              // 0
+}
+</code></pre>
+
+<p><code>float32</code>の場合のコードを<code>float64</code>にしたら、定数と同じ結果になった。</p>
+
 <h2 id="dbd5840">PHP
 <span class="article-date">2014/06/29</span></h2>
 
-<p>以下は私のPHP 5.3.10 の環境で実行した結果。</p>
+<p>以下は私の PHP 5.3.10 の環境で実行した結果。</p>
 
 <pre><code>echo 1.0 + 1e-13;         // 1.0000000000001
 echo 1.0 + 1e-14;         // 1
@@ -70,7 +119,7 @@ echo 1e-324;              // 0
 <h2 id="2a3d7bd">Python
 <span class="article-date">2014/07/02</span></h2>
 
-<p>以下は私のPython 2.7.3 の環境で実行した結果。</p>
+<p>以下は私の Python 2.7.3 の環境で実行した結果。</p>
 
 <pre><code>print 1.0 + 1e-11          # 1.00000000001
 print 1.0 + 1e-12          # 1.0
@@ -84,7 +133,7 @@ print 1e-324               # 0.0
 
 <p>2行目の <code>1.0 + 1e-12</code> は <code>1</code> と表示されるが、そこから <code>1.0</code> を引いても <code>0</code> にならないことから、内部では情報落ちせずに <code>1e-12</code> の情報も保持できていて、文字列に変換する際に丸められるだけのようである。</p>
 
-<p>Python 3.3.2 の環境での実行結果。</p>
+<p>以下は私の Python 3.3.2 の環境での実行結果。</p>
 
 <pre><code>print(1.0 + 1e-15)          # 1.000000000000001
 print(1.0 + 1e-16)          # 1.0
