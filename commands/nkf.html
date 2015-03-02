@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
 <body>
@@ -130,19 +130,21 @@
   <dd>半角カナを半角のままにする。このオプションを付けないと全角に変換される</dd>
 </dl>
 
-<h2 id="03d7795">文字コードを調べるには
-<span class="article-date">2013/06/24</span></h2>
+<h2 id="0a28716">HOWTO</h2>
 
-<p>文字コードが不明で、判別させるには、<code>--guess</code> を使う。改行コードも判別してくれる。</p>
+<h3 id="4851c5c">文字コードを調べるには
+<span class="article-date">2013/06/24</span></h3>
 
-<pre><code>nkf --guess ファイル名
+<p>文字コードが不明で、判別させるには、<code>--guess</code> を使う。ついでに改行コードも判別してくれる。</p>
+
+<pre><code>nkf --guess foo.txt
 
 # パイプでの使用例
-cat ファイル名 | nkf --guess
+cat foo.txt | nkf --guess
 </code></pre>
 
-<h2 id="853c2f5">改行コードを変換するには
-<span class="article-date">2013/09/18</span></h2>
+<h3 id="8189543">改行コードを変換するには
+<span class="article-date">2013/09/18</span></h3>
 
 <dl>
   <dt><code>-Lu</code></dt>
@@ -153,8 +155,8 @@ cat ファイル名 | nkf --guess
   <dd>CR(mac形式)に変換</dd>
 </dl>
 
-<h2 id="f774e17">BASE64のエンコード・デコードをするには
-<span class="article-date">2014/10/04</span></h2>
+<h3 id="437216c">BASE64のエンコード・デコードをするには
+<span class="article-date">2014/10/04</span></h3>
 
 <p><code>nkf</code>コマンドでもBASE64ができるみたいで、<a href="base64.html#nkf"><code>base64</code>コマンドのページ</a>参照。ただ、<code>base64</code>コマンドのほうが多くの環境に入っているので、
 <code>nkf</code>をわざわざ使う理由はないかもしれない。</p>
