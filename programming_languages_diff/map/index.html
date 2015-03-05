@@ -26,9 +26,9 @@
     <ul>
       <li>連想配列(マップ)
         <ul>
-          <li><a href="../../programming_languages_diff/map/overview.html">連想配列(マップ)のデータ型の各プログラミング言語別の概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">連想配列(マップ)の要素数を取得するには (size)</a></li>
-          <li><a href="../../programming_languages_diff/map/get.html">連想配列(マップ)の要素の値を参照するには (get)</a></li>
+          <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">size / count / sizeof / len / length</a></li>
+          <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch</a></li>
           <li><a href="../../programming_languages_diff/map/put.html">put / +</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">for / foreach / each_key / each_value / each_pair</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey / contains / array_key_exists / isset / in / has_key / has_key? / key? / include? / member? / exists</a></li>
@@ -38,8 +38,8 @@
           <li><a href="../../programming_languages_diff/map/filter.html">filter / select / delete_if / partition</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty / empty?</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">連想配列(マップ)に別の連想配列にある複数の要素をまとめて追加するには (putAll / merge)</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">連想配列(マップ)から要素をキーで指定して削除するには (remove)</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">putAll / ++ / array_merge / update / merge / merge!</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">- / unset / del / delete</a></li>
           <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
         </ul>
       </li>
@@ -61,9 +61,9 @@ Perlでは連想配列またはハッシュという。
 <h2 id="section">目次</h2>
 
 <ul>
-  <li><a href="../../programming_languages_diff/map/overview.html">連想配列(マップ)のデータ型の各プログラミング言語別の概要</a></li>
-  <li><a href="../../programming_languages_diff/map/size.html">連想配列(マップ)の要素数を取得するには (size)</a></li>
-  <li><a href="../../programming_languages_diff/map/get.html">連想配列(マップ)の要素の値を参照するには (get)</a></li>
+  <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
+  <li><a href="../../programming_languages_diff/map/size.html">size / count / sizeof / len / length</a></li>
+  <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch</a></li>
   <li><a href="../../programming_languages_diff/map/put.html">put / +</a></li>
   <li><a href="../../programming_languages_diff/map/foreach.html">for / foreach / each_key / each_value / each_pair</a></li>
   <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey / contains / array_key_exists / isset / in / has_key / has_key? / key? / include? / member? / exists</a></li>
@@ -73,71 +73,10 @@ Perlでは連想配列またはハッシュという。
   <li><a href="../../programming_languages_diff/map/filter.html">filter / select / delete_if / partition</a></li>
   <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty / empty?</a></li>
   <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
-  <li><a href="../../programming_languages_diff/map/put-all.html">連想配列(マップ)に別の連想配列にある複数の要素をまとめて追加するには (putAll / merge)</a></li>
-  <li><a href="../../programming_languages_diff/map/remove.html">連想配列(マップ)から要素をキーで指定して削除するには (remove)</a></li>
+  <li><a href="../../programming_languages_diff/map/put-all.html">putAll / ++ / array_merge / update / merge / merge!</a></li>
+  <li><a href="../../programming_languages_diff/map/remove.html">- / unset / del / delete</a></li>
   <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
 </ul>
-
-<h2 id="8fce67e">アルファベット順
-<span class="article-date">2015/01/07</span></h2>
-
-<p><a href="overview.html">概要</a>
-<a href="put.html">+</a>
-<a href="put-all.html">++</a>
-<a href="remove.html">-</a>
-<a href="get.html">[]</a>
-<a href="put.html">[]</a>
-<a href="get.html">{}</a>
-<a href="put.html">{}</a>
-<a href="get.html">apply</a>
-<a href="contains-key.html">array_key_exists</a>
-<a href="put-all.html">array_merge</a>
-<a href="convert.html">asScala</a>
-<a href="clone.html">clone</a>
-<a href="contains-key.html">contains</a>
-<a href="contains-key.html">containsKey</a>
-<a href="clone.html">copy</a>
-<a href="size.html">count</a>
-<a href="remove.html">del</a>
-<a href="remove.html">delete</a>
-<a href="filter.html">delete_if</a>
-<a href="clone.html">dup</a>
-<a href="foreach.html">each</a>
-<a href="foreach.html">each_key</a>
-<a href="foreach.html">each_pair</a>
-<a href="foreach.html">each_value</a>
-<a href="is-empty.html">empty</a>
-<a href="is-empty.html">empty?</a>
-<a href="contains-key.html">exists</a>
-<a href="get.html">fetch</a>
-<a href="filter.html">filter</a>
-<a href="foreach.html">foreach</a>
-<a href="foreach.html">for構文</a>
-<a href="get.html">get</a>
-<a href="get.html">getOrElse</a>
-<a href="contains-key.html">has_key?</a>
-<a href="contains-key.html">in演算子</a>
-<a href="contains-key.html">include?</a>
-<a href="is-empty.html">isEmpty</a>
-<a href="contains-key.html">isset</a>
-<a href="entries.html">items</a>
-<a href="contains-key.html">key?</a>
-<a href="keys.html">keys</a>
-<a href="keys.html">keySet</a>
-<a href="size.html">len</a>
-<a href="size.html">length</a>
-<a href="contains-key.html">member?</a>
-<a href="put-all.html">merge</a>
-<a href="filter.html">partition</a>
-<a href="put.html">put</a>
-<a href="put-all.html">putAll</a>
-<a href="filter.html">select</a>
-<a href="size.html">size</a>
-<a href="size.html">sizeof</a>
-<a href="entries.html">to_a</a>
-<a href="remove.html">unset</a>
-<a href="put-all.html">update</a>
-<a href="values.html">values</a></p>
 
 </div>
 
