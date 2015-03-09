@@ -61,7 +61,7 @@
 <p>静的な型の言語では、キーと値はそれぞれすべて同じ型である必要がある。キーと値の型は違っていてもよい。</p>
 
 <h2 id="java">Java
-<span class="article-date">2014/09/18</span></h2>
+<span class="article-date">2015/03/09</span></h2>
 
 <p><code>java.util.Map</code> インターフェースがあり、それを実装したクラスとして、
 <code>java.util.HashMap</code>, <code>java.util.LinkedHashMap</code> などがある。</p>
@@ -95,13 +95,15 @@ map.put("b", 2);
 <p>LRUキャッシュを実装するには <code>java.util.LinkedHashMap</code> が便利。
 <code>java.util.LinkedHashMap</code> を継承するクラスを作って、<code>removeEldestEntry</code> をオーバーライドすればよい。</p>
 
+<p>なお、<code>java.util.HashMap</code>などは複数のスレッドから同時に読み書きがあった場合に一貫性を保てなかったり、無限ループになってしまったりするので、<code>synchronized</code>文や、<code>java.util.concurrent.ConcurrentHashMap</code> を使うことを検討すべきである。</p>
+
 <h2 id="7f4d550">Scala
-<span class="article-date">2014/12/19</span></h2>
+<span class="article-date">2015/03/09</span></h2>
 
 <p>Javaのクラスライブラリでサポートされている 
 <code>java.util.Map</code> インターフェースなどのほかに、豊富な種類のコレクション型がScalaのクラスライブラリにある。</p>
 
-<p><code>scala.collection.immutable.Map</code> は特にインポートしなくても <code>Map</code> だけで参照できる。</p>
+<p><code>scala.collection.immutable.Map</code> は特にインポートしなくても <code>Map</code> と書くだけで参照できる。</p>
 
 <p><code>scala.collection.immutable.Map</code> のインスタンス生成の例</p>
 
@@ -110,8 +112,8 @@ map.put("b", 2);
 
 <p>これは以下のシンタックスシュガー。</p>
 
-<pre><code>val map = scala.collection.immutable.Map.apply(scala.Predef.any2ArrowAssoc("a").-&gt;(1),
-                                               scala.Predef.any2ArrowAssoc("a").-&gt;(2));
+<pre><code>val map = scala.collection.immutable.Map.apply(scala.Predef.any2ArrowAssoc("a").`-&gt;`(1),
+                                               scala.Predef.any2ArrowAssoc("b").`-&gt;`(2));
 </code></pre>
 
 <h2 id="php">PHP
@@ -280,7 +282,7 @@ my $hash = \%h;
 <span class="article-date">2013/11/01</span></h2>
 
 <p>オブジェクトがそのまま連想配列のように使える。
-JavaScriptにおいてオブジェクトと連想配列は同じで、下の2つは全部同じオブジェクトを生成する。</p>
+JavaScriptにおいてオブジェクトと連想配列は同じで、下の2つは同じオブジェクトを生成する。</p>
 
 <pre><code>map = {a: 1, b: 2}
 map = {'a': 1, 'b': 2}
