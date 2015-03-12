@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -102,6 +102,38 @@ Scalaでは <code>val</code> で再代入できないようにすることが推
 
 <p><a href="../tuple/multiple-assignment.html#python">アンパック代入</a>や
 <a href="../tuple/multiple-assignment.html#python">マルチターゲット代入</a>の機能がある。</p>
+
+<h2 id="1ae6e41">sh
+<span class="article-date">2015/03/12</span></h2>
+
+<p>シェル変数を定義する例</p>
+
+<pre><code>x=Hello
+# または
+x="Hello"
+</code></pre>
+
+<p>環境変数を定義する例</p>
+
+<pre><code>export x=Hello
+# または
+export x="Hello"
+# または
+x=Hello
+export x
+</code></pre>
+
+<p>シェル変数または環境変数を削除する例</p>
+
+<pre><code>unset x
+</code></pre>
+
+<p>ちなみに</p>
+
+<pre><code>x=
+</code></pre>
+
+<p>としても、変数が削除されるのではなく、空文字列が変数に代入される。</p>
 
 </div>
 
