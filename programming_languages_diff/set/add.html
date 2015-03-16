@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>add: 集合(セット)に要素を追加するには | hydrocul のメモ</title>
+<title>集合(セット)に要素を追加するには | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">集合(セット)</a> &gt; <span>add: 集合(セット)に要素を追加するには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">集合(セット)</a> &gt; <span>集合(セット)に要素を追加するには</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -30,7 +30,7 @@
           <li><a href="../../programming_languages_diff/set/contains.html">contains: 集合(セット)に特定の要素が含まれているかどうかを判定するには</a></li>
           <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll: 集合(セット)に別の集合の要素がすべて含まれているかどうかを判定するには</a></li>
           <li><a href="../../programming_languages_diff/set/to-list.html">toList: 集合(セット)から配列(リスト)に変換するには</a></li>
-          <li>add: 集合(セット)に要素を追加するには</li>
+          <li>add / «</li>
           <li><a href="../../programming_languages_diff/set/remove.html">remove: 集合(セット)から特定の要素を削除するには</a></li>
           <li><a href="../../programming_languages_diff/set/flatten.html">flatten: 集合(セット)の集合(セット)を平坦化するには</a></li>
           <li><a href="../../programming_languages_diff/set/convert.html">convert: 集合(セット)の種類を相互に変換するには</a></li>
@@ -44,15 +44,14 @@
 </div>
 
 <div id="content">
-  <h1 id="add">add: 集合(セット)に要素を追加するには</h1>
+  <h1 id="add">集合(セット)に要素を追加するには</h1>
 
 <h2 id="328c3b8">Java
 <span class="article-date">2013/11/26</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// java.util.Set&lt;E&gt;
-boolean add(E elem)
+<pre><code>boolean java.util.Set&lt;E&gt;#add(E elem)
 </code></pre>
 
 <p>セットに含まれておらずに追加できた場合は <code>true</code> を返す。もともと含まれていた場合は <code>false</code> を返す。</p>

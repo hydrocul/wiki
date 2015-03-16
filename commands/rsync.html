@@ -104,38 +104,62 @@
 <span class="article-date">2013/10/23</span></h2>
 
 <pre><code># リモートホストからローカルにダウンロードする
-rsync リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+rsync «リモートユーザ名»@«リモートホスト名»:/«絶対パス» «ローカルパス»
 
 # リモートホストからローカルにダウンロードする
 # リモートでのパスはリモートのホームディレクトリからの相対パスでもよい
-rsync リモートユーザ名@リモートホスト名:相対パス ローカルパス
+rsync «リモートユーザ名»@«リモートホスト名»:«相対パス» «ローカルパス»
 
 # ポート番号が22以外の場合
-rsync -e "ssh -p ポート番号" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+rsync -e "ssh -p «ポート番号»" «リモートユーザ名»@«リモートホスト名»:/«絶対パス» «ローカルパス»
 
 # 秘密鍵のファイルを指定する場合
-rsync -e "ssh -i 秘密鍵ファイル名" リモートユーザ名@リモートホスト名:/絶対パス ローカルパス
+rsync -e "ssh -i «秘密鍵ファイル名»" «リモートユーザ名»@«リモートホスト名»:/«絶対パス» «ローカルパス»
 </code></pre>
 
 <p>リモートからローカルへのダウンロード、またはローカルからリモートへのアップロードが可能だが、リモートから別のリモートへの転送はできない。</p>
 
+<h2 id="17c8bf9">ディレクトリの指定方法
+<span class="article-date">2015/03/16</span></h2>
+
+<p>コピー元としてディレクトリを指定する場合、最後に <code>/</code> を付けるかどうかで動作が異なってくる。</p>
+
+<p>ローカルに <code>foo/bar/hello.txt</code> というファイルがあった場合、</p>
+
+<pre><code>rsync -r foo/bar remote:dst
+</code></pre>
+
+<p>と書くと、<code>foo/bar</code>ディレクトリ自体がコピーされる、というイメージになるので、
+<code>remote</code>ホストには <code>dst/bar</code> というディレクトリが作られ、
+<code>dst/bar/hello.txt</code> というパスにファイルがコピーされる。</p>
+
+<pre><code>rsync -r foo/bar/ remote:dst
+</code></pre>
+
+<p>と書くと、<code>foo/bar</code>ディレクトリの中身がコピーされる、というイメージになり、
+<code>remote</code>ホストには <code>dst/hello.txt</code> というパスにファイルがコピーされる。</p>
+
 <h2 id="b39bf91">オプション
-<span class="article-date">2014/10/25</span></h2>
+<span class="article-date">2015/03/16</span></h2>
 
 <dl>
-  <dt><code>-r</code></dt>
-  <dd>ディレクトリの場合はその中を再帰的にコピー</dd>
-  <dt><code>-v</code></dt>
-  <dd>コピーするファイル名を、進捗に合わせて表示</dd>
+  <dt><code>--bwlimit</code></dt>
+  <dd>ネットワーク帯域を制限して転送する。-&gt; <a href="#bwlimit">ゆっくり転送するには</a></dd>
   <dt><code>--progress</code></dt>
   <dd>コピーの進捗を表示</dd>
+  <dt><code>-l</code></dt>
+  <dd>シンボリックリンクをシンボリックリンクとして転送</dd>
+  <dt><code>-p</code></dt>
+  <dd>パーミッションも保存。タイムスタンプも保存するには <code>-t</code> が必要。
+<a href="cp.html"><code>cp</code>コマンド</a>では <code>-p</code> でタイムスタンプも保存してくれるが。</dd>
+  <dt><code>-r</code></dt>
+  <dd>ディレクトリの場合はその中を再帰的にコピー</dd>
   <dt><code>-t</code></dt>
   <dd>タイムスタンプも保存</dd>
-  <dt><code>-p</code></dt>
-  <dd>パーミッションも保存。<a href="cp.html"><code>cp</code>コマンド</a>では <code>-p</code> でタイムスタンプも保存してくれるが、
-<code>rsync</code> では <code>-p</code> ではなく <code>-t</code> が必要。</dd>
   <dt><code>-u</code></dt>
   <dd>タイムスタンプが新しいファイルのみをコピー</dd>
+  <dt><code>-v</code></dt>
+  <dd>コピーするファイル名を、進捗に合わせて表示</dd>
 </dl>
 
 <h2 id="25d9119">HOWTO</h2>
@@ -176,7 +200,7 @@ rsync -e "ssh -p &lt;port&gt;" &lt;local_path&gt; &lt;ID&gt;@&lt;IP&gt;:&lt;remo
 <pre><code>ssh remote "cat abc.txt" | less
 </code></pre>
 
-<h3 id="4ca749a">ネットワークの帯域を絞ってゆっくり転送するには
+<h3 id="bwlimit">ネットワークの帯域を絞ってゆっくり転送するには
 <span class="article-date">2014/08/26</span></h3>
 
 <p>時間がかかってもよいからネットワークの負荷をかけずにゆっくりダウンロードまたはアップロードするには
