@@ -26,12 +26,12 @@
     <ul>
       <li><a href="../../programming_languages_diff/set/">集合(セット)</a>
         <ul>
-          <li><a href="../../programming_languages_diff/set/overview.html">集合(セット)のデータ型の各プログラミング言語別の概要</a></li>
+          <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/set/contains.html">contains: 集合(セット)に特定の要素が含まれているかどうかを判定するには</a></li>
-          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll: 集合(セット)に別の集合の要素がすべて含まれているかどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll / issubset / issuperset / &lt;= / &gt;=</a></li>
           <li><a href="../../programming_languages_diff/set/to-list.html">toList: 集合(セット)から配列(リスト)に変換するには</a></li>
           <li>add / «</li>
-          <li><a href="../../programming_languages_diff/set/remove.html">remove: 集合(セット)から特定の要素を削除するには</a></li>
+          <li><a href="../../programming_languages_diff/set/remove.html">remove / -</a></li>
           <li><a href="../../programming_languages_diff/set/flatten.html">flatten: 集合(セット)の集合(セット)を平坦化するには</a></li>
           <li><a href="../../programming_languages_diff/set/convert.html">convert: 集合(セット)の種類を相互に変換するには</a></li>
         </ul>
@@ -76,6 +76,32 @@
 <p>複数の要素をセットで指定してまとめて追加する方法</p>
 
 <pre><code>st.update(other_set)
+</code></pre>
+
+<h2 id="ff6444f">Ruby / JRuby
+<span class="article-date">2015/03/16</span></h2>
+
+<p>例</p>
+
+<pre><code>require 'set'
+
+st = Set.new ["abc", "def", "ghi"]
+p st
+# =&gt; #&lt;Set: {"abc", "def", "ghi"}&gt;
+
+st.add("jkl")
+p st
+# =&gt; #&lt;Set: {"abc", "def", "ghi", "jkl"}&gt;
+
+st &lt;&lt; "mno"
+p st
+# =&gt; #&lt;Set: {"abc", "def", "ghi", "jkl", "mno"}&gt;
+
+p st.add?("abc")
+# =&gt; nil
+
+p st.add?("ABC")
+# =&gt; #&lt;Set: {"abc", "def", "ghi", "jkl", "mno", "ABC"}&gt;
 </code></pre>
 
 </div>
