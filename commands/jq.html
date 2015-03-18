@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>incron (inotify cron) (incrontab コマンド) | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>jq コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>incron (inotify cron) (incrontab コマンド)</span>
+  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>jq コマンド</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -39,9 +39,9 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
-      <li>incrontab / incron</li>
+      <li><a href="../commands/incrontab.html">incrontab / incron</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
-      <li><a href="../commands/jq.html">jq コマンド</a></li>
+      <li>jq コマンド</li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -96,9 +96,113 @@
 </div>
 
 <div id="content">
-  <h1 id="incrontab">incron (inotify cron) (incrontab コマンド)</h1>
+  <h1 id="jq">jq コマンド
+<span class="article-date">2015/03/18</span></h1>
 
-<p>-&gt; <a href="../incron.html">incron</a></p>
+<p>JSON形式のデータを見やすく表示したり、データを抽出したりするコマンド。</p>
+
+<p>例</p>
+
+<pre><code>$ echo '{"name": "taro", "age": 30, "sex": "male"}' | jq .
+{
+  "sex": "male",
+  "age": 30,
+  "name": "taro"
+}
+</code></pre>
+
+<p>JSON全体を単に見やすく表示するツールであれば <code>json_pp</code> というツールもある。</p>
+
+<h2 id="e221e7b">インストール
+<span class="article-date">2014/10/17</span></h2>
+
+<p>Ubuntuでは</p>
+
+<pre><code>sudo apt-get install jq
+</code></pre>
+
+<p>(Ubuntu 13.10, 14.04 で確認)</p>
+
+<h2 id="b970620">基本的な使い方
+<span class="article-date">2014/10/17</span></h2>
+
+<p>JSON全体を表示。</p>
+
+<pre><code>$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq .
+{
+  "bar": {
+    "い": 20,
+    "あ": 10
+  },
+  "foo": [
+    "abc",
+    "def"
+  ],
+  "age": 30,
+  "name": "taro"
+}
+</code></pre>
+
+<p>要素を取得。</p>
+
+<pre><code>$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq '.["name"]'
+"taro"
+</code></pre>
+
+<p>こうも書ける。省略の記法なのかな。</p>
+
+<pre><code>$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq .name
+"taro"
+</code></pre>
+
+<p><code>-r</code> オプションを付けると、結果が文字列の場合にJSON形式ではなく、文字列を直接出力してくれる。</p>
+
+<pre><code>$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq -r .name
+taro
+</code></pre>
+
+<p>要素がまた構造を持っていても大丈夫。</p>
+
+<pre><code>$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq '.["foo"]'
+[
+  "abc",
+  "def"
+]
+$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq '.["bar"]'
+{
+  "い": 20,
+  "あ": 10
+}
+</code></pre>
+
+<p>要素の要素を取得。</p>
+
+<pre><code>$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq '.["foo"][0]'
+"abc"
+$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq '.["bar"]["あ"]'
+10
+</code></pre>
+
+<h2 id="3a3dbd1">オプション
+<span class="article-date">2014/10/14</span></h2>
+
+<dl>
+  <dt><code>-C</code></dt>
+  <dd>デフォルトではカラーで表示してくれるが、<code>less</code>コマンドなどパイプをつなげるとカラー表示してくれない。
+しかしこのオプションを付ければカラー表示を矯正してくれる。</dd>
+  <dt><code>-M</code></dt>
+  <dd>カラー表示を無効にする</dd>
+</dl>
+
+<h2 id="3d98c31">色付きで<code>less</code>で見るには
+<span class="article-date">2014/10/14</span></h2>
+
+<p><code>-C</code> を付けてカラー表示を矯正させ、<code>less</code>コマンドでは <code>-R</code> オプションを付けてエスケープシーケンスを有効にするとよい。</p>
+
+<p>例</p>
+
+<pre><code>curl -s 'http://www.gaitameonline.com/rateaj/getrate' | jq -C . | less -R
+</code></pre>
 
 </div>
 
