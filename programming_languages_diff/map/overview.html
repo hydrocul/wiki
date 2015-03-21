@@ -31,12 +31,12 @@
           <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch</a></li>
           <li><a href="../../programming_languages_diff/map/put.html">put / +</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">for / foreach / each_key / each_value / each_pair</a></li>
-          <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey / contains / array_key_exists / isset / in / has_key / has_key? / key? / include? / member? / exists</a></li>
+          <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey / contains / array_key_exists / isset / in / has_key / include / exists</a></li>
           <li><a href="../../programming_languages_diff/map/convert.html">asScala / asJava</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">copy / clone / dup</a></li>
           <li><a href="../../programming_languages_diff/map/entries.html">items / to_a</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">filter / select / delete_if / partition</a></li>
-          <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty / empty?</a></li>
+          <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">putAll / ++ / array_merge / update / merge / merge!</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">- / unset / del / delete</a></li>
@@ -98,14 +98,16 @@ map.put("b", 2);
 <p>なお、<code>java.util.HashMap</code>などは複数のスレッドから同時に読み書きがあった場合に一貫性を保てなかったり、無限ループになってしまったりするので、<code>synchronized</code>文や、<code>java.util.concurrent.ConcurrentHashMap</code> を使うことを検討すべきである。</p>
 
 <h2 id="7f4d550">Scala
-<span class="article-date">2015/03/09</span></h2>
+<span class="article-date">2015/03/21</span></h2>
 
 <p>Javaのクラスライブラリでサポートされている 
-<code>java.util.Map</code> インターフェースなどのほかに、豊富な種類のコレクション型がScalaのクラスライブラリにある。</p>
+<code>java.util.Map</code> インターフェースやその実装クラスのほかに、
+Scalaのコレクションフレームワークとして <code>scala.collection.Map</code> トレイトがある。</p>
 
-<p><code>scala.collection.immutable.Map</code> は特にインポートしなくても <code>Map</code> と書くだけで参照できる。</p>
+<p><code>Map</code> には不変(イミュータブル)なものと可変(ミュータブル)なものがあるが、
+<code>scala.Predef.Map</code> が <code>scala.collection.immutable.Map</code> の別名として定義されているため、なにも<code>import</code>せずに <code>Map</code> として参照すると不変な <code>Map</code> になる。</p>
 
-<p><code>scala.collection.immutable.Map</code> のインスタンス生成の例</p>
+<p><code>Map</code> のインスタンス生成の例</p>
 
 <pre><code>val map = Map("a" -&gt; 1, "b" -&gt; 2);
 </code></pre>

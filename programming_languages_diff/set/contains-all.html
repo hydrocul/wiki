@@ -27,13 +27,13 @@
       <li><a href="../../programming_languages_diff/set/">集合(セット)</a>
         <ul>
           <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/set/contains.html">contains: 集合(セット)に特定の要素が含まれているかどうかを判定するには</a></li>
-          <li>containsAll / issubset / issuperset / &lt;= / &gt;=</li>
-          <li><a href="../../programming_languages_diff/set/to-list.html">toList: 集合(セット)から配列(リスト)に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/set/add.html">add / «</a></li>
-          <li><a href="../../programming_languages_diff/set/remove.html">remove / -</a></li>
-          <li><a href="../../programming_languages_diff/set/flatten.html">flatten: 集合(セット)の集合(セット)を平坦化するには</a></li>
-          <li><a href="../../programming_languages_diff/set/convert.html">convert: 集合(セット)の種類を相互に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/set/contains.html">contains / in</a></li>
+          <li>containsAll / issubset / issuperset / subset? / <code>&lt;=</code> / <code>&gt;=</code></li>
+          <li><a href="../../programming_languages_diff/set/to-list.html">toArray / toIndexedSeq / toSeq / toIterable / toList / list</a></li>
+          <li><a href="../../programming_languages_diff/set/add.html">add / <code>&lt;&lt;</code></a></li>
+          <li><a href="../../programming_languages_diff/set/remove.html">remove / <code>-</code></a></li>
+          <li><a href="../../programming_languages_diff/set/flatten.html">flatten</a></li>
+          <li><a href="../../programming_languages_diff/set/convert.html">asScala / asJava</a></li>
         </ul>
       </li>
     </ul>
@@ -45,9 +45,9 @@
 
 <div id="content">
   <h1 id="contains-all">集合(セット)に別の集合の要素がすべて含まれているかどうかを判定するには
-<span class="article-date">2015/03/17</span></h1>
+<span class="article-date">2015/03/20</span></h1>
 
-<p>各プログラミング言語での、集合(セット)に別の集合の要素がすべて含まれているかどうかを判定する方法。</p>
+<p>各プログラミング言語での、集合(セット)に別の集合の要素がすべて含まれているかどうかを判定する方法。つまり、部分集合の関係にあるかどうかを調べる方法。</p>
 
 <h2 id="83b2631">Java
 <span class="article-date">2013/11/06</span></h2>
@@ -82,6 +82,24 @@ set &gt;= elems
 </code></pre>
 
 <p><code>issubset</code>, <code>issuperset</code> はセット(集合型)以外にリストなども受け入れる。</p>
+
+<h2 id="a90e0a9">Ruby / JRuby
+<span class="article-date">2015/03/20</span></h2>
+
+<p><code>Set</code>クラスのインスタンス同士で、一方が他方の部分集合の関係にあるかどうかを調べるには <code>subset?</code> または <code>superset?</code> というメソッドを使う。</p>
+
+<pre><code>require 'set'
+
+st = Set.new ["abc", "def", "ghi"]
+
+subst = Set.new ["def", "ghi"]
+
+p subst.subset?(st) # =&gt; true
+p st.subset?(subst) # =&gt; false
+
+p subst.superset?(st) # =&gt; false
+p st.superset?(subst) # =&gt; true
+</code></pre>
 
 </div>
 
