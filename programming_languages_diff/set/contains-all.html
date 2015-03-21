@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/set/contains.html">contains / in</a></li>
-          <li>containsAll / issubset / issuperset / subset? / <code>&lt;=</code> / <code>&gt;=</code></li>
+          <li>containsAll / issubset / issuperset / subset? / subsetOf / <code>&lt;=</code> / <code>&gt;=</code></li>
           <li><a href="../../programming_languages_diff/set/to-list.html">toArray / toIndexedSeq / toSeq / toIterable / toList / list</a></li>
           <li><a href="../../programming_languages_diff/set/add.html">add / <code>&lt;&lt;</code></a></li>
           <li><a href="../../programming_languages_diff/set/remove.html">remove / <code>-</code></a></li>
@@ -62,6 +62,22 @@ boolean containsAll(Collection&lt;?&gt; elems);
 
 <pre><code>// set が elems のすべてを含んでいるかどうか
 set.containsAll(elems);
+</code></pre>
+
+<h2 id="f492e0c">Scala
+<span class="article-date">2015/03/21</span></h2>
+
+<p>Signature:</p>
+
+<pre><code>def scala.collection.Set[E]#subsetOf(other: Set[E]): Boolean
+</code></pre>
+
+<p>例</p>
+
+<pre><code>val st = Set("abc", "def", "ghi");
+val subst = Set("def", "ghi");
+println(subst.subsetOf(st)); // =&gt; true
+println(st.subsetOf(subst)); // =&gt; false
 </code></pre>
 
 <h2 id="2f78606">Python

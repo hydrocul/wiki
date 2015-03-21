@@ -28,10 +28,10 @@
         <ul>
           <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/set/contains.html">contains / in</a></li>
-          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll / issubset / issuperset / subset? / &lt;= / &gt;=</a></li>
+          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll / issubset / issuperset / subset? / subsetOf / <code>&lt;=</code> / <code>&gt;=</code></a></li>
           <li>toArray / toIndexedSeq / toSeq / toIterable / toList / list</li>
-          <li><a href="../../programming_languages_diff/set/add.html">add / «</a></li>
-          <li><a href="../../programming_languages_diff/set/remove.html">remove / -</a></li>
+          <li><a href="../../programming_languages_diff/set/add.html">add / <code>&lt;&lt;</code></a></li>
+          <li><a href="../../programming_languages_diff/set/remove.html">remove / <code>-</code></a></li>
           <li><a href="../../programming_languages_diff/set/flatten.html">flatten</a></li>
           <li><a href="../../programming_languages_diff/set/convert.html">asScala / asJava</a></li>
         </ul>
@@ -69,16 +69,29 @@ List&lt;String&gt; lst = new ArrayList&lt;String&gt;(st);
 </code></pre>
 
 <h2 id="a4db220">Scala
-<span class="article-date">2013/09/19</span></h2>
+<span class="article-date">2015/03/21</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.TraversableOnce[A]
-def toArray: Array[A]
-def toIndexedSeq: IndexedSeq[A]
-def toSeq: Seq[A]
-def toIterable: Iterable[A]
-def toList: List[A]
+<pre><code>def scala.collection.TraversableOnce[E]#toArray: Array[E]
+def scala.collection.TraversableOnce[E]#toIndexedSeq: IndexedSeq[E]
+def scala.collection.TraversableOnce[E]#toSeq: Seq[E]
+def scala.collection.TraversableOnce[E]#toIterable: Iterable[E]
+def scala.collection.TraversableOnce[E]#toList: List[E]
+</code></pre>
+
+<p>例</p>
+
+<pre><code>val st = Set("abc", "def", "ghi");
+
+val arr = st.toArray;
+println(arr);
+// =&gt; [Ljava.lang.String;@2b4935f3
+// Javaの配列になる
+
+val lst = st.toList;
+println(lst);
+// =&gt; List(abc, def, ghi)
 </code></pre>
 
 <h2 id="dbfad51">Python

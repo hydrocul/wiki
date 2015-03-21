@@ -28,10 +28,10 @@
         <ul>
           <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/set/contains.html">contains / in</a></li>
-          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll / issubset / issuperset / &lt;= / &gt;=</a></li>
-          <li><a href="../../programming_languages_diff/set/to-list.html">toList: 集合(セット)から配列(リスト)に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/set/add.html">add / «</a></li>
-          <li><a href="../../programming_languages_diff/set/remove.html">remove / -</a></li>
+          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll / issubset / issuperset / subset? / subsetOf / <code>&lt;=</code> / <code>&gt;=</code></a></li>
+          <li><a href="../../programming_languages_diff/set/to-list.html">toArray / toIndexedSeq / toSeq / toIterable / toList / list</a></li>
+          <li><a href="../../programming_languages_diff/set/add.html">add / <code>&lt;&lt;</code></a></li>
+          <li><a href="../../programming_languages_diff/set/remove.html">remove / <code>-</code></a></li>
           <li>flatten</li>
           <li><a href="../../programming_languages_diff/set/convert.html">asScala / asJava</a></li>
         </ul>
@@ -50,19 +50,17 @@
 <p>各プログラミング言語での、集合の要素もまた配列や集合だった場合にそれを平坦化する方法。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2014/10/29</span></h2>
+<span class="article-date">2015/03/21</span></h2>
 
 <p>Signature:</p>
 
 <pre><code>// scala.collection.Set[A]
-def flatten[B]: Set[B]
+def scala.collection.Set[A]#flatten[B]: Set[B]
 </code></pre>
 
 <p>処理結果のセットを返し、自身は変更しない。<code>A</code> は <code>Seq[B]</code>, <code>Set[B]</code> などである必要がある。</p>
 
 <p><a href="../list/flatten.html#scala"><code>Seq#flatten</code></a> と使い方が同じ。</p>
-
-<p>例</p>
 
 <pre><code>val st = Set(List(3, 4, 5), List(4, 6, 8));
 println(st.flatten);

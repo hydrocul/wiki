@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/set/contains.html">contains / in</a></li>
-          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll / issubset / issuperset / subset? / <code>&lt;=</code> / <code>&gt;=</code></a></li>
+          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll / issubset / issuperset / subset? / subsetOf / <code>&lt;=</code> / <code>&gt;=</code></a></li>
           <li><a href="../../programming_languages_diff/set/to-list.html">toArray / toIndexedSeq / toSeq / toIterable / toList / list</a></li>
           <li>add / <code>&lt;&lt;</code></li>
           <li><a href="../../programming_languages_diff/set/remove.html">remove / <code>-</code></a></li>
@@ -57,15 +57,41 @@
 <p>セットに含まれておらずに追加できた場合は <code>true</code> を返す。もともと含まれていた場合は <code>false</code> を返す。</p>
 
 <h2 id="88362a4">Scala
-<span class="article-date">2014/10/28</span></h2>
+<span class="article-date">2015/03/21</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Set[E]
-+ (elem: E): Set[E]
+<pre><code>def scala.collection.Set[E]#+ (elem: E): scala.collection.Set[E]
+def scala.collection.Set[E]#+ (elem1: E, elem2: E, elems: E*): scala.collection.Set[E]
+def scala.collection.mutable.Set[E]#+= (elem: E): scala.collection.mutable.Set[E]
 </code></pre>
 
-<p><code>+</code> では元の<code>Set</code>のインスタンスを変更せずに、要素が追加された新しい<code>Set</code>のインスタンスを返す。</p>
+<p><code>+</code> では元の<code>Set</code>のインスタンスを変更せずに、要素が追加された新しい<code>Set</code>のインスタンスを返す。
+<code>+=</code> では元の<code>Set</code>のインスタンス自体を変更し、そのインスタンス自体を返す。</p>
+
+<p><code>+=</code> は可変の<code>Set</code>でしか使えない。</p>
+
+<pre><code>val st = Set("abc", "def", "ghi");
+val newst = st + "jkl";
+println(newst);
+// =&gt; Set(abc, def, ghi, jkl)
+
+val mst = scala.collection.mutable.Set("abc", "def", "ghi");
+mst += "jkl";
+println(mst);
+// =&gt; Set(def, abc, ghi, jkl)
+</code></pre>
+
+<p>上の例では <code>Set</code> の2つの表示結果が異なる順番になっているが、
+<code>Set</code>はもともと順番については保証されていないので、環境やバージョンによって異なるかもしれない。</p>
+
+<p><code>+</code> は複数の要素をまとめて追加することもできる。</p>
+
+<pre><code>val st = Set("abc", "def", "ghi");
+val newst = st + ("jkl", "mno");
+println(newst);
+// =&gt; Set(abc, mno, jkl, def, ghi)
+</code></pre>
 
 <h2 id="48597d3">Python
 <span class="article-date">2013/10/08</span></h2>

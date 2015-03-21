@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/set/contains.html">contains / in</a></li>
-          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll / issubset / issuperset / subset? / <code>&lt;=</code> / <code>&gt;=</code></a></li>
+          <li><a href="../../programming_languages_diff/set/contains-all.html">containsAll / issubset / issuperset / subset? / subsetOf / <code>&lt;=</code> / <code>&gt;=</code></a></li>
           <li><a href="../../programming_languages_diff/set/to-list.html">toArray / toIndexedSeq / toSeq / toIterable / toList / list</a></li>
           <li><a href="../../programming_languages_diff/set/add.html">add / <code>&lt;&lt;</code></a></li>
           <li>remove / <code>-</code></li>
@@ -60,18 +60,37 @@
 <p>セットに含まれていた場合は <code>true</code> を返す。もともと含まれていなかった場合は <code>false</code> を返す。</p>
 
 <h2 id="69ae27f">Scala
-<span class="article-date">2014/10/28</span></h2>
+<span class="article-date">2015/03/21</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Set[A]
-def - (elem: A): Set[A]
+<pre><code>def scala.collection.Set[E]#- (elem: E): scala.collection.Set[E]
+def scala.collection.Set[E]#- (elem1: E, elem2: E, elems: E*): scala.collection.Set[E]
+def scala.collection.mutable.Set[E]#-= (elem: E): scala.collection.mutable.Set[E]
 </code></pre>
 
-<p>例</p>
+<p><code>-</code> では元の<code>Set</code>のインスタンスを変更せずに、要素が削除された新しい<code>Set</code>のインスタンスを返す。
+<code>-=</code> では元の<code>Set</code>のインスタンス自体を変更し、そのインスタンス自体を返す。</p>
 
-<pre><code>// 集合stから要素elemを削除した新しい集合を取得
-st - elem
+<p><code>-=</code> は可変の<code>Set</code>でしか使えない。</p>
+
+<pre><code>val st = Set("abc", "def", "ghi");
+val newst = st - "def";
+println(newst);
+// =&gt; Set(abc, ghi)
+
+val mst = scala.collection.mutable.Set("abc", "def", "ghi");
+mst -= "def";
+println(mst);
+// =&gt; Set(abc, ghi)
+</code></pre>
+
+<p><code>-</code> は複数の要素をまとめて削除することもできる。</p>
+
+<pre><code>val st = Set("abc", "def", "ghi");
+val newst = st - ("def", "ghi");
+println(newst);
+// =&gt; Set(abc)
 </code></pre>
 
 <p>もともと含まれない要素を削除しようとしてもなにも変化せずに同じ集合が得られる。</p>
