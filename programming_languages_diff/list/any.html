@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any) | hydrocul のメモ</title>
+<title>配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -41,8 +41,8 @@
           <li><a href="../../programming_languages_diff/list/index-of.html">配列(リスト)から特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">配列(リスト)から特定の条件を満たす要素を探してそのインデックスを取得するには (indexWhere)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">配列(リスト)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li>配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</li>
-          <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all)</a></li>
+          <li>配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists)</li>
+          <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all / all?)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">配列(リスト)の要素1つずつに関数を適用して新しい配列(リスト)を作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列(リスト)を連結した新しい配列(リスト)を作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">配列(リスト)の配列を配列に平坦化するには (flatten)</a></li>
@@ -84,8 +84,10 @@
 </div>
 
 <div id="content">
-  <h1 id="any">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any)
-<span class="article-date">2015/01/21</span></h1>
+  <h1 id="any">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists)
+<span class="article-date">2015/03/22</span></h1>
+
+<p>各プログラミング言語での、配列に特定の条件にマッチする要素が含まれているかどうかを検査する方法。</p>
 
 <p>関連</p>
 
@@ -95,16 +97,15 @@
 </ul>
 
 <h2 id="339895a">Scala
-<span class="article-date">2015/01/21</span></h2>
+<span class="article-date">2015/03/22</span></h2>
 
 <p><code>List</code>クラスなどに<code>exists</code>というメソッドが、Rubyの<code>any?</code>メソッドに相当するものとして存在する。
 <code>find</code>というメソッドは条件にマッチする最初の要素を取得し、見つからなければ<code>None</code>を返す。</p>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.TraversableOnce[A]
-def exists(p: A =&gt; Boolean): Boolean
-def find(p: A =&gt; Boolean): Option[A]
+<pre><code>def scala.collection.TraversableOnce[A]#exists(p: A =&gt; Boolean): Boolean
+def scala.collection.TraversableOnce[A]#find(p: A =&gt; Boolean): Option[A]
 </code></pre>
 
 <p>例</p>
@@ -118,8 +119,10 @@ val result2 = lst.exists(_ &gt; 3);
 println(result2); // =&gt; false
 </code></pre>
 
+<p>これらは<code>TraversableOnce</code>のメソッドなので、<code>Set</code>や<code>Map</code>でも使える。</p>
+
 <h2 id="6485b06">Python
-<span class="article-date">2014/09/13</span></h2>
+<span class="article-date">2015/03/22</span></h2>
 
 <p><code>any</code> という組み込み関数がある。
 Python2でもPython3でも使える。</p>
@@ -128,14 +131,17 @@ Python2でもPython3でも使える。</p>
 
 print(any(elem % 2 == 0 for elem in lst))
 # =&gt; True
-
-print(any(elem &gt; 3 for elem in lst))
-# =&gt; False
 </code></pre>
 
 <p><code>... for ... in ...</code> のような表記は、<code>[]</code> で囲んでリスト内包表記として使う他に、
 <code>[]</code> で囲まずにジェネレータ式というものにして <code>any</code> の引数に直接渡す使い方もあるらしい。
 <code>any</code> にはリスト内包表記よりもジェネレータ式を渡したほうが速い。</p>
+
+<pre><code>lst = [1, 2, 3]
+
+print(any(elem &gt; 3 for elem in lst))
+# =&gt; False
+</code></pre>
 
 <p>ジェネレータ式 | Python 2.7 documentation<br />
 <a href="http://docs.python.jp/2/reference/expressions.html?highlight=generator#genexpr" target="_blank">http://docs.python.jp/2/reference/expressions.html?highlight=generator#genexpr</a></p>

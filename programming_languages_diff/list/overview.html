@@ -28,7 +28,7 @@
         <ul>
           <li>配列(リスト)のデータ型の各プログラミング言語別の概要</li>
           <li><a href="../../programming_languages_diff/list/size.html">配列(リスト)の要素数を取得するには (size)</a></li>
-          <li><a href="../../programming_languages_diff/list/is-empty.html">配列(リスト)が空かどうかを判定するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/list/is-empty.html">配列(リスト)が空かどうかを判定するには (empty / empty? / isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/list/get.html">配列(リスト)からインデックスで要素を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">配列(リスト)の範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
           <li><a href="../../programming_languages_diff/list/head.html">配列(リスト)の先頭の要素を取得するには (head)</a></li>
@@ -41,13 +41,13 @@
           <li><a href="../../programming_languages_diff/list/index-of.html">配列(リスト)から特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">配列(リスト)から特定の条件を満たす要素を探してそのインデックスを取得するには (indexWhere)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">配列(リスト)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</a></li>
-          <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all)</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists)</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all / all?)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">配列(リスト)の要素1つずつに関数を適用して新しい配列(リスト)を作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列(リスト)を連結した新しい配列(リスト)を作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">配列(リスト)の配列を配列に平坦化するには (flatten)</a></li>
           <li><a href="../../programming_languages_diff/list/foreach.html">配列(リスト)の要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</a></li>
+          <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (array_reduce / foldLeft / inject / reduce / reduceLeft)</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数の配列(リスト)を要素ごとに配列(タプル)にまとめて1つの配列(リスト)を作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数の配列(リスト)の要素同士をかけ合わせて配列(タプル)の配列(リスト)を作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
@@ -206,10 +206,16 @@ list.add("c");
 <p><code>java.util.List</code> を配列に変換するには<a href="convert.html#java">相互変換</a>参照。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2014/10/29</span></h2>
+<span class="article-date">2015/03/22</span></h2>
 
 <p>Javaの組み込み型である配列と、Javaのクラスライブラリでサポートされている 
-<code>java.util.List</code> インターフェースなどのほかに、豊富な種類のコレクション型がScalaのクラスライブラリにある。</p>
+<code>java.util.List</code> インターフェースやその実装クラスのほかに、
+Scalaのコレクションフレームワークとして <code>scala.collection.Seq</code> トレイトや、関連する多くのトレイト、実装クラスがある。</p>
+
+<p>Scalaのコレクションフレームワークにある基本的なトレイトだけでもたくさんあり、以下のページにある図がわかりやすい。</p>
+
+<p>可変コレクションおよび不変コレクション | Scala Documentation<br />
+<a href="http://docs.scala-lang.org/ja/overviews/collections/overview.html" target="_blank">http://docs.scala-lang.org/ja/overviews/collections/overview.html</a></p>
 
 <p>Scalaでは、コレクションはJavaでいうプリミティブ型も要素として持つことができる。たぶんJVM上では対応するラッパークラスにボクシングされているのだとは思うが。</p>
 

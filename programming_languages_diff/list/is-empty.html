@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)が空かどうかを判定するには (isEmpty) | hydrocul のメモ</title>
+<title>配列(リスト)が空かどうかを判定するには (empty / empty? / isEmpty) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)が空かどうかを判定するには (isEmpty)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)が空かどうかを判定するには (empty / empty? / isEmpty)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">配列(リスト)のデータ型の各プログラミング言語別の概要</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">配列(リスト)の要素数を取得するには (size)</a></li>
-          <li>配列(リスト)が空かどうかを判定するには (isEmpty)</li>
+          <li>配列(リスト)が空かどうかを判定するには (empty / empty? / isEmpty)</li>
           <li><a href="../../programming_languages_diff/list/get.html">配列(リスト)からインデックスで要素を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">配列(リスト)の範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
           <li><a href="../../programming_languages_diff/list/head.html">配列(リスト)の先頭の要素を取得するには (head)</a></li>
@@ -41,13 +41,13 @@
           <li><a href="../../programming_languages_diff/list/index-of.html">配列(リスト)から特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">配列(リスト)から特定の条件を満たす要素を探してそのインデックスを取得するには (indexWhere)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">配列(リスト)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</a></li>
-          <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all)</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists)</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all / all?)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">配列(リスト)の要素1つずつに関数を適用して新しい配列(リスト)を作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列(リスト)を連結した新しい配列(リスト)を作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">配列(リスト)の配列を配列に平坦化するには (flatten)</a></li>
           <li><a href="../../programming_languages_diff/list/foreach.html">配列(リスト)の要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</a></li>
+          <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (array_reduce / foldLeft / inject / reduce / reduceLeft)</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数の配列(リスト)を要素ごとに配列(タプル)にまとめて1つの配列(リスト)を作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数の配列(リスト)の要素同士をかけ合わせて配列(タプル)の配列(リスト)を作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
@@ -84,7 +84,7 @@
 </div>
 
 <div id="content">
-  <h1 id="is-empty">配列(リスト)が空かどうかを判定するには (isEmpty)</h1>
+  <h1 id="is-empty">配列(リスト)が空かどうかを判定するには (empty / empty? / isEmpty)</h1>
 
 <p>関連</p>
 
@@ -126,7 +126,7 @@ boolean isEmpty()
 </code></pre>
 
 <h2 id="4df1d65">Scala
-<span class="article-date">2014/08/20</span></h2>
+<span class="article-date">2015/03/22</span></h2>
 
 <p><code>List</code>クラスなどに<code>isEmpty</code>とその逆の<code>nonEmpty</code>メソッドが存在する。</p>
 
@@ -135,6 +135,8 @@ boolean isEmpty()
 <pre><code>def scala.collection.TraversableOnce[A]#isEmpty: Boolean
 def scala.collection.TraversableOnce[A]#nonEmpty: Boolean
 </code></pre>
+
+<p>これらは<code>TraversableOnce</code>のメソッドなので、<code>Set</code>や<code>Map</code>でも使える。</p>
 
 <h2 id="php">PHP
 <span class="article-date">2014/12/24</span></h2>

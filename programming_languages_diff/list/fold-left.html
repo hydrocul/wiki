@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce) | hydrocul のメモ</title>
+<title>配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (array_reduce / foldLeft / inject / reduce / reduceLeft) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (array_reduce / foldLeft / inject / reduce / reduceLeft)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">配列(リスト)のデータ型の各プログラミング言語別の概要</a></li>
           <li><a href="../../programming_languages_diff/list/size.html">配列(リスト)の要素数を取得するには (size)</a></li>
-          <li><a href="../../programming_languages_diff/list/is-empty.html">配列(リスト)が空かどうかを判定するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/list/is-empty.html">配列(リスト)が空かどうかを判定するには (empty / empty? / isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/list/get.html">配列(リスト)からインデックスで要素を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">配列(リスト)の範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
           <li><a href="../../programming_languages_diff/list/head.html">配列(リスト)の先頭の要素を取得するには (head)</a></li>
@@ -41,13 +41,13 @@
           <li><a href="../../programming_languages_diff/list/index-of.html">配列(リスト)から特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">配列(リスト)から特定の条件を満たす要素を探してそのインデックスを取得するには (indexWhere)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">配列(リスト)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</a></li>
-          <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all)</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists)</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all / all?)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">配列(リスト)の要素1つずつに関数を適用して新しい配列(リスト)を作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列(リスト)を連結した新しい配列(リスト)を作るには (flatMap)</a></li>
           <li><a href="../../programming_languages_diff/list/flatten.html">配列(リスト)の配列を配列に平坦化するには (flatten)</a></li>
           <li><a href="../../programming_languages_diff/list/foreach.html">配列(リスト)の要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li>配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</li>
+          <li>配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (array_reduce / foldLeft / inject / reduce / reduceLeft)</li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数の配列(リスト)を要素ごとに配列(タプル)にまとめて1つの配列(リスト)を作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数の配列(リスト)の要素同士をかけ合わせて配列(タプル)の配列(リスト)を作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
@@ -84,16 +84,15 @@
 </div>
 
 <div id="content">
-  <h1 id="fold-left">配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</h1>
+  <h1 id="fold-left">配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (array_reduce / foldLeft / inject / reduce / reduceLeft)</h1>
 
 <h2 id="6874f00">Scala
-<span class="article-date">2013/09/23</span></h2>
+<span class="article-date">2015/03/22</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.TraversableOnce[A]
-def foldLeft[B](initial: B)(f: (B, A) =&gt; B): B
-def reduceLeft[B &gt;: A](f: (B, A) =&gt; B): B
+<pre><code>def scala.collection.TraversableOnce[A]#foldLeft[B](initial: B)(f: (B, A) =&gt; B): B
+def scala.collection.TraversableOnce[A]#reduceLeft[B &gt;: A](f: (B, A) =&gt; B): B
 </code></pre>
 
 <p>例</p>
@@ -109,6 +108,8 @@ f(f(10, 20), 30)
 </code></pre>
 
 <p>になる。</p>
+
+<p>これらは<code>TraversableOnce</code>のメソッドなので、<code>Set</code>や<code>Map</code>でも使える。</p>
 
 <h2 id="f918969">PHP
 <span class="article-date">2015/01/15</span></h2>
