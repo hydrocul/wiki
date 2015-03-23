@@ -81,7 +81,7 @@ Out[18]: ['.',
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/03/30</span></h2>
+<span class="article-date">2015/03/23</span></h2>
 
 <pre><code>pwd = `pwd`
 print pwd
@@ -92,6 +92,8 @@ print pwd
   <li>標準出力は文字列で取得</li>
   <li>標準エラー出力は取得できない</li>
   <li><a href="exit_status.html#ruby">終了ステータスは <code>$?.exitstatus</code> で取得</a>できる</li>
+  <li>バッククオートの中身はダブルクオーテーションで囲まれた文字列と同様に
+エスケープ処理や<a href="../string/inline.html#ruby">式展開</a>が有効</li>
 </ul>
 
 <h3 id="5e63c73"><code>popen</code> を使う方法
