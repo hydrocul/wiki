@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>連想配列(マップ)に特定のキーが含まれているかどうかを判定するには | hydrocul のメモ</title>
+<title>連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)に特定のキーが含まれているかどうかを判定するには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -27,16 +27,16 @@
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">size / count / sizeof / len / length</a></li>
-          <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch</a></li>
-          <li><a href="../../programming_languages_diff/map/put.html">put / +</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">for / foreach / each_key / each_value / each_pair</a></li>
-          <li>containsKey / contains / array_key_exists / isset / in / has_key / include / exists</li>
-          <li><a href="../../programming_languages_diff/map/convert.html">asScala / asJava</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">要素数を取得するには (size / count / sizeof / len / length)</a></li>
+          <li><a href="../../programming_languages_diff/map/get.html">要素の値を参照するには (get / getOrElse / fetch)</a></li>
+          <li><a href="../../programming_languages_diff/map/put.html">要素の値を設定するには (put / <code>+</code>)</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ順番に処理するには (each_key / each_pair / each_value / for / foreach)</a></li>
+          <li>特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset)</li>
+          <li><a href="../../programming_languages_diff/map/convert.html">データ型を相互に変換するには (asScala / asJava)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">copy / clone / dup</a></li>
           <li><a href="../../programming_languages_diff/map/entries.html">items / to_a</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">filter / select / delete_if / partition</a></li>
-          <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty</a></li>
+          <li><a href="../../programming_languages_diff/map/is-empty.html">空かどうかを判定するには (isEmpty / empty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">putAll / ++ / array_merge / update / merge / merge!</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">- / unset / del / delete</a></li>
@@ -51,10 +51,16 @@
 </div>
 
 <div id="content">
-  <h1 id="contains-key">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには
-<span class="article-date">2015/03/03</span></h1>
+  <h1 id="contains-key">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset)
+<span class="article-date">2015/03/23</span></h1>
 
 <p>各プログラミング言語での、連想配列(マップ)に特定のキーが含まれているかどうかを判定する方法。</p>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="list/contains.html">配列(リスト)に特定の値が含まれているかどうかを判定するには</a></li>
+</ul>
 
 <h2 id="f0b540d">Java
 <span class="article-date">2013/05/06</span></h2>
@@ -86,10 +92,10 @@ println(map.contains("A"));
 </code></pre>
 
 <h2 id="php">PHP
-<span class="article-date">2015/01/08</span></h2>
+<span class="article-date">2015/03/23</span></h2>
 
 <p><code>array_key_exists</code>関数または<code>isset</code>を使う。
-<code>isset</code> は通常の関数ではなく、言語構造である。</p>
+<code>isset</code> は通常の関数ではなく、PHPの言語構造である。</p>
 
 <pre><code>$arr = array('a' =&gt; 1, 'b' =&gt; 2);
 

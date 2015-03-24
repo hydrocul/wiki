@@ -62,10 +62,10 @@
 </code></pre>
 
 <h2 id="a392e2a">Java
-<span class="article-date">2014/03/17</span></h2>
+<span class="article-date">2015/03/23</span></h2>
 
 <p>Javaではクラスに属するメソッドはあるが、クラスの外にあるトップレベルの関数は存在しない。
-Java8からは<a href="literal.html#java">ラムダ式</a>)があるが、それも実態はメソッドである。</p>
+Java8からは<a href="literal.html#java">ラムダ式</a>)がある。ラムダ式もJVM上ではメソッドである。</p>
 
 <p>メソッドの定義は、クラス定義の中に書く。</p>
 
@@ -83,14 +83,16 @@ Java8からは<a href="literal.html#java">ラムダ式</a>)があるが、それ
 </code></pre>
 
 <h2 id="37048bd">Scala
-<span class="article-date">2014/10/01</span></h2>
+<span class="article-date">2015/03/23</span></h2>
 
-<p>クラス定義の中にメソッドを書く。</p>
+<p>メソッドの定義は、クラス定義の中に書く。</p>
 
 <pre><code>def f(arg1: String, arg2: Int): String = {
   ...;
 }
 </code></pre>
+
+<p>最後の式が自動で返り値になるので、途中で関数から脱出する場合をのぞいて<code>return</code>は省略できる。</p>
 
 <p>返り値が <code>Unit</code> の場合(Javaでいうと<code>void</code>で返り値がない場合)は、以下でも可。</p>
 
@@ -108,7 +110,17 @@ Java8からは<a href="literal.html#java">ラムダ式</a>)があるが、それ
 }
 </code></pre>
 
-<p>メソッド定義の中に入れ子でメソッド定義を書くこともできる。この場合、内側のメソッドは、外側のメソッドの中でしか参照できない。</p>
+<p>メソッドの本体が式1つの場合は中括弧を省略できる。</p>
+
+<pre><code>def f: String = ...;
+</code></pre>
+
+<p>返り値の型が明確な場合は型を省略できる。</p>
+
+<pre><code>def f = ...;
+</code></pre>
+
+<p>メソッド定義の中に入れ子でメソッド定義を書くこともできる。この場合、内側のメソッドは、すぐ外側のメソッドの中からしか参照できない。</p>
 
 <h2 id="99aa5cc">Groovy
 <span class="article-date">2014/10/24</span></h2>

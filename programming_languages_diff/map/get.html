@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>連想配列(マップ)の要素の値を参照するには | hydrocul のメモ</title>
+<title>連想配列(マップ)の要素の値を参照するには (get / getOrElse / fetch) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)の要素の値を参照するには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)の要素の値を参照するには (get / getOrElse / fetch)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -27,16 +27,16 @@
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">size / count / sizeof / len / length</a></li>
-          <li>get / getOrElse / fetch</li>
-          <li><a href="../../programming_languages_diff/map/put.html">put / +</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">要素数を取得するには (size / count / sizeof / len / length)</a></li>
+          <li>要素の値を参照するには (get / getOrElse / fetch)</li>
+          <li><a href="../../programming_languages_diff/map/put.html">要素の値を設定するには (put / <code>+</code>)</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">for / foreach / each_key / each_value / each_pair</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey / contains / array_key_exists / isset / in / has_key / include / exists</a></li>
-          <li><a href="../../programming_languages_diff/map/convert.html">asScala / asJava</a></li>
+          <li><a href="../../programming_languages_diff/map/convert.html">データ型を相互に変換するには (asScala / asJava)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">copy / clone / dup</a></li>
           <li><a href="../../programming_languages_diff/map/entries.html">items / to_a</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">filter / select / delete_if / partition</a></li>
-          <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty</a></li>
+          <li><a href="../../programming_languages_diff/map/is-empty.html">空かどうかを判定するには (isEmpty / empty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">putAll / ++ / array_merge / update / merge / merge!</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">- / unset / del / delete</a></li>
@@ -51,62 +51,52 @@
 </div>
 
 <div id="content">
-  <h1 id="get">連想配列(マップ)の要素の値を参照するには
+  <h1 id="get">連想配列(マップ)の要素の値を参照するには (get / getOrElse / fetch)
 <span class="article-date">2015/03/04</span></h1>
 
 <p>各プログラミング言語での、連想配列(マップ)の要素の値を参照する方法。</p>
 
 <h2 id="java">Java
-<span class="article-date">2013/09/05</span></h2>
-
-<pre><code>map.get("a");
-</code></pre>
-
-<p>要素が存在しない場合は <code>null</code> が返される。しかし、<code>null</code> が返されることは必ずしも要素が存在しない場合とは限らず、値として <code>null</code> が入っている場合もあるので注意。</p>
-
-<h2 id="scala">Scala</h2>
-
-<h3 id="71cafc4">存在しない場合に例外をスローさせる仕様で要素を取得するには
-<span class="article-date">2013/09/23</span></h3>
+<span class="article-date">2015/03/23</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Map[A, B]
-def apply(key: A): B
+<pre><code>V java.util.Map&lt;K, V&gt;#get(Object key)
+
+// Java8以降
+V java.util.Map&lt;K, V&gt;#getOrDefault(Object key, V defaultValue)
+
+map.get("a");
+</code></pre>
+
+<p><code>get</code>メソッドでは要素が存在しない場合は<code>null</code>が返される。しかし、<code>null</code>が返されることは必ずしも要素が存在しない場合とは限らず、値として<code>null</code>が入っている場合もあるので注意。</p>
+
+<h2 id="scala">Scala
+<span class="article-date">2015/03/23</span></h2>
+
+<p>Signature:</p>
+
+<pre><code>def scala.collection.Map[A, B]#apply(key: A): B
+def scala.collection.Map[A, B]#get(key: A): Option[B]
+def scala.collection.Map[A, B]#getOrElse(key: A, default: =&gt; B): B
 </code></pre>
 
 <p>例</p>
 
-<pre><code>map("a")
+<pre><code>// 要素が存在しない場合は NoSuchElementException がスローされる
+map("a")
+
+// Option で取得
+// 要素が存在しない場合は None が返される
+map.get("a")
+
+// 要素が存在しない場合のデフォルト値を指定
+map.getOrElse("a", 0);
 </code></pre>
 
-<p>この方法だと要素が存在しない場合は <code>NoSuchElementException</code> がスローされる。</p>
+<p><code>apply</code>という名前のメソッドはScalaではメソッド名を省略してレシーバーとなるオブジェクト自体があたかも関数であるかのように呼び出すことができる。上記例の1つ目がそれ。</p>
 
-<h3 id="146fe0f"><code>Option</code> で取得するには
-<span class="article-date">2013/09/23</span></h3>
-
-<p><code>Option</code> で取得するには</p>
-
-<pre><code>map.get("a")
-</code></pre>
-
-<p><code>get</code>は、要素が存在しない場合は<code>None</code>が返され、存在する場合は値を<code>Some</code>で包んだ値が返される。</p>
-
-<h3 id="8ada073">要素が存在しない場合にデフォルト値を返させるには
-<span class="article-date">2013/09/23</span></h3>
-
-<p>要素が存在しない場合のデフォルト値をその場で設定して、要素を取得するには</p>
-
-<pre><code>// Map[A, B]
-def getOrElse(key: A, default: =&gt; B): B
-</code></pre>
-
-<p>例</p>
-
-<pre><code>map.getOrElse("a", 0);
-</code></pre>
-
-<p>2つ目の引数がデフォルト値となる。要素が存在する場合には、2つ目の引数が評価されないので、計算に時間のかかるデフォルト値を設定してもよい。</p>
+<p>3つ目の <code>getOrElse</code> では2つ目の引数がデフォルト値となる。要素が存在する場合には、2つ目の引数が評価されないので、計算に時間のかかるデフォルト値を設定してもよい。</p>
 
 <h2 id="6fa8328">PHP
 <span class="article-date">2014/12/22</span></h2>
@@ -143,7 +133,9 @@ print(dic.get('c'))
 </code></pre>
 
 <h2 id="ruby">Ruby / JRuby
-<span class="article-date">2014/12/13</span></h2>
+<span class="article-date">2015/03/23</span></h2>
+
+<p>ハッシュの要素は <code>[]</code> でアクセスする。</p>
 
 <pre><code>hash['a']
 </code></pre>
@@ -153,12 +145,10 @@ print(dic.get('c'))
 <pre><code>hash.fetch('a')
 </code></pre>
 
-<p>存在しない要素を取得しようとすると <code>[]</code> では <code>nil</code> が返ってくるが、
+<p>存在しない要素を取得しようとすると <code>[]</code> では <code>nil</code> が返され、
 <code>fetch</code> は <code>KeyError</code> の例外が発生する。</p>
 
 <p><code>fetch</code> は第2引数またはブロックでデフォルト値を設定することができる。要素が存在しない場合に、第2引数があれば第2引数を返し、ブロックがあれば、それを評価した結果を返す。</p>
-
-<p>例</p>
 
 <pre><code>hash = {'a' =&gt; 1}
 
@@ -169,8 +159,6 @@ p hash.fetch('b') { 2 } # =&gt; 2
 </code></pre>
 
 <p>ハッシュ生成時にブロックを与えれば、<code>[]</code> で存在しない要素を参照しようとした場合に、例外を発生させたり、デフォルト値を返させたりすることができる。</p>
-
-<p>例</p>
 
 <pre><code>hash = Hash.new { |hash, key| raise KeyError }
 

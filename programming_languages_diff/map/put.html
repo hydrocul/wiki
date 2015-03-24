@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>連想配列(マップ)の要素の値を設定するには | hydrocul のメモ</title>
+<title>連想配列(マップ)の要素の値を設定するには (put / `+`) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)の要素の値を設定するには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)の要素の値を設定するには (put / `+`)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -27,16 +27,16 @@
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">size / count / sizeof / len / length</a></li>
-          <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch</a></li>
-          <li>put / +</li>
+          <li><a href="../../programming_languages_diff/map/size.html">要素数を取得するには (size / count / sizeof / len / length)</a></li>
+          <li><a href="../../programming_languages_diff/map/get.html">要素の値を参照するには (get / getOrElse / fetch)</a></li>
+          <li>要素の値を設定するには (put / <code>+</code>)</li>
           <li><a href="../../programming_languages_diff/map/foreach.html">for / foreach / each_key / each_value / each_pair</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey / contains / array_key_exists / isset / in / has_key / include / exists</a></li>
-          <li><a href="../../programming_languages_diff/map/convert.html">asScala / asJava</a></li>
+          <li><a href="../../programming_languages_diff/map/convert.html">データ型を相互に変換するには (asScala / asJava)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">copy / clone / dup</a></li>
           <li><a href="../../programming_languages_diff/map/entries.html">items / to_a</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">filter / select / delete_if / partition</a></li>
-          <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty</a></li>
+          <li><a href="../../programming_languages_diff/map/is-empty.html">空かどうかを判定するには (isEmpty / empty)</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">putAll / ++ / array_merge / update / merge / merge!</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">- / unset / del / delete</a></li>
@@ -51,7 +51,7 @@
 </div>
 
 <div id="content">
-  <h1 id="put">連想配列(マップ)の要素の値を設定するには
+  <h1 id="put">連想配列(マップ)の要素の値を設定するには (put / <code>+</code>)
 <span class="article-date">2015/03/04</span></h1>
 
 <p>各プログラミング言語での、連想配列(マップ)の要素の値を設定する方法。</p>
@@ -61,8 +61,7 @@
 
 <p>Signature:</p>
 
-<pre><code>// java.util.Map&lt;K, V&gt;
-void put(K key, V value)
+<pre><code>void java.util.Map&lt;K, V&gt;#put(K key, V value)
 </code></pre>
 
 <h2 id="fc11b06">Scala
@@ -70,8 +69,7 @@ void put(K key, V value)
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Map[A, +B]
-def +(kv: (A, B)): Map[A, +B]
+<pre><code>def scala.collection.Map[A, +B]#+(kv: (A, B)): Map[A, +B]
 </code></pre>
 
 <h2 id="4cba501">PHP
@@ -83,17 +81,17 @@ def +(kv: (A, B)): Map[A, +B]
 </code></pre>
 
 <h2 id="4aa06df">Python
-<span class="article-date">2014/12/13</span></h2>
+<span class="article-date">2015/03/23</span></h2>
 
-<p>ディクショナリの要素をキーで指定して値を設定する方法</p>
+<p>ディクショナリの要素は <code>[]</code> でアクセスして代入すれば、値を設定できる。</p>
 
 <pre><code>dic['a'] = 10
 </code></pre>
 
 <h2 id="b990675">Ruby / JRuby
-<span class="article-date">2014/12/13</span></h2>
+<span class="article-date">2015/03/23</span></h2>
 
-<p>例</p>
+<p>ハッシュの要素は <code>[]</code> でアクセスして代入すれば、値を設定できる。</p>
 
 <pre><code>hash['a'] = 10
 </code></pre>
