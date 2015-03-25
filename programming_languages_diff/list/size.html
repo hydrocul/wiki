@@ -28,7 +28,7 @@
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
           <li>要素数を取得するには (count / len / length / size / sizeof)</li>
-          <li><a href="../../programming_languages_diff/list/is-empty.html">配列(リスト)が空かどうかを判定するには (empty / empty? / isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/list/is-empty.html">空かどうかを判定するには (empty / isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/list/get.html">配列(リスト)からインデックスで要素を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">配列(リスト)の範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
           <li><a href="../../programming_languages_diff/list/head.html">先頭の要素を取得するには (first / head / headOption)</a></li>
@@ -39,13 +39,13 @@
           <li><a href="../../programming_languages_diff/list/sub-list.html">配列(リスト)の一部を配列(リスト)として取り出すには (subList / slice)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">配列(リスト)に特定の値が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">配列(リスト)から特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
-          <li><a href="../../programming_languages_diff/list/index-where.html">配列(リスト)から特定の条件を満たす要素を探してそのインデックスを取得するには (indexWhere)</a></li>
+          <li><a href="../../programming_languages_diff/list/index-where.html">特定の条件を満たす要素を探してそのインデックスを取得するには (find_index / index / indexWhere / rindex)</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">特定の条件にマッチする要素のみを取り出すには (array_filter / delete_if / filter / grep / keep_if / partition / reject / select)</a></li>
           <li><a href="../../programming_languages_diff/list/any.html">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists)</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all / all?)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">配列(リスト)の要素1つずつに関数を適用して新しい配列(リスト)を作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列(リスト)を連結した新しい配列(リスト)を作るには (flatMap)</a></li>
-          <li><a href="../../programming_languages_diff/list/flatten.html">配列(リスト)の配列を配列に平坦化するには (flatten)</a></li>
+          <li><a href="../../programming_languages_diff/list/flatten.html">配列の配列を配列に平坦化するには (flatten)</a></li>
           <li><a href="../../programming_languages_diff/list/foreach.html">要素を1つずつ順番に処理するには (for / foreach)</a></li>
           <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (array_reduce / foldLeft / inject / reduce / reduceLeft)</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数の配列(リスト)を要素ごとに配列(タプル)にまとめて1つの配列(リスト)を作るには (zip)</a></li>
@@ -73,7 +73,7 @@
           <li><a href="../../programming_languages_diff/list/head-last.html">配列(リスト)の先頭または最後の要素を取得するには (head, last)</a></li>
           <li><a href="../../programming_languages_diff/list/multiply.html">配列(リスト)を繰り返して連結するには(乗算みたいな)</a></li>
           <li><a href="../../programming_languages_diff/list/slice-replace.html">配列(リスト)の一部を別の配列で置き換えるには (splice)</a></li>
-          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列(リスト)を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
+          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
         </ul>
       </li>
     </ul>
@@ -196,21 +196,23 @@ def size: Int
 <p>上記はメソッドだが括弧はいらない。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2014/05/17</span></h2>
+<span class="article-date">2015/03/25</span></h2>
 
-<p>例</p>
+<p><code>count</code>関数または<code>sizeof</code>関数を使う。この2つの関数はまったく同じ意味で、配列の要素の数を返す。</p>
 
-<pre><code>count($arr)
-sizeof($arr)
+<pre><code>$arr = array(1, 2, array(3, 4));
+
+echo count($arr) . "\n"; // =&gt; 3
+echo sizeof($arr) . "\n"; // =&gt; 3
 </code></pre>
 
-<p>この2つの関数はまったく同じ意味で、配列の要素の数を返す。</p>
+<p>PHPでは普通の配列と連想配列は同じものなので、この2つは<a href="../map/size.html#php">連想配列</a>でも使える。</p>
 
 <p><code>count</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.count.php" target="_blank">http://www.php.net/manual/ja/function.count.php</a></p>
+<a href="http://php.net/manual/ja/function.count.php" target="_blank">http://php.net/manual/ja/function.count.php</a></p>
 
 <p><code>sizeof</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.sizeof.php" target="_blank">http://www.php.net/manual/ja/function.sizeof.php</a></p>
+<a href="http://php.net/manual/ja/function.sizeof.php" target="_blank">http://php.net/manual/ja/function.sizeof.php</a></p>
 
 <h2 id="python">Python
 <span class="article-date">2014/10/20</span></h2>

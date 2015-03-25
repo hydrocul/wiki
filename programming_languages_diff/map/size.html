@@ -37,7 +37,7 @@
           <li><a href="../../programming_languages_diff/map/entries.html">キーと値のペアを集合または配列で取得するには (items / to_a)</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">特定の条件にマッチする要素のみを取り出すには (delete_if / filter / partition / select)</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">空かどうかを判定するには (empty / isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">キーを集合または配列で取得するには (keys / keySet)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">putAll / ++ / array_merge / update / merge / merge!</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">- / unset / del / delete</a></li>
           <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
@@ -67,8 +67,7 @@
 
 <p>Signature:</p>
 
-<pre><code>// java.util.Map&lt;K, V&gt;
-int size()
+<pre><code>int java.util.Map&lt;K, V&gt;#size()
 </code></pre>
 
 <h2 id="292698e">Scala
@@ -76,28 +75,25 @@ int size()
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Map[A, B]
-def size: Int
+<pre><code>def scala.collection.Map[A, B]#size: Int
 </code></pre>
 
-<h2 id="3922a82">PHP
-<span class="article-date">2014/10/20</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2015/03/25</span></h2>
 
 <p>PHPの連想配列は普通の配列と区別がつかないので、<a href="../list/size.html#php">配列と同様に</a>以下の2つの関数を使える。</p>
 
-<p>例</p>
-
-<pre><code>count($map)
-sizeof($map)
+<pre><code>count($arr)
+sizeof($arr)
 </code></pre>
 
 <p>この2つの関数はまったく同じ意味で、配列の要素の数を返す。</p>
 
 <p><code>count</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.count.php" target="_blank">http://www.php.net/manual/ja/function.count.php</a></p>
+<a href="http://php.net/manual/ja/function.count.php" target="_blank">http://php.net/manual/ja/function.count.php</a></p>
 
 <p><code>sizeof</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.sizeof.php" target="_blank">http://www.php.net/manual/ja/function.sizeof.php</a></p>
+<a href="http://php.net/manual/ja/function.sizeof.php" target="_blank">http://php.net/manual/ja/function.sizeof.php</a></p>
 
 <h2 id="python">Python
 <span class="article-date">2014/12/26</span></h2>
