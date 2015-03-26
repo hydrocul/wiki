@@ -2,19 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)から最初のn個の要素のみを配列で取得するには (take) | hydrocul のメモ</title>
+<title>配列(リスト)から先頭のn個の要素のみを配列で取得するには (first / take) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)から最初のn個の要素のみを配列で取得するには (take)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)から先頭のn個の要素のみを配列で取得するには (first / take)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -26,28 +26,28 @@
     <ul>
       <li><a href="../../programming_languages_diff/list/">配列(リスト)</a>
         <ul>
-          <li><a href="../../programming_languages_diff/list/overview.html">配列(リスト)のデータ型の各プログラミング言語別の概要</a></li>
-          <li><a href="../../programming_languages_diff/list/size.html">配列(リスト)の要素数を取得するには (size)</a></li>
-          <li><a href="../../programming_languages_diff/list/is-empty.html">配列(リスト)が空かどうかを判定するには (isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/list/size.html">要素数を取得するには (count / len / length / size / sizeof)</a></li>
+          <li><a href="../../programming_languages_diff/list/is-empty.html">空かどうかを判定するには (empty / isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/list/get.html">配列(リスト)からインデックスで要素を参照するには (get)</a></li>
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">配列(リスト)の範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
-          <li><a href="../../programming_languages_diff/list/head.html">配列(リスト)の先頭の要素を取得するには (head)</a></li>
+          <li><a href="../../programming_languages_diff/list/head.html">先頭の要素を取得するには (first / head / headOption)</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">配列(リスト)の最後の要素を取得するには (last)</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">配列(リスト)の先頭以外の残りの要素を配列で取得するには (tail)</a></li>
-          <li>配列(リスト)から最初のn個の要素のみを配列で取得するには (take)</li>
+          <li>先頭のn個の要素のみを配列で取得するには (first / take)</li>
           <li><a href="../../programming_languages_diff/list/drop.html">配列(リスト)の最初のn個の要素以外の残りを配列で取得するには (drop)</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">配列(リスト)の一部を配列(リスト)として取り出すには (subList / slice)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">配列(リスト)に特定の要素が含まれているかどうかを判定するには (contains)</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">配列(リスト)に特定の値が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">配列(リスト)から特定の要素を探してそのインデックスを取得するには (indexOf)</a></li>
-          <li><a href="../../programming_languages_diff/list/index-where.html">配列(リスト)から特定の条件を満たす要素を探してそのインデックスを取得するには (indexWhere)</a></li>
-          <li><a href="../../programming_languages_diff/list/filter.html">配列(リスト)から特定の条件にマッチする要素のみを取り出すには (filter)</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any)</a></li>
-          <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all)</a></li>
+          <li><a href="../../programming_languages_diff/list/index-where.html">特定の条件を満たす要素を探してそのインデックスを取得するには (find_index / index / indexWhere / rindex)</a></li>
+          <li><a href="../../programming_languages_diff/list/filter.html">特定の条件にマッチする要素のみを取り出すには (array_filter / delete_if / filter / grep / keep_if / partition / reject / select)</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists)</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all / all?)</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">配列(リスト)の要素1つずつに関数を適用して新しい配列(リスト)を作るには (map)</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列(リスト)を連結した新しい配列(リスト)を作るには (flatMap)</a></li>
-          <li><a href="../../programming_languages_diff/list/flatten.html">配列(リスト)の配列を配列に平坦化するには (flatten)</a></li>
-          <li><a href="../../programming_languages_diff/list/foreach.html">配列(リスト)の要素を1つずつ順番に処理するには (foreach)</a></li>
-          <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (foldLeft, reduce)</a></li>
+          <li><a href="../../programming_languages_diff/list/flatten.html">配列の配列を配列に平坦化するには (flatten)</a></li>
+          <li><a href="../../programming_languages_diff/list/foreach.html">要素を1つずつ順番に処理するには (for / foreach)</a></li>
+          <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (array_reduce / foldLeft / inject / reduce / reduceLeft)</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数の配列(リスト)を要素ごとに配列(タプル)にまとめて1つの配列(リスト)を作るには (zip)</a></li>
           <li><a href="../../programming_languages_diff/list/product.html">複数の配列(リスト)の要素同士をかけ合わせて配列(タプル)の配列(リスト)を作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
@@ -73,7 +73,7 @@
           <li><a href="../../programming_languages_diff/list/head-last.html">配列(リスト)の先頭または最後の要素を取得するには (head, last)</a></li>
           <li><a href="../../programming_languages_diff/list/multiply.html">配列(リスト)を繰り返して連結するには(乗算みたいな)</a></li>
           <li><a href="../../programming_languages_diff/list/slice-replace.html">配列(リスト)の一部を別の配列で置き換えるには (splice)</a></li>
-          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列(リスト)を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
+          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
         </ul>
       </li>
     </ul>
@@ -84,7 +84,7 @@
 </div>
 
 <div id="content">
-  <h1 id="take">配列(リスト)から最初のn個の要素のみを配列で取得するには (take)
+  <h1 id="take">配列(リスト)から先頭のn個の要素のみを配列で取得するには (first / take)
 <span class="article-date">2015/01/22</span></h1>
 
 <p>関連</p>
@@ -98,8 +98,7 @@
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Seq[A]
-def take(n: Int): Seq[A]
+<pre><code>def scala.collection.Seq[A]#take(n: Int): Seq[A]
 </code></pre>
 
 <p>結果を新しいリストで返し、自身は変更しない。</p>
@@ -117,7 +116,7 @@ def take(n: Int): Seq[A]
 <p>結果を新しい配列で返し、自身は変更しない。</p>
 
 <p><code>array_slice</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.array-slice.php" target="_blank">http://www.php.net/manual/ja/function.array-slice.php</a></p>
+<a href="http://php.net/manual/ja/function.array-slice.php" target="_blank">http://php.net/manual/ja/function.array-slice.php</a></p>
 
 <h2 id="335ef92">Ruby / JRuby
 <span class="article-date">2015/01/03</span></h2>
@@ -155,7 +154,7 @@ p arr.first(3)
 <p><code>Array#first</code>| Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/first.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/first.html</a></p>
 
-<h2 id="e87fbcb">sh
+<h2 id="6a48f3f">sh (シェルスクリプト)
 <span class="article-date">2015/01/29</span></h2>
 
 <p>配列ではないが、テキストファイルに関して、先頭のn行だけを標準出力させる例</p>
