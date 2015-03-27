@@ -60,16 +60,22 @@
 SciPyというNumPyに付随するライブラリもあり、しばしばNumPyとSciPyの両方を使う。</p>
 
 <h2 id="80b18fd">インストール
-<span class="article-date">2014/05/13</span></h2>
+<span class="article-date">2015/03/26</span></h2>
 
-<p>Ubuntuであれば以下のようにすればよい。(Ubuntu 13.10 で確認済み)</p>
+<p>Pythonとnumpy, scipy, pandas, matplotlib, scikit-learn, ipythonなどのライブラリやツールを一式インストールするとなにかと便利だが、これらをインストールする方法はいま(2015年3月)は以下がオススメ。</p>
 
-<pre><code>sudo apt-get install python-numpy python-scipy
-</code></pre>
+<p>MacでPythonの機械学習環境構築(2015年2月版) | old school magic<br />
+<a href="http://breakbee.hatenablog.jp/entry/2015/02/07/173451" target="_blank">http://breakbee.hatenablog.jp/entry/2015/02/07/173451</a></p>
 
-<p>(この方法だと、Python2にしかNumPyが入らない、、、)</p>
+<p>自分は、上記ページを参考に、Ubuntuに以下の手順でインストールしている。</p>
 
-<p>CentOSならyumでできるんじゃないかな。</p>
+<ul>
+  <li>pyenvをgitで手動でインストール</li>
+  <li><code>pyenv install anaconda-2.1.0</code></li>
+  <li><code>pyenv install anaconda3-2.1.0</code></li>
+  <li><code>pyenv rehash</code></li>
+  <li><code>pyenv local anaconda3-2.1.0</code></li>
+</ul>
 
 <h2 id="f242759">TSVファイルを読み込む方法</h2>
 
