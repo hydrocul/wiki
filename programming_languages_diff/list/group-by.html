@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)の要素をグルーピングするには (groupBy) | hydrocul のメモ</title>
+<title>配列(リスト)の要素をグルーピングするには (group_by / groupBy) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)の要素をグルーピングするには (groupBy)</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)の要素をグルーピングするには (group_by / groupBy)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -54,7 +54,7 @@
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べた配列を作成するには (fill)</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列(リスト)を作成するには (range)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">配列(リスト)を一定の数ごとにグルーピングするには (grouped)</a></li>
-          <li>要素をグルーピングするには (groupBy)</li>
+          <li>要素をグルーピングするには (group_by / groupBy)</li>
           <li><a href="../../programming_languages_diff/list/shift.html">配列(リスト)の先頭から要素を削除するには (shift)</a></li>
           <li><a href="../../programming_languages_diff/list/unshift.html">配列(リスト)の先頭に要素を追加するには (unshift)</a></li>
           <li><a href="../../programming_languages_diff/list/pop.html">配列(リスト)の最後から要素を削除するには (pop)</a></li>
@@ -84,12 +84,12 @@
 </div>
 
 <div id="content">
-  <h1 id="group-by">配列(リスト)の要素をグルーピングするには (groupBy)
+  <h1 id="group-by">配列(リスト)の要素をグルーピングするには (group_by / groupBy)
 <span class="article-date">2015/03/27</span></h1>
 
 <p>値を関数に渡して、その結果をキーとし、同じ結果になった値を集めた配列を値とする連想配列(マップ)を作る、各プログラミング言語での方法。</p>
 
-<p>たとえば、10, 20, 30, 40, 50という配列があって、30で割った余りを求める関数があったとすると、値を関数に渡した結果は、</p>
+<p>たとえば、<code>[10, 20, 30, 40, 50]</code>という配列があって、30で割った余りを求める関数があったとすると、値を関数に渡した結果は、</p>
 
 <pre><code>10 -&gt; 10
 20 -&gt; 20
