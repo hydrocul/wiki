@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
   <div id="side-menu-ls">
     <ul>
@@ -39,8 +39,9 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
-      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
+      <li><a href="../commands/incrontab.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -53,7 +54,7 @@
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
@@ -96,10 +97,12 @@
 
 <div id="content">
   <h1 id="wget">wget コマンド
-<span class="article-date">2015/01/29</span></h1>
+<span class="article-date">2015/03/29</span></h1>
 
 <p>HTTPアクセスをしてコンテンツをファイルに保存するコマンド。
 <a href="curl.html"><code>curl</code></a>でも同じようなことができる。</p>
+
+<p>ローカルに保存するときのファイル名はURLからドメイン名やディレクトリ名を削ったものになる。</p>
 
 <p>GNU Wget 1.12 Manual<br />
 <a href="http://www.gnu.org/software/wget/manual/wget.html" target="_blank">http://www.gnu.org/software/wget/manual/wget.html</a></p>
@@ -144,12 +147,13 @@ wget -p --convert-links [http://www.example.com/](http://www.example.com/)
 </code></pre>
 
 <h2 id="9438bdb">標準出力に吐き出すには
-<span class="article-date">2013/08/04</span></h2>
+<span class="article-date">2015/03/29</span></h2>
 
 <pre><code>wget -q -O - http://www.example.com/
 </code></pre>
 
-<p><code>-O -</code> (大文字オー)で結果を標準出力に出す。 <code>-q</code> は結果以外の進捗の表示などを無効にする。</p>
+<p><code>-O -</code> (大文字オー)で結果を標準出力に出す。<code>-O-</code> のように空白を省略してもよい。
+<code>-q</code> は結果以外の進捗の表示などを無効にする。</p>
 
 <h2 id="8e2c12f">レスポンスヘッダを確認するには
 <span class="article-date">2013/07/16</span></h2>

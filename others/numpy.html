@@ -54,10 +54,13 @@
 
 <div id="content">
   <h1 id="numpy">NumPy
-<span class="article-date">2014/05/13</span></h1>
+<span class="article-date">2015/03/29</span></h1>
 
-<p>行列などの数値計算を高速に行うためのPythonのライブラリ。
+<p>NumPyは行列などの数値計算を高速に行うためのPythonのライブラリ。
 SciPyというNumPyに付随するライブラリもあり、しばしばNumPyとSciPyの両方を使う。</p>
+
+<p>NumPyには高速なベクトル演算のできる<code>ndarray</code>という多次元配列がある。配列に対するループ処理をPythonでいちいち書かなくてもいいような仕組みがたくさんあり、
+<code>ndarray</code>がNumPyの目玉の1つか。</p>
 
 <h2 id="80b18fd">インストール
 <span class="article-date">2015/03/26</span></h2>
@@ -76,6 +79,102 @@ SciPyというNumPyに付随するライブラリもあり、しばしばNumPy�
   <li><code>pyenv rehash</code></li>
   <li><code>pyenv local anaconda3-2.1.0</code></li>
 </ul>
+
+<h2 id="810b5ec">多次元配列<code>ndarray</code>の生成
+<span class="article-date">2015/03/29</span></h2>
+
+<p><code>ndarray</code>は、<code>np.array</code>を使ってPythonの多次元配列から簡単に生成できる。</p>
+
+<pre><code>import numpy as np
+
+# 普通のPythonの配列
+data = [[1.0, 2.0, 3.0], [11.0, 12.0, 13.0]]
+
+# NumPyの多次元配列
+npdata = np.array(data)
+print(npdata)
+# 出力結果
+# [[  1.   2.   3.]
+#  [ 11.  12.  13.]]
+</code></pre>
+
+<p><code>np.zeros</code> は要素をすべて <code>0.0</code> で埋めた配列を生成してくれる。引数には配列の次元を指定する。配列の要素はすべて浮動小数点数になる。</p>
+
+<pre><code>npdata = np.zeros(3)
+print(npdata)
+# 出力結果
+# [ 0.  0.  0.]
+
+npdata = np.zeros((2, 3))
+print(npdata)
+# 出力結果
+# [[ 0.  0.  0.]
+#  [ 0.  0.  0.]]
+</code></pre>
+
+<p>同じように <code>np.ones</code> は <code>1.0</code> で埋めた配列になる。</p>
+
+<pre><code>npdata = np.ones(3)
+print(npdata)
+# 出力結果
+# [ 1.  1.  1.]
+
+npdata = np.ones((2, 3))
+print(npdata)
+# 出力結果
+# [[ 1.  1.  1.]
+#  [ 1.  1.  1.]]
+</code></pre>
+
+<p><code>np.empty</code> は要素を初期化せずに配列を生成する。</p>
+
+<pre><code>npdata = np.empty(3)
+# 結果は実行するごとに異なりうる
+
+npdata = np.empty((2, 3))
+# 結果は実行するごとに異なりうる
+</code></pre>
+
+<p><code>np.arange</code> は0からの連番の配列を生成する。要素の型は整数になる。</p>
+
+<pre><code>npdata = np.arange(5)
+print(npdata)
+# 出力結果
+# [0 1 2 3 4]
+
+print(npdata.dtype)
+# 出力結果
+# int64
+</code></pre>
+
+<p><code>np.eye</code> または <code>np.identity</code> は単位行列を2次元配列で生成する。この2つの使い方は同じ。要素の型は浮動小数点数になる。</p>
+
+<pre><code>npdata = np.eye(5)
+print(npdata)
+# 出力結果
+# [[ 1.  0.  0.  0.  0.]
+#  [ 0.  1.  0.  0.  0.]
+#  [ 0.  0.  1.  0.  0.]
+#  [ 0.  0.  0.  1.  0.]
+#  [ 0.  0.  0.  0.  1.]]
+</code></pre>
+
+<h2 id="39e6974">多次元配列<code>ndarray</code>の属性
+<span class="article-date">2015/03/29</span></h2>
+
+<p><code>ndarray</code>には<code>shape</code>という配列の次元をタプルで保存している属性と、
+<code>dtype</code>という配列の要素の型を保存している属性がある。</p>
+
+<pre><code># shapeは配列の次元を表すタプル
+print(npdata.shape)
+# 出力結果
+# (2, 3)
+
+# dtypeは配列の要素の型を表す
+print(npdata.dtype)
+# 出力結果
+# float64
+</code></pre>
 
 <h2 id="35729ff">HOWTO</h2>
 
