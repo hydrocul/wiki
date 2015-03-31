@@ -33,10 +33,10 @@
           <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">配列(リスト)の範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
           <li><a href="../../programming_languages_diff/list/head.html">先頭の要素を取得するには (first / head / headOption)</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">最後の要素を取得するには (last / lastOption)</a></li>
-          <li><a href="../../programming_languages_diff/list/tail.html">配列(リスト)の先頭以外の残りの要素を配列で取得するには (tail)</a></li>
+          <li><a href="../../programming_languages_diff/list/tail.html">先頭以外の残りを配列で取得するには (tail)</a></li>
           <li><a href="../../programming_languages_diff/list/take.html">先頭のn個の要素のみを配列で取得するには (first / take)</a></li>
           <li>先頭のn個以外の残りを配列で取得するには (drop)</li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">配列(リスト)の一部を配列(リスト)として取り出すには (subList / slice)</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">一部を配列として取り出すには (array_slice / slice / subList)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">配列(リスト)に特定の値が含まれているかどうかを判定するには (contains)</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">特定の値の要素を探してそのインデックスを取得するには (array_search / find_index / index / indexOf / lastIndexOf / rindex)</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">特定の条件を満たす要素を探してそのインデックスを取得するには (find_index / index / indexWhere / rindex)</a></li>
@@ -65,13 +65,13 @@
           <li><a href="../../programming_languages_diff/list/clone.html">配列(リスト)をコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">配列(リスト)をソートするには (sort)</a></li>
-          <li><a href="../../programming_languages_diff/list/convert.html">配列(リスト)の種類を相互に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/list/convert.html">データ型を相互に変換するには (asList / asScala / asJava / to_a / toArray)</a></li>
           <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列(リスト)から連想配列(マップ)を生成するには (toMap)</a></li>
           <li><a href="../../programming_languages_diff/list/to-set.html">配列(リスト)から集合(セット)を生成する方法 (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">配列(リスト)の中の最大値・最小値を求めるには (max, min)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数の配列(リスト)の合計を計算するには (sum)</a></li>
           <li><a href="../../programming_languages_diff/list/multiply.html">同じ配列を繰り返して連結するには (<code>x</code> / <code>*</code>)</a></li>
-          <li><a href="../../programming_languages_diff/list/slice-replace.html">配列(リスト)の一部を別の配列で置き換えるには (splice)</a></li>
+          <li><a href="../../programming_languages_diff/list/slice-replace.html">一部を別の配列で置き換えるには (array_splice / splice)</a></li>
           <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
         </ul>
       </li>
@@ -84,12 +84,13 @@
 
 <div id="content">
   <h1 id="drop">配列(リスト)の先頭のn個以外の残りを配列で取得するには (drop)
-<span class="article-date">2015/01/22</span></h1>
+<span class="article-date">2015/03/31</span></h1>
 
 <p>関連</p>
 
 <ul>
-  <li><a href="take.html">最初のn個の要素のみを配列で取得するには</a></li>
+  <li><a href="tail.html">先頭の1個以外の残りを取得するには</a></li>
+  <li><a href="take.html">先頭のn個の要素のみを取得するには</a></li>
 </ul>
 
 <h2 id="0af1795">Scala

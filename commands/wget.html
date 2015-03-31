@@ -112,8 +112,53 @@
 
 <p>サーバに接続できなかったり、404などになってしまった場合は終了コード0以外が返される。</p>
 
-<h2 id="basic-auth">BASIC認証のあるサイトをダウンロードするには
-<span class="article-date">2014/06/04</span></h2>
+<h2 id="af0e4a7">オプション
+<span class="article-date">2015/03/31</span></h2>
+
+<dl>
+  <dt><code>-O</code> ファイル名</dt>
+  <dd>ダウンロードしたファイルの保存先。ファイル名を <code>-</code> とすると、ファイルに保存せずに標準出力される</dd>
+  <dt><code>-q</code></dt>
+  <dd>進捗などの詳細表示をしない。このオプションを付けないと進捗などを標準エラー出力に出力する</dd>
+  <dt><code>-nv</code></dt>
+  <dd>進捗の表示をせず、最後に結果だけを標準エラー出力に出力する</dd>
+  <dt><code>-i</code> ファイル名</dt>
+  <dd>ダウンロードするURLをコマンドパラメータではなく、ファイルから読み込む。
+ファイルには、各行にURLを1つずつ書いておく。すると、そのURLを順番にダウンロードしてくれる</dd>
+  <dt><code>-x</code></dt>
+  <dd>再帰的なダウンロード <code>-r</code> を指定した場合と同様にドメイン名のディレクトリを作成してダウンロードする</dd>
+</dl>
+
+<h3 id="ba45dbf">再帰的なダウンロードに関するオプション
+<span class="article-date">2015/03/31</span></h3>
+
+<dl>
+  <dt><code>-r</code></dt>
+  <dd>再帰的なダウンロードを実行。ドメイン名のディレクトリを作成してダウンロードしたファイルを保存する</dd>
+  <dt><code>-l</code>数字</dt>
+  <dd>リンクをたどる最大回数を指定。<code>-l1</code> は指定したURLとそのリンク先をダウンロード</dd>
+  <dt><code>-linf</code></dt>
+  <dd>リンクをすべてたどる。リンクをたどる最大回数が無限大(infinity)の意味</dd>
+  <dt><code>-w</code>数字</dt>
+  <dd>ダウンロードの間隔を秒数で指定</dd>
+  <dt><code>--wait</code> 数字</dt>
+  <dd><code>-w</code> と同じで、ダウンロードの間隔を秒数で指定。</dd>
+  <dt><code>--random-wait</code></dt>
+  <dd>ダウンロードの間隔を <code>-w</code> または <code>--wait</code> で指定した秒数の0.5倍から1.5倍の間のランダムにする</dd>
+  <dt><code>-A</code> 拡張子</dt>
+  <dd>ダウンロードするファイルの拡張子を指定。コンマ区切りで複数指定できる。
+再帰的にリンクをたどるためにHTMLにもアクセスをするがファイルで保存するのは指定の拡張子のみになる。
+例: <code>-A jpg,png,gif</code></dd>
+  <dt><code>-R</code> 拡張子</dt>
+  <dd><code>-A</code> とは反対にダウンロードしないファイルの拡張子を指定。コンマ区切りで複数指定できる</dd>
+  <dt><code>-H</code></dt>
+  <dd>他のドメインへもリンクをたどる。このオプションを付けないと、同じドメインの中しかリンクをたどらない</dd>
+</dl>
+
+<h2 id="e87dc4a">HOWTO</h2>
+
+<h3 id="basic-auth">BASIC認証のあるサイトをダウンロードするには
+<span class="article-date">2014/06/04</span></h3>
 
 <p>オプション <code>--http-user</code>, <code>--http-passwd</code> を使って指定する。</p>
 
@@ -122,8 +167,8 @@
 
 <p>-&gt; <a href="curl.html#basic-auth"><code>curl</code>コマンドでのBASIC認証</a></p>
 
-<h2 id="793ef1a">ウェブページ1ページ分のHTMLと依存している画像やCSSやJSなどをまとめてダウンロードするには 
-<span class="article-date">2014/06/04</span></h2>
+<h3 id="f662adc">ウェブページ1ページ分のHTMLと依存している画像やCSSやJSなどをまとめてダウンロードするには 
+<span class="article-date">2014/06/04</span></h3>
 
 <p>オプション <code>-p</code> を使うと参照されている画像やCSSやJSも合わせてダウンロードしてくれる。さらに <code>--convert-links</code> を指定すれば、HTMLからこれらへの参照が絶対パスになっていたとしても、相対パスに自動で変換してくれるので、ダウンロードしたHTMLをローカルで開くことができるようになる。</p>
 
@@ -133,8 +178,8 @@
 wget -p --convert-links [http://www.example.com/](http://www.example.com/)
 </code></pre>
 
-<h2 id="738dfa1">ウェブサイトを丸ごとダウンロードするには 
-<span class="article-date">2013/04/10</span></h2>
+<h3 id="34294df">ウェブサイトを丸ごとダウンロードするには 
+<span class="article-date">2013/04/10</span></h3>
 
 <p>ウェブサイトを第3階層までリンクをたどりダウンロードする。</p>
 
@@ -146,8 +191,8 @@ wget -p --convert-links [http://www.example.com/](http://www.example.com/)
 <pre><code>wget -r -l5 --convert-links http://www.example.com/
 </code></pre>
 
-<h2 id="9438bdb">標準出力に吐き出すには
-<span class="article-date">2015/03/29</span></h2>
+<h3 id="05c235b">標準出力に吐き出すには
+<span class="article-date">2015/03/29</span></h3>
 
 <pre><code>wget -q -O - http://www.example.com/
 </code></pre>
@@ -155,26 +200,26 @@ wget -p --convert-links [http://www.example.com/](http://www.example.com/)
 <p><code>-O -</code> (大文字オー)で結果を標準出力に出す。<code>-O-</code> のように空白を省略してもよい。
 <code>-q</code> は結果以外の進捗の表示などを無効にする。</p>
 
-<h2 id="8e2c12f">レスポンスヘッダを確認するには
-<span class="article-date">2013/07/16</span></h2>
+<h3 id="74f8a6e">レスポンスヘッダを確認するには
+<span class="article-date">2013/07/16</span></h3>
 
 <p><code>-S</code> を付けると、レスポンスヘッダが表示される。</p>
 
-<h2 id="656fb8e">再帰的なダウンロードを途中から再開できるようにするには
-<span class="article-date">2013/08/05</span></h2>
+<h3 id="4248693">再帰的なダウンロードを途中から再開できるようにするには
+<span class="article-date">2013/08/05</span></h3>
 
 <p>再帰的なダウンロード <code>-r</code> とともに <code>-nc</code> を付けると、すでにダウンロード済みのファイルがあれば、それを利用し、改めてダウンロードすることはない。</p>
 
-<h2 id="06414e9">再帰的なダウンロード中のダウンロードのインターバルを指定するには
-<span class="article-date">2013/08/05</span></h2>
+<h3 id="4f32c00">再帰的なダウンロード中のダウンロードのインターバルを指定するには
+<span class="article-date">2013/08/05</span></h3>
 
 <p><code>--wait=10</code> とすると、10秒のインターバルを設ける。小数点も使用可能で、
 <code>--wait=0.5</code> で0.5秒の間がおかれる。</p>
 
 <p>さらに <code>--random-wait</code> を付けると、指定したインターバルの0.5倍から1.5倍の間のランダムなインターバルになる。</p>
 
-<h2 id="a6b1442">再帰的なダウンロードの時にホスト名のディレクトリを作らずに済ますには
-<span class="article-date">2013/08/05</span></h2>
+<h3 id="b8250e8">再帰的なダウンロードの時にホスト名のディレクトリを作らずに済ますには
+<span class="article-date">2013/08/05</span></h3>
 
 <p><code>--no-host-directories</code> を付ける。</p>
 
