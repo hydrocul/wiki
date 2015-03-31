@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body>
@@ -37,14 +37,13 @@
           <li>文字列が空かどうかを取得するには (isEmpty)</li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith, endsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">正規表現で文字列パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
-          <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
-          <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
+          <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (join / implode)</a></li>
+          <li><a href="../../programming_languages_diff/string/split.html">文字列を特定の文字やパターンで配列に分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
@@ -52,8 +51,10 @@
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
@@ -98,8 +99,8 @@ boolean isEmpty()
 <p><code>java.lang.String#isEmpty</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#isEmpty--" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#isEmpty–</a></p>
 
-<h2 id="c15998b">PHP
-<span class="article-date">2013/09/24</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2015/03/31</span></h2>
 
 <p>例</p>
 
@@ -107,6 +108,27 @@ boolean isEmpty()
   ...;
 }
 </code></pre>
+
+<p>または</p>
+
+<pre><code>if (empty($str)) {
+  ...;
+}
+</code></pre>
+
+<p><code>empty</code>関数に変数でないもの(リテラルや関数の返り値など)を渡すと、PHP5.4以前だと以下のようにエラーになってしまう。</p>
+
+<pre><code>var_export(empty(""));
+// PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING
+
+function f() {
+  return "";
+}
+var_export(empty(f()));
+// PHP Fatal error:  Can't use function return value in write context
+</code></pre>
+
+<p><code>empty</code>関数は<a href="../list/is-empty.html#php">配列</a>にも使える。</p>
 
 <h2 id="9f87779">Python
 <span class="article-date">2013/10/19</span></h2>
@@ -138,7 +160,7 @@ end
 }
 </code></pre>
 
-<h2 id="7e5393f">sh
+<h2 id="7e5393f">sh (シェルスクリプト)
 <span class="article-date">2014/05/16</span></h2>
 
 <p>例</p>
