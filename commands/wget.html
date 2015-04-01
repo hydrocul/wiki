@@ -97,12 +97,14 @@
 
 <div id="content">
   <h1 id="wget">wget コマンド
-<span class="article-date">2015/03/29</span></h1>
+<span class="article-date">2015/03/31</span></h1>
 
 <p>HTTPアクセスをしてコンテンツをファイルに保存するコマンド。
-<a href="curl.html"><code>curl</code></a>でも同じようなことができる。</p>
+<a href="curl.html"><code>curl</code></a>でも同じようなことができるが、
+<code>curl</code>と違ってリンクをたどりながら再帰的にたくさんのファイルをダウンロードすることができる。</p>
 
-<p>ローカルに保存するときのファイル名はURLからドメイン名やディレクトリ名を削ったものになる。</p>
+<p>ローカルに保存するときのファイル名は、1ファイルだけのダウンロードの場合は、
+URLからドメイン名やディレクトリ名を削ったものになる。再帰的にダウンロードする場合はドメイン名のディレクトリが作成される。</p>
 
 <p>GNU Wget 1.12 Manual<br />
 <a href="http://www.gnu.org/software/wget/manual/wget.html" target="_blank">http://www.gnu.org/software/wget/manual/wget.html</a></p>
@@ -175,7 +177,7 @@
 <pre><code>wget -p http://www.example.com/
 
 # HTMLはローカルで閲覧できるように、パスを相対パスに書き換える
-wget -p --convert-links [http://www.example.com/](http://www.example.com/)
+wget -p --convert-links http://www.example.com/
 </code></pre>
 
 <h3 id="34294df">ウェブサイトを丸ごとダウンロードするには 

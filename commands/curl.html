@@ -97,18 +97,11 @@
 
 <div id="content">
   <h1 id="curl">curl コマンド
-<span class="article-date">2014/10/23</span></h1>
+<span class="article-date">2015/03/31</span></h1>
 
 <p>HTTPアクセスをしてコンテンツを取得できるコマンド。
 FTPやSCPとかでもファイル転送できるらしいが、自分はHTTPやHTTPSで使うことがほとんど。
 <a href="wget.html"><code>wget</code></a>でも同じようなことができる。</p>
-
-<p>F5アタックなんかしたいときは</p>
-
-<pre><code>while :; do curl -s 'http://www.example.com/' &gt;/dev/null; done
-</code></pre>
-
-<p>みたいにすれば、指が疲れなくて済むかもね。悪用禁止。</p>
 
 <p>URLをパラメータにしてそのコンテンツを標準出力させるのが、基本的な使い方。</p>
 
@@ -120,6 +113,15 @@ FTPやSCPとかでもファイル転送できるらしいが、自分はHTTPやH
 
 <pre><code>curl http://www.example.com/ &gt; example.html
 </code></pre>
+
+<p>F5アタックなんかしたいときは</p>
+
+<pre><code>while :; do curl -s 'http://www.example.com/' &gt;/dev/null; done
+# またはwgetの場合
+while :; do wget -q -O- 'http://www.example.com/' &gt;/dev/null; done
+</code></pre>
+
+<p>みたいにすれば、指が疲れなくて済むかもね。悪用禁止。</p>
 
 <h2 id="9273204">オプション
 <span class="article-date">2014/11/25</span></h2>
@@ -227,7 +229,7 @@ HEADコマンドなので、GETとは違いレスポンス本体がないかも�
 curl -c cookie.txt http://www.example.com/
 
 # クッキーを保存
-curl -b cookie.txt [http://www.example.com/](http://www.example.com/)
+curl -b cookie.txt http://www.example.com/
 </code></pre>
 
 <p>クッキーファイルは以下のようなタブ区切りのフォーマットのテキストファイルである。</p>
