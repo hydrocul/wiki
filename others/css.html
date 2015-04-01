@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>未分類 | hydrocul のメモ</title>
+<title>CSSのTips | 未分類 | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
@@ -14,7 +14,7 @@
 <body>
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <span>未分類</span>
+  <a href="../">Home</a> &gt; <a href="../others/">未分類</a> &gt; <span>CSSのTips</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -22,10 +22,10 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>未分類
+  <li><a href="../others/">未分類</a>
     <ul>
       <li><a href="../others/apache.html">Apache</a></li>
-      <li><a href="../others/css.html">CSSのTips</a></li>
+      <li>CSSのTips</li>
       <li><a href="../others/emacs.html">Emacsのメモ</a></li>
       <li><a href="../others/google-analytics.html">Google Analytics のAPIとRubyでのサンプル</a></li>
       <li><a href="../others/html.html">HTMLのTips</a></li>
@@ -57,37 +57,56 @@
 </div>
 
 <div id="content">
-  <h1 id="others">未分類</h1>
+  <h1 id="css">CSSのTips</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="6067cb5">右にはみ出した文字を点々(三点リーダ)で省略するには
+<span class="article-date">2014/02/21</span></h2>
 
-<ul>
-  <li><a href="../others/apache.html">Apache</a></li>
-  <li><a href="../others/css.html">CSSのTips</a></li>
-  <li><a href="../others/emacs.html">Emacsのメモ</a></li>
-  <li><a href="../others/google-analytics.html">Google Analytics のAPIとRubyでのサンプル</a></li>
-  <li><a href="../others/html.html">HTMLのTips</a></li>
-  <li><a href="../others/ie.html">Internet Explorer</a></li>
-  <li><a href="../others/javascript.html">JavaScriptのTips</a></li>
-  <li><a href="../others/jquery.html">jQueryのTips</a></li>
-  <li><a href="../others/jvm.html">JVM (Java仮想マシン)</a></li>
-  <li><a href="../others/linux.html">Linux</a></li>
-  <li><a href="../others/linux-pkg-manager.html">Linuxでのパッケージマネージャ別の基本操作</a></li>
-  <li><a href="../others/mac.html">Macに関するいくつかのメモ</a></li>
-  <li><a href="../others/matplotlib.html">Pythonのmatplotlibの使い方メモ</a></li>
-  <li><a href="../others/mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するPHPのライブラリ</a></li>
-  <li><a href="../others/mysql.html">MySQLのメモ</a></li>
-  <li><a href="../others/numpy.html">NumPy</a></li>
-  <li><a href="../others/oneliner.html">ワンライナー</a></li>
-  <li><a href="../others/passenger.html">Passenger (Ruby on Rails) のメモ</a></li>
-  <li><a href="../others/phantomjs.html">phantomjsのメモ</a></li>
-  <li><a href="../others/php.html">PHP</a></li>
-  <li><a href="../others/php-ini-location.html">Ubuntuでの php.ini の場所</a></li>
-  <li><a href="../others/php-post-curl.html">PHPのcURL関数を使って、HTTPのPOSTをするサンプル</a></li>
-  <li><a href="../others/ruby.html">Ruby</a></li>
-  <li><a href="../others/test-on-ie.html">Internet Explorer の検証環境</a></li>
-  <li><a href="../others/unicode.html">Unicode</a></li>
-</ul>
+<p>CSSに以下のように書く。</p>
+
+<pre><code>text-overflow: ellipsis;
+</code></pre>
+
+<p><a href="https://developer.mozilla.org/ja/docs/CSS/text-overflow" target="_blank">https://developer.mozilla.org/ja/docs/CSS/text-overflow</a><br />
+<a href="http://d.hatena.ne.jp/end0tknr/20120324/1332589506" target="_blank">http://d.hatena.ne.jp/end0tknr/20120324/1332589506</a></p>
+
+<h2 id="61ee7dc">ボックスの最低の高さを指定して、IE6でも対応させるには
+<span class="article-date">2013/04/10</span></h2>
+
+<p>CSSの <code>min-height</code> はIE6に対応していないので、以下の例のように2行を付け足す。
+<code>height</code> を2つ指定するのは、IE6のバグを利用したものらしい。
+IE7以降は <code>min-height</code> だけでも大丈夫。</p>
+
+<p>例</p>
+
+<pre><code>.hoge {
+  min-height: 120px;
+  height: auto !important; /* for IE6 */
+  height: 120px; /* for IE6 */
+}
+</code></pre>
+
+<h2 id="4bc10cc"><code>textarea</code> に <code>width: 100%;</code> を指定すると横にはみ出してしまう場合
+<span class="article-date">2013/04/10</span></h2>
+
+<p><code>margin</code> や <code>padding</code> が指定してあると、その分はみ出してしまう。指定してなくてもデフォルトの <code>border</code> でやっぱり少し幅がはみ出してしまうので、
+<code>box-sizing</code> を使用する。</p>
+
+<p>例</p>
+
+<pre><code>.hoge textarea {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+</code></pre>
+
+<p>How can I make a TextArea 100% width without overflowing when padding is present in CSS?<br />
+<a href="http://stackoverflow.com/questions/271067/how-can-i-make-a-textarea-100-width-without-overflowing-when-padding-is-present" target="_blank">http://stackoverflow.com/questions/271067/how-can-i-make-a-textarea-100-width-without-overflowing-when-padding-is-present</a></p>
+
+<p>‘box-sizing’ プロパティ | CSS Basic User Interface Module Level 3 (CSS3 UI) 日本語訳<br />
+<a href="http://momdo.s35.xrea.com/web-html-test/spec/WD-css3-ui-20120117.html#box-sizing0" target="_blank">http://momdo.s35.xrea.com/web-html-test/spec/WD-css3-ui-20120117.html#box-sizing0</a></p>
 
 </div>
 

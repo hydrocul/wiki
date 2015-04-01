@@ -25,9 +25,13 @@
   <li><a href="../others/">未分類</a>
     <ul>
       <li><a href="../others/apache.html">Apache</a></li>
+      <li><a href="../others/css.html">CSSのTips</a></li>
       <li><a href="../others/emacs.html">Emacsのメモ</a></li>
       <li><a href="../others/google-analytics.html">Google Analytics のAPIとRubyでのサンプル</a></li>
+      <li><a href="../others/html.html">HTMLのTips</a></li>
       <li><a href="../others/ie.html">Internet Explorer</a></li>
+      <li><a href="../others/javascript.html">JavaScriptのTips</a></li>
+      <li><a href="../others/jquery.html">jQueryのTips</a></li>
       <li><a href="../others/jvm.html">JVM (Java仮想マシン)</a></li>
       <li><a href="../others/linux.html">Linux</a></li>
       <li><a href="../others/linux-pkg-manager.html">Linuxでのパッケージマネージャ別の基本操作</a></li>
@@ -63,7 +67,7 @@ SciPyというNumPyに付随するライブラリもあり、しばしばNumPy�
 <code>ndarray</code>がNumPyの目玉の1つか。</p>
 
 <h2 id="80b18fd">インストール
-<span class="article-date">2015/03/26</span></h2>
+<span class="article-date">2015/04/01</span></h2>
 
 <p>Pythonとnumpy, scipy, pandas, matplotlib, scikit-learn, ipythonなどのライブラリやツールを一式インストールするとなにかと便利だが、これらをインストールする方法はいま(2015年3月)は以下がオススメ。</p>
 
@@ -80,14 +84,19 @@ SciPyというNumPyに付随するライブラリもあり、しばしばNumPy�
   <li><code>pyenv local anaconda3-2.1.0</code></li>
 </ul>
 
-<h2 id="810b5ec">多次元配列<code>ndarray</code>の生成
-<span class="article-date">2015/03/29</span></h2>
-
-<p><code>ndarray</code>は、<code>np.array</code>を使ってPythonの多次元配列から簡単に生成できる。</p>
+<p>このページの例ではすべてソースコードの先頭に</p>
 
 <pre><code>import numpy as np
+</code></pre>
 
-# 普通のPythonの配列
+<p>と書いて、<code>np</code> でNumPyを参照することを前提にしている。</p>
+
+<h2 id="f127b2b">多次元配列ndarrayの生成
+<span class="article-date">2015/03/29</span></h2>
+
+<p>ndarrayは、<code>np.array</code>を使ってPythonの多次元配列から簡単に生成できる。</p>
+
+<pre><code># 普通のPythonの配列
 data = [[1.0, 2.0, 3.0], [11.0, 12.0, 13.0]]
 
 # NumPyの多次元配列
@@ -159,13 +168,17 @@ print(npdata)
 #  [ 0.  0.  0.  0.  1.]]
 </code></pre>
 
-<h2 id="39e6974">多次元配列<code>ndarray</code>の属性
-<span class="article-date">2015/03/29</span></h2>
+<h2 id="4c03167">ndarrayの属性
+<span class="article-date">2015/04/01</span></h2>
 
-<p><code>ndarray</code>には<code>shape</code>という配列の次元をタプルで保存している属性と、
+<p>ndarrayには<code>shape</code>という配列の次元をタプルで保存している属性と、
 <code>dtype</code>という配列の要素の型を保存している属性がある。</p>
 
-<pre><code># shapeは配列の次元を表すタプル
+<pre><code>from pprint import pprint
+
+npdata = np.array([[1.0, 2.0, 3.0], [11.0, 12.0, 13.0]])
+
+# shapeは配列の次元を表すタプル
 print(npdata.shape)
 # 出力結果
 # (2, 3)
@@ -174,6 +187,137 @@ print(npdata.shape)
 print(npdata.dtype)
 # 出力結果
 # float64
+
+pprint(npdata.dtype)
+# 出力結果
+# dtype('float64')
+</code></pre>
+
+<h2 id="c6e8395">ndarrayの要素のデータ型
+<span class="article-date">2015/04/01</span></h2>
+
+<p>ndarrayを生成すると要素のデータ型はだいたいデフォルトでfloat64という浮動小数点型になる。
+<code>np.arange</code>はint64という整数になる。</p>
+
+<p>要素のデータ型は<code>dtype</code>という属性で確認することができる。</p>
+
+<pre><code>from pprint import pprint
+
+npdata = np.array([[1.0, 2.0, 3.0], [11.0, 12.0, 13.0]])
+
+print(npdata.dtype)
+# 出力結果
+# float64
+
+pprint(npdata.dtype)
+# 出力結果
+# dtype('float64')
+
+# 整数のPython配列でndarrayを生成すると、int64になるみたい
+npdata1 = np.array([1, 2, 3])
+print(npdata1.dtype)
+# 出力結果
+# int64
+</code></pre>
+
+<p><code>np.array</code>に<code>dtype</code>という名前の引数を渡すことで生成するndarrayの要素型を指定できる。</p>
+
+<pre><code>npdata = np.array([[1.0, 2.0, 3.0], [11.0, 12.0, 13.0]], dtype=np.int32)
+
+print(npdata)
+#  出力結果
+# [[ 1  2  3]
+#  [11 12 13]]
+
+print(npdata.dtype)
+#  出力結果
+# int32
+</code></pre>
+
+<p>データ型には以下のようなものがある。</p>
+
+<ul>
+  <li>符号付き整数 int8, int16, int32, int64</li>
+  <li>符号なし整数 uint8, uint16, uint32, uint64</li>
+  <li>浮動小数点数 float16,float32, float64, float128</li>
+  <li>複素数 complex64, complex128, complex256</li>
+  <li>論理値 bool</li>
+</ul>
+
+<p>型名の数字はビット数を表す。複素数は浮動小数点2つで表されるので、complex64はfloat32 2つ分に相当する。</p>
+
+<h2 id="d7b8a98">ndarrayのコピー
+<span class="article-date">2015/04/01</span></h2>
+
+<p><code>np.array</code> の引数にはPythonの配列だけでなくndarrayも渡すことができて、いずれも新しいndarrayを生成する。ndarrayを渡した場合は配列のコピーになる。</p>
+
+<pre><code>npdata1 = np.array([1, 2, 3])
+npdata2 = np.array(npdata1)
+npdata2[0] = 10
+
+print(npdata1)
+# 出力結果
+# [1 2 3]
+
+print(npdata2)
+# 出力結果
+# [10  2  3]
+</code></pre>
+
+<p><code>np.asarray</code> は <code>np.array</code> とほとんど同じように使えるが、引数にndarrayを渡した場合は配列のコピーをせずに引数をそのまま帰す。</p>
+
+<pre><code>npdata1 = np.array([1, 2, 3])
+npdata2 = np.asarray(npdata1)
+npdata2[0] = 10
+
+print(npdata1)
+# 出力結果
+# [10  2  3]
+
+print(npdata2)
+# 出力結果
+# [10  2  3]
+</code></pre>
+
+<h2 id="6ad0c29">ndarrayのデータ型の変換
+<span class="article-date">2015/04/01</span></h2>
+
+<p><code>astype</code>というメソッドでndarrayの要素のデータ型を別のものにしたndarrayを生成することができる。新しくndarrayを生成しているので、要素を変更してももとのndarrayには影響しない。</p>
+
+<pre><code>npdata1 = np.array([1, 2, 3])
+print(npdata1.dtype)
+# 出力結果
+# int64
+
+npdata2 = npdata1.astype(np.float64)
+print(npdata2.dtype)
+# 出力結果
+# float64
+
+npdata2[0] = 10
+
+print(npdata1)
+# 出力結果
+# [1 2 3]
+
+print(npdata2)
+# 出力結果
+# [ 10.   2.   3.]
+</code></pre>
+
+<p>偶然同じデータ型を指定した場合は単なるコピーと同じになる。</p>
+
+<pre><code>npdata1 = np.array([1, 2, 3])
+npdata2 = npdata1.astype(np.int64)
+npdata2[0] = 10
+
+print(npdata1)
+# 出力結果
+# [1 2 3]
+
+print(npdata2)
+# 出力結果
+# [10  2  3]
 </code></pre>
 
 <h2 id="35729ff">HOWTO</h2>
