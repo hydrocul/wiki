@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
 <body>
@@ -39,8 +39,9 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
-      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
+      <li><a href="../commands/incrontab.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -53,7 +54,7 @@
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
@@ -101,25 +102,27 @@
 <p>行単位で並び替えができる。列は1つ以上のスペースで区切られるようだが、これは <code>-t</code> オプションで変更できる。</p>
 
 <h2 id="8e99451">オプション
-<span class="article-date">2014/09/10</span></h2>
+<span class="article-date">2015/04/01</span></h2>
 
 <dl>
-  <dt><code>-r</code></dt>
-  <dd>逆順に並び替える</dd>
-  <dt><code>-k</code></dt>
-  <dd>どの列で並び替えるかを指定する。 <code>-k 6,7</code> は、6列目で比較し、6列目が同じ場合は
-7列目で比較する。列番号は1から始まる。<code>-k6 -k7</code> でもよい。← この説明、間違っていると思う。</dd>
   <dt><code>-t</code></dt>
   <dd>列の区切り文字を指定する。デフォルトはスペース。 <code>-t,</code> でコンマ区切りになる。
 <code>-t $'\t'</code> でタブ区切りのファイルを処理できるようになる。
 ただし、Ubuntuの <code>/bin/sh</code> はdashで、dashではこのタブの書き方ができない。</dd>
-  <dt><code>-n</code></dt>
-  <dd>列のデータを数字とみなして並び替える。</dd>
 </dl>
 
-<p>参考<br />
-<a href="ls.html#sort-by-timestamp"><code>ls</code>でタイムスタンプの新しい順にファイル一覧を表示するには</a><br />
-<a href="find.html#sort-by-timestamp"><code>find</code>でタイムスタンプの新しい順にファイル一覧を表示するには</a></p>
+<p>ソート方法に関するオプション</p>
+
+<dl>
+  <dt><code>-k</code> 列番号</dt>
+  <dd>どの列で並び替えるかを指定する。<code>-k 6,7</code> は、6列目で比較し、6列目が同じ場合は
+7列目で比較する。列番号は1から始まる。<code>-k 6</code> とすると、6列目で比較し、同じ場合は7列目で比較し、
+また同じであれば8列目で比較し、というふうに最後の列まで順番に比較する。</dd>
+  <dt><code>-n</code></dt>
+  <dd>列のデータを数字とみなして並び替える。</dd>
+  <dt><code>-r</code></dt>
+  <dd>逆順に並び替える。</dd>
+</dl>
 
 <h2 id="9cb9c44">HOWTO</h2>
 
@@ -146,6 +149,16 @@
 <span class="article-date">2014/11/14</span></h3>
 
 <p><a href="uniq.html#sort-count"><code>uniq</code>コマンド</a>の例を参照。</p>
+
+<h3 id="e27ad1c">ファイルをタイムスタンプの順にソートして表示するには
+<span class="article-date">2015/04/01</span></h3>
+
+<p>参考</p>
+
+<ul>
+  <li><a href="ls.html#sort-by-timestamp"><code>ls</code>でタイムスタンプの新しい順にファイル一覧を表示するには</a></li>
+  <li><a href="find.html#sort-by-timestamp"><code>find</code>でタイムスタンプの新しい順にファイル一覧を表示するには</a></li>
+</ul>
 
 </div>
 

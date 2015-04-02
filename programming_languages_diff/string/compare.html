@@ -2,19 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>2つの文字列を比較するには | hydrocul のメモ</title>
+<title>2つの文字列を比較するには (equals / strcasecmp / strcmp / `==` / `!=` / `<` / `<=` / `>=` / `>` / `<=>` / gt / ge / lt / le) | hydrocul のメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body>
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>2つの文字列を比較するには</span>
+  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>2つの文字列を比較するには (equals / strcasecmp / strcmp / `==` / `!=` / `<` / `<=` / `>=` / `>` / `<=>` / gt / ge / lt / le)</span>
 </div>
 <div id="side-menu">
   <div id="side-menu-attention">
@@ -33,27 +33,28 @@
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
           <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
-          <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (length)</a></li>
+          <li><a href="../../programming_languages_diff/string/length.html">長さを取得するには (len / length / mb_strlen / size / strlen)</a></li>
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
-          <li>2つの文字列を比較するには</li>
+          <li>2つの文字列を比較するには (equals / strcasecmp / strcmp / <code>==</code> / <code>!=</code> / <code>&lt;</code> / <code>&lt;=</code> / <code>&gt;=</code> / <code>&gt;</code> / <code>&lt;=&gt;</code> / gt / ge / lt / le)</li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with-ends-with.html">特定の文字や文字列で始まっている/終わっているかどうかを見るには (startsWith, endsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">パターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">正規表現で文字列パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
-          <li><a href="../../programming_languages_diff/string/join.html">文字列のリストを特定の文字列で連結するには (join / implode)</a></li>
-          <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列などに分割するには (split / explode)</a></li>
+          <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (join / implode)</a></li>
+          <li><a href="../../programming_languages_diff/string/split.html">文字列を特定の文字やパターンで配列に分割するには (split / explode)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
-          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a></li>
+          <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
@@ -70,7 +71,7 @@
 </div>
 
 <div id="content">
-  <h1 id="compare">2つの文字列を比較するには</h1>
+  <h1 id="compare">2つの文字列を比較するには (equals / strcasecmp / strcmp / <code>==</code> / <code>!=</code> / <code>&lt;</code> / <code>&lt;=</code> / <code>&gt;=</code> / <code>&gt;</code> / <code>&lt;=&gt;</code> / gt / ge / lt / le)</h1>
 
 <h2 id="3cfb785">Go言語 (golang)
 <span class="article-date">2015/02/13</span></h2>
@@ -100,22 +101,19 @@ Scalaの<code>==</code>演算子はJavaの<code>equals</code>メソッドを呼�
 <code>&lt;=&gt;</code> は<a href="../number/compare.html#groovy">数値の比較</a>と同じで、大小関係によって <code>-1</code>, <code>0</code>, <code>+1</code> のいずれかを返す。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2015/01/08</span></h2>
+<span class="article-date">2015/04/02</span></h2>
 
 <p><code>==</code> は等値の場合に <code>true</code> を返す。 <code>!=</code> はその反対。</p>
 
 <p><code>strcmp</code>関数で文字列の辞書順の比較ができる。</p>
 
-<pre><code>if (strcmp($str1, $str2) === 0) {
-  // $str1 と $str2 が等しい場合の処理
-}
-
-if (strcmp($str1, $str2) &lt; 0) {
+<pre><code>$cmp = strcmp($str1, $str2);
+if ($cmp &lt; 0) {
   // $str1 が $str2 よりも辞書順で前に来る場合の処理
-}
-
-if (strcmp($str1, $str2) &gt; 0) {
+} else if ($cmp &gt; 0) {
   // $str1 が $str2 よりも辞書順で後に来る場合の処理
+} else {
+  // $str1 と $str2 が等しい場合の処理
 }
 </code></pre>
 
@@ -174,7 +172,7 @@ print "2" cmp "12"; # =&gt; 1
 
 <p><a href="match.html#perl">正規表現とのマッチングができる <code>=~</code> や <code>!~</code> という演算子</a>もある。</p>
 
-<h2 id="f3384ef">sh
+<h2 id="f3384ef">sh (シェルスクリプト)
 <span class="article-date">2013/09/25</span></h2>
 
 <p><code>test</code> コマンドの <code>=</code>, <code>!=</code> 演算子で文字列の比較ができる。

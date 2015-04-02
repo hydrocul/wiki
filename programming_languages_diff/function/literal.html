@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body>
@@ -163,7 +163,7 @@ Scalaでは <code>-&gt;</code> は別の意味の演算子として存在する�
 1引数の非常に簡単な式の関数を書くには <code>_</code> は便利である。</p>
 
 <h2 id="3b01008">PHP
-<span class="article-date">2014/06/26</span></h2>
+<span class="article-date">2015/04/02</span></h2>
 
 <p>PHP5.3以降で使える無名関数の例</p>
 
@@ -173,13 +173,20 @@ Scalaでは <code>-&gt;</code> は別の意味の演算子として存在する�
 $f("Hello");
 </code></pre>
 
-<p>無名関数を宣言している外側の変数を無名関数の中から参照・代入するには、
+<p>無名関数を宣言している外側の変数を無名関数の中から参照するには、
 <code>use</code> で宣言する必要がある。代入する場合はさらに <code>&amp;</code> を付ける。</p>
 
-<p>無名関数は<code>Closure</code>クラスのインスタンスになる。</p>
+<pre><code>$var1 = ...;
+$f = function ($arg) use ($var1) {
+    echo "$arg, $var1\n";
+}
+$f("Hello");
+</code></pre>
+
+<p>無名関数は<code>Closure</code>クラスのインスタンスになる。メソッド定義の中で無名関数を定義しても、その無名関数は外側のクラスとは別の<code>Closure</code>クラスの扱いになるので、外側のクラスのprivateなフィールドやメソッドにはアクセスできない。(※PHPのバージョンによって違うかも)</p>
 
 <p>無名関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/functions.anonymous.php" target="_blank">http://www.php.net/manual/ja/functions.anonymous.php</a></p>
+<a href="http://php.net/manual/ja/functions.anonymous.php" target="_blank">http://php.net/manual/ja/functions.anonymous.php</a></p>
 
 <p><code>Closure</code> クラス | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/class.closure.php" target="_blank">http://www.php.net/manual/ja/class.closure.php</a></p>
