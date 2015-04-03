@@ -73,6 +73,10 @@ code, kbd, pre, samp {
   font-size: 12px;
   color: #666;
 }
+#content .article-date:after {
+    content: "更新";
+}
+
 #content p,
 #content ul,
 #content dl {
