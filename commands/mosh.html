@@ -97,9 +97,9 @@
 
 <div id="content">
   <h1 id="mosh">mosh コマンド
-<span class="article-date">2013/11/25</span></h1>
+<span class="article-date">2015/04/03</span></h1>
 
-<p>モバイル環境など頻繁にネットが切断されたり、ノートPCを開いたり閉じたりしても、ネットが復活したときに自動でsshを再接続し、しかも切断される前のセッションの状態を維持してくれる高機能sshクライアント。ネットが復活したときにIPが変わってしまってもセッションの維持に問題ない。</p>
+<p>モバイル環境など頻繁にネットが切断されたり、ノートPCを閉じて開いても、ネットが復活したときに自動でsshを再接続し、しかも切断される前のセッションの状態を復元してくれる高機能sshクライアントのようなコマンド。ネットが復活したときにIPが変わってしまってもセッションの維持に問題ない。</p>
 
 <p>ただし、ポートフォワードの機能がない。</p>
 
@@ -109,13 +109,20 @@
 
 <p>使い方は<a href="ssh.html">sshコマンド</a>とよく似ている。</p>
 
+<p>Mosh: the mobile shell<br />
+<a href="https://mosh.mit.edu/" target="_blank">https://mosh.mit.edu/</a></p>
+
 <h2 id="6117d70">インストール方法
-<span class="article-date">2013/05/28</span></h2>
+<span class="article-date">2015/04/03</span></h2>
+
+<p>インストール方法は公式ウェブサイトを見ればわかる。</p>
 
 <p><a href="http://mosh.mit.edu/#getting" target="_blank">http://mosh.mit.edu/#getting</a></p>
 
-<h3 id="917ca34">ソースからmoshをインストールしたサーバに接続しようとして発生するエラー <code>mosh-server: error while loading shared libraries: libprotobuf.so.8: cannot open shared object file: No such file or directory</code>
+<h3 id="f419f74">ソースからmoshをインストールしたサーバに接続しようとして発生するエラー
 <span class="article-date">2013/07/01</span></h3>
+
+<p><code>mosh-server: error while loading shared libraries: libprotobuf.so.8: cannot open shared object file: No such file or directory</code></p>
 
 <p>ぐぐるとと、<code>.bashrc</code> に <code>LD_LIBRARY_PATH</code> の設定を書くんだとか、接続するときの 
 mosh のオプションパラメータに <code>LD_LIBRARY_PATH</code> のパスを書く方法が出てくるが、自分の環境ではどの方法でも解決せず、最終的には以下のコマンドで解決した。

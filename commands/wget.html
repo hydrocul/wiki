@@ -115,7 +115,7 @@ URLからドメイン名やディレクトリ名を削ったものになる。�
 <p>サーバに接続できなかったり、404などになってしまった場合は終了コード0以外が返される。</p>
 
 <h2 id="af0e4a7">オプション
-<span class="article-date">2015/03/31</span></h2>
+<span class="article-date">2015/04/03</span></h2>
 
 <dl>
   <dt><code>-O</code> ファイル名</dt>
@@ -127,8 +127,11 @@ URLからドメイン名やディレクトリ名を削ったものになる。�
   <dt><code>-i</code> ファイル名</dt>
   <dd>ダウンロードするURLをコマンドパラメータではなく、ファイルから読み込む。
 ファイルには、各行にURLを1つずつ書いておく。すると、そのURLを順番にダウンロードしてくれる</dd>
+  <dt><code>--spider</code></dt>
+  <dd>ダウンロードせずに、ファイルの存在だけをチェックする。再帰的に実行するオプション <code>-r</code> と併用するときには
+<code>-nv</code> も併用すると標準エラー出力に一覧が表示されて見やすい</dd>
   <dt><code>-x</code></dt>
-  <dd>再帰的なダウンロード <code>-r</code> を指定した場合と同様にドメイン名のディレクトリを作成してダウンロードする</dd>
+  <dd>ドメイン名のディレクトリを作成してダウンロードする。再帰的なダウンロード <code>-r</code> を指定した場合と同様である</dd>
 </dl>
 
 <h3 id="ba45dbf">再帰的なダウンロードに関するオプション
@@ -181,16 +184,20 @@ wget -p --convert-links http://www.example.com/
 </code></pre>
 
 <h3 id="34294df">ウェブサイトを丸ごとダウンロードするには 
-<span class="article-date">2013/04/10</span></h3>
+<span class="article-date">2015/04/03</span></h3>
 
-<p>ウェブサイトを第3階層までリンクをたどりダウンロードする。</p>
+<p><code>-r</code> オプションで再帰的なダウンロードを指示し、 <code>-l</code> オプションで再帰の深さを指定する。</p>
 
-<pre><code>wget -r -l3 http://www.example.com/
+<pre><code># リンク3回までたどり、ダウンロードする。
+# リンクを3回踏むということは第4階層のページまでということになる。
+wget -r -l3 http://www.example.com/
 </code></pre>
 
-<p>ウェブサイトを第5階層までリンクをたどりダウンロードする。かつローカルでサイトを閲覧できるように、パスを相対パスに書き換える。</p>
+<p>さらに <code>--convert-links</code> を付けると、ダウンロードするHTMLの中に書かれているリンクや画像の参照などのパスをローカルでも閲覧できるように相対パスに書き換えてくれる。</p>
 
-<pre><code>wget -r -l5 --convert-links http://www.example.com/
+<pre><code># ウェブサイトを第6階層までリンクをたどりダウンロードする。
+# かつローカルでサイトを閲覧できるように、パスを相対パスに書き換える。
+wget -r -l5 --convert-links http://www.example.com/
 </code></pre>
 
 <h3 id="05c235b">標準出力に吐き出すには
