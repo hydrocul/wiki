@@ -19,17 +19,21 @@
 </div>
 
 <div id="content">
-  <h1 id="to-map">値のペアの配列(リスト)から連想配列(マップ)を生成するには (toMap)</h1>
+  <h1 id="to-map">値のペアの配列(リスト)から連想配列(マップ)を生成するには (toMap)
+<span class="article-date">2015/04/05</span></h1>
+
+<p>各プログラミング言語での、値のペアの配列(リスト)から連想配列(マップ)を生成する方法。</p>
+
+<p><code>[["a", 1], ["b", 2], ["c", 3]]</code> というような配列の配列から <code>{"a": 1, "c": 3, "b": 2}</code> というような連想配列への変換である。もしくは <code>["a", 1, "b", 2, "c", 3]</code> というような長さが偶数の配列から連想配列への変換である。</p>
 
 <h2 id="9dac89f">Scala
 <span class="article-date">2013/10/14</span></h2>
 
-<p><a href="../tuple/overview.html#scala">タプル</a>のリストをマップに変換する方法。</p>
+<p><a href="../tuple/overview.html#scala">タプル</a>のリストを<a href="../map/overview.html#scala">マップ</a>に変換する方法。</p>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Seq[A]
-def toMap[T, U]: Map[T, U]
+<pre><code>def scala.collection.Seq[A]#toMap[T, U]: Map[T, U]
 </code></pre>
 
 <p>例</p>
@@ -137,7 +141,7 @@ print $map{d};
           <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">配列(リスト)をソートするには (sort)</a></li>
           <li><a href="../../programming_languages_diff/list/convert.html">データ型を相互に変換するには (asList / asScala / asJava / to_a / toArray)</a></li>
-          <li>値のペアの配列(リスト)から連想配列(マップ)を生成するには (toMap)</li>
+          <li>値のペアの配列から連想配列を生成するには (toMap)</li>
           <li><a href="../../programming_languages_diff/list/to-set.html">配列から集合を生成するには (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">配列(リスト)の中の最大値・最小値を求めるには (max, min)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数の配列(リスト)の合計を計算するには (sum)</a></li>

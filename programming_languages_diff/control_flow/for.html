@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>for文(繰り返し) | 制御構文 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>for文(繰り返し) | 制御構文 | プログラミング言語の比較 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,43 +12,18 @@
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/control_flow/">制御構文</a> &gt; <span>for文(繰り返し)</span>
-</div>
-<div id="side-menu">
-  <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
-  </div>
-  <div id="side-menu-ls">
-    <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
-    <ul>
-      <li><a href="../../programming_languages_diff/control_flow/">制御構文</a>
-        <ul>
-          <li><a href="../../programming_languages_diff/control_flow/if.html">if文</a></li>
-          <li><a href="../../programming_languages_diff/control_flow/while.html">while文</a></li>
-          <li>for文(繰り返し)</li>
-          <li><a href="../../programming_languages_diff/control_flow/break.html">break文</a></li>
-          <li><a href="../../programming_languages_diff/control_flow/continue.html">continue文</a></li>
-          <li><a href="../../programming_languages_diff/control_flow/switch.html">switch文</a></li>
-          <li><a href="../../programming_languages_diff/control_flow/redo.html">redo文</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-  </div>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/control_flow/">制御構文</a> &gt; <span>for文(繰り返し)</span>
 </div>
 
 <div id="content">
   <h1 id="for">for文(繰り返し)
-<span class="article-date">2013/10/14</span></h1>
+<span class="article-date">2015/04/05</span></h1>
 
-<p>特定の条件を満たしている間同じ処理を繰り返す構文。
-<a href="while.html"><code>while</code>文</a>でもループできる。</p>
+<p>ループカウンタを使って、特定の条件を満たしている間、または特定の回数同じ処理を繰り返す構文の、プログラミング言語別メモ。
+<a href="while.html"><code>while</code>文</a>でもループできる言語が多い。</p>
 
 <p>配列やリストの要素に対して繰り返し処理をさせる方法は
 <a href="../list/foreach.html">foreach</a>も参照。</p>
@@ -89,14 +65,9 @@ while(式2){
 <p><code>for</code>の括弧の中の2つ目の部分の条件式はC言語などと違って<code>boolean</code>型以外の式を置くことはできない。</p>
 
 <h2 id="2f5f03e">Scala
-<span class="article-date">2014/08/01</span></h2>
+<span class="article-date">2015/04/05</span></h2>
 
 <pre><code>for (i &lt;- 0 until 10) {
-    ...;
-}
-
-// 二重ループ
-for (i &lt;- 0 until 10; j &lt;- 0 until 10) {
     ...;
 }
 </code></pre>
@@ -104,6 +75,20 @@ for (i &lt;- 0 until 10; j &lt;- 0 until 10) {
 <p>または<a href="../list/foreach.html#scala"><code>foreach</code>メソッド</a>を使って</p>
 
 <pre><code>(0 until 10).foreach { i =&gt;
+    ...;
+}
+</code></pre>
+
+<p>Scalaのfor式は<code>foreach</code>メソッド呼び出しのシンタックスシュガーであって、
+1つ目の例はコンパイラによって2つ目の例に変換される。
+<code>foreach</code>という名前のメソッドがあれば <code>for</code> の <code>&lt;-</code> の右側に書くことができる。</p>
+
+<p><code>0 until 10</code> というのは <code>scala.collection.immutable.Range</code> というクラスのインスタンスを生成し、これには <code>foreach</code> というメソッドがあるので、こういう書き方ができる。(-&gt; <a href="../list/range.html#scala"><code>to</code>/<code>until</code>メソッド</a>)</p>
+
+<p>for式で多重ループを書くこともできる。</p>
+
+<pre><code>// 二重ループ
+for (i &lt;- 0 until 10; j &lt;- 0 until 10) {
     ...;
 }
 </code></pre>
@@ -253,6 +238,32 @@ done
 
 <p><code>var i</code> と書いているが、スコープはfor文を含む関数内であり、for文に限定できるものではない。</p>
 
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/control_flow/">制御構文</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/control_flow/if.html">if文</a></li>
+          <li><a href="../../programming_languages_diff/control_flow/while.html">while文</a></li>
+          <li>for文(繰り返し)</li>
+          <li><a href="../../programming_languages_diff/control_flow/break.html">break文</a></li>
+          <li><a href="../../programming_languages_diff/control_flow/continue.html">continue文</a></li>
+          <li><a href="../../programming_languages_diff/control_flow/switch.html">switch文</a></li>
+          <li><a href="../../programming_languages_diff/control_flow/redo.html">redo文</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
 </div>
 
 <footer>
