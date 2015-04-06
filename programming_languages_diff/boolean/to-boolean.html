@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>論理値への変換 | 論理型 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>いろいろな値から論理値への変換の規則 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,17 +15,17 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/boolean/">論理型</a> &gt; <span>論理値への変換</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/boolean/">論理型</a> &gt; <span>いろいろな値から論理値への変換の規則</span>
 </div>
 
 <div id="content">
-  <h1 id="to-boolean">論理値への変換
-<span class="article-date">2013/08/24</span></h1>
+  <h1 id="to-boolean">いろいろな値から論理値への変換の規則
+<span class="article-date">2015/04/06</span></h1>
 
-<p><code>if</code>文の条件式など、論理値を必要とされる場所に任意の型を入れたときにどう評価されるか。</p>
+<p><code>if</code>文の条件式など、論理値を必要とされる場所にいろいろな型の値を入れたときにどう評価されるかについて、プログラミング言語別メモ。</p>
 
 <h2 id="0fff33e">まとめ
-<span class="article-date">2013/09/21</span></h2>
+<span class="article-date">2015/04/06</span></h2>
 
 <table>
   <tbody>
@@ -71,6 +71,13 @@
     </tr>
   </tbody>
 </table>
+
+<ul>
+  <li>Rubyは異端児で全部true</li>
+  <li>それ以外は原則false</li>
+  <li>C言語はポインタの仕組みにより文字列と配列はtrue</li>
+  <li>JavaScriptの配列はオブジェクトであるのでtrue</li>
+</ul>
 
 <h2 id="9a1bb7a">C言語 / C++
 <span class="article-date">2015/02/14</span></h2>
@@ -122,7 +129,7 @@
     <ul>
       <li><a href="../../programming_languages_diff/boolean/">論理型</a>
         <ul>
-          <li><a href="../../programming_languages_diff/boolean/overview.html">論理値(boolean)のデータ型の各プログラミング言語別の概要</a></li>
+          <li><a href="../../programming_languages_diff/boolean/overview.html">概要</a></li>
           <li>論理値への変換</li>
           <li><a href="../../programming_languages_diff/boolean/operator.html">論理演算子</a></li>
         </ul>
