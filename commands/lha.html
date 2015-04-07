@@ -2,20 +2,51 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>lha コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>lha コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>lha コマンド</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>lha コマンド</span>
 </div>
+
+<div id="content">
+  <h1 id="lha">lha コマンド
+<span class="article-date">2014/12/21</span></h1>
+
+<p>拡張子 .lzh のファイル形式を圧縮・解凍するコマンド。</p>
+
+<p>最近は自分でわざわざlzh形式のファイルを作ることなんかなく、でも届いたメールの添付がlzhだったりして 
+“極まれによく” 解凍しないといけないケースがあるので。</p>
+
+<p>このコマンドで圧縮する方法はよくわからない、、、</p>
+
+<h2 id="5254ade">インストール
+<span class="article-date">2013/11/28</span></h2>
+
+<p>Ubuntuの場合</p>
+
+<pre><code>sudo apt-get install lhasa
+</code></pre>
+
+<p>(Ubuntu 13.10 で確認)</p>
+
+<h2 id="17a32da">lzhファイルを解凍するには
+<span class="article-date">2013/08/19</span></h2>
+
+<pre><code>lha x hoge.zip
+</code></pre>
+
+</div>
+
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
@@ -39,8 +70,9 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
-      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
+      <li><a href="../commands/incrontab.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li>lha コマンド</li>
@@ -53,7 +85,7 @@
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
@@ -92,35 +124,6 @@
 </ul>
 
   </div>
-</div>
-
-<div id="content">
-  <h1 id="lha">lha コマンド
-<span class="article-date">2014/12/21</span></h1>
-
-<p>拡張子 .lzh のファイル形式を圧縮・解凍するコマンド。</p>
-
-<p>最近は自分でわざわざlzh形式のファイルを作ることなんかなく、でも届いたメールの添付がlzhだったりして 
-“極まれによく” 解凍しないといけないケースがあるので。</p>
-
-<p>このコマンドで圧縮する方法はよくわからない、、、</p>
-
-<h2 id="5254ade">インストール
-<span class="article-date">2013/11/28</span></h2>
-
-<p>Ubuntuの場合</p>
-
-<pre><code>sudo apt-get install lhasa
-</code></pre>
-
-<p>(Ubuntu 13.10 で確認)</p>
-
-<h2 id="17a32da">lzhファイルを解凍するには
-<span class="article-date">2013/08/19</span></h2>
-
-<pre><code>lha x hoge.zip
-</code></pre>
-
 </div>
 
 <footer>

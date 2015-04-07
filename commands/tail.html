@@ -2,20 +2,58 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>tail コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>tail コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>tail コマンド</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>tail コマンド</span>
 </div>
+
+<div id="content">
+  <h1 id="tail">tail コマンド
+<span class="article-date">2014/03/03</span></h1>
+
+<p>テキストファイルまたはパイプでのテキスト入力の最後のn行を抜き出すコマンド。行単位ではなくバイト単位での制御も可能。</p>
+
+<p>最後のn行ではなく、先頭の n-1 行を削ったn行目以降を出力するには <code>+</code> を付ける。</p>
+
+<p>例</p>
+
+<pre><code># 最後の10行を表示
+tail -n 10 hoge.txt
+
+# 最後の10行を表示(パイプを使う例)
+cat hoge.txt | tail -n 10
+
+# 最初の9行を除いて10行目からを表示
+tail -n +10 hoge.txt
+
+# 最後の10バイトを表示
+tail -c 10 hoge.txt
+
+# 最初の9バイトを除いて10バイト目からを表示
+tail -c +10 hoge.txt
+</code></pre>
+
+<h2 id="9bc04de">ログファイルなどのファイルへの出力をリアルタイムに画面に表示するには
+<span class="article-date">2013/10/22</span></h2>
+
+<p>以下のように <code>-f</code> を付けると、ログをリアルタイムに表示できる。終了するには Ctrl+C を押すなどする。</p>
+
+<pre><code>tail -f access_log
+</code></pre>
+
+</div>
+
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
@@ -39,8 +77,9 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
-      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
+      <li><a href="../commands/incrontab.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -53,7 +92,7 @@
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
@@ -92,42 +131,6 @@
 </ul>
 
   </div>
-</div>
-
-<div id="content">
-  <h1 id="tail">tail コマンド
-<span class="article-date">2014/03/03</span></h1>
-
-<p>テキストファイルまたはパイプでのテキスト入力の最後のn行を抜き出すコマンド。行単位ではなくバイト単位での制御も可能。</p>
-
-<p>最後のn行ではなく、先頭の n-1 行を削ったn行目以降を出力するには <code>+</code> を付ける。</p>
-
-<p>例</p>
-
-<pre><code># 最後の10行を表示
-tail -n 10 hoge.txt
-
-# 最後の10行を表示(パイプを使う例)
-cat hoge.txt | tail -n 10
-
-# 最初の9行を除いて10行目からを表示
-tail -n +10 hoge.txt
-
-# 最後の10バイトを表示
-tail -c 10 hoge.txt
-
-# 最初の9バイトを除いて10バイト目からを表示
-tail -c +10 hoge.txt
-</code></pre>
-
-<h2 id="9bc04de">ログファイルなどのファイルへの出力をリアルタイムに画面に表示するには
-<span class="article-date">2013/10/22</span></h2>
-
-<p>以下のように <code>-f</code> を付けると、ログをリアルタイムに表示できる。終了するには Ctrl+C を押すなどする。</p>
-
-<pre><code>tail -f access_log
-</code></pre>
-
 </div>
 
 <footer>

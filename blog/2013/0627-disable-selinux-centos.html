@@ -2,20 +2,38 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>CentOSのSELinuxを無効にするには | 2013年 | ブログ | hydrocul のメモ</title>
+<title>CentOSのSELinuxを無効にするには | 2013年 | ブログ | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2013/">2013年</a> &gt; <span>CentOSのSELinuxを無効にするには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2013/">2013年</a> &gt; <span>CentOSのSELinuxを無効にするには</span>
 </div>
+
+<div id="content">
+  <h1 id="0627-disable-selinux-centos">CentOSのSELinuxを無効にするには
+<span class="article-date">2013/06/27</span></h1>
+
+<p><code>/etc/selinux/config</code> を、以下のように修正し、</p>
+
+<pre><code>SELINUX=disabled
+</code></pre>
+
+<p>OSの再起動を実施する。</p>
+
+<pre><code>shutdown -r now
+</code></pre>
+
+</div>
+
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
@@ -45,22 +63,6 @@
 </ul>
 
   </div>
-</div>
-
-<div id="content">
-  <h1 id="0627-disable-selinux-centos">CentOSのSELinuxを無効にするには
-<span class="article-date">2013/06/27</span></h1>
-
-<p><code>/etc/selinux/config</code> を、以下のように修正し、</p>
-
-<pre><code>SELINUX=disabled
-</code></pre>
-
-<p>OSの再起動を実施する。</p>
-
-<pre><code>shutdown -r now
-</code></pre>
-
 </div>
 
 <footer>

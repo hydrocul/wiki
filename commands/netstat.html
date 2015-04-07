@@ -2,20 +2,56 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>netstat コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>netstat コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>netstat コマンド</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>netstat コマンド</span>
 </div>
+
+<div id="content">
+  <h1 id="netstat">netstat コマンド
+<span class="article-date">2013/10/16</span></h1>
+
+<p>ネットワークの状況を調べるコマンド。</p>
+
+<p>LISTENしているポートは、<code>netstat -an</code> を実行して、出力の上の方の <code>LISTEN</code> と書いてあるレコードが該当する。そのレコードの <code>Local Address</code> の欄が <code>127.0.0.1</code> と書かれていると、そのポートは localhost からしか接続できない。 0.0.0.0 と書かれていると、
+(iptablesなどでブロックされていなければ)外部からでもアクセスできる。</p>
+
+<h2 id="6fd40d6">ポートをLISTENしているプロセスを調べるには
+<span class="article-date">2014/03/10</span></h2>
+
+<pre><code>sudo netstat -anp | grep LISTEN
+</code></pre>
+
+<p>PIDの欄がプロセスIDである。一般ユーザ権限だとプロセスIDが表示されないものがあるので、知りたいプロセスが表示されていなかったら、root権限になるとよい。</p>
+
+<h2 id="871f6a7">詳細不明のSSHトンネルと思しきLISTENしているポートを強制的に閉じるには
+<span class="article-date">2014/03/10</span></h2>
+
+<p>例えばポート番号9999を強制的異閉じたい場合は</p>
+
+<pre><code>sudo netstat -anp | grep LISTEN | grep 9999
+</code></pre>
+
+<p>とでもしてプロセスIDを調べて、殺しても問題なさそうであれば、</p>
+
+<pre><code>killl &lt;プロセスID&gt;
+</code></pre>
+
+<p>でkillしてしまえばよい。killの際に動作しているユーザ権限が違っていれば、root権限が必要。</p>
+
+</div>
+
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
@@ -39,8 +75,9 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
-      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
+      <li><a href="../commands/incrontab.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -53,7 +90,7 @@
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
@@ -92,40 +129,6 @@
 </ul>
 
   </div>
-</div>
-
-<div id="content">
-  <h1 id="netstat">netstat コマンド
-<span class="article-date">2013/10/16</span></h1>
-
-<p>ネットワークの状況を調べるコマンド。</p>
-
-<p>LISTENしているポートは、<code>netstat -an</code> を実行して、出力の上の方の <code>LISTEN</code> と書いてあるレコードが該当する。そのレコードの <code>Local Address</code> の欄が <code>127.0.0.1</code> と書かれていると、そのポートは localhost からしか接続できない。 0.0.0.0 と書かれていると、
-(iptablesなどでブロックされていなければ)外部からでもアクセスできる。</p>
-
-<h2 id="6fd40d6">ポートをLISTENしているプロセスを調べるには
-<span class="article-date">2014/03/10</span></h2>
-
-<pre><code>sudo netstat -anp | grep LISTEN
-</code></pre>
-
-<p>PIDの欄がプロセスIDである。一般ユーザ権限だとプロセスIDが表示されないものがあるので、知りたいプロセスが表示されていなかったら、root権限になるとよい。</p>
-
-<h2 id="871f6a7">詳細不明のSSHトンネルと思しきLISTENしているポートを強制的に閉じるには
-<span class="article-date">2014/03/10</span></h2>
-
-<p>例えばポート番号9999を強制的異閉じたい場合は</p>
-
-<pre><code>sudo netstat -anp | grep LISTEN | grep 9999
-</code></pre>
-
-<p>とでもしてプロセスIDを調べて、殺しても問題なさそうであれば、</p>
-
-<pre><code>killl &lt;プロセスID&gt;
-</code></pre>
-
-<p>でkillしてしまえばよい。killの際に動作しているユーザ権限が違っていれば、root権限が必要。</p>
-
 </div>
 
 <footer>

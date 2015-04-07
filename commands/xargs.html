@@ -2,96 +2,20 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>xargs コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>xargs コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>xargs コマンド</span>
-</div>
-<div id="side-menu">
-  <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
-  </div>
-  <div id="side-menu-ls">
-    <ul>
-  <li><a href="../commands/">コマンドの使い方(Linux)</a>
-    <ul>
-      <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
-      <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
-      <li><a href="../commands/awk.html">awk コマンド</a></li>
-      <li><a href="../commands/base64.html">base64 コマンド</a></li>
-      <li><a href="../commands/cat.html">cat コマンド</a></li>
-      <li><a href="../commands/cp.html">cp コマンド</a></li>
-      <li><a href="../commands/crontab.html">crontab コマンド</a></li>
-      <li><a href="../commands/curl.html">curl コマンド</a></li>
-      <li><a href="../commands/cut.html">cut コマンド</a></li>
-      <li><a href="../commands/date.html">date コマンド</a></li>
-      <li><a href="../commands/diff.html">diff コマンド</a></li>
-      <li><a href="../commands/du.html">du コマンド</a></li>
-      <li><a href="../commands/find.html">find コマンド</a></li>
-      <li><a href="../commands/git.html">git コマンド</a></li>
-      <li><a href="../commands/grep.html">grep コマンド</a></li>
-      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
-      <li><a href="../commands/jhead.html">jhead コマンド</a></li>
-      <li><a href="../commands/less.html">less コマンド</a></li>
-      <li><a href="../commands/lftp.html">lftp コマンド</a></li>
-      <li><a href="../commands/lha.html">lha コマンド</a></li>
-      <li><a href="../commands/ls.html">ls コマンド</a></li>
-      <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
-      <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
-      <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
-      <li><a href="../commands/mosh.html">mosh コマンド</a></li>
-      <li><a href="../commands/netstat.html">netstat コマンド</a></li>
-      <li><a href="../commands/nkf.html">nkf コマンド</a></li>
-      <li><a href="../commands/od.html">od コマンド</a></li>
-      <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
-      <li><a href="../commands/paste.html">paste コマンド</a></li>
-      <li><a href="../commands/ps.html">ps コマンド</a></li>
-      <li><a href="../commands/pstree.html">pstree コマンド</a></li>
-      <li><a href="../commands/readlink.html">readlink コマンド</a></li>
-      <li><a href="../commands/rsync.html">rsync コマンド</a></li>
-      <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
-      <li><a href="../commands/sed.html">sed コマンド</a></li>
-      <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
-      <li><a href="../commands/siege.html">siege コマンド</a></li>
-      <li><a href="../commands/sort.html">sort コマンド</a></li>
-      <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
-      <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
-      <li><a href="../commands/ssh.html">ssh コマンド</a></li>
-      <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
-      <li><a href="../commands/svn.html">Subversion (svn)</a></li>
-      <li><a href="../commands/tac.html">tac コマンド</a></li>
-      <li><a href="../commands/tail.html">tail コマンド</a></li>
-      <li><a href="../commands/tar.html">tar コマンド</a></li>
-      <li><a href="../commands/tee.html">tee コマンド</a></li>
-      <li><a href="../commands/time.html">time コマンド</a></li>
-      <li><a href="../commands/tmux.html">tmux コマンド</a></li>
-      <li><a href="../commands/top.html">top コマンド</a></li>
-      <li><a href="../commands/touch.html">touch コマンド</a></li>
-      <li><a href="../commands/tr.html">tr コマンド</a></li>
-      <li><a href="../commands/trap.html">trap コマンド</a></li>
-      <li><a href="../commands/uniq.html">uniq コマンド</a></li>
-      <li><a href="../commands/watch.html">watch コマンド</a></li>
-      <li><a href="../commands/wc.html">wc コマンド</a></li>
-      <li><a href="../commands/wget.html">wget コマンド</a></li>
-      <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
-      <li>xargs コマンド</li>
-      <li><a href="../commands/yes.html">yes コマンド</a></li>
-      <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
-    </ul>
-  </li>
-</ul>
-
-  </div>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>xargs コマンド</span>
 </div>
 
 <div id="content">
@@ -169,6 +93,85 @@ test.sh
 <pre><code>ls | xargs -n1 sh test.sh
 </code></pre>
 
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../commands/">コマンドの使い方(Linux)</a>
+    <ul>
+      <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
+      <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
+      <li><a href="../commands/awk.html">awk コマンド</a></li>
+      <li><a href="../commands/base64.html">base64 コマンド</a></li>
+      <li><a href="../commands/cat.html">cat コマンド</a></li>
+      <li><a href="../commands/cp.html">cp コマンド</a></li>
+      <li><a href="../commands/crontab.html">crontab コマンド</a></li>
+      <li><a href="../commands/curl.html">curl コマンド</a></li>
+      <li><a href="../commands/cut.html">cut コマンド</a></li>
+      <li><a href="../commands/date.html">date コマンド</a></li>
+      <li><a href="../commands/diff.html">diff コマンド</a></li>
+      <li><a href="../commands/du.html">du コマンド</a></li>
+      <li><a href="../commands/find.html">find コマンド</a></li>
+      <li><a href="../commands/git.html">git コマンド</a></li>
+      <li><a href="../commands/grep.html">grep コマンド</a></li>
+      <li><a href="../commands/incrontab.html">incrontab / incron コマンド</a></li>
+      <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/jq.html">jq コマンド</a></li>
+      <li><a href="../commands/less.html">less コマンド</a></li>
+      <li><a href="../commands/lftp.html">lftp コマンド</a></li>
+      <li><a href="../commands/lha.html">lha コマンド</a></li>
+      <li><a href="../commands/ls.html">ls コマンド</a></li>
+      <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
+      <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
+      <li><a href="../commands/mosh.html">mosh コマンド</a></li>
+      <li><a href="../commands/netstat.html">netstat コマンド</a></li>
+      <li><a href="../commands/nkf.html">nkf コマンド</a></li>
+      <li><a href="../commands/od.html">od コマンド</a></li>
+      <li><a href="../commands/openssl.html">openssl コマンド</a></li>
+      <li><a href="../commands/paco.html">paco コマンド</a></li>
+      <li><a href="../commands/paste.html">paste コマンド</a></li>
+      <li><a href="../commands/ps.html">ps コマンド</a></li>
+      <li><a href="../commands/pstree.html">pstree コマンド</a></li>
+      <li><a href="../commands/readlink.html">readlink コマンド</a></li>
+      <li><a href="../commands/rsync.html">rsync コマンド</a></li>
+      <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
+      <li><a href="../commands/sed.html">sed コマンド</a></li>
+      <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
+      <li><a href="../commands/siege.html">siege コマンド</a></li>
+      <li><a href="../commands/sort.html">sort コマンド</a></li>
+      <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
+      <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
+      <li><a href="../commands/ssh.html">ssh コマンド</a></li>
+      <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
+      <li><a href="../commands/svn.html">Subversion (svn)</a></li>
+      <li><a href="../commands/tac.html">tac コマンド</a></li>
+      <li><a href="../commands/tail.html">tail コマンド</a></li>
+      <li><a href="../commands/tar.html">tar コマンド</a></li>
+      <li><a href="../commands/tee.html">tee コマンド</a></li>
+      <li><a href="../commands/time.html">time コマンド</a></li>
+      <li><a href="../commands/tmux.html">tmux コマンド</a></li>
+      <li><a href="../commands/top.html">top コマンド</a></li>
+      <li><a href="../commands/touch.html">touch コマンド</a></li>
+      <li><a href="../commands/tr.html">tr コマンド</a></li>
+      <li><a href="../commands/trap.html">trap コマンド</a></li>
+      <li><a href="../commands/uniq.html">uniq コマンド</a></li>
+      <li><a href="../commands/watch.html">watch コマンド</a></li>
+      <li><a href="../commands/wc.html">wc コマンド</a></li>
+      <li><a href="../commands/wget.html">wget コマンド</a></li>
+      <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
+      <li>xargs コマンド</li>
+      <li><a href="../commands/yes.html">yes コマンド</a></li>
+      <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
 </div>
 
 <footer>

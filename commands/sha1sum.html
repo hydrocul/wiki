@@ -2,20 +2,37 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>sha1sum コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>sha1sum コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>sha1sum コマンド</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>sha1sum コマンド</span>
 </div>
+
+<div id="content">
+  <h1 id="sha1sum">sha1sum コマンド
+<span class="article-date">2013/11/28</span></h1>
+
+<p>SHA1のハッシュ値を計算するコマンド。使い方は<a href="md5sum.html">md5sum</a>と同じ。</p>
+
+<p>例</p>
+
+<pre><code>cat ./foo.txt | sha1sum
+</code></pre>
+
+<p>-&gt; <a href="../programming_languages_diff/string/hash.html">SHA1を計算するには</a></p>
+
+</div>
+
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
@@ -39,8 +56,9 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
-      <li><a href="../commands/incrontab.html">incron (inotify cron) (incrontab コマンド)</a></li>
+      <li><a href="../commands/incrontab.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
       <li><a href="../commands/lha.html">lha コマンド</a></li>
@@ -53,7 +71,7 @@
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
+      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pstree.html">pstree コマンド</a></li>
@@ -92,21 +110,6 @@
 </ul>
 
   </div>
-</div>
-
-<div id="content">
-  <h1 id="sha1sum">sha1sum コマンド
-<span class="article-date">2013/11/28</span></h1>
-
-<p>SHA1のハッシュ値を計算するコマンド。使い方は<a href="md5sum.html">md5sum</a>と同じ。</p>
-
-<p>例</p>
-
-<pre><code>cat ./foo.txt | sha1sum
-</code></pre>
-
-<p>-&gt; <a href="../programming_languages_diff/string/hash.html">SHA1を計算するには</a></p>
-
 </div>
 
 <footer>
