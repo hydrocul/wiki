@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>三角関数・指数関数 | 数値型 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>指数関数・対数関数・三角関数・双曲線関数 | 数値型 | プログラミング言語の比較 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,11 +15,14 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>三角関数・指数関数</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>指数関数・対数関数・三角関数・双曲線関数</span>
 </div>
 
 <div id="content">
-  <h1 id="elementary-function">三角関数・指数関数</h1>
+  <h1 id="elementary-function">指数関数・対数関数・三角関数・双曲線関数
+<span class="article-date">2015/04/06</span></h1>
+
+<p>平方根・立方根、三角関数・逆三角関数・双曲線関数・指数関数・対数関数などを各プログラミング言語で計算する方法。あと、円周率や自然対数の底の定数も。</p>
 
 <h2 id="94d0de3">Java / Scala
 <span class="article-date">2014/07/11</span></h2>
@@ -87,11 +90,59 @@ $z = sinh($x); // 双曲線関数
 $z = tanh($x); // 双曲線関数
 </code></pre>
 
+<h2 id="d4e0c99">Python
+<span class="article-date">2015/04/06</span></h2>
+
+<pre><code>import math
+
+z = math.pi # 円周率
+z = math.e  # 自然対数の底
+
+# 平方根
+z = math.sqrt(x)
+
+# 指数関数
+z = math.exp(x)
+z = math.expm1(x) # exp(x) - 1
+
+# 対数関数
+z = math.log(x)
+z = math.log1p(x) # log(x + 1)
+z = math.log10(x) # 10を底とする対数関数
+
+# 三角関数
+z = math.cos(x) # 余弦
+z = math.sin(x) # 正弦
+z = math.tan(x) # 正接
+
+# 逆三角関数
+z = math.acos(x) # 逆余弦
+z = math.asin(x) # 逆正弦
+z = math.atan(x) # 逆正接
+z = math.atan2(x, y)
+
+# 双曲線関数
+z = math.cosh(x) # 余弦
+z = math.sinh(x) # 正弦
+z = math.tanh(x) # 正接
+
+# 逆双曲線関数
+z = math.acosh(x) # 逆余弦
+z = math.asinh(x) # 逆正弦
+z = math.atanh(x) # 逆正接
+</code></pre>
+
+<p><code>math</code>モジュール | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/library/math.html" target="_blank">http://docs.python.jp/2/library/math.html</a></p>
+
+<p><code>math</code>モジュール | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/library/math.html" target="_blank">http://docs.python.jp/3/library/math.html</a></p>
+
 <h2 id="546cc1e">Perl
 <span class="article-date">2014/08/02</span></h2>
 
 <pre><code># 絶対値
-$z = abs($x));  # `use POSIX` が要
+$z = abs($x));  # `use POSIX` が必要
 
 # 平方根
 $z = sqrt($x);
@@ -101,22 +152,22 @@ $z = exp($x);
 
 # 対数
 $z = log($x);
-$z = log10($x)); # `use POSIX` が要
+$z = log10($x)); # `use POSIX` が必要
 
 # 三角関数
 $z = sin($x);
 $z = cos($x);
-$z = tan($x));  # `use POSIX` が要
+$z = tan($x));  # `use POSIX` が必要
 
 # 逆三角関数
-$z = asin($x)); # `use POSIX` が要
-$z = acos($x)); # `use POSIX` が要
+$z = asin($x)); # `use POSIX` が必要
+$z = acos($x)); # `use POSIX` が必要
 $z = atan2($x, $y);
 
 # 双曲線関数
-$z = cosh($x)); # `use POSIX` が要
-$z = sinh($x)); # `use POSIX` が要
-$z = tanh($x)); # `use POSIX` が要
+$z = cosh($x)); # `use POSIX` が必要
+$z = sinh($x)); # `use POSIX` が必要
+$z = tanh($x)); # `use POSIX` が必要
 </code></pre>
 
 <p>いくつかの関数は <code>use POSIX;</code> と宣言しないと使えない。</p>
@@ -157,7 +208,7 @@ $z = tanh($x)); # `use POSIX` が要
           <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
           <li><a href="../../programming_languages_diff/number/compare.html">数値の比較演算子</a></li>
           <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
-          <li>三角関数・指数関数</li>
+          <li>指数関数・対数関数・三角関数・双曲線関数</li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
           <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の四捨五入/切り捨て/切り上げをするには (round, floor, ceil)</a></li>
           <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
