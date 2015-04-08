@@ -20,9 +20,11 @@
 
 <div id="content">
   <h1 id="arithmetic-operator">四則演算子
-<span class="article-date">2015/02/28</span></h1>
+<span class="article-date">2015/04/07</span></h1>
 
 <p>加算/減算/乗算/除算/剰余の言語ごとの四則演算子(代数演算子)の一覧。</p>
+
+<p>加算演算子は数値の加算だけでなく、<a href="../string/strcat.html">文字列の連結</a>もできる言語が多い。</p>
 
 <p>関連</p>
 
@@ -33,7 +35,7 @@
 <h2 id="75111ed">Java / Scala
 <span class="article-date">2015/02/28</span></h2>
 
-<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+<p><code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code></p>
 
 <p>整数同士の演算の結果は <code>int</code> または <code>long</code> になる。浮動小数点数が含まれる演算の結果は <code>float</code> または <code>double</code> になる。</p>
 
@@ -42,20 +44,27 @@
 <p>Scalaでは演算子もメソッドであるので、この名前でメソッドを定義すれば別の意味になる。</p>
 
 <h2 id="95537e5">PHP
-<span class="article-date">2014/03/29</span></h2>
+<span class="article-date">2015/04/08</span></h2>
 
-<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+<p><code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code></p>
 
-<p>オペランドに文字列が与えられた場合は<a href="../string/to-num.html#php">整数または浮動小数点</a>に変換される。文字列同士の連結は <code>.</code> 演算子なので、加算と連結が混同されることはない。</p>
+<p>オペランドに文字列が与えられた場合は整数または浮動小数点に変換される。文字列同士の連結は <code>.</code> 演算子なので、加算と連結が混同されることはない。</p>
 
 <pre><code>var_export("10" + "30");
 // =&gt; 40
 </code></pre>
 
+<p>関連</p>
+
+<ul>
+  <li><a href="../string/to-num.html#php">文字列の数値への変換</a></li>
+  <li><a href="../string/strcat.html#php">文字列の連結</a></li>
+</ul>
+
 <h2 id="fbfcbef">Python
 <span class="article-date">2014/10/06</span></h2>
 
-<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code></p>
+<p><code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>//</code> <code>%</code></p>
 
 <p><code>*</code> 演算子の片方をシーケンス型(リストや文字列など)、他方を整数にすると、
 <a href="../list/multiply.html#python">シーケンス型の繰り返し</a>になる。</p>
@@ -74,7 +83,7 @@
 <h2 id="816fcc5">Ruby
 <span class="article-date">2014/08/04</span></h2>
 
-<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+<p><code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code></p>
 
 <p><code>+</code> の左右両方を文字列は配列にすると、<a href="../string/strcat.html#ruby">文字列</a>や配列の連結になる。</p>
 
@@ -84,7 +93,7 @@
 <h2 id="f421ffb">Perl
 <span class="article-date">2014/08/02</span></h2>
 
-<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+<p><code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code></p>
 
 <p>これらは文字列を与えてもそれを数値に変換してから演算をする。</p>
 

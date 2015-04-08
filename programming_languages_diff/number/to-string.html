@@ -20,58 +20,43 @@
 
 <div id="content">
   <h1 id="to-string">数値を文字列に変換するには
-<span class="article-date">2014/08/30</span></h1>
+<span class="article-date">2015/04/08</span></h1>
 
 <p>多くの言語では動的/静的の違いはあっても数値と文字列とで型が区別されるので変換が必要になることがある。以下はプログラミング言語ごとの変換の仕方のメモ。</p>
 
-<p>逆に文字列から数値に変換する方法は<a href="../string/to-num.html">こちら</a>。</p>
+<p>関連</p>
+
+<ul>
+  <li><a href="../string/to-num.html">逆に文字列から数値に変換するには</a></li>
+</ul>
 
 <h2 id="f38a8fb">Java
-<span class="article-date">2014/08/25</span></h2>
+<span class="article-date">2015/04/08</span></h2>
 
-<p>プリミティブ型あれば、対応するラッパークラスのsitaticメソッドの 
-<code>Integer.toString</code> などを使う。すでにラッパークラスのオブジェクトになっていれば、そのインスタンスメソッドの <code>#toString</code> を使う。</p>
+<p>プリミティブ型あれば、対応するラッパークラスにある <code>toString</code> という名前のsitaticメソッドを使う。</p>
+
+<p>すでにラッパークラスのオブジェクトになっていれば、そのインスタンスメソッドの <code>#toString</code> を使う。</p>
 
 <p>Signature:</p>
 
-<pre><code>// java.lang.Byte のメソッド
-static String toString(byte i)
+<pre><code># staticメソッド
+String java.lang.Byte.toString(byte i)
+String java.lang.Short.toString(short i)
+String java.lang.Integer.toString(int i)
+String java.lang.Long.toString(long i)
+String java.lang.Float.toString(float i)
+String java.lang.Double.toString(float i)
 
-// java.lang.Short のメソッド
-static String toString(short i)
-
-// java.lang.Integer のメソッド
-static String toString(int i)
-
-// java.lang.Long のメソッド
-static String toString(long i)
-
-// java.lang.Float のメソッド
-static String toString(float i)
-
-// java.lang.Double のメソッド
-static String toString(float i)
-
-// java.lang.Byte のメソッド
-String toString()
-
-// java.lang.Short のメソッド
-String toString()
-
-// java.lang.Integer のメソッド
-String toString()
-
-// java.lang.Long のメソッド
-String toString()
-
-// java.lang.Float のメソッド
-String toString()
-
-// java.lang.Double のメソッド
-String toString()
+# インスタンスメソッド
+String java.lang.Byte#toString()
+String java.lang.Short#toString()
+String java.lang.Integer#toString()
+String java.lang.Long#toString()
+String java.lang.Float#toString()
+String java.lang.Double#toString()
 </code></pre>
 
-<p><code>+</code>演算子でオペランドのどちらかが<code>String</code>型であれば、他方の整数または浮動小数点数のプリミティブ型は自動で<code>String</code>型に変換してくれるし、プリミティブ型以外であればもともと<code>toString</code>で<code>String</code>型に変換してくれるので、文字列と連結する際には上記メソッドを使うことはあまりない。</p>
+<p><code>+</code>演算子でオペランドのどちらかが<code>String</code>型であれば、他方の整数または浮動小数点数はプリミティブ型でもラッパークラスのインスタンスであっても自動で<code>String</code>型に変換してくれるので、文字列と連結する際には上記メソッドを使うことはあまりない。</p>
 
 <h2 id="623929e">PHP
 <span class="article-date">2014/03/29</span></h2>
@@ -159,7 +144,7 @@ p "%x" % 27
           <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
           <li><a href="../../programming_languages_diff/number/compare.html">数値の比較演算子</a></li>
           <li><a href="../../programming_languages_diff/number/increment.html">インクリメント・デクリメント演算子</a></li>
-          <li><a href="../../programming_languages_diff/number/elementary-function.html">三角関数・指数関数</a></li>
+          <li><a href="../../programming_languages_diff/number/elementary-function.html">指数関数・対数関数・三角関数・双曲線関数</a></li>
           <li><a href="../../programming_languages_diff/number/precision.html">浮動小数点数の精度</a></li>
           <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の四捨五入/切り捨て/切り上げをするには (round, floor, ceil)</a></li>
           <li>数値を文字列に変換するには</li>

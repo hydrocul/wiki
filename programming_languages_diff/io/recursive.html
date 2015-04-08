@@ -50,6 +50,27 @@ function recursive($dir) {
 }
 </code></pre>
 
+<h2 id="fe48537">Perl
+<span class="article-date">2015/04/08</span></h2>
+
+<pre><code>sub recursive {
+    my ($dir, $p) = @_;
+    my @files = glob("$dir/*");
+    foreach my $file (@files) {
+        if (-d $file) {
+            recursive($file, $p);
+        } else {
+            $p-&gt;($file);
+        }
+    }
+}
+
+recursive('.', sub {
+    # ここでなにかの処理
+    # print "$_[0]\n";
+});
+</code></pre>
+
 <h2 id="874f7df">sh (シェルスクリプト)
 <span class="article-date">2013/09/13</span></h2>
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)をソートするには (sort) | hydroculのメモ</title>
+<title>配列(リスト)をソートするには (sort / sortBy / sorted / sortWith) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,26 +15,30 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)をソートするには (sort)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)をソートするには (sort / sortBy / sorted / sortWith)</span>
 </div>
 
 <div id="content">
-  <h1 id="sort">配列(リスト)をソートするには (sort)
-<span class="article-date">2015/01/19</span></h1>
+  <h1 id="sort">配列(リスト)をソートするには (sort / sortBy / sorted / sortWith)
+<span class="article-date">2015/04/07</span></h1>
 
 <p>配列をソートする方法のプログラミング言語ごとのメモ。</p>
 
+<p>配列自体をソートした状態に変更するものと、与えられた配列は変更せずにソートされた状態の配列を新しく生成するものがある。</p>
+
+<p>また、辞書順や数値の大小などの自然な比較方法でソートするものと、比較方法を都度指定できるものがある。</p>
+
 <h2 id="60f4ea9">Java
-<span class="article-date">2015/02/19</span></h2>
+<span class="article-date">2015/04/07</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// java.util.Collections
-static void &lt;T extends java.util.Comparable&lt;? super T&gt;&gt; sort(List&lt;T&gt; list)
-static void &lt;T&gt; sort(List&lt;T&gt; list, java.util.Comparator&lt;? super T&gt; comparator)
+<pre><code>void &lt;T extends java.util.Comparable&lt;? super T&gt;&gt; java.util.Collections.sort(List&lt;T&gt; list)
+void &lt;T&gt; java.util.Collections.sort(List&lt;T&gt; list, java.util.Comparator&lt;? super T&gt; comparator)
 </code></pre>
 
-<p>引数で渡すリスト自体を変更する。</p>
+<p>staticメソッドで、ソートしたいリストをメソッドに引数で渡す。リスト自体を変更する破壊的なメソッド。
+2つ目のメソッドは <code>Comparator</code> で比較方法をしていできる。</p>
 
 <h2 id="3b1af1b">Scala
 <span class="article-date">2015/01/22</span></h2>
@@ -227,7 +231,7 @@ console.log(arr.sort(function(a, b){
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値をすべて削除するには (delete / remove / <code>-</code>)</a></li>
           <li><a href="../../programming_languages_diff/list/clone.html">配列(リスト)をコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
-          <li>配列(リスト)をソートするには (sort)</li>
+          <li>ソートするには (sort / sortBy / sorted / sortWith)</li>
           <li><a href="../../programming_languages_diff/list/convert.html">データ型を相互に変換するには (asList / asScala / asJava / to_a / toArray)</a></li>
           <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列から連想配列を生成するには (toMap)</a></li>
           <li><a href="../../programming_languages_diff/list/to-set.html">配列から集合を生成するには (toSet)</a></li>

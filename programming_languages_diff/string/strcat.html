@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列の連結をするには (strcat) | hydroculのメモ</title>
+<title>文字列の連結をするには (strcat / `+` / `.`) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,12 +15,12 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列の連結をするには (strcat)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列の連結をするには (strcat / `+` / `.`)</span>
 </div>
 
 <div id="content">
-  <h1 id="strcat">文字列の連結をするには (strcat)
-<span class="article-date">2014/05/19</span></h1>
+  <h1 id="strcat">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)
+<span class="article-date">2015/04/07</span></h1>
 
 <p><code>+</code> または <code>.</code> という演算子でできる言語が多い。</p>
 
@@ -50,6 +50,14 @@
     </tr>
   </tbody>
 </table>
+
+<p><code>+</code> に数値を与えればほとんどの言語で加算演算子になる。</p>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="../number/arithmetic-operator.html">加算演算子</a></li>
+</ul>
 
 <h2 id="a14642a">C言語
 <span class="article-date">2013/08/06</span></h2>
@@ -137,34 +145,40 @@ println str
 # ここでは abc と表示され、abc10 にはならずにf()の返り値は無視される
 </code></pre>
 
-<h2 id="3dce465">PHP
-<span class="article-date">2013/07/27</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2015/04/07</span></h2>
 
-<p>例</p>
+<p><code>.</code> 演算子で連結できる。</p>
 
 <pre><code>'abc' . 'def'
 </code></pre>
 
+<p>文字列演算子 | PHP Manual<br />
+<a href="http://php.net/manual/ja/language.operators.string.php" target="_blank">http://php.net/manual/ja/language.operators.string.php</a></p>
+
 <h2 id="b659606">Smarty
-<span class="article-date">2014/03/24</span></h2>
+<span class="article-date">2015/04/07</span></h2>
 
-<p>例</p>
+<p><code>cat</code>修飾子でできる。</p>
 
-<pre><code>{$str|cat:'foo'}
+<pre><code>{$foo|cat:$bar}
+</code></pre>
+
+<p>片方が変数でなくてリテラルの場合</p>
+
+<pre><code>{$foo|cat:'bar'}
 </code></pre>
 
 <h2 id="a0e23d0">Python
-<span class="article-date">2014/11/08</span></h2>
+<span class="article-date">2015/04/07</span></h2>
 
-<p>例</p>
+<p><code>+</code> 演算子で連結できる。</p>
 
 <pre><code>'abc' + 'def'
 </code></pre>
 
 <p>文字列と数字の間で暗黙の型変換をすることはなく、そのまま連結することはできないので、
 <code>str</code>関数などを使う。</p>
-
-<p>例</p>
 
 <pre><code>print(12 + "42")
 # =&gt; エラー
@@ -176,23 +190,20 @@ print(12 + int("42"))
 # =&gt; 54
 </code></pre>
 
-<p>文字列リテラルを並べて書くと連結される。改行を挟んでもよい。</p>
-
-<p>例</p>
+<p>文字列リテラルを並べて書くと演算子を書かなくても連結される。改行を挟んでもよい。</p>
 
 <pre><code>"abc"
 "def"
 </code></pre>
 
-<p>この2行の文字列は下のものすべてと同じになる。</p>
+<p>この2行の文字列は下の3つすべてと同じである。</p>
 
 <pre><code>"abcdef"
 "abc" "def"
 "abc" 'def'
 </code></pre>
 
-<p>以下のコードはぱっと見に反して4つの要素のリストになる。
-2箇所が連結されている。この類はわかりづらいバグの元になるので要注意。</p>
+<p>以下のコードはぱっと見に反して2箇所が連結されて4つの要素のリストになる。この類はわかりづらいバグの元になるので要注意。</p>
 
 <pre><code>["1", "22", "333"
  "4444," "55555", "666666"]
@@ -204,19 +215,23 @@ print(12 + int("42"))
 # =&gt; /"/""/"""/
 </code></pre>
 
-<p>文字列リテラル同士の連結は <code>+</code> 演算子を挟んでいたとしてもコンパイル時には連結されてしまうらしい。</p>
+<p>文字列リテラル同士の連結は <code>+</code> 演算子を使っても使わなくても実行時ではなくコンパイル時に連結されるらしい。</p>
 
-<h2 id="ruby">Ruby
-<span class="article-date">2014/06/21</span></h2>
+<p>二項算術演算 | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operation" target="_blank">http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operation</a></p>
 
-<p>例</p>
+<p>二項算術演算 | Python 3 documentation<br />
+<a href="http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operations" target="_blank">http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operations</a></p>
+
+<h2 id="ruby">Ruby / JRuby
+<span class="article-date">2015/04/07</span></h2>
+
+<p><code>+</code> 演算子で連結できる。</p>
 
 <pre><code>'abc' + 'def'
 </code></pre>
 
 <p><code>+</code> 演算子は非破壊的だが、<code>concat</code>メソッドは破壊的に文字列を連結する。</p>
-
-<p>例</p>
 
 <pre><code>str = 'abc'
 str.concat('def')
@@ -226,13 +241,17 @@ puts str
 
 <p><code>concat</code> の代わりに <code>&lt;&lt;</code> でも同じで破壊的に文字列を連結する。</p>
 
-<p>例</p>
-
 <pre><code>str = 'abc'
 str &lt;&lt; 'def'
 puts str
 # =&gt; abcdef
 </code></pre>
+
+<p><code>String#+</code> メソッド | Ruby 2.2 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.2.0/method/String/i/=2b.html" target="_blank">http://docs.ruby-lang.org/ja/2.2.0/method/String/i/=2b.html</a></p>
+
+<p><code>String#&lt;&lt;</code> メソッド, <code>String#concat</code> メソッド | Ruby 2.2 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.2.0/method/String/i/=3c=3c.html" target="_blank">http://docs.ruby-lang.org/ja/2.2.0/method/String/i/=3c=3c.html</a></p>
 
 <h2 id="perl">Perl
 <span class="article-date">2014/08/08</span></h2>
@@ -283,7 +302,7 @@ puts str
           <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
-          <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
+          <li><a href="../../programming_languages_diff/string/char-at.html">特定のインデックスの文字を取得するには (charAt / getAt)</a></li>
           <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
           <li><a href="../../programming_languages_diff/string/length.html">長さを取得するには (len / length / mb_strlen / size / strlen)</a></li>
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
@@ -294,8 +313,8 @@ puts str
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
-          <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (join / implode)</a></li>
-          <li><a href="../../programming_languages_diff/string/split.html">文字列を特定の文字やパターンで配列に分割するには (split / explode)</a></li>
+          <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>
+          <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
@@ -307,7 +326,7 @@ puts str
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
-          <li>文字列の連結をするには (strcat)</li>
+          <li>文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
