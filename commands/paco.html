@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Paco (pacKAGE oRGANIZER) | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>Paco (pacKAGE oRGANIZER) | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,11 +12,50 @@
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>Paco (pacKAGE oRGANIZER)</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>Paco (pacKAGE oRGANIZER)</span>
 </div>
+
+<div id="content">
+  <h1 id="paco">Paco (pacKAGE oRGANIZER)
+<span class="article-date">2013/11/06</span></h1>
+
+<p><code>make install</code> などでソースから直接インストールしたパッケージを管理するためのツール。</p>
+
+<p><a href="http://paco.sourceforge.net/" target="_blank">http://paco.sourceforge.net/</a></p>
+
+<p><code>yum</code>や<code>apt-get</code>などのパッケージ管理ツールに存在せず、ソースからコンパイルしてインストールしたパッケージは、アンインストールができなかったり、そもそもインストールされたファイルがなんなのかわからなくなったりするが、このツールを使うと、そういうパッケージを管理できるようになる。</p>
+
+<p>2014年ごろpacoはメンテナンスされなくなって、porgというプロジェクトが後継になっているらしい。</p>
+
+<p>porg<br />
+<a href="http://porg.sourceforge.net/" target="_blank">http://porg.sourceforge.net/</a></p>
+
+<h2 id="9631c92">pacoのインストール
+<span class="article-date">2013/11/06</span></h2>
+
+<pre><code>wget http://downloads.sourceforge.net/project/paco/paco/2.0.7/paco-2.0.7.tar.bz2
+tar xvf paco-2.0.7.tar.bz2
+cd paco-2.0.7
+./configure --disable-gpaco
+make
+sudo make install
+sudo PATH=$PATH make logme
+</code></pre>
+
+<p>最後のコマンドは<code>paco</code>を使って早速<code>paco</code>自身を管理するためのもの。</p>
+
+<p>sudoのバージョン1.6.9以降では環境変数PATHの仕様が変わったために 
+<code>make logme</code> を実行するときにpacoコマンドが見つからない、というエラーが出てしまう。pacoのMakefileがおかしい気がする。</p>
+
+<h2 id="29be445">基本操作</h2>
+
+<p>-&gt; <a href="../others/linux-pkg-manager.html#paco">pacoの基本操作</a></p>
+
+</div>
+
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
@@ -93,44 +133,6 @@
 </ul>
 
   </div>
-</div>
-
-<div id="content">
-  <h1 id="paco">Paco (pacKAGE oRGANIZER)
-<span class="article-date">2013/11/06</span></h1>
-
-<p><code>make install</code> などでソースから直接インストールしたパッケージを管理するためのツール。</p>
-
-<p><a href="http://paco.sourceforge.net/" target="_blank">http://paco.sourceforge.net/</a></p>
-
-<p><code>yum</code>や<code>apt-get</code>などのパッケージ管理ツールに存在せず、ソースからコンパイルしてインストールしたパッケージは、アンインストールができなかったり、そもそもインストールされたファイルがなんなのかわからなくなったりするが、このツールを使うと、そういうパッケージを管理できるようになる。</p>
-
-<p>2014年ごろpacoはメンテナンスされなくなって、porgというプロジェクトが後継になっているらしい。</p>
-
-<p>porg<br />
-<a href="http://porg.sourceforge.net/" target="_blank">http://porg.sourceforge.net/</a></p>
-
-<h2 id="9631c92">pacoのインストール
-<span class="article-date">2013/11/06</span></h2>
-
-<pre><code>wget http://downloads.sourceforge.net/project/paco/paco/2.0.7/paco-2.0.7.tar.bz2
-tar xvf paco-2.0.7.tar.bz2
-cd paco-2.0.7
-./configure --disable-gpaco
-make
-sudo make install
-sudo PATH=$PATH make logme
-</code></pre>
-
-<p>最後のコマンドは<code>paco</code>を使って早速<code>paco</code>自身を管理するためのもの。</p>
-
-<p>sudoのバージョン1.6.9以降では環境変数PATHの仕様が変わったために 
-<code>make logme</code> を実行するときにpacoコマンドが見つからない、というエラーが出てしまう。pacoのMakefileがおかしい気がする。</p>
-
-<h2 id="29be445">基本操作</h2>
-
-<p>-&gt; <a href="../others/linux-pkg-manager.html#paco">pacoの基本操作</a></p>
-
 </div>
 
 <footer>
