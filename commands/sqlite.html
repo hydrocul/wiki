@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>sqlite3 コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>sqlite3 コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,11 +12,73 @@
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>sqlite3 コマンド</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>sqlite3 コマンド</span>
 </div>
+
+<div id="content">
+  <h1 id="sqlite">sqlite3 コマンド
+<span class="article-date">2014/02/02</span></h1>
+
+<p>SQLiteのデータベースファイルを操作するコマンド。</p>
+
+<p>以下のコマンドで、SQLを実行できる。</p>
+
+<pre><code>sqlite3 ファイル名 SQLステートメント
+</code></pre>
+
+<p>SQLだけでなく、インタプリタで実行できるいろいろなコマンドも指定できる。</p>
+
+<p>例</p>
+
+<pre><code># ダンプする
+sqlite3 ファイル名 .dump
+</code></pre>
+
+<h2 id="51bfb06">インタプリタ
+<span class="article-date">2013/09/05</span></h2>
+
+<p>SQLを省略すると、mysqlコマンドなどと同じくSQLiteのSQLインタプリタが起動する。</p>
+
+<pre><code>sqlite3 ファイル名
+</code></pre>
+
+<p>すると、 <code>sqlite&gt;</code> というプロンプトが表示されて、以下のようなコマンドが実行可能になる。</p>
+
+<p>テーブル一覧を確認</p>
+
+<pre><code>sqlite&gt; .tables
+</code></pre>
+
+<p>SQLを実行</p>
+
+<pre><code>sqlite&gt; select * from テーブル名;
+</code></pre>
+
+<p>テーブル定義を確認</p>
+
+<pre><code>sqlite&gt; .schema テーブル名
+</code></pre>
+
+<p>ダンプ</p>
+
+<pre><code>sqlite&gt; .dump テーブル名
+</code></pre>
+
+<p>インタプリタを終了</p>
+
+<pre><code>sqlite&gt; .exit
+</code></pre>
+
+<p>または</p>
+
+<pre><code>sqlite&gt; .quite
+</code></pre>
+
+</div>
+
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
@@ -93,67 +156,6 @@
 </ul>
 
   </div>
-</div>
-
-<div id="content">
-  <h1 id="sqlite">sqlite3 コマンド
-<span class="article-date">2014/02/02</span></h1>
-
-<p>SQLiteのデータベースファイルを操作するコマンド。</p>
-
-<p>以下のコマンドで、SQLを実行できる。</p>
-
-<pre><code>sqlite3 ファイル名 SQLステートメント
-</code></pre>
-
-<p>SQLだけでなく、インタプリタで実行できるいろいろなコマンドも指定できる。</p>
-
-<p>例</p>
-
-<pre><code># ダンプする
-sqlite3 ファイル名 .dump
-</code></pre>
-
-<h2 id="51bfb06">インタプリタ
-<span class="article-date">2013/09/05</span></h2>
-
-<p>SQLを省略すると、mysqlコマンドなどと同じくSQLiteのSQLインタプリタが起動する。</p>
-
-<pre><code>sqlite3 ファイル名
-</code></pre>
-
-<p>すると、 <code>sqlite&gt;</code> というプロンプトが表示されて、以下のようなコマンドが実行可能になる。</p>
-
-<p>テーブル一覧を確認</p>
-
-<pre><code>sqlite&gt; .tables
-</code></pre>
-
-<p>SQLを実行</p>
-
-<pre><code>sqlite&gt; select * from テーブル名;
-</code></pre>
-
-<p>テーブル定義を確認</p>
-
-<pre><code>sqlite&gt; .schema テーブル名
-</code></pre>
-
-<p>ダンプ</p>
-
-<pre><code>sqlite&gt; .dump テーブル名
-</code></pre>
-
-<p>インタプリタを終了</p>
-
-<pre><code>sqlite&gt; .exit
-</code></pre>
-
-<p>または</p>
-
-<pre><code>sqlite&gt; .quite
-</code></pre>
-
 </div>
 
 <footer>

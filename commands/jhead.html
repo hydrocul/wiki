@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>jhead コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>jhead コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,11 +12,50 @@
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>jhead コマンド</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>jhead コマンド</span>
 </div>
+
+<div id="content">
+  <h1 id="jhead">jhead コマンド
+<span class="article-date">2014/05/10</span></h1>
+
+<p>jpegファイルからExif情報を取得したり編集したりしてくれるコマンド。</p>
+
+<p>Exif Jpeg header manipulation tool<br />
+<a href="http://www.sentex.net/~mwandel/jhead/" target="_blank">http://www.sentex.net/~mwandel/jhead/</a></p>
+
+<p>ヘルプを表示したいときに <code>--help</code> では表示できず、<code>-h</code> にする必要がある。</p>
+
+<h2 id="2ac5898">インストール
+<span class="article-date">2013/12/30</span></h2>
+
+<p>Ubuntuの場合</p>
+
+<pre><code>sudo apt-get install jhead
+</code></pre>
+
+<p>(Ubuntu 13.10 Server で確認)</p>
+
+<h2 id="96122ce">jpegのExif情報にある撮影日情報をもとにファイル名を変更するには
+<span class="article-date">2013/04/03</span></h2>
+
+<pre><code>jhead -nf%Y-%m-%d-%H%M%S IMAG0000.jpg
+</code></pre>
+
+<h2 id="02f0d02">jpegのExif情報を削除するには
+<span class="article-date">2014/06/10</span></h2>
+
+<p>以下のようなコマンドでファイルからExif情報を完全に削除してくれる。ファイルを上書きで書き換えてしまうので注意！
+<code>-purejpg</code> のハイフンは1つだけ。</p>
+
+<pre><code>jhead -purejpg IMAG0000.jpg
+</code></pre>
+
+</div>
+
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
@@ -93,44 +133,6 @@
 </ul>
 
   </div>
-</div>
-
-<div id="content">
-  <h1 id="jhead">jhead コマンド
-<span class="article-date">2014/05/10</span></h1>
-
-<p>jpegファイルからExif情報を取得したり編集したりしてくれるコマンド。</p>
-
-<p>Exif Jpeg header manipulation tool<br />
-<a href="http://www.sentex.net/~mwandel/jhead/" target="_blank">http://www.sentex.net/~mwandel/jhead/</a></p>
-
-<p>ヘルプを表示したいときに <code>--help</code> では表示できず、<code>-h</code> にする必要がある。</p>
-
-<h2 id="2ac5898">インストール
-<span class="article-date">2013/12/30</span></h2>
-
-<p>Ubuntuの場合</p>
-
-<pre><code>sudo apt-get install jhead
-</code></pre>
-
-<p>(Ubuntu 13.10 Server で確認)</p>
-
-<h2 id="96122ce">jpegのExif情報にある撮影日情報をもとにファイル名を変更するには
-<span class="article-date">2013/04/03</span></h2>
-
-<pre><code>jhead -nf%Y-%m-%d-%H%M%S IMAG0000.jpg
-</code></pre>
-
-<h2 id="02f0d02">jpegのExif情報を削除するには
-<span class="article-date">2014/06/10</span></h2>
-
-<p>以下のようなコマンドでファイルからExif情報を完全に削除してくれる。ファイルを上書きで書き換えてしまうので注意！
-<code>-purejpg</code> のハイフンは1つだけ。</p>
-
-<pre><code>jhead -purejpg IMAG0000.jpg
-</code></pre>
-
 </div>
 
 <footer>

@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>crontab コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>crontab コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,11 +12,45 @@
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>crontab コマンド</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>crontab コマンド</span>
 </div>
+
+<div id="content">
+  <h1 id="crontab">crontab コマンド
+<span class="article-date">2013/10/08</span></h1>
+
+<p>コマンドを一定の時間に自動で起動させるためのスケジューラを管理するコマンド。</p>
+
+<p>オプションをなにも付けずに標準入力に設定内容のテキストを入力すると、その設定に置き換える。</p>
+
+<dl>
+  <dt><code>-l</code></dt>
+  <dd>設定内容を表示する</dd>
+  <dt><code>-e</code></dt>
+  <dd>設定内容をエディタを起動して編集する。
+エディタ起動ではなく標準入力から一括して設定する場合は <code>-e</code> は不要。</dd>
+  <dt><code>-r</code></dt>
+  <dd>設定をすべて削除する</dd>
+</dl>
+
+<h2 id="attention-remove">注意 その1
+<span class="article-date">2013/11/13</span></h2>
+
+<p>オプション <code>-r</code> は確認なしに設定をすべて削除してしまう。
+<code>r</code> はキーボード上では <code>e</code> の隣なので、編集のつもりで間違えて隣の文字をオプションにしてしまうと、事故になってしまう。</p>
+
+<h2 id="attention-remove-2">注意 その2
+<span class="article-date">2014/01/09</span></h2>
+
+<p>オプションを入れようとして、<code>-</code> まで入力して、そのまま間違ってエンターを押してしまうと、標準入力から設定を読み込もうとして、入力待ち状態になる。このときに慌てて Ctrl-D を押してしまうと、空っぽで設定される、つまり設定をすべて削除してしまう。</p>
+
+<p>普通に Ctrl-C を押せば、設定は変更されないので慌てないこと。</p>
+
+</div>
+
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
@@ -93,39 +128,6 @@
 </ul>
 
   </div>
-</div>
-
-<div id="content">
-  <h1 id="crontab">crontab コマンド
-<span class="article-date">2013/10/08</span></h1>
-
-<p>コマンドを一定の時間に自動で起動させるためのスケジューラを管理するコマンド。</p>
-
-<p>オプションをなにも付けずに標準入力に設定内容のテキストを入力すると、その設定に置き換える。</p>
-
-<dl>
-  <dt><code>-l</code></dt>
-  <dd>設定内容を表示する</dd>
-  <dt><code>-e</code></dt>
-  <dd>設定内容をエディタを起動して編集する。
-エディタ起動ではなく標準入力から一括して設定する場合は <code>-e</code> は不要。</dd>
-  <dt><code>-r</code></dt>
-  <dd>設定をすべて削除する</dd>
-</dl>
-
-<h2 id="attention-remove">注意 その1
-<span class="article-date">2013/11/13</span></h2>
-
-<p>オプション <code>-r</code> は確認なしに設定をすべて削除してしまう。
-<code>r</code> はキーボード上では <code>e</code> の隣なので、編集のつもりで間違えて隣の文字をオプションにしてしまうと、事故になってしまう。</p>
-
-<h2 id="attention-remove-2">注意 その2
-<span class="article-date">2014/01/09</span></h2>
-
-<p>オプションを入れようとして、<code>-</code> まで入力して、そのまま間違ってエンターを押してしまうと、標準入力から設定を読み込もうとして、入力待ち状態になる。このときに慌てて Ctrl-D を押してしまうと、空っぽで設定される、つまり設定をすべて削除してしまう。</p>
-
-<p>普通に Ctrl-C を押せば、設定は変更されないので慌てないこと。</p>
-
 </div>
 
 <footer>
