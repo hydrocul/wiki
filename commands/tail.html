@@ -20,13 +20,11 @@
 
 <div id="content">
   <h1 id="tail">tail コマンド
-<span class="article-date">2014/03/03</span></h1>
+<span class="article-date">2015/04/09</span></h1>
 
-<p>テキストファイルまたはパイプでのテキスト入力の最後のn行を抜き出すコマンド。行単位ではなくバイト単位での制御も可能。</p>
+<p>テキストファイルまたはパイプでのテキスト入力の最後のn行を抜き出すコマンド。行単位ではなくバイト単位での指定も可能。</p>
 
 <p>最後のn行ではなく、先頭の n-1 行を削ったn行目以降を出力するには <code>+</code> を付ける。</p>
-
-<p>例</p>
 
 <pre><code># 最後の10行を表示
 tail -n 10 hoge.txt
@@ -45,12 +43,31 @@ tail -c +10 hoge.txt
 </code></pre>
 
 <h2 id="9bc04de">ログファイルなどのファイルへの出力をリアルタイムに画面に表示するには
-<span class="article-date">2013/10/22</span></h2>
+<span class="article-date">2015/04/09</span></h2>
 
-<p>以下のように <code>-f</code> を付けると、ログをリアルタイムに表示できる。終了するには Ctrl+C を押すなどする。</p>
+<p>以下のように <code>-f</code> を付けると、ログをリアルタイムに監視できる。このコマンドを起動すると、ファイルの最後の部分を表示した後、ファイルの追記を監視して、追記されたらその部分を表示して監視を継続してくれる。監視を終了するには Ctrl+C を押すなどする。</p>
 
 <pre><code>tail -f access_log
 </code></pre>
+
+<p>ログファイルを<code>grep</code>などでパイプ処理して<code>tail -f</code>で監視する場合に、</p>
+
+<pre><code>tail -f access_log | grep 404
+</code></pre>
+
+<p>のようにすると、<code>grep</code>が出力をバッファリングしてしまうので、リアルタイムな監視ができない。いくらかの出力がたまにまとめて一度に表示されるようになってしまう。そんな場合はバッファリングしないようにする必要があるが、その方法はコマンドによって異なる。</p>
+
+<p><code>grep</code> の場合は <code>--line-buffered</code> というオプションを付ければ行単位で出力してくれるので、ログの監視には問題ない。</p>
+
+<pre><code>tail -f access_log | grep --line-buffered 404
+</code></pre>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="grep.html#tailf"><code>grep</code>を<code>tail -f</code>と組み合わせるには</a></li>
+  <li><a href="sed.html#tailf"><code>sed</code>を<code>tail -f</code>と組み合わせるには</a></li>
+</ul>
 
 </div>
 
