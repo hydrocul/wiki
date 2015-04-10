@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ファイルの最終更新日時(タイムスタンプ)を取得するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>ファイルの最終更新日時(タイムスタンプ)を取得するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -54,6 +54,30 @@ p File.stat('./hoge.txt').mtime
 p File.mtime('./hoge.txt')
 # =&gt; 2013-11-22 11:08:01 +0900
 </code></pre>
+
+<h2 id="318fe20">sh (シェルスクリプト)
+<span class="article-date">2015/04/10</span></h2>
+
+<p>もし2つのファイルのタイムスタンプを比較したいだけであれば簡単にできる。</p>
+
+<pre><code>if [ ファイル名1 -nt ファイル名2 ]; then
+    # ファイル1のほうが新しい場合の処理
+    ...
+fi
+
+if [ ファイル名1 -ot ファイル名2 ]; then
+    # ファイル1のほうが古い場合
+    ...
+fi
+</code></pre>
+
+<p><code>if</code> の次の <code>[</code> というのは <code>test</code> というコマンドの別名で、見た目が他の言語にあるような<code>if</code>文の条件式を囲む括弧に似ている。</p>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="../../sh.html#operator"><code>test</code>コマンドの演算子</a></li>
+</ul>
 
 </div>
 

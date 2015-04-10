@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ミリ秒・マイクロ秒単位で処理時間を計測するには | 日付と時刻 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>ミリ秒・マイクロ秒単位で処理時間を計測するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -122,10 +122,19 @@ my $interval = ($end_sec - $start_sec) * 1000000 + $end_microsec - $start_micros
 print encode('utf-8', $interval . "マイクロ秒\n");
 </code></pre>
 
-<h2 id="182f7bc">sh (シェルスクリプト)
+<h2 id="bcd7272">sh (シェルスクリプト)
 <span class="article-date">2013/09/01</span></h2>
 
 <p><a href="../../commands/time.html"><code>time</code> コマンド</a>を使う。</p>
+
+<h2 id="3d9737c">JavaScript
+<span class="article-date">2015/04/10</span></h2>
+
+<pre><code>var start = new Date();
+var interval = new Date() - start;
+</code></pre>
+
+<p><code>Date</code>のオブジェクトは <code>-</code> 演算子を与えるとミリ秒単位の整数に変換してから演算してくれる。</p>
 
 </div>
 

@@ -536,6 +536,15 @@ cat ファイル名 | sed -ne '3~10p'
 <pre><code>cat ファイル名 | perl -nle '$.%10==0&amp;&amp;print'
 </code></pre>
 
+<h3 id="4839d25">TSVファイルなどでヘッダ行があるファイルから正規表現で行を抽出するには
+<span class="article-date">2015/04/10</span></h3>
+
+<p>1行目がヘッダ行などでこれは正規表現に関係なく残しておいて、残りの行は正規表現にマッチしたもののみにしたい場合、
+1行目を抽出するコマンド <code>1p</code> と正規表現で抽出するコマンドを組み合わせる。</p>
+
+<pre><code>cat ファイル名 | sed -n -e 1p -e /パターン/p
+</code></pre>
+
 </div>
 
 <div id="side-menu">

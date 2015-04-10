@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>数値の書き方 | 数値型 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>数値リテラルの書き方 | 数値型 | プログラミング言語の比較 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,20 +15,51 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>数値の書き方</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/number/">数値型</a> &gt; <span>数値リテラルの書き方</span>
 </div>
 
 <div id="content">
-  <h1 id="literal">数値の書き方</h1>
+  <h1 id="literal">数値リテラルの書き方</h1>
 
 <h2 id="379089a">Java
 <span class="article-date">2013/09/28</span></h2>
 
 <p>-&gt; <a href="overview.html#java">概要</a></p>
 
-<h2 id="a1b63e2">Python</h2>
+<h2 id="a1b63e2">Python
+<span class="article-date">2015/04/10</span></h2>
 
-<p>-&gt; <a href="overview.html#python">概要</a></p>
+<p>例</p>
+
+<pre><code>from pprint import pprint
+
+pprint(123)
+# pprint(123_456) # =&gt; アンダースコアは使えない
+pprint(123456789012345678901) # Python2では 123456789012345678901L と出力。Python3では 123456789012345678901 のまま出力
+# pprint(123_456_789_012_345_678_901) # =&gt; アンダースコアは使えない
+pprint(123.45)
+pprint(.45)
+pprint(0.45)
+pprint(1.23e67)
+pprint(1.23E67)
+pprint(1.23e+67)
+pprint(1.23e-67)
+pprint(.23e67) # =&gt; 2.3e+66
+pprint(0b10) # =&gt; 2進数で解釈。2
+pprint(0B10) # =&gt; 2進数で解釈。2
+pprint(0644) # =&gt; Python2では 8進数で解釈して420。Python3ではSyntaxError
+# pprint(0_644) # =&gt; アンダースコアは使えない
+pprint(0x12) # =&gt; 16進数で解釈。18
+pprint(0X12) # =&gt; 16進数で解釈。18
+# pprint(0x12_34_56) # =&gt; アンダースコアは使えない
+# pprint(0x_12_34_56) # =&gt; アンダースコアは使えない
+</code></pre>
+
+<p>数値リテラル | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/reference/lexical_analysis.html#numbers" target="_blank">http://docs.python.jp/2/reference/lexical_analysis.html#numbers</a></p>
+
+<p>数値リテラル | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/reference/lexical_analysis.html#numbers" target="_blank">http://docs.python.jp/3/reference/lexical_analysis.html#numbers</a></p>
 
 <h2 id="f158d28">Ruby / JRuby
 <span class="article-date">2015/04/08</span></h2>
@@ -107,7 +138,7 @@
           <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の四捨五入/切り捨て/切り上げをするには (round, floor, ceil)</a></li>
           <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
           <li><a href="../../programming_languages_diff/number/bit-operator.html">ビット演算子</a></li>
-          <li>数値の書き方</li>
+          <li>数値リテラルの書き方</li>
           <li><a href="../../programming_languages_diff/number/random.html">乱数を生成するには</a></li>
         </ul>
       </li>
