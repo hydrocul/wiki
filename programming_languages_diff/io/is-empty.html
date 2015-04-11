@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ファイルサイズが0かどうかを取得するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydrocul のメモ</title>
+<title>ファイルサイズが0かどうかを取得するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,11 +12,43 @@
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイルサイズが0かどうかを取得するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイルサイズが0かどうかを取得するには</span>
 </div>
+
+<div id="content">
+  <h1 id="is-empty">ファイルサイズが0かどうかを取得するには</h1>
+
+<p>参考</p>
+
+<ul>
+  <li><a href="file-size.html">ファイルサイズを取得</a></li>
+</ul>
+
+<h2 id="192b08b">Perl
+<span class="article-date">2013/08/19</span></h2>
+
+<p><code>-s</code> という演算子でファイルサイズを整数で取得できるので、</p>
+
+<pre><code>if ( ! -s './hoge.txt' ) {
+    # ファイルサイズが0の場合の処理
+}
+</code></pre>
+
+<h2 id="7e5393f">sh (シェルスクリプト)
+<span class="article-date">2013/08/19</span></h2>
+
+<pre><code>if [ ! -s ./hoge.txt ]; then
+    # ファイルサイズが0の場合の処理
+fi
+</code></pre>
+
+<p>-&gt; <a href="../../sh.html#operator">シェルスクリプトの演算子</a></p>
+
+</div>
+
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
@@ -56,37 +89,6 @@
 </ul>
 
   </div>
-</div>
-
-<div id="content">
-  <h1 id="is-empty">ファイルサイズが0かどうかを取得するには</h1>
-
-<p>参考</p>
-
-<ul>
-  <li><a href="file-size.html">ファイルサイズを取得</a></li>
-</ul>
-
-<h2 id="192b08b">Perl
-<span class="article-date">2013/08/19</span></h2>
-
-<p><code>-s</code> という演算子でファイルサイズを整数で取得できるので、</p>
-
-<pre><code>if ( ! -s './hoge.txt' ) {
-    # ファイルサイズが0の場合の処理
-}
-</code></pre>
-
-<h2 id="7e5393f">sh (シェルスクリプト)
-<span class="article-date">2013/08/19</span></h2>
-
-<pre><code>if [ ! -s ./hoge.txt ]; then
-    # ファイルサイズが0の場合の処理
-fi
-</code></pre>
-
-<p>-&gt; <a href="../../sh.html#operator">シェルスクリプトの演算子</a></p>
-
 </div>
 
 <footer>
