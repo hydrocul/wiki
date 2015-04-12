@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>今日の日付を取得するには / 現在時刻を取得するには | hydrocul のメモ</title>
+<title>今日の日付を取得するには / 現在時刻を取得するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,34 +12,10 @@
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/datetime/">日付と時刻</a> &gt; <span>今日の日付を取得するには / 現在時刻を取得するには</span>
-</div>
-<div id="side-menu">
-  <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
-  </div>
-  <div id="side-menu-ls">
-    <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
-    <ul>
-      <li><a href="../../programming_languages_diff/datetime/">日付と時刻</a>
-        <ul>
-          <li>今日の日付を取得するには / 現在時刻を取得するには</li>
-          <li><a href="../../programming_languages_diff/datetime/calc_date.html">日付単位で計算するには</a></li>
-          <li><a href="../../programming_languages_diff/datetime/calc_time.html">時刻を計算するには</a></li>
-          <li><a href="../../programming_languages_diff/datetime/compare.html">日時オブジェクトを比較するには</a></li>
-          <li><a href="../../programming_languages_diff/datetime/parse.html">文字列を日付に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/datetime/timer.html">ミリ秒・マイクロ秒単位で処理時間を計測するには</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-  </div>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/datetime/">日付と時刻</a> &gt; <span>今日の日付を取得するには / 現在時刻を取得するには</span>
 </div>
 
 <div id="content">
@@ -67,7 +44,7 @@ $now = microtime(true);
 <a href="http://php.net/manual/ja/function.microtime.php" target="_blank">http://php.net/manual/ja/function.microtime.php</a></p>
 
 <h2 id="10992df">Ruby / JRuby
-<span class="article-date">2014/04/02</span></h2>
+<span class="article-date">2014/04/12</span></h2>
 
 <pre><code>require 'date'
 # DateTime を使う場合でも require は datetime ではなく date
@@ -79,6 +56,10 @@ p Date.today
 # DateTimeオブジェクトを取得する
 p DateTime.now
 # =&gt; #&lt;DateTime: 2015-04-02T01:08:39+09:00 ((2457115j,-28281s,265000000n),+32400s,2299161j)&gt;
+
+# YYYYMMDD-hhmmss の書式で取得
+p DateTime.now.strftime("%Y%m%d-%H%M%S")
+# =&gt; 20150402-010839
 </code></pre>
 
 <h2 id="ac13505">Perl
@@ -100,6 +81,31 @@ print "$nowstr\n";
 
 <p><a href="../../commands/date.html"><code>date</code>コマンド</a>を使えばよい。</p>
 
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/datetime/">日付と時刻</a>
+        <ul>
+          <li>今日の日付を取得するには / 現在時刻を取得するには</li>
+          <li><a href="../../programming_languages_diff/datetime/calc_date.html">日付単位で計算するには</a></li>
+          <li><a href="../../programming_languages_diff/datetime/calc_time.html">時刻を計算するには</a></li>
+          <li><a href="../../programming_languages_diff/datetime/compare.html">日時オブジェクトを比較するには</a></li>
+          <li><a href="../../programming_languages_diff/datetime/parse.html">文字列を日付に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/datetime/timer.html">ミリ秒・マイクロ秒単位で処理時間を計測するには</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
 </div>
 
 <footer>

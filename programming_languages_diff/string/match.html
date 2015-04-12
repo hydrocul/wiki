@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>正規表現で文字列パターンマッチングするには | 文字列 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>正規表現で文字列パターンマッチングするには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -20,9 +20,16 @@
 
 <div id="content">
   <h1 id="match">正規表現で文字列パターンマッチングするには
-<span class="article-date">2015/03/18</span></h1>
+<span class="article-date">2015/04/12</span></h1>
 
 <p>各プログラミング言語での、正規表現で文字列のパターンマッチングをする方法。</p>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="regexp-reference.html">正規表現のレファレンス</a></li>
+  <li><a href="regexp-group.html">括弧のグルーピングをキャプチャするには</a></li>
+</ul>
 
 <h2 id="dd36b97">PHP
 <span class="article-date">2015/03/18</span></h2>
@@ -70,14 +77,13 @@ print("match" if r.match("abc") else "unmatch") # =&gt; match
 <p>正規表現 HOWTO | Python 3 documentation<br />
 <a href="http://docs.python.jp/3/howto/regex.html" target="_blank">http://docs.python.jp/3/howto/regex.html</a></p>
 
-<h2 id="b02e24c">Ruby
-<span class="article-date">2013/09/18</span></h2>
+<h2 id="34d8264">Ruby / JRuby
+<span class="article-date">2015/04/12</span></h2>
 
-<p><code>=~</code> という演算子で、正規表現にマッチしていたら、そのインデックスを返し、マッチしなければ <code>nil</code> を返す。
-<code>=~</code> の左右がPerlと逆。</p>
+<p><code>=~</code> という演算子で、正規表現にマッチしていたら、そのインデックスを返し、マッチしなければ <code>nil</code> を返す。</p>
 
-<pre><code>/a./ =~ "abc\nabc\n" # =&gt; 0
-/x./ =~ "abc\nabc\n" # =&gt; nil
+<pre><code>"abc\nabc\n" =~ /a./ # =&gt; 0
+"abc\nabc\n" =~ /x./ # =&gt; nil
 </code></pre>
 
 <p>Rubyでは <code>0</code> も <code>if</code> の条件の中に入れたら <code>true</code> とみなされる。</p>
@@ -148,7 +154,6 @@ print "abc\nabc\n" =~ /a$/;
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには (equals / strcasecmp / strcmp / <code>==</code> / <code>!=</code> / <code>&lt;</code> / <code>&lt;=</code> / <code>&gt;=</code> / <code>&gt;</code> / <code>&lt;=&gt;</code> / gt / ge / lt / le)</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
-          <li>正規表現で文字列パターンマッチングするには</li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
@@ -162,8 +167,9 @@ print "abc\nabc\n" =~ /a$/;
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li>正規表現で文字列パターンマッチングするには</li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>正規表現のグルーピングにマッチした文字列を取得するには | hydroculのメモ</title>
+<title>正規表現の括弧のグルーピングにマッチした文字列を取得するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,14 +15,20 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>正規表現のグルーピングにマッチした文字列を取得するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>正規表現の括弧のグルーピングにマッチした文字列を取得するには</span>
 </div>
 
 <div id="content">
-  <h1 id="regexp-group">正規表現のグルーピングにマッチした文字列を取得するには
-<span class="article-date">2014/12/11</span></h1>
+  <h1 id="regexp-group">正規表現の括弧のグルーピングにマッチした文字列を取得するには
+<span class="article-date">2015/04/12</span></h1>
 
 <p>正規表現の中にカッコで括られた部分がある場合は、そのカッコの中にマッチした部分だけを取り出す機能があるが、以下は各プログラミング言語別のその方法のメモ。</p>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="match.html">正規表現でパターンマッチングするには</a></li>
+</ul>
 
 <h2 id="2332d02">Scala
 <span class="article-date">2015/02/05</span></h2>
@@ -74,7 +80,7 @@ if ($str =~ /b(c+)/) {
 }
 </code></pre>
 
-<h2 id="cd27768">sh (シェルスクリプト)
+<h2 id="4dfe5eb">sh (シェルスクリプト)
 <span class="article-date">2014/12/10</span></h2>
 
 <p><a href="../../commands/sed.html#group"><code>sed</code>コマンド</a>で正規表現による置換ができるが、
@@ -98,19 +104,18 @@ if ($str =~ /b(c+)/) {
           <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
-          <li><a href="../../programming_languages_diff/string/char-at.html">インデックスを指定して文字を取得するには (charAt)</a></li>
+          <li><a href="../../programming_languages_diff/string/char-at.html">特定のインデックスの文字を取得するには (charAt / getAt)</a></li>
           <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
           <li><a href="../../programming_languages_diff/string/length.html">長さを取得するには (len / length / mb_strlen / size / strlen)</a></li>
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには (equals / strcasecmp / strcmp / <code>==</code> / <code>!=</code> / <code>&lt;</code> / <code>&lt;=</code> / <code>&gt;=</code> / <code>&gt;</code> / <code>&lt;=&gt;</code> / gt / ge / lt / le)</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">正規表現で文字列パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
-          <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (join / implode)</a></li>
-          <li><a href="../../programming_languages_diff/string/split.html">文字列を特定の文字やパターンで配列に分割するには (split / explode)</a></li>
+          <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>
+          <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
@@ -118,11 +123,12 @@ if ($str =~ /b(c+)/) {
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">正規表現で文字列パターンマッチングするには</a></li>
+          <li>正規表現の括弧のグルーピングにマッチした文字列を取得するには</li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
-          <li>正規表現のグルーピングにマッチした文字列を取得するには</li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat)</a></li>
+          <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
