@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)から特定の値の要素をすべて削除するには (delete / remove / `-`) | hydrocul のメモ</title>
+<title>配列(リスト)から特定の値の要素をすべて削除するには (delete / remove / `-`) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,75 +12,10 @@
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">Home</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)から特定の値の要素をすべて削除するには (delete / remove / `-`)</span>
-</div>
-<div id="side-menu">
-  <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
-  </div>
-  <div id="side-menu-ls">
-    <ul>
-  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
-    <ul>
-      <li><a href="../../programming_languages_diff/list/">配列(リスト)</a>
-        <ul>
-          <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/list/size.html">要素数を取得するには (count / len / length / size / sizeof)</a></li>
-          <li><a href="../../programming_languages_diff/list/is-empty.html">空かどうかを判定するには (empty / isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/list/get.html">配列(リスト)からインデックスで要素を参照するには (get)</a></li>
-          <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">配列(リスト)の範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
-          <li><a href="../../programming_languages_diff/list/head.html">先頭の要素を取得するには (first / head / headOption)</a></li>
-          <li><a href="../../programming_languages_diff/list/last.html">最後の要素を取得するには (last / lastOption)</a></li>
-          <li><a href="../../programming_languages_diff/list/tail.html">配列(リスト)の先頭以外の残りの要素を配列で取得するには (tail)</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">先頭のn個の要素のみを配列で取得するには (first / take)</a></li>
-          <li><a href="../../programming_languages_diff/list/drop.html">配列(リスト)の最初のn個の要素以外の残りを配列で取得するには (drop)</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">配列(リスト)の一部を配列(リスト)として取り出すには (subList / slice)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">配列(リスト)に特定の値が含まれているかどうかを判定するには (contains)</a></li>
-          <li><a href="../../programming_languages_diff/list/index-of.html">特定の値の要素を探してそのインデックスを取得するには (array_search / find_index / index / indexOf / lastIndexOf / rindex)</a></li>
-          <li><a href="../../programming_languages_diff/list/index-where.html">特定の条件を満たす要素を探してそのインデックスを取得するには (find_index / index / indexWhere / rindex)</a></li>
-          <li><a href="../../programming_languages_diff/list/filter.html">特定の条件にマッチする要素のみを取り出すには (array_filter / delete_if / filter / grep / keep_if / partition / reject / select)</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists)</a></li>
-          <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all / all?)</a></li>
-          <li><a href="../../programming_languages_diff/list/map.html">配列(リスト)の要素1つずつに関数を適用して新しい配列(リスト)を作るには (map)</a></li>
-          <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列(リスト)を連結した新しい配列(リスト)を作るには (flatMap)</a></li>
-          <li><a href="../../programming_languages_diff/list/flatten.html">配列の配列を配列に平坦化するには (flatten)</a></li>
-          <li><a href="../../programming_languages_diff/list/foreach.html">要素を1つずつ順番に処理するには (for / foreach)</a></li>
-          <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (array_reduce / foldLeft / inject / reduce / reduceLeft)</a></li>
-          <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の複数の配列(リスト)を要素ごとに配列(タプル)にまとめて1つの配列(リスト)を作るには (zip)</a></li>
-          <li><a href="../../programming_languages_diff/list/product.html">複数の配列(リスト)の要素同士をかけ合わせて配列(タプル)の配列(リスト)を作るには (product)</a></li>
-          <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
-          <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べた配列を作成するには (fill)</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列(リスト)を作成するには (range)</a></li>
-          <li><a href="../../programming_languages_diff/list/grouped.html">一定の数ごとにグルーピングするには (array_chunk / grouped)</a></li>
-          <li><a href="../../programming_languages_diff/list/group-by.html">要素をグルーピングするには (group_by / groupBy)</a></li>
-          <li><a href="../../programming_languages_diff/list/shift.html">配列(リスト)の先頭から要素を削除するには (shift)</a></li>
-          <li><a href="../../programming_languages_diff/list/unshift.html">配列(リスト)の先頭に要素を追加するには (unshift)</a></li>
-          <li><a href="../../programming_languages_diff/list/pop.html">配列(リスト)の最後から要素を削除するには (pop)</a></li>
-          <li><a href="../../programming_languages_diff/list/push.html">配列(リスト)の最後に要素を追加するには (push)</a></li>
-          <li><a href="../../programming_languages_diff/list/set.html">要素の値を設定するには (set)</a></li>
-          <li><a href="../../programming_languages_diff/list/remove.html">要素をインデックスで指定して削除するには (delete_at / pop / remove / unset)</a></li>
-          <li>特定の値をすべて削除するには (delete / remove / <code>-</code>)</li>
-          <li><a href="../../programming_languages_diff/list/clone.html">配列(リスト)をコピーするには (clone)</a></li>
-          <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
-          <li><a href="../../programming_languages_diff/list/sort.html">配列(リスト)をソートするには (sort)</a></li>
-          <li><a href="../../programming_languages_diff/list/convert.html">配列(リスト)の種類を相互に変換するには</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列(リスト)から連想配列(マップ)を生成するには (toMap)</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">配列(リスト)から集合(セット)を生成する方法 (toSet)</a></li>
-          <li><a href="../../programming_languages_diff/list/max-min.html">配列(リスト)の中の最大値・最小値を求めるには (max, min)</a></li>
-          <li><a href="../../programming_languages_diff/list/sum.html">数の配列(リスト)の合計を計算するには (sum)</a></li>
-          <li><a href="../../programming_languages_diff/list/multiply.html">配列(リスト)を繰り返して連結するには(乗算みたいな)</a></li>
-          <li><a href="../../programming_languages_diff/list/slice-replace.html">配列(リスト)の一部を別の配列で置き換えるには (splice)</a></li>
-          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-  </div>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)から特定の値の要素をすべて削除するには (delete / remove / `-`)</span>
 </div>
 
 <div id="content">
@@ -227,6 +163,72 @@ p arr
 <pre><code>arr = (o for o in arr when o != remove_target)
 </code></pre>
 
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/list/">配列(リスト)</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
+          <li><a href="../../programming_languages_diff/list/size.html">要素数を取得するには (count / len / length / size / sizeof)</a></li>
+          <li><a href="../../programming_languages_diff/list/is-empty.html">空かどうかを判定するには (empty / isEmpty)</a></li>
+          <li><a href="../../programming_languages_diff/list/get.html">要素を参照するには (get)</a></li>
+          <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">配列(リスト)の範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
+          <li><a href="../../programming_languages_diff/list/head.html">先頭の要素を取得するには (first / head / headOption)</a></li>
+          <li><a href="../../programming_languages_diff/list/last.html">最後の要素を取得するには (last / lastOption)</a></li>
+          <li><a href="../../programming_languages_diff/list/tail.html">先頭以外の残りを配列で取得するには (tail)</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">先頭のn個の要素のみを配列で取得するには (first / take)</a></li>
+          <li><a href="../../programming_languages_diff/list/drop.html">先頭のn個以外の残りを配列で取得するには (drop)</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">一部を配列として取り出すには (array_slice / slice / subList)</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">配列(リスト)に特定の値が含まれているかどうかを判定するには (contains)</a></li>
+          <li><a href="../../programming_languages_diff/list/index-of.html">特定の値の要素を探してそのインデックスを取得するには (array_search / find_index / index / indexOf / lastIndexOf / rindex)</a></li>
+          <li><a href="../../programming_languages_diff/list/index-where.html">特定の条件を満たす要素を探してそのインデックスを取得するには (find_index / index / indexWhere / rindex)</a></li>
+          <li><a href="../../programming_languages_diff/list/filter.html">特定の条件にマッチする要素のみを取り出すには (array_filter / delete_if / filter / grep / keep_if / partition / reject / select)</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists)</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all / all?)</a></li>
+          <li><a href="../../programming_languages_diff/list/map.html">要素1つずつに関数を適用して新しい配列を作るには (array_map / map)</a></li>
+          <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列(リスト)を連結した新しい配列(リスト)を作るには (flatMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/flatten.html">配列の配列を配列に平坦化するには (flatten)</a></li>
+          <li><a href="../../programming_languages_diff/list/foreach.html">要素を1つずつ順番に処理するには (for / foreach)</a></li>
+          <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素を畳み込むように関数を適用するには(畳み込み) (array_reduce / foldLeft / inject / reduce / reduceLeft)</a></li>
+          <li><a href="../../programming_languages_diff/list/zip.html">複数の配列を要素ごとにまとめて1つの配列(リスト)を作るには (zip)</a></li>
+          <li><a href="../../programming_languages_diff/list/product.html">2つ以上の配列の要素同士をかけ合わせて配列の配列を作るには (product)</a></li>
+          <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
+          <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べた配列を作成するには (fill)</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列(リスト)を作成するには (range)</a></li>
+          <li><a href="../../programming_languages_diff/list/grouped.html">一定の数ごとにグルーピングするには (array_chunk / grouped)</a></li>
+          <li><a href="../../programming_languages_diff/list/group-by.html">要素をグルーピングするには (group_by / groupBy)</a></li>
+          <li><a href="../../programming_languages_diff/list/shift.html">先頭の要素を削除するには (array_shift / shift)</a></li>
+          <li><a href="../../programming_languages_diff/list/unshift.html">配列(リスト)の先頭に要素を追加するには (unshift)</a></li>
+          <li><a href="../../programming_languages_diff/list/pop.html">最後の要素を削除するには (array_pop / pop)</a></li>
+          <li><a href="../../programming_languages_diff/list/push.html">配列(リスト)の最後に要素を追加するには (push)</a></li>
+          <li><a href="../../programming_languages_diff/list/set.html">要素の値を設定するには (set)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove.html">要素をインデックスで指定して削除するには (delete_at / pop / remove / unset)</a></li>
+          <li>特定の値をすべて削除するには (delete / remove / <code>-</code>)</li>
+          <li><a href="../../programming_languages_diff/list/clone.html">配列(リスト)をコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
+          <li><a href="../../programming_languages_diff/list/sort.html">ソートするには (sort / sortBy / sorted / sortWith)</a></li>
+          <li><a href="../../programming_languages_diff/list/convert.html">データ型を相互に変換するには (asList / asScala / asJava / to_a / toArray)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列から連想配列を生成するには (toMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-set.html">配列から集合を生成するには (toSet)</a></li>
+          <li><a href="../../programming_languages_diff/list/max-min.html">配列(リスト)の中の最大値・最小値を求めるには (max, min)</a></li>
+          <li><a href="../../programming_languages_diff/list/sum.html">数の配列(リスト)の合計を計算するには (sum)</a></li>
+          <li><a href="../../programming_languages_diff/list/multiply.html">同じ配列を繰り返して連結するには (<code>x</code> / <code>*</code>)</a></li>
+          <li><a href="../../programming_languages_diff/list/slice-replace.html">一部を別の配列で置き換えるには (array_splice / splice)</a></li>
+          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
 </div>
 
 <footer>
