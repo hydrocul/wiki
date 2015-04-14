@@ -42,8 +42,8 @@ filemtime('./hoge.txt');
 print os.path.getmtime('./hoge.txt')
 </code></pre>
 
-<h2 id="766dff9">Ruby
-<span class="article-date">2014/02/22</span></h2>
+<h2 id="d608203">Ruby / JRuby
+<span class="article-date">2015/04/13</span></h2>
 
 <pre><code># Timeオブジェクトで取得
 p File.stat('./hoge.txt').mtime
@@ -53,6 +53,12 @@ p File.stat('./hoge.txt').mtime
 # Timeオブジェクトで取得
 p File.mtime('./hoge.txt')
 # =&gt; 2013-11-22 11:08:01 +0900
+
+# 現在時刻との差を秒単位で取得
+p DateTime.now.to_time - File.mtime("test.txt")
+# =&gt; 54.419274511
+# よくわからないがJRubyだと小数点以下3桁までしか表示されない
+# タイムスタンプ取得精度のJVMでの制約かな
 </code></pre>
 
 <h2 id="318fe20">sh (シェルスクリプト)
@@ -91,7 +97,7 @@ fi
     <ul>
       <li><a href="../../programming_languages_diff/io/">入出力・ファイル操作</a>
         <ul>
-          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイル・標準入力の中身をまとめて1つの文字列として取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイル・標準入力の中身をまとめて1つの文字列として取得するには (file_get_contents)</a></li>
           <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
           <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>

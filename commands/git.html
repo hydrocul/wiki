@@ -287,7 +287,7 @@ matching から simple に変わる予定とのこと。simple にする場合�
 <h3 id="301f5d1">zshのプロンプトにgitのメールアドレスを表示させるには
 <span class="article-date">2013/07/10</span></h3>
 
-<p>~/.zshrc に以下のような記述をしている。ブランチ名をプロンプトに表示させるところまではよくある例だが、その中に無理やり <code>git config user.email</code> という記述を入れて、メールアドレスも追加で表示させている。プライベートのレポジトリと会社のレポジトリとが混在していて、会社のレポジトリに間違ってプライベートのメールアドレスでコミットしちゃわないようにするためのものである。</p>
+<p>~/.zshrc に以下のような記述をしている。ブランチ名をプロンプトに表示させるところまではよくある例だが、その中に無理やり <code>git config user.email</code> という記述を入れて、メールアドレスも追加で表示させている。プライベートのリポジトリと会社のリポジトリとが混在していて、会社のリポジトリに間違ってプライベートのメールアドレスでコミットしちゃわないようにするためのものである。</p>
 
 <pre><code>autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '[%b]'
@@ -335,24 +335,37 @@ git read-tree -m -u HEAD
 
 <p>こうすると、<code>hoge</code>ディレクトリのみになる。<code>hoge</code>ディレクトリ自体がチェックアウトしたディレクトリのルートになるわけではなく、単にその他のディレクトリが削除されるだけである。おそらく<code>.git</code>ディレクトリにはすべてのファイルが保存されたままである。</p>
 
-<h3 id="fe20d55">追跡するリモートレポジトリを追加するには
-<span class="article-date">2014/09/24</span></h3>
+<h3 id="daff2af">追跡するリモートリポジトリを追加するには
+<span class="article-date">2015/04/13</span></h3>
 
 <pre><code>git remote add &lt;remote-name&gt; &lt;remote-repository-uri&gt;
 </code></pre>
 
-<p>&lt;remotename&gt; はワーキングディレクトリの中で通用するリモートレポジトリの名前。</p>
+<p>&lt;remotename&gt; はワーキングディレクトリの中で通用するリモートリポジトリの名前。</p>
 
-<p>すべてのリモートレポジトリに対して <code>git fetch</code> するには <code>--all</code> オプションを付ける。</p>
+<p>リモートリポジトリがローカルホストの別のディレクトリの場合、リモートリポジトリのURIはそのリポジトリのあるディレクトリのパスになる。</p>
+
+<h3 id="bfc5227">すべてのリモートリポジトリに対して <code>git fetch</code> するには
+<span class="article-date">2015/04/13</span></h3>
+
+<p>すべてのリモートリポジトリに対して <code>git fetch</code> するには <code>--all</code> オプションを付ける。</p>
 
 <pre><code>git fetch --all
 </code></pre>
 
-<p>これを付けないと、<code>origin</code>リモートレポジトリのみfetchされる。</p>
+<p>これを付けないと、<code>origin</code>リモートリポジトリのみfetchされる。</p>
 
-<p>特定のリモートレポジトリのみfetchするには <code>git fetch リモートレポジトリ名</code> とする。</p>
+<p>特定のリモートリポジトリのみfetchするには <code>git fetch リモートリポジトリ名</code> とする。</p>
 
-<h3 id="c27627c">追跡するリモートレポジトリの設定を削除するには
+<p>自分がよく使うコマンドは</p>
+
+<pre><code>git fetch --prune --all
+</code></pre>
+
+<p>これはすべてのリモートリポジトリでの変更を取り込んだ上で、リモートで削除されたブランチがあればそれに対応する追跡ブランチを削除する。
+(-&gt; <a href="#remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには</a>)</p>
+
+<h3 id="5c3959e">追跡するリモートリポジトリの設定を削除するには
 <span class="article-date">2014/06/06</span></h3>
 
 <pre><code># git 1.8.1.2 では
@@ -364,9 +377,9 @@ git remote rm &lt;remote-name&gt;
 
 <p>上記のように環境によってコマンドが違っていたのだが、gitのバージョンによって違うのかな。</p>
 
-<p>&lt;remotename&gt; はリモートレポジトリの名前。リモートレポジトリ自体が削除されなくなるのではなく、ワーキングディレクトリがそのリモートリポジトリを追跡しなくなるだけ。</p>
+<p>&lt;remotename&gt; はリモートリポジトリの名前。リモートリポジトリ自体が削除されなくなるのではなく、ワーキングディレクトリがそのリモートリポジトリを追跡しなくなるだけ。</p>
 
-<h3 id="c817842"><code>clone</code>するときにリモートレポジトリの名前を <code>origin</code> 以外にするには
+<h3 id="5b20008"><code>clone</code>するときにリモートリポジトリの名前を <code>origin</code> 以外にするには
 <span class="article-date">2013/10/16</span></h3>
 
 <p><code>-o</code> で指定する。</p>
@@ -559,7 +572,7 @@ Thumbs.db
 <h2 id="c5f0095">Gitblit
 <span class="article-date">2013/05/05</span></h2>
 
-<p>Javaで実装されたGitレポジトリ管理ツール。リポジトリの pull request をWeb上ですることはできない。コミットログをグラフィカルに表示することはできない。WikiやIssueの機能がない。Hookのスクリプトを Groovy で書ける。</p>
+<p>Javaで実装されたGitリポジトリ管理ツール。リポジトリの pull request をWeb上ですることはできない。コミットログをグラフィカルに表示することはできない。WikiやIssueの機能がない。Hookのスクリプトを Groovy で書ける。</p>
 
 <h2 id="401635a">過去のログが不要な場合
 <span class="article-date">2013/05/08</span></h2>
@@ -578,7 +591,7 @@ fatal: The remote end hung up unexpectedly
 
 <p>shallow repository には <code>.git/shallow</code> というファイルがあり、省略された過去のコミットが参照されていて、このファイルにより shallow repository であることを示している。このファイルを削除すると、ローカルではcloneすることができるが、リモートへのcloneでは過去のコミットが見つからない、というエラーが出て、やっぱりcloneできない。</p>
 
-<h2 id="4839fbf"><code>git svn</code> で作成したレポジトリで使えるコマンド
+<h2 id="17eefce"><code>git svn</code> で作成したリポジトリで使えるコマンド
 <span class="article-date">2013/11/07</span></h2>
 
 <pre><code># svnリモートリポジトリでの更新を取り込む

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>正規表現で文字列パターンマッチングするには | hydroculのメモ</title>
+<title>正規表現で文字列パターンマッチングするには (match) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,11 +15,11 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>正規表現で文字列パターンマッチングするには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>正規表現で文字列パターンマッチングするには (match)</span>
 </div>
 
 <div id="content">
-  <h1 id="match">正規表現で文字列パターンマッチングするには
+  <h1 id="match">正規表現で文字列パターンマッチングするには (match)
 <span class="article-date">2015/04/12</span></h1>
 
 <p>各プログラミング言語での、正規表現で文字列のパターンマッチングをする方法。</p>
@@ -57,7 +57,7 @@ preg_match('/\Abc\z/', "abc\nabc"); // =&gt; 0
 <a href="http://php.net/manual/ja/pcre.pattern.php" target="_blank">http://php.net/manual/ja/pcre.pattern.php</a></p>
 
 <h2 id="48b4b2f">Python
-<span class="article-date">2014/09/07</span></h2>
+<span class="article-date">2015/04/14</span></h2>
 
 <p>コンパイルした正規表現をオブジェクトとして保持して、そのオブジェクトの
 <code>match</code>メソッドなどを呼び出す。</p>
@@ -70,6 +70,19 @@ print("match" if r.match("abc") else "unmatch") # =&gt; match
 </code></pre>
 
 <p><code>match</code>メソッドは、文字列の先頭がマッチするかどうかであり、文字列全体のマッチングではなく、部分マッチングでもない。マッチしない場合は <code>None</code> を返す。</p>
+
+<p><code>search</code>メソッドであれば、他の言語と同様に部分マッチングする。</p>
+
+<dl>
+  <dt><code>match(str)</code></dt>
+  <dd>文字列の先頭がマッチするかどうかを判定し、マッチしたら <code>MatchObject</code> インスタンスを返し、マッチしなかったら <code>None</code> を返す</dd>
+  <dt><code>search(str)</code></dt>
+  <dd>文字列の先頭に限らずマッチするかどうかを判定し、マッチしたら <code>MatchObject</code> インスタンスを返し、マッチしなかったら <code>None</code> を返す</dd>
+  <dt><code>findall(str)</code></dt>
+  <dd>マッチする部分のすべてを <code>MatchObject</code> インスタンスのリストで返す。マッチしなければ空のリストを返す</dd>
+  <dt><code>finditer(str)</code></dt>
+  <dd>マッチする部分すべてを <code>MatchObject</code> インスタンスのイテレータで返す。マッチしなければ空のイテレータを返す</dd>
+</dl>
 
 <p>正規表現 HOWTO | Python 2.7 documentation<br />
 <a href="http://docs.python.jp/2/howto/regex.html" target="_blank">http://docs.python.jp/2/howto/regex.html</a></p>
@@ -162,12 +175,12 @@ print "abc\nabc\n" =~ /a$/;
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには (chr)</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li>正規表現で文字列パターンマッチングするには</li>
+          <li>正規表現でパターンマッチングするには (match)</li>
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
