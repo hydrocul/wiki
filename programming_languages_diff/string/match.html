@@ -20,9 +20,65 @@
 
 <div id="content">
   <h1 id="match">正規表現で文字列パターンマッチングするには (match)
-<span class="article-date">2015/04/12</span></h1>
+<span class="article-date">2015/04/15</span></h1>
 
 <p>各プログラミング言語での、正規表現で文字列のパターンマッチングをする方法。</p>
+
+<p>Java</p>
+
+<pre><code>if ("Hello, world!".matches(".*wor.*")) {
+  System.out.println("Match!");
+}
+</code></pre>
+
+<p>Scala</p>
+
+<pre><code>if ("Hello, world!".matches(".*wor.*")) {
+  println("Match!");
+}
+</code></pre>
+
+<p><a href="#php">PHP</a></p>
+
+<pre><code>if (preg_match("/wor/", "Hello, world!")) {
+  echo "Match!\n";
+}
+</code></pre>
+
+<p><a href="#python">Python</a></p>
+
+<pre><code>import re
+if re.compile("wor").search("Hello, world!"):
+    print("Match!")
+</code></pre>
+
+<p><a href="#ruby">Ruby</a></p>
+
+<pre><code>if "Hello, world!" =~ /wor/
+  puts("Match!")
+end
+</code></pre>
+
+<p><a href="#perl">Perl</a></p>
+
+<pre><code>if ("Hello, world!" =~ /wor/) {
+    print("Match!\n");
+}
+</code></pre>
+
+<p><a href="#sh">bash</a></p>
+
+<pre><code>if [[ "Hello, world!" =~ "wor" ]]; then
+    echo OK
+fi
+</code></pre>
+
+<p><a href="#javascript">JavaScript</a></p>
+
+<pre><code>if ("Hello, world!".match(/wor/)) {
+  console.log("Match!");
+}
+</code></pre>
 
 <p>関連</p>
 
@@ -31,7 +87,7 @@
   <li><a href="regexp-group.html">括弧のグルーピングをキャプチャするには</a></li>
 </ul>
 
-<h2 id="dd36b97">PHP
+<h2 id="php">PHP
 <span class="article-date">2015/03/18</span></h2>
 
 <p><code>preg_match</code> という関数は、正規表現にマッチしたら <code>1</code>, マッチしなかったら <code>0</code> が返される。正規表現が間違っているなどのエラーの際は <code>false</code> が返される。</p>
@@ -56,7 +112,7 @@ preg_match('/\Abc\z/', "abc\nabc"); // =&gt; 0
 <p>PCRE(Perlと互換性の高い正規表現)のパターン | PHP Manual<br />
 <a href="http://php.net/manual/ja/pcre.pattern.php" target="_blank">http://php.net/manual/ja/pcre.pattern.php</a></p>
 
-<h2 id="48b4b2f">Python
+<h2 id="python">Python
 <span class="article-date">2015/04/14</span></h2>
 
 <p>コンパイルした正規表現をオブジェクトとして保持して、そのオブジェクトの
@@ -90,7 +146,7 @@ print("match" if r.match("abc") else "unmatch") # =&gt; match
 <p>正規表現 HOWTO | Python 3 documentation<br />
 <a href="http://docs.python.jp/3/howto/regex.html" target="_blank">http://docs.python.jp/3/howto/regex.html</a></p>
 
-<h2 id="34d8264">Ruby / JRuby
+<h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/04/12</span></h2>
 
 <p><code>=~</code> という演算子で、正規表現にマッチしていたら、そのインデックスを返し、マッチしなければ <code>nil</code> を返す。</p>
@@ -110,10 +166,9 @@ print("match" if r.match("abc") else "unmatch") # =&gt; match
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2013/10/08</span></h2>
+<span class="article-date">2015/04/15</span></h2>
 
-<p><code>=~</code> という演算子で、正規表現にマッチしていれば <code>'1'</code> を返し、マッチしていなければ <code>''</code> を返す。
-<code>=~</code> の左右がRubyと逆。</p>
+<p><code>=~</code> という演算子で、正規表現にマッチしていれば <code>'1'</code> を返し、マッチしていなければ <code>''</code> を返す。</p>
 
 <pre><code>print "abc\nabc\n" =~ /a./;
 # =&gt; 1
@@ -121,11 +176,11 @@ print "abc\nabc\n" =~ /a$/;
 # =&gt; なにも出力しない
 </code></pre>
 
-<p><code>!~</code> という演算子は <code>=~</code> の反対で、マッチしていれば <code>''</code> を返し、マッチしていなければ <code>'1'</code> を返す。</p>
+<p><code>!~</code> という演算子は <code>=~</code> の反対で、マッチしていれば <code>''</code> を返し、マッチしていなければ <code>1</code> を返す。</p>
 
 <p>正規表現の中にカッコで囲んだグループがあれば、マッチした場合、
 <code>$1</code>, <code>$2</code>, <code>$3</code>, … にマッチした文字列が入る。<br />
--&gt; <a href="group.html#perl">正規表現のグルーピングにマッチした文字列</a></p>
+-&gt; <a href="regexp-group.html#perl">正規表現のグルーピングにマッチした文字列</a></p>
 
 <p><code>if</code>文の条件式の中に正規表現だけを書いた場合は、その前に <code>$_ =~</code> を付けたのと同じになる。</p>
 
@@ -135,7 +190,30 @@ print "abc\nabc\n" =~ /a$/;
 # =&gt; 1
 </code></pre>
 
-<h2 id="f151150">JavaScript
+<h2 id="sh">sh (シェルスクリプト)
+<span class="article-date">2015/04/15</span></h2>
+
+<p>bashだと <code>[[</code> というコマンドで <code>=~</code> という演算子が使えて、正規表現でマッチングできる。</p>
+
+<pre><code>[[ "Hello, world!" =~ "wor" ]]
+echo $?
+# =&gt; 0
+
+[[ "Hello, world!" =~ "unmatch" ]]
+echo $?
+# =&gt; 1
+</code></pre>
+
+<p><code>if</code>文で使う例。</p>
+
+<pre><code>if [[ "Hello, world!" =~ "wor" ]]; then
+    echo OK
+fi
+</code></pre>
+
+<p>zshでもできるみたい。Ubuntuにあるdashではできなかった。</p>
+
+<h2 id="javascript">JavaScript
 <span class="article-date">2013/04/19</span></h2>
 
 <pre><code>"abc\nabc\n".match(/a./); // =&gt; ["ab"]
