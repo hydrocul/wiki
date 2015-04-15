@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>連続した数値の配列(リスト)を作成するには (range) | hydroculのメモ</title>
+<title>連続した数値の配列(リスト)を作成するには (range / seq / to / until) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,14 +15,16 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>連続した数値の配列(リスト)を作成するには (range)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>連続した数値の配列(リスト)を作成するには (range / seq / to / until)</span>
 </div>
 
 <div id="content">
-  <h1 id="range">連続した数値の配列(リスト)を作成するには (range)</h1>
+  <h1 id="range">連続した数値の配列(リスト)を作成するには (range / seq / to / until)</h1>
+
+<p><a href="#scala">Scala</a> <a href="#python">Python</a> <a href="#ruby">Ruby</a> <a href="#sh">sh</a></p>
 
 <h2 id="scala">Scala
-<span class="article-date">2015/04/05</span></h2>
+<span class="article-date">2015/04/15</span></h2>
 
 <p><code>to</code> や <code>until</code> というメソッドでできる。</p>
 
@@ -55,10 +57,12 @@ def scala.runtime.RichInt#until(end: Int): scala.collection.immutable.Range
 (0 until 100).map(_ / 10.0)
 </code></pre>
 
+<p><code>3 until 2</code> のように逆に書くと大きさ0の <code>IndexedSeq[Int]</code> になる。</p>
+
 <p><code>to</code> や <code>until</code> は普通のメソッドであるので <code>0 .until(100)</code> と書いてもいいのだが、
 <code>1 to 10</code> のように中置記法で書かれることが多い。</p>
 
-<h2 id="8f0aeca">Python
+<h2 id="python">Python
 <span class="article-date">2014/09/29</span></h2>
 
 <pre><code># 0から9までのリスト
@@ -91,7 +95,7 @@ np.linspace(0, 1, 11)
 <p><code>numpy.arange</code> | NumPy Manual<br />
 <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html" target="_blank">http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html</a></p>
 
-<h2 id="c25debe">Ruby
+<h2 id="ruby">Ruby
 <span class="article-date">2014/09/08</span></h2>
 
 <pre><code># 0から9までの配列(範囲オブジェクト)
@@ -202,7 +206,7 @@ done
           <li><a href="../../programming_languages_diff/list/product.html">2つ以上の配列の要素同士をかけ合わせて配列の配列を作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べた配列を作成するには (fill)</a></li>
-          <li>連続した数値の配列(リスト)を作成するには (range)</li>
+          <li>連続した数値の配列を作成するには (range / seq / to / until)</li>
           <li><a href="../../programming_languages_diff/list/grouped.html">一定の数ごとにグルーピングするには (array_chunk / grouped)</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">要素をグルーピングするには (group_by / groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">先頭の要素を削除するには (array_shift / shift)</a></li>
