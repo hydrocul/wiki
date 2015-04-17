@@ -35,16 +35,22 @@ root権限でこのコマンドを使って正しい日時を設定する。</p>
 <span class="article-date">2015/04/17</span></h2>
 
 <pre><code># 現在の日時を表示
-date
+$ date
 
 # フォーマットを指定して表示
-date "+%Y%m%d-%H%M%S"
+$ date "+%Y%m%d-%H%M%S"
 
 # 24時間後の日時を表示
-date --date tomorrow
+$ date --date tomorrow
+
+# 24時間後の日時を表示
+$ date --date tomorrow
+
+# 30日後の日付を表示
+date "+%Y/%m/%d" --date "30 days"
 
 # OSが刻んでいる現在日時を訂正
-sudo date -s "2013/09/04 12:17:00"
+$ sudo date -s "2013/09/04 12:17:00"
 </code></pre>
 
 <h2 id="c13191c">HOWTO</h2>
