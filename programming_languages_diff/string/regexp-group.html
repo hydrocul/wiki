@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>正規表現の括弧のグルーピングにマッチした文字列を取得するには | hydroculのメモ</title>
+<title>正規表現の括弧のグルーピングにマッチした文字列を取得するには (group) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,14 +15,48 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>正規表現の括弧のグルーピングにマッチした文字列を取得するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</span>
 </div>
 
 <div id="content">
-  <h1 id="regexp-group">正規表現の括弧のグルーピングにマッチした文字列を取得するには
-<span class="article-date">2015/04/12</span></h1>
+  <h1 id="regexp-group">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)
+<span class="article-date">2015/04/16</span></h1>
 
 <p>正規表現の中にカッコで括られた部分がある場合は、そのカッコの中にマッチした部分だけを取り出す機能があるが、以下は各プログラミング言語別のその方法のメモ。</p>
+
+<p><a href="#java">Java</a></p>
+
+<pre><code>import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+Matcher matcher = Pattern.compile("dear\\s+(\\S+)").matcher("Happy birthday dear Ken");
+if (matcher.find()) {
+  System.out.println(matcher.group(1));
+}
+</code></pre>
+
+<p><a href="#scala">Scala</a></p>
+
+<pre><code>val Pattern = ".*dear\\s+(\\S+).*".r;
+"Happy birthday dear Ken" match {
+  case Pattern(name) =&gt; println(name);
+  case _ =&gt; println("Unmatch!");
+}
+</code></pre>
+
+<p><a href="#python">Python</a></p>
+
+<pre><code>m = re.compile("dear\\s+(\\S+)").search("Happy birthday dear Ken");
+if m:
+    print(m.group(1))
+</code></pre>
+
+<p><a href="#perl">Perl</a></p>
+
+<pre><code>if ("Happy birthday dear Ken" =~ /dear\s+(\S+)/) {
+    print "$1\n";
+}
+</code></pre>
 
 <p>関連</p>
 
@@ -30,7 +64,27 @@
   <li><a href="match.html">正規表現でパターンマッチングするには</a></li>
 </ul>
 
-<h2 id="2332d02">Scala
+<h2 id="java">Java
+<span class="article-date">2015/04/15</span></h2>
+
+<p>正規表現をコンパイルして <code>java.util.regex.Pattern</code> インスタンスを生成し、その <code>matcher</code> メソッドに文字列を渡すことで <code>java.util.regex.Matcher</code> インスタンスを取得し、その後は、<code>find</code> メソッドを呼び出すごとに部分マッチングするので、マッチングした後に <code>group</code> メソッドで括弧にマッチングした文字列を取得できる。</p>
+
+<pre><code>import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Test {
+
+    public static void main(String[] args) {
+        Matcher matcher = Pattern.compile("dear\\s+(\\S+)").matcher("Happy birthday dear Ken");
+        if (matcher.find()) {
+          System.out.println(matcher.group(1));
+        }
+    }
+
+}
+</code></pre>
+
+<h2 id="scala">Scala
 <span class="article-date">2015/02/05</span></h2>
 
 <p>正規表現のパターンを予め大文字で始まる名前の変数に入れておき、
@@ -49,17 +103,24 @@ str match {
 <p>パターンマッチングは文字列全体とマッチするかどうかを判定するので、
 <code>"b(c+)".r</code> と書いてもこの場合はマッチしない。</p>
 
-<h2 id="f82f669">Python
-<span class="article-date">2014/09/17</span></h2>
+<h2 id="python">Python
+<span class="article-date">2015/04/16</span></h2>
 
-<p>正規表現オブジェクトの<code>match</code>メソッドの返り値に対して、<code>group</code>メソッドを呼び出すと、グルーピングにマッチした文字列を取得できる。</p>
+<p>正規表現オブジェクトの<code>match</code>メソッドまたは<code>search</code>メソッドの返り値に対して、<code>group</code>メソッドを呼び出すと、グルーピングにマッチした文字列を取得できる。</p>
 
 <pre><code>r = re.compile("b(c+)")
 m = r.match("bcccdef")
 if m:
-    print m.group(1)
+    print(m.group(1))
     # =&gt; ccc
 </code></pre>
+
+<dl>
+  <dt><code>match(str)</code></dt>
+  <dd>文字列の先頭がマッチするかどうかを判定し、マッチしたら <code>MatchObject</code> インスタンスを返し、マッチしなかったら <code>None</code> を返す</dd>
+  <dt><code>search(str)</code></dt>
+  <dd>文字列の先頭に限らずマッチするかどうかを判定し、マッチしたら <code>MatchObject</code> インスタンスを返し、マッチしなかったら <code>None</code> を返す</dd>
+</dl>
 
 <h2 id="perl">Perl
 <span class="article-date">2015/02/05</span></h2>
@@ -118,13 +179,13 @@ if ($str =~ /b(c+)/) {
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには (chr)</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">正規表現で文字列パターンマッチングするには</a></li>
-          <li>正規表現の括弧のグルーピングにマッチした文字列を取得するには</li>
+          <li><a href="../../programming_languages_diff/string/match.html">正規表現でパターンマッチングするには (match)</a></li>
+          <li>正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>

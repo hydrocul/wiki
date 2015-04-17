@@ -134,7 +134,7 @@ fi
 </code></pre>
 
 <h2 id="operator">演算子
-<span class="article-date">2013/12/16</span></h2>
+<span class="article-date">2015/04/16</span></h2>
 
 <p><code>test</code>コマンドの演算子</p>
 
@@ -186,6 +186,10 @@ Perlでも同じ。
   <dt><code>-x</code> ファイル名</dt>
   <dd>パーミッションの設定によりファイルが実行可能な場合。
 Perlでも同じ。</dd>
+  <dt><code>-t 0</code></dt>
+  <dd>標準入力がパイプでなく端末の場合。<code>-t</code> のあとの数字はファイル記述子。</dd>
+  <dt><code>-t 1</code></dt>
+  <dd>標準出力がパイプでなく端末の場合。<code>-t</code> のあとの数字はファイル記述子。</dd>
   <dt>ファイル名1 <code>-nt</code> ファイル名2</dt>
   <dd>ファイル1のほうが新しい場合</dd>
   <dt>ファイル名1 <code>-ot</code> ファイル名2</dt>

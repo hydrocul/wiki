@@ -281,7 +281,7 @@ close IN;
 <p><code>open</code>せずに <code>&lt;IN&gt;</code> の代わりに <code>&lt;STDIN&gt;</code> と書けば、標準入力を1行ずつ処理できる。</p>
 
 <h2 id="11d8ae8">sh (シェルスクリプト)
-<span class="article-date">2014/06/17</span></h2>
+<span class="article-date">2015/04/16</span></h2>
 
 <p>シェルスクリプトでファイルから1行ずつ読み込んで、繰り返し処理させるには 
 <code>read</code> というshの組み込みコマンドを使うとよい。</p>
@@ -302,6 +302,15 @@ done
 <code>while</code>文は、入力の行数だけ繰り返す。途中に空行があっても問題ない。</p>
 
 <p>ただし、この方法だと<code>while</code>文がサブシェルの中で実行されるかもしれないので、その中で変数に代入したり、<code>exit</code>しようとしたりしてもうまくいかないかもしれないので、要注意。</p>
+
+<p>あと、<code>while</code>文の中で標準入力を受け取るコマンドがあると、<code>cat ./hoge.txt</code> からの入力を消費してしまって、
+<code>read line</code> での読み込みが最初の1回しか実行されなくなってしまう。なので、自分はよく以下のようにする。</p>
+
+<pre><code>cat ./hoge.txt | while read line; do (
+    # $line で各行の内容にアクセスできる
+    ...
+) &lt;/dev/null; done
+</code></pre>
 
 </div>
 
