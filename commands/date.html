@@ -31,14 +31,32 @@ root権限でこのコマンドを使って正しい日時を設定する。</p>
 
 <p>現在日時ではなく、処理にかかる時間を測定するには<a href="time.html"><code>time</code>コマンド</a>を使う。</p>
 
-<h2 id="c958003">YYYYMMDD-hhmmss の書式で日時を出力するには
-<span class="article-date">2013/03/21</span></h2>
+<h2 id="5c0ab52">基本的な使い方
+<span class="article-date">2015/04/17</span></h2>
+
+<pre><code># 現在の日時を表示
+date
+
+# フォーマットを指定して表示
+date "+%Y%m%d-%H%M%S"
+
+# 24時間後の日時を表示
+date --date tomorrow
+
+# OSが刻んでいる現在日時を訂正
+sudo date -s "2013/09/04 12:17:00"
+</code></pre>
+
+<h2 id="c13191c">HOWTO</h2>
+
+<h3 id="2842f42">YYYYMMDD-hhmmss の書式で日時を出力するには
+<span class="article-date">2013/03/21</span></h3>
 
 <pre><code>date "+%Y%m%d-%H%M%S"
 </code></pre>
 
-<h2 id="0078753">YYYY/MM/DD-hh:mm:ss の書式で日時を出力するには
-<span class="article-date">2014/04/21</span></h2>
+<h3 id="e714431">YYYY/MM/DD-hh:mm:ss の書式で日時を出力するには
+<span class="article-date">2014/04/21</span></h3>
 
 <pre><code>date "+%Y/%m/%d-%H:%M:%S"
 </code></pre>
@@ -51,16 +69,16 @@ $mon += 1;
 print sprintf("%04d/%02d/%02d-%02d:%02d:%02d", $year, $mon, $mday, $hour, $min, $sec);
 </code></pre>
 
-<h2 id="2a5d46c">曜日を取得するには
-<span class="article-date">2013/09/11</span></h2>
+<h3 id="799adf9">曜日を取得するには
+<span class="article-date">2013/09/11</span></h3>
 
 <pre><code>date "+%w"
 </code></pre>
 
 <p>0-6の数字を出力する。0が日曜日。</p>
 
-<h2 id="6d13e16">明日の日付を取得するには
-<span class="article-date">2013/06/22</span></h2>
+<h3 id="480b7de">明日の日付を取得するには
+<span class="article-date">2013/06/22</span></h3>
 
 <pre><code>date --date "1 day" "+%Y-%m-%d"
 </code></pre>
@@ -75,8 +93,8 @@ date --date "1 days ago" "+%Y-%m-%d" # 単数形複数形が間違っていて�
 date --date "1 month" "+%Y-%m-%d"
 </code></pre>
 
-<h2 id="c557bb0">UNIX時間を取得するには
-<span class="article-date">2013/10/21</span></h2>
+<h3 id="ab2e2b5">UNIX時間を取得するには
+<span class="article-date">2013/10/21</span></h3>
 
 <pre><code># 現在日時
 date +%s
@@ -85,8 +103,8 @@ date +%s
 date --date "1day ago" +%s
 </code></pre>
 
-<h2 id="ca86949">UNIX時間から日時を取得するには
-<span class="article-date">2013/10/21</span></h2>
+<h3 id="4f4db13">UNIX時間から日時を取得するには
+<span class="article-date">2013/10/21</span></h3>
 
 <p><code>--date</code> オプションに渡す文字列として、数字の前に <code>@</code> を付けると、
 UNIX時間での指定になる。</p>
@@ -95,8 +113,8 @@ UNIX時間での指定になる。</p>
 # =&gt; Mon Oct 21 00:20:00 JST 2013
 </code></pre>
 
-<h2 id="set">日時を設定するには
-<span class="article-date">2013/09/04</span></h2>
+<h3 id="set">日時を設定するには
+<span class="article-date">2013/09/04</span></h3>
 
 <p>例</p>
 
@@ -158,6 +176,7 @@ sudo date -s "2013/09/04 12:17:00"
       <li><a href="../commands/siege.html">siege コマンド</a></li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
+      <li><a href="../commands/split.html">split コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>

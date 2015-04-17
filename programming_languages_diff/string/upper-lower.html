@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>大文字小文字を変換するには | hydroculのメモ</title>
+<title>文字列の大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,13 +15,13 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>大文字小文字を変換するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列の大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</span>
 </div>
 
 <div id="content">
-  <h1 id="upper-lower">大文字小文字を変換するには</h1>
+  <h1 id="upper-lower">文字列の大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</h1>
 
-<h2 id="ad22717">Go言語 (golang)
+<h2 id="47a23c5">Go言語 (golang) {#private}
 <span class="article-date">2015/02/12</span></h2>
 
 <p><code>strings.Title</code>を使う。</p>
@@ -57,9 +57,8 @@ def lowercase_str = str.toLowerCase()
 
 <p>Signature:</p>
 
-<pre><code>// java.lang.String
-String toUpperCase()
-String toLowerCase()
+<pre><code>String java.lang.String#toUpperCase()
+String java.lang.String#toLowerCase()
 </code></pre>
 
 <p><code>java.lang.String#toUpperCase</code> | Java Platform SE 8 Javadoc<br />
@@ -153,22 +152,22 @@ lowercase_str = str.toLowerCase()
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには (equals / strcasecmp / strcmp / <code>==</code> / <code>!=</code> / <code>&lt;</code> / <code>&lt;=</code> / <code>&gt;=</code> / <code>&gt;</code> / <code>&lt;=&gt;</code> / gt / ge / lt / le)</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">正規表現で文字列パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-          <li>大文字小文字を変換するには</li>
+          <li>大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには (chr)</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">正規表現でパターンマッチングするには (match)</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
