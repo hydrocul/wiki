@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith) | hydroculのメモ</title>
+<title>文字列が特定の文字や文字列で終わっているかどうかを見るには (end_with? / endsWith) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,35 +15,102 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列が特定の文字や文字列で終わっているかどうかを見るには (end_with? / endsWith)</span>
 </div>
 
 <div id="content">
-  <h1 id="ends-with">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</h1>
+  <h1 id="ends-with">文字列が特定の文字や文字列で終わっているかどうかを見るには (end_with? / endsWith)
+<span class="article-date">2015/04/18</span></h1>
 
-<h2 id="2023602">Java / Scala
+<p><a href="#java">Java</a></p>
+
+<pre><code>if (str.endsWith(suffix)) {
+    System.out.println("Match!");
+} else {
+    System.out.println("Unmatch!");
+}
+</code></pre>
+
+<p><a href="#java">Scala</a></p>
+
+<pre><code>if (str.endsWith(suffix)) {
+  println("Match!");
+} else {
+  println("Unmatch!");
+}
+</code></pre>
+
+<p><a href="#php">PHP</a></p>
+
+<pre><code>function endsWith($str, $suffix) {
+    $len = strlen($suffix);
+    return $len == 0 || substr($str,  strlen($str) - $len, $len) === $suffix;
+    // $str が $suffix より短くてもエラーにはならずに false になる
+}
+
+if (endsWith($str, $suffix)) {
+    echo "Match!\n";
+} else {
+    echo "Unmatch!\n";
+}
+</code></pre>
+
+<p><a href="#python">Python</a></p>
+
+<pre><code>if str.endswith(suffix):
+    print("Match!")
+else:
+    print("Unmatch!")
+</code></pre>
+
+<p><a href="#ruby">Ruby</a></p>
+
+<pre><code>if str.end_with?(suffix)
+  puts "Match!"
+else
+  puts "Unmatch!"
+end
+</code></pre>
+
+<p><a href="#perl">Perl</a></p>
+
+<pre><code>if ($str =~ (quotemeta($suffix) . '\z')) {
+    print "Match!";
+} else {
+    print "Unmatch!";
+}
+</code></pre>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="starts-with.html">特定の文字列で始まっているかどうかを判定するには</a></li>
+</ul>
+
+<h2 id="java">Java / Scala
 <span class="article-date">2013/04/10</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// java.lang.String
-String endsWith(String suffix)
+<pre><code>String java.lang.String#endsWith(String suffix)
 </code></pre>
 
-<h2 id="1647175">PHP
-<span class="article-date">2013/07/23</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2015/04/18</span></h2>
 
-<p>よく使う方法。</p>
+<p>これを簡単にやる関数はないようなので、例えば以下のような関数を作る。</p>
 
-<pre><code>strrpos($str, $suffix) === strlen($str) - strlen($suffix)
+<pre><code>function endsWith($str, $suffix) {
+    $len = strlen($suffix);
+    return $len == 0 || substr($str,  strlen($str) - $len, $len) === $suffix;
+    // $str が $suffix より短くてもエラーにはならずに false になる
+}
 </code></pre>
 
-<p>ただ、<code>$str</code>が長い文字列の時にいちいち<code>$str</code>を全部なめてしまい効率よくなさそう。</p>
+<h2 id="python">Python
+<span class="article-date">2015/04/18</span></h2>
 
-<h2 id="0162f07">Python
-<span class="article-date">2014/10/26</span></h2>
-
-<p>文字列にある <code>startswith</code>メソッドを使う。</p>
+<p>文字列にある <code>endswith</code>メソッドを使う。</p>
 
 <pre><code>str = "abcabc"
 
@@ -60,18 +127,25 @@ print str.endswith("bc")
 <p><code>string.endswith</code> | Python 3 documentation<br />
 <a href="http://docs.python.jp/3/library/stdtypes.html#str.endswith" target="_blank">http://docs.python.jp/3/library/stdtypes.html#str.endswith</a></p>
 
-<h2 id="c3b903d">Ruby
-<span class="article-date">2013/04/10</span></h2>
+<h2 id="ruby">Ruby / JRuby
+<span class="article-date">2015/04/18</span></h2>
+
+<p>文字列にある <code>end_with?</code> メソッドを使う。</p>
 
 <pre><code>str.end_with?(suffix)
 </code></pre>
 
-<h2 id="c845e3b">Perl
-<span class="article-date">2014/12/24</span></h2>
+<h2 id="perl">Perl
+<span class="article-date">2015/04/18</span></h2>
 
 <p>文字列の最後にマッチする正規表現 <code>\z</code> を使う。</p>
 
 <pre><code>print "abc" =~ /bc\z/; # =&gt; 1
+</code></pre>
+
+<p>接尾辞が変数の場合、その変数から正規表現を組み立てる。</p>
+
+<pre><code>print $str =~ (quotemeta($suffix) . '\z');
 </code></pre>
 
 <h2 id="1094065">JavaScript
@@ -109,7 +183,7 @@ print str.endswith("bc")
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
@@ -120,11 +194,11 @@ print str.endswith("bc")
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">正規表現でパターンマッチングするには (match)</a></li>
-          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには</a></li>
-          <li>文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</li>
+          <li><a href="../../programming_languages_diff/string/match.html">正規表現でパターン部分マッチングするには (match)</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</a></li>
+          <li>特定の文字列で終わっているかどうかを見るには (end_with? / endsWith)</li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>

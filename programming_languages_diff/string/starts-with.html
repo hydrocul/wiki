@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith) | hydroculのメモ</title>
+<title>文字列が特定の文字や文字列で始まっているかどうかを判定するには (start_with? / startsWith) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,34 +15,49 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列が特定の文字や文字列で始まっているかどうかを判定するには (start_with? / startsWith)</span>
 </div>
 
 <div id="content">
-  <h1 id="starts-with">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</h1>
+  <h1 id="starts-with">文字列が特定の文字や文字列で始まっているかどうかを判定するには (start_with? / startsWith)
+<span class="article-date">2015/04/18</span></h1>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="ends-with.html">特定の文字列で終わっているかどうかを判定するには</a></li>
+</ul>
 
 <h2 id="c0345f6">Java / Scala
 <span class="article-date">2013/04/10</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// java.lang.String
-String startsWith(String prefix)
-String startsWith(String prefix, int offset)
+<pre><code>String java.lang.String#startsWith(String prefix)
+String java.lang.String#startsWith(String prefix, int offset)
 </code></pre>
 
-<h2 id="8b940f4">PHP
-<span class="article-date">2015/03/10</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2015/04/18</span></h2>
 
-<p>よく使う方法。</p>
+<p>これを簡単にやる関数はないようなので、例えば以下のようにする。</p>
 
-<pre><code>substr($str, 0, strlen($prefix)) == $prefix
+<pre><code>if (substr($str,  0, strlen($prefix)) === $prefix) {
+    // Match
+}
+</code></pre>
+
+<p>または以下のような関数を作る。</p>
+
+<pre><code>function startsWith($str, $prefix) {
+    return substr($str,  0, strlen($prefix)) === $prefix;
+}
 </code></pre>
 
 <h2 id="0980cdf">Python
-<span class="article-date">2014/10/26</span></h2>
+<span class="article-date">2015/04/18</span></h2>
 
-<p>文字列にある <code>startswith</code>メソッド、<code>endswith</code>メソッドを使う。</p>
+<p>文字列にある <code>startswith</code>メソッドを使う。</p>
 
 <p>例</p>
 
@@ -61,8 +76,10 @@ print str.startswith("bc")
 <p><code>string.startswith</code> | Python 3 documentation<br />
 <a href="http://docs.python.jp/3/library/stdtypes.html#str.startswith" target="_blank">http://docs.python.jp/3/library/stdtypes.html#str.startswith</a></p>
 
-<h2 id="ba22f12">Ruby
-<span class="article-date">2013/04/10</span></h2>
+<h2 id="073a149">Ruby / JRuby
+<span class="article-date">2015/04/18</span></h2>
+
+<p>文字列にある <code>start_with?</code> メソッドを使う。</p>
 
 <pre><code>str.start_with?(prefix)
 </code></pre>
@@ -119,24 +136,24 @@ print str.startswith("bc")
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには (equals / strcasecmp / strcmp / <code>==</code> / <code>!=</code> / <code>&lt;</code> / <code>&lt;=</code> / <code>&gt;=</code> / <code>&gt;</code> / <code>&lt;=&gt;</code> / gt / ge / lt / le)</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">正規表現で文字列パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには (chr)</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">正規表現でパターン部分マッチングするには (match)</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
+          <li>特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字列で終わっているかどうかを見るには (end_with? / endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
-          <li>文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
