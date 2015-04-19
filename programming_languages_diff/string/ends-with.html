@@ -88,12 +88,15 @@ end
 </ul>
 
 <h2 id="java">Java / Scala
-<span class="article-date">2013/04/10</span></h2>
+<span class="article-date">2015/04/18</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>String java.lang.String#endsWith(String suffix)
+<pre><code>boolean java.lang.String#endsWith(String suffix)
 </code></pre>
+
+<p>java.lang.String#endsWith | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#endsWith-java.lang.String-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#endsWith-java.lang.String-</a></p>
 
 <h2 id="php">PHP
 <span class="article-date">2015/04/18</span></h2>
@@ -148,6 +151,8 @@ print str.endswith("bc")
 <pre><code>print $str =~ (quotemeta($suffix) . '\z');
 </code></pre>
 
+<p>上記例のように正規表現全体を <code>()</code> で囲む必要があり、囲まないと <code>=~</code> のほうが先に結合してしまって、常にmatchしてしまう。</p>
+
 <h2 id="1094065">JavaScript
 <span class="article-date">2013/04/10</span></h2>
 
@@ -194,7 +199,8 @@ print str.endswith("bc")
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">正規表現でパターン部分マッチングするには (match)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">正規表現でパターンマッチングするには (match / preg_match / search / <code>=~</code>)</a></li>
+          <li><a href="../../programming_languages_diff/string/match-whole.html">正規表現で全体をパターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</a></li>
           <li>特定の文字列で終わっているかどうかを見るには (end_with? / endsWith)</li>

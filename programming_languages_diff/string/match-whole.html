@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列が特定の文字や文字列で始まっているかどうかを判定するには (start_with? / startsWith) | hydroculのメモ</title>
+<title>正規表現で文字列全体をパターンマッチングするには (match / matches) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,159 +15,64 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列が特定の文字や文字列で始まっているかどうかを判定するには (start_with? / startsWith)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>正規表現で文字列全体をパターンマッチングするには (match / matches)</span>
 </div>
 
 <div id="content">
-  <h1 id="starts-with">文字列が特定の文字や文字列で始まっているかどうかを判定するには (start_with? / startsWith)
+  <h1 id="match-whole">正規表現で文字列全体をパターンマッチングするには (match / matches)
 <span class="article-date">2015/04/18</span></h1>
 
-<p><a href="#java">Java</a></p>
+<p>各プログラミング言語での、正規表現で文字列のパターンマッチングをする方法。<a href="match.html">文字列の一部</a>ではなく全体が正規表現にマッチするかどうか。</p>
 
-<pre><code>if (str.startsWith(prefix)) {
+<p>Java</p>
+
+<pre><code>if ("Hello, world!".matches("Hello,?\\s+world!?")) {
     System.out.println("Match!");
-} else {
-    System.out.println("Unmatch!");
 }
 </code></pre>
 
-<p><a href="#java">Scala</a></p>
+<p>Scala</p>
 
-<pre><code>if (str.startsWith(prefix)) {
+<pre><code>if ("Hello, world!".matches("Hello,?\\s+world!?")) {
   println("Match!");
-} else {
-  println("Unmatch!");
 }
 </code></pre>
 
-<p><a href="#php">PHP</a></p>
+<p>PHP</p>
 
-<pre><code>if (substr($str,  0, strlen($prefix)) === $prefix) {
-    // Match
+<pre><code>if (preg_match('/\AHello,?\s+world!?\z/', "Hello, world!")) {
+    echo "Match!\n";
 }
 </code></pre>
 
-<p><a href="#python">Python</a></p>
+<p>Python</p>
 
-<pre><code>if str.startswith(prefix):
+<pre><code>import re
+if re.compile("Hello,?\s+world!?\Z").match("Hello, world!"):
     print("Match!")
-else:
-    print("Unmatch!")
 </code></pre>
 
-<p><a href="#ruby">Ruby</a></p>
+<p>Ruby / JRuby</p>
 
-<pre><code>if str.start_with?(prefix)
-  puts "Match!"
-else
-  puts "Unmatch!"
+<pre><code>if "Hello, world!" =~ /\AHello,?\s+world!?\z/
+  puts("Match!")
 end
 </code></pre>
 
-<p><a href="#perl">Perl</a></p>
+<p>Perl</p>
 
-<pre><code>if ($str =~ ('\A' . quotemeta($prefix))) {
-    print "Match!";
-} else {
-    print "Unmatch!";
+<pre><code>if ("Hello, world!" =~ /\AHello,?\s+world!?\z/) {
+    print("Match!\n");
 }
 </code></pre>
 
 <p>関連</p>
 
 <ul>
-  <li><a href="ends-with.html">特定の文字列で終わっているかどうかを判定するには</a></li>
+  <li><a href="regexp-reference.html">正規表現のレファレンス</a></li>
+  <li><a href="match.html">文字列にパターンマッチングするには</a></li>
+  <li><a href="regexp-group.html">括弧のグルーピングをキャプチャするには</a></li>
 </ul>
-
-<h2 id="java">Java / Scala
-<span class="article-date">2015/04/18</span></h2>
-
-<p>Signature:</p>
-
-<pre><code>boolean java.lang.String#startsWith(String prefix)
-boolean java.lang.String#startsWith(String prefix, int offset)
-</code></pre>
-
-<p>java.lang.String#startsWith | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#startsWith-java.lang.String-int-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#startsWith-java.lang.String-int-</a></p>
-
-<h2 id="php">PHP
-<span class="article-date">2015/04/18</span></h2>
-
-<p>これを簡単にやる関数はないようなので、例えば以下のようにする。</p>
-
-<pre><code>if (substr($str,  0, strlen($prefix)) === $prefix) {
-    // Match
-}
-</code></pre>
-
-<p>または以下のような関数を作る。</p>
-
-<pre><code>function startsWith($str, $prefix) {
-    return substr($str,  0, strlen($prefix)) === $prefix;
-}
-</code></pre>
-
-<p><code>strpos($str, $prefix) === 0</code> だと <code>$str</code> が長い文字列の場合に、走査処理が無駄になってしまう。</p>
-
-<h2 id="python">Python
-<span class="article-date">2015/04/18</span></h2>
-
-<p>文字列にある <code>startswith</code>メソッドを使う。</p>
-
-<p>例</p>
-
-<pre><code>str = "abcabc"
-
-print str.startswith("ab")
-# =&gt; True
-
-print str.startswith("bc")
-# =&gt; False
-</code></pre>
-
-<p><code>string.startswith</code> | Python 2.7 documentation<br />
-<a href="http://docs.python.jp/2/library/stdtypes.html#str.startswith" target="_blank">http://docs.python.jp/2/library/stdtypes.html#str.startswith</a></p>
-
-<p><code>string.startswith</code> | Python 3 documentation<br />
-<a href="http://docs.python.jp/3/library/stdtypes.html#str.startswith" target="_blank">http://docs.python.jp/3/library/stdtypes.html#str.startswith</a></p>
-
-<h2 id="ruby">Ruby / JRuby
-<span class="article-date">2015/04/18</span></h2>
-
-<p>文字列にある <code>start_with?</code> メソッドを使う。</p>
-
-<pre><code>str.start_with?(prefix)
-</code></pre>
-
-<h2 id="perl">Perl
-<span class="article-date">2014/12/24</span></h2>
-
-<p>文字列の先頭にマッチする正規表現の <code>\A</code> を使う。</p>
-
-<pre><code>print "abc" =~ /\Aab/; # =&gt; 1
-</code></pre>
-
-<p>prefixが変数の場合は以下のようにするとできる。</p>
-
-<pre><code>if ($str =~ ('\A' . quotemeta($prefix))) {
-    print "match\n";
-} else {
-    print "unmatch\n";
-}
-</code></pre>
-
-<p>上記例のように正規表現全体を <code>()</code> で囲む必要があり、囲まないと <code>=~</code> のほうが先に結合してしまって、常にmatchしてしまう。</p>
-
-<h2 id="c3bd6c7">JavaScript
-<span class="article-date">2013/04/10</span></h2>
-
-<p>よく使う方法。</p>
-
-<pre><code>str.indexOf(prefix) == 0
-</code></pre>
-
-<p>ただ、これだと、<code>str</code>が長い文字列の時にいちいち<code>str</code>の最後までなめるのが効率よくなさそう。</p>
 
 </div>
 
@@ -206,9 +111,9 @@ print str.startswith("bc")
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
           <li><a href="../../programming_languages_diff/string/match.html">正規表現でパターンマッチングするには (match / preg_match / search / <code>=~</code>)</a></li>
-          <li><a href="../../programming_languages_diff/string/match-whole.html">正規表現で全体をパターンマッチングするには</a></li>
+          <li>正規表現で全体をパターンマッチングするには</li>
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
-          <li>特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字列で終わっているかどうかを見るには (end_with? / endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>

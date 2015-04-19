@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>正規表現で文字列のパターン部分マッチングするには (match) | hydroculのメモ</title>
+<title>正規表現で文字列のパターンマッチングするには (match / preg_match / search / `=~`) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,14 +15,14 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>正規表現で文字列のパターン部分マッチングするには (match)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>正規表現で文字列のパターンマッチングするには (match / preg_match / search / `=~`)</span>
 </div>
 
 <div id="content">
-  <h1 id="match">正規表現で文字列のパターン部分マッチングするには (match)
-<span class="article-date">2015/04/15</span></h1>
+  <h1 id="match">正規表現で文字列のパターンマッチングするには (match / preg_match / search / <code>=~</code>)
+<span class="article-date">2015/04/18</span></h1>
 
-<p>各プログラミング言語での、正規表現で文字列のパターンマッチングをする方法。</p>
+<p>各プログラミング言語での、正規表現で文字列のパターンマッチングをする方法。<a href="match-whole.html">文字列全体</a>ではなく部分マッチング。</p>
 
 <p>Java</p>
 
@@ -41,7 +41,7 @@
 <p><a href="#php">PHP</a></p>
 
 <pre><code>if (preg_match("/wor/", "Hello, world!")) {
-  echo "Match!\n";
+    echo "Match!\n";
 }
 </code></pre>
 
@@ -84,6 +84,7 @@ fi
 
 <ul>
   <li><a href="regexp-reference.html">正規表現のレファレンス</a></li>
+  <li><a href="match-whole.html">文字列全体をパターンマッチングするには</a></li>
   <li><a href="regexp-group.html">括弧のグルーピングをキャプチャするには</a></li>
 </ul>
 
@@ -258,7 +259,8 @@ fi
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li>正規表現でパターン部分マッチングするには (match)</li>
+          <li>正規表現でパターンマッチングするには (match / preg_match / search / <code>=~</code>)</li>
+          <li><a href="../../programming_languages_diff/string/match-whole.html">正規表現で全体をパターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字列で終わっているかどうかを見るには (end_with? / endsWith)</a></li>
