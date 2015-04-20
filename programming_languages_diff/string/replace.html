@@ -21,23 +21,33 @@
 <div id="content">
   <h1 id="replace">文字列を全置換するには (replace)</h1>
 
-<h2 id="10196dc">Java
-<span class="article-date">2014/07/31</span></h2>
+<h2 id="java">Java
+<span class="article-date">2015/04/20</span></h2>
 
 <p><code>String</code>クラスの<code>replaceAll</code>メソッドで正規表現を使った全置換ができる。または、<code>replace</code>メソッドで単純な文字列での全置換ができる。名前からの類推に反してどちらも全置換で、2つは正規表現かどうかの違いであり、とてもまぎらわしい。</p>
 
 <p>Signature:</p>
 
-<pre><code>// java.lang.String
-String replace(String str, String replacement)
-String replaceAll(String regex, String replacement)
+<pre><code>String java.lang.String#replace(char oldCh, char newCh)
+String java.lang.String#replace(CharSequence oldStr, CharSequence newStr)
+String java.lang.String#replaceAll(String regex, String replacement)
 </code></pre>
 
-<p><code>str</code> には置換前の部分文字列を与える。
-<code>regex</code> には正規表現を与え、前後を <code>/</code> などの記号で囲む必要はない。</p>
+<p><code>oldCh</code> 置換前の1文字を与える。<code>oldStr</code> には置換前の部分文字列を与える。
+<code>regex</code> には正規表現を与え、前後を <code>/</code> などの記号で囲む必要はない。
+1文字を1文字に置換するだけなら、<code>replace(char oldCh, char newCh)</code> のほうでも十分。正規表現を使うには <code>replaceAll</code> を使う必要がある。</p>
 
-<p>正規表現の仕様 | Java Platform SE 7 Javadoc<br />
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html#sum" target="_blank">http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html#sum</a></p>
+<p><code>java.lang.String#replace(char, char)</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#replace-char-char-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#replace-char-char-</a></p>
+
+<p><code>java.lang.String#replace(CharSequence, CharSequence)</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#replace-java.lang.CharSequence-java.lang.CharSequence-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#replace-java.lang.CharSequence-java.lang.CharSequence-</a></p>
+
+<p><code>java.lang.String#replaceAll</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#replaceAll-java.lang.String-java.lang.String-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#replaceAll-java.lang.String-java.lang.String-</a></p>
+
+<p>正規表現の仕様 | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#sum" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#sum</a></p>
 
 <h2 id="dfe6ccb">PHP
 <span class="article-date">2014/07/31</span></h2>
@@ -199,7 +209,7 @@ echo xx34 | sed -E 's/xx(.)/-&amp; \1-/g'
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
@@ -210,11 +220,12 @@ echo xx34 | sed -E 's/xx(.)/-&amp; \1-/g'
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">正規表現で文字列パターンマッチングするには</a></li>
-          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">正規表現でパターンマッチングするには (match / preg_match / search / <code>=~</code>)</a></li>
+          <li><a href="../../programming_languages_diff/string/match-whole.html">正規表現で全体をパターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字列で終わっているかどうかを見るには (end_with? / endsWith)</a></li>
           <li>文字列を全置換するには (replace)</li>
-          <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
