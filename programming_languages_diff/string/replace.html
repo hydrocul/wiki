@@ -37,10 +37,8 @@ String java.lang.String#replaceAll(String regex, String replacement)
 <code>regex</code> には正規表現を与え、前後を <code>/</code> などの記号で囲む必要はない。
 1文字を1文字に置換するだけなら、<code>replace(char oldCh, char newCh)</code> のほうでも十分。正規表現を使うには <code>replaceAll</code> を使う必要がある。</p>
 
-<p><code>java.lang.String#replace(char, char)</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#replace-char-char-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#replace-char-char-</a></p>
-
-<p><code>java.lang.String#replace(CharSequence, CharSequence)</code> | Java Platform SE 8 Javadoc<br />
+<p><code>java.lang.String#replace</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#replace-char-char-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#replace-char-char-</a><br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#replace-java.lang.CharSequence-java.lang.CharSequence-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#replace-java.lang.CharSequence-java.lang.CharSequence-</a></p>
 
 <p><code>java.lang.String#replaceAll</code> | Java Platform SE 8 Javadoc<br />
@@ -208,7 +206,7 @@ echo xx34 | sed -E 's/xx(.)/-&amp; \1-/g'
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには (equals / strcasecmp / strcmp / <code>==</code> / <code>!=</code> / <code>&lt;</code> / <code>&lt;=</code> / <code>&gt;=</code> / <code>&gt;</code> / <code>&lt;=&gt;</code> / gt / ge / lt / le)</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
-          <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
+          <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (strip / trim)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>

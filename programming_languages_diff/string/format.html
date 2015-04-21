@@ -82,13 +82,11 @@ Scalaでは<code>StringOps#format</code>メソッドを使うこともできる�
 
 <p>Signature:</p>
 
-<pre><code>// java.lang.String
-static String format(String format, Object... args)
-static String format(java.util.Locale l, String format, Object... args)
+<pre><code>String java.lang.String.format(String format, Object... args)
+String java.lang.String.format(java.util.Locale l, String format, Object... args)
 
-// scala.collection.immutable.StringLike
-def format(args: Any*): String
-def formatLocal(l: Locale, args: Any*): String
+def scala.collection.immutable.StringLike#format(args: Any*): String
+def scala.collection.immutable.StringLike#formatLocal(l: Locale, args: Any*): String
 </code></pre>
 
 <p>例</p>
@@ -232,7 +230,7 @@ t = ("Ichiro", "Suzuki")
           <li>書式化文字列 (format / sprintf, printf)</li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
@@ -243,11 +241,12 @@ t = ("Ichiro", "Suzuki")
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">正規表現で文字列パターンマッチングするには</a></li>
-          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">正規表現でパターンマッチングするには (match / preg_match / search / <code>=~</code>)</a></li>
+          <li><a href="../../programming_languages_diff/string/match-whole.html">正規表現で全体をパターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字列で終わっているかどうかを見るには (end_with? / endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
