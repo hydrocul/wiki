@@ -15,7 +15,7 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/boolean/">論理型</a> &gt; <span>いろいろな値から論理値への変換の規則</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/boolean/">論理型 (boolean)</a> &gt; <span>いろいろな値から論理値への変換の規則</span>
 </div>
 
 <div id="content">
@@ -25,20 +25,22 @@
 <p><code>if</code>文の条件式など、論理値を必要とされる場所にいろいろな型の値を入れたときにどう評価されるかについて、プログラミング言語別メモ。</p>
 
 <h2 id="0fff33e">まとめ
-<span class="article-date">2015/04/06</span></h2>
+<span class="article-date">2015/04/21</span></h2>
 
 <table>
   <tbody>
     <tr>
       <td> </td>
-      <td>C言語</td>
-      <td>PHP</td>
-      <td>Ruby</td>
-      <td>Perl</td>
-      <td>JavaScript</td>
+      <td><a href="#c">C言語</a></td>
+      <td><a href="#php">PHP</a></td>
+      <td><a href="#python">Python</a></td>
+      <td><a href="#ruby">Ruby</a></td>
+      <td><a href="#perl">Perl</a></td>
+      <td><a href="#javascript">JavaScript</a></td>
     </tr>
     <tr>
       <td>0</td>
+      <td>false</td>
       <td>false</td>
       <td>false</td>
       <td>true</td>
@@ -49,6 +51,7 @@
       <td>0.0</td>
       <td>false</td>
       <td>false</td>
+      <td>false</td>
       <td>true</td>
       <td>false</td>
       <td>false</td>
@@ -57,6 +60,7 @@
       <td>空文字列</td>
       <td>true</td>
       <td>false</td>
+      <td>false</td>
       <td>true</td>
       <td>false</td>
       <td>false</td>
@@ -64,6 +68,7 @@
     <tr>
       <td>空の配列</td>
       <td>true</td>
+      <td>false</td>
       <td>false</td>
       <td>true</td>
       <td>false</td>
@@ -75,47 +80,136 @@
 <ul>
   <li>Rubyは異端児で全部true</li>
   <li>それ以外は原則false</li>
-  <li>C言語はポインタの仕組みにより文字列と配列はtrue</li>
-  <li>JavaScriptの配列はオブジェクトであるのでtrue</li>
+  <li>C言語はポインタの仕組みにより文字列と配列は空であってもtrue</li>
+  <li>JavaScriptの配列はオブジェクトであるので空であってもtrue</li>
 </ul>
 
-<h2 id="9a1bb7a">C言語 / C++
-<span class="article-date">2015/02/14</span></h2>
+<h2 id="c">C言語 / C++
+<span class="article-date">2015/04/21</span></h2>
 
-<p><code>NULL</code>, <code>0</code>, <code>0.0</code>, <code>'\x00'</code> が入ると <code>false</code> の扱いになり、それ以外は <code>true</code> の扱いになる。</p>
+<p><code>NULL</code>, <code>0</code>, <code>0.0</code>, <code>'\x00'</code> は <code>false</code> の扱いになり、それ以外は <code>true</code> の扱いになる。</p>
 
 <p>空文字列は、<code>NULL</code>でないので、<code>true</code> になる。</p>
-
-<p>C++ではキーワード<code>true</code>/<code>false</code>もある。</p>
 
 <h2 id="f99ea29">Java / Scala
 <span class="article-date">2015/02/14</span></h2>
 
 <p><code>if</code>文や<code>while</code>文などの条件式には<code>boolean</code>型(Scalaは<code>Boolean</code>型)と<code>java.lang.Boolean</code>型以外を置くことはできない。置こうとしてもコンパイルエラーになる。</p>
 
-<h2 id="php">PHP</h2>
+<h2 id="php">PHP
+<span class="article-date">2015/04/21</span></h2>
 
-<p>-&gt; <a href="overview.html#php">概要</a></p>
+<p><code>false</code>, <code>null</code>, <code>0</code>, <code>0.0</code>, <code>''</code>, <code>'0'</code>, <code>array()</code> は <code>false</code> の扱いになり、それ以外は <code>true</code> の扱いになる。文字列 <code>'0'</code> は <code>false</code> だが、文字列 <code>'0.0'</code> は <code>true</code> になる。</p>
 
-<h2 id="python">Python</h2>
+<p><code>true</code>, <code>false</code>, <code>null</code> は大文字小文字の区別がない。</p>
 
-<p>-&gt; <a href="overview.html#python">概要</a></p>
+<h2 id="python">Python
+<span class="article-date">2015/04/21</span></h2>
+
+<p><code>False</code>, <code>None</code>, <code>[]</code>, <code>()</code>, <code>{}</code>, <code>""</code>, <code>0</code>, <code>0L</code>, <code>0.0</code>, <code>0j</code> は 
+<code>False</code> の扱いになる。その他に <code>nonzero()</code> や <code>len()</code> メソッドがあるオブジェクトで 
+<code>False</code> や <code>0</code> を返すものも <code>False</code> の扱いになる。それ以外は <code>True</code> になる。</p>
 
 <h2 id="ruby">Ruby / JRuby
-<span class="article-date">2014/12/07</span></h2>
+<span class="article-date">2015/04/21</span></h2>
 
-<p>if文の条件式など、論理値が必要な箇所に
-<code>false</code>, <code>nil</code> が入ると <code>false</code> の扱いになり、それ以外はすべて <code>true</code> の扱いになる。
-<code>0</code> も <code>''</code> も <code>[]</code> も <code>true</code>。</p>
+<p><code>false</code>, <code>nil</code> のみは <code>false</code> の扱いになり、それ以外はすべて <code>true</code> の扱いになる。</p>
 
-<h2 id="ac8e0fa">Perl</h2>
+<p>他の言語と違い、<code>0</code> も <code>''</code> も <code>[]</code> も <code>true</code>。</p>
 
-<p>-&gt; <a href="overview.html#perl">概要</a></p>
+<h2 id="perl">Perl
+<span class="article-date">2015/04/21</span></h2>
 
-<h2 id="7cd05a9">JavaScript
-<span class="article-date">2014/07/27</span></h2>
+<p><code>0</code>, <code>'0'</code>, <code>''</code>, <code>undef</code>, <code>()</code> は false の扱いになり、それ以外は true の扱いになる。</p>
 
-<p><code>false</code>, <code>0</code>, <code>''</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code> が <code>false</code> になり、それ以外は <code>true</code> になる。<code>[]</code> も <code>{}</code> も <code>true</code> になる。</p>
+<h2 id="javascript">JavaScript
+<span class="article-date">2015/04/21</span></h2>
+
+<p><code>false</code>, <code>0</code>, <code>''</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code> は <code>false</code> の扱いになり、それ以外は <code>true</code> になる。<code>[]</code> も <code>{}</code> も <code>true</code> になる。</p>
+
+<p>条件式に置いた場合ではなく、 <code>true</code> や <code>false</code> と比較するとまたルールが違う。</p>
+
+<p>以下は自分の環境でのnodejs v0.10.15とChrome 42で確認した結果。</p>
+
+<pre><code>// 条件式に置いたときに true/false どちらになるか
+// 上記説明の通り
+console.log(false ? true : false);     // =&gt; false
+console.log("" ? true : false);        // =&gt; false
+console.log(0 ? true : false);         // =&gt; false
+console.log("0" ? true : false);       // =&gt; true
+console.log(null ? true : false);      // =&gt; false
+console.log(undefined ? true : false); // =&gt; false
+console.log(NaN ? true : false);       // =&gt; false
+console.log([] ? true : false);        // =&gt; true
+
+// 否定の演算子
+// 上の実行例と結果が反転する
+console.log(! false);     // =&gt; true
+console.log(! "");        // =&gt; true
+console.log(! 0);         // =&gt; true
+console.log(! "0");       // =&gt; false
+console.log(! null);      // =&gt; true
+console.log(! undefined); // =&gt; true
+console.log(! NaN);       // =&gt; true
+console.log(! []);        // =&gt; false
+
+// == でのfalseとの比較
+// すぐ上の実行例と同じになることを期待するが、
+// 全然違ってちょっとカオス
+console.log(false == false);     // =&gt; true
+console.log("" == false);        // =&gt; true
+console.log(0 == false);         // =&gt; true
+console.log("0" == false);       // =&gt; true
+console.log(null == false);      // =&gt; false
+console.log(undefined == false); // =&gt; false
+console.log(NaN == false);       // =&gt; false
+console.log([] == false);        // =&gt; true
+
+// "0" == false について深追いすると
+console.log("0" == false);       // =&gt; true
+console.log("0.0" == false);     // =&gt; true
+console.log("0.00" == false);    // =&gt; true
+console.log("0x0" == false);     // =&gt; true
+console.log("000" == false);     // =&gt; true
+console.log("-0.0" == false);    // =&gt; true
+console.log("0.01" == false);    // =&gt; false
+
+// === での falseとの比較
+// これはわかる
+console.log(false === false);     // =&gt; true
+console.log("" === false);        // =&gt; false
+console.log(0 === false);         // =&gt; false
+console.log("0" === false);       // =&gt; false
+console.log(null === false);      // =&gt; false
+console.log(undefined === false); // =&gt; false
+console.log(NaN === false);       // =&gt; false
+console.log([] === false);        // =&gt; false
+
+// == でのtrueとの比較
+// これは全部 false になる
+// == での比較はかなり幅広く曖昧なルールだが
+// == true と == false と両方が false になるものがわずかだけあることになる
+// さすがに両方 true になるものはなさそうだ
+console.log(false == true);     // =&gt; false
+console.log("" == true);        // =&gt; false
+console.log(0 == true);         // =&gt; false
+console.log("0" == true);       // =&gt; false
+console.log(null == true);      // =&gt; false
+console.log(undefined == true); // =&gt; false
+console.log(NaN == true);       // =&gt; false
+console.log([] == true);        // =&gt; false
+
+// === でのtrueとの比較
+// これも当然全部 false になる
+console.log(false === true);     // =&gt; false
+console.log("" === true);        // =&gt; false
+console.log(0 === true);         // =&gt; false
+console.log("0" === true);       // =&gt; false
+console.log(null === true);      // =&gt; false
+console.log(undefined === true); // =&gt; false
+console.log(NaN === true);       // =&gt; false
+console.log([] === true);        // =&gt; false
+</code></pre>
 
 </div>
 
@@ -127,7 +221,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/boolean/">論理型</a>
+      <li><a href="../../programming_languages_diff/boolean/">論理型 (boolean)</a>
         <ul>
           <li><a href="../../programming_languages_diff/boolean/overview.html">概要</a></li>
           <li>論理値への変換</li>

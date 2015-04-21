@@ -175,9 +175,17 @@
 <p>文字列や正規表現の中であったり、<code>$#arr</code> のように、コメント開始以外の <code>#</code> もありえる。</p>
 
 <h2 id="45d47a5">sh (シェルスクリプト)
-<span class="article-date">2014/05/19</span></h2>
+<span class="article-date">2015/04/21</span></h2>
 
 <pre><code># 単一行コメント
+</code></pre>
+
+<p>複数行コメントの構文はないのだが、複数行のコードを一時的にコメントアウトしたい場合に自分がよく使う方法</p>
+
+<pre><code>cat &lt;&lt;EOF &gt;/dev/null
+  複数行コメント
+  複数行コメント
+EOF
 </code></pre>
 
 <h2 id="cbea7d8">Haskell
@@ -247,7 +255,7 @@
       <li><a href="../programming_languages_diff/data_type.html">データ型</a></li>
       <li><a href="../programming_languages_diff/class/">型とクラス</a></li>
       <li><a href="../programming_languages_diff/exception/">例外処理</a></li>
-      <li><a href="../programming_languages_diff/boolean/">論理型</a></li>
+      <li><a href="../programming_languages_diff/boolean/">論理型 (boolean)</a></li>
       <li><a href="../programming_languages_diff/number/">数値型</a></li>
       <li><a href="../programming_languages_diff/string/">文字列</a></li>
       <li><a href="../programming_languages_diff/list/">配列(リスト)</a></li>

@@ -401,7 +401,32 @@ print(ndarr1)
 <p>インデックスがサイズ以上の場合や、負の場合で後ろから数えても先頭を超えてしまう場合には
 <code>IndexError: index 10 is out of bounds for axis 0 with size 6</code> というような例外が投げられる。</p>
 
-<h2 id="7557d94">ndarrayのスライス表記の参照と代入
+<p>多次元の場合は <code>[]</code> の中にコンマ区切りでインデックスを指定する。</p>
+
+<pre><code>ndarr1 = np.array([[1., 2., 3.], [4., 5., 6.]])
+
+print(ndarr1[1])
+# 出力結果
+# [ 4.  5.  6.]
+
+print(ndarr1[1, 2])
+# 出力結果
+# 6.0
+
+# [] を複数並べてもいいようだ
+print(ndarr1[1][2])
+# 出力結果
+# 6.0
+</code></pre>
+
+<p>コロンを使って <code>[:, 2]</code> のように書くと、内側の次元のインデックスだけを指定することもできる。これは後述の<a href="#slice">スライス表記</a>との組み合わせである。</p>
+
+<pre><code>print(ndarr1[:, 2])
+# 出力結果
+# [ 3.  6.]
+</code></pre>
+
+<h2 id="slice">ndarrayのスライス表記の参照と代入
 <span class="article-date">2015/04/20</span></h2>
 
 <p>NumPyのndarrayは、<code>[a:b]</code> というような表記で範囲を指定して参照することができる。
@@ -462,6 +487,55 @@ print(sl)
 print(ndarr1)
 # 出力結果
 # [  0   1   2 200 200 200]
+</code></pre>
+
+<p>スライスのビューではなく、別の実体としたい場合には <code>copy()</code> メソッドを使う。</p>
+
+<pre><code>ndarr1 = np.array([0, 1, 2, 3, 4, 5])
+
+sl = ndarr1[3:6].copy()
+
+print(sl)
+
+sl[0] = 100
+print(sl)
+# 出力結果
+# [100   4   5]
+
+# もとのndarrayには影響せず
+print(ndarr1)
+# 出力結果
+# [0 1 2 3 4 5]
+</code></pre>
+
+<p>多次元の場合は <code>[]</code> の中にコンマ区切りで範囲指定を記述する。</p>
+
+<pre><code>ndarr1 = np.array([[1., 2., 3.], [4., 5., 6.], [7., 8., 9.]])
+
+print(ndarr1)
+# 出力結果
+# [[ 1.  2.  3.]
+#  [ 4.  5.  6.]
+#  [ 7.  8.  9.]]
+
+print(ndarr1[1:3])
+# 出力結果
+# [[ 4.  5.  6.]
+#  [ 7.  8.  9.]]
+
+print(ndarr1[1:3, 0:2])
+# 出力結果
+# [[ 4.  5.]
+#  [ 7.  8.]]
+</code></pre>
+
+<p>範囲指定を <code>:</code> だけにすると全体範囲の意味になり、以下の例では結果的に内側の次元のみ範囲指定している。</p>
+
+<pre><code>print(ndarr1[:, 0:2])
+# 出力結果
+# [[ 1.  2.]
+#  [ 4.  5.]
+#  [ 7.  8.]]
 </code></pre>
 
 <h2 id="35729ff">HOWTO</h2>

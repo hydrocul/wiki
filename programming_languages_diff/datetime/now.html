@@ -63,7 +63,7 @@ p DateTime.now.strftime("%Y%m%d-%H%M%S")
 </code></pre>
 
 <h2 id="ac13505">Perl
-<span class="article-date">2014/03/19</span></h2>
+<span class="article-date">2015/04/21</span></h2>
 
 <p>例</p>
 
@@ -75,6 +75,21 @@ print "$nowstr\n";
 </code></pre>
 
 <p><code>localtime</code> で得られる年は20世紀を前提としているのか1900年からの数字なので、1900を足す必要がある。また、月は0〜11の数字になっているので、自然な表記にするには1を足す必要がある。</p>
+
+<p>秒よりも細かい精度で得たい場合は以下のようにする。</p>
+
+<pre><code>use Time::HiRes;
+
+my ($epoc, $micro) = Time::HiRes::gettimeofday();
+my ($sec, $min, $hour, $mday, $mon, $year) = localtime($epoc);
+$year += 1900;
+$mon += 1;
+my $nowstr = sprintf("%04d/%02d/%02d-%02d:%02d:%02d.%06d", $year, $mon, $mday, $hour, $min, $sec, $micro);
+print "$nowstr\n";
+</code></pre>
+
+<p><code>localtime</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/localtime" target="_blank">http://perldoc.jp/func/localtime</a></p>
 
 <h2 id="7585642">sh (シェルスクリプト)
 <span class="article-date">2013/12/21</span></h2>

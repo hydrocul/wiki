@@ -429,6 +429,16 @@ echo -e "\e[31mHello\e[0m"
 
 <p><a href="commands/time.html"><code>time</code>コマンド</a>を使うとよい。</p>
 
+<h2 id="2fd3bb6">標準エラー出力に色を付けて標準出力と区別しやすいようにするには
+<span class="article-date">2015/04/21</span></h2>
+
+<p>以下のようにするとよさそう。</p>
+
+<pre><code>(foobarcmd; 2&gt;&amp;1 &gt;&amp;3 | perl -npe 'BEGIN {$|=1} s/^(.*)$/\e[31m$1\e[m/' &gt;&amp;2) 3&gt;&amp;1
+</code></pre>
+
+<p>-&gt; <a href="blog/2015/0421-colored-stderr.html">もう少し詳しい説明</a></p>
+
 </div>
 
 <div id="side-menu">
