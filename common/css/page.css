@@ -162,8 +162,16 @@ footer {
 #content p,
 #content ul,
 #content dl {
-  margin: 20px 0 20px 40px;
+  margin: 20px 0 20px 0px;
 }
+@media screen and (min-width:760px) {
+  #content p,
+  #content ul,
+  #content dl {
+    margin: 20px 0 20px 40px;
+  }
+}
+
 #content ul {
   padding-left: 2em
 }

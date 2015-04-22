@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>複数行文字列 / ヒアドキュメント | 文字列 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>ヒアドキュメント / 複数行文字列 | 文字列 | プログラミング言語の比較 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,25 +15,31 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>複数行文字列 / ヒアドキュメント</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>ヒアドキュメント / 複数行文字列</span>
 </div>
 
 <div id="content">
-  <h1 id="heredoc">複数行文字列 / ヒアドキュメント
-<span class="article-date">2014/10/24</span></h1>
+  <h1 id="heredoc">ヒアドキュメント / 複数行文字列
+<span class="article-date">2015/04/22</span></h1>
 
 <p>改行を含むテキストをソースコードの中で普通に複数行で書いて、それを文字列として処理させる、各プログラミング言語ごとの方法のメモ。</p>
 
-<p>ヒアドキュメントとか複数行文字列と読んだりする。</p>
+<p>ヒアドキュメントとか複数行文字列と呼んだりする。</p>
 
 <p>改行だけでなくタブなど、普通であればエスケープ処理をしないといけないコントロール文字もそのまま書ける。</p>
 
-<h2 id="30beb6b">C言語, C++
+<p>中に変数の参照を書くことにより普通の文字列リテラルと同様に変数展開される言語(Ruby, Perl, シェルスクリプトなど)もある。</p>
+
+<p><a href="#c">C言語</a> <a href="#c">C++</a> <a href="#java">Java</a> <a href="#scala">Scala</a> <a href="#groovy">Groovy</a> <a href="#php">PHP</a> <a href="#python">Python</a> <a href="#ruby">Ruby</a> <a href="#perl">Perl</a> <a href="#sh">sh</a> <a href="#javascript">JavaScript</a></p>
+
+<p>{adwords}</p>
+
+<h2 id="c">C言語, C++
 <span class="article-date">2014/10/24</span></h2>
 
 <p>ない。と思っていたけど、C++11には Raw String Literal というのがあるらしい。</p>
 
-<h2 id="596639a">Java
+<h2 id="java">Java
 <span class="article-date">2013/11/06</span></h2>
 
 <p>ない。</p>
@@ -49,7 +55,7 @@
 bar""";
 </code></pre>
 
-<h2 id="224544a">Groovy
+<h2 id="groovy">Groovy
 <span class="article-date">2014/10/24</span></h2>
 
 <p>シングルクオーテーションまたはダブルクオーテーション3つ連続でヒアドキュメントのように複数行文字列を書くことができる。</p>
@@ -69,7 +75,7 @@ bar""";
 <p>Nowdoc | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc" target="_blank">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc</a></p>
 
-<h2 id="49a0135">Python
+<h2 id="python">Python
 <span class="article-date">2014/10/07</span></h2>
 
 <p>三重引用符(トリプルクオート) <code>'''</code> または <code>"""</code> で囲むと改行を含む文字列を書くことができる。</p>
@@ -197,7 +203,7 @@ World!
 <p><code>__DATA__</code> | perldoc.jp<br />
 <a href="http://perldoc.jp/docs/perl/5.18.1/perldata.pod#Special32Literals" target="_blank">http://perldoc.jp/docs/perl/5.18.1/perldata.pod#Special32Literals</a></p>
 
-<h2 id="96fbf7a">sh (シェルスクリプト)
+<h2 id="sh">sh (シェルスクリプト)
 <span class="article-date">2014/03/01</span></h2>
 
 <p>例</p>
@@ -222,7 +228,7 @@ EOD
 
 <p>ヒアドキュメントがファイルの最後までの場合は、終端の識別子を省略できる。</p>
 
-<h2 id="75ac56c">JavaScript
+<h2 id="javascript">JavaScript
 <span class="article-date">2013/05/17</span></h2>
 
 <p>標準ではヒアドキュメントの仕組みはないが、似たようなことを実現する工夫はできる。</p>
@@ -244,7 +250,7 @@ EOD
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li>複数行文字列 / ヒアドキュメント</li>
+          <li>ヒアドキュメント / 複数行文字列</li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">特定のインデックスの文字を取得するには (charAt / getAt)</a></li>
@@ -253,24 +259,25 @@ EOD
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには (equals / strcasecmp / strcmp / <code>==</code> / <code>!=</code> / <code>&lt;</code> / <code>&lt;=</code> / <code>&gt;=</code> / <code>&gt;</code> / <code>&lt;=&gt;</code> / gt / ge / lt / le)</a></li>
           <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf, printf)</a></li>
-          <li><a href="../../programming_languages_diff/string/match.html">正規表現で文字列パターンマッチングするには</a></li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
-          <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (trim / strip)</a></li>
-          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (strip / trim)</a></li>
+          <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</a></li>
           <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
           <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
-          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには</a></li>
+          <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには (chr)</a></li>
           <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
           <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
           <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
           <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-          <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (endsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/string/match.html">正規表現でパターンマッチングするには (match / preg_match / search / <code>=~</code>)</a></li>
+          <li><a href="../../programming_languages_diff/string/match-whole.html">正規表現で全体をパターンマッチングするには</a></li>
+          <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
+          <li><a href="../../programming_languages_diff/string/starts-with.html">特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字列で終わっているかどうかを見るには (end_with? / endsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
-          <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを見るには (startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
