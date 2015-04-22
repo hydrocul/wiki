@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>ndarrayのスライス表記の参照と代入 | NumPy | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy</a> &gt; <span>ndarrayのスライス表記の参照と代入</span>
+</div>
+
+<div id="content">
+  <h1 id="ndarray-ref-slice">ndarrayのスライス表記の参照と代入
+<span class="article-date">2015/04/20</span></h1>
+
+<p>NumPyのndarrayは、<code>[a:b]</code> というような表記で範囲を指定して参照することができる。
+<code>[]</code> の中をコロンで区切って、開始インデックスと終了インデックスを書く。終了インデックスの直前までになる。</p>
+
+<p>これをスライス表記だとかスライシングなどという。</p>
+
+<p>このスライス表記はPythonの通常のリストにもある仕組みだが、NumPyのndarrayが違う点は、代入もできることである。スライス表記に代入すると、もとのndarrayの一部をまとめて書き換えることができる。</p>
+
+<pre><code>ndarr1 = np.array([0, 1, 2, 3, 4, 5])
+
+print(ndarr1[1:3])
+# 出力結果
+# [1 2]
+
+# スライス表記に同じ大きさの配列を代入すれば、それがそのままその位置に代入される
+ndarr1[3:6] = [100., 200., 300.]
+print(ndarr1)
+# 出力結果
+# [  0   1   2 100 200 300]
+</code></pre>
+
+<p>スライス表記に配列ではなく数値を代入すると、そのスライスの範囲にある要素すべてに同一の値が代入される。これをブロードキャストという。</p>
+
+<pre><code># スライス表記に数値を代入すると、スライスの範囲全部が同じ値になる
+ndarr1[3:5] = 20
+print(ndarr1)
+# 出力結果
+# [ 0  1  2 20 20  5]
+</code></pre>
+
+<p>スライシングしたものを別の変数に入れると、そのスライスはビューになり、スライスを通してもとのndarrayを変更することができるようになる。</p>
+
+<pre><code>ndarr1 = np.array([0, 1, 2, 3, 4, 5])
+
+sl = ndarr1[3:6]
+
+print(sl)
+# 出力結果
+# [3 4 5]
+
+sl[0] = 100
+
+print(sl)
+# 出力結果
+# [100   4   5]
+
+print(ndarr1)
+# 出力結果
+# [  0   1   2 100   4   5]
+
+sl[:] = 200
+
+print(sl)
+# 出力結果
+# [200 200 200]
+
+print(ndarr1)
+# 出力結果
+# [  0   1   2 200 200 200]
+</code></pre>
+
+<p>スライスのビューではなく、別の実体としたい場合には <code>copy()</code> メソッドを使う。</p>
+
+<pre><code>ndarr1 = np.array([0, 1, 2, 3, 4, 5])
+
+sl = ndarr1[3:6].copy()
+
+print(sl)
+
+sl[0] = 100
+print(sl)
+# 出力結果
+# [100   4   5]
+
+# もとのndarrayには影響せず
+print(ndarr1)
+# 出力結果
+# [0 1 2 3 4 5]
+</code></pre>
+
+<p>多次元の場合は <code>[]</code> の中にコンマ区切りで範囲指定を記述する。</p>
+
+<pre><code>ndarr1 = np.array([[1., 2., 3.], [4., 5., 6.], [7., 8., 9.]])
+
+print(ndarr1)
+# 出力結果
+# [[ 1.  2.  3.]
+#  [ 4.  5.  6.]
+#  [ 7.  8.  9.]]
+
+print(ndarr1[1:3])
+# 出力結果
+# [[ 4.  5.  6.]
+#  [ 7.  8.  9.]]
+
+print(ndarr1[1:3, 0:2])
+# 出力結果
+# [[ 4.  5.]
+#  [ 7.  8.]]
+</code></pre>
+
+<p>範囲指定を <code>:</code> だけにすると全体範囲の意味になり、以下の例では結果的に内側の次元のみ範囲指定している。</p>
+
+<pre><code>print(ndarr1[:, 0:2])
+# 出力結果
+# [[ 1.  2.]
+#  [ 4.  5.]
+#  [ 7.  8.]]
+</code></pre>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../numpy/">NumPy</a>
+    <ul>
+      <li><a href="../numpy/install.html">インストール</a></li>
+      <li><a href="../numpy/ndarray-create.html">多次元配列ndarrayの生成</a></li>
+      <li><a href="../numpy/ndarray-property.html">ndarrayの属性</a></li>
+      <li><a href="../numpy/ndarray-element-type.html">ndarrayの要素のデータ型</a></li>
+      <li><a href="../numpy/ndarray-copy.html">ndarrayのコピー</a></li>
+      <li><a href="../numpy/ndarray-convert.html">ndarrayのデータ型の変換</a></li>
+      <li><a href="../numpy/ndarray-vector.html">ndarrayでのベクトル計算</a></li>
+      <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
+      <li>ndarrayのスライス表記の参照と代入</li>
+      <li><a href="../numpy/howto.html">HOWTO</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>
