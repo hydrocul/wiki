@@ -411,9 +411,14 @@ sed -E 's/[\t ]+/ /g'
 <p>BSDやMacに入っているsedはGNU sedではなく、<code>-i</code> オプションがないらしい。</p>
 
 <h3 id="find-sed-recursive">ディレクトリの中にあるたくさんのファイルの文字列を全置換するには
-<span class="article-date">2014/10/07</span></h3>
+<span class="article-date">2015/04/24</span></h3>
 
-<p>GNU sedがあれば、置換対象のファイルを <a href="find.html"><code>find</code></a> などでリストアップして、<code>sed</code>の<code>-i</code>オプションを使う。</p>
+<p>GNU sedがあれば、置換対象のファイルを <a href="grep.html"><code>grep</code></a> でリストアップして、<code>sed</code>の <code>-i</code> オプションを使う。</p>
+
+<pre><code>grep -rl 置換前 . | xargs sed -i 's/置換前/置換後/g'
+</code></pre>
+
+<p>ファイルの拡張子などで条件を絞って全置換するには <a href="find.html"><code>find</code></a> を使う。</p>
 
 <pre><code>find . -name "*.txt" | xargs sed -i 's/置換前/置換後/g'
 </code></pre>
@@ -423,10 +428,7 @@ sed -E 's/[\t ]+/ /g'
 <pre><code>find . -name "*.txt" -exec sed -i 's/置換前/置換後/g' {} \;
 </code></pre>
 
-<p><code>find</code> でマッチしたファイルのほとんどが置換されるならこれでもいいと思うが、ごく一部のファイルだけであれば <a href="grep.html"><code>grep</code></a> を使って以下のようにしたほうがいいかもしれない。上記 <code>find</code> のやり方だと、置換文字列が含まれていないファイルもタイムスタンプは変わってしまう。</p>
-
-<pre><code>grep -rl 置換前  | xargs sed -i 's/置換前/置換後/g'
-</code></pre>
+<p>ただ、このやり方だと、<code>find</code>で見つけてきたファイルは置換文字列が含まれていなくも、タイムスタンプが変わってしまう。</p>
 
 <p>カレントディレクトリの中にあるすべてのファイルのすべての行の先頭に <code>//</code> を追加する例</p>
 
@@ -597,6 +599,7 @@ cat ファイル名 | sed -ne '3~10p'
       <li><a href="../commands/siege.html">siege コマンド</a></li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
+      <li><a href="../commands/split.html">split コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
@@ -627,8 +630,9 @@ cat ファイル名 | sed -ne '3~10p'
 </div>
 
 <footer>
-  <a href="../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>
