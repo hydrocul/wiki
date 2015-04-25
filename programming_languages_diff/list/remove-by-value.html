@@ -29,21 +29,23 @@
 </ul>
 
 <h2 id="a5cebf7">Java
-<span class="article-date">2013/10/06</span></h2>
+<span class="article-date">2015/04/25</span></h2>
 
 <p>以下のメソッドは要素を1つだけ削除する。要素が見つかって削除した場合は 
 <code>true</code> を返し、要素が見つからなかった場合は <code>false</code> を返す。</p>
 
 <p>Signature:</p>
 
-<pre><code>// java.util.List[E]
-boolean remove(Object elem);
+<pre><code>boolean java.util.List[E]#remove(Object elem);
 </code></pre>
 
 <p>要素の型が整数の <code>List[Integer]</code> という型の場合は、オートボクシングを期待して、
 <code>remove(3)</code> のように呼びだしてしまうと、上記メソッドではなく、
 <a href="remove.html#java"><code>remove(int)</code></a> という別のメソッドを呼び出してしまう。
 <code>lst.remove(new Integer(3))</code> のようにする必要があるので、要注意。</p>
+
+<p><code>java.util.List#remove</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#remove-java.lang.Object-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/util/List.html#remove-java.lang.Object-</a></p>
 
 <h2 id="d9e1cca">Scala
 <span class="article-date">2015/01/18</span></h2>
@@ -201,7 +203,7 @@ p arr
           <li><a href="../../programming_languages_diff/list/product.html">2つ以上の配列の要素同士をかけ合わせて配列の配列を作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べた配列を作成するには (fill)</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列(リスト)を作成するには (range)</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列を作成するには (range / seq / to / until)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">一定の数ごとにグルーピングするには (array_chunk / grouped)</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">要素をグルーピングするには (group_by / groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">先頭の要素を削除するには (array_shift / shift)</a></li>
@@ -232,8 +234,9 @@ p arr
 </div>
 
 <footer>
-  <a href="../../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>
