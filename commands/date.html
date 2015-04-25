@@ -32,7 +32,7 @@ root権限でこのコマンドを使って正しい日時を設定する。</p>
 <p>現在日時ではなく、処理にかかる時間を測定するには<a href="time.html"><code>time</code>コマンド</a>を使う。</p>
 
 <h2 id="5c0ab52">基本的な使い方
-<span class="article-date">2015/04/17</span></h2>
+<span class="article-date">2015/04/25</span></h2>
 
 <pre><code># 現在の日時を表示
 $ date
@@ -41,16 +41,142 @@ $ date
 $ date "+%Y%m%d-%H%M%S"
 
 # 24時間後の日時を表示
-$ date --date tomorrow
+$ date -d tomorrow
 
-# 24時間後の日時を表示
+# -d の代わりに --date でも同じ
 $ date --date tomorrow
 
 # 30日後の日付を表示
-date "+%Y/%m/%d" --date "30 days"
+date "+%Y/%m/%d" -d "30 days"
 
 # OSが刻んでいる現在日時を訂正
 $ sudo date -s "2013/09/04 12:17:00"
+</code></pre>
+
+<h2 id="bd823c6">日時の指定方法
+<span class="article-date">2015/04/25</span></h2>
+
+<p><code>-d</code> または <code>--date</code> オプションではさまざまなフォーマットで日時を指定することができ、簡単な日付の計算もできる。</p>
+
+<pre><code># 1日前
+$ date -d '1 day ago'
+
+# 2日前
+$ date -d '2 days ago'
+</code></pre>
+
+<p><code>ago</code> を付けなければ未来の日時になる。</p>
+
+<pre><code># 1日後
+$ date -d '1 day'
+</code></pre>
+
+<p>次のような表現もできる。</p>
+
+<pre><code># 1日前
+$ date -d yesterday
+# 1日後
+$ date -d tomorrow
+</code></pre>
+
+<p>単数形複数形を間違えても大丈夫。</p>
+
+<pre><code>$ date -d '1 days ago'
+$ date -d '2 day ago'
+</code></pre>
+
+<p><code>1</code>は省略しても大丈夫。</p>
+
+<pre><code># 1日前
+$ date -d 'day ago'
+</code></pre>
+
+<p>日以外の単位もある。</p>
+
+<pre><code># 1ヶ月前
+$ date -d '1 month ago'
+
+# 1年前
+$ date -d '1 year ago'
+
+# 1時間前
+$ date -d '1 hour ago'
+
+# 1分前
+$ date -d '1 minute ago'
+
+# 1秒前
+$ date -d '1 second ago'
+</code></pre>
+
+<p>現在日時ではなく、特定の日付を指定することもできる。</p>
+
+<pre><code>$ date -d '2015/04/25'
+</code></pre>
+
+<p>これらを組み合わせることもできる。</p>
+
+<pre><code># 1年と10日前
+$ date -d '1 year 10 days ago'
+
+# 1時間半後
+$ date -d '1 hour 30 minutes'
+
+# 1日と12時間後
+$ date -d '1 day 12 hours'
+
+# 48時間後
+$ date -d '48 hours'
+
+# 特定の日付からの相対指定
+$ date -d '2015/04/25 1 month'
+Mon May 25 00:00:00 JST 2015
+</code></pre>
+
+<p>月単位の計算は月によって日数が異なるので注意が必要。</p>
+
+<pre><code># 1月31日の1か月後は、2月31日つまり3月3日
+$ date -d '2015/01/31 1 month'
+Tue Mar  3 00:00:00 JST 2015
+
+# 3月31日の1か月前も3月3日
+$ date -d '2015/03/31 1 month ago'
+Tue Mar  3 00:00:00 JST 2015
+</code></pre>
+
+<p>当月の1日を表示させたい場合。</p>
+
+<pre><code># 当月の1日
+$ date '+%Y/%m/01'
+# または
+$ date -d `date '+%Y/%m/01'`
+</code></pre>
+
+<p>月末の日付をちゃんと計算するのはちょっと面倒。</p>
+
+<pre><code># 当月の末日
+$ date -d "`date '+%Y/%m/01' -d "\`date '+%Y/%m/01'\` 1 month"` 1 day ago"
+
+# 特定の日付(2015/03/15)の月の末日
+$ date -d "`date '+%Y/%m/01' -d "\`date '+%Y/%m/01' -d 2015/03/15\` 1 month"` 1 day ago"
+</code></pre>
+
+<p>末日を得る上のコマンドの導出は以下のとおり。つまりいったん翌月の1日を計算し、その前日を当月の末日としている。</p>
+
+<pre><code># 特定の日付の月の1日をフォーマットを指定して表示
+$ date '+%Y/%m/01' -d 2015/03/15
+
+# 特定の日付の翌月の1日
+$ date -d "`date '+%Y/%m/01' -d 2015/03/15` 1 month"
+
+# 特定の日付の翌月の1日をフォーマットを指定して表示
+$ date '+%Y/%m/01' -d "`date '+%Y/%m/01' -d 2015/03/15` 1 month"
+
+# 特定の日付の翌月の1日の前日 (つまり特定の日付の月末日)
+$ date -d "`date '+%Y/%m/01' -d "\`date '+%Y/%m/01' -d 2015/03/15\` 1 month"` 1 day ago"
+
+# 当月の末日
+$ date -d "`date '+%Y/%m/01' -d "\`date '+%Y/%m/01'\` 1 month"` 1 day ago"
 </code></pre>
 
 <h2 id="c13191c">HOWTO</h2>
@@ -213,8 +339,9 @@ sudo date -s "2013/09/04 12:17:00"
 </div>
 
 <footer>
-  <a href="../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>

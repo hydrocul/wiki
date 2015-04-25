@@ -26,9 +26,11 @@
 
 <p>多くの言語では先頭が0から始まるインデックスで要素を参照する。</p>
 
-<h2 id="1d21255">Java</h2>
+<p><a href="#java">Java</a> <a href="#scala">Scala</a> <a href="#php">PHP</a> <a href="#python">Python</a> <a href="#ruby">Ruby</a> <a href="#perl">Perl</a></p>
 
-<h3 id="fb31da3">配列
+<h2 id="java">Java</h2>
+
+<h3 id="966a219">配列
 <span class="article-date">2014/05/16</span></h3>
 
 <p>配列の要素は <code>[]</code> でアクセスする。</p>
@@ -38,7 +40,7 @@
 <pre><code>arr[index]
 </code></pre>
 
-<h3 id="f09a292"><code>java.util.List</code>
+<h3 id="e573461"><code>java.util.List</code>
 <span class="article-date">2013/10/28</span></h3>
 
 <p><code>java.util.List</code> は <code>get</code> というメソッドで要素にアクセスする。</p>
@@ -66,7 +68,7 @@ lst(index)
 lst.apply(index)
 </code></pre>
 
-<h2 id="6fa8328">PHP
+<h2 id="php">PHP
 <span class="article-date">2015/01/10</span></h2>
 
 <p>配列の要素は <code>[]</code> でアクセスする。</p>
@@ -86,7 +88,7 @@ lst.apply(index)
 <p>このコードをPHP 5.4以前で実行すると <code>PHP Parse error:  syntax error, unexpected '['</code> というエラーになる。</p>
 
 <h2 id="python">Python
-<span class="article-date">2015/01/10</span></h2>
+<span class="article-date">2015/04/25</span></h2>
 
 <p>要素には <code>[]</code> でアクセスする。
 Pythonのシーケンスといわれるリスト、タプル、文字列で共通するアクセス方法である。</p>
@@ -101,7 +103,12 @@ tpl[index]
 lst[-2]; # 最後から2番目の要素
 </code></pre>
 
-<p>-&gt; <a href="index-out-of-bounds-exception.html#python">範囲外のインデックスにアクセスしたときにどうなるか?</a></p>
+<p>関連</p>
+
+<ul>
+  <li><a href="index-out-of-bounds-exception.html#python">範囲外のインデックスにアクセスしたときにどうなるか?</a></li>
+  <li><a href="../../numpy/ndarray-ref-index.html">NumPyの配列で要素をインデックスで参照するには</a></li>
+</ul>
 
 <h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/01/01</span></h2>
@@ -227,7 +234,7 @@ print $a-&gt;[2][0];
           <li><a href="../../programming_languages_diff/list/product.html">2つ以上の配列の要素同士をかけ合わせて配列の配列を作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べた配列を作成するには (fill)</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列(リスト)を作成するには (range)</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列を作成するには (range / seq / to / until)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">一定の数ごとにグルーピングするには (array_chunk / grouped)</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">要素をグルーピングするには (group_by / groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">先頭の要素を削除するには (array_shift / shift)</a></li>
@@ -258,8 +265,9 @@ print $a-&gt;[2][0];
 </div>
 
 <footer>
-  <a href="../../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>

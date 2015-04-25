@@ -56,7 +56,7 @@ tar -t -z -f foo.tar.gz
 </code></pre>
 
 <h2 id="9c7528c">基本操作
-<span class="article-date">2013/09/10</span></h2>
+<span class="article-date">2015/04/25</span></h2>
 
 <pre><code># アーカイブ
 tar cvf tarファイル名 アーカイブ対象ディレクトリ
@@ -70,6 +70,9 @@ tar xvf tarファイル名
 # 解凍して展開
 tar xvzf tgzファイル名
 
+# 特定のファイルのみ解凍して展開
+tar xvzf tgzファイル名 ファイルパス
+
 # アーカイブされているファイルの一覧
 tar tf tarファイル名
 
@@ -77,18 +80,20 @@ tar tf tarファイル名
 tar tzf tgzファイル名
 </code></pre>
 
-<h2 id="d357d4a">リモートにtarでバックアップ、またはリモートからローカルにtarでバックアップ
-<span class="article-date">2013/08/23</span></h2>
+<h2 id="95f6481">HOWTO</h2>
+
+<h3 id="9d496a1">リモートにtarでバックアップ、またはリモートからローカルにtarでバックアップ
+<span class="article-date">2013/08/23</span></h3>
 
 <p>-&gt; <a href="ssh.html#backup-remot-to-local">サーバにある大量のファイルを tar しながら、ローカルにダウンロードするには</a><br />
 -&gt; <a href="ssh.html#backup-local-to-remote">ローカルにある大量のファイルを tar しながら、リモートにアップロードするには</a></p>
 
-<h2 id="17e4232">findの結果をバックアップ対象にするには
-<span class="article-date">2013/08/24</span></h2>
+<h3 id="2e8225b">findの結果をバックアップ対象にするには
+<span class="article-date">2013/08/24</span></h3>
 
 <p>以下のようにする。</p>
 
-<pre><code>find .... -print0 | tar cvzf hoge.tar.gz --null -T -
+<pre><code>find .... -print0 | tar cvzf foo.tar.gz --null -T -
 </code></pre>
 
 <p><code>find</code>のオプション <code>-print0</code> は該当ファイル名をNULL区切りで出力し、
@@ -101,6 +106,14 @@ tar tzf tgzファイル名
 
 <p><code>find</code>と<code>tar</code>の間に<code>xargs</code>を使ってしまうと、アーカイブするファイル数が多い場合に
 <code>tar</code>が複数回起動されてしまい、すべてのファイルが含まれたアーカイブファイルを作れない。</p>
+
+<h3 id="7e75ad3">tarファイルの中にある特定のファイルのみを解凍するには
+<span class="article-date">2015/04/25</span></h3>
+
+<p>最後のパラメータに解凍したいファイル名を渡せばよい。</p>
+
+<pre><code>tar xzf logs.tar.gz var/log/httpd/access_log
+</code></pre>
 
 </div>
 
@@ -154,6 +167,7 @@ tar tzf tgzファイル名
       <li><a href="../commands/siege.html">siege コマンド</a></li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
+      <li><a href="../commands/split.html">split コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
@@ -184,8 +198,9 @@ tar tzf tgzファイル名
 </div>
 
 <footer>
-  <a href="../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>

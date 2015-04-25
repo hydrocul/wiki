@@ -608,6 +608,30 @@ git svn dcommit
 
 <p>-&gt; <a href="../blog/2013/1125-git-rebase-is-better.html">git merge よりも git rebase の勧め</a></p>
 
+<h2 id="db44abc">git管理対象外のファイルを削除するには
+<span class="article-date">2015/04/25</span></h2>
+
+<p>新しく作ったファイルでまだ<code>git add</code>していないファイルを一括して削除するには <code>git clean -f</code> を使う。その前に <code>git clean -n</code> を使うと削除するファイルを事前に確認することができる。ディレクトリまるごとgit管理対象外の場合はこれでは削除できず、<code>git clean -df</code> を使う。</p>
+
+<pre><code>$ git status -s
+?? foo.txt
+?? bar/
+
+# 削除されるファイルを確認
+$ git clean -n
+Would remove foo.txt
+
+# 削除を実行
+$ git clean -f
+Removing foo.txt
+
+# ディレクトリまるごとgit管理対象外のものがある場合はこちら
+$ git clean -df
+Removing blog/
+</code></pre>
+
+<p><code>.gitignore</code> で指定されたファイルはこれを使っても削除されない。それらも削除するには <code>-x</code> を使う。</p>
+
 </div>
 
 <div id="side-menu">
@@ -691,8 +715,9 @@ git svn dcommit
 </div>
 
 <footer>
-  <a href="../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>
