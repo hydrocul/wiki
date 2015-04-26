@@ -24,33 +24,124 @@
 
 <p><code>np.array</code> の引数にはPythonの配列だけでなくndarrayも渡すことができて、いずれも新しいndarrayを生成する。ndarrayを渡した場合は配列のコピーになる。</p>
 
-<pre><code>npdata1 = np.array([1, 2, 3])
-npdata2 = np.array(npdata1)
-npdata2[0] = 10
+<pre><code>ndarr1 = np.array([1, 2, 3])
+ndarr2 = np.array(ndarr1)
+ndarr2[0] = 10
 
-print(npdata1)
+print(ndarr1)
 # 出力結果
 # [1 2 3]
 
-print(npdata2)
+print(ndarr2)
 # 出力結果
 # [10  2  3]
 </code></pre>
 
-<p><code>np.asarray</code> は <code>np.array</code> とほとんど同じように使えるが、引数にndarrayを渡した場合は配列のコピーをせずに引数をそのまま帰す。</p>
+<p><code>np.asarray</code> は <code>np.array</code> とほとんど同じように使えるが、引数にndarrayを渡した場合は配列のコピーをせずに引数をそのまま返す。</p>
 
-<pre><code>npdata1 = np.array([1, 2, 3])
-npdata2 = np.asarray(npdata1)
-npdata2[0] = 10
+<pre><code>ndarr1 = np.array([1, 2, 3])
+ndarr2 = np.asarray(ndarr1)
+ndarr2[0] = 10
 
-print(npdata1)
+print(ndarr1)
 # 出力結果
 # [10  2  3]
 
-print(npdata2)
+print(ndarr2)
 # 出力結果
 # [10  2  3]
 </code></pre>
+
+<p>以下のようにスライス表記を左辺に使うと、既存の配列に上書きコピーすることができる。</p>
+
+<pre><code># ndarr1の内容をndarr2にコピー
+ndarr2[:] = ndarr1
+</code></pre>
+
+<p><code>ndarr2</code> の変数自体を書き換えるのではなく、<code>ndarr2</code> の変数が指している配列の要素をすべて 
+<code>ndarr1</code> と同じにするものなので、オブジェクトのIDは変わらない。コピー前の <code>ndarr1</code> と <code>ndarr2</code> は同じサイズである必要がある。</p>
+
+<pre><code>ndarr1 = np.array([[1., 2., 3.], [4., 5., 6.], [7., 8., 9.]])
+ndarr2 = np.array([[10., 20., 30.], [40., 50., 60.], [70., 80., 90.]])
+
+print(ndarr1)
+# 出力結果
+# [[ 1.  2.  3.]
+#  [ 4.  5.  6.]
+#  [ 7.  8.  9.]]
+
+print(id(ndarr1))
+# 出力結果
+# 139997439646016
+
+print(ndarr2)
+# 出力結果
+# [[ 10.  20.  30.]
+#  [ 40.  50.  60.]
+#  [ 70.  80.  90.]]
+
+print(id(ndarr2))
+# 出力結果
+# 139997439646336
+
+ndarr2[:] = ndarr1
+
+print(ndarr2)
+# 出力結果
+# [[ 1.  2.  3.]
+#  [ 4.  5.  6.]
+#  [ 7.  8.  9.]]
+
+# idはコピー前と変わらない
+print(id(ndarr2))
+# 出力結果
+# 139997439646336
+</code></pre>
+
+<p>左辺をスライス表記ではなく、変数名そのままにすると、それは単に右辺のオブジェクトを代入するだけになるので、配列のコピーにはならない。コピー前の <code>ndarr2</code> は違う大きさの配列だろうが他のものだろうが構わないが、それは単に上書きの代入であるから。</p>
+
+<pre><code>ndarr1 = np.array([[1., 2., 3.], [4., 5., 6.], [7., 8., 9.]])
+ndarr2 = np.array([[10., 20., 30.], [40., 50., 60.]])
+
+print(ndarr1)
+# 出力結果
+# [[ 1.  2.  3.]
+#  [ 4.  5.  6.]
+#  [ 7.  8.  9.]]
+
+print(id(ndarr1))
+# 出力結果
+# 139784224438592
+
+print(ndarr2)
+# 出力結果
+# [[ 10.  20.  30.]
+#  [ 40.  50.  60.]]
+
+print(id(ndarr2))
+# 出力結果
+# 139784224438912
+
+ndarr2 = ndarr1
+
+print(ndarr2)
+# 出力結果
+# [[ 1.  2.  3.]
+#  [ 4.  5.  6.]
+#  [ 7.  8.  9.]]
+
+# idはコピー元と同じになる
+print(id(ndarr2))
+# 出力結果
+# 139784224438592
+</code></pre>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="../programming_languages_diff/etc/object-id.html">オブジェクトのIDを取得するには</a></li>
+  <li><a href="../programming_languages_diff/list/clone.html">各プログラミング言語別の配列をコピーする方法</a></li>
+</ul>
 
 </div>
 
@@ -72,6 +163,7 @@ print(npdata2)
       <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>

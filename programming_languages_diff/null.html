@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<meta http-equiv="refresh" content="0;URL=etc/null.html" />
 <title>null | プログラミング言語の比較 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -19,126 +20,9 @@
 </div>
 
 <div id="content">
-  <h1 id="null">null
-<span class="article-date">2014/09/12</span></h1>
+  <h1 id="null">null</h1>
 
-<p><code>null</code> みたいな類の各プログラミング言語での取り扱いの比較。</p>
-
-<h2 id="69daf5a">C言語
-<span class="article-date">2015/01/08</span></h2>
-
-<p><code>NULL</code> というのがある。<code>0</code>と同じで、ポインタに0を代入するのと <code>NULL</code> を代入するのはたぶん同じで、ポインタがなにも指していないことを意味するのに使われる。</p>
-
-<h2 id="56f9c86">Java
-<span class="article-date">2014/09/12</span></h2>
-
-<p><code>null</code> というのがあり、任意の参照型になりえる。参照型なので、<code>int</code>などのプリミティブ型に<code>null</code>を使うことはできない。</p>
-
-<p>一度も代入されていないローカル変数を参照しようとすると、
-<code>variable x might not have been initialized</code> というようなコンパイルエラーになり、デフォルトで<code>null</code>になることはない。</p>
-
-<p>一方、一度も代入されていないクラスのフィールドや配列の要素を参照しようとすると、参照型は <code>null</code> になり、
-<code>int</code>などの数値のプリミティブ型は<code>0</code>、<code>boolean</code>は<code>false</code>になり、コンパイルエラーにはならない。</p>
-
-<h2 id="3f00d5f">Scala
-<span class="article-date">2014/09/12</span></h2>
-
-<p>Javaとの互換性のためにJavaと同じ<code>null</code>があるが、Scalaでは<code>null</code>はJavaのライブラリを使用するときに現れてしまうのみで、通常の利用は推奨されない。
-<code>null</code>を使いたくなる場面ではScalaでは<code>Option</code>型の <code>Some</code>, <code>None</code> を使う。</p>
-
-<p><code>Nil</code> というものもあるが、これは要素が1つもない空の<code>List</code>型のオブジェクトであり、ぜんぜん違う。</p>
-
-<h2 id="php">PHP
-<span class="article-date">2015/02/09</span></h2>
-
-<p><code>NULL</code> というのがある。<a href="boolean/overview.html#php"><code>TRUE</code> / <code>FALSE</code></a>と同じく大文字小文字が区別されない。</p>
-
-<p>一度も代入されていない変数や、<code>unset</code>関数が呼び出された変数を参照しようとすると、未定義の変数として <code>PHP Notice: Undefined variable</code> が発生し、<code>NULL</code> という値が返される。</p>
-
-<p>変数が定義済みかどうかをチェックするには <code>isset</code> で調べれば良い。
-<code>isset</code> は引数に与えた変数が定義済みかどうかを <code>TRUE</code> か <code>FALSE</code> で返す。
-<code>NULL</code> を明示的に代入した変数に対しても <code>FALSE</code> が返される。
-<code>isset</code> は通常の関数ではなく、言語構造である。</p>
-
-<pre><code>if (isset($a)) {
-    # 定義済みの場合
-} else {
-    # 未定義の場合
-}
-</code></pre>
-
-<p><code>isset</code> は変数だけでなく連想配列の要素が存在するかどうかにも使われる。
--&gt; <a href="map/contains-key.html#php">連想配列に特定のキーが含まれているかどうかを判定するには</a></p>
-
-<p><code>NULL</code> | PHP Manual<br />
-<a href="http://php.net/manual/ja/language.types.null.php" target="_blank">http://php.net/manual/ja/language.types.null.php</a></p>
-
-<p><code>isset</code> | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.isset.php" target="_blank">http://php.net/manual/ja/function.isset.php</a></p>
-
-<h2 id="09b4d23">Python
-<span class="article-date">2013/10/14</span></h2>
-
-<p><code>None</code> というのがある。関数に<code>return</code>文がないときに、<code>None</code>が返されるものとみなされる。</p>
-
-<h2 id="5d5f5cc">Ruby
-<span class="article-date">2014/07/18</span></h2>
-
-<p><code>nil</code> というのがある。Rubyでは <code>nil</code> もオブジェクトであるので、メソッドを呼ぶ出すことができる。
-<code>nil</code> は <code>NilClass</code> というクラスの唯一のインスタンスである。Scalaの <code>Nil</code> とはぜんぜん意味が違う。</p>
-
-<pre><code>print nil.nil?
-# =&gt; true
-</code></pre>
-
-<h2 id="perl">Perl
-<span class="article-date">2015/01/24</span></h2>
-
-<p><code>undef</code> という値がある。</p>
-
-<p>変数を宣言だけして一度も代入しないと <code>undef</code> になる。または、宣言もなにもせずにいきなり初めての変数を参照しようとしても <code>undef</code> になる。</p>
-
-<p>定義済みの変数を未定義の状態に戻すには、以下のようにする。</p>
-
-<pre><code>$a = undef;
-</code></pre>
-
-<p>または以下のようにもできる。</p>
-
-<pre><code>undef $a;
-</code></pre>
-
-<p><code>defined</code> を使うと、定義済みかどうかを判定することができる。</p>
-
-<pre><code>if (defined $a) {
-    # 定義済みの場合
-} else {
-    # 未定義の場合
-}
-</code></pre>
-
-<p><code>undef</code> と <code>''</code> を <code>eq</code> で比較すると <code>Use of uninitialized value</code> という警告が出るが、等値との判定はされる。</p>
-
-<h2 id="javascript">JavaScript
-<span class="article-date">2014/06/12</span></h2>
-
-<p><code>null</code> や <code>undefined</code> というのがある。</p>
-
-<p><code>null</code> かどうかを判定するには</p>
-
-<pre><code>a === null
-</code></pre>
-
-<p><code>undefined</code> かどうかを判定するには</p>
-
-<pre><code>typeof a === 'undefined'
-</code></pre>
-
-<p><code>null</code> と <code>undefined</code> の違い<br />
-<a href="http://qiita.com/shuhei/items/199281e07925d24059d5" target="_blank">http://qiita.com/shuhei/items/199281e07925d24059d5</a></p>
-
-<p><code>undefined</code>値のさまざまな判定方法<br />
-<a href="http://blog.tojiru.net/article/205007468.html" target="_blank">http://blog.tojiru.net/article/205007468.html</a></p>
+<p>-&gt; <a href="etc/null.html"><code>null</code></a></p>
 
 </div>
 
@@ -160,7 +44,7 @@
       <li><a href="../programming_languages_diff/data_type.html">データ型</a></li>
       <li><a href="../programming_languages_diff/class/">型とクラス</a></li>
       <li><a href="../programming_languages_diff/exception/">例外処理</a></li>
-      <li><a href="../programming_languages_diff/boolean/">論理型</a></li>
+      <li><a href="../programming_languages_diff/boolean/">論理型 (boolean)</a></li>
       <li><a href="../programming_languages_diff/number/">数値型</a></li>
       <li><a href="../programming_languages_diff/string/">文字列</a></li>
       <li><a href="../programming_languages_diff/list/">配列(リスト)</a></li>
@@ -175,7 +59,6 @@
       <li><a href="../programming_languages_diff/regexp/">正規表現</a></li>
       <li><a href="../programming_languages_diff/process/">プロセス管理</a></li>
       <li><a href="../programming_languages_diff/etc/">その他</a></li>
-      <li>null</li>
     </ul>
   </li>
 </ul>
@@ -184,8 +67,9 @@
 </div>
 
 <footer>
-  <a href="../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>

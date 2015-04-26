@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>identityHashCode / object_id: オブジェクトのID | その他 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>オブジェクトのIDを取得するには (identityHashCode / object_id) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,19 +15,18 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/etc/">その他</a> &gt; <span>identityHashCode / object_id: オブジェクトのID</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/etc/">その他</a> &gt; <span>オブジェクトのIDを取得するには (identityHashCode / object_id)</span>
 </div>
 
 <div id="content">
-  <h1 id="object-id">identityHashCode / object_id: オブジェクトのID</h1>
+  <h1 id="object-id">オブジェクトのIDを取得するには (identityHashCode / object_id)</h1>
 
 <h2 id="14578de">Java / Scala / Groovy
-<span class="article-date">2014/10/27</span></h2>
+<span class="article-date">2015/04/26</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// java.lang.System
-static int identityHashCode(Object x)
+<pre><code>int java.lang.System.identityHashCode(Object x)
 </code></pre>
 
 <p>すべてのオブジェクトにある <code>hashCode</code> メソッドは、別々のオブジェクトでもそのオブジェクトが表す値が等しければ同じ値を返すが、この <code>identityHashCode</code> は別々のオブジェクトであれば異なる値を返すのが原則。とはいえ、ハッシュ値なので、異なる値が保証されているわけではなく、別々のオブジェクトで値が衝突する可能性はゼロではない。</p>
@@ -36,6 +35,20 @@ static int identityHashCode(Object x)
 
 <p><code>hashCode</code>をオーバーライドしても、オーバーライド前の<code>hashCode</code>の値を
 <code>identityHashCode</code>で取得できる。</p>
+
+<p><code>java.lang.System.identityHashCode</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/System.html#identityHashCode-java.lang.Object-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/System.html#identityHashCode-java.lang.Object-</a></p>
+
+<h2 id="python">Python
+<span class="article-date">2015/04/26</span></h2>
+
+<p><code>id</code>という組み込みの関数でオブジェクトのIDを取得できる。同時に存在する異なるオブジェクトは異なるIDを持つことが保証されているが、オブジェクトの生存期間が重なっていなければ、同じIDになる可能性は理論上はある。</p>
+
+<p><code>id</code> | Python 2.7 documentation<br />
+<a href="http://docs.python.jp/2/library/functions.html#id" target="_blank">http://docs.python.jp/2/library/functions.html#id</a></p>
+
+<p><code>id</code> | Python 3 documentation<br />
+<a href="http://docs.python.jp/3/library/functions.html#id" target="_blank">http://docs.python.jp/3/library/functions.html#id</a></p>
 
 <h2 id="8caf0bb">Ruby
 <span class="article-date">2013/12/11</span></h2>
@@ -103,7 +116,8 @@ p jobj.object_id
       <li><a href="../../programming_languages_diff/etc/">その他</a>
         <ul>
           <li><a href="../../programming_languages_diff/etc/elvis.html">エルビス演算子</a></li>
-          <li>identityHashCode / object_id: オブジェクトのID</li>
+          <li><a href="../../programming_languages_diff/etc/null.html">null</a></li>
+          <li>オブジェクトのIDを取得するには (identityHashCode / object_id)</li>
           <li><a href="../../programming_languages_diff/etc/op-assignment.html">複合代入演算子</a></li>
           <li><a href="../../programming_languages_diff/etc/operator-list.html">演算子の一覧と優先順位</a></li>
           <li><a href="../../programming_languages_diff/etc/ternary.html">三項演算子</a></li>
@@ -117,8 +131,9 @@ p jobj.object_id
 </div>
 
 <footer>
-  <a href="../../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>

@@ -83,14 +83,63 @@ var_export($dst);
 <p>PHPでは普通の配列と連想配列は同じものなので、<a href="../map/clone.html#php">連想配列のコピー</a>も同じ。</p>
 
 <h2 id="python">Python
-<span class="article-date">2014/03/12</span></h2>
+<span class="article-date">2015/04/26</span></h2>
 
-<pre><code>copied = lst[:]
+<pre><code>dst = src[:]
 </code></pre>
 
 <p><code>[:]</code> は<a href="sub-list.html#python">スライス表記</a>であり、この書き方で shallow copy が可能。</p>
 
-<p>または</p>
+<p>例</p>
+
+<pre><code>arr1 = [1, 2, 3]
+arr2 = arr1[:]
+
+print(id(arr1))
+# =&gt; 139997756485216
+
+print(id(arr2))
+# =&gt; 139997756311240
+
+arr2[1] = 20
+
+print(arr2)
+# =&gt; [1, 20, 3]
+
+# コピー先で書き換えてもコピー元には影響しない
+print(arr1)
+# =&gt; [1, 2, 3]
+</code></pre>
+
+<p>スライス表記を左辺に置いてもコピーにはなるが、この場合は再編の変数が予めなんでもいいのでとにかく何かしらの配列である必要がある。</p>
+
+<pre><code>dst[:] = src
+</code></pre>
+
+<p>例</p>
+
+<pre><code>arr1 = [1, 2, 3]
+arr2 = [100, 200, 300, 400]
+
+arr2[:] = arr1
+
+print(id(arr1))
+# =&gt; 139892140826208
+
+print(id(arr2))
+# =&gt; 139892140652232
+
+arr2[1] = 20
+
+print(arr2)
+# =&gt; [1, 20, 3]
+
+# コピー先で書き換えてもコピー元には影響しない
+print(arr1)
+# =&gt; [1, 2, 3]
+</code></pre>
+
+<p>または別の方法としては、<code>copy</code>モジュールがある。</p>
 
 <pre><code>import copy
 
@@ -184,7 +233,7 @@ arr_copy = arr.clone();
           <li><a href="../../programming_languages_diff/list/product.html">2つ以上の配列の要素同士をかけ合わせて配列の配列を作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べた配列を作成するには (fill)</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列(リスト)を作成するには (range)</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列を作成するには (range / seq / to / until)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">一定の数ごとにグルーピングするには (array_chunk / grouped)</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">要素をグルーピングするには (group_by / groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">先頭の要素を削除するには (array_shift / shift)</a></li>
@@ -215,8 +264,9 @@ arr_copy = arr.clone();
 </div>
 
 <footer>
-  <a href="../../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>
