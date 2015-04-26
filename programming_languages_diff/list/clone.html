@@ -85,6 +85,8 @@ var_export($dst);
 <h2 id="python">Python
 <span class="article-date">2015/04/26</span></h2>
 
+<p>NumPyでない普通の配列であれば以下の書き方を使う。</p>
+
 <pre><code>dst = src[:]
 </code></pre>
 
@@ -111,7 +113,9 @@ print(arr1)
 # =&gt; [1, 2, 3]
 </code></pre>
 
-<p>スライス表記を左辺に置いてもコピーにはなるが、この場合は再編の変数が予めなんでもいいのでとにかく何かしらの配列である必要がある。</p>
+<p>なお、この書き方はNumPyではコピーにはならずビューを提供するのみになる。</p>
+
+<p>スライス表記を左辺に置いてもコピーにはなるが、左辺の変数が予めなんでもいいのでとにかく何かしらの配列である必要がある。この方法では、コピー先の変数に新しいオブジェクトが代入されるのではなく、既存の配列がコピー元と同じになるように書き換えられる。</p>
 
 <pre><code>dst[:] = src
 </code></pre>
@@ -137,7 +141,13 @@ print(arr2)
 # コピー先で書き換えてもコピー元には影響しない
 print(arr1)
 # =&gt; [1, 2, 3]
+
+# この方法でコピーするとコピー先のIDは変わらない。
+print(id(arr2))
+# =&gt; 139892140652232
 </code></pre>
+
+<p>この左辺にスライス表記を使う方法はNumPyでもコピーになるが、コピー前の配列は同じ大きさである必要がある。</p>
 
 <p>または別の方法としては、<code>copy</code>モジュールがある。</p>
 
@@ -149,6 +159,12 @@ copy.deepcopy(lst) # deep copy
 
 <p>copy — 浅いコピーおよび深いコピー操作 | Python 標準ライブラリ<br />
 <a href="http://docs.python.jp/2.7/library/copy.html" target="_blank">http://docs.python.jp/2.7/library/copy.html</a></p>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="../../numpy/ndarray-copy.html">NumPyでのndarrayのコピー</a></li>
+</ul>
 
 <h2 id="19e4557">Ruby / JRuby
 <span class="article-date">2014/12/31</span></h2>

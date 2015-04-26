@@ -194,3 +194,8 @@ footer {
   border: 1px #999 solid;
   padding: 4px;
 }
+
+#content .adlabel {
+  border-bottom: 1px #CCC solid;
+  font-size: 90%;
+}
