@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>ndarrayのブールインデックス参照 | NumPy | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy</a> &gt; <span>ndarrayのブールインデックス参照</span>
+</div>
+
+<div id="content">
+  <h1 id="ndarray-ref-boolean">ndarrayのブールインデックス参照
+<span class="article-date">2015/04/27</span></h1>
+
+<p><code>[]</code> の中にインデックスを書く代わりに論理値の配列を書くとその論理値が<code>True</code>に該当する箇所だけの要素をピックアップしたndarrayを新しく作ってくれる。</p>
+
+<pre><code>ndarr1 = np.array([0, 10, 20, 30, 40, 50])
+
+print(ndarr1)
+# 出力結果
+# [ 0 10 20 30 40 50]
+
+print(ndarr1[np.array([False, True, False, False, False, True])])
+# 出力結果
+# [10 50]
+</code></pre>
+
+<p>これの何が便利かというと、まず <code>ndarr1 % 20 == 0</code> のように書くと<a href="ndarray-vector.html">ベクトル計算</a>により論理値の配列が生成されるので、それをそのまま <code>[]</code> の中に書くことによってフィルタ処理のようなことができるのである。</p>
+
+<pre><code>print(ndarr1 % 20 == 0)
+# 出力結果
+# [ True False  True False  True False]
+
+print(ndarr1[ndarr1 % 20 == 0])
+# 出力結果
+# [ 0 20 40]
+</code></pre>
+
+<p><code>[]</code> に論理型のndarrayではなく普通の配列を渡すと意図した動作にならない。将来のバージョンでは変わるかもしれない。自分が試した環境は Python 2.7.8, NumPy 1.9.0。</p>
+
+<pre><code>print(ndarr1[[False, True, False, False, False, True]])
+# 出力結果
+# FutureWarning: in the future, boolean array-likes will be handled as a boolean array index
+# [ 0 10  0  0  0 10]
+</code></pre>
+
+<p>ブールインデックスで得た配列はもとの配列から必要な要素をコピーして作成される新しい配列であって、従って新しい配列を書き換えても、もとの配列には影響しない。</p>
+
+<pre><code>bi = ndarr1[ndarr1 % 20 == 0]
+print(bi)
+# 出力結果
+# [ 0 20 40]
+
+bi[0] = 100
+print(bi)
+# 出力結果
+# [100  20  40]
+
+print(ndarr1)
+# 出力結果
+# [ 0 10 20 30 40 50]
+</code></pre>
+
+<p>参照だけでなく、代入もできる。ブールインデックスでの代入は複数の要素をまとめて書き換えることができる。</p>
+
+<pre><code>ndarr1[ndarr1 % 20 == 0] = [100, 120, 140]
+
+print(ndarr1)
+# 出力結果
+# [100  10 120  30 140  50]
+</code></pre>
+
+<p>ブールインデックスに配列ではなく数値を代入すると、ブールインデックスで参照されている要素にすべて同一の値が代入される。</p>
+
+<pre><code>ndarr1[ndarr1 % 20 == 0] = 1000
+print(ndarr1)
+# 出力結果
+# [1000   10 1000   30 1000   50]
+</code></pre>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="../programming_languages_diff/list/filter.html">各プログラミング言語での配列から特定の条件にマッチする要素のみを取り出す方法</a></li>
+</ul>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../numpy/">NumPy</a>
+    <ul>
+      <li><a href="../numpy/install.html">インストール</a></li>
+      <li><a href="../numpy/ndarray-create.html">多次元配列ndarrayの生成</a></li>
+      <li><a href="../numpy/ndarray-property.html">ndarrayの属性</a></li>
+      <li><a href="../numpy/ndarray-element-type.html">ndarrayの要素のデータ型</a></li>
+      <li><a href="../numpy/ndarray-copy.html">ndarrayのコピー</a></li>
+      <li><a href="../numpy/ndarray-convert.html">ndarrayのデータ型の変換</a></li>
+      <li><a href="../numpy/ndarray-vector.html">ndarrayでのベクトル計算</a></li>
+      <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
+      <li>ndarrayのブールインデックス参照</li>
+      <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
+      <li><a href="../numpy/howto.html">HOWTO</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>
