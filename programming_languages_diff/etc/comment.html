@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>コメントの書き方 | その他 | プログラミング言語の比較 | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/etc/">その他</a> &gt; <span>コメントの書き方</span>
+</div>
+
+<div id="content">
+  <h1 id="comment">コメントの書き方</h1>
+
+<h2 id="17cb7ee">C言語 / C++
+<span class="article-date">2013/04/22</span></h2>
+
+<pre><code>// 単一行コメント
+/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<p>複数行コメントはネスト不可。</p>
+
+<p>C言語では、単一行コメントは正式にはC99以降の規格。</p>
+
+<h2 id="5f61e5e">Go言語
+<span class="article-date">2013/06/19</span></h2>
+
+<pre><code>// 単一行コメント
+/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<p>複数行コメントはネスト不可。</p>
+
+<h2 id="45195b1">Java
+<span class="article-date">2013/10/01</span></h2>
+
+<pre><code>// 単一行コメント
+/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<p>複数行コメントはネスト不可。</p>
+
+<h2 id="cf37f48">Scala
+<span class="article-date">2013/10/01</span></h2>
+
+<pre><code>// 単一行コメント
+/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<p>Javaと違い、複数行コメントはネストが可。従って、コメントの中も <code>/* */</code> の対を対応させる必要がある。</p>
+
+<h2 id="e724e60">Groovy
+<span class="article-date">2013/10/01</span></h2>
+
+<pre><code>// 単一行コメント
+/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<p>複数行コメントはネスト不可。</p>
+
+<h2 id="18ab070">PHP
+<span class="article-date">2013/04/22</span></h2>
+
+<pre><code>// 単一行コメント
+# 単一行コメント
+/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<p>複数行コメントはネスト不可。</p>
+
+<p><a href="http://www.php.net/manual/ja/language.basic-syntax.comments.php" target="_blank">http://www.php.net/manual/ja/language.basic-syntax.comments.php</a></p>
+
+<h3 id="089a856">コメントアウトを一時的に簡単に解除するようにしておくには
+<span class="article-date">2013/04/24</span></h3>
+
+<p>以下のようにすると、1行目を <code>// /*</code> にすることで、コメントアウトの一時的な解除を簡単にできる。</p>
+
+<pre><code>/*
+  コメントアウトされたコード
+  コメントアウトされたコード
+// */
+</code></pre>
+
+<p>以下のようにすると、1行目を <code>// /*</code> にすることで、コメントアウトのコードと生きているコードを簡単に入れ替えできる。</p>
+
+<pre><code>/*
+  コメントアウトされたコード
+  コメントアウトされたコード
+/*/
+  生きているコード
+  生きているコード
+// */
+</code></pre>
+
+<h2 id="fc2b2a8">Smarty
+<span class="article-date">2013/09/11</span></h2>
+
+<pre><code>{*
+  コメントアウトされたコード
+  コメントアウトされたコード
+*}
+</code></pre>
+
+<p>テンプレートの中に <code>&lt;!-- --&gt;</code> を使うと、ブラウザへのレスポンスにもそのコメントが送信されてしまうが、<code>{* *}</code> の形式なら、レスポンスに含まれない。</p>
+
+<h2 id="python">Python
+<span class="article-date">2013/04/22</span></h2>
+
+<pre><code># 単一行コメント
+</code></pre>
+
+<p>複数行のコメントはない。そのかわり、文字列を置いてもプログラムの意味が変わらない箇所で、複数行の文字列リテラルを置くことで、複数行コメントの代わりにすることができる。</p>
+
+<pre><code>'''
+複数行コメント
+複数行コメント
+'''
+</code></pre>
+
+<h2 id="86bb44a">Ruby / JRuby
+<span class="article-date">2014/10/17</span></h2>
+
+<pre><code># 単一行コメント
+=begin
+  複数行コメント
+  複数行コメント
+=end
+</code></pre>
+
+<p>文字列や正規表現、<a href="../list/overview.html#ruby"><code>%w</code>表記</a>の中など、コメント開始以外の <code>#</code> もありえる。</p>
+
+<p>複数行コメントの <code>=begin</code>, <code>=end</code> は行の先頭に書く必要があり、コメントは <code>=end</code> のある行の行末まで続く。</p>
+
+<p>コメント | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/doc/spec=2flexical.html#comment" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/doc/spec=2flexical.html#comment</a></p>
+
+<h2 id="4b4afdb">Perl
+<span class="article-date">2013/12/10</span></h2>
+
+<pre><code># 単一行コメント
+=comment
+  複数行コメント
+  複数行コメント
+=cut
+</code></pre>
+
+<p>文字列や正規表現の中であったり、<code>$#arr</code> のように、コメント開始以外の <code>#</code> もありえる。</p>
+
+<h2 id="45d47a5">sh (シェルスクリプト)
+<span class="article-date">2015/04/21</span></h2>
+
+<pre><code># 単一行コメント
+</code></pre>
+
+<p>複数行コメントの構文はないのだが、複数行のコードを一時的にコメントアウトしたい場合に自分がよく使う方法</p>
+
+<pre><code>cat &lt;&lt;EOF &gt;/dev/null
+  複数行コメント
+  複数行コメント
+EOF
+</code></pre>
+
+<h2 id="cbea7d8">Haskell
+<span class="article-date">2013/09/17</span></h2>
+
+<pre><code>-- 単一行コメント
+{-
+  複数行コメント
+  複数行コメント
+-}
+</code></pre>
+
+<h2 id="3b76fff">R言語
+<span class="article-date">2013/11/19</span></h2>
+
+<pre><code># 単一行コメント
+</code></pre>
+
+<h2 id="fed285b">JavaScript
+<span class="article-date">2013/04/22</span></h2>
+
+<pre><code>// 単一行コメント
+/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<h2 id="93c001d">CoffeeScript
+<span class="article-date">2013/04/22</span></h2>
+
+<pre><code># 単一行コメント
+###
+  複数行コメント
+  複数行コメント
+###
+</code></pre>
+
+<h2 id="f08667b">CSS
+<span class="article-date">2013/10/20</span></h2>
+
+<pre><code>/*
+  複数行コメント
+  複数行コメント
+*/
+</code></pre>
+
+<p>単一行コメントのための記法はない。</p>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/etc/">その他</a>
+        <ul>
+          <li>コメントの書き方</li>
+          <li><a href="../../programming_languages_diff/etc/elvis.html">エルビス演算子</a></li>
+          <li><a href="../../programming_languages_diff/etc/indent.html">インデント / セミコロン</a></li>
+          <li><a href="../../programming_languages_diff/etc/magic-comment.html">マジックコメント</a></li>
+          <li><a href="../../programming_languages_diff/etc/null.html">null</a></li>
+          <li><a href="../../programming_languages_diff/etc/object-id.html">オブジェクトのIDを取得するには (identityHashCode / object_id)</a></li>
+          <li><a href="../../programming_languages_diff/etc/op-assignment.html">複合代入演算子</a></li>
+          <li><a href="../../programming_languages_diff/etc/operator-list.html">演算子の一覧と優先順位</a></li>
+          <li><a href="../../programming_languages_diff/etc/reference.html">APIレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/etc/ternary.html">三項演算子</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>

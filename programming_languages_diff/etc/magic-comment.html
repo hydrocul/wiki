@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>マジックコメント | その他 | プログラミング言語の比較 | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/etc/">その他</a> &gt; <span>マジックコメント</span>
+</div>
+
+<div id="content">
+  <h1 id="magic-comment">マジックコメント
+<span class="article-date">2013/09/16</span></h1>
+
+<p>ソースコードの先頭に書く各種おまじない。ソースコード自体の文字符号化方式(文字コード)を指定するための書式が決まっているスクリプト言語が多い。</p>
+
+<h2 id="259ef16">PHP
+<span class="article-date">2014/03/11</span></h2>
+
+<p>PHPはHTMLの中に直接コードを書けるようになっており、
+PHPコードは <code>&lt;?php</code> と <code>?&gt;</code> で囲んでHTMLコードと区別することになっているが、
+HTMLの中でなく、PHPコードだけが書かれたソースコードの場合、先頭に <code>&lt;?php</code> だけを書くことになる。</p>
+
+<p>文字符号化方式(文字コード)を表すマジックコメントはない。</p>
+
+<h2 id="24b29d7">Python
+<span class="article-date">2014/09/13</span></h2>
+
+<p>ソースコードの文字符号化方式(文字コード)を
+1行目に以下のように書く。シェバングがあれば、その次の行でもよい。</p>
+
+<pre><code># -*- coding: utf-8 -*-
+</code></pre>
+
+<p>Python2では非ASCIIコードがあるのにこのマジックコメントがなかった場合にエラーになる。
+Python3ではこのエンコーディングの指定がなければUTF-8とみなされる。</p>
+
+<h2 id="ruby">Ruby
+<span class="article-date">2014/09/13</span></h2>
+
+<p>ソースコードの文字符号化方式(文字コード)を
+1行目に以下のように指定する。シェバングがあれば、その次の行でもよい。</p>
+
+<p>Emacs派:</p>
+
+<pre><code># -*- coding: utf-8 -*-
+</code></pre>
+
+<p>vi派:</p>
+
+<pre><code># vim:fileencoding=utf-8
+</code></pre>
+
+<p>非ASCIIコードがあるのにこのマジックコメントがなかった場合は、Ruby 1.9からはエラーになる。</p>
+
+<p>このルールはもともとはPythonから流用されたものらしい。</p>
+
+<p>ソースコード中の文字列リテラルは、このマジックコメントの文字符号化形式でエンコードされた文字列になる。</p>
+
+<pre><code># -*- coding: UTF-8 -*-
+
+p "abc".encoding
+# =&gt; #&lt;Encoding:UTF-8&gt;
+
+p "あいうえお".encoding
+# =&gt; #&lt;Encoding:UTF-8&gt;
+</code></pre>
+
+<h2 id="772ac84">Perl
+<span class="article-date">2014/06/16</span></h2>
+
+<p>ソースコードの文字符号化方式(文字コード)を表すマジックコメントではないが、以下を常に先頭に付けたほうがよい。これを付けると、バグになりやすい古い仕様の表記などに対して警告を出してくれるようになる。</p>
+
+<pre><code>use strict;
+use warnings;
+</code></pre>
+
+<p>日本語を扱う場合は以下も書いておいたほうがたぶん無難。</p>
+
+<pre><code>use utf8;
+</code></pre>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
+    <ul>
+      <li><a href="../../programming_languages_diff/etc/">その他</a>
+        <ul>
+          <li><a href="../../programming_languages_diff/etc/comment.html">コメントの書き方</a></li>
+          <li><a href="../../programming_languages_diff/etc/elvis.html">エルビス演算子</a></li>
+          <li><a href="../../programming_languages_diff/etc/indent.html">インデント / セミコロン</a></li>
+          <li>マジックコメント</li>
+          <li><a href="../../programming_languages_diff/etc/null.html">null</a></li>
+          <li><a href="../../programming_languages_diff/etc/object-id.html">オブジェクトのIDを取得するには (identityHashCode / object_id)</a></li>
+          <li><a href="../../programming_languages_diff/etc/op-assignment.html">複合代入演算子</a></li>
+          <li><a href="../../programming_languages_diff/etc/operator-list.html">演算子の一覧と優先順位</a></li>
+          <li><a href="../../programming_languages_diff/etc/reference.html">APIレファレンス</a></li>
+          <li><a href="../../programming_languages_diff/etc/ternary.html">三項演算子</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>
