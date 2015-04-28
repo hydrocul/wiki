@@ -19,7 +19,43 @@
 </div>
 
 <div id="content">
-  <h1 id="is-empty">配列(リスト)が空かどうかを判定するには (empty / isEmpty)</h1>
+  <h1 id="is-empty">配列(リスト)が空かどうかを判定するには (empty / isEmpty)
+<span class="article-date">2015/04/28</span></h1>
+
+<p>配列が空っぽかどうかを判定する方法についての、プログラミング言語別のメモ。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="#java-arr">Javaの配列</a></td>
+      <td><code>arr.length == 0</code></td>
+    </tr>
+    <tr>
+      <td><a href="#java-list">Javaの<code>List</code></a></td>
+      <td><code>lst.isEmpty()</code></td>
+    </tr>
+    <tr>
+      <td><a href="#scala">Scala</a></td>
+      <td><code>lst.isEmpty</code></td>
+    </tr>
+    <tr>
+      <td><a href="#php">PHP</a></td>
+      <td><code>empty($arr)</code></td>
+    </tr>
+    <tr>
+      <td>Python</td>
+      <td><code>len(lst) == 0</code></td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a></td>
+      <td><code>arr.empty?</code></td>
+    </tr>
+    <tr>
+      <td><a href="#perl">Perl</a></td>
+      <td><code>!@arr</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <p>関連</p>
 
@@ -30,7 +66,7 @@
 
 <h2 id="4319d3c">Java</h2>
 
-<h3 id="60908a9">配列
+<h3 id="java-arr">配列
 <span class="article-date">2015/01/12</span></h3>
 
 <p><a href="size.html#java-arr">長さ</a>が0かどうかで判定する。</p>
@@ -42,7 +78,7 @@
 }
 </code></pre>
 
-<h3 id="23bf050"><code>java.util.List</code>
+<h3 id="java-list"><code>java.util.List</code>
 <span class="article-date">2015/04/25</span></h3>
 
 <p>Signature:</p>
@@ -62,7 +98,7 @@
 <p><code>java.util.List#isEmpty</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#isEmpty--" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/util/List.html#isEmpty–</a></p>
 
-<h2 id="4df1d65">Scala
+<h2 id="scala">Scala
 <span class="article-date">2015/03/22</span></h2>
 
 <p><code>List</code>クラスなどに<code>isEmpty</code>とその逆の<code>nonEmpty</code>メソッドが存在する。</p>
@@ -102,13 +138,7 @@ def scala.collection.TraversableOnce[A]#nonEmpty: Boolean
 <p><code>empty</code> 関数 | PHP Manual<br />
 <a href="http://php.net/manual/ja/function.empty.php" target="_blank">http://php.net/manual/ja/function.empty.php</a></p>
 
-<h2 id="9f87779">Python
-<span class="article-date">2013/10/21</span></h2>
-
-<pre><code>len(lst) == 0
-</code></pre>
-
-<h2 id="e085a80">Ruby / JRuby
+<h2 id="ruby">Ruby / JRuby
 <span class="article-date">2014/12/31</span></h2>
 
 <p><code>Array#empty?</code> を使う。</p>
@@ -119,7 +149,7 @@ def scala.collection.TraversableOnce[A]#nonEmpty: Boolean
 <p><code>Array#empty?</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/empty=3f.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/empty=3f.html</a></p>
 
-<h2 id="192b08b">Perl
+<h2 id="perl">Perl
 <span class="article-date">2013/07/30</span></h2>
 
 <p>例</p>
