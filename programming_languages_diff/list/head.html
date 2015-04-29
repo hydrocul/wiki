@@ -20,9 +20,38 @@
 
 <div id="content">
   <h1 id="head">配列(リスト)の先頭の要素を取得するには (first / head / headOption)
-<span class="article-date">2015/03/24</span></h1>
+<span class="article-date">2015/04/28</span></h1>
 
 <p>各プログラミング言語での、配列(リスト)の先頭の要素を取得する方法。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="#java-arr">Javaの配列</a></td>
+      <td><code>arr[0]</code></td>
+    </tr>
+    <tr>
+      <td><a href="#java-list">Javaの<code>List</code></a></td>
+      <td><code>lst.get(0)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#scala">Scala</a></td>
+      <td><code>lst.head</code></td>
+    </tr>
+    <tr>
+      <td>PHP</td>
+      <td><code>$arr[0]</code></td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a></td>
+      <td><code>arr.first</code></td>
+    </tr>
+    <tr>
+      <td>Perl</td>
+      <td><code>$arr[0]</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <p>関連</p>
 
@@ -33,7 +62,7 @@
 
 <h2 id="f7d54f9">Java</h2>
 
-<h3 id="5343777">配列
+<h3 id="java-arr">配列
 <span class="article-date">2015/01/10</span></h3>
 
 <p>インデックス0の要素にアクセスする。サイズが0の場合は例外が発生する。</p>
@@ -44,7 +73,7 @@
 System.out.println(arr[0]); // =&gt; 3
 </code></pre>
 
-<h3 id="5344fc9"><code>java.util.List</code>
+<h3 id="java-list"><code>java.util.List</code>
 <span class="article-date">2015/01/10</span></h3>
 
 <p>インデックス0の要素にアクセスする。サイズが0の場合は例外が発生する。</p>
@@ -59,7 +88,7 @@ lst.add(9);
 System.out.println(lst.get(0)); // =&gt; 3
 </code></pre>
 
-<h2 id="60286aa">Scala
+<h2 id="scala">Scala
 <span class="article-date">2014/10/23</span></h2>
 
 <p>Signature:</p>
@@ -71,13 +100,6 @@ def headOption: Option[A]
 
 <p>空の<code>Seq</code>に対して<code>head</code>を呼び出すと、
 <code>java.util.NoSuchElementException</code> の例外がスローされてしまう。</p>
-
-<h2 id="407d942">PHP
-<span class="article-date">2015/03/24</span></h2>
-
-<pre><code>// 配列の先頭の要素を取得
-$arr[0]
-</code></pre>
 
 <h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/01/04</span></h2>
@@ -106,13 +128,6 @@ p arr.first(3)
 
 <p><code>Array#first</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/first.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/first.html</a></p>
-
-<h2 id="perl">Perl
-<span class="article-date">2014/01/11</span></h2>
-
-<pre><code># 配列の先頭の要素を取得
-$arr[0]
-</code></pre>
 
 <h2 id="e226776">sh (シェルスクリプト)
 <span class="article-date">2014/01/26</span></h2>
@@ -163,7 +178,7 @@ head -n1
           <li><a href="../../programming_languages_diff/list/product.html">2つ以上の配列の要素同士をかけ合わせて配列の配列を作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べた配列を作成するには (fill)</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列(リスト)を作成するには (range)</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列を作成するには (range / seq / to / until)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">一定の数ごとにグルーピングするには (array_chunk / grouped)</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">要素をグルーピングするには (group_by / groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">先頭の要素を削除するには (array_shift / shift)</a></li>
@@ -194,8 +209,9 @@ head -n1
 </div>
 
 <footer>
-  <a href="../../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>

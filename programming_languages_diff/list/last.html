@@ -20,7 +20,34 @@
 
 <div id="content">
   <h1 id="last">配列(リスト)の最後の要素を取得するには (last / lastOption)
-<span class="article-date">2015/03/29</span></h1>
+<span class="article-date">2015/04/28</span></h1>
+
+<p>各プログラミング言語での、配列(リスト)の最後の要素を取得する方法。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="#java-arr">Javaの配列</a></td>
+      <td><code>arr[arr.length - 1]</code></td>
+    </tr>
+    <tr>
+      <td><a href="#java-list">Javaの<code>List</code></a></td>
+      <td><code>lst.get(lst.size() - 1)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#scala">Scala</a></td>
+      <td><code>lst.last</code></td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a></td>
+      <td><code>arr.last</code></td>
+    </tr>
+    <tr>
+      <td><a href="#perl">Perl</a></td>
+      <td><code>$arr[$#arr]</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <p>関連</p>
 
@@ -31,7 +58,7 @@
 
 <h2 id="5ab93fc">Java</h2>
 
-<h3 id="b71d455">配列
+<h3 id="java-arr">配列
 <span class="article-date">2015/01/10</span></h3>
 
 <p>サイズから最後のインデックスを計算してアクセスする。サイズが0の場合は例外が発生する。</p>
@@ -42,7 +69,7 @@
 System.out.println(arr[arr.length - 1]); // =&gt; 9
 </code></pre>
 
-<h3 id="004f4a8"><code>java.util.List</code>
+<h3 id="java-list"><code>java.util.List</code>
 <span class="article-date">2015/01/10</span></h3>
 
 <p>サイズから最後のインデックスを計算してアクセスする。サイズが0の場合は例外が発生する。</p>
@@ -57,7 +84,7 @@ lst.add(9);
 System.out.println(lst.get(lst.size() - 1)); // =&gt; 9
 </code></pre>
 
-<h2 id="7ce57b7">Scala
+<h2 id="scala">Scala
 <span class="article-date">2014/10/23</span></h2>
 
 <p>Signature:</p>
@@ -155,7 +182,7 @@ tail -n1
           <li><a href="../../programming_languages_diff/list/product.html">2つ以上の配列の要素同士をかけ合わせて配列の配列を作るには (product)</a></li>
           <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
           <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べた配列を作成するには (fill)</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列(リスト)を作成するには (range)</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列を作成するには (range / seq / to / until)</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">一定の数ごとにグルーピングするには (array_chunk / grouped)</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">要素をグルーピングするには (group_by / groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">先頭の要素を削除するには (array_shift / shift)</a></li>
@@ -186,8 +213,9 @@ tail -n1
 </div>
 
 <footer>
-  <a href="../../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>
