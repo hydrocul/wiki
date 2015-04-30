@@ -192,7 +192,7 @@ print "abc\nabc\n" =~ /a$/;
 </code></pre>
 
 <h2 id="sh">sh (シェルスクリプト)
-<span class="article-date">2015/04/15</span></h2>
+<span class="article-date">2015/04/30</span></h2>
 
 <p>bashだと <code>[[</code> というコマンドで <code>=~</code> という演算子が使えて、正規表現でマッチングできる。</p>
 
@@ -213,6 +213,24 @@ fi
 </code></pre>
 
 <p>zshでもできるみたい。Ubuntuにあるdashではできなかった。</p>
+
+<p>次はシェルの機能を使わずに <code>grep</code> でする方法。</p>
+
+<pre><code>echo "Hello, world!" | grep "wor" &gt;/dev/null
+echo $?
+# =&gt; 0
+
+echo "Hello, world!" | grep "unmatch" &gt;/dev/null
+echo $?
+# =&gt; 1
+</code></pre>
+
+<p>これを<code>if</code>文で使う例。</p>
+
+<pre><code>if echo "Hello, world!" | grep "wor" &gt;/dev/null; then
+    echo OK
+fi
+</code></pre>
 
 <h2 id="javascript">JavaScript
 <span class="article-date">2013/04/19</span></h2>
@@ -237,7 +255,7 @@ fi
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント / 複数行文字列</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">特定のインデックスの文字を取得するには (charAt / getAt)</a></li>
@@ -281,8 +299,9 @@ fi
 </div>
 
 <footer>
-  <a href="../../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>
