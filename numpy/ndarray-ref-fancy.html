@@ -74,7 +74,7 @@ print(ndarr1)
 # [   0 1000 1000   30   40   50]
 </code></pre>
 
-<p>多次元配列の場合でも同じ書き方をすれば、最も外側の次元のインデックスを指定することになる。</p>
+<p>多次元配列の場合でも同じ書き方をすれば、最も外側の軸のインデックスを指定することになる。</p>
 
 <pre><code>ndarr1 = np.array([[1., 2., 3.], [4., 5., 6.], [7., 8., 9.]])
 
@@ -90,7 +90,7 @@ print(ndarr1[[0, 1]])
 #  [ 4.  5.  6.]]
 </code></pre>
 
-<p>コロンを使って <code>[:, [0, 1]]</code> のように書くと、内側の次元のインデックスだけを指定することもできる。これは後述の<a href="ndarray-ref-slice.html">スライス表記</a>との組み合わせである。</p>
+<p>コロンを使って <code>[:, [0, 1]]</code> のように書くと、内側の軸のインデックスだけを指定することもできる。これは後述の<a href="ndarray-ref-slice.html">スライス表記</a>との組み合わせである。</p>
 
 <pre><code>print(ndarr1[:, [0, 1]])
 # 出力結果
@@ -136,8 +136,10 @@ print(ndarr1[[0, 1]])
       <li><a href="../numpy/ndarray-vector.html">ndarrayでのベクトル計算</a></li>
       <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
       <li>ndarrayのファンシーインデックス参照と代入</li>
+      <li><a href="../numpy/ndarray-ref-boolean.html">ndarrayのブールインデックス参照</a></li>
       <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
+      <li><a href="../numpy/ndarray-transposed.html">転置行列</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>

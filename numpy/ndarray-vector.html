@@ -52,9 +52,9 @@ print(ndarr1 / ndarr2)
 #  [ 0.1  0.1  0.1]]
 </code></pre>
 
-<p>一方のndarrayの特定の次元の大きさが1の場合はブロードキャストという。以下はいろいろなブロードキャストの例。</p>
+<p>一方のndarrayの特定の軸の大きさが1の場合はブロードキャストという。以下はいろいろなブロードキャストの例。</p>
 
-<p>一方のndarrayの内側の次元が大きさ1の例</p>
+<p>一方のndarrayの内側の軸が大きさ1の例</p>
 
 <pre><code>ndarr1 = np.array([[1], [2]])
 ndarr2 = np.array([[10., 20., 30.], [40., 50., 60.]])
@@ -65,7 +65,7 @@ print(ndarr1 + ndarr2)
 #  [ 42.  52.  62.]]
 </code></pre>
 
-<p>一方のndarrayの外側の次元が大きさ1の例</p>
+<p>一方のndarrayの外側の軸が大きさ1の例</p>
 
 <pre><code>ndarr1 = np.array([[1, 2, 3]])
 ndarr2 = np.array([[10., 20., 30.], [40., 50., 60.]])
@@ -76,7 +76,7 @@ print(ndarr1 + ndarr2)
 #  [ 41.  52.  63.]]
 </code></pre>
 
-<p>一方のndarrayの両方の次元が大きさ1の例</p>
+<p>一方のndarrayの両方の軸が大きさ1の例</p>
 
 <pre><code>ndarr1 = np.array([[1]])
 ndarr2 = np.array([[10., 20., 30.], [40., 50., 60.]])
@@ -97,7 +97,7 @@ print(1 + ndarr2)
 #  [ 41.  51.  61.]]
 </code></pre>
 
-<p>1つ目のndarrayは外側の次元が大きさ1で、2つ目のndarrayは内側の次元が大きさ1の例</p>
+<p>1つ目のndarrayは外側の軸が大きさ1で、2つ目のndarrayは内側の軸が大きさ1の例</p>
 
 <pre><code>ndarr1 = np.array([[1., 2., 3.]])
 ndarr2 = np.array([[10.], [20.]])
@@ -127,8 +127,10 @@ print(ndarr1 + ndarr2)
       <li>ndarrayでのベクトル計算</li>
       <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-boolean.html">ndarrayのブールインデックス参照</a></li>
       <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
+      <li><a href="../numpy/ndarray-transposed.html">転置行列</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>

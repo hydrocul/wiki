@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>転置行列 | NumPy | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy</a> &gt; <span>転置行列</span>
+</div>
+
+<div id="content">
+  <h1 id="ndarray-transposed">転置行列
+<span class="article-date">2015/05/01</span></h1>
+
+<p>2次元のndarrayで表現する行列の転置行列は <code>T</code> というメソッドで簡単に表現することができる。</p>
+
+<p>\[ \mathbf{X} =
+    \begin{pmatrix}
+      1 &amp; 2 &amp; 3 \\ 
+      4 &amp; 5 &amp; 6 \\ 
+      7 &amp; 8 &amp; 9 \\ 
+    \end{pmatrix} \]</p>
+
+<p>\[ \mathbf{X}^T =
+    \begin{pmatrix}
+      1 &amp; 4 &amp; 7 \\ 
+      2 &amp; 5 &amp; 8 \\ 
+      3 &amp; 6 &amp; 9 \\ 
+    \end{pmatrix} \]</p>
+
+<pre><code>X = np.array([[1., 2., 3.], [4., 5., 6.], [7., 8., 9.]])
+
+print(X)
+# 出力結果
+# [[ 1.  2.  3.]
+#  [ 4.  5.  6.]
+#  [ 7.  8.  9.]]
+
+t = X.T
+
+print(t)
+# 出力結果
+# [[ 1.  4.  7.]
+#  [ 2.  5.  8.]
+#  [ 3.  6.  9.]]
+</code></pre>
+
+<p><code>swapaxes</code>というメソッドは転置行列の一般化で、任意の軸を入れ替えることができる。以下の例では0番目の軸(外側の軸)と1番目の軸(内側の軸)を交換している。つまり、転置行列とまったく同じ。</p>
+
+<pre><code>print(X.swapaxes(0, 1))
+# 出力結果
+# [[ 1.  4.  7.]
+#  [ 2.  5.  8.]
+#  [ 3.  6.  9.]]
+</code></pre>
+
+<p><code>T</code>メソッドの結果はビューであるので、要素に値を代入すると、元の行列にも反映される。</p>
+
+<pre><code>t[1, 0] = 100
+
+print(t)
+# 出力結果
+# [[   1.    4.    7.]
+#  [ 100.    5.    8.]
+#  [   3.    6.    9.]]
+
+print(X)
+# 出力結果
+# [[   1.  100.    3.]
+#  [   4.    5.    6.]
+#  [   7.    8.    9.]]
+</code></pre>
+
+<p><code>swapaxes</code>の例をもう少し挙げておくと、</p>
+
+<pre><code># 3次元配列
+ndarr1 = np.array([[[1., 2., 3.], [4., 5., 6.], [7., 8., 9.]], [[11., 12., 13.], [14., 15., 16.], [17., 18., 19.]]])
+
+print(ndarr1)
+# 出力結果
+# [[[  1.   2.   3.]
+#   [  4.   5.   6.]
+#   [  7.   8.   9.]]
+# 
+#  [[ 11.  12.  13.]
+#   [ 14.  15.  16.]
+#   [ 17.  18.  19.]]]
+
+# 外側の軸と真ん中の軸を交換
+print(ndarr1.swapaxes(0, 1))
+# 出力結果
+# [[[  1.   2.   3.]
+#   [ 11.  12.  13.]]
+# 
+#  [[  4.   5.   6.]
+#   [ 14.  15.  16.]]
+# 
+#  [[  7.   8.   9.]
+#   [ 17.  18.  19.]]]
+
+# 真ん中の軸と内側の軸を交換
+print(ndarr1.swapaxes(1, 2))
+# 出力結果
+# [[[  1.   4.   7.]
+#   [  2.   5.   8.]
+#   [  3.   6.   9.]]
+# 
+#  [[ 11.  14.  17.]
+#   [ 12.  15.  18.]
+#   [ 13.  16.  19.]]]
+
+# 外側の軸と内側の軸を交換
+print(ndarr1.swapaxes(0, 2))
+# 出力結果
+# [[[  1.  11.]
+#   [  4.  14.]
+#   [  7.  17.]]
+# 
+#  [[  2.  12.]
+#   [  5.  15.]
+#   [  8.  18.]]
+# 
+#  [[  3.  13.]
+#   [  6.  16.]
+#   [  9.  19.]]]
+</code></pre>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../numpy/">NumPy</a>
+    <ul>
+      <li><a href="../numpy/install.html">インストール</a></li>
+      <li><a href="../numpy/ndarray-create.html">多次元配列ndarrayの生成</a></li>
+      <li><a href="../numpy/ndarray-property.html">ndarrayの属性</a></li>
+      <li><a href="../numpy/ndarray-element-type.html">ndarrayの要素のデータ型</a></li>
+      <li><a href="../numpy/ndarray-copy.html">ndarrayのコピー</a></li>
+      <li><a href="../numpy/ndarray-convert.html">ndarrayのデータ型の変換</a></li>
+      <li><a href="../numpy/ndarray-vector.html">ndarrayでのベクトル計算</a></li>
+      <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-boolean.html">ndarrayのブールインデックス参照</a></li>
+      <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
+      <li>転置行列</li>
+      <li><a href="../numpy/howto.html">HOWTO</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>

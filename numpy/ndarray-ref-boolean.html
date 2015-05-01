@@ -20,7 +20,7 @@
 
 <div id="content">
   <h1 id="ndarray-ref-boolean">ndarrayのブールインデックス参照
-<span class="article-date">2015/04/27</span></h1>
+<span class="article-date">2015/05/01</span></h1>
 
 <p><code>[]</code> の中にインデックスを書く代わりに論理値の配列を書くとその論理値が<code>True</code>に該当する箇所だけの要素をピックアップしたndarrayを新しく作ってくれる。</p>
 
@@ -44,6 +44,17 @@ print(ndarr1[np.array([False, True, False, False, False, True])])
 print(ndarr1[ndarr1 % 20 == 0])
 # 出力結果
 # [ 0 20 40]
+</code></pre>
+
+<p>論理値の配列同士で論理和演算子 <code>|</code>、論理積演算し <code>&amp;</code> も使える。</p>
+
+<pre><code>print(ndarr1[(ndarr1 % 20 == 0) | (ndarr1 % 30 == 0)])
+# 出力結果
+# [ 0 20 30 40]
+
+print(ndarr1[(ndarr1 % 20 == 0) &amp; (ndarr1 % 30 == 0)])
+# 出力結果
+# [0]
 </code></pre>
 
 <p><code>[]</code> に論理型のndarrayではなく普通の配列を渡すと意図した動作にならない。将来のバージョンでは変わるかもしれない。自分が試した環境は Python 2.7.8, NumPy 1.9.0。</p>
@@ -116,6 +127,7 @@ print(ndarr1)
       <li>ndarrayのブールインデックス参照</li>
       <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
+      <li><a href="../numpy/ndarray-transposed.html">転置行列</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>
