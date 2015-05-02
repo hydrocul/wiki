@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>NumPy | hydroculのメモ</title>
+<title>ユニバーサル関数 | NumPy | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,37 +15,43 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <span>NumPy</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy</a> &gt; <span>ユニバーサル関数</span>
 </div>
 
 <div id="content">
-  <h1 id="numpy">NumPy
-<span class="article-date">2015/03/29</span></h1>
+  <h1 id="ndarray-universal-function">ユニバーサル関数
+<span class="article-date">2015/05/02</span></h1>
 
-<p>NumPyは行列などの数値計算を高速に行うためのPythonのライブラリ。
-SciPyというNumPyに付随するライブラリもあり、しばしばNumPyとSciPyの両方を使う。</p>
+<p>ndarrayの要素ごとになにかを計算して結果を新しいndarrayにして返す関数をユニバーサル関数(universal function)という。他の言語でいう<a href="../programming_languages_diff/list/map.html">map関数</a>みたいなものを、
+NumPyのndarrayに対して、三角関数とか、切り捨て処理とかの計算処理ごとに専用の関数にして高速化したもの。</p>
 
-<p>NumPyには高速なベクトル演算のできる<code>ndarray</code>という多次元配列がある。配列に対するループ処理をPythonでいちいち書かなくてもいいような仕組みがたくさんあり、
-<code>ndarray</code>がNumPyの目玉の1つか。</p>
+<p>関数の形をしていないが、<a href="ndarray-vector.html">ベクトル計算</a>といって、四則演算もndarrayに対してできる。</p>
 
-<h2 id="section">目次</h2>
+<pre><code>ndarr1 = np.array([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+
+print(ndarr1)
+# 出力結果
+# [ 0.   0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1. ]
+
+print(np.sin(ndarr1))
+# 出力結果
+# [ 0.          0.09983342  0.19866933  0.29552021  0.38941834  0.47942554
+#   0.56464247  0.64421769  0.71735609  0.78332691  0.84147098]
+
+# ベクトル計算
+print(ndarr1 * 3)
+# 出力結果
+# [ 0.   0.3  0.6  0.9  1.2  1.5  1.8  2.1  2.4  2.7  3. ]
+
+print(np.floor(ndarr1 * 3))
+# 出力結果
+# [ 0.  0.  0.  0.  1.  1.  1.  2.  2.  2.  3.]
+</code></pre>
+
+<p>関連</p>
 
 <ul>
-  <li><a href="../numpy/install.html">インストール</a></li>
-  <li><a href="../numpy/ndarray-create.html">多次元配列ndarrayの生成</a></li>
-  <li><a href="../numpy/ndarray-property.html">ndarrayの属性</a></li>
-  <li><a href="../numpy/ndarray-element-type.html">ndarrayの要素のデータ型</a></li>
-  <li><a href="../numpy/ndarray-copy.html">ndarrayのコピー</a></li>
-  <li><a href="../numpy/ndarray-convert.html">ndarrayのデータ型の変換</a></li>
-  <li><a href="../numpy/ndarray-vector.html">ndarrayでのベクトル計算</a></li>
-  <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
-  <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
-  <li><a href="../numpy/ndarray-ref-boolean.html">ndarrayのブールインデックス参照</a></li>
-  <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
-  <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
-  <li><a href="../numpy/ndarray-transposed.html">転置行列</a></li>
-  <li><a href="../numpy/howto.html">HOWTO</a></li>
-  <li><a href="../numpy/ndarray-universal-function.html">ユニバーサル関数</a></li>
+  <li><a href="ndarray-vector.html">ndarrayでのベクトル計算</a></li>
 </ul>
 
 </div>
@@ -56,7 +62,7 @@ SciPyというNumPyに付随するライブラリもあり、しばしばNumPy�
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>NumPy
+  <li><a href="../numpy/">NumPy</a>
     <ul>
       <li><a href="../numpy/install.html">インストール</a></li>
       <li><a href="../numpy/ndarray-create.html">多次元配列ndarrayの生成</a></li>
@@ -72,7 +78,7 @@ SciPyというNumPyに付随するライブラリもあり、しばしばNumPy�
       <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
       <li><a href="../numpy/ndarray-transposed.html">転置行列</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
-      <li><a href="../numpy/ndarray-universal-function.html">ユニバーサル関数</a></li>
+      <li>ユニバーサル関数</li>
     </ul>
   </li>
 </ul>
