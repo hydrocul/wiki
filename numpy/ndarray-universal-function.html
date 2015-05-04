@@ -60,7 +60,9 @@ print(np.floor(ndarr1 * 3))
 
 <dl>
   <dt><code>sqrt</code></dt>
-  <dd>平方根 \( \sqrt x \)</dd>
+  <dd>平方根 \( \sqrt x \)<br />
+<code>numpy.sqrt</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.sqrt.html#numpy.sqrt" target="_blank">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.sqrt.html#numpy.sqrt</a></dd>
   <dt><code>square</code></dt>
   <dd>2乗 \( x^2 \)</dd>
   <dt><code>exp</code></dt>
@@ -68,11 +70,35 @@ print(np.floor(ndarr1 * 3))
   <dt><code>log</code></dt>
   <dd>対数関数 \( \log x \)</dd>
   <dt><code>log10</code></dt>
-  <dd>10を底とする対数関数 \( \log_10 x = \frac{\log x}{\log 10} \)</dd>
+  <dd>10を底とする対数関数 \( \log_{10} x = \frac{\log x}{\log 10} \)</dd>
   <dt><code>log2</code></dt>
   <dd>2を底とする対数関数 \( \log_2 x = \frac{\log x}{\log 2} \)</dd>
   <dt><code>log1p</code></dt>
   <dd>\( \log(1 + x) \)</dd>
+  <dt><code>cos</code></dt>
+  <dd>三角関数の余弦 \( \cos x \)</dd>
+  <dt><code>sin</code></dt>
+  <dd>三角関数の正弦 \( \sin x \)</dd>
+  <dt><code>tan</code></dt>
+  <dd>三角関数の正接 \( \tan x \)</dd>
+  <dt><code>cosh</code></dt>
+  <dd>双曲線関数の余弦 \( \cosh x \)</dd>
+  <dt><code>sinh</code></dt>
+  <dd>双曲線関数の正弦 \( \sinh x \)</dd>
+  <dt><code>tanh</code></dt>
+  <dd>双曲線関数の正接 \( \tanh x \)</dd>
+  <dt><code>arccos</code></dt>
+  <dd>逆三角関数の余弦 \( \cos^{-1} x \)</dd>
+  <dt><code>arcsin</code></dt>
+  <dd>逆三角関数の正弦 \( \sin^{-1} x \)</dd>
+  <dt><code>arctan</code></dt>
+  <dd>逆三角関数の正接 \( \tan^{-1} x \)</dd>
+  <dt><code>arccosh</code></dt>
+  <dd>逆双曲線関数の余弦 \( \cosh^{-1} x \)</dd>
+  <dt><code>arcsinh</code></dt>
+  <dd>逆双曲線関数の正弦 \( \sinh^{-1} x \)</dd>
+  <dt><code>arctanh</code></dt>
+  <dd>逆双曲線関数の正接 \( \tanh^{-1} x \)</dd>
   <dt><code>fabs</code></dt>
   <dd>絶対値。複素数のndarrayには対応していない。</dd>
   <dt><code>sign</code></dt>
@@ -83,6 +109,14 @@ print(np.floor(ndarr1 * 3))
   <dd>切り捨て。負は<code>0</code>から遠い方に丸められる。</dd>
   <dt><code>rint</code></dt>
   <dd>近い整数にに丸める。2つの整数のちょうど中間の場合は偶数に方に丸める。例: <code>1.5</code> -&gt; <code>2.0</code>, <code>2.5</code> -&gt; <code>2.0</code>, <code>3.5</code> -&gt; <code>4.0</code></dd>
+  <dt><code>isnan</code></dt>
+  <dd><code>NaN</code> かどうかを判定して論理値のndarrayを返す</dd>
+  <dt><code>isfinite</code></dt>
+  <dd>有限(<code>inf</code>でも<code>NaN</code>でもない)かどうかを判定して論理値のndarrayを返す</dd>
+  <dt><code>isinf</code></dt>
+  <dd>無限(<code>inf</code>)かどうかを判定して論理値のndarrayを返す</dd>
+  <dt><code>logical_not</code></dt>
+  <dd>論理値のndarrayを引数にとって、要素ごとに否定した論理値のndarrayを返す</dd>
 </dl>
 
 <h2 id="1aa2534">ndarrayを1つ引数にとって、ndarrayを2つタプルで返すユニバーサル関数
