@@ -55,6 +55,44 @@ print(np.floor(ndarr1 * 3))
   <li><a href="../programming_languages_diff/list/map.html">配列の要素1つずつに関数を適用して新しい配列を作るには (map)</a></li>
 </ul>
 
+<h2 id="e52ae28">ndarrayを1つ引数にとって、ndarrayを1つ返すユニバーサル関数
+<span class="article-date">2015/05/04</span></h2>
+
+<dl>
+  <dt><code>sqrt</code></dt>
+  <dd>平方根 \( \sqrt x \)</dd>
+  <dt><code>square</code></dt>
+  <dd>2乗 \( x^2 \)</dd>
+  <dt><code>exp</code></dt>
+  <dd>指数関数 \( e^x \)</dd>
+  <dt><code>log</code></dt>
+  <dd>対数関数 \( \log x \)</dd>
+  <dt><code>log10</code></dt>
+  <dd>10を底とする対数関数 \( \log_10 x = \frac{\log x}{\log 10} \)</dd>
+  <dt><code>log2</code></dt>
+  <dd>2を底とする対数関数 \( \log_2 x = \frac{\log x}{\log 2} \)</dd>
+  <dt><code>log1p</code></dt>
+  <dd>\( \log(1 + x) \)</dd>
+  <dt><code>fabs</code></dt>
+  <dd>絶対値。複素数のndarrayには対応していない。</dd>
+  <dt><code>sign</code></dt>
+  <dd>符号。正は <code>+1.0</code>, 負は <code>-1.0</code>, <code>0</code> は <code>0.0</code> を返す。結果は浮動小数点数のndarrayになる。</dd>
+  <dt><code>ceil</code></dt>
+  <dd>切り上げ。負は<code>0</code>に近い方に丸められる。</dd>
+  <dt><code>floor</code></dt>
+  <dd>切り捨て。負は<code>0</code>から遠い方に丸められる。</dd>
+  <dt><code>rint</code></dt>
+  <dd>近い整数にに丸める。2つの整数のちょうど中間の場合は偶数に方に丸める。例: <code>1.5</code> -&gt; <code>2.0</code>, <code>2.5</code> -&gt; <code>2.0</code>, <code>3.5</code> -&gt; <code>4.0</code></dd>
+</dl>
+
+<h2 id="1aa2534">ndarrayを1つ引数にとって、ndarrayを2つタプルで返すユニバーサル関数
+<span class="article-date">2015/05/04</span></h2>
+
+<dl>
+  <dt><code>modf</code></dt>
+  <dd>小数部分と整数部分を2つのndarrayにわけてタプルで返す。返り値の2つのndarrayを足すともとのndarrayに戻る。整数部分は<code>0</code>に近い方に丸めた数になる。</dd>
+</dl>
+
 </div>
 
 <div id="side-menu">

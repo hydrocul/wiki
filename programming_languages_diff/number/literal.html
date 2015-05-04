@@ -49,7 +49,6 @@ pprint(0b10) # =&gt; 2進数で解釈。2
 pprint(0B10) # =&gt; 2進数で解釈。2
 pprint(0644) # =&gt; Python2では 8進数で解釈して420。Python3ではSyntaxError
 # pprint(0_644) # =&gt; アンダースコアは使えない
-pprint(0x12) # =&gt; 16進数で解釈。18
 pprint(0X12) # =&gt; 16進数で解釈。18
 # pprint(0x12_34_56) # =&gt; アンダースコアは使えない
 # pprint(0x_12_34_56) # =&gt; アンダースコアは使えない
@@ -83,7 +82,6 @@ pprint(0X12) # =&gt; 16進数で解釈。18
 0o644 # =&gt; 8進数で解釈。420
 0O644 # =&gt; 8進数で解釈。420
 0_644 # =&gt; 8進数で解釈。420
-0x12 # =&gt; 16進数で解釈。18
 0X12 # =&gt; 16進数で解釈。18
 0x12_34_56 # =&gt; 1193046
 # 0x_12_34_56 # =&gt; 0b, 0o, 0x の直後にはアンダースコアを置けない
@@ -110,7 +108,6 @@ pprint(0X12) # =&gt; 16進数で解釈。18
 0644; # =&gt; 8進数で解釈。420
 0_644; # =&gt; 8進数で解釈。420
 0x12; # =&gt; 16進数で解釈。18
-0X12; # =&gt; 16進数で解釈。18
 0x12_34_56; # =&gt; 1193046
 0x_12_34_56; # =&gt; 1193046
 </code></pre>
@@ -150,8 +147,9 @@ pprint(0X12) # =&gt; 16進数で解釈。18
 </div>
 
 <footer>
-  <a href="../../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>
