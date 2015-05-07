@@ -54,7 +54,7 @@ $ sudo date -s "2013/09/04 12:17:00"
 </code></pre>
 
 <h2 id="bd823c6">日時の指定方法
-<span class="article-date">2015/05/01</span></h2>
+<span class="article-date">2015/05/07</span></h2>
 
 <p><code>-d</code> または <code>--date</code> オプションではさまざまなフォーマットで日時を指定することができ、簡単な日付の計算もできる。</p>
 
@@ -71,12 +71,28 @@ $ date -d '2 days ago'
 $ date -d '1 day'
 </code></pre>
 
+<p>数字を負にすれば逆向きになる。</p>
+
+<pre><code># 1日前
+$ date -d '-1 day'
+
+# 1日後
+$ date -d '-1 day ago'
+</code></pre>
+
 <p>次のような表現もできる。</p>
 
 <pre><code># 1日前
 $ date -d yesterday
+
 # 1日後
 $ date -d tomorrow
+
+# 7日後
+$ date -d week
+
+# 14日後
+$ date -d fortnight
 </code></pre>
 
 <p>単数形複数形を間違えても大丈夫。</p>
@@ -281,7 +297,7 @@ sudo date -s "2013/09/04 12:17:00"
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
-      <li><a href="../commands/incrontab.html">incrontab / incron コマンド</a></li>
+      <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
