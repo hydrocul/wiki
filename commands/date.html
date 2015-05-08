@@ -54,21 +54,21 @@ $ sudo date -s "2013/09/04 12:17:00"
 </code></pre>
 
 <h2 id="bd823c6">日時の指定方法
-<span class="article-date">2015/05/07</span></h2>
+<span class="article-date">2015/05/08</span></h2>
 
 <p><code>-d</code> または <code>--date</code> オプションではさまざまなフォーマットで日時を指定することができ、簡単な日付の計算もできる。</p>
 
-<pre><code># 1日前
-$ date -d '1 day ago'
-
-# 2日前
-$ date -d '2 days ago'
-</code></pre>
-
-<p><code>ago</code> を付けなければ未来の日時になる。</p>
-
 <pre><code># 1日後
 $ date -d '1 day'
+
+# 2日後
+$ date -d '2 days
+</code></pre>
+
+<p><code>ago</code> を付ければ過去の日時になる。</p>
+
+<pre><code># 1日前
+$ date -d '1 day ago'
 </code></pre>
 
 <p>数字を負にすれば逆向きになる。</p>
@@ -271,6 +271,14 @@ sudo date -s "2013/09/04 12:17:00"
 </code></pre>
 
 <p>あらかじめ <code>sudo</code> なしで実行してみて、日時のフォーマットが合っているかを確認するとよい。</p>
+
+<h3 id="fa04a03">月末かどうかをシェルスクリプトで判定するには
+<span class="article-date">2015/05/07</span></h3>
+
+<pre><code>if [ `date -d day '+%d'` = '01' ]; then
+    echo きょうは月末日
+fi
+</code></pre>
 
 </div>
 
