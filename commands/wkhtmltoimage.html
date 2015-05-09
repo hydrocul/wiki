@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>wkhtmltoimage コマンド | コマンドの使い方(Linux) | hydrocul のメモ</title>
+<title>wkhtmltoimage コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
 <link rel="stylesheet" href="../common/css/page.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -11,11 +12,31 @@
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="../common/js/page.js"></script>
 </head>
-<body>
+<body class="res">
 
 <div id="breadcrumb">
-  <a href="../">Home</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>wkhtmltoimage コマンド</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>wkhtmltoimage コマンド</span>
 </div>
+
+<div id="content">
+  <h1 id="wkhtmltoimage">wkhtmltoimage コマンド
+<span class="article-date">2015/04/03</span></h1>
+
+<p>HTMLページをキャプチャして画像に変換するコマンド。webkitで実装されている。同じシリーズでPDFに変換するコマンドもある。</p>
+
+<p>wkhtmltopdf and wkhtmltoimage<br />
+<a href="http://wkhtmltopdf.org/" target="_blank">http://wkhtmltopdf.org/</a></p>
+
+<h2 id="8a606a5">BASIC認証のかかったページを画像化するには
+<span class="article-date">2013/04/09</span></h2>
+
+<p>以下のようにオプションでID/PWを指定する。</p>
+
+<pre><code>wkhtmltoimage --username ユーザ名 --password パスワード 対象ページURL 書き出し先画像パス
+</code></pre>
+
+</div>
+
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
@@ -39,7 +60,7 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
-      <li><a href="../commands/incrontab.html">incrontab / incron コマンド</a></li>
+      <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
@@ -66,6 +87,7 @@
       <li><a href="../commands/siege.html">siege コマンド</a></li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
+      <li><a href="../commands/split.html">split コマンド</a></li>
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
@@ -95,28 +117,10 @@
   </div>
 </div>
 
-<div id="content">
-  <h1 id="wkhtmltoimage">wkhtmltoimage コマンド
-<span class="article-date">2015/04/03</span></h1>
-
-<p>HTMLページをキャプチャして画像に変換するコマンド。webkitで実装されている。同じシリーズでPDFに変換するコマンドもある。</p>
-
-<p>wkhtmltopdf and wkhtmltoimage<br />
-<a href="http://wkhtmltopdf.org/" target="_blank">http://wkhtmltopdf.org/</a></p>
-
-<h2 id="8a606a5">BASIC認証のかかったページを画像化するには
-<span class="article-date">2013/04/09</span></h2>
-
-<p>以下のようにオプションでID/PWを指定する。</p>
-
-<pre><code>wkhtmltoimage --username ユーザ名 --password パスワード 対象ページURL 書き出し先画像パス
-</code></pre>
-
-</div>
-
 <footer>
-  <a href="../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>
