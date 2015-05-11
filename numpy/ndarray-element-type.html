@@ -20,7 +20,7 @@
 
 <div id="content">
   <h1 id="ndarray-element-type">ndarrayの要素のデータ型
-<span class="article-date">2015/04/01</span></h1>
+<span class="article-date">2015/05/11</span></h1>
 
 <p>ndarrayを生成すると要素のデータ型はだいたいデフォルトでfloat64という浮動小数点型になる。
 <code>np.arange</code>はint64という整数になる。</p>
@@ -72,6 +72,27 @@ print(npdata.dtype)
 
 <p>型名の数字はビット数を表す。複素数は浮動小数点2つで表されるので、complex64はfloat32 2つ分に相当する。</p>
 
+<p>複素数は虚部に <code>j</code> というサフィックスを付けて表す。複素数はデフォルトでは complex128 になる。</p>
+
+<pre><code>ndarr1 = np.array([-1.5 + 1.0j, -0.5 - 1.0j, -0.0, 1.0j, 0.5 + 1.0j])
+
+print(ndarr1)
+# 出力結果
+# [-1.5+1.j -0.5-1.j -0.0+0.j  0.0+1.j  0.5+1.j]
+
+print(ndarr1.dtype)
+# 出力結果
+# complex128
+
+print(np.abs(ndarr1))
+# 出力結果
+# [ 1.80277564  1.11803399  0.          1.          1.11803399]
+
+print(np.abs(ndarr1).dtype)
+# 出力結果
+# float64
+</code></pre>
+
 </div>
 
 <div id="side-menu">
@@ -91,8 +112,11 @@ print(npdata.dtype)
       <li><a href="../numpy/ndarray-vector.html">ndarrayでのベクトル計算</a></li>
       <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-boolean.html">ndarrayのブールインデックス参照</a></li>
       <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
+      <li><a href="../numpy/ndarray-universal-function.html">ndarrayのユニバーサル関数</a></li>
+      <li><a href="../numpy/ndarray-transposed.html">ndarrayでの転置行列</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>
