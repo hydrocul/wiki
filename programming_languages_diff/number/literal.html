@@ -21,12 +21,38 @@
 <div id="content">
   <h1 id="literal">数値リテラルの書き方</h1>
 
-<h2 id="379089a">Java
-<span class="article-date">2013/09/28</span></h2>
+<p><a href="#java">Java</a> <a href="#python">Python</a> <a href="#ruby">Ruby</a> <a href="#perl">Perl</a></p>
 
-<p>-&gt; <a href="overview.html#java">概要</a></p>
+<h2 id="java">Java
+<span class="article-date">2015/05/11</span></h2>
 
-<h2 id="a1b63e2">Python
+<p>例</p>
+
+<pre><code>System.out.println(123);
+System.out.println(123_456); // アンダースコアで桁をグルーピングできる
+//System.out.println(12345678901); // integer number too large: 12345678901
+System.out.println(1234567890123456789l); // long型は l または L を付ける
+System.out.println(1234567890123456789L); // long型は l または L を付ける
+//System.out.println(12345678901234567890L); // integer number too large: 12345678901234567890
+System.out.println(123_456_789_012_345_678_9L); // long型にもアンダースコアで桁をグルーピングできる
+System.out.println(123.45);
+System.out.println(.45);
+System.out.println(0.45);
+System.out.println(1.23e67);
+System.out.println(1.23E67);
+System.out.println(1.23e+67);
+System.out.println(1.23e-67);
+System.out.println(.23e67); // 2.3E66
+System.out.println(0b10); // 2進数で解釈。2
+System.out.println(0B10); // 2進数で解釈。2
+System.out.println(0644); // 8進数で解釈。420
+System.out.println(0_644); // 8進数でもアンダースコアを使える。420
+System.out.println(0x12); // 16進数で解釈。18
+System.out.println(0x12_34_56); // 16進数でもアンダースコアを使える
+//System.out.println(0x_12_34_56); // illegal underscore というコンパイルエラー。
+</code></pre>
+
+<h2 id="python">Python
 <span class="article-date">2015/04/10</span></h2>
 
 <p>例</p>
@@ -60,7 +86,7 @@ pprint(0X12) # =&gt; 16進数で解釈。18
 <p>数値リテラル | Python 3 documentation<br />
 <a href="http://docs.python.jp/3/reference/lexical_analysis.html#numbers" target="_blank">http://docs.python.jp/3/reference/lexical_analysis.html#numbers</a></p>
 
-<h2 id="f158d28">Ruby / JRuby
+<h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/04/08</span></h2>
 
 <p>例</p>
@@ -87,7 +113,7 @@ pprint(0X12) # =&gt; 16進数で解釈。18
 # 0x_12_34_56 # =&gt; 0b, 0o, 0x の直後にはアンダースコアを置けない
 </code></pre>
 
-<h2 id="269ff61">Perl
+<h2 id="perl">Perl
 <span class="article-date">2015/04/08</span></h2>
 
 <p>例</p>
