@@ -25,7 +25,7 @@
 <p>ファイル名の一覧を標準入力から受け取って、そのファイル一覧を任意のコマンドに引数として渡すコマンド。(ファイル名でなくてもよい)</p>
 
 <p>以下のコマンドの例では、
-<code>find</code> で <code>a.txt b.txt dir/c.txt dir/d.txt</code> が出力されるとすると、それがそのまま <code>cat</code> に引数として渡され、
+<a href="find.html"><code>find</code></a> で <code>a.txt b.txt dir/c.txt dir/d.txt</code> が出力されるとすると、それがそのまま <code>cat</code> に引数として渡され、
 <code>cat a.txt b.txt dir/c.txt dir/d.txt</code> が実行される。</p>
 
 <pre><code>find . -type f | xargs cat
@@ -34,16 +34,17 @@
 <p><code>find</code> の結果が多すぎて一度に引数として渡しきれない場合は、引数が分割され、<code>cat</code> が複数回実行される。</p>
 
 <h2 id="fec7f98"><code>mv</code> に渡す場合は要注意
-<span class="article-date">2013/06/11</span></h2>
+<span class="article-date">2015/05/12</span></h2>
 
-<p><code>xargs</code> は、コマンドの最後にファイル名を引数として渡すため、
-<code>mv</code> に渡すには <code>mv -t</code> とする必要がある。</p>
+<p><code>xargs</code> は、コマンドの最後にファイル名を引数として渡す。
+<code>mv</code> コマンドは <code>-t</code> オプションを付けないと、パラメータで渡したファイル名たちの最後のものが移動先になる。なので、<code>xargs</code>で移動元のファイル名を渡すには <code>-t</code> オプションを付けて移動先を明示的に指定する必要がある。</p>
 
 <pre><code>find . -type f | xargs mv -t ~/dst
 </code></pre>
 
-<p><code>-t</code> を与えないと <code>mv ~/dst a.txt b.txt dir/c.txt dir/d.txt</code> のようになって、
-<code>dir/d.txt</code> に移動することになってしまい、ほとんどのファイルの中身が破壊されてしまう。</p>
+<p>これで <code>mv</code> コマンドは <code>mv -t ~/dst a.txt b.txt dir/c.txt dir/d.txt</code> として実行され、
+<code>~/dst</code> にテキストファイルたちが移動されることになる。 <code>-t</code> がないと、
+<code>mv ~/dst a.txt b.txt dir/c.txt dir/d.txt</code> となり、<code>dir/d.txt</code> に上書き移動しようとして、意図した動作にはならない。</p>
 
 <h2 id="84d293e">一度にコマンドに渡す引数の最大数を制御するには
 <span class="article-date">2014/01/05</span></h2>
@@ -118,7 +119,7 @@ test.sh
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
-      <li><a href="../commands/incrontab.html">incrontab / incron コマンド</a></li>
+      <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
@@ -176,8 +177,9 @@ test.sh
 </div>
 
 <footer>
-  <a href="../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>
