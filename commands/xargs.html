@@ -20,24 +20,57 @@
 
 <div id="content">
   <h1 id="xargs">xargs コマンド
-<span class="article-date">2014/01/05</span></h1>
+<span class="article-date">2015/05/13</span></h1>
 
-<p>ファイル名の一覧を標準入力から受け取って、そのファイル一覧を任意のコマンドに引数として渡すコマンド。(ファイル名でなくてもよい)</p>
+<p>ファイル名の一覧を標準入力から受け取って、そのファイル一覧を任意のコマンドに引数として渡すコマンド。ファイル一覧でなくてもなんでもよい。</p>
 
-<p>以下のコマンドの例では、
-<a href="find.html"><code>find</code></a> で <code>a.txt b.txt dir/c.txt dir/d.txt</code> が出力されるとすると、それがそのまま <code>cat</code> に引数として渡され、
-<code>cat a.txt b.txt dir/c.txt dir/d.txt</code> が実行される。</p>
+<p>わかりづらいので例として、カレントディレクトリの配下にある拡張子が <code>.txt</code> のファイルをすべて削除したいとする。</p>
 
-<pre><code>find . -type f | xargs cat
+<p>まずは<a href="find.html"><code>find</code>コマンド</a>でリストアップする。</p>
+
+<pre><code>find . -name "*.txt"
 </code></pre>
 
-<p><code>find</code> の結果が多すぎて一度に引数として渡しきれない場合は、引数が分割され、<code>cat</code> が複数回実行される。</p>
+<p>この結果が以下のようだったとする。</p>
+
+<pre><code>foo.txt
+sub/bar.txt
+</code></pre>
+
+<p>これらを削除するには</p>
+
+<pre><code>rm foo.txt sub/bar.txt
+</code></pre>
+
+<p>を実行すればよいが、<code>find</code>の結果が大量にある場合は<code>rm</code>コマンドを手で書くのは手間なので、
+<code>find</code>の結果をそのまま<code>rm</code>に渡したい。<code>rm</code>コマンドが標準入力からファイル名を受け取ってくれるならパイプでつなぐだけだが、残念ながら<code>rm</code>にはパラメータで渡す必要がある。こういうときに<code>xargs</code>コマンドを使う。以下のような感じ。</p>
+
+<pre><code>find . -name "*.txt" | xargs rm
+</code></pre>
+
+<p><code>xargs</code>コマンドは標準入力から受け取ったデータをそのまま<code>rm</code>コマンドのパラメータとして<code>rm</code>を実行する。</p>
+
+<p>ちなみにいかのようにしても同じようなことができる。</p>
+
+<pre><code>rm `find . -name "*.txt"`
+</code></pre>
+
+<p>ただし、この場合<code>find</code>の結果があまりに大量だと、エラーになってしまう。コマンドに渡すパラメータの長さには制限があるからである。制限を超えると自分の環境では <code>Argument list too long</code> というエラーが表示される。</p>
+
+<p>しかし、<code>xargs</code>を使えば、この制限を超える場合に、適度に分割して <code>rm</code> を複数回実行することで自動でこの制限を回避してくれる。</p>
+
+<p>ちなみに、このパラメータの長さの上限値はカーネルに依存し、以下のコマンドでバイト数で確認することができる。</p>
+
+<pre><code>getconf ARG_MAX
+</code></pre>
+
+<p>この上限値はカーネルソースの<a href="http://lxr.linux.no/linux+v3.19.1/fs/exec.c" target="_blank"><code>exec.c</code></a>のあたりに実装されていそうだが、よくわからない。</p>
 
 <h2 id="fec7f98"><code>mv</code> に渡す場合は要注意
-<span class="article-date">2015/05/12</span></h2>
+<span class="article-date">2015/05/13</span></h2>
 
 <p><code>xargs</code> は、コマンドの最後にファイル名を引数として渡す。
-<code>mv</code> コマンドは <code>-t</code> オプションを付けないと、パラメータで渡したファイル名たちの最後のものが移動先になる。なので、<code>xargs</code>で移動元のファイル名を渡すには <code>-t</code> オプションを付けて移動先を明示的に指定する必要がある。</p>
+<code>mv</code> コマンドはデフォルトでは、パラメータで渡したファイル名たちの最後のものが移動先になる。なので、移動元のたくさんのファイル名を<code>xargs</code>に渡して<code>mv</code>で移動させるには <code>-t</code> オプションを付けて移動先を明示的に指定する必要がある。</p>
 
 <pre><code>find . -type f | xargs mv -t ~/dst
 </code></pre>
@@ -45,6 +78,8 @@
 <p>これで <code>mv</code> コマンドは <code>mv -t ~/dst a.txt b.txt dir/c.txt dir/d.txt</code> として実行され、
 <code>~/dst</code> にテキストファイルたちが移動されることになる。 <code>-t</code> がないと、
 <code>mv ~/dst a.txt b.txt dir/c.txt dir/d.txt</code> となり、<code>dir/d.txt</code> に上書き移動しようとして、意図した動作にはならない。</p>
+
+<p>ただし、<code>-t</code> オプションは環境によってはサポートされていないらしい。</p>
 
 <h2 id="84d293e">一度にコマンドに渡す引数の最大数を制御するには
 <span class="article-date">2014/01/05</span></h2>

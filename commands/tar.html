@@ -104,7 +104,7 @@ tar tzf tgzファイル名
 <p><code>--null</code> を <code>-T -</code> のあとに置くと、<code>tar: -: file name read contains nul character</code>
 というエラーが発生した。</p>
 
-<p><code>find</code>と<code>tar</code>の間に<code>xargs</code>を使ってしまうと、アーカイブするファイル数が多い場合に
+<p><code>find</code>と<code>tar</code>の間に<a href="xargs.html"><code>xargs</code></a>を使ってしまうと、アーカイブするファイル数が多い場合に
 <code>tar</code>が複数回起動されてしまい、すべてのファイルが含まれたアーカイブファイルを作れない。</p>
 
 <h3 id="7e75ad3">tarファイルの中にある特定のファイルのみを解凍するには
@@ -113,6 +113,14 @@ tar tzf tgzファイル名
 <p>最後のパラメータに解凍したいファイル名を渡せばよい。</p>
 
 <pre><code>tar xzf logs.tar.gz var/log/httpd/access_log
+</code></pre>
+
+<h3 id="d49b39c">拡張子 .tar.xz のファイルを解凍・展開するには
+<span class="article-date">2015/05/13</span></h3>
+
+<p><code>z</code> の代わりに <code>J</code> というオプションを使う。</p>
+
+<pre><code>tar xvJf linux-4.0.2.tar.xz
 </code></pre>
 
 </div>
@@ -140,7 +148,7 @@ tar tzf tgzファイル名
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
-      <li><a href="../commands/incrontab.html">incrontab / incron コマンド</a></li>
+      <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
