@@ -162,7 +162,7 @@ curl -b cookie.txt http://www.example.com/
 </code></pre>
 
 <p>Google Chrome に保存されているクッキーをこのフォーマットに書き出すには、筆者は 
-<a href="https://chrome.google.com/webstore/detail/cookietxt-export/lopabhfecdfhgogdbojmaicoicjekelh" target="_blank">cookie.txt export</a> 
+<a href="https://chrome.google.com/webstore/detail/cookietxt-export/lopabhfecdfhgogdbojmaicoicjekelh" target="_blank" class="external-link">cookie.txt export</a> 
 という拡張を使っている。</p>
 
 <h3 id="8dc55e8">404などの400番台のエラーコードが返ってきた場合に0以外の終了コードを返させるには
@@ -190,6 +190,20 @@ SSLのエラーが発生してしまう場合は、オプション <code>-k</cod
 </code></pre>
 
 <p>httpsのくせにipアドレスでアクセスさせる社内のシステムとか、これでエラーをスキップできる。</p>
+
+<h3 id="e40495a">User-Agent を詐称してHTTPアクセスするには
+<span class="article-date">2015/05/14</span></h3>
+
+<p>curlはデフォルトでは以下のようなUser-Agentを名乗る。これはいくつかの手元の環境で確認したもの。</p>
+
+<pre><code>curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.13.6.0 zlib/1.2.3 libidn/1.18 libssh2/1.4.2
+curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+</code></pre>
+
+<p>curlに<code>-A</code>オプションを使うと、User-Agentを指定することができる。</p>
+
+<pre><code>curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.50 Safari/537.36" http://www.example.com/
+</code></pre>
 
 </div>
 

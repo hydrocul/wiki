@@ -24,16 +24,16 @@
 <p><a href="#java">Java</a> <a href="#python">Python</a> <a href="#ruby">Ruby</a> <a href="#perl">Perl</a></p>
 
 <h2 id="java">Java
-<span class="article-date">2015/05/11</span></h2>
+<span class="article-date">2015/05/14</span></h2>
 
 <p>例</p>
 
 <pre><code>System.out.println(123);
 System.out.println(123_456); // アンダースコアで桁をグルーピングできる
-//System.out.println(12345678901); // integer number too large: 12345678901
+//System.out.println(12345678901); // integer number too large: 12345678901 というコンパイルエラー
 System.out.println(1234567890123456789l); // long型は l または L を付ける
 System.out.println(1234567890123456789L); // long型は l または L を付ける
-//System.out.println(12345678901234567890L); // integer number too large: 12345678901234567890
+//System.out.println(12345678901234567890L); // integer number too large: 12345678901234567890 というコンパイルエラー
 System.out.println(123_456_789_012_345_678_9L); // long型にもアンダースコアで桁をグルーピングできる
 System.out.println(123.45);
 System.out.println(.45);
@@ -49,8 +49,43 @@ System.out.println(0644); // 8進数で解釈。420
 System.out.println(0_644); // 8進数でもアンダースコアを使える。420
 System.out.println(0x12); // 16進数で解釈。18
 System.out.println(0x12_34_56); // 16進数でもアンダースコアを使える
-//System.out.println(0x_12_34_56); // illegal underscore というコンパイルエラー。
+//System.out.println(0x_12_34_56); // illegal underscore というコンパイルエラー
 </code></pre>
+
+<h2 id="scala">Scala
+<span class="article-date">2015/05/14</span></h2>
+
+<p>例</p>
+
+<pre><code>println(123);
+//println(123_456); // Invalid literal number というコンパイルエラー
+//println(12345678901); // integer number too large というコンパイルエラー
+println(1234567890123456789l); // Long型は l または L を付ける
+println(1234567890123456789L); // Long型は l または L を付ける
+//println(12345678901234567890L); // integer number too large というコンパイルエラー
+//println(123_456_789_012_345_678_9L); // Invalid literal number というコンパイルエラー
+println(123.45);
+println(.45);
+println(0.45);
+println(1.23e67);
+println(1.23E67);
+println(1.23e+67);
+println(1.23e-67);
+println(.23e67); // 2.3E66
+//println(0b10); // Invalid literal number というコンパイルエラー
+//println(0B10); // Invalid literal number というコンパイルエラー
+//println(0644); // Decimal integer literals may not have a leading zero. (Octal syntax is obsolete.) というコンパイルエラー
+//println(0_644); // Invalid literal number というコンパイルエラー
+println(0x12); // 16進数で解釈。18
+//println(0x12_34_56); // Invalid literal number というコンパイルエラー
+//println(0x_12_34_56); // Invalid literal number というコンパイルエラー
+</code></pre>
+
+<p>Integer Literals | Scala Language Specification<br />
+<a href="http://scala-lang.org/files/archive/spec/2.11/01-lexical-syntax.html#integer-literals" target="_blank" class="external-link">http://scala-lang.org/files/archive/spec/2.11/01-lexical-syntax.html#integer-literals</a></p>
+
+<p>Floating Point Literals | Scala Language Specification<br />
+<a href="http://scala-lang.org/files/archive/spec/2.11/01-lexical-syntax.html#floating-point-literals" target="_blank" class="external-link">http://scala-lang.org/files/archive/spec/2.11/01-lexical-syntax.html#floating-point-literals</a></p>
 
 <h2 id="python">Python
 <span class="article-date">2015/04/10</span></h2>
@@ -81,10 +116,10 @@ pprint(0X12) # =&gt; 16進数で解釈。18
 </code></pre>
 
 <p>数値リテラル | Python 2.7 documentation<br />
-<a href="http://docs.python.jp/2/reference/lexical_analysis.html#numbers" target="_blank">http://docs.python.jp/2/reference/lexical_analysis.html#numbers</a></p>
+<a href="http://docs.python.jp/2/reference/lexical_analysis.html#numbers" target="_blank" class="external-link">http://docs.python.jp/2/reference/lexical_analysis.html#numbers</a></p>
 
 <p>数値リテラル | Python 3 documentation<br />
-<a href="http://docs.python.jp/3/reference/lexical_analysis.html#numbers" target="_blank">http://docs.python.jp/3/reference/lexical_analysis.html#numbers</a></p>
+<a href="http://docs.python.jp/3/reference/lexical_analysis.html#numbers" target="_blank" class="external-link">http://docs.python.jp/3/reference/lexical_analysis.html#numbers</a></p>
 
 <h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/04/08</span></h2>
