@@ -20,17 +20,69 @@
 
 <div id="content">
   <h1 id="join">文字列の配列(リスト)を特定の文字列で連結するには (implode / join / mkString)
-<span class="article-date">2015/04/06</span></h1>
+<span class="article-date">2015/05/18</span></h1>
 
 <p>文字列を要素とする配列(リスト)を特定の文字または文字列で連結して、全体で1つの文字列を生成する方法の、プログラミング言語別メモ。</p>
+
+<p><a href="#golang">Go言語</a></p>
+
+<pre><code>import "strings"
+
+strings.Join(sl, ",")
+</code></pre>
+
+<p><a href="#scala">Scala</a></p>
+
+<pre><code>lst.mkString(",")
+</code></pre>
+
+<p><a href="#php">PHP</a></p>
+
+<pre><code>implode(",", $arr)
+</code></pre>
+
+<p><a href="#python">Python</a></p>
+
+<pre><code>",".join(lst)
+</code></pre>
+
+<p><a href="#ruby">Ruby</a></p>
+
+<pre><code>arr.join(",")
+</code></pre>
+
+<p><a href="#perl">Perl</a></p>
+
+<pre><code>join(",", @arr)
+</code></pre>
+
+<p><a href="#javascript">JavaScript</a></p>
+
+<pre><code>arr.join(",")
+</code></pre>
 
 <p>関連</p>
 
 <ul>
-  <li><a href="split.html">文字列を特定の文字で分割するには</a></li>
+  <li><a href="split.html">逆に文字列を特定の文字で分割するには</a></li>
 </ul>
 
-<h2 id="0aaf75a">Go言語 (golang)
+<div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pagebottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1251074055"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+<h2 id="golang">Go言語 (golang)
 <span class="article-date">2015/02/22</span></h2>
 
 <p><code>strings</code>パッケージの<code>Join</code>関数を使う。</p>
@@ -48,21 +100,20 @@ func main() {
 </code></pre>
 
 <h2 id="scala">Scala
-<span class="article-date">2014/04/07</span></h2>
+<span class="article-date">2015/05/18</span></h2>
 
-<p><code>List</code> などのコレクション型のメソッドでできる。</p>
+<p><code>List</code> などのコレクション型にある <code>mkString</code> というメソッドでできる。</p>
 
 <p>Signature:</p>
 
-<pre><code>// TraversableOnce[A]
-def mkString: String
-def mkString(separator: String): String
-def mkString(start: String, separator: String, end: String): String
+<pre><code>def scala.collection.TraversableOnce[A]#mkString: String
+def scala.collection.TraversableOnce[A]#mkString(separator: String): String
+def scala.collection.TraversableOnce[A]#mkString(start: String, separator: String, end: String): String
 </code></pre>
 
-<p>リストの要素が文字列でなくても要素の <code>toString</code> メソッドが呼び出されてから連結される。</p>
+<p>リストの要素が文字列でなくても要素ごとに <code>toString</code> メソッドで文字列に変換されてから連結される。</p>
 
-<h2 id="40ce8ea">PHP
+<h2 id="php">PHP
 <span class="article-date">2015/04/06</span></h2>
 
 <p><code>implode</code>関数を使う。</p>
@@ -71,13 +122,13 @@ def mkString(start: String, separator: String, end: String): String
 </code></pre>
 
 <p><code>implode</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.implode.php" target="_blank" class="external-link">http://php.net/manual/ja/function.implode.php</a></p>
+<a href="http://www.php.net/manual/ja/function.implode.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.implode.php</a></p>
 
 <p>実は<code>implode</code>の2つの引数はどちらが先に来てもよい。ちょっと気持ち悪いが、これはPHPの有名な「歴史的な理由」。</p>
 
 <p>ちなみに <code>(string)$arr</code> とすると、配列の中身に関係なく <code>"Array"</code> という文字列になる。</p>
 
-<h2 id="f70c8ac">Python
+<h2 id="python">Python
 <span class="article-date">2014/12/30</span></h2>
 
 <p>Pythonでは配列のメソッドではなく、文字列に<code>join</code>メソッドがある。セパレータとなる文字列に対してこのメソッドを呼び出す。</p>
@@ -91,7 +142,7 @@ def mkString(start: String, separator: String, end: String): String
 <p><code>str.join</code> | Python 3 documentation<br />
 <a href="http://docs.python.jp/3/library/stdtypes.html?highlight=join#str.join" target="_blank" class="external-link">http://docs.python.jp/3/library/stdtypes.html?highlight=join#str.join</a></p>
 
-<h2 id="c4745b0">Ruby / JRuby
+<h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/01/04</span></h2>
 
 <p><code>Array#join</code> メソッドまたは <code>Array#*</code> メソッドでできる。</p>
@@ -114,10 +165,10 @@ p arr.join # =&gt; "abc::def::ghi"
 <p><code>Array#*</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=2a.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=2a.html</a></p>
 
-<h2 id="6a7b6f9">Perl
-<span class="article-date">2013/07/27</span></h2>
+<h2 id="perl">Perl
+<span class="article-date">2015/05/18</span></h2>
 
-<p>例</p>
+<p><code>join</code>関数を使う。</p>
 
 <pre><code>my @arr = ('abc', 'def', 'ghi');
 print @arr;            # =&gt; abcdefghi
@@ -126,7 +177,10 @@ print join(' ', @arr); # =&gt; abc def ghi
 print join(',', @arr); # =&gt; abc,def,ghi
 </code></pre>
 
-<h2 id="ce6f7c2">JavaScript
+<p><code>join</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/join" target="_blank" class="external-link">http://perldoc.jp/func/join</a></p>
+
+<h2 id="javascript">JavaScript
 <span class="article-date">2013/04/10</span></h2>
 
 <pre><code>arr.join(separator)

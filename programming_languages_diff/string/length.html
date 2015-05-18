@@ -19,9 +19,85 @@
 </div>
 
 <div id="content">
-  <h1 id="length">文字列の長さを取得するには (len / length / mb_strlen / size / strlen)</h1>
+  <h1 id="length">文字列の長さを取得するには (len / length / mb_strlen / size / strlen)
+<span class="article-date">2015/05/18</span></h1>
 
-<h2 id="1aea694">C言語, C++
+<p>文字列の長さを取得する方法の、プログラミング言語別のメモ。</p>
+
+<p><a href="#c">C言語, C++</a></p>
+
+<pre><code>strlen(str)
+</code></pre>
+
+<p><a href="#golang">GO言語</a></p>
+
+<pre><code>len(str)
+</code></pre>
+
+<p><a href="#java">Java</a></p>
+
+<pre><code>str.length()
+</code></pre>
+
+<p><a href="#java">Scala</a></p>
+
+<pre><code>str.length
+</code></pre>
+
+<p><a href="#java">Groovy</a></p>
+
+<pre><code>str.length()
+str.size()
+</code></pre>
+
+<p><a href="#php">PHP</a></p>
+
+<pre><code>strlen(str)
+mb_strlen(str)
+</code></pre>
+
+<p><a href="#python">Python</a></p>
+
+<pre><code>len(str)
+</code></pre>
+
+<p><a href="#ruby">Ruby</a></p>
+
+<pre><code>str.length
+str.size
+</code></pre>
+
+<p><a href="#perl">Perl</a></p>
+
+<pre><code>length($str)
+</code></pre>
+
+<p><a href="#javascript">JavaScript</a></p>
+
+<pre><code>str.length
+</code></pre>
+
+<p><a href="#javascript">CoffeeScript</a></p>
+
+<pre><code>str.length
+</code></pre>
+
+<div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pagebottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1251074055"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+<h2 id="c">C言語, C++
 <span class="article-date">2013/09/08</span></h2>
 
 <p>Signature:</p>
@@ -31,7 +107,7 @@
 
 <p>最後の <code>\x00</code> はカウントしない。</p>
 
-<h2 id="2e54339">Go言語 (golang)
+<h2 id="golang">Go言語 (golang)
 <span class="article-date">2015/03/01</span></h2>
 
 <p><code>len</code>関数を使う。</p>
@@ -41,7 +117,7 @@
 
 <p>ただし、<code>len</code>関数はバイト数を数えるので、ASCIIの範囲外にある文字はUTF8のバイト数になってしまう。</p>
 
-<h2 id="13c5970">Java / Scala / Groovy
+<h2 id="java">Java / Scala / Groovy
 <span class="article-date">2014/11/11</span></h2>
 
 <p>以下は文字列に含まれる<code>char</code>の数を取得する例である。</p>
@@ -77,12 +153,12 @@ int java.lang.String#size()
 (Groovyでは<code>size()</code>も同様に)</p>
 
 <p><code>java.lang.String#length</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#length--" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#length–</a></p>
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#length--" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#length–</a></p>
 
 <p><code>java.lang.String#size</code> | Groovy JDK API Documentation<br />
-<a href="http://beta.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html#size()" target="_blank">http://beta.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html#size()</a></p>
+<a href="http://beta.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html#size()" target="_blank" class="external-link">http://beta.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html#size()</a></p>
 
-<h2 id="dbd1f21">PHP
+<h2 id="php">PHP
 <span class="article-date">2014/11/01</span></h2>
 
 <p>C言語と同じ名前の関数 <code>strlen</code> を使えるが、これは単にバイト配列の長さを返すだけなので、マルチバイトの文字が含まれる場合は文字数とは一致しない。マルチバイトにも対応して文字数を取得したい場合には <code>mb_strlen</code> を使う。</p>
@@ -106,12 +182,12 @@ $len = mb_strlen($str, "UTF-8");
 </code></pre>
 
 <p><code>strlen</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.strlen.php" target="_blank">http://php.net/manual/ja/function.strlen.php</a></p>
+<a href="http://php.net/manual/ja/function.strlen.php" target="_blank" class="external-link">http://php.net/manual/ja/function.strlen.php</a></p>
 
 <p><code>mb_strlen</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.mb-strlen.php" target="_blank">http://php.net/manual/ja/function.mb-strlen.php</a></p>
+<a href="http://php.net/manual/ja/function.mb-strlen.php" target="_blank" class="external-link">http://php.net/manual/ja/function.mb-strlen.php</a></p>
 
-<h2 id="693068d">Python
+<h2 id="python">Python
 <span class="article-date">2014/12/26</span></h2>
 
 <p>例</p>
@@ -147,12 +223,12 @@ p str.bytesize
 </code></pre>
 
 <p><code>String#length</code> メソッド, <code>String#size</code> メソッド | Ruby 2.1 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.1.0/method/String/i/length.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/String/i/length.html</a></p>
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/String/i/length.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/String/i/length.html</a></p>
 
 <p><code>String#bytesize</code> メソッド | Ruby 2.1 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.1.0/method/String/i/bytesize.html" target="_blank">http://docs.ruby-lang.org/ja/2.1.0/method/String/i/bytesize.html</a></p>
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/String/i/bytesize.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/String/i/bytesize.html</a></p>
 
-<h2 id="04f5aa6">Perl
+<h2 id="perl">Perl
 <span class="article-date">2014/11/03</span></h2>
 
 <p>例</p>
@@ -166,7 +242,7 @@ length($str)
 <code>use utf8;</code> と書いておけば、Unicode拡張領域の文字も含めマルチバイトの文字が含まれていても文字数を正しく取得できる。</p>
 
 <p><code>length</code> 関数 | perldoc.jp<br />
-<a href="http://perldoc.jp/func/length" target="_blank">http://perldoc.jp/func/length</a></p>
+<a href="http://perldoc.jp/func/length" target="_blank" class="external-link">http://perldoc.jp/func/length</a></p>
 
 <h2 id="ee79c74">sh (シェルスクリプト)
 <span class="article-date">2014/12/30</span></h2>
@@ -177,7 +253,7 @@ length($str)
 <pre><code>echo ${#STR}
 </code></pre>
 
-<h2 id="249afc6">JavaScript
+<h2 id="javascript">JavaScript
 <span class="article-date">2015/04/09</span></h2>
 
 <p>例</p>

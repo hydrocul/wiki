@@ -26,13 +26,63 @@
 
 <p><a href="../../commands/split.html"><code>split</code></a>というコマンドもあるが、このコマンドはパターンではなく一定のサイズごとにファイルを分割する。</p>
 
+<p><a href="#golang">Go言語</a></p>
+
+<pre><code>strings.Split(str, ",")
+</code></pre>
+
+<p><a href="#java">Java</a></p>
+
+<pre><code>str.split(",")
+</code></pre>
+
+<p><a href="#scala">Scala</a></p>
+
+<pre><code>str.split(",")
+</code></pre>
+
+<p><a href="#php">PHP</a></p>
+
+<pre><code>explode(",", $str)
+</code></pre>
+
+<p><a href="#python">Python</a></p>
+
+<pre><code>str.split(",")
+</code></pre>
+
+<p><a href="#ruby">Ruby</a></p>
+
+<pre><code>str.split(",")
+</code></pre>
+
+<p><a href="#perl">Perl</a></p>
+
+<pre><code>split(/,/, $str)
+</code></pre>
+
 <p>関連</p>
 
 <ul>
-  <li><a href="join.html">文字列の配列を特定の文字列で連結するには</a></li>
+  <li><a href="join.html">逆に文字列の配列を特定の文字列で連結するには</a></li>
 </ul>
 
-<h2 id="9152a84">Go言語
+<div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pagebottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1251074055"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+<h2 id="golang">Go言語
 <span class="article-date">2015/02/09</span></h2>
 
 <p>例</p>
@@ -43,7 +93,7 @@ var arr []string
 arr = strings.Split(str, ",")
 </code></pre>
 
-<h2 id="6df95c0">Java
+<h2 id="java">Java
 <span class="article-date">2015/04/21</span></h2>
 
 <p>Signature:</p>
@@ -58,31 +108,29 @@ String[] java.lang.String#split(String regex, int limit)
 Java7以降では、正規表現で意味のある記号類以外の普通の1文字を指定した場合には、正規表現で処理せずに、高速な分割処理がなされるらしい。</p>
 
 <p>Java 7 時代の String#split() 事情<br />
-<a href="http://blog.k11i.biz/2013/05/java-7-stringsplit.html" target="_blank">http://blog.k11i.biz/2013/05/java-7-stringsplit.html</a></p>
+<a href="http://blog.k11i.biz/2013/05/java-7-stringsplit.html" target="_blank" class="external-link">http://blog.k11i.biz/2013/05/java-7-stringsplit.html</a></p>
 
 <p><code>java.lang.String#split</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-</a><br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-int-" target="_blank">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-int-</a></p>
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-</a><br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-int-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-int-</a></p>
 
-<h2 id="cd1396e">Scala
+<h2 id="scala">Scala
 <span class="article-date">2014/10/31</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.immutable.StringLike
-def split(separator: Char): Array[String]
-def split(separators: Array[Char]): Array[String]
+<pre><code>def scala.collection.immutable.StringLike#split(separator: Char): Array[String]
+def scala.collection.immutable.StringLike#split(separators: Array[Char]): Array[String]
 
-// java.lang.String
-def split(regex: String): Array[String]
-def split(regex: String, limit: Int): Array[String]
+def java.lang.String#split(regex: String): Array[String]
+def java.lang.String#split(regex: String, limit: Int): Array[String]
 </code></pre>
 
 <p>いずれのメソッドも空文字列をsplitすると空文字列1つだけの配列を返す。また、分割対象の文字列の最後に区切り文字が1つ以上あると、その部分は単に切り捨てられる。</p>
 
 <p><code>scala.collection.immutable.StringLike</code> にある<code>Char</code>型で分割文字列を指定するメソッドも、結局は中で正規表現にされて、<code>java.lang.String#split</code> が呼び出される。</p>
 
-<h2 id="458713a">PHP
+<h2 id="php">PHP
 <span class="article-date">2015/04/06</span></h2>
 
 <p>例</p>
@@ -97,12 +145,12 @@ $arr = explode($separator, $str, $limit);
 <p>正規表現でパターンマッチングして分割するには<code>preg_split</code>関数を使う。</p>
 
 <p><code>explode</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.explode.php" target="_blank">http://php.net/manual/ja/function.explode.php</a></p>
+<a href="http://php.net/manual/ja/function.explode.php" target="_blank" class="external-link">http://php.net/manual/ja/function.explode.php</a></p>
 
 <p><code>preg_split</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.preg-split.php" target="_blank">http://php.net/manual/ja/function.preg-split.php</a></p>
+<a href="http://php.net/manual/ja/function.preg-split.php" target="_blank" class="external-link">http://php.net/manual/ja/function.preg-split.php</a></p>
 
-<h2 id="8c2d0a5">Python
+<h2 id="python">Python
 <span class="article-date">2014/09/17</span></h2>
 
 <pre><code>lst = str.split(separator)
@@ -126,7 +174,7 @@ print("abcd".split("bc")) # =&gt; ['a', 'd']
 <p>Rubyと違って、セパレータに空文字列を入れることはできず、入れるとエラーになってしまう。また、セパレータで終わっている文字列はちゃんと最後に空の文字列を要素として返してくれ、
 Rubyのような余計なお世話がなくて、厳密に分割してくれるみたい。</p>
 
-<h2 id="d5b8602">Ruby
+<h2 id="ruby">Ruby
 <span class="article-date">2013/11/15</span></h2>
 
 <pre><code>arr = str.split(pattern)
@@ -158,8 +206,10 @@ arr = str.split(pattern, limit)
 # =&gt; ["", "b"]
 </code></pre>
 
-<h2 id="fd4ba15">Perl
-<span class="article-date">2014/08/19</span></h2>
+<h2 id="perl">Perl
+<span class="article-date">2015/05/18</span></h2>
+
+<p><code>split</code>関数を使う。</p>
 
 <pre><code>my @arr = split(/[bd]/, "abcdef");
 print "@arr";
@@ -175,6 +225,22 @@ print scalar @arr;
 
 <p>2つ目の引数を省略すると <code>$_</code> を対象にsplitする。</p>
 
+<p>1つ目の引数は正規表現なので、素の文字列で分割したい場合は <code>quotemeta</code> で正規表現に変換するとよい。</p>
+
+<pre><code>print quotemeta('$');
+# 出力結果
+# \$
+
+my @arr = split(quotemeta('$'), 'a$b$c');
+print Dumper \@arr;
+# 出力結果
+# $VAR1 = [
+#           'a',
+#           'b',
+#           'c'
+#     ];
+</code></pre>
+
 <p>その他の例</p>
 
 <pre><code>my @arr = split(/,/, "a,");
@@ -185,6 +251,12 @@ my @arr = split(/,/, ",b");
 print Dumper \@arr;
 # =&gt; ['', 'b']
 </code></pre>
+
+<p><code>split</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/split" target="_blank" class="external-link">http://perldoc.jp/func/split</a></p>
+
+<p><code>quotemeta</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/quotemeta" target="_blank" class="external-link">http://perldoc.jp/func/quotemeta</a></p>
 
 </div>
 
@@ -200,7 +272,7 @@ print Dumper \@arr;
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-          <li><a href="../../programming_languages_diff/string/heredoc.html">複数行文字列 / ヒアドキュメント</a></li>
+          <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント / 複数行文字列</a></li>
           <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
           <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
           <li><a href="../../programming_languages_diff/string/char-at.html">特定のインデックスの文字を取得するには (charAt / getAt)</a></li>
@@ -244,8 +316,9 @@ print Dumper \@arr;
 </div>
 
 <footer>
-  <a href="../../">目次</a>
-  <!-- Copyright &copy; 2012- @hydrocul All Rights Reserved. -->
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
 </footer>
 
 </body>
