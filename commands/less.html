@@ -29,7 +29,7 @@
 
 <dl>
   <dt><code>-N</code></dt>
-  <dd>行番号を表示する。(<a href="cat.html"><code>cat</code></a> では <code>-n</code>)</dd>
+  <dd>行番号を表示する。(<a href="cat.html"><code>cat</code></a> でこれに相当するのは <code>-n</code>)</dd>
   <dt><code>-X</code></dt>
   <dd>less 終了時に画面をクリアしない。</dd>
   <dt><code>-F</code></dt>
@@ -47,55 +47,75 @@
   <dd>長い行を折り返さずに横方向にもページングできるようにする。</dd>
 </dl>
 
-<h2 id="ac45ca1">ls を色付きで less で見るには
-<span class="article-date">2013/06/04</span></h2>
+<div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pagebottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1251074055"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
 
-<pre><code>ls -alF --color | less -X -R
+
+<h2 id="b9f3ef0">HOWTO</h2>
+
+<h3 id="6a73eb2">ls を色付きで less で見るには
+<span class="article-date">2013/06/04</span></h3>
+
+<pre><code>$ ls -alF --color | less -X -R
 </code></pre>
 
-<h2 id="bbca363">grep を色付きで less で見るには
-<span class="article-date">2013/06/06</span></h2>
+<h3 id="2c55b73">grep を色付きで less で見るには
+<span class="article-date">2013/06/06</span></h3>
 
-<pre><code>grep -rni --color=always abc . | less -X -R
+<pre><code>$ grep -rni --color=always abc . | less -X -R
 </code></pre>
 
-<h2 id="63f2b4c"><code>tail -f</code> みたいにするには
-<span class="article-date">2013/04/23</span></h2>
+<h3 id="tailf"><code>tail -f</code> みたいにするには
+<span class="article-date">2015/05/19</span></h3>
 
-<p><code>less +F ファイル名</code> とすると、<code>tail -f</code> みたいな動きになる。Ctrl+C を押すと、普通の less に戻り、Shift+F を押すと、また <code>tail -f</code> に戻る。</p>
+<p><code>less</code>でファイルを見ているときに Shift+F を押すと、<code>tail -f</code> みたいにファイル追記を監視できる。監視モードから通常のモードに移るには Ctrl+C を押す。</p>
 
-<p><a href="http://www.commandlinefu.com/commands/view/1024/make-less-behave-like-tail-f." target="_blank">http://www.commandlinefu.com/commands/view/1024/make-less-behave-like-tail-f.</a></p>
+<p><code>+F</code> というオプションを使って <code>less +F ファイル名</code> とすると、始めから監視モードになる。このときも Ctrl+C を押すと、普通の less に戻る。</p>
 
-<h2 id="23a6d60">UTF-8のターミナルからEUC-JPなサーバに接続してlessで文字化けしてしまう場合
-<span class="article-date">2013/06/28</span></h2>
+<p>Make ‘less’ behave like ‘tail -f’. | commandlinefu.com<br />
+<a href="http://www.commandlinefu.com/commands/view/1024/make-less-behave-like-tail-f." target="_blank" class="external-link">http://www.commandlinefu.com/commands/view/1024/make-less-behave-like-tail-f.</a></p>
+
+<h3 id="bd43bb8">UTF-8のターミナルからEUC-JPなサーバに接続してlessで文字化けしてしまう場合
+<span class="article-date">2013/06/28</span></h3>
 
 <p><code>less hoge.txt</code> で日本語が <code>?</code> とかに化けてしまい、
 <code>nkf -Ew hoge.txt | less</code> で日本語が <code>[3m&lt;9A&gt;</code> みたいなコードで表示されてしまう場合、
 <code>-r</code> をつけることでうまく表示できる。</p>
 
-<pre><code>nkf -Ew hoge.txt | less -r
+<pre><code>$ nkf -Ew hoge.txt | less -r
 </code></pre>
 
 <p>たぶん、<code>[3m&lt;9A&gt;</code> とかはlessコマンドがUTF-8を扱えないために変換しちゃうのだと思う。<code>-r</code> は文字を解釈せずにそのままスルーするオプションで、端末がUTF-8で動いていれば、結果的にうまく表示できる。</p>
 
-<h2 id="less-many-files">たくさんのファイルをまとめて less で閲覧するには
-<span class="article-date">2013/09/28</span></h2>
+<h3 id="less-many-files">たくさんのファイルをくっつけてまとめて less で閲覧するには
+<span class="article-date">2015/05/19</span></h3>
 
-<p>find などのファイル一覧の出力に対して、 less で閲覧するには</p>
+<p>find などのファイル一覧の出力に対して、それらを全部連結して less で閲覧するには</p>
 
-<pre><code>find ... -type f | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
+<pre><code>$ find ... -type f | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
 </code></pre>
 
-<p><code>cat -n</code> は行番号をつけて出力する。</p>
+<p><code>cat</code>コマンドにある <code>-n</code> オプションは行番号をつけて出力する。</p>
 
 <p>特定のディレクトリ直下にあるファイルを閲覧するには
 (そのディレクトリの中にサブディレクトリが存在しない場合)</p>
 
-<pre><code>ls foo/bar/* | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
+<pre><code>$ ls foo/bar/* | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
 </code></pre>
 
-<h2 id="76edda0">表示中に特定の行に素早く移動するには
-<span class="article-date">2014/02/08</span></h2>
+<h3 id="a90cf39">表示中に特定の行に素早く移動するには
+<span class="article-date">2014/02/08</span></h3>
 
 <p><code>1000g</code> と押すと、1000行目に移動できる。</p>
 

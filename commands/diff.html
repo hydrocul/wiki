@@ -32,7 +32,7 @@
 
 <p>例</p>
 
-<pre><code>diff -u foo.txt bar.txt
+<pre><code>$ diff -u foo.txt bar.txt
 </code></pre>
 
 <h2 id="aeb82ff">オプション
@@ -78,7 +78,7 @@
 
 <p>以下のようにすることで、2つのコマンドの出力をファイルに落とすことなく直接 diff にかけることができる。</p>
 
-<pre><code>diff &lt;(cat foo.txt) &lt;(cat bar.txt)
+<pre><code>$ diff &lt;(cat foo.txt) &lt;(cat bar.txt)
 </code></pre>
 
 <p>でもこれは、<code>diff</code> にとっては標準入力が2つ存在するわけではない。シェルががんばっていて、2つのコマンドの結果をファイルに保存しているのかパイプなのかわからないが、とにかくファイルシステム上にマッピングしていて、
@@ -86,7 +86,7 @@
 
 <p>その証拠に、<code>diff</code>の代わりに引数の内容をそのまま表示してくれる<code>echo</code>で</p>
 
-<pre><code>echo &lt;(cat foo.txt) &lt;(cat bar.txt)
+<pre><code>$ echo &lt;(cat foo.txt) &lt;(cat bar.txt)
 </code></pre>
 
 <p>とすると、<code>/proc/self/fd/11 /proc/self/fd/12</code> のように出力される。
@@ -97,7 +97,7 @@
 
 <p>以下のように、 <code>-</code> を使うと、比較対象の片方を標準入力にすることができる。</p>
 
-<pre><code>cat foo.txt | diff bar.txt -
+<pre><code>$ cat foo.txt | diff bar.txt -
 </code></pre>
 
 <p>これは上の2つのコマンドの比較方法と違って、シェルががんばっているわけではなく、<code>diff</code>の機能である。</p>
@@ -107,14 +107,14 @@
 
 <p>例</p>
 
-<pre><code>diff --side-by-side foo.txt bar.txt
+<pre><code>$ diff --side-by-side foo.txt bar.txt
 </code></pre>
 
 <p>side-by-side出力形式というらしい。</p>
 
 <p><code>diff</code>コマンドの代わりに<a href="sdiff.html"><code>sdiff</code></a> というコマンドを使ってもいいかも。</p>
 
-<pre><code>sdiff foo.txt bar.txt
+<pre><code>$ sdiff foo.txt bar.txt
 </code></pre>
 
 <h3 id="if">シェルスクリプトで2ファイルが同じかどうかで分岐をさせるには
@@ -138,8 +138,8 @@ fi
 
 <p><code>colordiff</code> というツールをインストールして使うとよいらしい。</p>
 
-<pre><code># インストール
-apt-get install colordiff
+<pre><code>## インストール
+$ apt-get install colordiff
 </code></pre>
 
 <p>でもインストールするのが面倒なら、<code>colordiff</code>でなくて代わりに<a href="git.html"><code>git</code>コマンド</a>を使ってもよい。
@@ -148,10 +148,10 @@ apt-get install colordiff
 <p><code>git</code>コマンドは <code>git diff ...</code> でgit管理下にあるファイルの差分を表示してくれるが、
 <code>git diff --no-index ...</code> とすると、リポジトリと関係なく任意の2つのファイルの差分を表示してくれる便利機能がある。しかも<code>git</code>コマンドでは、ちゃんと設定してあれば、色付きで表示してくれるし、長い差分でも<code>less</code>をパイプで手動でつなぐことなく自動でページャーで表示してくれて使いやすい。</p>
 
-<pre><code>colordiff -u fileA.txt fileB.txt
+<pre><code>$ colordiff -u fileA.txt fileB.txt
 
-# gitを使う方法
-git diff --no-index fileA.txt fileB.txt
+## gitを使う方法
+$ git diff --no-index fileA.txt fileB.txt
 </code></pre>
 
 <p>git管理下でないディレクトリでは、<code>--no-index</code> を付けなくてもよい。</p>

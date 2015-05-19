@@ -29,7 +29,7 @@
 <h3 id="color">カラフルにログを見るには
 <span class="article-date">2013/04/03</span></h3>
 
-<pre><code>git log --graph --date-order --branches --pretty=format:"%Cblue%h %d %Cgreen%ai %Cblue%ae %Creset%s"
+<pre><code>$ git log --graph --date-order --branches --pretty=format:"%Cblue%h %d %Cgreen%ai %Cblue%ae %Creset%s"
 </code></pre>
 
 <h3 id="diff-ignore-space">diffでインデントなどの空白の違いを無視するには
@@ -47,19 +47,19 @@
 <h3 id="diff-not-display-rename">diffでリネームされたファイルを表示されないようにするには
 <span class="article-date">2013/04/03</span></h3>
 
-<pre><code>git diff --cached --find-renames
+<pre><code>$ git diff --cached --find-renames
 </code></pre>
 
 <h3 id="checkout-remote">リモートにあってローカルにはないブランチをチェックアウトするには
 <span class="article-date">2013/04/03</span></h3>
 
-<pre><code>git checkout -b &lt;branch-name&gt; origin/&lt;branch-name&gt;
+<pre><code>$ git checkout -b &lt;branch-name&gt; origin/&lt;branch-name&gt;
 </code></pre>
 
 <h3 id="remove-remote-branch">ローカルにはすでに存在せずリモートに残っているブランチを削除するには
 <span class="article-date">2013/04/03</span></h3>
 
-<pre><code>git push origin :&lt;branch-name&gt;
+<pre><code>$ git push origin :&lt;branch-name&gt;
 </code></pre>
 
 <h3 id="remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには
@@ -67,17 +67,17 @@
 
 <p>リモートで削除されているブランチがあり、それらのリモート追跡用ブランチをまとめて削除するには</p>
 
-<pre><code>git fetch --prune
+<pre><code>$ git fetch --prune
 </code></pre>
 
 <p>または</p>
 
-<pre><code>git fetch --prune origin
+<pre><code>$ git fetch --prune origin
 </code></pre>
 
 <p>特定のリモートブランチだけ <code>fetch</code> を介さずに直接削除するには</p>
 
-<pre><code>git branch -d -r origin/&lt;branch-name&gt;
+<pre><code>$ git branch -d -r origin/&lt;branch-name&gt;
 </code></pre>
 
 <p><code>-d</code> は <code>-D</code> にする必要はないみたい。</p>
@@ -87,38 +87,38 @@
 <h3 id="stash">まだコミットしていない修正を一時保存しておいて、最後のコミットの状態に戻すには
 <span class="article-date">2013/04/15</span></h3>
 
-<pre><code>git stash save 名前
+<pre><code>$ git stash save 名前
 </code></pre>
 
 <p>これで、最後にコミットした状態に戻る。この状態で他のブランチをチェックアウトしたり、別の修正をしてコミットしたりできる。</p>
 
 <p><code>git stash save</code> する前の状態に戻すには、</p>
 
-<pre><code>git stash pop
+<pre><code>$ git stash pop
 </code></pre>
 
 <p>または、後ろに名前をつけて、</p>
 
-<pre><code>git stash pop stash@{0}
+<pre><code>$ git stash pop stash@{0}
 </code></pre>
 
 <p>のようにする。<code>git stash save</code> で1つしか保存していない場合は、<code>git stash pop</code> の後になにもつけなくてもよい。</p>
 
 <p><code>pop</code> すると、保存してあった状態は削除される。削除せずに適用だけしたい場合は、</p>
 
-<pre><code>git stash apply
+<pre><code>$ git stash apply
 </code></pre>
 
 <p>または、後ろに名前をつけて、</p>
 
-<pre><code>git stash apply stash@{0}
+<pre><code>$ git stash apply stash@{0}
 </code></pre>
 
 <p>のようにする。</p>
 
 <p>2つ以上ある場合は、<code>pop</code> も <code>apply</code> も名前で識別する必要があるり、以下の一時保存した修正のリストで確認できる。</p>
 
-<pre><code>git stash list
+<pre><code>$ git stash list
 </code></pre>
 
 <p><code>git stash save</code> したときの名前が <code>pop</code> や <code>apply</code> で使えない理由がわからない。</p>
@@ -127,22 +127,22 @@
 
 <p>stashに保存されている修正の差分を見るには、</p>
 
-<pre><code>git stash show -p
+<pre><code>$ git stash show -p
 </code></pre>
 
 <p>または、後ろに名前をつけて、</p>
 
-<pre><code>git stash show -p stash@{0}
+<pre><code>$ git stash show -p stash@{0}
 </code></pre>
 
 <p>stashに保存されている修正を削除するには、</p>
 
-<pre><code>git stash drop
+<pre><code>$ git stash drop
 </code></pre>
 
 <p>または、後ろに名前をつけて、</p>
 
-<pre><code>git stash drop stash@{0}
+<pre><code>$ git stash drop stash@{0}
 </code></pre>
 
 <h3 id="undo">いろいろと元に戻す方法
@@ -174,19 +174,19 @@
 [http://es.sourceforge.jp/projects/setucocms/wiki/Git<em>%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28–soft.29.20HEAD.EF.BC.89](http://es.sourceforge.jp/projects/setucocms/wiki/Git</em>%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%AEGit%E6%93%8D%E4%BD%9C%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#h3-.E7.B7.A8.E9.9B.86.E5.BE.8C.E3.80.81.E8.AA.A4.E3.81.A3.E3.81.A6.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.81.97.E3.81.A6.E3.81.97.E3.81.BE.E3.81.A3.E3.81.9F.E3.81.A8.E3.81.8D.E3.80.81.E3.82.B3.E3.83.9F.E3.83.83.E3.83.88.E3.82.92.E5.8F.96.E3.82.8A.E6.B6.88.E3.81.99.EF.BC.88git.20reset.20.28–soft.29.20HEAD.EF.BC.89)</p>
 
 <h3 id="diff-patch">特定のコミットでの差分をいまの作業ディレクトリに適用するには
-<span class="article-date">2013/04/05</span></h3>
+<span class="article-date">2015/05/19</span></h3>
 
-<pre><code>git diff コミットハッシュ~..コミットハッシュ &gt; patch.patch
-patch -p1 &lt; patch.patch
-rm patch.patch
+<pre><code>$ git diff コミットハッシュ~..コミットハッシュ | patch -p1
 </code></pre>
+
+<p>でも、これだと新規ファイル作成があった場合にパーミッションは引き継がれない。</p>
 
 <h3 id="git-clone-target"><code>git clone</code> のときに作成されるディレクトリの名前を指定するには
 <span class="article-date">2013/04/12</span></h3>
 
 <p><code>clone</code> の2つ目の引数にディレクトリを指定する。</p>
 
-<pre><code>git clone git://github.com/foo/bar.git hoge
+<pre><code>$ git clone git://github.com/foo/bar.git hoge
 </code></pre>
 
 <p>これで hoge というディレクトリが作られる。</p>
@@ -208,12 +208,12 @@ rm patch.patch
 
 <p>拡張子が <code>.pw</code> のファイルをすべて削除する例</p>
 
-<pre><code>git filter-branch --tree-filter 'rm -f *.pw' HEAD
+<pre><code>$ git filter-branch --tree-filter 'rm -f *.pw' HEAD
 </code></pre>
 
 <p>この例の場合は、ディレクトリの中までは削除してくれない。サブディレクトリも含めて全て削除するには</p>
 
-<pre><code>git filter-branch --tree-filter 'find . -name "*.pw" -exec rm -f {} \;' HEAD
+<pre><code>$ git filter-branch --tree-filter 'find . -name "*.pw" -exec rm -f {} \;' HEAD
 </code></pre>
 
 <h3 id="7d774b3">初めてコミットする前に間違って <code>git add</code> してしまったファイルをもとに戻そうと <code>git reset</code> しようとしてもエラーになってしまう場合
@@ -224,12 +224,12 @@ rm patch.patch
 
 <p><code>git reset</code> しようとすると、上記のエラーが出てしまう。<code>reset</code> してもとに戻すべきコミットが見つからないためと思われる。その場合は</p>
 
-<pre><code>git rm --cached -r directory_name
+<pre><code>$ git rm --cached -r directory_name
 </code></pre>
 
 <p>またはファイル1つの場合は</p>
 
-<pre><code>git rm --cached file_name
+<pre><code>$ git rm --cached file_name
 </code></pre>
 
 <p>とする。</p>
@@ -239,22 +239,22 @@ rm patch.patch
 
 <p><code>git-bisect</code> は、エンバグしたコミットを二分探索して探す支援をするコマンド。</p>
 
-<pre><code>git bisect start バグのあるコミット バグのないコミット
+<pre><code>$ git bisect start バグのあるコミット バグのないコミット
 </code></pre>
 
 <p>とすると、中間のコミットがチェックアウトされるので、ここでバグが再現するかどうかをテストして、</p>
 
-<pre><code>git bisect good
+<pre><code>$ git bisect good
 </code></pre>
 
 <p>または</p>
 
-<pre><code>git bisect bad
+<pre><code>$ git bisect bad
 </code></pre>
 
 <p>とすると、また適当なコミットをチェックアウトされるので、また再現テストをする。これを繰り返すと、最終的にバグを組み込んだコミットが表示される。最後に</p>
 
-<pre><code>git bisect reset
+<pre><code>$ git bisect reset
 </code></pre>
 
 <p>として、<code>bisect</code> を終了させる。</p>
@@ -268,12 +268,12 @@ rm patch.patch
 <p>Git 2.0 からpushの仕様が少し変わり、 push.default のデフォルト値が 
 matching から simple に変わる予定とのこと。simple にする場合は以下のようにでもしておく。</p>
 
-<pre><code>git config --global push.default simple
+<pre><code>$ git config --global push.default simple
 </code></pre>
 
 <p>ただし、simpleは、Git 1.8からなのでこの ~/.gitconfig を複数のホストで共有している場合でGit 1.7のホストが混ざっていると、そこでは <code>git push</code> ができなくなってしまう。Git 1.7と互換性を保ちたければ、以下のようにしておく。</p>
 
-<pre><code>git config --global push.default matching
+<pre><code>$ git config --global push.default matching
 </code></pre>
 
 <h3 id="b202381">git clone するときにディレクトリを作成するのではなく、カレントディレクトリにそのまま展開させるには
@@ -281,7 +281,7 @@ matching から simple に変わる予定とのこと。simple にする場合�
 
 <p>uriの次にclone先のディレクトリを指定できる。</p>
 
-<pre><code>git clone &lt;remote-repository-uri&gt; .
+<pre><code>$ git clone &lt;remote-repository-uri&gt; .
 </code></pre>
 
 <h3 id="301f5d1">zshのプロンプトにgitのメールアドレスを表示させるには
@@ -307,12 +307,12 @@ export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
 
 <p>以下のコマンドで差分を1つずつインタラクティブに確認しながら git add できる。</p>
 
-<pre><code>git add -p
+<pre><code>$ git add -p
 </code></pre>
 
 <p>特定のファイルまたはディレクトリに限定して、インタラクティブに git add することもできる。</p>
 
-<pre><code>git add -p ./hoge.txt
+<pre><code>$ git add -p ./hoge.txt
 </code></pre>
 
 <p><code>-p</code> のかわりに <code>--patch</code> でも同じ。</p>
@@ -320,7 +320,7 @@ export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
 <h3 id="f202683">いまチェックアウトしているブランチの名前を変更するには
 <span class="article-date">2013/09/09</span></h3>
 
-<pre><code>git branch -m newbranchname
+<pre><code>$ git branch -m newbranchname
 </code></pre>
 
 <h3 id="5f2d5e8">特定のディレクトリだけをチェックアウトするには
@@ -328,9 +328,9 @@ export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
 
 <p>いったんチェックアウトしたディレクトリにて以下を実行する。</p>
 
-<pre><code>git config core.sparsecheckout true
-echo hoge &gt; .git/info/sparse-checkout
-git read-tree -m -u HEAD
+<pre><code>$ git config core.sparsecheckout true
+$ echo hoge &gt; .git/info/sparse-checkout
+$ git read-tree -m -u HEAD
 </code></pre>
 
 <p>こうすると、<code>hoge</code>ディレクトリのみになる。<code>hoge</code>ディレクトリ自体がチェックアウトしたディレクトリのルートになるわけではなく、単にその他のディレクトリが削除されるだけである。おそらく<code>.git</code>ディレクトリにはすべてのファイルが保存されたままである。</p>
@@ -338,7 +338,7 @@ git read-tree -m -u HEAD
 <h3 id="daff2af">追跡するリモートリポジトリを追加するには
 <span class="article-date">2015/04/13</span></h3>
 
-<pre><code>git remote add &lt;remote-name&gt; &lt;remote-repository-uri&gt;
+<pre><code>$ git remote add &lt;remote-name&gt; &lt;remote-repository-uri&gt;
 </code></pre>
 
 <p>&lt;remotename&gt; はワーキングディレクトリの中で通用するリモートリポジトリの名前。</p>
@@ -350,7 +350,7 @@ git read-tree -m -u HEAD
 
 <p>すべてのリモートリポジトリに対して <code>git fetch</code> するには <code>--all</code> オプションを付ける。</p>
 
-<pre><code>git fetch --all
+<pre><code>$ git fetch --all
 </code></pre>
 
 <p>これを付けないと、<code>origin</code>リモートリポジトリのみfetchされる。</p>
@@ -359,7 +359,7 @@ git read-tree -m -u HEAD
 
 <p>自分がよく使うコマンドは</p>
 
-<pre><code>git fetch --prune --all
+<pre><code>$ git fetch --prune --all
 </code></pre>
 
 <p>これはすべてのリモートリポジトリでの変更を取り込んだ上で、リモートで削除されたブランチがあればそれに対応する追跡ブランチを削除する。
@@ -368,11 +368,11 @@ git read-tree -m -u HEAD
 <h3 id="5c3959e">追跡するリモートリポジトリの設定を削除するには
 <span class="article-date">2014/06/06</span></h3>
 
-<pre><code># git 1.8.1.2 では
-git remote remove &lt;remote-name&gt;
+<pre><code>## git 1.8.1.2 では
+$ git remote remove &lt;remote-name&gt;
 
-# git 1.7.1 では
-git remote rm &lt;remote-name&gt;
+## git 1.7.1 では
+$ git remote rm &lt;remote-name&gt;
 </code></pre>
 
 <p>上記のように環境によってコマンドが違っていたのだが、gitのバージョンによって違うのかな。</p>
@@ -384,7 +384,7 @@ git remote rm &lt;remote-name&gt;
 
 <p><code>-o</code> で指定する。</p>
 
-<pre><code>git clone -o &lt;remote-name&gt; &lt;remote-repository-uri&gt;
+<pre><code>$ git clone -o &lt;remote-name&gt; &lt;remote-repository-uri&gt;
 </code></pre>
 
 <h3 id="b67605d"><code>git diff</code> で差分を見るときにリネームして編集されたファイルを削除と作成ではなく、編集の差分を見るには
@@ -392,8 +392,8 @@ git remote rm &lt;remote-name&gt;
 
 <p><code>--find-renames</code> を付ける。</p>
 
-<pre><code># ステージングされた編集の差分をリネームを考慮して表示
-git diff --cached --find-renames
+<pre><code>## ステージングされた編集の差分をリネームを考慮して表示
+$ git diff --cached --find-renames
 </code></pre>
 
 <h3 id="216e50b">ローカルでのファイルの編集をgitで無視したい場合
@@ -402,16 +402,16 @@ git diff --cached --find-renames
 <p>すでにgit管理下にあるファイルは <code>.gitignore</code> に入れても無視してくれない。
 gitにコミットされているファイルを一時的にローカルで変更してもそれの差分をgitでは無視してほしい場合には以下のようなコマンドを打つ。</p>
 
-<pre><code>git update-index --assume-unchanged &lt;file-path&gt;
-# または
-git update-index --skip-worktree  &lt;file-path&gt;
+<pre><code>$ git update-index --assume-unchanged &lt;file-path&gt;
+## または
+$ git update-index --skip-worktree  &lt;file-path&gt;
 </code></pre>
 
 <p>上記により無視されているファイルを再び無視されないようにしたい場合は以下のような解除のコマンドを打つ。</p>
 
-<pre><code>git update-index --no-assume-unchanged &lt;file-path&gt;
-# または
-git update-index --no-skip-worktree  &lt;file-path&gt;
+<pre><code>$ git update-index --no-assume-unchanged &lt;file-path&gt;
+## または
+$ git update-index --no-skip-worktree  &lt;file-path&gt;
 </code></pre>
 
 <p><code>--assume-unchanged</code> / <code>--no-assume-unchanged</code> と <code>--skip-worktree</code> / <code>--no-skip-worktree</code> は厳密には違うものなので、解除コマンドはそれぞれに対応するものを打つ必要がある。</p>
@@ -419,18 +419,18 @@ git update-index --no-skip-worktree  &lt;file-path&gt;
 <h3 id="50edbb0">過去の特定のバージョンでの特定のファイルをチェックアウトせずに閲覧するには
 <span class="article-date">2014/01/15</span></h3>
 
-<pre><code>git cat-file -p &lt;commit sha1&gt;:&lt;path&gt;
-# または
-git show &lt;commit sha1&gt;:&lt;path&gt;
+<pre><code>$ git cat-file -p &lt;commit sha1&gt;:&lt;path&gt;
+## または
+$ git show &lt;commit sha1&gt;:&lt;path&gt;
 </code></pre>
 
 <p><code>git show</code> のほうが自動でページングもしてくれて便利。</p>
 
 <p>例</p>
 
-<pre><code>git cat-file -p 859ffa2:lib/abc.php
-# または
-git show 859ffa2:lib/abc.php
+<pre><code>$ git cat-file -p 859ffa2:lib/abc.php
+## または
+$ git show 859ffa2:lib/abc.php
 </code></pre>
 
 <h3 id="2a11ce9">特定の日時でコミットするには
@@ -440,7 +440,7 @@ git show 859ffa2:lib/abc.php
 
 <p>例</p>
 
-<pre><code>GIT_AUTHOR_DATE=2013-11-26T15:18:04 git commit
+<pre><code>$ GIT_AUTHOR_DATE=2013-11-26T15:18:04 git commit
 </code></pre>
 
 <p><code>GIT_COMMITTER_DATE</code> を設定しうると committer date を指定できる。</p>
@@ -453,11 +453,11 @@ git show 859ffa2:lib/abc.php
 
 <p>例：</p>
 
-<pre><code># ファイル名と変更なのか新規なのか削除なのかを表示
-git diff --name-status
+<pre><code>## ファイル名と変更なのか新規なのか削除なのかを表示
+$ git diff --name-status
 
-# 本当にファイル名だけ表示
-git diff --name-only
+## 本当にファイル名だけ表示
+$ git diff --name-only
 </code></pre>
 
 <p><a href="diff.html"><code>diff</code>コマンド</a>での同様のことをさせるには <code>-rq</code> を付けるとよい。</p>
@@ -474,7 +474,7 @@ git diff --name-only
 
 <p>自分はgitはソースからコンパイルしてインストールしているが、こういうエラーが出てしまった場合、Ubuntuの場合は</p>
 
-<pre><code>sudo apt-get install libcurl4-openssl-dev
+<pre><code>$ sudo apt-get install libcurl4-openssl-dev
 </code></pre>
 
 <p>として、gitを再コンパイル&amp;インストールすればよい。
@@ -493,13 +493,91 @@ gitコンパイル&amp;インストールはconfigureオプションを付ける
 
 <p>ローカルでの編集を一切保存せずに上書きしてもよい場合、いったん</p>
 
-<pre><code>git checkout foo/bar.txt
+<pre><code>$ git checkout foo/bar.txt
 </code></pre>
 
 <p>として元に戻してからブランチをチェックアウトしてもいいけど、それをせずにチェックアウトのときに <code>-f</code> を付ければ、強制的にファイルを上書きしてくれる。</p>
 
-<pre><code>git checkout -f hogehoge-branch
+<pre><code>$ git checkout -f hogehoge-branch
 </code></pre>
+
+<h3 id="928ca97">過去のログが不要な場合
+<span class="article-date">2013/05/08</span></h3>
+
+<pre><code>$ git clone --depth 1 リポジトリURL
+</code></pre>
+
+<p>とすると、過去のログを除いて最新のソースのみをcloneできる(shallow repository)。
+cloneしたワーキングディレクトリでファイルを修正して、commit, push もできる。</p>
+
+<p>しかし、これでcloneしたディレクトリをオリジナルとしてさらにcloneすることはできないみたい。cloneしようとすると、以下のエラーメッセージが出る。</p>
+
+<pre><code>fatal: attempt to fetch/clone from a shallow repository
+fatal: The remote end hung up unexpectedly
+</code></pre>
+
+<p>shallow repository には <code>.git/shallow</code> というファイルがあり、省略された過去のコミットが参照されていて、このファイルにより shallow repository であることを示している。このファイルを削除すると、ローカルではcloneすることができるが、リモートへのcloneでは過去のコミットが見つからない、というエラーが出て、やっぱりcloneできない。</p>
+
+<h3 id="56ad8e6">git管理対象外のファイルを削除するには
+<span class="article-date">2015/05/11</span></h3>
+
+<p>新しく作ったファイルでまだ<code>git add</code>していないファイルを一括して削除するには <code>git clean -f</code> を使う。その前に <code>git clean -n</code> を使うと削除するファイルを事前に確認することができる。ディレクトリまるごとgit管理対象外の場合はこれでは削除できず、<code>git clean -df</code> を使う。</p>
+
+<pre><code>$ git status -s
+?? foo.txt
+?? bar/
+
+## 削除されるファイルを確認
+$ git clean -n
+Would remove foo.txt
+
+## 削除を実行
+$ git clean -f
+Removing foo.txt
+
+## ディレクトリまるごとgit管理対象外のものがある場合
+# 削除されるファイルを確認
+$ git clean -df
+Removing blog/
+
+## 削除を実行
+$ git clean -dn
+Removing blog/
+</code></pre>
+
+<p><code>.gitignore</code> で指定されたファイルはこれを使っても削除されない。それらも削除するには <code>-x</code> を使う。</p>
+
+<h3 id="0f384a9">リモートリポジトリの名前を変更するには
+<span class="article-date">2015/05/01</span></h3>
+
+<pre><code>$ git remote rename 古い名前 新しい名前
+</code></pre>
+
+<h3 id="adc2a62">git log で表示するコミットの数を指定するには
+<span class="article-date">2015/05/15</span></h3>
+
+<pre><code>## 最新の10個のコミットだけを表示
+$ git log -10
+
+## 最新のコミットだけを表示
+$ git log -1
+</code></pre>
+
+<h3 id="4ca41e6">git merge で衝突して、とりあえず元に戻したい場合
+<span class="article-date">2015/05/19</span></h3>
+
+<p><code>git merge foo</code> としたら</p>
+
+<pre><code>CONFLICT (content): Merge conflict in bar/example.txt
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre>
+
+<p>などと表示されて手動での衝突解決を求められて、とりあえず元に戻したい場合、</p>
+
+<pre><code>$ git merge --abort
+</code></pre>
+
+<p>とすると、<code>git merge</code> する前の状態に戻ってくれる。</p>
 
 <h2 id="be3a536"><code>.gitignore</code> のサンプルファイル</h2>
 
@@ -574,84 +652,24 @@ Thumbs.db
 
 <p>Javaで実装されたGitリポジトリ管理ツール。リポジトリの pull request をWeb上ですることはできない。コミットログをグラフィカルに表示することはできない。WikiやIssueの機能がない。Hookのスクリプトを Groovy で書ける。</p>
 
-<h2 id="401635a">過去のログが不要な場合
-<span class="article-date">2013/05/08</span></h2>
-
-<pre><code>git clone --depth 1 リポジトリURL
-</code></pre>
-
-<p>とすると、過去のログを除いて最新のソースのみをcloneできる(shallow repository)。
-cloneしたワーキングディレクトリでファイルを修正して、commit, push もできる。</p>
-
-<p>しかし、これでcloneしたディレクトリをオリジナルとしてさらにcloneすることはできないみたい。cloneしようとすると、以下のエラーメッセージが出る。</p>
-
-<pre><code>fatal: attempt to fetch/clone from a shallow repository
-fatal: The remote end hung up unexpectedly
-</code></pre>
-
-<p>shallow repository には <code>.git/shallow</code> というファイルがあり、省略された過去のコミットが参照されていて、このファイルにより shallow repository であることを示している。このファイルを削除すると、ローカルではcloneすることができるが、リモートへのcloneでは過去のコミットが見つからない、というエラーが出て、やっぱりcloneできない。</p>
-
 <h2 id="17eefce"><code>git svn</code> で作成したリポジトリで使えるコマンド
 <span class="article-date">2013/11/07</span></h2>
 
-<pre><code># svnリモートリポジトリでの更新を取り込む
-git svn fetch --localtime
-# 自分の環境では --localtime を付けないと
-# gitに取り込まれたコミットのタイムスタンプがずれてしまった
+<pre><code>## svnリモートリポジトリでの更新を取り込む
+$ git svn fetch --localtime
+## 自分の環境では --localtime を付けないと
+## gitに取り込まれたコミットのタイムスタンプがずれてしまった
 
-# SVNにコミット(?)
-git svn dcommit
-# 自分はあまり試していない
+## SVNにコミット(?)
+$ git svn dcommit
+## 自分はあまり試していない
 </code></pre>
 
-<h2 id="56b67ac">git merge よりも git rebase の勧め</h2>
+<h2 id="65910bd">関連</h2>
 
-<p>-&gt; <a href="../blog/2013/1125-git-rebase-is-better.html">git merge よりも git rebase の勧め</a></p>
-
-<h2 id="db44abc">git管理対象外のファイルを削除するには
-<span class="article-date">2015/05/11</span></h2>
-
-<p>新しく作ったファイルでまだ<code>git add</code>していないファイルを一括して削除するには <code>git clean -f</code> を使う。その前に <code>git clean -n</code> を使うと削除するファイルを事前に確認することができる。ディレクトリまるごとgit管理対象外の場合はこれでは削除できず、<code>git clean -df</code> を使う。</p>
-
-<pre><code>$ git status -s
-?? foo.txt
-?? bar/
-
-# 削除されるファイルを確認
-$ git clean -n
-Would remove foo.txt
-
-# 削除を実行
-$ git clean -f
-Removing foo.txt
-
-# ディレクトリまるごとgit管理対象外のものがある場合
-# 削除されるファイルを確認
-$ git clean -df
-Removing blog/
-
-# 削除を実行
-$ git clean -dn
-Removing blog/
-</code></pre>
-
-<p><code>.gitignore</code> で指定されたファイルはこれを使っても削除されない。それらも削除するには <code>-x</code> を使う。</p>
-
-<h2 id="405f741">リモートリポジトリの名前を変更するには
-<span class="article-date">2015/05/01</span></h2>
-
-<pre><code>$ git remote rename 古い名前 新しい名前
-</code></pre>
-
-<h2 id="e8cdb1d">git log で表示するコミットの数を指定するには
-<span class="article-date">2015/05/15</span></h2>
-
-<pre><code># 最新の10個のコミットだけを表示
-$ git log -10
-
-# 最新のコミットだけを表示
-$ git log -1
-</code></pre>
+<ul>
+  <li><a href="../blog/2013/1125-git-rebase-is-better.html">git merge よりも git rebase の勧め</a></li>
+</ul>
 
 </div>
 
