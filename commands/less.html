@@ -98,21 +98,50 @@
 
 <p>たぶん、<code>[3m&lt;9A&gt;</code> とかはlessコマンドがUTF-8を扱えないために変換しちゃうのだと思う。<code>-r</code> は文字を解釈せずにそのままスルーするオプションで、端末がUTF-8で動いていれば、結果的にうまく表示できる。</p>
 
-<h3 id="less-many-files">たくさんのファイルをくっつけてまとめて less で閲覧するには
+<h3 id="less-many-files">複数のファイルをまとめて less で閲覧するには
 <span class="article-date">2015/05/19</span></h3>
 
-<p>find などのファイル一覧の出力に対して、それらを全部連結して less で閲覧するには</p>
+<p><a href="find.html"><code>find</code>コマンド</a>などのファイル一覧の出力に対して、それらを全部連結して less で閲覧するには</p>
 
 <pre><code>$ find ... -type f | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
 </code></pre>
 
-<p><code>cat</code>コマンドにある <code>-n</code> オプションは行番号をつけて出力する。</p>
+<p>とすると、以下のようなイメージで閲覧できる。</p>
+
+<pre><code>a.txt
+   1 a.txtの1行目
+   2 a.txtの2行目
+   3 a.txtの3行目
+b.txt
+   1 b.txtの1行目
+   2 b.txtの2行目
+   3 b.txtの3行目
+c.txt
+   1 c.txtの1行目
+   2 c.txtの2行目
+   3 c.txtの3行目
+</code></pre>
+
+<p><code>cat</code>コマンドにある <code>-n</code> オプションは行番号をつけて出力する意味。</p>
 
 <p>特定のディレクトリ直下にあるファイルを閲覧するには
 (そのディレクトリの中にサブディレクトリが存在しない場合)</p>
 
 <pre><code>$ ls foo/bar/* | awk '{print "echo " $1 "; cat -n " $1}' | sh | less
 </code></pre>
+
+<p>複数のファイルをくっつけずに<code>less</code>コマンドの複数ファイルを閲覧できる機能を使うにはパラメータに普通に複数のファイル名を渡す。</p>
+
+<pre><code>$ less a.txt b.txt c.txt
+</code></pre>
+
+<p><code>find</code>コマンドなどの出力結果をこの機能を使って閲覧するには<a href="xargs.html"><code>xargs</code>コマンド</a>と組み合わせる。</p>
+
+<pre><code>$ find ... -type f | xargs less
+</code></pre>
+
+<p>この使い方では、<code>less</code>での閲覧中に<code>:n</code>を(コロン、nの2キーを順番に)押すと次のファイルに移動する。
+<code>:p</code>を押すと前のファイルに戻る。</p>
 
 <h3 id="a90cf39">表示中に特定の行に素早く移動するには
 <span class="article-date">2014/02/08</span></h3>
