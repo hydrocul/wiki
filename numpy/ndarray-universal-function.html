@@ -56,7 +56,7 @@ print(np.floor(ndarr1 * 3))
 </ul>
 
 <h2 id="c9d1d54">1つのndarrayを引数にとって、ndarrayを1つ返すユニバーサル関数
-<span class="article-date">2015/05/19</span></h2>
+<span class="article-date">2015/05/20</span></h2>
 
 <dl>
   <dt><code>sqrt</code></dt>
@@ -159,17 +159,35 @@ print(np.floor(ndarr1 * 3))
 <code>numpy.ceil</code> | NumPy v1.9 Manual<br />
 <a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.ceil.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.ceil.html</a></dd>
   <dt><code>floor</code></dt>
-  <dd>切り捨て。負は<code>0</code>から遠い方に丸められる。</dd>
+  <dd>切り捨て。負は<code>0</code>から遠い方に丸められる。<br />
+<code>numpy.floor</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.floor.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.floor.html</a></dd>
   <dt><code>rint</code></dt>
-  <dd>近い整数にに丸める。2つの整数のちょうど中間の場合は偶数に方に丸める。例: <code>1.5</code> -&gt; <code>2.0</code>, <code>2.5</code> -&gt; <code>2.0</code>, <code>3.5</code> -&gt; <code>4.0</code></dd>
+  <dd>近い整数にに丸める。2つの整数のちょうど中間の場合は偶数に方に丸める。例: <code>1.5</code> -&gt; <code>2.0</code>, <code>2.5</code> -&gt; <code>2.0</code>, <code>3.5</code> -&gt; <code>4.0</code><br />
+<code>numpy.rint</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.rint.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.rint.html</a></dd>
   <dt><code>isnan</code></dt>
-  <dd><code>NaN</code> かどうかを判定して論理値のndarrayを返す</dd>
+  <dd><code>NaN</code> かどうかを判定して論理値のndarrayを返す<br />
+<code>numpy.isnan</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.isnan.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.isnan.html</a></dd>
   <dt><code>isfinite</code></dt>
-  <dd>有限(<code>inf</code>でも<code>NaN</code>でもない)かどうかを判定して論理値のndarrayを返す</dd>
+  <dd>有限(<code>inf</code>でも<code>NaN</code>でもない)かどうかを判定して論理値のndarrayを返す<br />
+<code>numpy.isfinite</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.isfinite.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.isfinite.html</a></dd>
   <dt><code>isinf</code></dt>
-  <dd>無限(<code>inf</code>)かどうかを判定して論理値のndarrayを返す</dd>
+  <dd>無限(<code>inf</code>)かどうかを判定して論理値のndarrayを返す<br />
+<code>numpy.isinf</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.isinf.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.isinf.html</a></dd>
+</dl>
+
+<h3 id="813f83c">論理演算子と同等のもの
+<span class="article-date">2015/05/20</span></h3>
+
+<dl>
   <dt><code>logical_not</code></dt>
-  <dd>論理値のndarrayを引数にとって、要素ごとに否定した論理値のndarrayを返す</dd>
+  <dd>論理値のndarrayを引数にとって、要素ごとに否定した論理値のndarrayを返す<br />
+<code>numpy.logical_not</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.logical_not.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.logical_not.html</a></dd>
 </dl>
 
 <h2 id="9327b70">1つのndarrayを引数にとって、ndarrayを2つタプルで返すユニバーサル関数
