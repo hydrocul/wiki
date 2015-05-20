@@ -20,7 +20,7 @@
 
 <div id="content">
   <h1 id="ndarray-create">多次元配列ndarrayの生成
-<span class="article-date">2015/03/29</span></h1>
+<span class="article-date">2015/05/21</span></h1>
 
 <p>ndarrayは、<code>np.array</code>を使ってPythonの多次元配列から簡単に生成できる。</p>
 
@@ -75,6 +75,7 @@ npdata = np.empty((2, 3))
 <p><code>np.arange</code> は0からの連番の配列を生成する。要素の型は整数になる。</p>
 
 <pre><code>npdata = np.arange(5)
+
 print(npdata)
 # 出力結果
 # [0 1 2 3 4]
@@ -83,6 +84,25 @@ print(npdata.dtype)
 # 出力結果
 # int64
 </code></pre>
+
+<p>3つの引数を渡せば、開始点、終末点、間隔を指定できる。</p>
+
+<pre><code>npdata = np.arange(0, 5, 0.1)
+
+print(npdata)
+# 出力結果
+# [ 0.   0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1.   1.1  1.2  1.3  1.4
+#   1.5  1.6  1.7  1.8  1.9  2.   2.1  2.2  2.3  2.4  2.5  2.6  2.7  2.8  2.9
+#   3.   3.1  3.2  3.3  3.4  3.5  3.6  3.7  3.8  3.9  4.   4.1  4.2  4.3  4.4
+#   4.5  4.6  4.7  4.8  4.9]
+
+print(npdata.dtype)
+# 出力結果
+# float64
+</code></pre>
+
+<p><code>numpy.arange</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html</a></p>
 
 <p><code>np.eye</code> または <code>np.identity</code> は単位行列を2次元配列で生成する。この2つの使い方は同じ。要素の型は浮動小数点数になる。</p>
 
@@ -115,8 +135,11 @@ print(npdata)
       <li><a href="../numpy/ndarray-vector.html">ndarrayでのベクトル計算</a></li>
       <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-boolean.html">ndarrayのブールインデックス参照</a></li>
       <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
+      <li><a href="../numpy/ndarray-universal-function.html">ndarrayのユニバーサル関数</a></li>
+      <li><a href="../numpy/ndarray-transposed.html">ndarrayでの転置行列</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>

@@ -209,9 +209,9 @@ print(np.floor(ndarr1 * 3))
   <dt><code>multiply</code></dt>
   <dd>乗算(積) \( x y \)</dd>
   <dt><code>divide</code></dt>
-  <dd>除算(商) \( x / y \)</dd>
+  <dd>除算(商) \( \frac{x}{y} \)</dd>
   <dt><code>floor_divide</code></dt>
-  <dd>除算(商) \( x / y \)<br />
+  <dd>除算(商) \( \frac{x}{y} \)<br />
 整数に切り捨てられる。ただし要素の型は浮動小数点数のまま。結果が負の場合は絶対値の大きい方に丸められる</dd>
   <dt><code>mod</code></dt>
   <dd>剰余</dd>
@@ -225,6 +225,40 @@ print(np.floor(ndarr1 * 3))
   <dd>2つの要素を比較して小さい方を抽出。片方または両方が<code>NaN</code>の場合は<code>NaN</code>になる。</dd>
   <dt><code>fmin</code></dt>
   <dd>2つの要素を比較して小さい方を抽出。片方が<code>NaN</code>の場合は他方の値になる。</dd>
+  <dt><code>copysign</code></dt>
+  <dd>1つ目の配列の要素の符号を2つ目の配列の要素の符号にした配列にする<br />
+<code>numpy.copysign</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.copysign.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.copysign.html</a></dd>
+</dl>
+
+<h3 id="0dc7421">数値を比較して真偽値を返すもの
+<span class="article-date">2015/05/20</span></h3>
+
+<dl>
+  <dt><code>greater</code></dt>
+  <dd><code>&gt;</code></dd>
+  <dt><code>greater_equal</code></dt>
+  <dd><code>&gt;=</code></dd>
+  <dt><code>less</code></dt>
+  <dd><code>&lt;</code></dd>
+  <dt><code>less_equal</code></dt>
+  <dd><code>&lt;=</code></dd>
+  <dt><code>equal</code></dt>
+  <dd><code>==</code></dd>
+  <dt><code>not_equal</code></dt>
+  <dd><code>==</code></dd>
+</dl>
+
+<h3 id="07b4436">論理演算子と同等のもの
+<span class="article-date">2015/05/20</span></h3>
+
+<dl>
+  <dt><code>logical_and</code></dt>
+  <dd>論理積 <code>&amp;</code></dd>
+  <dt><code>logical_or</code></dt>
+  <dd>論理和 <code>|</code></dd>
+  <dt><code>logical_xor</code></dt>
+  <dd>排他的論理和 <code>^</code></dd>
 </dl>
 
 </div>
