@@ -199,7 +199,7 @@ print(np.floor(ndarr1 * 3))
 </dl>
 
 <h2 id="6ae183f">2つのndarrayを引数にとって、ndarrayを1つ返すユニバーサル関数
-<span class="article-date">2015/05/18</span></h2>
+<span class="article-date">2015/05/20</span></h2>
 
 <dl>
   <dt><code>add</code></dt>
@@ -213,8 +213,18 @@ print(np.floor(ndarr1 * 3))
   <dt><code>floor_divide</code></dt>
   <dd>除算(商) \( x / y \)<br />
 整数に切り捨てられる。ただし要素の型は浮動小数点数のまま。結果が負の場合は絶対値の大きい方に丸められる</dd>
+  <dt><code>mod</code></dt>
+  <dd>剰余</dd>
   <dt><code>power</code></dt>
   <dd>べき乗 \( x^y \)</dd>
+  <dt><code>maximum</code></dt>
+  <dd>2つの要素を比較して大きい方を抽出。片方または両方が<code>NaN</code>の場合は<code>NaN</code>になる。</dd>
+  <dt><code>fmax</code></dt>
+  <dd>2つの要素を比較して大きい方を抽出。片方が<code>NaN</code>の場合は他方の値になる。</dd>
+  <dt><code>minimum</code></dt>
+  <dd>2つの要素を比較して小さい方を抽出。片方または両方が<code>NaN</code>の場合は<code>NaN</code>になる。</dd>
+  <dt><code>fmin</code></dt>
+  <dd>2つの要素を比較して小さい方を抽出。片方が<code>NaN</code>の場合は他方の値になる。</dd>
 </dl>
 
 </div>
