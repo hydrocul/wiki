@@ -20,9 +20,18 @@
 
 <div id="content">
   <h1 id="grep">grep コマンド
-<span class="article-date">2015/01/22</span></h1>
+<span class="article-date">2015/05/21</span></h1>
 
-<p>ファイルなどの中から正規表現でマッチする行を探し出すコマンド。</p>
+<p>ファイルや標準入力から正規表現でマッチする行を探し出すコマンド。</p>
+
+<p>ログファイルの中から特定のログを探し出したり、ソースコード一式のあるディレクトリで特定のメソッド名などを定義・呼び出ししているところを探したり、いろいろな目的で使う。</p>
+
+<p>※ grepよりも高速に検索できる <a href="ack-grep.html">ack-grep</a> などもある</p>
+
+<p>※ Perlには<a href="../programming_languages_diff/list/filter.html#perl"><code>grep</code></a>という関数がある</p>
+
+<h2 id="65ad6b9">基本的な使い方
+<span class="article-date">2015/05/21</span></h2>
 
 <pre><code>grep [オプション...] パターン [ファイル...]
 </code></pre>
@@ -34,11 +43,9 @@
 <pre><code>grep -rn foo *
 </code></pre>
 
-<p>のように <code>-rn</code> オプションを付けて使っている。最後の<code>*</code>を<code>.</code>にすると<code>.git</code>の中も検索されちゃう。</p>
+<p>のように <code>-rn</code> オプションを付けて使っている。これはディレクトリを再帰的にたどり、見つかった行は行番号を付して表示するオプションである。</p>
 
-<p>(grepよりも高速に検索できる <a href="ack-grep.html">ack-grep</a> などもある)</p>
-
-<p>(Perlには<a href="../programming_languages_diff/list/filter.html#perl"><code>grep</code></a>という関数がある)</p>
+<p>gitレポジトリのディレクトリで最後の<code>*</code>を<code>.</code>にして実行すると<code>.git</code>の中も検索されちゃうので、とりあえず最後は <code>*</code> にする癖にしている。</p>
 
 <div class="ad">
 <div class="adlabel">スポンサーリンク</div>
@@ -56,26 +63,9 @@
 
 
 <h2 id="f911d96">オプション
-<span class="article-date">2014/08/31</span></h2>
+<span class="article-date">2015/05/21</span></h2>
 
 <dl>
-  <dt><code>-r</code></dt>
-  <dd>ディレクトリを再帰的にたどって検索する。</dd>
-  <dt><code>-n</code></dt>
-  <dd>検索結果の出力に行番号をつける。</dd>
-  <dt><code>-i</code></dt>
-  <dd>大文字小文字を区別せずにマッチングをする。</dd>
-  <dt><code>-v</code></dt>
-  <dd>通常とは逆に、マッチしない行を出力する。</dd>
-  <dt><code>-l</code> (小文字エル)</dt>
-  <dd>マッチしたファイルのファイル名のみを出力する。</dd>
-  <dt><code>-L</code></dt>
-  <dd>マッチしなかったファイルのファイル名を出力する。</dd>
-  <dt><code>-E</code></dt>
-  <dd>拡張正規表現を使う。 <code>(foo|bar)</code> のような表記の正規表現を使うには、
-<code>-E</code> が必要。</dd>
-  <dt><code>--line-buffered</code></dt>
-  <dd>行ごとのバッファリングにする。<code>tail -f</code> などからパイプで受け取るときに便利。</dd>
   <dt><code>-a</code>, <code>--text</code>, <code>--binary-files=text</code></dt>
   <dd>通常だとgrepがバイナリだと認識してしまうファイルも強制的にテキストとして認識させる。
 テキストファイルでも最初の方に少しテキストでないバイナリがゴミとかで含まれちゃっていると、
@@ -85,6 +75,25 @@ grepはバイナリファイルだと勘違いしてしまう。バイナリ扱�
   <dd>このオプションを指定するとマッチした行の後も指定した行数を出力する。</dd>
   <dt><code>-B</code> 行数</dt>
   <dd>このオプションを指定するとマッチした行の前も指定した行数を出力する。</dd>
+  <dt><code>-E</code></dt>
+  <dd>拡張正規表現を使う。 <code>(foo|bar)</code> のような表記の正規表現を使うには、
+<code>-E</code> が必要。</dd>
+  <dt><code>-i</code></dt>
+  <dd>大文字小文字を区別せずにマッチングをする。</dd>
+  <dt><code>-l</code> (小文字エル)</dt>
+  <dd>マッチしたファイルのファイル名のみを出力する。</dd>
+  <dt><code>-L</code></dt>
+  <dd>マッチしなかったファイルのファイル名を出力する。</dd>
+  <dt><code>--line-buffered</code></dt>
+  <dd>行ごとのバッファリングにする。<code>tail -f</code> などからパイプで受け取るときに便利。</dd>
+  <dt><code>-n</code></dt>
+  <dd>検索結果の出力に行番号をつける。</dd>
+  <dt><code>-o</code></dt>
+  <dd>マッチした部分のみを表示する。このオプションがなければマッチした行全体を表示する。</dd>
+  <dt><code>-r</code></dt>
+  <dd>ディレクトリを再帰的にたどって検索する。</dd>
+  <dt><code>-v</code></dt>
+  <dd>通常とは逆に、マッチしない行を出力する。</dd>
 </dl>
 
 <h2 id="b5d2d7b">HOWTO</h2>
