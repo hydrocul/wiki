@@ -39,7 +39,8 @@
 
 <p>ファイル名などでのソートはしてくれないので、必要であればパイプで<a href="sort.html"><code>sort</code>コマンド</a>をつなぐ必要がある。</p>
 
-<p>アクションは単に検索結果を表示するだけの<code>-ls</code>のほかに、他のコマンドを実行する<code>-exec</code>などがある。</p>
+<p>アクションは単に検索結果を表示するだけの<code>-ls</code>のほかに、他のコマンドを実行する<code>-exec</code>などがある。
+<code>-exec</code>は非常によく使うアクションである。-&gt; <a href="#exec">検索結果を元に他のコマンドを実行する方法</a></p>
 
 <div class="ad">
 <div class="adlabel">スポンサーリンク</div>
@@ -109,6 +110,29 @@
   <dt><code>-exec</code> コマンド <code>+</code></dt>
   <dd><code>-exec</code> の最後の <code>\;</code> を <code>+</code> にすると、オプションの後に指定するコマンドに検索結果をまとめて渡して実行する。</dd>
 </dl>
+
+<h2 id="exec">検索結果を元に他のコマンドを実行する方法
+<span class="article-date">2015/05/25</span></h2>
+
+<p><code>find</code>コマンドでの検索結果を他のコマンドに渡して、コマンドに大量のファイルを処理させるにはいくつか方法があるが、まずは<code>-exec</code>アクションを使う方法。</p>
+
+<pre><code>$ find . -type f -exec chmod 600 {} \;
+</code></pre>
+
+<p>これは検索結果のファイル(<code>-type f</code> なのでディレクトリ以外のファイルすべて)に対してパーミッションを<code>600</code>にするもの。</p>
+
+<p><code>-exec</code> のあとに任意のコマンドを書いて、検索結果のファイルパスが入ってほしい場所に <code>{}</code> と書いて、最後に <code>\;</code> と書く。こうすると <code>chmod 600 foo.txt</code> みたいなコマンドがファイルの数だけ実行される。</p>
+
+<p>この方法だとファイルの数だけコマンドが起動してしまい効率が悪いという場合は、以下のように<a href="xargs.html"><code>xargs</code></a>を使う。</p>
+
+<pre><code>$ find . -type f | xargs chmod 600
+</code></pre>
+
+<p>こうすると <code>chmod 600 foo.txt bar.txt baz.txt</code> のように複数のファイルを纏めてパラメータに入れてくれるので、複数ファイルをまとめて処理できるコマンドであれば効率がよい。</p>
+
+<p><code>xargs</code>を使うと<code>find</code>の結果が100個あったら次のコマンドに100個のパラメータが渡されるが、
+20個ずつに分割して5回コマンドを実行する、という制御も可能。
+-&gt; <a href="xargs.html#option-n"><code>xargs</code>のコマンドに渡す引数の最大数を制御するには</a></p>
 
 <h2 id="a9437ee">HOWTO</h2>
 
