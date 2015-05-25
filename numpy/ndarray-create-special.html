@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>ndarrayの特殊な生成方法 | NumPy | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy</a> &gt; <span>ndarrayの特殊な生成方法</span>
+</div>
+
+<div id="content">
+  <h1 id="ndarray-create-special">ndarrayの特殊な生成方法
+<span class="article-date">2015/05/22</span></h1>
+
+<p>ここでは特殊な行列やその他の特殊なndarray配列の生成方法を説明する。</p>
+
+<h2 id="eye">単位行列 <code>np.eye</code>, <code>np.identity</code>
+<span class="article-date">2015/05/25</span></h2>
+
+<p><code>np.eye</code> または <code>np.identity</code> は単位行列を2次元配列で生成する。この2つの使い方は同じ。要素の型は浮動小数点数になる。</p>
+
+<pre><code>npdata = np.eye(5)
+print(npdata)
+# 出力結果
+# [[ 1.  0.  0.  0.  0.]
+#  [ 0.  1.  0.  0.  0.]
+#  [ 0.  0.  1.  0.  0.]
+#  [ 0.  0.  0.  1.  0.]
+#  [ 0.  0.  0.  0.  1.]]
+</code></pre>
+
+<p><code>numpy.eye</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.eye.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy/reference/generated/numpy.eye.html</a></p>
+
+<p><code>numpy.identity</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.identity.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy/reference/generated/numpy.identity.html</a></p>
+
+<h2 id="1b84d46"><code>np.meshgrid</code>
+<span class="article-date">2015/05/23</span></h2>
+
+<p>2次元座標空間の中にある24個の点 
+(0.0, 0.0), (0.5, 0.0), (1.0, 0.0), (1.5. 0.0), 
+(0.0, 0.5), (0.5, 0.5), (1.0, 0.5), (1.5. 0.5), 
+… 
+(0.0, 2.5), (0.5, 2.5), (1.0, 2.5), (1.5. 2.5) 
+は、横(x軸方向)に4個、縦(y軸方向)に6個の格子状に並んでいるが、これをNumPyではx座標、y座標それぞれを抜き出して、</p>
+
+<pre><code>[[ 0.   0.5  1.   1.5]
+ [ 0.   0.5  1.   1.5]
+ [ 0.   0.5  1.   1.5]
+ [ 0.   0.5  1.   1.5]
+ [ 0.   0.5  1.   1.5]
+ [ 0.   0.5  1.   1.5]]
+</code></pre>
+
+<p>と</p>
+
+<pre><code>[[ 0.   0.   0.   0. ]
+ [ 0.5  0.5  0.5  0.5]
+ [ 1.   1.   1.   1. ]
+ [ 1.5  1.5  1.5  1.5]
+ [ 2.   2.   2.   2. ]
+ [ 2.5  2.5  2.5  2.5]]
+</code></pre>
+
+<p>の2つのndarrayで表すことがよくある。</p>
+
+<p>この配列は以下のようにして生成できる。</p>
+
+<pre><code>npdata1a = np.arange(0, 2.0, 0.5)
+print(npdata1a)
+# 出力結果
+# [ 0.   0.5  1.   1.5]
+
+npdata1b = np.arange(0, 3.0, 0.5)
+print(npdata1b)
+# 出力結果
+# [ 0.   0.5  1.   1.5  2.   2.5]
+
+npdata2a, npdata2b = np.meshgrid(npdata1a, npdata1b)
+print(npdata2a)
+# 出力結果
+# [[ 0.   0.5  1.   1.5]
+#  [ 0.   0.5  1.   1.5]
+#  [ 0.   0.5  1.   1.5]
+#  [ 0.   0.5  1.   1.5]
+#  [ 0.   0.5  1.   1.5]
+#  [ 0.   0.5  1.   1.5]]
+
+print(npdata2b)
+# 出力結果
+# [[ 0.   0.   0.   0. ]
+#  [ 0.5  0.5  0.5  0.5]
+#  [ 1.   1.   1.   1. ]
+#  [ 1.5  1.5  1.5  1.5]
+#  [ 2.   2.   2.   2. ]
+#  [ 2.5  2.5  2.5  2.5]]
+</code></pre>
+
+<p>こういう形の配列にするとなにがうれしいのかというと、ndarrayの<a href="ndarray-vector.html">ベクトル計算</a>や
+<a href="ndarray-universal-function.html">ユニバーサル関数</a>を使いやすくなるのである。</p>
+
+<p>以下は、24個の点についてそれぞれ原点からの距離を計算したものである。</p>
+
+<pre><code>print(np.sqrt(npdata2a ** 2 + npdata2b ** 2))
+# 出力結果
+# [[ 0.          0.5         1.          1.5       ]
+#  [ 0.5         0.70710678  1.11803399  1.58113883]
+#  [ 1.          1.11803399  1.41421356  1.80277564]
+#  [ 1.5         1.58113883  1.80277564  2.12132034]
+#  [ 2.          2.06155281  2.23606798  2.5       ]
+#  [ 2.5         2.54950976  2.6925824   2.91547595]]
+</code></pre>
+
+<p>グラフも書きやすい。</p>
+
+<pre><code>import matplotlib
+matplotlib.use('Agg')
+
+import matplotlib.pyplot as plt
+
+x, y = np.meshgrid(np.arange(-3.0, 3.1, 0.1), np.arange(-3.0, 3.1, 0.1))
+plt.imshow(np.sqrt(x ** 2 + y ** 2))
+plt.colorbar()
+plt.savefig('example.png', transparent=True, dpi=80)
+</code></pre>
+
+<p>IPython Notbookでは上のコードの最初に2行と最後の1行は不要。</p>
+
+<p><img src="img/ndarray-create-special-1.png" alt="fig" /></p>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../numpy/">NumPy</a>
+    <ul>
+      <li><a href="../numpy/install.html">インストール</a></li>
+      <li><a href="../numpy/ndarray-create.html">多次元配列ndarrayの生成</a></li>
+      <li>ndarrayの特殊な生成方法</li>
+      <li><a href="../numpy/ndarray-property.html">ndarrayの属性</a></li>
+      <li><a href="../numpy/ndarray-element-type.html">ndarrayの要素のデータ型</a></li>
+      <li><a href="../numpy/ndarray-copy.html">ndarrayのコピー</a></li>
+      <li><a href="../numpy/ndarray-convert.html">ndarrayのデータ型の変換</a></li>
+      <li><a href="../numpy/ndarray-vector.html">ndarrayでのベクトル計算</a></li>
+      <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-boolean.html">ndarrayのブールインデックス参照</a></li>
+      <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
+      <li><a href="../numpy/ndarray-universal-function.html">ndarrayのユニバーサル関数</a></li>
+      <li><a href="../numpy/ndarray-transposed.html">ndarrayでの転置行列</a></li>
+      <li><a href="../numpy/howto.html">HOWTO</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>

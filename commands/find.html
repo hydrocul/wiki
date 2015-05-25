@@ -20,13 +20,13 @@
 
 <div id="content">
   <h1 id="find">find コマンド
-<span class="article-date">2015/05/13</span></h1>
+<span class="article-date">2015/05/25</span></h1>
 
 <p>ディレクトリの中を再帰的にたどってファイルを検索してきてくれるコマンド。タイムスタンプやファイルサイズ、ファイル名など、さまざまな条件で検索でき、検索条件はオプションで指定する。検索結果を出力するだけでなく、他のコマンドに引数として渡すこともできる。</p>
 
 <p>基本的な使い方は、検索対象となるディレクトリ、検索条件、アクションの順にコマンドライン引数で</p>
 
-<pre><code>find ディレクトリ 検索条件 アクション
+<pre><code>$ find ディレクトリ 検索条件 アクション
 </code></pre>
 
 <p>というように指定する。検索ではファイルだけでなくディレクトリも同じように検索される。</p>
@@ -38,6 +38,23 @@
 <p>従って、 <code>find .</code> とだけにすると、カレントディレクトリに含まれるすべてのファイル・ディレクトリを、ディレクトリを再帰的にたどりながら表示してくれる。</p>
 
 <p>ファイル名などでのソートはしてくれないので、必要であればパイプで<a href="sort.html"><code>sort</code>コマンド</a>をつなぐ必要がある。</p>
+
+<p>アクションは単に検索結果を表示するだけの<code>-ls</code>のほかに、他のコマンドを実行する<code>-exec</code>などがある。</p>
+
+<div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pagebottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1251074055"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
 
 <h2 id="8d2e228">検索条件
 <span class="article-date">2014/11/29</span></h2>
@@ -100,7 +117,7 @@
 
 <p>アクション <code>-printf</code> でファイル一覧を表示するときのフォーマットを指定する。</p>
 
-<pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n"
+<pre><code>$ find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n"
 </code></pre>
 
 <h3 id="sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには
@@ -109,7 +126,7 @@
 <p>アクション <code>-printf</code> でファイル一覧とともにタイムスタンプを出力して、
 <a href="sort.html"><code>sort</code>コマンド</a>で並び替えをする。</p>
 
-<pre><code>find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n" | sort -r -k6,7
+<pre><code>$ find . -printf "%M %n %u %g %k %TY-%Tm-%Td %TH:%TM:%TS %p\n" | sort -r -k6,7
 </code></pre>
 
 <h3 id="3580372">特定の日に更新したファイルの一覧を表示するには
@@ -117,7 +134,7 @@
 
 <p>例えば、24日前～23日前に更新したファイルの一覧を表示したい場合、</p>
 
-<pre><code>find / -mtime -24 -mtime +22 -ls | less
+<pre><code>$ find / -mtime -24 -mtime +22 -ls | less
 </code></pre>
 
 <p>この場合、ちょうど24日前の現在時刻よりも最近で、
@@ -126,13 +143,13 @@
 <h3 id="a649e9d">カレントディレクトリ以下にある <code>.ht</code> で始まるファイルをそれぞれ <code>.ht*.example</code> というファイルにコピーするには
 <span class="article-date">2013/04/16</span></h3>
 
-<pre><code>find . -name ".ht*" | awk '{print "cp " $1 " " $1 ".example"}' | sh
+<pre><code>$ find . -name ".ht*" | awk '{print "cp " $1 " " $1 ".example"}' | sh
 </code></pre>
 
 <h3 id="2867db3">カレントディレクトリ以下にあるすべてのシンボリックリンクを探すには
 <span class="article-date">2013/04/23</span></h3>
 
-<pre><code>find . -type l -exec ls -l {} \;
+<pre><code>$ find . -type l -exec ls -l {} \;
 </code></pre>
 
 <h3 id="cb3d850"><code>Permission denied</code> を表示しないようにするには
@@ -140,24 +157,24 @@
 
 <p><code>find</code> で <code>/</code> などを検索すると、 <code>Permission denied</code> というエラーメッセージが大量に出力されてしまう。このメッセージが邪魔なので抑制するには、以下のように単に標準エラー出力を捨てればよい。</p>
 
-<pre><code>find / ... 2&gt;/dev/null
+<pre><code>$ find / ... 2&gt;/dev/null
 </code></pre>
 
 <h3 id="412c842">別のマウント領域の中は探索しないようにするには
-<span class="article-date">2013/06/25</span></h3>
+<span class="article-date">2015/05/25</span></h3>
 
 <p><code>-mount</code> を使う。</p>
 
-<pre><code># hogeという名前のファイルをルートからたどって探す
-# ただし別のファイルシステムにはたどらない
-find / -mount -name "hoge" 2&gt;/dev/null
+<pre><code>$ find / -mount -name "hoge" 2&gt;/dev/null
 </code></pre>
+
+<p>これは、<code>hoge</code>という名前のファイルをルートからたどって探す。ただし別のファイルシステムにはたどらない。</p>
 
 <h3 id="23f6923">UIDからそのユーザのホームディレクトリを調べる簡単な方法
 <span class="article-date">2013/07/03</span></h3>
 
-<pre><code># UIDが1000のユーザのホームディレクトリ
-find /home -maxdepth 1 -uid 1000
+<pre><code>## UIDが1000のユーザのホームディレクトリ
+$ find /home -maxdepth 1 -uid 1000
 </code></pre>
 
 <p>ただし、これはホームディレクトリが <code>/home</code> 直下にあることを決め打ちしている。</p>
@@ -173,13 +190,13 @@ find /home -maxdepth 1 -uid 1000
 <h3 id="fea87f7">空のディレクトリの一覧を表示するには
 <span class="article-date">2013/08/28</span></h3>
 
-<pre><code>find . -type d -empty
+<pre><code>$ find . -type d -empty
 </code></pre>
 
 <h3 id="f86ec0d">サイズ0のファイルの一覧を表示するには
 <span class="article-date">2013/08/28</span></h3>
 
-<pre><code>find . -type f -empty
+<pre><code>$ find . -type f -empty
 </code></pre>
 
 <h3 id="381242f">たくさんのファイルをまとめて less で閲覧するには</h3>
@@ -197,7 +214,7 @@ find /home -maxdepth 1 -uid 1000
 
 <p>例</p>
 
-<pre><code>find . -perm -u=x -type f
+<pre><code>$ find . -perm -u=x -type f
 </code></pre>
 
 <h3 id="83af10d">ファイル名を正規表現で検索するには
@@ -205,8 +222,8 @@ find /home -maxdepth 1 -uid 1000
 
 <p><code>find</code> または <code>ls -aR</code> に <code>grep</code> を組み合わせるのがいいかも。</p>
 
-<pre><code>find . | grep PATTERN
-ls -aR | grep PATTERN
+<pre><code>$ find . | grep PATTERN
+$ ls -aR | grep PATTERN
 </code></pre>
 
 <h2 id="b75bbc6">外部リンク
