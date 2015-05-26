@@ -93,7 +93,7 @@
 </dl>
 
 <h2 id="5ca314b">アクション
-<span class="article-date">2014/10/20</span></h2>
+<span class="article-date">2015/05/25</span></h2>
 
 <dl>
   <dt><code>-ls</code></dt>
@@ -104,15 +104,16 @@
   <dd>オプションの後に指定するコマンドを検索結果1つずつに対して実行する。
 最後の <code>\;</code> のバックスラッシュはシェルに対して <code>;</code> をシェルの特殊文字である
 コマンドの境界とみなされないようにするための
-エスケープなので、<code>find</code>コマンド自体には最後に <code>;</code> だけを渡していることになる。</dd>
-  <dt><code>-ok</code> コマンド <code>\;</code></dt>
-  <dd><code>-exec</code> とよく似ているがコマンド実行前に都度確認を求めてくれる。</dd>
+エスケープなので、<code>find</code>コマンド自体には最後に <code>;</code> だけを渡していることになる。
+-&gt; <a href="#exec">検索結果を元に他のコマンドを実行する方法</a></dd>
   <dt><code>-exec</code> コマンド <code>+</code></dt>
   <dd><code>-exec</code> の最後の <code>\;</code> を <code>+</code> にすると、オプションの後に指定するコマンドに検索結果をまとめて渡して実行する。</dd>
+  <dt><code>-ok</code> コマンド <code>\;</code></dt>
+  <dd><code>-exec</code> とよく似ているがコマンド実行前に都度確認を求めてくれる。</dd>
 </dl>
 
 <h2 id="exec">検索結果を元に他のコマンドを実行する方法
-<span class="article-date">2015/05/25</span></h2>
+<span class="article-date">2015/05/26</span></h2>
 
 <p><code>find</code>コマンドでの検索結果を他のコマンドに渡して、コマンドに大量のファイルを処理させるにはいくつか方法があるが、まずは<code>-exec</code>アクションを使う方法。</p>
 
@@ -123,15 +124,25 @@
 
 <p><code>-exec</code> のあとに任意のコマンドを書いて、検索結果のファイルパスが入ってほしい場所に <code>{}</code> と書いて、最後に <code>\;</code> と書く。こうすると <code>chmod 600 foo.txt</code> みたいなコマンドがファイルの数だけ実行される。</p>
 
-<p>この方法だとファイルの数だけコマンドが起動してしまい効率が悪いという場合は、以下のように<a href="xargs.html"><code>xargs</code></a>を使う。</p>
+<p>ただ、この方法だとファイルの数だけコマンドが起動してしまうので、実行する内容によってはとても効率が悪い。
+<code>chmod</code>みたいに複数のファイル名をパラメータで渡せばまとめて処理してくれるコマンドも多いので、そういうコマンドを使う場合は、以下のようにする。</p>
+
+<pre><code>$ find . -type f -exec chmod 600 {} +
+</code></pre>
+
+<p><code>\;</code> の代わりに <code>+</code> と書くと、ファイルパスをまとめてパラメータに渡してくれるので、
+<code>chmod 600 foo.txt bar.txt baz.txt</code> のようなイメージでコマンドが実行される。ファイルごとにコマンドを起動するオーバーヘッドがなくなるので、処理速度は速くなる。</p>
+
+<p>ただ、理由はよくわからないが <code>+</code> を使うよりも<a href="xargs.html"><code>xargs</code>コマンド</a>を使うケースが多い気がする。
+<code>xargs</code>では以下のようにパイプでつなぐ。</p>
 
 <pre><code>$ find . -type f | xargs chmod 600
 </code></pre>
 
-<p>こうすると <code>chmod 600 foo.txt bar.txt baz.txt</code> のように複数のファイルを纏めてパラメータに入れてくれるので、複数ファイルをまとめて処理できるコマンドであれば効率がよい。</p>
+<p>こうすると<code>xargs</code>コマンドは <code>chmod 600 foo.txt bar.txt baz.txt</code> のように複数のファイルを纏めてパラメータに入れて、コマンドを起動する。</p>
 
 <p><code>xargs</code>を使うと<code>find</code>の結果が100個あったら次のコマンドに100個のパラメータが渡されるが、
-20個ずつに分割して5回コマンドを実行する、という制御も可能。
+20個ずつに分割して5回コマンドを実行する、という制御も可能である。
 -&gt; <a href="xargs.html#option-n"><code>xargs</code>のコマンドに渡す引数の最大数を制御するには</a></p>
 
 <h2 id="a9437ee">HOWTO</h2>
