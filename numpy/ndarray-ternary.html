@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>NumPy | hydroculのメモ</title>
+<title>ndarrayでの三項演算子ベクトル計算版 | NumPy | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -15,40 +15,57 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <span>NumPy</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy</a> &gt; <span>ndarrayでの三項演算子ベクトル計算版</span>
 </div>
 
 <div id="content">
-  <h1 id="numpy">NumPy
-<span class="article-date">2015/03/29</span></h1>
+  <h1 id="ndarray-ternary">ndarrayでの三項演算子ベクトル計算版
+<span class="article-date">2015/05/27</span></h1>
 
-<p>NumPyは行列などの数値計算を高速に行うためのPythonのライブラリ。
-SciPyというNumPyに付随するライブラリもあり、しばしばNumPyとSciPyの両方を使う。</p>
+<p><code>np.where</code> は<a href="../programming_languages_diff/etc/ternary.html">三項演算子</a>のベクトル計算といえる。</p>
 
-<p>NumPyには高速なベクトル演算のできる<code>ndarray</code>という多次元配列がある。配列に対するループ処理をPythonでいちいち書かなくてもいいような仕組みがたくさんあり、
-<code>ndarray</code>がNumPyの目玉の1つか。</p>
+<p>3つの引数を取り、1つ目が条件式、つまり論理値のndarray、2つ目が条件がtrueのときの値、3つ目が条件がfalseのときの値。</p>
 
-<h2 id="section">目次</h2>
+<p>例その1</p>
 
-<ul>
-  <li><a href="../numpy/install.html">インストール</a></li>
-  <li><a href="../numpy/ndarray-create.html">多次元配列ndarrayの生成</a></li>
-  <li><a href="../numpy/ndarray-create-special.html">ndarrayの特殊な生成方法</a></li>
-  <li><a href="../numpy/ndarray-property.html">ndarrayの属性</a></li>
-  <li><a href="../numpy/ndarray-element-type.html">ndarrayの要素のデータ型</a></li>
-  <li><a href="../numpy/ndarray-copy.html">ndarrayのコピー</a></li>
-  <li><a href="../numpy/ndarray-convert.html">ndarrayのデータ型の変換</a></li>
-  <li><a href="../numpy/ndarray-vector.html">ndarrayでのベクトル計算</a></li>
-  <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
-  <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
-  <li><a href="../numpy/ndarray-ref-boolean.html">ndarrayのブールインデックス参照</a></li>
-  <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
-  <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
-  <li><a href="../numpy/ndarray-universal-function.html">ndarrayのユニバーサル関数</a></li>
-  <li><a href="../numpy/ndarray-ternary.html">ndarrayでの三項演算子ベクトル計算版</a></li>
-  <li><a href="../numpy/ndarray-transposed.html">ndarrayでの転置行列</a></li>
-  <li><a href="../numpy/howto.html">HOWTO</a></li>
-</ul>
+<pre><code>ndarr1 = np.array([1, 2, 3, 4, 5])
+ndarr2 = np.array([10, 20, 30, 40, 50])
+cond = np.array([True, False, True, True, False])
+print(np.where(cond, ndarr1, ndarr2))
+# 出力結果
+# [ 1 20  3  4 50]
+</code></pre>
+
+<p>例その2</p>
+
+<pre><code>ndarr1 = np.random.rand(4, 2) - 0.5
+ndarr2 = np.zeros((4, 2), dtype='float64')
+
+print(ndarr1)
+# 出力結果
+# [[-0.32185056  0.0451717 ]
+#  [ 0.04564159 -0.15487149]
+#  [-0.04431453 -0.45999036]
+#  [-0.3508403   0.0938512 ]]
+
+print(ndarr2)
+# 出力結果
+# [[ 0.  0.]
+#  [ 0.  0.]
+#  [ 0.  0.]
+#  [ 0.  0.]]
+
+ndarr3 = np.where(ndarr1 &gt; 0.0, ndarr1, ndarr2)
+
+print(ndarr3)
+# 出力結果
+# [[ 0.          0.0451717 ]
+#  [ 0.04564159  0.        ]
+#  [ 0.          0.        ]
+#  [ 0.          0.0938512 ]]
+</code></pre>
+
+<p><code>np.random.rand(4, 2) - 0.5</code> は 4 × 2 の行列の各要素を0から1までの乱数にして、さらに<a href="ndarray-vector.html#broadcast">ベクトル計算のブロードキャスト</a>により各要素から <code>0.5</code> を引いた行列を生成する。</p>
 
 </div>
 
@@ -58,7 +75,7 @@ SciPyというNumPyに付随するライブラリもあり、しばしばNumPy�
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>NumPy
+  <li><a href="../numpy/">NumPy</a>
     <ul>
       <li><a href="../numpy/install.html">インストール</a></li>
       <li><a href="../numpy/ndarray-create.html">多次元配列ndarrayの生成</a></li>
@@ -74,7 +91,7 @@ SciPyというNumPyに付随するライブラリもあり、しばしばNumPy�
       <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
       <li><a href="../numpy/ndarray-universal-function.html">ndarrayのユニバーサル関数</a></li>
-      <li><a href="../numpy/ndarray-ternary.html">ndarrayでの三項演算子ベクトル計算版</a></li>
+      <li>ndarrayでの三項演算子ベクトル計算版</li>
       <li><a href="../numpy/ndarray-transposed.html">ndarrayでの転置行列</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
