@@ -20,7 +20,7 @@
 
 <div id="content">
   <h1 id="ndarray-ternary">ndarrayでの三項演算子ベクトル計算版
-<span class="article-date">2015/05/27</span></h1>
+<span class="article-date">2015/05/28</span></h1>
 
 <p><code>np.where</code> は<a href="../programming_languages_diff/etc/ternary.html">三項演算子</a>のベクトル計算といえる。</p>
 
@@ -66,6 +66,29 @@ print(ndarr3)
 </code></pre>
 
 <p><code>np.random.rand(4, 2) - 0.5</code> は 4 × 2 の行列の各要素を0から1までの乱数にして、さらに<a href="ndarray-vector.html#broadcast">ベクトル計算のブロードキャスト</a>により各要素から <code>0.5</code> を引いた行列を生成する。</p>
+
+<p>次の例のように2つ目や3つ目の引数はndarrayでなくてスカラーでも構わない。これは <code>np.where</code> をベクトル計算のブロードキャストで利用するイメージ。</p>
+
+<p>例その3</p>
+
+<pre><code>ndarr1 = np.random.rand(4, 2) - 0.5
+
+print(ndarr1)
+# 出力結果
+# [[-0.48128308  0.27579344]
+#  [ 0.36287708  0.26540085]
+#  [ 0.42619999  0.29142238]
+#  [-0.15820554 -0.35493536]]
+
+ndarr3 = np.where(ndarr1 &gt; 0.0, ndarr1, 0.0)
+
+print(ndarr3)
+# 出力結果
+# [[ 0.          0.27579344]
+#  [ 0.36287708  0.26540085]
+#  [ 0.42619999  0.29142238]
+#  [ 0.          0.        ]]
+</code></pre>
 
 </div>
 
