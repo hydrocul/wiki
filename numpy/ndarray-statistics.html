@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>ndarrayの集計処理(合計/平均とか) | NumPy | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy</a> &gt; <span>ndarrayの集計処理(合計/平均とか)</span>
+</div>
+
+<div id="content">
+  <h1 id="ndarray-statistics">ndarrayの集計処理(合計/平均とか)
+<span class="article-date">2015/05/30</span></h1>
+
+<p>配列の要素の合計や平均などの集計処理をする関数を紹介する。配列をスカラーに、または2次元配列を1次元にするので、次元削減ともいう。</p>
+
+<p>平均を計算する <code>mean</code> での例</p>
+
+<pre><code>ndarr1 = np.array([1., 2., 3., 4., 5., 6., 7., 8., 9.])
+
+print(ndarr1)
+# 出力結果
+# [ 1.  2.  3.  4.  5.  6.  7.  8.  9.]
+
+print(ndarr1.mean())
+# 出力結果
+# 5.0
+</code></pre>
+
+<p><code>axis</code>という引数は軸を指定する。1次元配列では <code>axis=0</code> しかありえないので、意味がない。</p>
+
+<pre><code>print(ndarr1.mean(axis = 0))
+# 出力結果
+# 5.0
+</code></pre>
+
+<p>メソッドの形式ではなくて関数の形式でもよい。</p>
+
+<pre><code>ndarr1 = np.array([1., 2., 3., 4., 5., 6., 7., 8., 9.])
+
+print(np.mean(ndarr1))
+# 出力結果
+# 5.0
+
+print(np.mean(ndarr1, axis = 0))
+# 出力結果
+# 5.0
+</code></pre>
+
+<p>3次元配列での例</p>
+
+<pre><code>ndarr1 = np.array([[[1., 2., 3.], [4., 5., 6.], [7., 8., 9.]], [[101., 102., 103.], [104., 105., 106.], [107., 108., 109.]]])
+
+print(ndarr1)
+# 出力結果
+# [[[   1.    2.    3.]
+#   [   4.    5.    6.]
+#   [   7.    8.    9.]]
+# 
+#  [[ 101.  102.  103.]
+#   [ 104.  105.  106.]
+#   [ 107.  108.  109.]]]
+
+# axisを指定しないとすべての要素の平均を計算する
+print(ndarr1.mean())
+# 出力結果
+# 55.0
+
+# axis=(0, 1, 2) はすべての軸で平均をとるので、axisを省略するのと同じ
+print(ndarr1.mean(axis = (0, 1, 2)))
+# 出力結果
+# 55.0
+
+# axis=0 は一番外側の軸で平均をとって、2つ目と3つ目の軸だけが残る
+print(ndarr1.mean(axis = 0))
+# 出力結果
+# [[ 51.  52.  53.]
+#  [ 54.  55.  56.]
+#  [ 57.  58.  59.]]
+
+# axis=1 は2つ目の軸で平均をとって、1つ目と3つ目の軸だけが残る
+print(ndarr1.mean(axis = 1))
+# 出力結果
+# [[   4.    5.    6.]
+#  [ 104.  105.  106.]]
+
+# axis=2 は一番内側の軸で平均をとって、1つ目と2つ目の軸だけが残る
+print(ndarr1.mean(axis = 2))
+# 出力結果
+# [[   2.    5.    8.]
+#  [ 102.  105.  108.]]
+
+# axis=(0, 1) は1つ目と2つ目の軸で平均をとって、3つ目の軸だけが残る
+print(ndarr1.mean(axis = (0, 1)))
+# 出力結果
+# [ 54.  55.  56.]
+
+print(ndarr1.mean(axis = (0, 2)))
+# 出力結果
+# [ 52.  55.  58.]
+
+print(ndarr1.mean(axis = (1, 2)))
+# 出力結果
+# [   5.  105.]
+</code></pre>
+
+<h2 id="06362fd">関数の一覧
+<span class="article-date">2015/05/30</span></h2>
+
+<dl>
+  <dt><code>sum</code></dt>
+  <dd>合計  </dd>
+  <dt><code>mean</code></dt>
+  <dd>算術平均<br />
+<code>numpy.mean</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.mean.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.mean.html</a></dd>
+  <dt><code>median</code></dt>
+  <dd>中央値<br />
+<code>numpy.median</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.median.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.median.html</a></dd>
+  <dt><code>std</code></dt>
+  <dd>標準偏差  </dd>
+  <dt><code>var</code></dt>
+  <dd>分散  </dd>
+  <dt><code>max</code></dt>
+  <dd>最大値  </dd>
+  <dt><code>min</code></dt>
+  <dd>最小値  </dd>
+  <dt><code>argmax</code></dt>
+  <dd>最大値の要素のインデックス  </dd>
+  <dt><code>argmin</code></dt>
+  <dd>最小値の要素のインデックス  </dd>
+</dl>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../numpy/">NumPy</a>
+    <ul>
+      <li><a href="../numpy/install.html">インストール</a></li>
+      <li><a href="../numpy/ndarray-create.html">多次元配列ndarrayの生成</a></li>
+      <li><a href="../numpy/ndarray-create-special.html">ndarrayの特殊な生成方法</a></li>
+      <li><a href="../numpy/ndarray-property.html">ndarrayの属性</a></li>
+      <li><a href="../numpy/ndarray-element-type.html">ndarrayの要素のデータ型</a></li>
+      <li><a href="../numpy/ndarray-copy.html">ndarrayのコピー</a></li>
+      <li><a href="../numpy/ndarray-convert.html">ndarrayのデータ型の変換</a></li>
+      <li><a href="../numpy/ndarray-vector.html">ndarrayでのベクトル計算</a></li>
+      <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-boolean.html">ndarrayのブールインデックス参照</a></li>
+      <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
+      <li><a href="../numpy/ndarray-universal-function.html">ndarrayのユニバーサル関数</a></li>
+      <li><a href="../numpy/ndarray-ternary.html">ndarrayでの三項演算子ベクトル計算版</a></li>
+      <li>ndarrayの集計処理(合計/平均とか)</li>
+      <li><a href="../numpy/ndarray-transposed.html">ndarrayでの転置行列</a></li>
+      <li><a href="../numpy/howto.html">HOWTO</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>
