@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>ndarrayの最大値/最小値に関する関数 | NumPy | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy</a> &gt; <span>ndarrayの最大値/最小値に関する関数</span>
+</div>
+
+<div id="content">
+  <h1 id="ndarray-max-min">ndarrayの最大値/最小値に関する関数
+<span class="article-date">2015/06/03</span></h1>
+
+<p>NumPyには名前にmaxとかminとかが付いている最大値/最小値に関する関数がたくさんあるので、ここでまとめてみた。以下は最大値maxに関してだが、maxをminに置き換えれば最小値になる。</p>
+
+<p>まず、NumPyをimportして、サンプルデータとして2つの配列を定義。</p>
+
+<pre><code>import numpy as np
+
+nan = float("nan")
+
+ndarr1 = np.array([1.0, 5.0, 4.5, 2.1, 0.0])
+ndarr2 = np.array([2.0, 6.0, 7.0, nan, -1.0])
+</code></pre>
+
+<p>配列の中の最大値を普通に求めるには <code>max</code> を使う。</p>
+
+<pre><code>print(np.max(ndarr1))
+# 出力結果
+# 5.0
+</code></pre>
+
+<p><code>max</code> はメソッドの形式で呼び出してもOKみたい。</p>
+
+<pre><code>print(ndarr1.max())
+# 出力結果
+# 5.0
+</code></pre>
+
+<p>よくわからないが <code>amax</code> という名前も同じっぽい。</p>
+
+<pre><code>print(np.amax(ndarr1))
+# 出力結果
+# 5.0
+</code></pre>
+
+<p>NaNが含まれる配列に対して使うと、最大値もNaNになる。</p>
+
+<pre><code>print(np.max(ndarr2))
+# 出力結果
+# nan
+
+print(ndarr2.max())
+# 出力結果
+# nan
+
+print(np.amax(ndarr2))
+# 出力結果
+# nan
+</code></pre>
+
+<p><code>nanmax</code> という関数を使うとNaNを無視して最大値を計算してくれる。</p>
+
+<pre><code>print(np.nanmax(ndarr1))
+# 出力結果
+# 5.0
+
+print(np.nanmax(ndarr2))
+# 出力結果
+# 7.0
+</code></pre>
+
+<p>今度は最大値ではなく、最大値となる要素のインデックスを求める方法。<code>argmax</code>という関数を使う。数式で書くと \( \mathop{\arg\,\max}\limits_i a_i \) となる。最大値が複数ある場合は先頭に近い方のインデックスになる。</p>
+
+<pre><code>print(np.argmax(ndarr1))
+# 出力結果
+# 1
+</code></pre>
+
+<p>NaNが含まれる配列に対して <code>argmax</code> を使うと、NaNが最大値とみなされてそのインデックスが返される。</p>
+
+<pre><code>print(np.argmax(ndarr2))
+# 出力結果
+# 3
+</code></pre>
+
+<p><code>nanargmax</code> を使えば、NaNを無視してくれる。</p>
+
+<pre><code>print(np.nanargmax(ndarr1))
+# 出力結果
+# 1
+
+print(np.nanargmax(ndarr2))
+# 出力結果
+# 2
+</code></pre>
+
+<p>以上は1つの配列の中での最大値に関するものだったが、2つの配列の要素同士を比較して、大きい方をピックアップした配列を作る <code>maximum</code> という関数もある。</p>
+
+<p>同じ大きさの2つの配列を渡して、同じ大きさの配列が返ってくる。</p>
+
+<pre><code>print(np.maximum(ndarr1, ndarr2))
+# 出力結果
+# [  2.   6.   7.  nan   0.]
+</code></pre>
+
+<p><code>maximum</code> はNaNが含まれるとNaNのほうが大きいと見なされるが、代わりに<code>fmax</code>を使えばNaNでないほうが大きいと見なされる。</p>
+
+<pre><code>print(np.fmax(ndarr1, ndarr2))
+# 出力結果
+# [ 2.   6.   7.   2.1  0. ]
+</code></pre>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="ndarray-statistics.html#list">ndarrayの集計処理の関数一覧</a></li>
+  <li><a href="ndarray-universal-function.html#2-1-func">2つのndarrayを引数にとって、ndarrayを1つ返すユニバーサル関数</a></li>
+  <li><a href="../programming_languages_diff/list/max-min.html#python">Pythonの配列での最大値・最小値</a></li>
+</ul>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../numpy/">NumPy</a>
+    <ul>
+      <li><a href="../numpy/install.html">インストール</a></li>
+      <li><a href="../numpy/ndarray-create.html">多次元配列ndarrayの生成</a></li>
+      <li><a href="../numpy/ndarray-create-special.html">ndarrayの特殊な生成方法</a></li>
+      <li><a href="../numpy/ndarray-property.html">ndarrayの属性</a></li>
+      <li><a href="../numpy/ndarray-element-type.html">ndarrayの要素のデータ型</a></li>
+      <li><a href="../numpy/ndarray-copy.html">ndarrayのコピー</a></li>
+      <li><a href="../numpy/ndarray-convert.html">ndarrayのデータ型の変換</a></li>
+      <li><a href="../numpy/ndarray-vector.html">ndarrayでのベクトル計算</a></li>
+      <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-boolean.html">ndarrayのブールインデックス参照</a></li>
+      <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
+      <li><a href="../numpy/ndarray-universal-function.html">ndarrayのユニバーサル関数</a></li>
+      <li><a href="../numpy/ndarray-ternary.html">ndarrayでの三項演算子ベクトル計算版</a></li>
+      <li>ndarrayの最大値/最小値に関する関数</li>
+      <li><a href="../numpy/ndarray-statistics.html">ndarrayの集計処理(合計/平均とか)</a></li>
+      <li><a href="../numpy/ndarray-transposed.html">ndarrayでの転置行列</a></li>
+      <li><a href="../numpy/howto.html">HOWTO</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>

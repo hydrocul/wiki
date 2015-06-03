@@ -53,8 +53,10 @@ println(lst.min);
 
 <p>リストが空の場合は <code>java.lang.UnsupportedOperationException: empty.max</code> というような例外がスローされる。</p>
 
-<h2 id="6622141">Python
-<span class="article-date">2013/10/03</span></h2>
+<h2 id="python">Python
+<span class="article-date">2015/06/03</span></h2>
+
+<p><code>max</code>, <code>min</code> という関数を使う。</p>
 
 <pre><code>max(lst)
 min(lst)
@@ -62,30 +64,9 @@ min(lst)
 
 <p>リストが空の場合はエラーを吐く。</p>
 
-<h3 id="6e02688">NumPy
-<span class="article-date">2013/10/15</span></h3>
-
-<p>NumPyの配列の中で最大値を求めるには <code>numpy.argmax</code> を使う。
-<code>numpy.argmax</code> は最大値となる要素のインデックスを返し、最大値が複数ある場合はその中で最初のインデックスを返す。</p>
-
-<pre><code>import numpy as np
-
-x = np.array([10, 20, 30, 10, 20, 30, 40])
-print np.argmax(x)
-# =&gt; 2
-
-x = np.array([10, 20, 30, 10, 20, 30, 40])
-print np.argmax(x)
-# =&gt; 6
-</code></pre>
-
-<p>同様にNumPyの配列の中で最小値を求めるには <code>numpy.argmin</code> を使う。</p>
-
-<p>numpy.argmax | NumPy Manual<br />
-<a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html" target="_blank">http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html</a></p>
-
-<p>numpy.argmin | NumPy Manual<br />
-<a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html" target="_blank">http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html</a></p>
+<p>NumPyの配列では <code>max</code>, <code>amax</code>, <code>nanmax</code>, <code>argmax</code>, <code>nanargmax</code>, <code>min</code>, <code>amin</code>, <code>nanmin</code>, <code>argmin</code>, <code>nanargmin</code> 
+という最大値・最小値に関する複数の関数がある。
+-&gt; <a href="../../numpy/ndarray-max-min.html">NumPyのndarrayの最大値/最小値に関する関数</a></p>
 
 <h2 id="b3007f3">Perl
 <span class="article-date">2015/01/24</span></h2>
@@ -104,10 +85,10 @@ print min(@arr);
 </code></pre>
 
 <p><code>max</code> | <code>List::Util</code> | perldoc<br />
-<a href="http://perldoc.perl.org/List/Util.html#%24num-%3d-max-%40list" target="_blank">http://perldoc.perl.org/List/Util.html#%24num-%3d-max-%40list</a></p>
+<a href="http://perldoc.perl.org/List/Util.html#%24num-%3d-max-%40list" target="_blank" class="external-link">http://perldoc.perl.org/List/Util.html#%24num-%3d-max-%40list</a></p>
 
 <p><code>min</code> | <code>List::Util</code> | perldoc<br />
-<a href="http://perldoc.perl.org/List/Util.html#%24num-%3d-min-%40list" target="_blank">http://perldoc.perl.org/List/Util.html#%24num-%3d-min-%40list</a></p>
+<a href="http://perldoc.perl.org/List/Util.html#%24num-%3d-min-%40list" target="_blank" class="external-link">http://perldoc.perl.org/List/Util.html#%24num-%3d-min-%40list</a></p>
 
 <h2 id="ebea836">JavaScript
 <span class="article-date">2014/12/08</span></h2>
