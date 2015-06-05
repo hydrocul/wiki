@@ -519,7 +519,7 @@ fatal: The remote end hung up unexpectedly
 <p>shallow repository には <code>.git/shallow</code> というファイルがあり、省略された過去のコミットが参照されていて、このファイルにより shallow repository であることを示している。このファイルを削除すると、ローカルではcloneすることができるが、リモートへのcloneでは過去のコミットが見つからない、というエラーが出て、やっぱりcloneできない。</p>
 
 <h3 id="56ad8e6">git管理対象外のファイルを削除するには
-<span class="article-date">2015/05/29</span></h3>
+<span class="article-date">2015/06/05</span></h3>
 
 <p>まだcommitしていない作業途中の状態を、直前のcommitの状態に完全に戻したい場合など。</p>
 
@@ -539,11 +539,11 @@ Removing foo.txt
 
 ## ディレクトリまるごとgit管理対象外のものがある場合
 # 削除されるファイルを確認
-$ git clean -df
+$ git clean -dn
 Removing blog/
 
 ## 削除を実行
-$ git clean -dn
+$ git clean -df
 Removing blog/
 </code></pre>
 

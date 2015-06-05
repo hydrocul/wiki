@@ -30,6 +30,31 @@
   <li><a href="slice-replace.html">配列の一部を別の配列で置き換えるには</a></li>
 </ul>
 
+<h2 id="419fdbd">Go言語 (golang)
+<span class="article-date">2015/06/05</span></h2>
+
+<p>配列の一部をスライスとして取り出すことができる。スライスは配列のビューになっており、スライスの要素を変更すると元の配列にも反映される。スライスの後ろに要素を追加すると、配列の該当する場所が書き換えられる。</p>
+
+<pre><code>arr := [4]int{1, 3, 5, 7}
+fmt.Printf("%#v\n", arr)
+# [4]int{1, 3, 5, 7}
+
+sl := arr[1:2]
+fmt.Printf("%#v\n", sl)
+# []int{3}
+
+sl2 := append(sl, 10)
+
+fmt.Printf("%#v\n", arr)
+# [4]int{1, 3, 10, 7}
+
+fmt.Printf("%#v\n", sl)
+# []int{3}
+
+fmt.Printf("%#v\n", sl2)
+# []int{3, 10}
+</code></pre>
+
 <h2 id="12167e9">Java</h2>
 
 <h3 id="718ca9e"><code>java.util.List</code>
