@@ -20,7 +20,7 @@
 
 <div id="content">
   <h1 id="ndarray-statistics">ndarrayの集計処理(合計/平均とか)
-<span class="article-date">2015/05/30</span></h1>
+<span class="article-date">2015/06/06</span></h1>
 
 <p>配列の要素の合計や平均などの集計処理をする関数を紹介する。配列をスカラーに、または2次元配列を1次元にするので、次元削減ともいう。</p>
 
@@ -37,13 +37,6 @@ print(ndarr1.mean())
 # 5.0
 </code></pre>
 
-<p><code>axis</code>という引数は軸を指定する。1次元配列では <code>axis=0</code> しかありえないので、意味がない。</p>
-
-<pre><code>print(ndarr1.mean(axis = 0))
-# 出力結果
-# 5.0
-</code></pre>
-
 <p>メソッドの形式ではなくて関数の形式でもよい。</p>
 
 <pre><code>ndarr1 = np.array([1., 2., 3., 4., 5., 6., 7., 8., 9.])
@@ -51,11 +44,9 @@ print(ndarr1.mean())
 print(np.mean(ndarr1))
 # 出力結果
 # 5.0
-
-print(np.mean(ndarr1, axis = 0))
-# 出力結果
-# 5.0
 </code></pre>
+
+<p>多次元配列では次元をまたいですべての要素の平均を計算する。</p>
 
 <p>3次元配列での例</p>
 
@@ -71,36 +62,42 @@ print(ndarr1)
 #   [ 104.  105.  106.]
 #   [ 107.  108.  109.]]]
 
-# axisを指定しないとすべての要素の平均を計算する
+# デフォルトでは次元にかかわらずすべての要素の平均を計算する
 print(ndarr1.mean())
 # 出力結果
 # 55.0
+</code></pre>
 
-# axis=(0, 1, 2) はすべての軸で平均をとるので、axisを省略するのと同じ
+<h2 id="axis"><code>axis</code> という名前付きのオプション引数
+<span class="article-date">2015/06/06</span></h2>
+
+<p><code>axis</code>という引数は集計する軸を指定できる。</p>
+
+<pre><code># axis=(0, 1, 2) はすべての軸で平均をとるので、axisを省略するのと同じ
 print(ndarr1.mean(axis = (0, 1, 2)))
 # 出力結果
 # 55.0
 
-# axis=0 は一番外側の軸で平均をとって、2つ目と3つ目の軸だけが残る
+# axis=0 は一番外側の軸で平均をとって、2つ目と3つ目の軸だけが残る2次元配列になる
 print(ndarr1.mean(axis = 0))
 # 出力結果
 # [[ 51.  52.  53.]
 #  [ 54.  55.  56.]
 #  [ 57.  58.  59.]]
 
-# axis=1 は2つ目の軸で平均をとって、1つ目と3つ目の軸だけが残る
+# axis=1 は2つ目の軸で平均をとって、1つ目と3つ目の軸だけが残る2次元配列になる
 print(ndarr1.mean(axis = 1))
 # 出力結果
 # [[   4.    5.    6.]
 #  [ 104.  105.  106.]]
 
-# axis=2 は一番内側の軸で平均をとって、1つ目と2つ目の軸だけが残る
+# axis=2 は一番内側の軸で平均をとって、1つ目と2つ目の軸だけが残る2次元配列になる
 print(ndarr1.mean(axis = 2))
 # 出力結果
 # [[   2.    5.    8.]
 #  [ 102.  105.  108.]]
 
-# axis=(0, 1) は1つ目と2つ目の軸で平均をとって、3つ目の軸だけが残る
+# axis=(0, 1) は1つ目と2つ目の軸で平均をとって、3つ目の軸だけが残る1次元配列になる
 print(ndarr1.mean(axis = (0, 1)))
 # 出力結果
 # [ 54.  55.  56.]
@@ -114,8 +111,21 @@ print(ndarr1.mean(axis = (1, 2)))
 # [   5.  105.]
 </code></pre>
 
+<p>1次元配列では <code>axis=0</code> しかありえないので、意味がない。</p>
+
+<pre><code>print(ndarr1.mean(axis = 0))
+# 出力結果
+# 5.0
+
+print(np.mean(ndarr1, axis = 0))
+# 出力結果
+# 5.0
+</code></pre>
+
 <h2 id="list">関数の一覧
-<span class="article-date">2015/06/03</span></h2>
+<span class="article-date">2015/06/06</span></h2>
+
+<p>これらはだいたい似たような使い方ができる。</p>
 
 <dl>
   <dt><code>sum</code></dt>
@@ -131,9 +141,13 @@ print(ndarr1.mean(axis = (1, 2)))
 <code>numpy.median</code> | NumPy v1.9 Manual<br />
 <a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.median.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.median.html</a></dd>
   <dt><code>std</code></dt>
-  <dd>標準偏差  </dd>
+  <dd>標準偏差<br />
+<code>numpy.std</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.std.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.std.html</a></dd>
   <dt><code>var</code></dt>
-  <dd>分散  </dd>
+  <dd>分散<br />
+<code>numpy.var</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.var.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy-1.9.1/reference/generated/numpy.var.html</a></dd>
   <dt><code>max</code></dt>
   <dd>最大値
 -&gt; <a href="ndarray-max-min.html">最大値・最小値に関する関数</a>  </dd>
@@ -173,8 +187,8 @@ print(ndarr1.mean(axis = (1, 2)))
       <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
       <li><a href="../numpy/ndarray-universal-function.html">ndarrayのユニバーサル関数</a></li>
       <li><a href="../numpy/ndarray-ternary.html">ndarrayでの三項演算子ベクトル計算版</a></li>
-      <li><a href="../numpy/ndarray-max-min.html">ndarrayの最大値/最小値に関する関数</a></li>
       <li>ndarrayの集計処理(合計/平均とか)</li>
+      <li><a href="../numpy/ndarray-max-min.html">ndarrayの最大値/最小値に関する関数</a></li>
       <li><a href="../numpy/ndarray-transposed.html">ndarrayでの転置行列</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>

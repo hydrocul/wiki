@@ -20,9 +20,9 @@
 
 <div id="content">
   <h1 id="ndarray-max-min">ndarrayの最大値/最小値に関する関数
-<span class="article-date">2015/06/03</span></h1>
+<span class="article-date">2015/06/06</span></h1>
 
-<p>NumPyには名前にmaxとかminとかが付いている最大値/最小値に関する関数がたくさんあるので、ここでまとめてみた。以下は最大値maxに関してだが、maxをminに置き換えれば最小値になる。</p>
+<p>NumPyには名前にmaxとかminとかが付いている最大値/最小値に関する関数がたくさんあるので、ここでまとめてみた。以下の説明は最大値maxに関してだが、maxをminに置き換えれば最小値になる。</p>
 
 <p>まず、NumPyをimportして、サンプルデータとして2つの配列を定義。</p>
 
@@ -81,7 +81,7 @@ print(np.nanmax(ndarr2))
 # 7.0
 </code></pre>
 
-<p>今度は最大値ではなく、最大値となる要素のインデックスを求める方法。<code>argmax</code>という関数を使う。数式で表現すれば \( \mathop{\arg\,\max}\limits_i a_i \)。最大値が複数ある場合は先頭に近い方のインデックスになる。</p>
+<p>今度は最大値ではなく、最大値となる要素のインデックスを求める方法。<code>argmax</code>という関数を使う。数式で表現すれば \( \mathop{\arg\,\max}\limits_i a_i \)。最大値が同値で複数ある場合は先頭に近い方のインデックスになる。</p>
 
 <pre><code>print(np.argmax(ndarr1))
 # 出力結果
@@ -120,7 +120,28 @@ print(np.nanargmax(ndarr2))
 # [ 2.   6.   7.   2.1  0. ]
 </code></pre>
 
-<p>関連</p>
+<h2 id="axis"><code>axis</code> という名前付きのオプション引数
+<span class="article-date">2015/06/06</span></h2>
+
+<p><a href="ndarray-statistics.html">平均(<code>mean</code>)や合計(<code>sum</code>)を計算する関数</a>と同じく、
+<a href="ndarray-statistics.html#axis"><code>axis</code>という名前付き引数</a>で最大値・最小値を見る軸を指定できる。</p>
+
+<pre><code>ndarr1 = np.array([[1., 2., 3.], [9., 9.8, 9.4], [4., 6., 4.5]])
+
+print(np.max(ndarr1, axis = 0))
+print(np.amax(ndarr1, axis = 0))
+print(ndarr1.max(axis = 0))
+# 出力結果(3つとも同じ)
+# [ 9.   9.8  9.4]
+
+print(np.max(ndarr1, axis = 1))
+print(np.amax(ndarr1, axis = 1))
+print(ndarr1.max(axis = 1))
+# 出力結果(3つとも同じ)
+# [ 3.   9.8  6. ]
+</code></pre>
+
+<h2 id="aeb0e15">関連</h2>
 
 <ul>
   <li><a href="ndarray-statistics.html#list">ndarrayの集計処理の関数一覧</a></li>
@@ -153,8 +174,8 @@ print(np.nanargmax(ndarr2))
       <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
       <li><a href="../numpy/ndarray-universal-function.html">ndarrayのユニバーサル関数</a></li>
       <li><a href="../numpy/ndarray-ternary.html">ndarrayでの三項演算子ベクトル計算版</a></li>
-      <li>ndarrayの最大値/最小値に関する関数</li>
       <li><a href="../numpy/ndarray-statistics.html">ndarrayの集計処理(合計/平均とか)</a></li>
+      <li>ndarrayの最大値/最小値に関する関数</li>
       <li><a href="../numpy/ndarray-transposed.html">ndarrayでの転置行列</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
