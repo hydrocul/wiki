@@ -60,13 +60,13 @@ footer {
   }
   .res #content {
     float: right;
-    width: 424px;
+    width: 384px;
     margin: 0;
     padding: 8px 48px 8px 28px;
   }
   .res #side-menu {
     float: left;
-    width: 260px;
+    width: 300px;
     padding-top: 30px;
     background-color: #EEE;
   }
@@ -79,7 +79,7 @@ footer {
     width: 860px;
   }
   .res #content {
-    width: 524px;
+    width: 484px;
   }
 }
 @media screen and (min-width:960px) {
@@ -87,7 +87,7 @@ footer {
     width: 960px;
   }
   .res #content {
-    width: 624px;
+    width: 584px;
   }
 }
 @media screen and (min-width:1060px) {
@@ -95,7 +95,7 @@ footer {
     width: 1060px;
   }
   .res #content {
-    width: 724px;
+    width: 684px;
   }
 }
 @media screen and (min-width:1160px) {
@@ -103,7 +103,7 @@ footer {
     width: 1160px;
   }
   .res #content {
-    width: 824px;
+    width: 784px;
   }
 }
 
