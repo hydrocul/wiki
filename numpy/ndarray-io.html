@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>ndarrayのファイル読み書き | NumPy | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy</a> &gt; <span>ndarrayのファイル読み書き</span>
+</div>
+
+<div id="content">
+  <h1 id="ndarray-io">ndarrayのファイル読み書き</h1>
+
+<h2 id="91985fe"><code>np.save</code> と <code>np.load</code>
+<span class="article-date">2015/06/10</span></h2>
+
+<p><code>np.save</code> と <code>np.load</code> はファイルにndarrayを出力したり、ファイルから入力したりできる。ファイルのフォーマットはバイナリで、ファイル名の拡張子にはよく<code>.npy</code>を使う。
+1ファイル保存できるndarrayは1つだけである。</p>
+
+<pre><code>ndarr1 = np.array([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+
+np.save('test.npy', ndarr1)
+
+ndarr2 = np.load('test.npy')
+
+print(ndarr2)
+# 出力結果
+# [ 0.   0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1. ]
+</code></pre>
+
+<p><code>numpy.save</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.save.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy/reference/generated/numpy.save.html</a></p>
+
+<p><code>numpy.load</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html</a></p>
+
+<h2 id="0718fdf"><code>np.savez</code> と <code>np.load</code>
+<span class="article-date">2015/06/10</span></h2>
+
+<p><code>np.savez</code> を使うと複数のndarrayを名前付きで、しかも圧縮してファイルに保存できる。保存したファイルを読み込むには上と同じく <code>np.load</code> を使う。
+<code>np.load</code> はファイルの保存形式を拡張子で判断しているようで、
+<code>np.savez</code> での保存形式の場合は拡張子は <code>.npz</code> を使う。</p>
+
+<pre><code>ndarr1 = np.array([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+ndarr2 = np.array([10, 20, 30])
+
+np.savez('test.npz', x=ndarr1, y=ndarr2)
+
+ndarr3 = np.load('test.npz')
+
+print(ndarr3['x'])
+# 出力結果
+# [ 0.   0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1. ]
+
+print(ndarr3['y'])
+# 出力結果
+# [10 20 30]
+</code></pre>
+
+<p><code>numpy.savez</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.savez.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy/reference/generated/numpy.savez.html</a></p>
+
+<p><code>numpy.load</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html</a></p>
+
+<h2 id="eba77d7"><code>np.savetxt</code> と <code>np.loadtxt</code>
+<span class="article-date">2015/06/10</span></h2>
+
+<p><code>np.savetxt</code> を使うと2次元配列のCSV、TSVなどのndarrayをテキストファイルに保存できる。保存したファイルを読み込むには <code>np.loadtxt</code> を使う。</p>
+
+<p>区切り文字は名前付き引数<code>delimiter</code>で指定することができ、デフォルトは空白になる。コンマ区切りのCSVであれば <code>delimiter=','</code> と指定する。タブ区切りのTSVであれば <code>delimiter='\t'</code> と指定する。</p>
+
+<pre><code>ndarr1 = np.array([[1., 2., 3.], [4., 5., 6.], [7., 8., 9.]])
+
+np.savetxt('test.csv', ndarr1, delimiter=',')
+
+ndarr2 = np.loadtxt('test.csv', delimiter=',')
+
+print(ndarr2)
+# 出力結果
+# [[ 1.  2.  3.]
+#  [ 4.  5.  6.]
+#  [ 7.  8.  9.]]
+</code></pre>
+
+<p>このコードを実行した後に <code>test.csv</code> を見ると、以下のようになっている。</p>
+
+<pre><code>$ cat $p/tmp/test.csv
+1.000000000000000000e+00,2.000000000000000000e+00,3.000000000000000000e+00
+4.000000000000000000e+00,5.000000000000000000e+00,6.000000000000000000e+00
+7.000000000000000000e+00,8.000000000000000000e+00,9.000000000000000000e+00
+</code></pre>
+
+<p><code>numpy.savetxt</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.savetxt.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy/reference/generated/numpy.savetxt.html</a></p>
+
+<p><code>numpy.loadtxt</code> | NumPy v1.9 Manual<br />
+<a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html" target="_blank" class="external-link">http://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html</a></p>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../numpy/">NumPy</a>
+    <ul>
+      <li><a href="../numpy/install.html">インストール</a></li>
+      <li><a href="../numpy/ndarray-create.html">多次元配列ndarrayの生成</a></li>
+      <li><a href="../numpy/ndarray-create-special.html">ndarrayの特殊な生成方法</a></li>
+      <li><a href="../numpy/ndarray-property.html">ndarrayの属性</a></li>
+      <li><a href="../numpy/ndarray-element-type.html">ndarrayの要素のデータ型</a></li>
+      <li><a href="../numpy/ndarray-copy.html">ndarrayのコピー</a></li>
+      <li><a href="../numpy/ndarray-convert.html">ndarrayのデータ型の変換</a></li>
+      <li><a href="../numpy/ndarray-vector.html">ndarrayでのベクトル計算</a></li>
+      <li><a href="../numpy/ndarray-ref-index.html">ndarrayのインデックスでの参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-fancy.html">ndarrayのファンシーインデックス参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-boolean.html">ndarrayのブールインデックス参照</a></li>
+      <li><a href="../numpy/ndarray-ref-slice.html">ndarrayのスライス表記の参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-combination.html">ndarrayの多次元インデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
+      <li><a href="../numpy/ndarray-universal-function.html">ndarrayのユニバーサル関数</a></li>
+      <li><a href="../numpy/ndarray-ternary.html">ndarrayでの三項演算子ベクトル計算版</a></li>
+      <li><a href="../numpy/ndarray-statistics.html">ndarrayの集計処理(合計/平均とか)</a></li>
+      <li><a href="../numpy/ndarray-max-min.html">ndarrayの最大値/最小値に関する関数</a></li>
+      <li><a href="../numpy/ndarray-transposed.html">ndarrayでの転置行列</a></li>
+      <li>ndarrayのファイル読み書き</li>
+      <li><a href="../numpy/howto.html">HOWTO</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>
