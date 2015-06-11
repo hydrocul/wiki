@@ -10,6 +10,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
@@ -21,7 +22,29 @@
 <div id="content">
   <h1 id="argv">コマンドライン引数を取得するには</h1>
 
-<h2 id="adb1967">Java
+<p><a href="#go">Go言語</a> <a href="#java">Java</a> <a href="#php">PHP</a> <a href="#python">Python</a> <a href="#ruby">Ruby</a> <a href="#perl">Perl</a> <a href="#sh">sh</a></p>
+
+<h2 id="go">Go言語 (golang)
+<span class="article-date">2015/06/11</span></h2>
+
+<p><code>os.Args</code> でコマンドライン引数を取得できる。</p>
+
+<p><code>os.Args</code> は <code>[]string</code> の型を持っていて、1つ目の要素は実行されているバイナリの名前が入っているので、
+2つ目以降(<code>os.Args[1]</code>以降)が引数になる。</p>
+
+<pre><code>package main
+
+import "os"
+import "fmt"
+
+func main() {
+    fmt.Printf("%#v\n", os.Args)
+    // コマンドライン引数に aaa bbb を渡した場合の出力例
+    // []string{"./test, "aaa", "bbb"}
+}
+</code></pre>
+
+<h2 id="java">Java
 <span class="article-date">2014/08/11</span></h2>
 
 <p>プログラム起動の最初に呼び出される<code>main</code>メソッドの引数として渡される。</p>
@@ -35,7 +58,7 @@
 
 <p>この引数には、実行しているプログラムのファイル名などは含まれておらず、先頭から本当の引数が入っている。</p>
 
-<h2 id="3be6d80">PHP
+<h2 id="php">PHP
 <span class="article-date">2014/04/22</span></h2>
 
 <p>グローバル変数 <code>$argc</code>, <code>$argv</code> でスクリプトに渡された引数を取得できる。</p>
@@ -50,7 +73,7 @@
 <p><code>$argv</code> | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/reserved.variables.argv.php" target="_blank" class="external-link">http://www.php.net/manual/ja/reserved.variables.argv.php</a></p>
 
-<h2 id="99ae434">Python
+<h2 id="python">Python
 <span class="article-date">2014/05/20</span></h2>
 
 <p>Python2, Python3 とも、<code>sys.argv</code> でスクリプトに渡された引数を取得できる。</p>
@@ -69,7 +92,7 @@ arg1 = sys.argv[1]
 arg2 = sys.argv[2]
 </code></pre>
 
-<h2 id="d85f018">Ruby
+<h2 id="ruby">Ruby
 <span class="article-date">2013/05/17</span></h2>
 
 <p><code>ARGV</code> という定数にスクリプトに渡された引数が配列で入っている。</p>
@@ -85,7 +108,7 @@ arg2 = sys.argv[2]
 
 <p>実行されているPerlスクリプトファイル名は <code>$0</code> で取得できる。</p>
 
-<h2 id="2081d3f">sh (シェルスクリプト)
+<h2 id="sh">sh (シェルスクリプト)
 <span class="article-date">2014/06/07</span></h2>
 
 <p><code>$1</code>, <code>$2</code>, <code>$3</code>, … でスクリプトに渡された引数を取得できる。

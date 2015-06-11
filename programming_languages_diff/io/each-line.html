@@ -10,6 +10,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
@@ -21,18 +22,16 @@
 <div id="content">
   <h1 id="each-line">ファイルの中身を1行ずつテキスト処理するには</h1>
 
-<p><a href="#golang">Go言語</a> <a href="#java">Java</a> <a href="#scala">Scala</a> <a href="#php">PHP</a> <a href="#python">Python</a> <a href="#ruby">Ruby</a> <a href="#perl">Perl</a> <a href="#sh">sh</a></p>
+<p><a href="#go">Go言語</a> <a href="#java">Java</a> <a href="#scala">Scala</a> <a href="#php">PHP</a> <a href="#python">Python</a> <a href="#ruby">Ruby</a> <a href="#perl">Perl</a> <a href="#sh">sh</a></p>
 
-<h2 id="golang">Go言語 (golang)
-<span class="article-date">2015/02/09</span></h2>
+<h2 id="go">Go言語 (golang)
+<span class="article-date">2015/06/11</span></h2>
 
-<p>例</p>
+<p><code>Scanner</code> を使う例</p>
 
-<pre><code>package main
-
-import "io"
+<pre><code>import "bufio"
+import "fmt"
 import "os"
-import "bufio"
 
 func main() {
     var fp *os.File
@@ -44,16 +43,50 @@ func main() {
         if err != nil {
             panic(err)
         }
+        defer fp.Close()
     }
+
+    scanner := bufio.NewScanner(fp)
+    for scanner.Scan() {
+        line := scanner.Text()
+        // lineはstring型で最後の改行が含まれない
+        fmt.Println(line)
+    }
+
+}
+</code></pre>
+
+<p><code>ReadString</code> を使う例</p>
+
+<pre><code>package main
+
+import "bufio"
+import "fmt"
+import "io"
+import "os"
+
+func main() {
+    var fp *os.File
+    var err error
+    if len(os.Args) &lt; 2 {
+        fp = os.Stdin
+    } else {
+        fp, err = os.Open(os.Args[1])
+        if err != nil {
+            panic(err)
+        }
+        defer fp.Close()
+    }
+
     reader := bufio.NewReader(fp)
     for {
-        line, err := reader.ReadString('\n')
+        line, _, err := reader.ReadLine()
         if err != nil &amp;&amp; err != io.EOF {
             panic(err)
         }
 
         // line には最後の改行を含む
-        os.Stdout.Write([]byte(line));
+        os.Stdout.Write(line)
 
         if err == io.EOF {
             break
