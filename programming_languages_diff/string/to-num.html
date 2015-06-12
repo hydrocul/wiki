@@ -10,6 +10,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
@@ -26,12 +27,41 @@
 
 <p>逆の<a href="../number/to-string.html">数値から文字列に変換する方法</a>も参照。</p>
 
+<h2 id="9d2e5ca">C言語 / C++
+<span class="article-date">2015/06/11</span></h2>
+
+<p><code>atoi</code>関数を使う。</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+  char *str = "10";
+  int i = atoi(str);
+  printf("%d\n", i);
+  /* =&gt; 10 */
+}
+</code></pre>
+
 <h2 id="badd53d">Go言語 (golang)
-<span class="article-date">2015/02/13</span></h2>
+<span class="article-date">2015/06/11</span></h2>
 
-<pre><code>import "strconv"
+<p><code>strconv.Atoi</code>関数を使う。</p>
 
-i, err := strconv.Atoi(str)
+<pre><code>import "fmt"
+import "strconv"
+
+func main() {
+    var str string = "10"
+    var i int
+    var err error
+    i, err = strconv.Atoi(str)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf("%d\n", i)
+    // =&gt; 10
+}
 </code></pre>
 
 <p>数値に変換できた場合は <code>err</code> が <code>nil</code> になり、できない場合は <code>err</code> にエラーのオブジェクトが入る。</p>
