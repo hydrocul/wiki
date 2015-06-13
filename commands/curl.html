@@ -62,7 +62,7 @@ while :; do wget -q -O- 'http://www.example.com/' &gt;/dev/null; done
 
 
 <h2 id="9273204">オプション
-<span class="article-date">2014/11/25</span></h2>
+<span class="article-date">2015/06/12</span></h2>
 
 <dl>
   <dt><code>-o</code> ファイル名</dt>
@@ -77,6 +77,8 @@ while :; do wget -q -O- 'http://www.example.com/' &gt;/dev/null; done
 400番台でも<code>curl</code>コマンドの終了コードは0になる。</dd>
   <dt><code>-k</code></dt>
   <dd>SSLのエラーを無視して処理を継続する。</dd>
+  <dt><code>-e</code> リファラURL</dt>
+  <dd>HTTPリクエストヘッダにリファラを付ける</dd>
 </dl>
 
 <h2 id="c8c1f93">HOWTO</h2>
@@ -218,6 +220,15 @@ curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libi
 <p>curlに<code>-A</code>オプションを使うと、User-Agentを指定することができる。</p>
 
 <pre><code>curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.50 Safari/537.36" http://www.example.com/
+</code></pre>
+
+<h3 id="e16c4ca">リファラーを付けてHTTPアクセスするには
+<span class="article-date">2015/06/12</span></h3>
+
+<p><code>-e</code> オプションでリファラーを指定する。</p>
+
+<pre><code>## Yahooから www.example.com にジャンプしたことにする
+$ curl -e http://www.yahoo.co.jp/ http://www.example.com/
 </code></pre>
 
 </div>
