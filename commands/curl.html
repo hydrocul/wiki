@@ -231,6 +231,19 @@ curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libi
 $ curl -e http://www.yahoo.co.jp/ http://www.example.com/
 </code></pre>
 
+<h3 id="4138101">リクエストヘッダのHostを詐称してHTTPアクセスするには
+<span class="article-date">2015/06/16</span></h3>
+
+<p>リクエストヘッダを指定する <code>-H</code> オプションを使ってHostを指定する。</p>
+
+<pre><code>$ curl -H Host:www.example.co.jp http://test.example.com/
+</code></pre>
+
+<p>この例だと、<code>test.example.com</code> をDNSで引いてリクエスト先のサーバを決定するが、そのサーバに対して <code>Host:www.example.co.jp</code> を付けてリクエストする。</p>
+
+<p>将来 <code>www.example.co.jp</code> として運用する予定でその名前でApacheのVirtualHostを設定してあるが、まだDNSでは <code>www.example.co.jp</code> という名前は別のサーバに向いている場合に、
+VirtualHostの設定の動作確認をしたりするのに使える。</p>
+
 </div>
 
 <div id="side-menu">
