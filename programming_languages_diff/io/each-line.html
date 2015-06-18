@@ -25,7 +25,7 @@
 <p><a href="#go">Go言語</a> <a href="#java">Java</a> <a href="#scala">Scala</a> <a href="#php">PHP</a> <a href="#python">Python</a> <a href="#ruby">Ruby</a> <a href="#perl">Perl</a> <a href="#sh">sh</a></p>
 
 <h2 id="go">Go言語 (golang)
-<span class="article-date">2015/06/11</span></h2>
+<span class="article-date">2015/06/18</span></h2>
 
 <p><code>Scanner</code> を使う例</p>
 
@@ -80,12 +80,12 @@ func main() {
 
     reader := bufio.NewReader(fp)
     for {
-        line, _, err := reader.ReadLine()
+        line, err := reader.ReadBytes('\n')
         if err != nil &amp;&amp; err != io.EOF {
             panic(err)
         }
 
-        // line には最後の改行を含む
+        // lineは[]byte型で最後の改行が含まれる
         os.Stdout.Write(line)
 
         if err == io.EOF {
