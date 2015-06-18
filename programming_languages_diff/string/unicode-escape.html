@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列リテラル中の文字をUnicodeのコードポイントで指定するには | 文字列 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>文字列リテラル中の文字をUnicodeのコードポイントで指定するには (Unicodeエスケープ) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,11 +16,11 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列リテラル中の文字をUnicodeのコードポイントで指定するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列リテラル中の文字をUnicodeのコードポイントで指定するには (Unicodeエスケープ)</span>
 </div>
 
 <div id="content">
-  <h1 id="unicode-escape">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</h1>
+  <h1 id="unicode-escape">文字列リテラル中の文字をUnicodeのコードポイントで指定するには (Unicodeエスケープ)</h1>
 
 <h2 id="java">Java / Scala
 <span class="article-date">2014/11/06</span></h2>
@@ -60,16 +60,19 @@ $str = "\xF0\x9F\x8C\x8D";
 </code></pre>
 
 <h2 id="47713b6">Python
-<span class="article-date">2014/11/30</span></h2>
+<span class="article-date">2015/06/18</span></h2>
 
-<p><code>\u</code>hhhh または <code>\U00</code>hhhhhh の形式で16進数表記できる。
+<p><code>\u</code>hhhh (4桁)または <code>\U00</code>hhhhhh (8桁)の形式で16進数表記できる。
 16ビットまでの文字(基本多言語面)は2つの形式のどちらも使えるが、
-16ビットを超える文字(拡張領域)は16進数で4桁を超えるので <code>\U00</code>hhhhhh の形式しか使えない。</p>
+16ビットを超える文字(拡張領域)は16進数で4桁を超えるので、大文字の <code>\U00</code>hhhhhh の形式しか使えない。</p>
+
+<p>大文字の <code>\U00</code>hhhhhh の形式は16進数8桁書かないといけなくて、
+Unicodeは6桁で十分なので、無駄な感じがする。</p>
 
 <p>Python2ではUnicode文字列リテラル(<code>u"..."</code>)の中でのみ使用可能。
 Python2での、<code>u"..."</code> 以外の文字列ではエスケープされずそのまま文字列になる。</p>
 
-<p>rawo文字列 <code>r"..."</code> の形式ではPython2でもPython3でもこのエスケープは使えない。</p>
+<p>raw文字列 <code>r"..."</code> の形式ではPython2でもPython3でもこのエスケープは使えない。</p>
 
 <p>Python2での例</p>
 
@@ -149,7 +152,7 @@ Python2での、<code>u"..."</code> 以外の文字列ではエスケープさ�
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
-          <li>文字列リテラル中の文字をUnicodeのコードポイントで指定するには</li>
+          <li>文字をUnicodeのコードポイントで指定するには</li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-upper-lower.html">Unicodeの仕様に基づいた大文字小文字を変換するには</a></li>
         </ul>
