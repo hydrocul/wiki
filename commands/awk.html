@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="awk">awk コマンド
-<span class="article-date">2015/02/04</span></h1>
+<span class="article-date">2015/06/22</span></h1>
 
 <p>1つ以上のスペースで区切られた複数列のテキストデータをごにょごにょ処理するときに便利なツール。四則演算だとかもできる。</p>
 
@@ -33,7 +33,9 @@
 
 <p>以下のコマンドを実行すると</p>
 
-<pre><code>cat ./foo.txt | awk '{print $1 * $2;}'
+<pre><code>awk '{print $1 * $2;}' foo.txt
+# または
+cat foo.txt | awk '{print $1 * $2;}'
 </code></pre>
 
 <p>以下のように出力される。</p>
@@ -60,8 +62,10 @@
 </div>
 
 
-<h2 id="ef2df19">コンマ区切り(CSV)で処理するには
-<span class="article-date">2014/08/10</span></h2>
+<h2 id="2be12d8">HOWTO</h2>
+
+<h3 id="d010071">コンマ区切り(CSV)で処理するには
+<span class="article-date">2014/08/10</span></h3>
 
 <p><code>-F</code>オプションで区切り文字を指定できる。</p>
 
@@ -70,22 +74,30 @@
 <pre><code>awk -F, '{print $2}'
 </code></pre>
 
-<h2 id="220c964">行番号を出力するには
-<span class="article-date">2013/10/15</span></h2>
+<h3 id="3c4038b">行番号を出力するには
+<span class="article-date">2013/10/15</span></h3>
 
 <pre><code>awk '{print NR " " $0;}'
 </code></pre>
 
-<h2 id="6a7127f">sprintfのようなフォーマットで数字を出力するには
-<span class="article-date">2013/10/18</span></h2>
+<h3 id="5945ad4">grepのようにパターンにマッチする行のみを抽出するには
+<span class="article-date">2015/06/22</span></h3>
+
+<p>正規表現をスラッシュで挟んで指定する。</p>
+
+<pre><code>awk '/pattern/'
+</code></pre>
+
+<h3 id="6f63e1e">sprintfのようなフォーマットで数字を出力するには
+<span class="article-date">2013/10/18</span></h3>
 
 <p><a href="../programming_languages_diff/string/format.html">C言語の <code>sprintf</code> のような書式</a>で出力するには、そのまま <code>sprintf</code> という関数が使える。</p>
 
 <pre><code>awk '{print sprintf("%04d", NR);}'
 </code></pre>
 
-<h2 id="sum-avg-max-min">数字が書かれたテキストファイルからその合計/平均/最大値/最小値を計算するには
-<span class="article-date">2015/02/04</span></h2>
+<h3 id="sum-avg-max-min">数字が書かれたテキストファイルからその合計/平均/最大値/最小値を計算するには
+<span class="article-date">2015/02/04</span></h3>
 
 <p><code>awk</code>でできる大抵のことはPerlのワンライナーでもできるので、ここでは両方のやり方を紹介しておく。</p>
 
@@ -134,16 +146,16 @@ cat hoge.txt | perl -nle '(!defined($min) || $min&gt;$_) and $min=$_; END{print 
 
 <p>-&gt; <a href="../programming_languages_diff/list/sum.html">数のリストの合計/平均を計算するには</a></p>
 
-<h2 id="ef34612">テキストファイルの各行の文字数を求めるには
-<span class="article-date">2013/12/05</span></h2>
+<h3 id="78967d9">テキストファイルの各行の文字数を求めるには
+<span class="article-date">2013/12/05</span></h3>
 
 <p>各行の、行末の改行を除く文字数を求める例。バイト数ではなくあくまで文字数である。</p>
 
 <pre><code>cat hoge.txt | awk '{print length();}' | awk 'NR==1 {max=$1} {if($1 &gt; max) max = $1} END {print max}'
 </code></pre>
 
-<h2 id="47f77bd">テキストファイルの偶数番目の行のみまたは奇数番目の行のみを抽出するには
-<span class="article-date">2014/03/17</span></h2>
+<h3 id="314bf98">テキストファイルの偶数番目の行のみまたは奇数番目の行のみを抽出するには
+<span class="article-date">2014/03/17</span></h3>
 
 <pre><code># 偶数行のみをパイプで抽出
 awk 'NR % 2 == 0 { print $0; }'
@@ -154,8 +166,8 @@ awk 'NR % 2 == 1 { print $0; }'
 
 <p><code>NR</code> は行番号が自動で入っている変数で、1から始まる番号になっている。</p>
 
-<h2 id="669f61b">出力でバッファリングをされないようにするには
-<span class="article-date">2014/07/09</span></h2>
+<h3 id="46071d6">出力でバッファリングをされないようにするには
+<span class="article-date">2014/07/09</span></h3>
 
 <p><code>fflush()</code> を呼び出すとフラッシュしてくれる。</p>
 
