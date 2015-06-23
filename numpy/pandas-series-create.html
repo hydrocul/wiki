@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>インストール | NumPy / pandas | hydroculのメモ</title>
+<title>pandasのSeriesの生成 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,35 +16,50 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>インストール</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>pandasのSeriesの生成</span>
 </div>
 
 <div id="content">
-  <h1 id="install">インストール
+  <h1 id="pandas-series-create">pandasのSeriesの生成
 <span class="article-date">2015/06/22</span></h1>
 
-<p>Pythonとnumpy, scipy, pandas, matplotlib, scikit-learn, ipythonなどのライブラリやツールを一式インストールするとなにかと便利だが、これらをインストールする方法はいま(2015年3月)は以下がオススメ。</p>
+<p>pandasのSeriesは <code>pd.Series</code>を使ってPythonのリストから簡単に生成できる。</p>
 
-<p>MacでPythonの機械学習環境構築(2015年2月版) | old school magic<br />
-<a href="http://breakbee.hatenablog.jp/entry/2015/02/07/173451" target="_blank" class="external-link">http://breakbee.hatenablog.jp/entry/2015/02/07/173451</a></p>
+<pre><code>import pandas as pd
 
-<p>自分は、上記ページを参考に、Ubuntuに以下の手順でインストールしている。</p>
+sr = pd.Series([10, 20, 40])
 
-<ul>
-  <li>pyenvをgitで手動でインストール</li>
-  <li><code>pyenv install anaconda-2.1.0</code></li>
-  <li><code>pyenv install anaconda3-2.1.0</code></li>
-  <li><code>pyenv rehash</code></li>
-  <li><code>pyenv local anaconda3-2.1.0</code></li>
-</ul>
+print(sr)
+# 出力結果
+# 0    10
+# 1    20
+# 2    40
+# dtype: int64
 
-<p>このサイトのNumPy配下のページではすべて実行例のソースコードの先頭に</p>
+nan = float("nan")
 
-<pre><code>import numpy as np
-import pandas as pd
+sr = pd.Series([0.5, 0.8, nan])
+
+print(sr)
+# 出力結果
+# 0    0.5
+# 1    0.8
+# 2    NaN
+# dtype: float64
 </code></pre>
 
-<p>と書いて、<code>np</code> でNumPyモジュール、<code>pd</code> でpandasモジュールを参照することを前提にしている。</p>
+<p>Seriesを<code>print</code>で出力させると、PythonのリストやNumPyのndarrayとはだいぶ違うフォーマットで表示される。</p>
+
+<p>インデックスが<code>0</code>から始まる整数以外にすることもできる。</p>
+
+<pre><code>sr = pd.Series([0.5, 0.8, nan], index=['foo', 'bar', 'baz'])
+print(sr)
+# 出力結果
+# foo    0.5
+# bar    0.8
+# baz    NaN
+# dtype: float64
+</code></pre>
 
 </div>
 
@@ -56,7 +71,7 @@ import pandas as pd
     <ul>
   <li><a href="../numpy/">NumPy / pandas</a>
     <ul>
-      <li>インストール</li>
+      <li><a href="../numpy/install.html">インストール</a></li>
       <li><a href="../numpy/ndarray-create.html">NumPy配列ndarrayの生成</a></li>
       <li><a href="../numpy/ndarray-create-special.html">特殊なNumPy配列の生成方法</a></li>
       <li><a href="../numpy/ndarray-property.html">NumPy配列の属性</a></li>
@@ -75,7 +90,7 @@ import pandas as pd
       <li><a href="../numpy/ndarray-max-min.html">NumPy配列の最大値/最小値に関する関数</a></li>
       <li><a href="../numpy/ndarray-transposed.html">NumPyでの転置行列</a></li>
       <li><a href="../numpy/ndarray-io.html">NumPy配列のファイル読み書き</a></li>
-      <li><a href="../numpy/pandas-series-create.html">pandasのSeriesの生成</a></li>
+      <li>pandasのSeriesの生成</li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>

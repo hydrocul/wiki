@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>NumPy | hydroculのメモ</title>
+<title>NumPy / pandas | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,24 +16,35 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <span>NumPy</span>
+  <a href="../">hydroculのメモ</a> &gt; <span>NumPy / pandas</span>
 </div>
 
 <div id="content">
-  <h1 id="numpy">NumPy
-<span class="article-date">2015/03/29</span></h1>
+  <h1 id="numpy">NumPy / pandas
+<span class="article-date">2015/06/22</span></h1>
 
-<p>NumPyは行列などの数値計算を高速に行うためのPythonのライブラリ。
-SciPyというNumPyに付随するライブラリもあり、しばしばNumPyとSciPyの両方を使う。</p>
+<p>NumPyは行列などの数値計算を高速に行うためのPythonのライブラリ。</p>
 
-<p>NumPyには高速なベクトル演算のできる<code>ndarray</code>という多次元配列がある。配列に対するループ処理をPythonでいちいち書かなくてもいいような仕組みがたくさんあり、
-<code>ndarray</code>がNumPyの目玉の1つか。</p>
+<p><code>ndarray</code>というNumPyの多次元配列は、ベクトル計算やブロードキャストを高速に処理できるようC言語で実装された多次元配列で、
+Pythonの組み込みの配列とは実装が異なる。行列計算や統計処理など豊富な関数が用意されており、Pythonのループよりも配列を高速に処理できるようになっている。
+<code>ndarray</code>がNumPyの目玉の1つ。</p>
+
+<p>Pythonの組み込みの配列では2次元配列を表現しようと思うと配列の配列になるが、
+<code>ndarray</code>は多次元配列であり、次元ごとに要素数は統一されている必要がある。また、<code>ndarray</code>は要素数が固定で原則として変更することができない固定長配列である。</p>
+
+<p>pandasというライブラリは、NumPyがベースになっており、データ分析を簡単に行うためのツールが揃っている。</p>
+
+<p>pandasでは<code>Series</code>と<code>DataFrame</code>という2つのデータ構造が提供されている。</p>
+
+<p><code>Series</code>は1次元配列である。インデックスは<code>0</code>から始まる整数だけでなく、任意の文字列にもできるのでPythonのディクショナリ
+(他の言語でいうと<a href="../programming_languages_diff/map/overview.html">連想配列とかハッシュマップとか</a>)にも似ているが、
+<code>Series</code>はPythoのリストと同様に順序を保存する点がディクショナリとは異なる。</p>
 
 <h2 id="section">目次</h2>
 
 <ul>
   <li><a href="../numpy/install.html">インストール</a></li>
-  <li><a href="../numpy/ndarray-create.html">NumPy多次元配列ndarrayの生成</a></li>
+  <li><a href="../numpy/ndarray-create.html">NumPy配列ndarrayの生成</a></li>
   <li><a href="../numpy/ndarray-create-special.html">特殊なNumPy配列の生成方法</a></li>
   <li><a href="../numpy/ndarray-property.html">NumPy配列の属性</a></li>
   <li><a href="../numpy/ndarray-element-type.html">NumPy配列の要素のデータ型</a></li>
@@ -51,6 +62,7 @@ SciPyというNumPyに付随するライブラリもあり、しばしばNumPy�
   <li><a href="../numpy/ndarray-max-min.html">NumPy配列の最大値/最小値に関する関数</a></li>
   <li><a href="../numpy/ndarray-transposed.html">NumPyでの転置行列</a></li>
   <li><a href="../numpy/ndarray-io.html">NumPy配列のファイル読み書き</a></li>
+  <li><a href="../numpy/pandas-series-create.html">pandasのSeriesの生成</a></li>
   <li><a href="../numpy/howto.html">HOWTO</a></li>
 </ul>
 
@@ -62,10 +74,10 @@ SciPyというNumPyに付随するライブラリもあり、しばしばNumPy�
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>NumPy
+  <li>NumPy / pandas
     <ul>
       <li><a href="../numpy/install.html">インストール</a></li>
-      <li><a href="../numpy/ndarray-create.html">NumPy多次元配列ndarrayの生成</a></li>
+      <li><a href="../numpy/ndarray-create.html">NumPy配列ndarrayの生成</a></li>
       <li><a href="../numpy/ndarray-create-special.html">特殊なNumPy配列の生成方法</a></li>
       <li><a href="../numpy/ndarray-property.html">NumPy配列の属性</a></li>
       <li><a href="../numpy/ndarray-element-type.html">NumPy配列の要素のデータ型</a></li>
@@ -83,6 +95,7 @@ SciPyというNumPyに付随するライブラリもあり、しばしばNumPy�
       <li><a href="../numpy/ndarray-max-min.html">NumPy配列の最大値/最小値に関する関数</a></li>
       <li><a href="../numpy/ndarray-transposed.html">NumPyでの転置行列</a></li>
       <li><a href="../numpy/ndarray-io.html">NumPy配列のファイル読み書き</a></li>
+      <li><a href="../numpy/pandas-series-create.html">pandasのSeriesの生成</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>

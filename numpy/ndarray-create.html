@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>NumPy多次元配列ndarrayの生成 | hydroculのメモ</title>
+<title>NumPy配列ndarrayの生成 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,14 +16,14 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy</a> &gt; <span>NumPy多次元配列ndarrayの生成</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>NumPy配列ndarrayの生成</span>
 </div>
 
 <div id="content">
-  <h1 id="ndarray-create">NumPy多次元配列ndarrayの生成
-<span class="article-date">2015/05/21</span></h1>
+  <h1 id="ndarray-create">NumPy配列ndarrayの生成
+<span class="article-date">2015/06/22</span></h1>
 
-<p>ndarrayは、<code>np.array</code>を使ってPythonの多次元配列から簡単に生成できる。</p>
+<p>ndarrayは、<code>np.array</code>を使ってPythonのリストから簡単に生成できる。</p>
 
 <pre><code># 普通のPythonの配列
 data = [[1.0, 2.0, 3.0], [11.0, 12.0, 13.0]]
@@ -35,6 +35,8 @@ print(npdata)
 # [[  1.   2.   3.]
 #  [ 11.  12.  13.]]
 </code></pre>
+
+<p>ndarrayを<code>print</code>で出力させるとPythonのリストと同様に <code>[]</code> で囲んで要素を羅列してくれる。要素の間のコンマがないのだが。多次元の場合は適当にインデントしてくれる。</p>
 
 <p><code>np.zeros</code> は要素をすべて <code>0.0</code> で埋めた配列を生成してくれる。引数には配列の次元を指定する。配列の要素はすべて浮動小数点数になる。</p>
 
@@ -120,10 +122,10 @@ print(npdata.dtype)
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../numpy/">NumPy</a>
+  <li><a href="../numpy/">NumPy / pandas</a>
     <ul>
       <li><a href="../numpy/install.html">インストール</a></li>
-      <li>NumPy多次元配列ndarrayの生成</li>
+      <li>NumPy配列ndarrayの生成</li>
       <li><a href="../numpy/ndarray-create-special.html">特殊なNumPy配列の生成方法</a></li>
       <li><a href="../numpy/ndarray-property.html">NumPy配列の属性</a></li>
       <li><a href="../numpy/ndarray-element-type.html">NumPy配列の要素のデータ型</a></li>
@@ -141,6 +143,7 @@ print(npdata.dtype)
       <li><a href="../numpy/ndarray-max-min.html">NumPy配列の最大値/最小値に関する関数</a></li>
       <li><a href="../numpy/ndarray-transposed.html">NumPyでの転置行列</a></li>
       <li><a href="../numpy/ndarray-io.html">NumPy配列のファイル読み書き</a></li>
+      <li><a href="../numpy/pandas-series-create.html">pandasのSeriesの生成</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>
