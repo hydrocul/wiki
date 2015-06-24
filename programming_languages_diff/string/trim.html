@@ -21,23 +21,23 @@
 
 <div id="content">
   <h1 id="trim">文字列の前後の空白を削除するには (strip / trim)
-<span class="article-date">2015/04/21</span></h1>
+<span class="article-date">2015/06/23</span></h1>
 
-<p>言語によってメソッド名/関数名が <code>trim</code> だったり <code>strip</code> だったり。</p>
+<p>文字列の前や後ろにある空白を削除する方法の、プログラミング言語別のメモ。言語によってメソッド名/関数名が <code>trim</code> だったり <code>strip</code> だったり。</p>
 
-<p>Go言語</p>
+<p><a href="#go">Go言語</a></p>
 
 <pre><code>strings.TrimSpace(str)
 </code></pre>
 
 <p><a href="#java">Java</a></p>
 
-<pre><code>strings.TrimSpace(str)
+<pre><code>str.trim()
 </code></pre>
 
 <p><a href="#java">Scala</a></p>
 
-<pre><code>strings.TrimSpace(str)
+<pre><code>str.trim
 </code></pre>
 
 <p><a href="#php">PHP</a></p>
@@ -64,6 +64,23 @@
 
 <pre><code># $str自体を書き換える
 $str =~ s/\A\s*(.*?)\s*\z/$1/;
+</code></pre>
+
+<h2 id="go">Go言語 (golang)
+<span class="article-date">2015/02/16</span></h2>
+
+<p><code>strings</code>パッケージの<code>TrimSpace</code>関数を使う。</p>
+
+<pre><code>package main
+
+import "fmt"
+import "strings"
+
+func main() {
+    str := "  abc  "
+    fmt.Println(strings.TrimSpace(str));
+    // =&gt; abc
+}
 </code></pre>
 
 <h2 id="java">Java / Scala
