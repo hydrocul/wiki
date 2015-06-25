@@ -114,15 +114,19 @@ void FooClass::method1(){
 1クラスに1ソースファイル必要である。</p>
 
 <h2 id="11e8b3e">PHP
-<span class="article-date">2013/11/15</span></h2>
+<span class="article-date">2015/06/25</span></h2>
 
 <p>例</p>
 
 <pre><code>class FooClass extends SuperFooClass {
     
-    // フィールド定義
+    // インスタンスフィールド定義
     private $field1;
     private $field2;
+    
+    // クラスフィールド定義
+    private static $sfield1;
+    private static $sfield2;
     
     // コンストラクタ定義
     public function __construct(){
@@ -141,8 +145,13 @@ void FooClass::method1(){
         parent::__destruct();
     }
     
-    // メソッド定義
+    // インスタンスメソッド定義
     public function method1(){
+        ...;
+    }
+    
+    // クラスメソッド定義
+    public static function smethod1(){
         ...;
     }
     
