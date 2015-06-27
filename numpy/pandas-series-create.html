@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>pandasのSeriesの生成 | hydroculのメモ</title>
+<title>pandasのSeriesの概要と生成 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,12 +16,19 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>pandasのSeriesの生成</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>pandasのSeriesの概要と生成</span>
 </div>
 
 <div id="content">
-  <h1 id="pandas-series-create">pandasのSeriesの生成
-<span class="article-date">2015/06/22</span></h1>
+  <h1 id="pandas-series-create">pandasのSeriesの概要と生成
+<span class="article-date">2015/06/27</span></h1>
+
+<p>pandasには<code>Series</code>と<code>DataFrame</code>という2つのデータ構造があり、そのうち<code>Series</code>は1次元配列に似ている。</p>
+
+<p>インデックスは<code>0</code>から始まる整数だけでなく、任意の文字列にもできるので
+<a href="../programming_languages_diff/map/overview.html#python">Pythonのディクショナリ</a>
+(他の言語でいうと<a href="../programming_languages_diff/map/overview.html">連想配列とかハッシュマップとか</a>)にも似ているが、
+<code>Series</code>はPythoのリストと同様に順序を保存する点がディクショナリとは異なる。</p>
 
 <p>pandasのSeriesは <code>pd.Series</code>を使ってPythonのリストから簡単に生成できる。</p>
 
@@ -90,7 +97,7 @@ print(sr)
       <li><a href="../numpy/ndarray-max-min.html">NumPy配列の最大値/最小値に関する関数</a></li>
       <li><a href="../numpy/ndarray-transposed.html">NumPyでの転置行列</a></li>
       <li><a href="../numpy/ndarray-io.html">NumPy配列のファイル読み書き</a></li>
-      <li>pandasのSeriesの生成</li>
+      <li>pandasのSeriesの概要と生成</li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>
