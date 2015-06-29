@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="pandas-series-create">pandasのSeriesの概要と生成
-<span class="article-date">2015/06/27</span></h1>
+<span class="article-date">2015/06/29</span></h1>
 
 <p>pandasには<code>Series</code>と<code>DataFrame</code>という2つのデータ構造があり、そのうち<code>Series</code>は1次元配列に似ている。</p>
 
@@ -68,6 +68,17 @@ print(sr)
 # dtype: float64
 </code></pre>
 
+<p>Pythonのディクショナリから生成することもできる。ただ、ディクショナリは順序を保存していないので、生成されるSeriesの要素の順序は不定である。</p>
+
+<pre><code>sr = pd.Series({'foo': 0.5, 'bar': 0.8, 'baz': nan})
+print(sr)
+# 出力結果
+# bar    0.8
+# baz    NaN
+# foo    0.5
+# dtype: float64
+</code></pre>
+
 </div>
 
 <div id="side-menu">
@@ -86,7 +97,7 @@ print(sr)
       <li><a href="../numpy/ndarray-copy.html">NumPy配列のコピー</a></li>
       <li><a href="../numpy/ndarray-convert.html">NumPy配列の要素のデータ型の変換</a></li>
       <li><a href="../numpy/ndarray-vector.html">NumPy配列でのベクトル計算</a></li>
-      <li><a href="../numpy/ndarray-ref-index.html">NumPy配列のインデックスでの参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-index.html">NumPy配列のインデックスでの要素参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-fancy.html">NumPy配列のファンシーインデックス参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-boolean.html">NumPy配列のブールインデックス参照</a></li>
       <li><a href="../numpy/ndarray-ref-slice.html">NumPy配列のスライス表記の参照と代入</a></li>
