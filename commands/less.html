@@ -92,14 +92,17 @@
 
 <h2 id="b9f3ef0">HOWTO</h2>
 
-<h3 id="6a73eb2">ls を色付きで less で見るには
-<span class="article-date">2013/06/04</span></h3>
+<h3 id="ea1ef7a">色付きのコマンド出力を less で見るには
+<span class="article-date">2015/06/29</span></h3>
+
+<p><code>less</code> に <code>-R</code> を付ければ、色を表すエスケープシーケンスを色として解釈してくれる。</p>
+
+<p><a href="ls.html"><code>ls</code></a>での例</p>
 
 <pre><code>$ ls -alF --color | less -X -R
 </code></pre>
 
-<h3 id="2c55b73">grep を色付きで less で見るには
-<span class="article-date">2013/06/06</span></h3>
+<p><a href="grep.html"><code>grep</code></a>での例</p>
 
 <pre><code>$ grep -rni --color=always abc . | less -X -R
 </code></pre>
