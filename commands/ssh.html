@@ -29,12 +29,12 @@
 <a href="mosh.html">mosh</a>, <a href="sshfs.html">sshfs</a>, <a href="rsync.html">rsync</a> などがある。</p>
 
 <h2 id="d656648">基本の使い方
-<span class="article-date">2013/11/13</span></h2>
+<span class="article-date">2015/06/30</span></h2>
 
 <pre><code>ssh &lt;ID&gt;@&lt;IP&gt;
 </code></pre>
 
-<p><a href="mosh.html">mosh</a>は</p>
+<p>ちなみに似たようなコマンドとして、<a href="mosh.html">mosh</a>は</p>
 
 <pre><code>mosh &lt;ID&gt;@&lt;IP&gt;
 </code></pre>
@@ -55,6 +55,18 @@
 <code>~/.ssh/config</code> にユーザ名が指定してあれば、省略可。
 <code>~/.ssh/config</code> は <code>ssh</code> だけでなく、 <code>mosh</code>, <code>sshfs</code>, <code>rsync</code> 
 コマンドからも参照される。</p>
+
+<p><code>ssh</code>コマンドは、後ろにパラメータとしてコマンドを書けば、リモートでコマンドを実行してコマンドが終わったらすぐにSSHを切断させることもできる。リモートへの接続をそれほど意識せずに、実行したいコマンドの先頭に <code>ssh foohost</code> などと付けるだけでリモートでのコマンド実行に置き換わるイメージ。</p>
+
+<pre><code># リモートのホームディレクトリで ls -al を実行
+ssh foohost ls -al
+
+# リモートとローカルとでマシンが刻んでいる時間のずれを確認
+# ssh接続に時間がかかるとだめだが
+ssh foohost date; date
+</code></pre>
+
+<p>リモートで実行したコマンドが終了コード0以外を返せば、sshコマンド自体もその終了コードを返す。でも、リモートで実行したコマンドが標準出力と標準エラー出力をしていると、それらは一緒くたになってローカルの端末に対して標準出力される。</p>
 
 <h2 id="7f8730a">HOWTO</h2>
 
