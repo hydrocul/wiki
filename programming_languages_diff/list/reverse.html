@@ -22,9 +22,11 @@
 <div id="content">
   <h1 id="reverse">配列(リスト)を逆順に並び替えるには (reverse)</h1>
 
-<h2 id="f4cadad">Java</h2>
+<p><a href="#java">Java</a> <a href="#scala">Scala</a> <a href="#php">PHP</a> <a href="#python">Python</a> <a href="#ruby">Ruby</a> <a href="#perl">Perl</a> <a href="#sh">sh</a> <a href="#javascript">JavaScript</a></p>
 
-<h3 id="e092d59"><code>java.util.List</code>
+<h2 id="java">Java</h2>
+
+<h3 id="b385d48"><code>java.util.List</code>
 <span class="article-date">2015/04/25</span></h3>
 
 <pre><code>import java.util.Collections;
@@ -43,18 +45,17 @@ Collections.reverse(lst); # lst自体を変更
 <p><code>java.util.Collections.reverse</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#reverse-java.util.List-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#reverse-java.util.List-</a></p>
 
-<h2 id="4beefc6">Scala
+<h2 id="scala">Scala
 <span class="article-date">2013/07/30</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Seq[A]
-def reverse: Seq[A]
+<pre><code>def scala.collection.Seq[A]#reverse: Seq[A]
 </code></pre>
 
 <p>反転した結果のリストを返し、自身は変更しない。</p>
 
-<h2 id="b1e10eb">PHP
+<h2 id="php">PHP
 <span class="article-date">2015/01/11</span></h2>
 
 <p><code>array_reverse</code> 関数で逆順の配列を生成できる。この関数は引数の配列自身を変更しない。</p>
@@ -85,7 +86,7 @@ var_export($arr);
 <p><code>array_reverse</code> 関数 | PHP Manual<br />
 <a href="http://php.net/manual/ja/function.array-reverse.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-reverse.php</a></p>
 
-<h2 id="b37d066">Python
+<h2 id="python">Python
 <span class="article-date">2013/10/06</span></h2>
 
 <pre><code># 逆順のリストを返し、引数のリスト自体は変更しない
@@ -95,7 +96,7 @@ reversed(lst)
 lst.reverse()
 </code></pre>
 
-<h2 id="4576c0e">Ruby / JRuby
+<h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/01/04</span></h2>
 
 <p><code>Array#reverse</code> メソッドは逆順の配列を生成して返す。
@@ -108,7 +109,7 @@ lst.reverse()
 <p><code>Array#reverse</code>, <code>Array#reverse!</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/reverse.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/reverse.html</a></p>
 
-<h2 id="736fb1f">Perl
+<h2 id="perl">Perl
 <span class="article-date">2013/09/11</span></h2>
 
 <pre><code>reverse(@arr)
@@ -116,12 +117,12 @@ lst.reverse()
 
 <p>並び替えられた新しい配列を返し、引数の配列自体は変更しない。</p>
 
-<h2 id="3f5b45d">sh (シェルスクリプト)
-<span class="article-date">2013/12/20</span></h2>
+<h2 id="sh">sh (シェルスクリプト)
+<span class="article-date">2015/07/02</span></h2>
 
-<p>行単位で逆順にするには <a href="../../commands/tac.html"><code>tac</code>コマンド</a> を使えばよい。</p>
+<p>行を逆順にするには <a href="../../commands/tac.html"><code>tac</code>コマンド</a> を使えばよい。</p>
 
-<h2 id="d051b61">JavaScript
+<h2 id="javascript">JavaScript
 <span class="article-date">2013/04/20</span></h2>
 
 <pre><code>Array#reverse
