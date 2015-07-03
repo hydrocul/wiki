@@ -134,11 +134,11 @@ fi
 <p>ちなみに <code>if</code> の中に <code>&gt;/dev/null</code> を付けないと、条件判定するたびに標準出力にいちいち差分が出力されてしまう。</p>
 
 <h3 id="83c4f55">差分表示をカラーで見やすく表示するには
-<span class="article-date">2015/04/16</span></h3>
+<span class="article-date">2015/07/03</span></h3>
 
-<p><code>colordiff</code> というツールをインストールして使うとよいらしい。</p>
+<p><code>colordiff</code> というツールをインストールして使うとカラフルに表示させられるらしい。</p>
 
-<pre><code>## インストール
+<pre><code>## Ubuntuの場合のインストール
 $ apt-get install colordiff
 </code></pre>
 
@@ -146,7 +146,9 @@ $ apt-get install colordiff
 <code>git</code>なら、普段作業している環境にはたいてい入れている人が多いと思うので。</p>
 
 <p><code>git</code>コマンドは <code>git diff ...</code> でgit管理下にあるファイルの差分を表示してくれるが、
-<code>git diff --no-index ...</code> とすると、リポジトリと関係なく任意の2つのファイルの差分を表示してくれる便利機能がある。しかも<code>git</code>コマンドでは、ちゃんと設定してあれば、色付きで表示してくれるし、長い差分でも<code>less</code>をパイプで手動でつなぐことなく自動でページャーで表示してくれて使いやすい。</p>
+<code>git diff --no-index ...</code> とすると、リポジトリと関係なく任意の2つのファイルの差分を表示してくれる便利機能がある。</p>
+
+<p><code>git</code>コマンドでファイルの差分を表示させると、ちゃんと設定してあれば、色付きで表示してくれるし、長い差分でも<code>less</code>をパイプで手動でつなぐことなく自動でページャーで表示してくれて使いやすい。</p>
 
 <pre><code>$ colordiff -u fileA.txt fileB.txt
 

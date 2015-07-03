@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>NumPy配列のインデックスでの要素参照と代入 | hydroculのメモ</title>
+<title>pandasのSeriesのインデックスでの要素参照と代入 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,69 +16,49 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>NumPy配列のインデックスでの要素参照と代入</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>pandasのSeriesのインデックスでの要素参照と代入</span>
 </div>
 
 <div id="content">
-  <h1 id="ndarray-ref-index">NumPy配列のインデックスでの要素参照と代入
+  <h1 id="pandas-series-ref-index">pandasのSeriesのインデックスでの要素参照と代入
 <span class="article-date">2015/07/02</span></h1>
 
-<p>NumPyのndarrayは、Pythonの通常のリストと同様に <code>[]</code> でインデックスを指定して要素を参照・代入することができる。インデックスは0から始まる。インデックスを負にすると、後ろから数えてくれる点も、通常のリストと同様である。</p>
+<p>pandasのSeriesは、NumPyのndarrayやPythonの通常のリストと同様に <code>[]</code> でインデックスを指定して要素を参照・代入することができる。インデックスは0から始まる。</p>
 
-<pre><code>ndarr1 = np.array([0, 1, 2, 3, 4, 5])
+<p>インデックスを負にすると後ろから数えてくれるという機能はなく、この点はNumPyや通常のリストと異なる。</p>
 
-print(ndarr1[1])
+<pre><code>import pandas as pd
+
+nan = float("nan")
+
+sr1 = pd.Series([0.5, 0.8, nan])
+print(sr1[1])
 # 出力結果
-# 1
+# 0.8
 
-# インデックスを負にすると後ろから数える
-print(ndarr1[-1])
-# 出力結果
-# 5
-
-ndarr1[0] = 10
-print(ndarr1)
-# 出力結果
-# [10  1  2  3  4  5]
-
-ndarr1[-1] = 30
-print(ndarr1)
-# 出力結果
-# [10  1  2  3  4 30]
+# NumPyと違って、 インデックスを負にして後ろから数えてくれる機能はない
+# print(sr1[-1])
 </code></pre>
 
-<p>インデックスがサイズ以上の場合や、負の場合で後ろから数えても先頭を超えてしまう場合には
-<code>IndexError: index 10 is out of bounds for axis 0 with size 6</code> というような例外が投げられる。</p>
+<p>インデックスが文字列のSeriesの場合は、その文字列で要素を指定できる。</p>
 
-<p>多次元配列の要素を参照するには <code>[]</code> の中にコンマ区切りでインデックスを指定する。</p>
-
-<pre><code>ndarr1 = np.array([[1., 2., 3.], [4., 5., 6.]])
-
-print(ndarr1[1])
+<pre><code>sr2 = pd.Series([0.5, 0.8, nan], index=['foo', 'bar', 'baz'])
+print(sr2['baz'])
 # 出力結果
-# [ 4.  5.  6.]
-
-print(ndarr1[1, 2])
-# 出力結果
-# 6.0
-
-# [] を複数並べてもいい
-print(ndarr1[1][2])
-# 出力結果
-# 6.0
+# nan
 </code></pre>
 
-<p>コロンを使って <code>[:, 2]</code> のように書くと、内側の軸のインデックスだけを指定することもできる。これは後述の<a href="ndarray-ref-slice.html">スライス表記</a>との組み合わせである。</p>
+<p>Seriesは要素の順序も保存しているので、たとえ文字列をインデックスにしたSeriesであっても、整数でアクセスすることもできる。</p>
 
-<pre><code>print(ndarr1[:, 2])
+<pre><code>print(sr2[1])
 # 出力結果
-# [ 3.  6.]
+# 0.8
 </code></pre>
 
 <p>関連</p>
 
 <ul>
-  <li><a href="pandas-series-ref-index.html">pandasのSeriesのインデックスでの要素参照と代入</a></li>
+  <li><a href="ndarray-ref-index.html">NumPy配列のインデックスでの要素参照と代入</a></li>
   <li><a href="../programming_languages_diff/list/get.html">プログラミング言語別の配列の要素を参照する方法</a></li>
 </ul>
 
@@ -100,7 +80,7 @@ print(ndarr1[1][2])
       <li><a href="../numpy/ndarray-copy.html">NumPy配列のコピー</a></li>
       <li><a href="../numpy/ndarray-convert.html">NumPy配列の要素のデータ型の変換</a></li>
       <li><a href="../numpy/ndarray-vector.html">NumPy配列でのベクトル計算</a></li>
-      <li>NumPy配列のインデックスでの要素参照と代入</li>
+      <li><a href="../numpy/ndarray-ref-index.html">NumPy配列のインデックスでの要素参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-fancy.html">NumPy配列のファンシーインデックス参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-boolean.html">NumPy配列のブールインデックス参照</a></li>
       <li><a href="../numpy/ndarray-ref-slice.html">NumPy配列のスライス表記の参照と代入</a></li>
@@ -112,7 +92,7 @@ print(ndarr1[1][2])
       <li><a href="../numpy/ndarray-transposed.html">NumPyでの転置行列</a></li>
       <li><a href="../numpy/ndarray-io.html">NumPy配列のファイル読み書き</a></li>
       <li><a href="../numpy/pandas-series-create.html">pandasのSeriesの概要と生成</a></li>
-      <li><a href="../numpy/pandas-series-ref-index.html">pandasのSeriesのインデックスでの要素参照と代入</a></li>
+      <li>pandasのSeriesのインデックスでの要素参照と代入</li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>
