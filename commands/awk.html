@@ -96,20 +96,20 @@ cat foo.txt | awk '{print $1 * $2;}'
 
 <p>以下の例は1カラム目が <code>foo</code> の行のみを出力する。</p>
 
-<pre><code>awk `$1 == "foo"'
+<pre><code>awk '$1=="foo"'
 </code></pre>
 
 <p>逆に特定文字列の行を除外するには <code>!=</code> を使う。</p>
 
-<pre><code>awk `$1 != "foo"'
+<pre><code>awk '$1!="foo"'
 </code></pre>
 
 <h3 id="e4bed8a">特定の列がパターンにマッチする行のみを抽出するには
-<span class="article-date">2015/06/23</span></h3>
+<span class="article-date">2015/07/05</span></h3>
 
 <p>以下の例は2カラム目が <code>foo</code> で始まる行のみを出力する。</p>
 
-<pre><code>awk `$2 == /^foo/'
+<pre><code>awk '$2~/^foo/'
 </code></pre>
 
 <h3 id="6f63e1e">sprintfのようなフォーマットで数字を出力するには
