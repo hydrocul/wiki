@@ -16,12 +16,12 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy</a> &gt; <span>NumPy配列のファンシーインデックス参照と代入</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>NumPy配列のファンシーインデックス参照と代入</span>
 </div>
 
 <div id="content">
   <h1 id="ndarray-ref-fancy">NumPy配列のファンシーインデックス参照と代入
-<span class="article-date">2015/04/27</span></h1>
+<span class="article-date">2015/07/06</span></h1>
 
 <p><code>[]</code> の中にインデックス1つ書く代わりにインデックスの配列を書くと、その配列に対応して要素をピックアップしたndarrayを新しく作ってくれる。</p>
 
@@ -37,6 +37,13 @@ print(ndarr1[[2, 4]])
 <pre><code>print(ndarr1[[3, 2, 4]])
 # 出力結果
 # [30 20 40]
+</code></pre>
+
+<p>要素が重複しても大丈夫みたい。</p>
+
+<pre><code>print(ndarr1[[3, 2, 2, 4]])
+# 出力結果
+# [30 20 20 40]
 </code></pre>
 
 <p>ファンシーインデックスで得た配列はもとの配列から必要な要素をコピーして作成される新しい配列であって、従って新しい配列を書き換えても、もとの配列には影響しない。</p>
@@ -126,17 +133,17 @@ print(ndarr1[[0, 1]])
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li><a href="../numpy/">NumPy</a>
+  <li><a href="../numpy/">NumPy / pandas</a>
     <ul>
       <li><a href="../numpy/install.html">インストール</a></li>
-      <li><a href="../numpy/ndarray-create.html">NumPy多次元配列ndarrayの生成</a></li>
+      <li><a href="../numpy/ndarray-create.html">NumPy配列ndarrayの生成</a></li>
       <li><a href="../numpy/ndarray-create-special.html">特殊なNumPy配列の生成方法</a></li>
       <li><a href="../numpy/ndarray-property.html">NumPy配列の属性</a></li>
       <li><a href="../numpy/ndarray-element-type.html">NumPy配列の要素のデータ型</a></li>
       <li><a href="../numpy/ndarray-copy.html">NumPy配列のコピー</a></li>
       <li><a href="../numpy/ndarray-convert.html">NumPy配列の要素のデータ型の変換</a></li>
       <li><a href="../numpy/ndarray-vector.html">NumPy配列でのベクトル計算</a></li>
-      <li><a href="../numpy/ndarray-ref-index.html">NumPy配列のインデックスでの参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-index.html">NumPy配列のインデックスでの要素参照と代入</a></li>
       <li>NumPy配列のファンシーインデックス参照と代入</li>
       <li><a href="../numpy/ndarray-ref-boolean.html">NumPy配列のブールインデックス参照</a></li>
       <li><a href="../numpy/ndarray-ref-slice.html">NumPy配列のスライス表記の参照と代入</a></li>
@@ -147,6 +154,8 @@ print(ndarr1[[0, 1]])
       <li><a href="../numpy/ndarray-max-min.html">NumPy配列の最大値/最小値に関する関数</a></li>
       <li><a href="../numpy/ndarray-transposed.html">NumPyでの転置行列</a></li>
       <li><a href="../numpy/ndarray-io.html">NumPy配列のファイル読み書き</a></li>
+      <li><a href="../numpy/pandas-series-create.html">pandasのSeriesの概要と生成</a></li>
+      <li><a href="../numpy/pandas-series-ref-index.html">pandasのSeriesのインデックスでの要素参照と代入</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>
