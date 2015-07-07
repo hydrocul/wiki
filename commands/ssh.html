@@ -146,6 +146,16 @@ ssh接続自体へのコマンドのプレフィックスとなる。エンタ�
 
 <p><a href="sshfs.html">sshfsコマンド</a>を使う。このコマンドはリモートのファイルシステムのルートまたは特定のディレクトリ配下を、ローカルの任意の場所にマウントする。例えば、リモートのファイルをいちいちダウンロード・アップロードしなくても直接ローカルのエディタで編集することできたりする。</p>
 
+<h3 id="remote-file-exists">リモートに特定のファイルが存在するかどうかを確認するには
+<span class="article-date">2015/07/07</span></h3>
+
+<p>リモートのファイルの存在確認をするとりあえずの方法の例</p>
+
+<pre><code>if [ `ssh FOOHOST "ls /PATH/TO/TARGETFILE"` = "/PATH/TO/TARGETFILE" ]; then
+    # ファイルが存在する場合の処理
+fi
+</code></pre>
+
 <h3 id="2a1afc0">SSHが勝手に切断されないようにするには
 <span class="article-date">2013/11/12</span></h3>
 
