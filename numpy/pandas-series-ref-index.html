@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="pandas-series-ref-index">pandasのSeriesのインデックスでの要素参照と代入
-<span class="article-date">2015/07/02</span></h1>
+<span class="article-date">2015/07/11</span></h1>
 
 <p>pandasのSeriesは、NumPyのndarrayやPythonの通常のリストと同様に <code>[]</code> でインデックスを指定して要素を参照・代入することができる。インデックスは0から始まる。</p>
 
@@ -38,6 +38,15 @@ print(sr1[1])
 
 # NumPyと違って、 インデックスを負にして後ろから数えてくれる機能はない
 # print(sr1[-1])
+
+# 代入の例
+sr1[1] = 1.8
+print(sr1)
+# 出力結果
+# 0    0.5
+# 1    1.8
+# 2    NaN
+# dtype: float64
 </code></pre>
 
 <p>インデックスが文字列のSeriesの場合は、その文字列で要素を指定できる。</p>
@@ -46,13 +55,31 @@ print(sr1[1])
 print(sr2['baz'])
 # 出力結果
 # nan
+
+# 代入の例
+sr2['bar'] = 1.8
+print(sr2)
+# 出力結果
+# foo    0.5
+# bar    1.8
+# baz    NaN
+# dtype: float64
 </code></pre>
 
 <p>Seriesは要素の順序も保存しているので、たとえ文字列をインデックスにしたSeriesであっても、整数でアクセスすることもできる。</p>
 
 <pre><code>print(sr2[1])
 # 出力結果
-# 0.8
+# nan
+
+# 代入の例
+sr2[2] = 9999
+print(sr2)
+# 出力結果
+# foo       0.5
+# bar       1.8
+# baz    9999.0
+# dtype: float64
 </code></pre>
 
 <p>関連</p>
@@ -94,6 +121,7 @@ print(sr2['baz'])
       <li><a href="../numpy/pandas-series-create.html">pandasのSeriesの概要と生成</a></li>
       <li>pandasのSeriesのインデックスでの要素参照と代入</li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
+      <li><a href="../numpy/pandas-series-ref-fancy.html">pandasのSeriesのファンシーインデックスで参照と代入</a></li>
     </ul>
   </li>
 </ul>
