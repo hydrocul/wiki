@@ -325,6 +325,23 @@ OK
 
 <h2 id="a94f4da">HOWTO</h2>
 
+<h3 id="0250384">大文字小文字を変換するには
+<span class="article-date">2015/07/11</span></h3>
+
+<p>全部大文字にするには <code>\U</code> というのを使うとよい。</p>
+
+<pre><code>head main.go | sed -E 's/(.*)/\U\1/'
+# または
+head main.go | sed 's/\(.*\)/\U\1/'
+</code></pre>
+
+<p>小文字にするには <code>\L</code> というのを使うとよい。</p>
+
+<pre><code>head main.go | sed -E 's/(.*)/\L\1/'
+# または
+head main.go | sed 's/\(.*\)/\L\1/'
+</code></pre>
+
 <h3 id="9c4c9bd">正規表現の中で ‘{}’ を使うには
 <span class="article-date">2014/10/15</span></h3>
 
