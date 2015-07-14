@@ -68,7 +68,7 @@ sub/bar.txt
 <p>この上限値はカーネルソースの<a href="http://lxr.linux.no/linux+v3.19.1/fs/exec.c" target="_blank" class="external-link"><code>exec.c</code></a>のあたりに実装されていそうだが、よくわからない。</p>
 
 <h2 id="fec7f98"><code>mv</code> に渡す場合は要注意
-<span class="article-date">2015/05/13</span></h2>
+<span class="article-date">2015/07/14</span></h2>
 
 <p><code>xargs</code> は、コマンドの最後にファイル名を引数として渡す。
 <code>mv</code> コマンドはデフォルトでは、パラメータで渡したファイル名たちの最後のものが移動先になる。なので、移動元のたくさんのファイル名を<code>xargs</code>に渡して<code>mv</code>で移動させるには <code>-t</code> オプションを付けて移動先を明示的に指定する必要がある。</p>
@@ -78,9 +78,19 @@ sub/bar.txt
 
 <p>これで <code>mv</code> コマンドは <code>mv -t ~/dst a.txt b.txt dir/c.txt dir/d.txt</code> として実行され、
 <code>~/dst</code> にテキストファイルたちが移動されることになる。 <code>-t</code> がないと、
-<code>mv ~/dst a.txt b.txt dir/c.txt dir/d.txt</code> となり、<code>dir/d.txt</code> に上書き移動しようとして、意図した動作にはならない。</p>
+<code>mv ~/dst a.txt b.txt dir/c.txt dir/d.txt</code> となり、意図した動作にはならずに <code>dir/d.txt</code> に上書き移動しようとしてしまう。</p>
 
 <p>ただし、<code>-t</code> オプションは環境によってはサポートされていないらしい。</p>
+
+<p>別の使い方として、<code>xargs</code>から移動元ファイル名と移動先ファイル名をペアで<code>mv</code>に渡すやりかたもある。</p>
+
+<p>こんな感じ。</p>
+
+<pre><code>find . -type f | perl -nle 'print "$_\n$_.bak"' | xargs -n2 mv
+</code></pre>
+
+<p>見つかったファイル一覧を、perlのワンライナーでもとのファイル名とそれに <code>.bak</code> を付けたファイル名のペアにして、
+<code>xargs</code>は <code>-n2</code> を付けることで2つずつ <code>mv</code> に渡して、各ファイルをリネームする。</p>
 
 <h2 id="fafdbc3">一度にコマンドに渡す引数の最大数を制御するには [2014/01/05] {option-n}</h2>
 
