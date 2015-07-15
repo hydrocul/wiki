@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="pandas-series-ref-fancy">pandasのSeriesのファンシーインデックスで参照と代入
-<span class="article-date">2015/07/09</span></h1>
+<span class="article-date">2015/07/15</span></h1>
 
 <p>pandasのSeriesは、NumPyのndarrayと同様に <code>[]</code> の中にインデックス1つ書く代わりにインデックスの配列を書くと、その配列に対応して要素をピックアップしたSeriesを新しく作ってくれる。</p>
 
@@ -82,6 +82,50 @@ print(sr2[['baz', 'foo']])
 # foo    0.5
 # baz    NaN
 # dtype: float64
+</code></pre>
+
+<p>ファンシーインデックスで得たSeriesはもとのSeriesから必要な要素をコピーして作成される新しいSeriesであって、従って新しいSeriesを書き換えても、もとのSeriesには影響しない。</p>
+
+<pre><code>sr1 = pd.Series([0, 10, 20, 30, 40, 50])
+
+# ファンシーインデックスで新しいSeriesを作成
+sr1b = sr1[[1, 3, 4]]
+print(sr1b)
+# 出力結果
+# 1    10
+# 3    30
+# 4    40
+# dtype: int64
+
+# 新しいSeriesの要素に代入
+sr1b[1] = 100
+print(sr1b)
+# 出力結果
+# 1    100
+# 3     30
+# 4     40
+# dtype: int64
+
+# 存在しないSeriesの要素に代入
+sr1b[2] = 200
+print(sr1b)
+# 出力結果
+# 1    100
+# 3     30
+# 4     40
+# 2    200
+# dtype: int64
+
+# もとのSeriesは変わらず
+print(sr1)
+# 出力結果
+# 0     0
+# 1    10
+# 2    20
+# 3    30
+# 4    40
+# 5    50
+# dtype: int64
 </code></pre>
 
 <p>関連</p>
