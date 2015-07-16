@@ -320,8 +320,15 @@ export PROMPT="[%D{%m/%d %H:%M:%S}] %n@%m:%1(v|%F{blue}%1v%f:|)%F{green}%~%f $ "
 
 <p><code>-p</code> のかわりに <code>--patch</code> でも同じ。</p>
 
-<h3 id="f202683">いまチェックアウトしているブランチの名前を変更するには
-<span class="article-date">2013/09/09</span></h3>
+<h3 id="31010c6">ブランチの名前を変更するには
+<span class="article-date">2015/07/16</span></h3>
+
+<p><code>git branch -m 古い名前 新しい名前</code> でリネームできる。いまどのブランチをチェックアウトしているかは関係ない。</p>
+
+<pre><code>$ git branch -m oldbranchname newbranchname
+</code></pre>
+
+<p>古いの名前のほうを省略すると、いまチェックアウトしているブランチをリネームすることになる。</p>
 
 <pre><code>$ git branch -m newbranchname
 </code></pre>
