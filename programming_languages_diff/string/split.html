@@ -131,7 +131,7 @@ def java.lang.String#split(regex: String, limit: Int): Array[String]
 <p><code>scala.collection.immutable.StringLike</code> にある<code>Char</code>型で分割文字列を指定するメソッドも、結局は中で正規表現にされて、<code>java.lang.String#split</code> が呼び出される。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2015/04/06</span></h2>
+<span class="article-date">2015/07/17</span></h2>
 
 <p>例</p>
 
@@ -143,6 +143,17 @@ $arr = explode($separator, $str, $limit);
 <p><code>$str</code> に空文字列を与えると、空文字列だけの要素数1の配列が返される。</p>
 
 <p>正規表現でパターンマッチングして分割するには<code>preg_split</code>関数を使う。</p>
+
+<pre><code>$str = "abc,def ghi";
+$arr = preg_split('/[,\s]/', $str);
+var_export($arr);
+// 出力結果
+// array (
+//   0 =&gt; 'abc',
+//   1 =&gt; 'def',
+//   2 =&gt; 'ghi',
+// )
+</code></pre>
 
 <p><code>explode</code> 関数 | PHP Manual<br />
 <a href="http://php.net/manual/ja/function.explode.php" target="_blank" class="external-link">http://php.net/manual/ja/function.explode.php</a></p>
@@ -303,7 +314,7 @@ print Dumper \@arr;
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
-          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字をUnicodeのコードポイントで指定するには</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-upper-lower.html">Unicodeの仕様に基づいた大文字小文字を変換するには</a></li>
         </ul>
