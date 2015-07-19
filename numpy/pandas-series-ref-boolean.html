@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>NumPy配列のブールインデックス参照 | hydroculのメモ</title>
+<title>pandasのSeriesのブールインデックス参照 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,96 +16,81 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>NumPy配列のブールインデックス参照</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>pandasのSeriesのブールインデックス参照</span>
 </div>
 
 <div id="content">
-  <h1 id="ndarray-ref-boolean">NumPy配列のブールインデックス参照
+  <h1 id="pandas-series-ref-boolean">pandasのSeriesのブールインデックス参照
 <span class="article-date">2015/07/19</span></h1>
 
-<p><code>[]</code> の中にインデックスを書く代わりに論理値(<code>True</code>/<code>False</code>)の配列を書くとその論理値が<code>True</code>に該当する箇所の要素をピックアップしたndarrayを新しく作ってくれる。</p>
+<p>pandasのSeriesの要素参照に使う <code>[]</code> の中にインデックスを書く代わりに論理値(<code>True</code>/<code>False</code>)の配列を書くとその論理値が<code>True</code>に該当する箇所の要素をピックアップしたSeriesを新しく作ってくれる。</p>
 
-<pre><code>ndarr1 = np.array([0, 10, 20, 30, 40, 50])
+<p><code>[]</code>の中の論理値配列は普通のPython配列でもNumPyの配列でもよいし、論理値を要素に持つpandasのSeriesでもよい。
+NumPy配列のブールインデックス参照では、<code>[]</code>の中の配列はNumPyの配列でないといけなくて、普通のPython配列ではだめなようなのだが。</p>
 
-print(ndarr1)
+<pre><code>import numpy as np
+import pandas as pd
+
+sr1 = pd.Series([0, 10, 20, 30, 40, 50])
+print(sr1)
 # 出力結果
-# [ 0 10 20 30 40 50]
+# 0     0
+# 1    10
+# 2    20
+# 3    30
+# 4    40
+# 5    50
+# dtype: int64
 
-print(ndarr1[np.array([False, True, False, False, False, True])])
+# ブールインデックス参照の例
+
+print(sr1[[False, True, False, False, False, True]])
 # 出力結果
-# [10 50]
+# 1    10
+# 5    50
+# dtype: int64
+
+print(sr1[np.array([False, True, False, False, False, True])])
+# 出力結果
+# 1    10
+# 5    50
+# dtype: int64
+
+print(sr1[pd.Series([False, True, False, False, False, True])])
+# 出力結果
+# 1    10
+# 5    50
+# dtype: int64
 </code></pre>
 
-<p>これの何が便利かというと、まず <code>ndarr1 % 20 == 0</code> のように書くと
-<a href="ndarray-vector.html">ベクトル計算</a>により論理値の配列が生成されるので、それをそのまま <code>[]</code> の中に書くことによってフィルタ処理のようなことができるのである。</p>
+<p><code>sr1 % 20 == 0</code> のように書くと、NumPyのベクトル計算と同様にSeriesでもベクトル計算ができ、論理値のSeriesが生成されるので、それをそのまま <code>[]</code> の中に書くことによってフィルタ処理のようなことができる。</p>
 
-<pre><code>print(ndarr1 % 20 == 0)
+<pre><code># ベクトル計算
+print(sr1 % 20 == 0)
 # 出力結果
-# [ True False  True False  True False]
-
-print(ndarr1[ndarr1 % 20 == 0])
-# 出力結果
-# [ 0 20 40]
+# 0     True
+# 1    False
+# 2     True
+# 3    False
+# 4     True
+# 5    False
+# dtype: bool
 </code></pre>
 
-<p>論理値の配列同士で論理和演算子 <code>|</code>、論理積演算子 <code>&amp;</code> も使える。</p>
+<p>ベクトル計算の結果をそのままブールインデックス参照に使う例。SeriesはNumPyの配列と違ってインデックスを保持するので、インデックスに欠番が生じる。</p>
 
-<pre><code>print(ndarr1[(ndarr1 % 20 == 0) | (ndarr1 % 30 == 0)])
+<pre><code>print(sr1[sr1 % 20 == 0])
 # 出力結果
-# [ 0 20 30 40]
-
-print(ndarr1[(ndarr1 % 20 == 0) &amp; (ndarr1 % 30 == 0)])
-# 出力結果
-# [0]
-</code></pre>
-
-<p><code>[]</code> に論理型のndarrayではなく普通の配列を渡すと意図した動作にならない。将来のバージョンでは変わるかもしれないが、自分が試した Python 2.7.8, NumPy 1.9.0 の環境ではダメだった。</p>
-
-<pre><code>print(ndarr1[[False, True, False, False, False, True]])
-# 出力結果
-# FutureWarning: in the future, boolean array-likes will be handled as a boolean array index
-# [ 0 10  0  0  0 10]
-</code></pre>
-
-<p>ブールインデックスで得た配列はもとの配列から必要な要素をコピーして作成される新しい配列であって、従って新しい配列を書き換えても、もとの配列には影響しない。</p>
-
-<pre><code>bi = ndarr1[ndarr1 % 20 == 0]
-print(bi)
-# 出力結果
-# [ 0 20 40]
-
-bi[0] = 100
-print(bi)
-# 出力結果
-# [100  20  40]
-
-print(ndarr1)
-# 出力結果
-# [ 0 10 20 30 40 50]
-</code></pre>
-
-<p>参照だけでなく、代入もできる。ブールインデックスでの代入は複数の要素をまとめて書き換えることができる。</p>
-
-<pre><code>ndarr1[ndarr1 % 20 == 0] = [100, 120, 140]
-
-print(ndarr1)
-# 出力結果
-# [100  10 120  30 140  50]
-</code></pre>
-
-<p>ブールインデックスに配列ではなく数値を代入すると、ブールインデックスで参照されている要素にすべて同一の値が代入される。</p>
-
-<pre><code>ndarr1[ndarr1 % 20 == 0] = 1000
-print(ndarr1)
-# 出力結果
-# [1000   10 1000   30 1000   50]
+# 0     0
+# 2    20
+# 4    40
+# dtype: int64
 </code></pre>
 
 <p>関連</p>
 
 <ul>
-  <li><a href="../programming_languages_diff/list/filter.html">各プログラミング言語での配列から特定の条件にマッチする要素のみを取り出す方法</a></li>
-  <li><a href="pandas-series-ref-boolean.html">pandasのSeriesのブールインデックス参照</a></li>
+  <li><a href="ndarray-ref-boolean.html">NumPy配列のブールインデックス参照</a></li>
 </ul>
 
 </div>
@@ -128,7 +113,7 @@ print(ndarr1)
       <li><a href="../numpy/ndarray-vector.html">NumPy配列でのベクトル計算</a></li>
       <li><a href="../numpy/ndarray-ref-index.html">NumPy配列のインデックスでの要素参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-fancy.html">NumPy配列のファンシーインデックス参照と代入</a></li>
-      <li>NumPy配列のブールインデックス参照</li>
+      <li><a href="../numpy/ndarray-ref-boolean.html">NumPy配列のブールインデックス参照</a></li>
       <li><a href="../numpy/ndarray-ref-slice.html">NumPy配列のスライス表記の参照と代入</a></li>
       <li><a href="../numpy/ndarray-ref-combination.html">NumPy配列のインデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
       <li><a href="../numpy/ndarray-universal-function.html">NumPy配列を対象としたユニバーサル関数</a></li>
@@ -140,7 +125,7 @@ print(ndarr1)
       <li><a href="../numpy/pandas-series-create.html">pandasのSeriesの概要と生成</a></li>
       <li><a href="../numpy/pandas-series-ref-index.html">pandasのSeriesのインデックスでの要素参照と代入</a></li>
       <li><a href="../numpy/pandas-series-ref-fancy.html">pandasのSeriesのファンシーインデックスで参照と代入</a></li>
-      <li><a href="../numpy/pandas-series-ref-boolean.html">pandasのSeriesのブールインデックス参照</a></li>
+      <li>pandasのSeriesのブールインデックス参照</li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>
