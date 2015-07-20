@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>MeCabとUniDicの辞書でふりがなを振る方法 | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2015/">2015年</a> &gt; <span>MeCabとUniDicの辞書でふりがなを振る方法</span>
+</div>
+
+<div id="content">
+  <h1 id="0720-mecab-unidic-furigana">MeCabとUniDicの辞書でふりがなを振る方法
+<span class="article-date">2015/07/20</span></h1>
+
+<p>MeCabで形態素解析して日本語のテキストにふりがなを振るには <code>-Oyomi</code> というオプションを付けます。</p>
+
+<pre><code>$ echo "形態素解析しました" | mecab -Oyomi
+ケイタイソカイセキシマシタ
+</code></pre>
+
+<p>MeCabでは <code>-d</code> オプションで辞書を切り替えることができて、UniDicの辞書がインストールされていれば、それを使うことができます。しかし、UniDicの辞書でふりがなを振る方法がわかりません。以下のようにエラーになってしまいます。</p>
+
+<pre><code>$ echo "形態素解析しました" | mecab -d /usr/local/lib/mecab/dic/unidic -Oyomi
+writer.cpp(63) [!tmp.empty()] unkown format type [yomi]
+</code></pre>
+
+<p>ちょっとググると以下のように <code>-O '' -F '%f[6]' -U '%m' -E '\n'</code> と付ければよい、という記事もありましたが、期待したとおりにはなりません。</p>
+
+<pre><code>$ echo "形態素解析しました" | mecab -d /usr/local/lib/mecab/dic/unidic -O '' -F '%f[6]' -U '%m' -E '\n'
+ケイタイソカイセキスルマスタ
+</code></pre>
+
+<p>「スルマスタ」って日本語を勉強し始めたばかりの外国人ですか。</p>
+
+<p>で、UniDicの辞書の中身を見てみたところ、結論としてはふりがなを素直に振ることはできなさそうです。</p>
+
+<p>辞書はCSV形式になっており、左から5つ目の列を <code>-F '%f[0]'</code>、6つ目の列を <code>-F '%f[1]'</code> というふうに参照することができ、
+<code>-F '%f[6]'</code> は11列目を参照するという意味です。確かにCSVファイルを見ると11列目にふりがならしきものがあります。ついでに14列目と16列目も同じくふりがなっぽいです。</p>
+
+<p>例えば「辞書」という単語。</p>
+
+<pre><code>辞書,5146,5146,6855,名詞,普通名詞,一般,*,*,*,ジショ,辞書,辞書,ジショ,辞書,ジショ,漢,*,*,*,*
+</code></pre>
+
+<p>しかし、「形態」という単語を見ると、14列目と16列目はふりがなではなく、発音を表す列だということがわかります。</p>
+
+<pre><code>形態,5146,5146,7203,名詞,普通名詞,一般,*,*,*,ケイタイ,形態,形態,ケータイ,形態,ケータイ,漢,*,*,*,*
+</code></pre>
+
+<p>したがって <code>-F '%f[6]'</code> というオプションを使って11列目を参照するようにするとふりがなになるのではないかと期待してしまいますが、実際にはそれだと「しました」が「スルマスタ」になってしまいます。</p>
+
+<p>なぜかというと「し」は「する」の連用形で、辞書を見ると次のようになっています。</p>
+
+<pre><code>し,1853,1853,6783,動詞,非自立可能,*,*,サ行変格,連用形-一般,スル,為る,し,シ,する,スル,和,*,*,*,*
+</code></pre>
+
+<p>つまり11列目は「し」のふりがなではなく「する」のふりがなになっています。</p>
+
+<p>14列目は「し」の発音になっていますので、<code>-F '%f[9]'</code> を使えばとりあえずは発音を得ることはできます。</p>
+
+<pre><code>$ echo "形態素解析しました" | mecab -d /usr/local/lib/mecab/dic/unidic -O '' -F '%f[9]' -U '%m' -E '\n'
+ケータイソカイセキシマシタ
+</code></pre>
+
+<p>ふりがなを得たいのであれば、MeCabデフォルトのipadicを使うのがよさそうです。</p>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../blog/">ブログ</a>
+    <ul>
+      <li><a href="../../blog/2015/">2015年</a>
+        <ul>
+          <li><a href="../../blog/2015/0421-colored-stderr.html">標準エラー出力に色を付けて標準出力と区別しやすいようにするには</a></li>
+          <li>MeCabとUniDicの辞書でふりがなを振る方法</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>
