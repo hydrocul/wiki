@@ -20,9 +20,43 @@
 </div>
 
 <div id="content">
-  <h1 id="overview">概要</h1>
+  <h1 id="overview">概要
+<span class="article-date">2015/07/22</span></h1>
 
-<h2 id="a84cc88">C言語, C++
+<table>
+  <tbody>
+    <tr>
+      <td><a href="#c">C言語, C++</a></td>
+      <td>単なるバイト配列。長さの情報がないので終端文字 <code>\x00</code> が必要</td>
+    </tr>
+    <tr>
+      <td><a href="#java">Java</a></td>
+      <td>UTF-16での16ビットの配列と長さ情報のあるオブジェクト</td>
+    </tr>
+    <tr>
+      <td><a href="#scala">Scala</a></td>
+      <td>UTF-16での16ビットの配列と長さ情報のあるオブジェクト</td>
+    </tr>
+    <tr>
+      <td><a href="#php">PHP</a></td>
+      <td>単なるバイト配列。長さ情報を一応は持っている</td>
+    </tr>
+    <tr>
+      <td><a href="#python">Python</a></td>
+      <td>バイト配列またはUnicodeコードポイントの配列と長さ情報のあるオブジェクト</td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a></td>
+      <td>バイト配列と長さと文字符号化方式(文字コード)の情報をもったオブジェクト</td>
+    </tr>
+    <tr>
+      <td><a href="#perl">Perl</a></td>
+      <td>UTF-8での8ビットの配列または単なるバイト配列と長さ情報のあるオブジェクト</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="c">C言語, C++
 <span class="article-date">2014/03/21</span></h2>
 
 <p>C言語における文字列は、<code>char</code>型の配列であるか、配列の先頭へのポインタである。</p>
@@ -36,7 +70,7 @@
 <p>ソースコード中に文字列リテラルを書くには、<code>"</code> で囲む。これで <code>\x00</code> で終わる <code>char[]</code> 型になる。
 <code>'</code> で囲むと文字列ではなく文字(<code>char</code>型)になる。</p>
 
-<h2 id="ceac745">Java
+<h2 id="java">Java
 <span class="article-date">2014/10/31</span></h2>
 
 <p>Javaにおける文字列は、<code>java.lang.String</code>クラスのインスタンスで、長さの情報と<code>char</code>型の配列を持った不変オブジェクトである。長さの情報を持っているため、終端文字を考えなくてよい。</p>
@@ -62,7 +96,7 @@ Java5からはサロゲートペアによって<code>char</code>2つで拡張さ
 <p>ソースコード中に<a href="literal.html#java">文字列リテラル(<code>String</code>型)</a>を書くには、<code>"</code> で囲む。
 <code>'</code> で囲むと文字列ではなく文字(<code>char</code>型)になる。</p>
 
-<h2 id="7f4d550">Scala
+<h2 id="scala">Scala
 <span class="article-date">2014/11/30</span></h2>
 
 <p>Scalaにおける文字列は、Javaの<code>java.lang.String</code>クラスそのままなので、Javaと同じく、内部ではUTF-16で、不変オブジェクトである。</p>
@@ -72,7 +106,7 @@ Java5からはサロゲートペアによって<code>char</code>2つで拡張さ
 <p>ソースコード中に<a href="literal.html#java">文字列リテラル(<code>String</code>型)</a>を書くには、Javaと同じく <code>"</code> で囲む。
 <code>'</code> で囲むと文字列ではなく文字(<code>scala.Char</code>型)になる。</p>
 
-<h2 id="37528cf">PHP
+<h2 id="php">PHP
 <span class="article-date">2014/11/30</span></h2>
 
 <p>PHPでは文字列は長さの情報と単なるバイト配列であり、可変である。</p>
@@ -98,7 +132,7 @@ echo $str;
 // =&gt; aBc
 </code></pre>
 
-<h2 id="ccd88c1">Python
+<h2 id="python">Python
 <span class="article-date">2014/11/29</span></h2>
 
 <p>Pythonの文字列は不変オブジェクトで、単なるバイト列とUnicode文字列(Unicodeコードポイントの列)の2種類の文字列がある。</p>
@@ -161,7 +195,7 @@ p src.encoding
 
 <p>-&gt; <a href="literal.html#ruby">文字列リテラル</a></p>
 
-<h2 id="3263830">Perl
+<h2 id="perl">Perl
 <span class="article-date">2014/11/29</span></h2>
 
 <p>Javaに似ていて、内部ではUnicodeで処理していて、外界との入出力時に必要とする文字符号化方式で変換するのが原則。</p>
@@ -211,7 +245,7 @@ UTF8フラグがオフになっている。外界からの入力時に <code>dec
 
 <p>-&gt; <a href="literal.html#perl">文字列リテラル</a></p>
 
-<h2 id="694d9bb">Gauche (Scheme)
+<h2 id="gauche">Gauche (Scheme)
 <span class="article-date">2014/07/18</span></h2>
 
 <p>Gaucheの文字列は、内部ではUTF-8でバイト列を保持しており、バイト数と文字数の情報も持っている。バイト数の情報があるため内部に終端文字を持っているとは限らず、文字列の途中に <code>\x00</code> を含めることもできる。文字列はJavaなどと同じく不変であり、文字列を書き換える際にはいったんメモリ上でコピーされる。部分文字列を取得する際には内部でバイト列を共有する。</p>
@@ -222,18 +256,18 @@ UTF-8以外を選択することもできる。</p>
 <p>文字列について | Gaushe<br />
 <a href="http://practical-scheme.net/gauche/memo-str-j.html" target="_blank" class="external-link">http://practical-scheme.net/gauche/memo-str-j.html</a></p>
 
-<h2 id="258dd8e">sh (シェルスクリプト)
+<h2 id="sh">sh (シェルスクリプト)
 <span class="article-date">2014/05/27</span></h2>
 
 <p>変数に入れる値やコマンドに渡すパラメータなどはすべて文字列で、数値も文字列で表され、区別がない。</p>
 
-<h2 id="61c7ec2">JavaScript
+<h2 id="javascript">JavaScript
 <span class="article-date">2014/01/13</span></h2>
 
 <p>ソースコード中に文字列リテラルを書くには、
 <code>'</code> または <code>"</code> で囲む。</p>
 
-<h2 id="fdf056c">CoffeeScript
+<h2 id="coffeescript">CoffeeScript
 <span class="article-date">2013/09/10</span></h2>
 
 <p>ソースコード中に文字列リテラルを書くには、
