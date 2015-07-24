@@ -10,6 +10,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script src="../common/js/page.js"></script>
 </head>
 <body class="res">
@@ -28,69 +29,91 @@
 
 <p>例</p>
 
-<pre><code>ps aux
+<pre><code>$ ps aux
 </code></pre>
 
-<h2 id="374be98">プロセスの親子関係をツリーで表示するには
-<span class="article-date">2013/10/08</span></h2>
+<h2 id="28faeff">HOWTO</h2>
 
-<pre><code>ps auxf
+<h3 id="1bc3d9d">プロセスの親子関係をツリーで表示するには
+<span class="article-date">2013/10/08</span></h3>
+
+<pre><code>$ ps auxf
 </code></pre>
 
 <p><code>f</code> がツリーで表示させるオプション。</p>
 
 <p>-&gt; <a href="pstree.html">pstree</a></p>
 
-<h2 id="32008b1">特定の名前のプロセスをすべてkillするには
-<span class="article-date">2015/02/04</span></h2>
+<h3 id="1dff9b7">特定の名前のプロセスをすべてkillするには
+<span class="article-date">2015/02/04</span></h3>
 
 <p>たとえば <code>"ruby"</code> が名前に含まれるプロセスの場合、</p>
 
 <p>まず一覧を表示してkill対象を確認する。</p>
 
-<pre><code>ps aux | grep ruby
+<pre><code>$ ps aux | grep ruby
 </code></pre>
 
 <p>これだと、<code>grep ruby</code> しているプロセス自体も表示されることがあるので、以下のようにすると <code>grep</code> が含まれるプロセスを除外できる。</p>
 
-<pre><code>ps aux | grep ruby | grep -v grep
+<pre><code>$ ps aux | grep ruby | grep -v grep
 </code></pre>
 
 <p>次にプロセスIDの一覧だけにする。</p>
 
-<pre><code>ps aux | grep ruby | grep -v grep | tr -s ' ' | cut -d ' ' -f2
+<pre><code>$ ps aux | grep ruby | grep -v grep | tr -s ' ' | cut -d ' ' -f2
 </code></pre>
 
 <p>それをkillする。</p>
 
-<pre><code>kill `ps aux | grep ruby | grep -v grep | tr -s ' ' | cut -d ' ' -f2`
+<pre><code>$ kill `ps aux | grep ruby | grep -v grep | tr -s ' ' | cut -d ' ' -f2`
 </code></pre>
 
-<h2 id="35dc540">特定のプロセスIDだけを表示するには
-<span class="article-date">2013/07/17</span></h2>
+<h3 id="2000c74">特定のプロセスIDだけを表示するには
+<span class="article-date">2013/07/17</span></h3>
 
-<pre><code>ps プロセス番号
+<pre><code>$ ps プロセス番号
 </code></pre>
 
 <p>は</p>
 
-<pre><code>ps --pid プロセス番号
+<pre><code>$ ps --pid プロセス番号
 </code></pre>
 
 <p>と同じ。</p>
 
-<h2 id="7fe1d11">プロセスの中のスレッドを確認するには
-<span class="article-date">2014/05/13</span></h2>
+<h3 id="ef59a36">プロセスの中のスレッドを確認するには
+<span class="article-date">2014/05/13</span></h3>
 
 <p><code>-L</code> を付けると、スレッド数のカラムが増えて、さらにプロセス一覧ではなくスレッド一覧が表示される。</p>
 
-<pre><code>ps aux -L
+<pre><code>$ ps aux -L
 </code></pre>
 
 <p><code>m</code> を付けると、プロセスごとにそのスレッド一覧が表示される。</p>
 
-<pre><code>px auxm
+<pre><code>$ px auxm
 </code></pre>
+
+<h3 id="82fa245">CPUの占有率でソートするには
+<span class="article-date">2015/07/24</span></h3>
+
+<p><code>ps</code>コマンドのソートのオプションがよくわからなかったので、<a href="sort.html"><code>sort</code>コマンド</a>を使って無理やりこんな感じ。</p>
+
+<pre><code>$ ps aux | sort -rk3
+</code></pre>
+
+<p>解説:</p>
+
+<p><code>ps</code>コマンドの出力の3列目でソートするには <code>sort -r -k 3,3</code> をパイプでつなげる。</p>
+
+<p>CPUの使用率が同じ数字の場合に、メモリの使用率でソートしたい場合は
+<code>sort -r -k 3,4</code> とすれば、3列目と4列目でソートしてくれる。</p>
+
+<p>ただ、これをするぐらいなら、<code>sort -r -k 3</code> としてしまえば、3列目が同じなら4列目、
+4列目も同じなら5列目、と3列目以降のすべての列を見てくれるし、こっちのほうが2文字タイピングが少なくてよい。</p>
+
+<p>さらにタイピングを短くするためにオプションをつなげてしまうことにして、最初に書いた <code>sort -rk3</code> というコマンドになる。</p>
 
 </div>
 
