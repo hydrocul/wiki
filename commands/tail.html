@@ -21,9 +21,9 @@
 
 <div id="content">
   <h1 id="tail">tail コマンド
-<span class="article-date">2015/04/09</span></h1>
+<span class="article-date">2015/07/24</span></h1>
 
-<p>テキストファイルまたはパイプでのテキスト入力の最後のn行を抜き出すコマンド。行単位ではなくバイト単位での指定も可能。</p>
+<p>テキストファイルまたはパイプでのテキスト入力の最後のn行を抜き出すコマンド。行単位ではなくバイト単位での指定も可能。デフォルトでは最後の10行を抜き出す。</p>
 
 <p>最後のn行ではなく、先頭の n-1 行を削ったn行目以降を出力するには <code>+</code> を付ける。</p>
 
@@ -69,6 +69,20 @@ tail -c +10 hoge.txt
   <li><a href="grep.html#tailf"><code>grep</code>を<code>tail -f</code>と組み合わせるには</a></li>
   <li><a href="sed.html#tailf"><code>sed</code>を<code>tail -f</code>と組み合わせるには</a></li>
 </ul>
+
+<h2 id="aa75bc7">特定のプロセスが終了したときに自動で <code>tail -f</code> も終了させるには
+<span class="article-date">2015/07/24</span></h2>
+
+<p><code>--pid</code> オプションでプロセスIDを指定すると<code>tail</code>が終了する。</p>
+
+<p>以下のコードを実行すると <code>tail -f</code> は3秒で終了する。</p>
+
+<pre><code>sleep 3 &amp;
+pid=$!
+tail -f --pid $! ~/.pjlog/20150724.log
+</code></pre>
+
+<p><code>--pid=$!</code> と書いてもよい。</p>
 
 </div>
 
