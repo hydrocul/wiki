@@ -71,18 +71,18 @@ tail -c +10 hoge.txt
 </ul>
 
 <h2 id="aa75bc7">特定のプロセスが終了したときに自動で <code>tail -f</code> も終了させるには
-<span class="article-date">2015/07/24</span></h2>
+<span class="article-date">2015/07/25</span></h2>
 
-<p><code>--pid</code> オプションでプロセスIDを指定すると<code>tail</code>が終了する。</p>
+<p><code>--pid</code> オプションでプロセスIDを指定すると、そのプロセスが終了したときに<code>tail</code>も終了してくれる。</p>
 
 <p>以下のコードを実行すると <code>tail -f</code> は3秒で終了する。</p>
 
 <pre><code>sleep 3 &amp;
 pid=$!
-tail -f --pid $! ~/.pjlog/20150724.log
+tail -f --pid $! log.txt
 </code></pre>
 
-<p><code>--pid=$!</code> と書いてもよい。</p>
+<p><code>--pid=$!</code> と <code>=</code> を付けて書いてもよい。</p>
 
 </div>
 
