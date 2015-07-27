@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>同じ文字列を繰り返して連結するには | 文字列 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>同じ文字列を繰り返して連結するには (`*` / `x`) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,13 +16,47 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>同じ文字列を繰り返して連結するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>同じ文字列を繰り返して連結するには (`*` / `x`)</span>
 </div>
 
 <div id="content">
-  <h1 id="multiply">同じ文字列を繰り返して連結するには</h1>
+  <h1 id="multiply">同じ文字列を繰り返して連結するには (<code>*</code> / <code>x</code>)
+<span class="article-date">2015/07/27</span></h1>
 
-<h2 id="fb32250">Go言語 (golang)
+<table>
+  <tbody>
+    <tr>
+      <td><a href="#go">Go言語</a></td>
+      <td><code>strings.Repeat(str, 3)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#scala">Scala</a></td>
+      <td><code>str * 3</code></td>
+    </tr>
+    <tr>
+      <td><a href="#groovy">Groovy</a></td>
+      <td><code>str * 3</code></td>
+    </tr>
+    <tr>
+      <td><a href="#php">PHP</a></td>
+      <td><code>str_repeat($str, 3)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#python">Python</a></td>
+      <td><code>str * 3</code></td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a></td>
+      <td><code>str * 3</code></td>
+    </tr>
+    <tr>
+      <td><a href="#perl">Perl</a></td>
+      <td><code>$str x 3</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="go">Go言語 (golang)
 <span class="article-date">2015/02/16</span></h2>
 
 <p><code>strings</code>パッケージの<code>Repeat</code>関数を使う。</p>
@@ -31,8 +65,6 @@
 
 import "fmt"
 import "strings"
-//import "math/rand"
-//import "time"
 
 func main() {
     str := "abc"
@@ -41,7 +73,7 @@ func main() {
 }
 </code></pre>
 
-<h2 id="3a9fc0c">Scala
+<h2 id="scala">Scala
 <span class="article-date">2013/11/28</span></h2>
 
 <p>例</p>
@@ -50,7 +82,7 @@ func main() {
 // =&gt; abcabcabc
 </code></pre>
 
-<h2 id="3b3d9c4">Groovy
+<h2 id="groovy">Groovy
 <span class="article-date">2014/10/24</span></h2>
 
 <p>例</p>
@@ -59,7 +91,7 @@ func main() {
 // =&gt; abcabcabc
 </code></pre>
 
-<h2 id="e36d0cf">PHP
+<h2 id="php">PHP
 <span class="article-date">2013/11/26</span></h2>
 
 <p>例</p>
@@ -146,7 +178,7 @@ print 1 x 3;
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (strip / trim)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</a></li>
-          <li>同じ文字列を繰り返して連結するには</li>
+          <li>同じ文字列を繰り返して連結するには (<code>*</code> / <code>x</code>)</li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>

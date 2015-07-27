@@ -37,7 +37,7 @@ writer.close();
 </code></pre>
 
 <h2 id="4a4ad10">PHP
-<span class="article-date">2013/10/12</span></h2>
+<span class="article-date">2015/07/27</span></h2>
 
 <pre><code>$fh = fopen('./foo.txt', 'w');
 fwrite($fh, $data);
@@ -45,6 +45,14 @@ fclose($fh);
 </code></pre>
 
 <p><code>fopen</code> の2つ目の引数は mode を指定する。</p>
+
+<p><code>fwrite</code> の代わりに <code>fputs</code> でもまったく同じ。</p>
+
+<p><code>fwrite</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.fwrite.php" target="_blank" class="external-link">http://php.net/manual/ja/function.fwrite.php</a></p>
+
+<p><code>fputs</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.fputs.php" target="_blank" class="external-link">http://php.net/manual/ja/function.fputs.php</a></p>
 
 <h2 id="3263c16">Python
 <span class="article-date">2014/03/17</span></h2>

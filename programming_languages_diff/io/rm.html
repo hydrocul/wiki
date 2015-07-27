@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ファイルを削除するには (rm / unlink) | 入出力・ファイル操作 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>ファイル・ディレクトリを削除するには (`rm` / `unlink` / `rmdir`) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -10,41 +10,55 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイルを削除するには (rm / unlink)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイル・ディレクトリを削除するには (`rm` / `unlink` / `rmdir`)</span>
 </div>
 
 <div id="content">
-  <h1 id="rm">ファイルを削除するには (rm / unlink)</h1>
+  <h1 id="rm">ファイル・ディレクトリを削除するには (<code>rm</code> / <code>unlink</code> / <code>rmdir</code>)</h1>
 
 <h2 id="6795822">PHP
-<span class="article-date">2013/12/14</span></h2>
+<span class="article-date">2015/07/27</span></h2>
 
-<pre><code>unlink('./hoge.txt');
+<pre><code>unlink('./foo.txt');
 </code></pre>
 
-<p>unlink | PHPマニュアル
-<a href="http://www.php.net/manual/ja/function.unlink.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.unlink.php</a></p>
+<p>空のディレクトリを削除するには <code>rmdir</code> 関数を使う。</p>
+
+<pre><code>rmdir('./bar');
+</code></pre>
+
+<p><code>unlink</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.unlink.php" target="_blank" class="external-link">http://php.net/manual/ja/function.unlink.php</a></p>
+
+<p><code>rmdir</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.rmdir.php" target="_blank" class="external-link">http://php.net/manual/ja/function.rmdir.php</a></p>
+
+<p>中身が入っている可能性のあるディレクトリをまるごと削除する関数はなさそう。以下のページ参照。</p>
+
+<p>PHP - ディレクトリを再帰的に削除する方法のメモ | Qiita<br />
+<a href="http://qiita.com/suin/items/b5445ff6fbc21e8d883a" target="_blank" class="external-link">http://qiita.com/suin/items/b5445ff6fbc21e8d883a</a></p>
 
 <h2 id="5201168">Ruby
 <span class="article-date">2013/05/04</span></h2>
 
-<pre><code>File.unlink('./hoge.txt')
+<pre><code>File.unlink('./foo.txt')
 </code></pre>
 
 <h2 id="10d5340">Perl
 <span class="article-date">2014/07/21</span></h2>
 
-<pre><code>unlink('./hoge.txt');
+<pre><code>unlink('./foo.txt');
 </code></pre>
 
 <p>複数まとめて削除することもできる。</p>
 
-<pre><code>unlink('./hoge.txt', './foo.txt');
+<pre><code>unlink('./foo.txt', './foo.txt');
 unlink(@files);
 </code></pre>
 
@@ -83,7 +97,7 @@ unlink(@files);
           <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには (ls)</a></li>
           <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには (mkdir)</a></li>
-          <li>ファイルを削除するには (rm / unlink)</li>
+          <li>ファイル・ディレクトリを削除するには (<code>rm</code> / <code>unlink</code> / <code>rmdir</code>)</li>
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
