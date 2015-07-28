@@ -446,6 +446,31 @@ echo -e "\e[31mHello\e[0m"
 
 <p>-&gt; <a href="commands/ssh.html#remote-file-exists">リモートに特定のファイルが存在するかどうかを確認するには</a></p>
 
+<h2 id="123352d">シェルスクリプト中にコマンドが終了コード0以外を返したらそこで中断させるには
+<span class="article-date">2015/07/28</span></h2>
+
+<p>シェルスクリプトの中で <code>set -e</code> と書くか、shの起動オプションに <code>-e</code> を付ける。</p>
+
+<pre><code>#!/bin/sh
+
+set -e
+
+foo
+bar
+hogehoge
+</code></pre>
+
+<p>このスクリプトはだいたい以下と同じイメージ。</p>
+
+<pre><code>#!/bin/sh
+
+foo || exit $?
+bar || exit $?
+hogehoge || exit $?
+</code></pre>
+
+<p>終了コード0以外のコードを返したコマンドがあったら、処理を続行せずに、シェルスクリプト自身もその終了コードを返して終了してくれる。</p>
+
 </div>
 
 <div id="side-menu">
