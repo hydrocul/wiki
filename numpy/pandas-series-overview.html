@@ -2,8 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="refresh" content="0;URL=pandas-series-overview.html" />
-<title>pandasのSeriesの概要と生成 | hydroculのメモ</title>
+<title>pandasのSeriesの概要と生成方法 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -17,13 +16,68 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>pandasのSeriesの概要と生成</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>pandasのSeriesの概要と生成方法</span>
 </div>
 
 <div id="content">
-  <h1 id="pandas-series-create">pandasのSeriesの概要と生成</h1>
+  <h1 id="pandas-series-overview">pandasのSeriesの概要と生成方法
+<span class="article-date">2015/06/29</span></h1>
 
-<p>-&gt; <a href="pandas-series-overview">pandasのSeriesの概要と生成方法</a></p>
+<p>pandasには<code>Series</code>と<code>DataFrame</code>という2つのデータ構造があり、そのうち<code>Series</code>は1次元配列に似ている。</p>
+
+<p>インデックスは<code>0</code>から始まる整数だけでなく、任意の文字列にもできるので
+<a href="../programming_languages_diff/map/overview.html#python">Pythonのディクショナリ</a>
+(他の言語でいうと<a href="../programming_languages_diff/map/overview.html">連想配列とかハッシュマップとか</a>)にも似ているが、
+<code>Series</code>はPythoのリストと同様に順序を保存する点がディクショナリとは異なる。</p>
+
+<p>pandasのSeriesは <code>pd.Series</code>を使ってPythonのリストから簡単に生成できる。</p>
+
+<pre><code>import pandas as pd
+
+sr = pd.Series([10, 20, 40])
+
+print(sr)
+# 出力結果
+# 0    10
+# 1    20
+# 2    40
+# dtype: int64
+
+nan = float("nan")
+
+sr = pd.Series([0.5, 0.8, nan])
+
+print(sr)
+# 出力結果
+# 0    0.5
+# 1    0.8
+# 2    NaN
+# dtype: float64
+</code></pre>
+
+<p>Seriesを<code>print</code>で出力させると、PythonのリストやNumPyのndarrayとはだいぶ違うフォーマットで表示される。</p>
+
+<p>インデックスが<code>0</code>から始まる整数以外にすることもできる。</p>
+
+<pre><code>sr = pd.Series([0.5, 0.8, nan], index=['foo', 'bar', 'baz'])
+print(sr)
+# 出力結果
+# foo    0.5
+# bar    0.8
+# baz    NaN
+# dtype: float64
+</code></pre>
+
+<p>Pythonのディクショナリから生成することもできる。ただ、ディクショナリは順序を保存していないので、生成されるSeriesの要素の順序は不定である。</p>
+
+<pre><code>sr = pd.Series({'foo': 0.5, 'bar': 0.8, 'baz': nan})
+print(sr)
+# 出力結果
+# bar    0.8
+# baz    NaN
+# foo    0.5
+# dtype: float64
+</code></pre>
 
 </div>
 
@@ -54,7 +108,7 @@
       <li><a href="../numpy/ndarray-max-min.html">NumPy配列の最大値/最小値に関する関数</a></li>
       <li><a href="../numpy/ndarray-transposed.html">NumPyでの転置行列</a></li>
       <li><a href="../numpy/ndarray-io.html">NumPy配列のファイル読み書き</a></li>
-      <li><a href="../numpy/pandas-series-overview.html">pandasのSeriesの概要と生成方法</a></li>
+      <li>pandasのSeriesの概要と生成方法</li>
       <li><a href="../numpy/pandas-series-ref-index.html">pandasのSeriesのインデックスでの要素参照と代入</a></li>
       <li><a href="../numpy/pandas-series-ref-fancy.html">pandasのSeriesのファンシーインデックスで参照と代入</a></li>
       <li><a href="../numpy/pandas-series-ref-boolean.html">pandasのSeriesのブールインデックス参照</a></li>
