@@ -567,6 +567,35 @@ cat ファイル名 | sed -ne '3~10p'
 <pre><code>cat ファイル名 | sed -n -e 1p -e /パターン/p
 </code></pre>
 
+<h3 id="b847452">指定の行番号に行を挿入するには
+<span class="article-date">2015/08/01</span></h3>
+
+<p><code>sed 3i test</code> のように書くと、3行目に <code>test</code> という行を挿入する、という意味になる。</p>
+
+<p>また、<code>sed 3a test</code> と書くと、3行目の次に <code>test</code> という行を挿入する、という意味になる。</p>
+
+<pre><code>$ seq 5
+1
+2
+3
+4
+5
+$ seq 5 | sed '3i test'
+1
+2
+test
+3
+4
+5
+$ seq 5 | sed '3a test'
+1
+2
+3
+test
+4
+5
+</code></pre>
+
 </div>
 
 <div id="side-menu">
