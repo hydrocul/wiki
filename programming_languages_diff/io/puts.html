@@ -42,7 +42,7 @@ fputs("Error\n", stderr);
 <p><code>puts</code> は最後に改行してくれるのに <code>fputs</code> はなぜしてくれないんだろう？</p>
 
 <h2 id="ec54e5b">Go言語
-<span class="article-date">2015/01/29</span></h2>
+<span class="article-date">2015/08/04</span></h2>
 
 <pre><code>package main
 
@@ -57,7 +57,7 @@ func main() {
 }
 </code></pre>
 
-<p>書式付き出力のできる <code>fmt.Printf</code> を使ったほうが、いちいち<code>string</code>を<code>[]byte</code>にキャストしなくていいので楽かも。</p>
+<p><code>fmt.Print</code> を使ったほうが、いちいち<code>string</code>を<code>[]byte</code>にキャストしなくていいので楽かも。</p>
 
 <pre><code>package main
 
@@ -65,10 +65,12 @@ import "os"
 import "fmt"
 
 func main() {
-    fmt.Printf("OK\n")
-    fmt.Fprintf(os.Stderr, "Error\n")
+    fmt.Print("OK\n")
+    fmt.Fprint(os.Stderr, "Error\n")
 }
 </code></pre>
+
+<p><code>fmt.Println</code> だと最後に改行される。</p>
 
 <h2 id="9e7969c">Java
 <span class="article-date">2014/05/05</span></h2>
@@ -200,7 +202,7 @@ console.log("OK");
           <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには (ls)</a></li>
           <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには (mkdir)</a></li>
-          <li><a href="../../programming_languages_diff/io/rm.html">ファイルを削除するには (rm / unlink)</a></li>
+          <li><a href="../../programming_languages_diff/io/rm.html">ファイル・ディレクトリを削除するには (<code>rm</code> / <code>unlink</code> / <code>rmdir</code>)</a></li>
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>

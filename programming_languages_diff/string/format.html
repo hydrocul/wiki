@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>書式化文字列 (format / sprintf, printf) | 文字列 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>書式化文字列 (format / sprintf) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,12 +16,12 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>書式化文字列 (format / sprintf, printf)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>書式化文字列 (format / sprintf)</span>
 </div>
 
 <div id="content">
-  <h1 id="format">書式化文字列 (format / sprintf, printf)
-<span class="article-date">2014/10/23</span></h1>
+  <h1 id="format">書式化文字列 (format / sprintf)
+<span class="article-date">2015/08/04</span></h1>
 
 <p>C言語の <code>sprintf</code> のような書式で文字列を組み立てられるプログラミング言語が多いので、以下は各言語でのその方法のメモ。</p>
 
@@ -29,6 +29,43 @@
 <code>sprintf</code> みたいな書式化文字列で一度にまとめて文字列に変換できると便利だよね。</p>
 
 <p>書式化文字列でなくても<a href="inline.html">文字列の中に変数を埋め込む書き方</a>を使うことで、細かい書式までは指定できないが <code>sprintf</code> の代わりに文字列を組み立てることもできる。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="#c">C言語</a></td>
+      <td><code>snprintf(dst, sizeof(dst), "%s %d", str, i)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#go">Go言語</a></td>
+      <td><code>fmt.Sprintf("%s %d\n", str, i)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#java">Java</a></td>
+      <td><code>String.format("%s %d", str, i)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#java">Scala</a></td>
+      <td><code>"%s %d".format(str, i)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#php">PHP</a></td>
+      <td><code>sprintf("%s %d", $str, $i)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#python">Python</a></td>
+      <td><code>"%s %d" % (str, i)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a></td>
+      <td><code>"%s %d" % [str, i]</code></td>
+    </tr>
+    <tr>
+      <td><a href="#perl">Perl</a></td>
+      <td><code>sprintf("%s %d", $str, $i)</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="ad">
 <div class="adlabel">スポンサーリンク</div>
@@ -44,7 +81,7 @@
 </div>
 
 
-<h2 id="5813254">C言語, C++
+<h2 id="c">C言語, C++
 <span class="article-date">2013/09/08</span></h2>
 
 <pre><code>int sprintf(char *str, const char *format, ...);
@@ -56,13 +93,13 @@ int snprintf(char *str, size_t size, const char *format, ...);
 <pre><code>char[] dst = new char[1024];
 sprintf(dst, "%s %d", str, i);
 
-// snprintfはバッファオーバーラン(バッファオーバーフロー)を防ぐために
-// 文字数の限界を指定できる関数
+/* snprintfはバッファオーバーラン(バッファオーバーフロー)を防ぐために */
+/* 文字数の限界を指定できる関数 */
 snprintf(dst, sizeof(dst), "%s %d", str, i);
 </code></pre>
 
-<h2 id="26164a3">Go言語
-<span class="article-date">2015/01/29</span></h2>
+<h2 id="go">Go言語 (golang)
+<span class="article-date">2015/08/04</span></h2>
 
 <p><code>fmt</code>パッケージの<code>Sprintf</code>関数を使う。</p>
 
@@ -72,12 +109,12 @@ import "fmt"
 
 func main() {
     var str = fmt.Sprintf("%s %d\n", "Hello", 123);
-    fmt.Printf(str)
+    fmt.Print(str)
     // =&gt; Hello 123
 }
 </code></pre>
 
-<h2 id="df25ee9">Java / Scala
+<h2 id="java">Java / Scala
 <span class="article-date">2014/11/22</span></h2>
 
 <p>Javaでは<code>String.format</code>メソッドでC言語の<code>sprintf</code>と同様のことができる。
@@ -115,7 +152,7 @@ def scala.collection.immutable.StringLike#formatLocal(l: Locale, args: Any*): St
 <p><code>java.lang.String.format</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object...-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object…-</a></p>
 
-<h2 id="441b947">PHP
+<h2 id="php">PHP
 <span class="article-date">2014/10/21</span></h2>
 
 <p><code>sprintf</code> というC言語と同じ名前の関数がある。</p>
@@ -186,7 +223,7 @@ t = ("Ichiro", "Suzuki")
 <p><code>sprintf</code>フォーマット | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/doc/print_format.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/doc/print_format.html</a></p>
 
-<h2 id="c553d6a">Perl
+<h2 id="perl">Perl
 <span class="article-date">2014/08/30</span></h2>
 
 <p><code>sprintf</code>関数でC言語の<code>sprintf</code>と同じような書式化文字列が使える。内部でC言語の<code>sprintf</code>を呼び出しているわけではなくPerlで独自に実装されているらしい。</p>
@@ -242,11 +279,11 @@ t = ("Ichiro", "Suzuki")
           <li><a href="../../programming_languages_diff/string/length.html">長さを取得するには (len / length / mb_strlen / size / strlen)</a></li>
           <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
           <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには (equals / strcasecmp / strcmp / <code>==</code> / <code>!=</code> / <code>&lt;</code> / <code>&lt;=</code> / <code>&gt;=</code> / <code>&gt;</code> / <code>&lt;=&gt;</code> / gt / ge / lt / le)</a></li>
-          <li>書式化文字列 (format / sprintf, printf)</li>
+          <li>書式化文字列 (format / sprintf)</li>
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (strip / trim)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</a></li>
-          <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには</a></li>
+          <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには (<code>*</code> / <code>x</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
@@ -265,7 +302,7 @@ t = ("Ichiro", "Suzuki")
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
-          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字列リテラル中の文字をUnicodeのコードポイントで指定するには</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字をUnicodeのコードポイントで指定するには</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-upper-lower.html">Unicodeの仕様に基づいた大文字小文字を変換するには</a></li>
         </ul>
