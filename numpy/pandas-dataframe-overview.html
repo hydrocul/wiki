@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>pandasのSeriesの概要と生成方法 | hydroculのメモ</title>
+<title>pandasのDataFrameの概要と生成方法 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,67 +16,83 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>pandasのSeriesの概要と生成方法</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>pandasのDataFrameの概要と生成方法</span>
 </div>
 
 <div id="content">
-  <h1 id="pandas-series-overview">pandasのSeriesの概要と生成方法
-<span class="article-date">2015/06/29</span></h1>
+  <h1 id="pandas-dataframe-overview">pandasのDataFrameの概要と生成方法
+<span class="article-date">2015/08/09</span></h1>
 
-<p>pandasには<code>Series</code>と<code>DataFrame</code>という2つのデータ構造があり、そのうち<code>Series</code>は1次元配列に似ている。</p>
+<p>pandasには<code>Series</code>と<code>DataFrame</code>という2つのデータ構造があり、<code>Series</code>は1次元配列に似ているのに対して、
+<code>DataFrame</code>は2次元配列というかエクセルのようなスプレッドシートに似ている。</p>
 
-<p>インデックスは<code>0</code>から始まる整数だけでなく、任意の文字列にもできるので
-<a href="../programming_languages_diff/map/overview.html#python">Pythonのディクショナリ</a>
-(他の言語でいうと<a href="../programming_languages_diff/map/overview.html">連想配列とかハッシュマップとか</a>)にも似ているが、
-<code>Series</code>はPythoのリストと同様に順序を保存する点がディクショナリとは異なる。</p>
+<p><code>Series</code>は1次元配列でありながら、0からの整数だけでなく任意の文字列をインデックスとして使うことができるが、
+<code>DataFrame</code>は行と列どちらも、0からの整数や任意の文字列をインデックスとして使うことができる。</p>
 
-<p>pandasのSeriesは <code>pd.Series</code> を使ってPythonのリストから簡単に生成できる。</p>
+<p>pandasのDataFrameは <code>pd.DataFrame</code> を使ってPythonのリストを値とするディクショナリから生成できる。リストは全部同じ長さである必要がある。</p>
 
 <pre><code>import pandas as pd
 
-sr = pd.Series([10, 20, 40])
-
-print(sr)
+df1 = pd.DataFrame(
+    {'name': ['Danny', 'Jess', 'Joey', 'D.J.', 'Steph', 'Michelle'],
+     'age': [29, 24, 29, 10, 5, 0],
+     'sex': ['m', 'm', 'm', 'f', 'f', 'f']})
+print(df1)
 # 出力結果
-# 0    10
-# 1    20
-# 2    40
-# dtype: int64
-
-nan = float("nan")
-
-sr = pd.Series([0.5, 0.8, nan])
-
-print(sr)
-# 出力結果
-# 0    0.5
-# 1    0.8
-# 2    NaN
-# dtype: float64
+#    age      name sex
+# 0   29     Danny   m
+# 1   24      Jess   m
+# 2   29      Joey   m
+# 3   10      D.J.   f
+# 4    5     Steph   f
+# 5    0  Michelle   f
 </code></pre>
 
-<p>Seriesを<code>print</code>で出力させると、PythonのリストやNumPyのndarrayとはだいぶ違うフォーマットで表示される。</p>
+<p>以下のコードでは要素の数が食い違っているため <code>ValueError: arrays must all be same length</code> というエラーが発生してしまう。</p>
 
-<p>インデックスが<code>0</code>から始まる整数以外にすることもできる。</p>
-
-<pre><code>sr = pd.Series([0.5, 0.8, nan], index=['foo', 'bar', 'baz'])
-print(sr)
-# 出力結果
-# foo    0.5
-# bar    0.8
-# baz    NaN
-# dtype: float64
+<pre><code>df1 = pd.DataFrame(
+    {'name': ['Danny', 'Jess', 'Joey', 'D.J.', 'Steph', 'Michelle', 'Comet'],
+     'age': [29, 24, 29, 10, 5, 0],
+     'sex': ['m', 'm', 'm', 'f', 'f', 'f']})
 </code></pre>
 
-<p>Pythonのディクショナリから生成することもできる。ただ、ディクショナリは順序を保存していないので、生成されるSeriesの要素の順序は不定である。</p>
+<p>データが欠落している箇所があれば NaN を使えばよい。</p>
 
-<pre><code>sr = pd.Series({'foo': 0.5, 'bar': 0.8, 'baz': nan})
-print(sr)
+<pre><code>nan = float("nan")
+
+df1 = pd.DataFrame(
+    {'name': ['Danny', 'Jess', 'Joey', 'D.J.', 'Steph', 'Michelle', 'Comet'],
+     'age': [29, 24, 29, 10, 5, 0, nan],
+     'sex': ['m', 'm', 'm', 'f', 'f', 'f', nan]})
+print(df1)
 # 出力結果
-# bar    0.8
-# baz    NaN
-# foo    0.5
-# dtype: float64
+#    age      name  sex
+# 0   29     Danny    m
+# 1   24      Jess    m
+# 2   29      Joey    m
+# 3   10      D.J.    f
+# 4    5     Steph    f
+# 5    0  Michelle    f
+# 6  NaN     Comet  NaN
+</code></pre>
+
+<p>Pythonディクショナリの要素は順番が保存されないので、列の順番は意図したとおりになる保証がない。そこで<code>columns</code>というオプションを使うと列の順番を指定することができる。</p>
+
+<pre><code>df1 = pd.DataFrame(
+    {'name': ['Danny', 'Jess', 'Joey', 'D.J.', 'Steph', 'Michelle', 'Comet'],
+     'age': [29, 24, 29, 10, 5, 0, nan],
+     'sex': ['m', 'm', 'm', 'f', 'f', 'f', nan]},
+    columns=['name', 'age', 'sex'])
+print(df1)
+# 出力結果
+#        name  age sex
+# 0     Danny   29   m
+# 1      Jess   24   m
+# 2      Joey   29   m
+# 3      D.J.   10   f
+# 4     Steph    5   f
+# 5  Michelle    0   f
+# 6     Comet  NaN  NaN
 </code></pre>
 
 </div>
@@ -108,10 +124,11 @@ print(sr)
       <li><a href="../numpy/ndarray-max-min.html">NumPy配列の最大値/最小値に関する関数</a></li>
       <li><a href="../numpy/ndarray-transposed.html">NumPyでの転置行列</a></li>
       <li><a href="../numpy/ndarray-io.html">NumPy配列のファイル読み書き</a></li>
-      <li>pandasのSeriesの概要と生成方法</li>
+      <li><a href="../numpy/pandas-series-overview.html">pandasのSeriesの概要と生成方法</a></li>
       <li><a href="../numpy/pandas-series-ref-index.html">pandasのSeriesのインデックスでの要素参照と代入</a></li>
       <li><a href="../numpy/pandas-series-ref-fancy.html">pandasのSeriesのファンシーインデックスで参照と代入</a></li>
       <li><a href="../numpy/pandas-series-ref-boolean.html">pandasのSeriesのブールインデックス参照</a></li>
+      <li>pandasのDataFrameの概要と生成方法</li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>
