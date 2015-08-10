@@ -95,6 +95,44 @@ print(df1)
 # 6     Comet  NaN  NaN
 </code></pre>
 
+<p>行のインデックスを0から始まる整数ではなくて任意のものにしたい場合には<code>index</code>というオプションを使う。</p>
+
+<pre><code>df1 = pd.DataFrame(
+    {'age': [29, 24, 29, 10, 5, 0, nan],
+     'sex': ['m', 'm', 'm', 'f', 'f', 'f', nan]},
+    columns=['age', 'sex'],
+    index=['Danny', 'Jess', 'Joey', 'D.J.', 'Steph', 'Michelle', 'Comet'])
+print(df1)
+# 出力結果
+#           age  sex
+# Danny      29    m
+# Jess       24    m
+# Joey       29    m
+# D.J.       10    f
+# Steph       5    f
+# Michelle    0    f
+# Comet     NaN  NaN
+</code></pre>
+
+<p>列のデータをSeriesで指定することもできる。</p>
+
+<pre><code>age = pd.Series([29, 24, 29, 10, 5, 0],
+                index=['Danny', 'Jess', 'Joey', 'D.J.', 'Steph', 'Michelle'])
+sex = pd.Series(['m', 'm', 'm', 'f', 'f', 'f'],
+                index=['Danny', 'Jess', 'Joey', 'D.J.', 'Steph', 'Michelle'])
+
+df1 = pd.DataFrame({'age': age, 'sex': sex}, columns=['age', 'sex'])
+print(df1)
+# 出力結果
+#           age sex
+# Danny      29   m
+# Jess       24   m
+# Joey       29   m
+# D.J.       10   f
+# Steph       5   f
+# Michelle    0   f
+</code></pre>
+
 </div>
 
 <div id="side-menu">
