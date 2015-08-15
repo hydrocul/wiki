@@ -29,6 +29,20 @@
   <li><a href="drop.html">最初のn個以外の要素を配列で取得するには</a></li>
 </ul>
 
+<h2 id="9702417">Go言語 (golang)
+<span class="article-date">2015/08/15</span></h2>
+
+<p>配列もスライスも <code>[:n]</code> というスライス表記で先頭からn個の要素のスライスを取得することができる。配列であってもスライスになる。</p>
+
+<pre><code>    arr := [...]int{10, 20, 30, 40, 50}
+    fmt.Printf("%#v\n", arr[:n])
+    // =&gt; []int{10, 20, 30}
+
+    sl := []int{10, 20, 30, 40, 50}
+    fmt.Printf("%#v\n", sl[:n])
+    // =&gt; []int{10, 20, 30}
+</code></pre>
+
 <h2 id="ef1f430">Scala
 <span class="article-date">2014/10/22</span></h2>
 
