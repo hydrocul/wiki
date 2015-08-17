@@ -195,6 +195,14 @@ Ubuntu: <code>/etc/mysql/my.cnf</code></p>
 
 <p>小文字の <code>-p</code> にすると、ポート番号の指定ではなく、パスワードのプロンプトを出すオプションになる。</p>
 
+<h2 id="efbe5c3">レプリケーションエラーをとりあえず解決する方法方法
+<span class="article-date">2015/08/17</span></h2>
+
+<p>SLAVE側でエラーになって止まっちゃっているSQLをスキップするために、以下のSQLを実行する。</p>
+
+<pre><code>STOP SLAVE; SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1; SELECT SLEEP(1); START SLAVE; SHOW SLAVE STATUS\G
+</code></pre>
+
 </div>
 
 <div id="side-menu">

@@ -100,8 +100,16 @@ if (isset($http_response_header)) {
 <pre><code>$str = file_get_contents('php://stdin');
 </code></pre>
 
+<p><code>file_get_contents</code>関数の代わりに<code>file</code>関数を使うと、全体で1つの文字列ではなく、改行ごとの配列にしてくれる。各行の最後の改行は残ったままである。</p>
+
+<pre><code>$lines = file('./hoge.txt');
+</code></pre>
+
 <p><code>file_get_contents</code> 関数 | PHP Manual<br />
 <a href="http://php.net/manual/ja/function.file-get-contents.php" target="_blank" class="external-link">http://php.net/manual/ja/function.file-get-contents.php</a></p>
+
+<p><code>file</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.file.php" target="_blank" class="external-link">http://php.net/manual/ja/function.file.php</a></p>
 
 <p><code>$http_response_header</code> 変数 | PHP Manual<br />
 <a href="http://php.net/manual/ja/reserved.variables.httpresponseheader.php" target="_blank" class="external-link">http://php.net/manual/ja/reserved.variables.httpresponseheader.php</a></p>
