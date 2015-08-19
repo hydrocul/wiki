@@ -60,7 +60,7 @@
 <p>これは<a href="sort.html#lcall"><code>sort</code>コマンド</a>でも事情が同じ。</p>
 
 <h3 id="sort-count">重複している数の多い順にソートするには
-<span class="article-date">2014/11/14</span></h3>
+<span class="article-date">2015/08/19</span></h3>
 
 <p><code>foo.txt</code> というファイルが以下の内容だったとして、</p>
 
@@ -75,7 +75,7 @@ aaa
 
 <p>次のコマンドを実行すると</p>
 
-<pre><code>cat foo.txt | LC_ALL=C sort | LC_ALL=C uniq -c | sort -k1 -n -r
+<pre><code>cat foo.txt | sort | uniq -c | sort -k1 -n -r
 </code></pre>
 
 <p>次のような結果が表示される。</p>
@@ -86,6 +86,11 @@ aaa
 </code></pre>
 
 <p><a href="sort.html"><code>sort</code>コマンド</a>を2回使っている。</p>
+
+<p><code>foo.txt</code> に日本語が含まれている場合は、以下のように <code>LC_ALL=C</code> という環境変数を設定したほうがよい。</p>
+
+<pre><code>cat foo.txt | LC_ALL=C sort | LC_ALL=C uniq -c | sort -k1 -n -r
+</code></pre>
 
 </div>
 
