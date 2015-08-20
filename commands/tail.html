@@ -21,11 +21,11 @@
 
 <div id="content">
   <h1 id="tail">tail コマンド
-<span class="article-date">2015/07/24</span></h1>
+<span class="article-date">2015/08/19</span></h1>
 
 <p>テキストファイルまたはパイプでのテキスト入力の最後のn行を抜き出すコマンド。行単位ではなくバイト単位での指定も可能。デフォルトでは最後の10行を抜き出す。</p>
 
-<p>最後のn行ではなく、先頭の n-1 行を削ったn行目以降を出力するには <code>+</code> を付ける。</p>
+<p>行数は <code>-n</code> オプションで、バイト単位であれば <code>-c</code> オプションで指定する。</p>
 
 <pre><code># 最後の10行を表示
 tail -n 10 hoge.txt
@@ -33,15 +33,39 @@ tail -n 10 hoge.txt
 # 最後の10行を表示(パイプを使う例)
 cat hoge.txt | tail -n 10
 
-# 最初の9行を除いて10行目からを表示
-tail -n +10 hoge.txt
-
 # 最後の10バイトを表示
 tail -c 10 hoge.txt
+</code></pre>
 
-# 最初の9バイトを除いて10バイト目からを表示
+<h2 id="75fdd7b">n行目以降を出力するには
+<span class="article-date">2015/08/19</span></h2>
+
+<p>最後のn行ではなく、先頭の n-1 行を削ったn行目以降を出力するには <code>+</code> を付ける。</p>
+
+<pre><code># 最初の9行を除いて10行目からを表示
+tail -n +10 hoge.txt
+</code></pre>
+
+<p>行単位ではなくバイト単位も同様。</p>
+
+<pre><code># 最初の9バイトを除いて10バイト目からを表示
 tail -c +10 hoge.txt
 </code></pre>
+
+<h2 id="tac">行を逆順にするには
+<span class="article-date">2015/08/20</span></h2>
+
+<p>MacなどのBSDの環境では、<code>-r</code> オプションを使うと、行を逆順にして出力、つまり最後の行を最初に出力して、1行目を最後に出力させることができる。</p>
+
+<pre><code>$ tail -r hoge.txt
+</code></pre>
+
+<p>2回逆順にすれば当然元に戻る。意味ないが。</p>
+
+<pre><code>$ tail -r hoge.txt | tail -r
+</code></pre>
+
+<p>CentOSやUbuntuでは、<code>-r</code> オプションを使えないが代わりに<a href="tac.html"><code>tac</code>コマンド</a>を使えばよい。</p>
 
 <h2 id="9bc04de">ログファイルなどのファイルへの出力をリアルタイムに画面に表示するには
 <span class="article-date">2015/04/09</span></h2>

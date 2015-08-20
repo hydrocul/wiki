@@ -23,7 +23,7 @@
   <h1 id="tac">tac コマンド
 <span class="article-date">2015/04/03</span></h1>
 
-<p><a href="cat.html"><code>cat</code></a>の反対。入力の行で逆順にして出力する。つまり下の行が上に来る。</p>
+<p><a href="cat.html"><code>cat</code></a>の反対。入力の行で逆順にして出力する。つまり一番下の行が一番上に来る。</p>
 
 <p>以下のような <code>foo.txt</code> というファイルがあったら、</p>
 
@@ -65,6 +65,12 @@ $ ( echo しんぶんし; echo たけやぶ焼けた) | tac
 </code></pre>
 
 <p>この例わかりづらいじゃないか。</p>
+
+<h2 id="2e5fbba">移植性
+<span class="article-date">2015/08/20</span></h2>
+
+<p><code>tac</code> はCentOSやUbuntuなど(GNU coreutils)にはあるが、MacなどのBSD系にはないらしい。
+BSD系では、<code>tac</code> の代わりに <a href="tail.html#tac"><code>tail -r</code></a> を使う。しかし <code>tail -r</code> は逆にGNU coreutilsでは対応していない。</p>
 
 </div>
 
