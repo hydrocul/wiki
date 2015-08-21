@@ -62,6 +62,25 @@ p DateTime.now.to_time - File.mtime("test.txt")
 # タイムスタンプ取得精度のJVMでの制約かな
 </code></pre>
 
+<h2 id="7178a23">Perl
+<span class="article-date">2015/08/21</span></h2>
+
+<p>例</p>
+
+<pre><code>my ($sec, $min, $hour, $mday, $mon, $year) = localtime((stat($self))[9]);
+$year = $year + 1900;
+$mon= $mon + 1;
+
+printf("%04d-%02d-%02dT%02d:%02d:%02d\n", $year, $mon, $mday, $hour, $min, $sec);
+# =&gt; 2015-08-21T12:35:02
+</code></pre>
+
+<p>ちなみに <code>stat($self))[9]</code> は1970年1月1日0時0分からの秒数を得られる。</p>
+
+<pre><code>printf("%d\n", (stat($self))[9]);
+# =&gt; 1440128102
+</code></pre>
+
 <h2 id="318fe20">sh (シェルスクリプト)
 <span class="article-date">2015/04/10</span></h2>
 
