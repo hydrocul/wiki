@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>入出力・ファイル操作 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>ファイル名を変更するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,40 +16,42 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>入出力・ファイル操作</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイル名を変更するには</span>
 </div>
 
 <div id="content">
-  <h1 id="io">入出力・ファイル操作</h1>
+  <h1 id="mv">ファイル名を変更するには</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="90615ed">Java / Scala
+<span class="article-date">2014/10/09</span></h2>
 
-<ul>
-  <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイル・標準入力の中身をまとめて1つの文字列として取得するには (file_get_contents)</a></li>
-  <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
-  <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
-  <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
-  <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
-  <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
-  <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには (ls)</a></li>
-  <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには (mkdir)</a></li>
-  <li><a href="../../programming_languages_diff/io/rm.html">ファイル・ディレクトリを削除するには (<code>rm</code> / <code>unlink</code> / <code>rmdir</code>)</a></li>
-  <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
-  <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
-  <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
-  <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
-  <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
-  <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
-  <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
-  <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
-  <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
-  <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
-  <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
-  <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
-  <li><a href="../../programming_languages_diff/io/mv.html">ファイル名を変更するには</a></li>
-  <li><a href="../../programming_languages_diff/io/puts.html">標準出力・標準エラー出力するには</a></li>
-  <li><a href="../../programming_languages_diff/io/pwd.html">カレントディレクトリを取得するには (pwd)</a></li>
-</ul>
+<p>Java/Scalaでの例</p>
+
+<pre><code>import java.io.File;
+
+if (! new File(oldName).renameTo(new File(newName))) {
+  throw new IOException();
+}
+</code></pre>
+
+<p>Signature:</p>
+
+<pre><code>boolean java.io.File#renameTo()
+</code></pre>
+
+<p><code>java.io.File#renameTo</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html#renameTo-java.io.File-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/io/File.html#renameTo-java.io.File-</a></p>
+
+<h2 id="e5ec67c">Perl
+<span class="article-date">2015/08/21</span></h2>
+
+<p><code>rename</code>という関数でリネームできる。</p>
+
+<pre><code>rename($oldName, $newName);
+</code></pre>
+
+<p><code>rename</code> 関数 | perldoc.jp<br />
+<a href="http://perldoc.jp/func/rename" target="_blank" class="external-link">http://perldoc.jp/func/rename</a></p>
 
 </div>
 
@@ -61,7 +63,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>入出力・ファイル操作
+      <li><a href="../../programming_languages_diff/io/">入出力・ファイル操作</a>
         <ul>
           <li><a href="../../programming_languages_diff/io/file-get-contents.html">ファイル・標準入力の中身をまとめて1つの文字列として取得するには (file_get_contents)</a></li>
           <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
@@ -84,7 +86,7 @@
           <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
-          <li><a href="../../programming_languages_diff/io/mv.html">ファイル名を変更するには</a></li>
+          <li>ファイル名を変更するには</li>
           <li><a href="../../programming_languages_diff/io/puts.html">標準出力・標準エラー出力するには</a></li>
           <li><a href="../../programming_languages_diff/io/pwd.html">カレントディレクトリを取得するには (pwd)</a></li>
         </ul>
