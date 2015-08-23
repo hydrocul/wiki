@@ -42,6 +42,18 @@ if (! new File(oldName).renameTo(new File(newName))) {
 <p><code>java.io.File#renameTo</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html#renameTo-java.io.File-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/io/File.html#renameTo-java.io.File-</a></p>
 
+<h2 id="f7aa3b0">Ruby
+<span class="article-date">2015/08/22</span></h2>
+
+<pre><code>File.rename('foo.txt', 'bar.txt')
+</code></pre>
+
+<p>または</p>
+
+<pre><code>require 'fileutils'
+FileUtils.mv('foo.txt', 'bar.txt')
+</code></pre>
+
 <h2 id="e5ec67c">Perl
 <span class="article-date">2015/08/21</span></h2>
 
