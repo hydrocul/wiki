@@ -90,13 +90,15 @@ end
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2015/03/07</span></h2>
+<span class="article-date">2015/08/25</span></h2>
 
 <pre><code>my $pwd = `pwd`;
 print $pwd;
 </code></pre>
 
-<p><code>&#x60;&#x60;</code>の中は外部コマンドだけでなく、関数も呼び出せる。</p>
+<p>文字列と同様に<code>&#x60;&#x60;</code>の中に<a href="../string/inline.html#perl">変数を埋め込む</a>こともできる。</p>
+
+<p>コマンドが最後に改行を出力していれば、得られる文字列の最後にも改行が付き、勝手にtrimされることはない。</p>
 
 </div>
 
