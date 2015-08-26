@@ -52,6 +52,23 @@ tail -n +10 hoge.txt
 tail -c +10 hoge.txt
 </code></pre>
 
+<h2 id="e33b592">n行目だけを出力するには
+<span class="article-date">2015/08/26</span></h2>
+
+<p><code>head</code>コマンドで最初のn行を抜き出して、<code>tail</code>コマンドでそのうちの最後の行だけを抜け出せばよい。</p>
+
+<p>10行目だけを出力する例</p>
+
+<pre><code>head -n10 | tail -n1
+</code></pre>
+
+<p>まあ、2つのコマンドを組み合わせなくても<a href="sed.html#slice"><code>sed</code>コマンド</a>を使ったほうが簡単かも。</p>
+
+<p>10行目だけを出力する例</p>
+
+<pre><code>sed -n 10p
+</code></pre>
+
 <h2 id="tac">行を逆順にするには
 <span class="article-date">2015/08/20</span></h2>
 
