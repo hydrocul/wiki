@@ -187,6 +187,7 @@ footer {
   padding-left: 8px;
 }
 #content table {
+  margin: 20px 0 20px 40px;
   border-collapse: collapse;
 }
 #content table th,
