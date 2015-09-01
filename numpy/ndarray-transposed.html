@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>NumPyでの転置行列 | hydroculのメモ</title>
+<title>NumPy/pandasのDataFrameでの転置行列 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,12 +16,14 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>NumPyでの転置行列</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>NumPy/pandasのDataFrameでの転置行列</span>
 </div>
 
 <div id="content">
-  <h1 id="ndarray-transposed">NumPyでの転置行列
-<span class="article-date">2015/05/01</span></h1>
+  <h1 id="ndarray-transposed">NumPy/pandasのDataFrameでの転置行列</h1>
+
+<h2 id="2b1811a">NumPyでの転置行列
+<span class="article-date">2015/08/31</span></h2>
 
 <p>2次元のndarrayで表現する行列の転置行列は <code>T</code> というメソッドで簡単に表現することができる。</p>
 
@@ -56,7 +58,7 @@ print(t)
 #  [ 3.  6.  9.]]
 </code></pre>
 
-<p><code>swapaxes</code>というメソッドは転置行列の一般化で、任意の軸を入れ替えることができる。以下の例では0番目の軸(外側の軸)と1番目の軸(内側の軸)を交換している。つまり、転置行列とまったく同じ。</p>
+<p><code>T</code> を一般化した <code>swapaxes</code>というメソッドもある。このメソッドは任意の軸を入れ替えることができる。以下の例では0番目の軸(外側の軸)と1番目の軸(内側の軸)を交換している。つまり、転置行列とまったく同じ。</p>
 
 <pre><code>print(X.swapaxes(0, 1))
 # 出力結果
@@ -136,6 +138,43 @@ print(ndarr1.swapaxes(0, 2))
 #   [  9.  19.]]]
 </code></pre>
 
+<h2 id="b707e41">pandasのDataFrameでの転置行列
+<span class="article-date">2015/08/31</span></h2>
+
+<p><code>T</code> というメソッドはNumPyのndarrayだけでなく、pandasのDataFrameでもそのまま使える。</p>
+
+<pre><code>import pandas as pd
+
+df1 = pd.DataFrame(
+    {'name': ['Danny', 'Jess', 'Joey', 'D.J.', 'Steph', 'Michelle'],
+     'age': [29, 24, 29, 10, 5, 0],
+     'sex': ['m', 'm', 'm', 'f', 'f', 'f']},
+    columns=['name', 'age', 'sex'])
+print(df1)
+# 出力結果
+#        name  age sex
+# 0     Danny   29   m
+# 1      Jess   24   m
+# 2      Joey   29   m
+# 3      D.J.   10   f
+# 4     Steph    5   f
+# 5  Michelle    0   f
+
+print(df1.T)
+# 出力結果
+#           0     1     2     3      4         5
+# name  Danny  Jess  Joey  D.J.  Steph  Michelle
+# age      29    24    29    10      5         0
+# sex       m     m     m     f      f         f
+</code></pre>
+
+<p>DataFrameの<code>T</code>メソッドは、NumPyのとは違って、結果を変更してももとのDataFrameを変更しないみたい。</p>
+
+<pre><code>df1.T[0]["age"] = 30
+print(df1)
+# 出力結果は最初のと変わらず
+</code></pre>
+
 </div>
 
 <div id="side-menu">
@@ -163,13 +202,13 @@ print(ndarr1.swapaxes(0, 2))
       <li><a href="../numpy/ndarray-ternary.html">NumPy配列での三項演算子ベクトル計算版</a></li>
       <li><a href="../numpy/ndarray-statistics.html">NumPy配列の集計処理(合計/平均とか)</a></li>
       <li><a href="../numpy/ndarray-max-min.html">NumPy配列の最大値/最小値に関する関数</a></li>
-      <li>NumPyでの転置行列</li>
       <li><a href="../numpy/ndarray-io.html">NumPy配列のファイル読み書き</a></li>
       <li><a href="../numpy/pandas-series-overview.html">pandasのSeriesの概要と生成方法</a></li>
       <li><a href="../numpy/pandas-series-ref-index.html">pandasのSeriesのインデックスでの要素参照と代入</a></li>
       <li><a href="../numpy/pandas-series-ref-fancy.html">pandasのSeriesのファンシーインデックスで参照と代入</a></li>
       <li><a href="../numpy/pandas-series-ref-boolean.html">pandasのSeriesのブールインデックス参照</a></li>
       <li><a href="../numpy/pandas-dataframe-overview.html">pandasのDataFrameの概要と生成方法</a></li>
+      <li>NumPy/pandasのDataFrameでの転置行列</li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
     </ul>
   </li>
