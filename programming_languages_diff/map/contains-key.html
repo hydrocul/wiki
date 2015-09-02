@@ -61,7 +61,7 @@ println(map.contains("A"));
 </code></pre>
 
 <h2 id="php">PHP
-<span class="article-date">2015/03/23</span></h2>
+<span class="article-date">2015/09/02</span></h2>
 
 <p><code>array_key_exists</code>関数または<code>isset</code>を使う。
 <code>isset</code> は通常の関数ではなく、PHPの言語構造である。</p>
@@ -98,6 +98,11 @@ if (isset($arr['c'])) {
 
 <p><code>isset</code> 関数 | PHP Manual<br />
 <a href="http://php.net/manual/ja/function.isset.php" target="_blank" class="external-link">http://php.net/manual/ja/function.isset.php</a></p>
+
+<p>ところで <code>isset</code> のほうが <code>array_key_exists</code> よりも速いらしい。</p>
+
+<p>PHPの変数チェック速度比較 <code>isset</code> vs <code>array_key_exists</code> vs 直接チェック | k-motoyan888’s diary<br />
+<a href="http://k-motoyan888.hatenablog.com/entry/2013/07/24/202111" target="_blank" class="external-link">http://k-motoyan888.hatenablog.com/entry/2013/07/24/202111</a></p>
 
 <h2 id="python">Python
 <span class="article-date">2014/09/07</span></h2>
