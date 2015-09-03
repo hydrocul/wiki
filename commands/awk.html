@@ -198,6 +198,31 @@ awk 'NR % 2 == 1 { print $0; }'
 <pre><code>awk '{ print $0; fflush() }'
 </code></pre>
 
+<h3 id="32c716b">集計(?)
+<span class="article-date">2015/09/03</span></h3>
+
+<p>以下のような都市名と数字のペアが書いてあるテキストファイルがあったとして、都市ごとの数字の合計を計算したいとする。</p>
+
+<pre><code>Tokyo     10
+Yokohama  8
+Nagoya    4
+Tokyo     12
+Tokyo     31
+Nagoya    7
+</code></pre>
+
+<p>以下のようなコマンドを実行すると</p>
+
+<pre><code>$ cat foo.txt | awk '{sum[$1]+=$2} END { for(key in sum){ print key, sum[key] } }'
+</code></pre>
+
+<p>以下のような出力が得られる。</p>
+
+<pre><code>Yokohama 8
+Nagoya 11
+Tokyo 53
+</code></pre>
+
 </div>
 
 <div id="side-menu">
@@ -223,6 +248,7 @@ awk 'NR % 2 == 1 { print $0; }'
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
+      <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
