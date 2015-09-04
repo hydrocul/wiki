@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>チェック例外と非チェック例外 | 例外処理 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>検査例外と非検査例外 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,14 +16,16 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exception/">例外処理</a> &gt; <span>チェック例外と非チェック例外</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exception/">例外処理</a> &gt; <span>検査例外と非検査例外</span>
 </div>
 
 <div id="content">
-  <h1 id="checked">チェック例外と非チェック例外
-<span class="article-date">2013/11/08</span></h1>
+  <h1 id="checked">検査例外と非検査例外
+<span class="article-date">2015/09/04</span></h1>
 
-<p>ほとんどの言語ではチェック例外というのはなく、宣言なしに例外をスローすることができる。例外をスローするクラス名をメソッドのシグニチャの一部として書く必要があるのはJavaくらいか。</p>
+<p>ほとんどの言語では検査例外というのはなく、宣言なしに例外をスローすることができる。例外をスローするクラス名をメソッドのシグニチャの一部として書く必要があるのはJavaくらいか。</p>
+
+<p>チェック例外ともいう。</p>
 
 <p>Java のチェック例外と非チェック例外の考察まとめ<br />
 <a href="http://d.hatena.ne.jp/ebc_2in2crc/20120729/1343557350" target="_blank" class="external-link">http://d.hatena.ne.jp/ebc_2in2crc/20120729/1343557350</a></p>
@@ -31,25 +33,25 @@
 <h2 id="java">Java
 <span class="article-date">2013/08/22</span></h2>
 
-<p>チェック例外をスローする可能性のあるメソッドには、メソッドシグニチャに 
-<code>throws</code> が必要。チェック例外は <code>Exception</code> でかつ <code>RuntimeException</code> でないもの。非チェック例外は <code>Error</code> または <code>RuntimeException</code>。</p>
+<p>検査例外をスローする可能性のあるメソッドには、メソッドシグニチャに 
+<code>throws</code> が必要。検査例外は <code>Exception</code> でかつ <code>RuntimeException</code> でないもの。非検査例外は <code>Error</code> または <code>RuntimeException</code>。</p>
 
 <p>-&gt; <a href="class-hierarchy.html#java">Javaの例外クラス階層</a></p>
 
 <h2 id="eb914c6">Scala
 <span class="article-date">2013/07/18</span></h2>
 
-<p>Javaのチェック例外も含めすべての例外が非チェック例外の扱いになる。</p>
+<p>Javaの検査例外も含めすべての例外が非検査例外の扱いになる。</p>
 
 <h2 id="c7d5fdf">PHP
 <span class="article-date">2013/09/11</span></h2>
 
-<p>チェック例外の仕組みはなく、非チェック例外のみ。</p>
+<p>検査例外の仕組みはなく、非検査例外のみ。</p>
 
 <h2 id="813b7b7">Ruby
 <span class="article-date">2013/11/08</span></h2>
 
-<p>チェック例外の仕組みはなく、非チェック例外のみ。</p>
+<p>検査例外の仕組みはなく、非検査例外のみ。</p>
 
 </div>
 
@@ -67,7 +69,7 @@
           <li><a href="../../programming_languages_diff/exception/throw.html">例外をスローする構文 (throw)</a></li>
           <li><a href="../../programming_languages_diff/exception/cause.html">例外の原因</a></li>
           <li><a href="../../programming_languages_diff/exception/class-hierarchy.html">例外クラス階層</a></li>
-          <li>チェック例外と非チェック例外</li>
+          <li>検査例外と非検査例外</li>
         </ul>
       </li>
     </ul>
