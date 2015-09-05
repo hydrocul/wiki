@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>pandasのDataFrameのインデックスでの要素参照 | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>pandasのDataFrameのインデックスでの要素参照</span>
+</div>
+
+<div id="content">
+  <h1 id="pandas-dataframe-ref-index">pandasのDataFrameのインデックスでの要素参照
+<span class="article-date">2015/09/05</span></h1>
+
+<p>pandasのDataFrameは <code>[]</code> で列、行の順に指定して要素を参照できる。列だけを指定すると、Seriesみたいなオブジェクトとして取り出せる。</p>
+
+<pre><code>import pandas as pd
+
+df1 = pd.DataFrame(
+    {'name': ['Danny', 'Jess', 'Joey', 'D.J.', 'Steph', 'Michelle'],
+     'age': [29, 24, 29, 10, 5, 0],
+     'sex': ['m', 'm', 'm', 'f', 'f', 'f']},
+    columns=['name', 'age', 'sex'])
+
+print(df1)
+# 出力結果
+#        name  age sex
+# 0     Danny   29   m
+# 1      Jess   24   m
+# 2      Joey   29   m
+# 3      D.J.   10   f
+# 4     Steph    5   f
+# 5  Michelle    0   f
+
+print(df1['name'])
+# 出力結果
+# 0       Danny
+# 1        Jess
+# 2        Joey
+# 3        D.J.
+# 4       Steph
+# 5    Michelle
+# Name: name, dtype: object
+
+print(df1['age'])
+# 出力結果
+# 0    29
+# 1    24
+# 2    29
+# 3    10
+# 4     5
+# 5     0
+# Name: age, dtype: int64
+</code></pre>
+
+<p>2つ目の <code>[]</code> に行のインデックスを書けば、要素を参照できる。</p>
+
+<pre><code>print(df1['name'][1])
+# 出力結果
+# Jess
+
+print(df1['age'][0])
+# 出力結果
+# 29
+</code></pre>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../numpy/">NumPy / pandas</a>
+    <ul>
+      <li><a href="../numpy/install.html">インストール</a></li>
+      <li><a href="../numpy/ndarray-create.html">NumPy配列ndarrayの生成</a></li>
+      <li><a href="../numpy/ndarray-create-special.html">特殊なNumPy配列の生成方法</a></li>
+      <li><a href="../numpy/ndarray-property.html">NumPy配列の属性</a></li>
+      <li><a href="../numpy/ndarray-element-type.html">NumPy配列の要素のデータ型</a></li>
+      <li><a href="../numpy/ndarray-copy.html">NumPy配列のコピー</a></li>
+      <li><a href="../numpy/ndarray-convert.html">NumPy配列の要素のデータ型の変換</a></li>
+      <li><a href="../numpy/ndarray-vector.html">NumPy配列でのベクトル計算</a></li>
+      <li><a href="../numpy/ndarray-ref-index.html">NumPy配列のインデックスでの要素参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-fancy.html">NumPy配列のファンシーインデックス参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-boolean.html">NumPy配列のブールインデックス参照</a></li>
+      <li><a href="../numpy/ndarray-ref-slice.html">NumPy配列のスライス表記の参照と代入</a></li>
+      <li><a href="../numpy/ndarray-ref-combination.html">NumPy配列のインデックス・ファンシーインデックス・スライシングの組み合わせ</a></li>
+      <li><a href="../numpy/ndarray-universal-function.html">NumPy配列を対象としたユニバーサル関数</a></li>
+      <li><a href="../numpy/ndarray-ternary.html">NumPy配列での三項演算子ベクトル計算版</a></li>
+      <li><a href="../numpy/ndarray-statistics.html">NumPy配列の集計処理(合計/平均とか)</a></li>
+      <li><a href="../numpy/ndarray-max-min.html">NumPy配列の最大値/最小値に関する関数</a></li>
+      <li><a href="../numpy/ndarray-io.html">NumPy配列のファイル読み書き</a></li>
+      <li><a href="../numpy/pandas-series-overview.html">pandasのSeriesの概要と生成方法</a></li>
+      <li><a href="../numpy/pandas-series-ref-index.html">pandasのSeriesのインデックスでの要素参照と代入</a></li>
+      <li><a href="../numpy/pandas-series-ref-fancy.html">pandasのSeriesのファンシーインデックスで参照と代入</a></li>
+      <li><a href="../numpy/pandas-series-ref-boolean.html">pandasのSeriesのブールインデックス参照</a></li>
+      <li><a href="../numpy/pandas-dataframe-overview.html">pandasのDataFrameの概要と生成方法</a></li>
+      <li><a href="../numpy/ndarray-transposed.html">NumPy/pandasのDataFrameでの転置行列</a></li>
+      <li><a href="../numpy/howto.html">HOWTO</a></li>
+      <li>pandasのDataFrameのインデックスでの要素参照</li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../">HOME</a>
+  <a href="../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>
