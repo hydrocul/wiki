@@ -75,6 +75,34 @@ print(df1['age'][0])
 # 29
 </code></pre>
 
+<p>もちろん代入もできる。</p>
+
+<pre><code>df1['age'][0] = 290
+print(df1)
+# 出力結果
+#        name  age sex
+# 0     Danny  290   m
+# 1      Jess   24   m
+# 2      Joey   29   m
+# 3      D.J.   10   f
+# 4     Steph    5   f
+# 5  Michelle    0   f
+</code></pre>
+
+<p>列ごと代入することもできるみたい。</p>
+
+<pre><code>df1['age'] = [2900, 2400, 2900, 1000, 500, 0]
+print(df1)
+# 出力結果
+#        name   age sex
+# 0     Danny  2900   m
+# 1      Jess  2400   m
+# 2      Joey  2900   m
+# 3      D.J.  1000   f
+# 4     Steph   500   f
+# 5  Michelle     0   f
+</code></pre>
+
 </div>
 
 <div id="side-menu">
