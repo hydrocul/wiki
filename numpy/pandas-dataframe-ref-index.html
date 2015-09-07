@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>pandasのDataFrameのインデックスでの要素参照 | hydroculのメモ</title>
+<title>pandasのDataFrameのインデックスでの要素参照と代入 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,12 +16,12 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>pandasのDataFrameのインデックスでの要素参照</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../numpy/">NumPy / pandas</a> &gt; <span>pandasのDataFrameのインデックスでの要素参照と代入</span>
 </div>
 
 <div id="content">
-  <h1 id="pandas-dataframe-ref-index">pandasのDataFrameのインデックスでの要素参照
-<span class="article-date">2015/09/05</span></h1>
+  <h1 id="pandas-dataframe-ref-index">pandasのDataFrameのインデックスでの要素参照と代入
+<span class="article-date">2015/09/06</span></h1>
 
 <p>pandasのDataFrameは <code>[]</code> で列、行の順に指定して要素を参照できる。列だけを指定すると、Seriesみたいなオブジェクトとして取り出せる。</p>
 
@@ -103,6 +103,28 @@ print(df1)
 # 5  Michelle     0   f
 </code></pre>
 
+<p>存在しない列名で代入すると、新しい列が生成される。</p>
+
+<pre><code>df1['age2'] = [290, 240, 290, 100, 50, 0]
+print(df1)
+# 出力結果
+#        name   age sex  age2
+# 0     Danny  2900   m   290
+# 1      Jess  2400   m   240
+# 2      Joey  2900   m   290
+# 3      D.J.  1000   f   100
+# 4     Steph   500   f    50
+# 5  Michelle     0   f     0
+</code></pre>
+
+<p>関連</p>
+
+<ul>
+  <li><a href="ndarray-ref-index.html">NumPy配列のインデックスでの要素参照と代入</a></li>
+  <li><a href="pandas-series-ref-index.html">pandasのSeriesのインデックスでの要素参照と代入</a></li>
+  <li><a href="../programming_languages_diff/list/get.html">プログラミング言語別の配列の要素を参照する方法</a></li>
+</ul>
+
 </div>
 
 <div id="side-menu">
@@ -136,9 +158,9 @@ print(df1)
       <li><a href="../numpy/pandas-series-ref-fancy.html">pandasのSeriesのファンシーインデックスで参照と代入</a></li>
       <li><a href="../numpy/pandas-series-ref-boolean.html">pandasのSeriesのブールインデックス参照</a></li>
       <li><a href="../numpy/pandas-dataframe-overview.html">pandasのDataFrameの概要と生成方法</a></li>
+      <li>pandasのDataFrameのインデックスでの要素参照と代入</li>
       <li><a href="../numpy/ndarray-transposed.html">NumPy/pandasのDataFrameでの転置行列</a></li>
       <li><a href="../numpy/howto.html">HOWTO</a></li>
-      <li>pandasのDataFrameのインデックスでの要素参照</li>
     </ul>
   </li>
 </ul>
