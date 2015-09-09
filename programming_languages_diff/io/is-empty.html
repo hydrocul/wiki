@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ファイルサイズが0かどうかを取得するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>ファイルサイズが0かどうかを取得するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -27,6 +27,18 @@
 <ul>
   <li><a href="file-size.html">ファイルサイズを取得</a></li>
 </ul>
+
+<h2 id="e085a80">Ruby / JRuby
+<span class="article-date">2015/09/09</span></h2>
+
+<p><code>File.size?</code> というメソッドでファイルサイズが0より大きいかどうかを取得できるので、</p>
+
+<pre><code>if ! File.size?("/home/kenken/pj/ichigo/var/download/mkdir")
+    # ファイルサイズが0の場合の処理
+end
+</code></pre>
+
+<p><code>File.size?</code> はファイルが存在しない場合も <code>false</code> を返す。</p>
 
 <h2 id="192b08b">Perl
 <span class="article-date">2013/08/19</span></h2>
@@ -81,6 +93,7 @@ fi
           <li>ファイルサイズが0かどうかを取得するには</li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
+          <li><a href="../../programming_languages_diff/io/mv.html">ファイル名を変更するには</a></li>
           <li><a href="../../programming_languages_diff/io/puts.html">標準出力・標準エラー出力するには</a></li>
           <li><a href="../../programming_languages_diff/io/pwd.html">カレントディレクトリを取得するには (pwd)</a></li>
         </ul>
