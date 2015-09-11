@@ -167,6 +167,40 @@ grep -e APATTERN -e BPATTERN foo.txt
 <pre><code>grep -i PATTERN foo.txt
 </code></pre>
 
+<h3 id="5a6be06">行頭または行末に限定してパターンを検索するには
+<span class="article-date">2015/09/11</span></h3>
+
+<p>行頭を表す正規表現 <code>^</code> または行末を表す正規表現 <code>$</code> を使う。</p>
+
+<p>行頭の <code>hoge</code> を検索する例</p>
+
+<pre><code>$ grep '^hoge' foo.txt
+</code></pre>
+
+<p>行末の <code>hoge</code> を検索する例</p>
+
+<pre><code>$ grep 'hoge$' foo.txt
+</code></pre>
+
+<h3 id="4bc5388">逆に行頭または行末を除外してパターンを検索するには
+<span class="article-date">2015/09/11</span></h3>
+
+<p>行頭以外の <code>hoge</code> を検索する例。つまり行の途中や行末に限定。</p>
+
+<pre><code>$ grep '[^^]hoge' foo.txt
+</code></pre>
+
+<p>行末以外の <code>hoge</code> を検索する例。つまり行の先頭や行の途中に限定。</p>
+
+<pre><code>$ grep '[^$]hoge' foo.txt
+</code></pre>
+
+<p><code>[]</code> の中の1文字目が <code>^</code> の場合は <code>[]</code> の中の文字以外という意味で、
+<code>[^abc]</code> と書くと、<code>abc</code> 以外の任意の1文字となる。そこに行頭を表す <code>^</code> を入れて、
+<code>[^^]</code> とすると行頭以外の任意の1文字という意味になる。ハイライト表示させるとわかるが、<code>hoge</code>の前の1文字もハイライトになってパターンにマッチしていることがわかる。</p>
+
+<p>同様に <code>[^$]</code> と書くと、行末(<code>$</code>)以外の任意の1文字という意味になる。従って<code>hoge</code>の次の1文字もハイライトになる。</p>
+
 </div>
 
 <div id="side-menu">
@@ -192,6 +226,7 @@ grep -e APATTERN -e BPATTERN foo.txt
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li>grep コマンド</li>
+      <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
