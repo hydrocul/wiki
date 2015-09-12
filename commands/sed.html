@@ -43,17 +43,17 @@
 
 <p>パイプで使う場合の例</p>
 
-<pre><code>cat ./hoge.txt | sed -e 's/xxx/XXX/g' &gt; ./hoge-new.txt
+<pre><code>$ cat ./hoge.txt | sed -e 's/xxx/XXX/g' &gt; ./hoge-new.txt
 </code></pre>
 
 <p>ファイル名を指定して使う場合の例</p>
 
-<pre><code>sed -e 's/xxx/XXX/g' ./hoge.txt &gt; ./hoge-new.txt
+<pre><code>$ sed -e 's/xxx/XXX/g' ./hoge.txt &gt; ./hoge-new.txt
 </code></pre>
 
 <p>ファイルを書き換えてしまう例(複数のファイルを指定できる)</p>
 
-<pre><code>sed -i -e 's/xxx/XXX/g' ./hoge.txt ./hoge2.txt ./hoge3.txt
+<pre><code>$ sed -i -e 's/xxx/XXX/g' ./hoge.txt ./hoge2.txt ./hoge3.txt
 </code></pre>
 
 <p><code>-e</code> オプションがない場合はオプション以外の最初の引数が処理内容とみなされるので、たいていは <code>-e</code> を省略できる。処理内容を指示する引数に拡張正規表現を使いたい場合は、
@@ -68,8 +68,8 @@
 
 <p>コマンドが複数ある場合、コマンド1つずつ全行操作するのではなく、各行ごとにコマンドをすべて実行していく。つまり、以下の2つのコマンドは結果が違う可能性がある。</p>
 
-<pre><code>cat ... | sed -e ... | sed -e ...
-cat ... | sed -e ... -e ...
+<pre><code>$ cat ... | sed -e ... | sed -e ...
+$ cat ... | sed -e ... -e ...
 </code></pre>
 
 <p>例えば <code>sed -n -e '11,20!d' -e 6,15p</code> または <code>sed -n -e '11,20!d;6,15p</code> は、
@@ -78,9 +78,16 @@ cat ... | sed -e ... -e ...
 11行目から20行目と6行目から15行目が重なる行、つまり11行目から15行目のみを抽出する。</p>
 
 <h2 id="ed756ff"><code>-e</code> で指定する処理内容
-<span class="article-date">2015/05/13</span></h2>
+<span class="article-date">2015/09/12</span></h2>
 
 <p><code>-e</code> のあとのパラメータは、アドレス、コマンド1文字、コマンドパラメータの順に書くことで、処理内容を表す。アドレスはどの行を処理対象とするかを表す。すべての行を処理する場合はアドレスを省略できるので、コマンドの1文字から始まることになる。コマンドは <code>s</code>, <code>d</code>, <code>p</code>などがある。</p>
+
+<p>例</p>
+
+<pre><code>$ sed -e 's/xxx/XXX/g' # sコマンド
+$ sed -e '30,31d'      # dコマンド
+$ sed -n -e '30p'      # pコマンド
+</code></pre>
 
 <h3 id="replace"><code>s</code>コマンド
 <span class="article-date">2015/02/01</span></h3>
@@ -160,11 +167,11 @@ sed 1,5\!d
 <code>p</code>コマンドの出力のみになる。</p>
 
 <h2 id="6c6098f">アドレス
-<span class="article-date">2015/01/29</span></h2>
+<span class="article-date">2015/09/12</span></h2>
 
 <p>コマンドの実行対象行を指定する行番号をアドレスという。行番号だけでなくや正規表現で指定して、その正規表現にマッチする行を実行対象とすることもできる。</p>
 
-<p>アドレスは <code>-e</code> のあとの処理内容を表す引数の先頭に付ける。</p>
+<p>アドレスは <code>-e</code> のあとの処理内容を表すコマンドの前に付ける。</p>
 
 <p>以下の例は<code>p</code>コマンドでの例だが、<code>s</code>, <code>y</code>, <code>d</code> コマンドなどでも使える。</p>
 
@@ -621,6 +628,7 @@ test test
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
+      <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
