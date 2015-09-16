@@ -26,7 +26,7 @@
 <p><code>if</code>文の条件式など、論理値を必要とされる場所にいろいろな型の値を入れたときにどう評価されるかについて、プログラミング言語別メモ。</p>
 
 <h2 id="0fff33e">まとめ
-<span class="article-date">2015/04/21</span></h2>
+<span class="article-date">2015/09/16</span></h2>
 
 <table>
   <tbody>
@@ -81,16 +81,21 @@
 <ul>
   <li>Rubyは異端児で全部true</li>
   <li>それ以外は原則false</li>
-  <li>C言語はポインタの仕組みにより文字列と配列は空であってもtrue</li>
+  <li>C言語の文字列と配列はポインタと似ているので中身が空であってもtrue</li>
   <li>JavaScriptの配列はオブジェクトであるので空であってもtrue</li>
 </ul>
 
 <h2 id="c">C言語 / C++
-<span class="article-date">2015/04/21</span></h2>
+<span class="article-date">2015/09/16</span></h2>
 
 <p><code>NULL</code>, <code>0</code>, <code>0.0</code>, <code>'\x00'</code> は <code>false</code> の扱いになり、それ以外は <code>true</code> の扱いになる。</p>
 
-<p>空文字列は、<code>NULL</code>でないので、<code>true</code> になる。</p>
+<p>空文字列 <code>""</code> は、<code>true</code> になる。</p>
+
+<h2 id="75bbe02">Go言語 (golang)
+<span class="article-date">2015/09/16</span></h2>
+
+<p><code>if</code>文や<code>while</code>文などの条件式には<code>bool</code>型以外を置くことはできない。置こうとしてもコンパイルエラーになる。</p>
 
 <h2 id="f99ea29">Java / Scala
 <span class="article-date">2015/02/14</span></h2>
