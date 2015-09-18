@@ -60,14 +60,18 @@
 </code></pre>
 
 <h2 id="2b36974">grepで行数をカウントするには
-<span class="article-date">2015/02/03</span></h2>
+<span class="article-date">2015/09/18</span></h2>
 
 <pre><code>grep -c '' example.txt
 </code></pre>
 
 <p>わずかに <code>wc -l</code> のほうが速い。一行がとても長いファイルだと、<code>wc -l</code> のほうが5倍以上速いケースもあるみたいで、わざわざ <code>grep</code> を使う必要性はないかもしれない。</p>
 
-<p>ただ、正規表現にマッチする行のみの行数をカウントするには</p>
+<p>ただ、最後の行に改行が含まれない場合、<code>wc -l</code> では最後の行をカウントしないが、
+<code>grep -c ''</code> では最後の行もカウントする、という違いがある。
+<code>wc -l</code> は実際には行数ではなく改行の数を数えているためである。</p>
+
+<p>正規表現にマッチする行のみの行数をカウントする場合は</p>
 
 <pre><code>grep PATTERN example.txt | wc -l
 </code></pre>
@@ -104,6 +108,7 @@
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
+      <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
