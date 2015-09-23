@@ -22,11 +22,47 @@
 <div id="content">
   <h1 id="overview">数値のデータ型</h1>
 
+<h2 id="39bb19b">Go言語 (golang)
+<span class="article-date">2015/09/23</span></h2>
+
+<p>数値の型は以下がある。</p>
+
+<dl>
+  <dt><code>uint8</code></dt>
+  <dd>1バイトの符号なし整数。</dd>
+  <dt><code>byte</code></dt>
+  <dd><code>uint8</code> のエイリアス。</dd>
+  <dt><code>uint16</code></dt>
+  <dd>2バイトの符号なし整数。</dd>
+  <dt><code>uint32</code></dt>
+  <dd>4バイトの符号なし整数。</dd>
+  <dt><code>uint64</code></dt>
+  <dd>8バイトの符号なし整数。</dd>
+  <dt><code>int8</code></dt>
+  <dd>1バイトの符号付き整数。</dd>
+  <dt><code>int16</code></dt>
+  <dd>2バイトの符号付き整数。</dd>
+  <dt><code>int32</code></dt>
+  <dd>4バイトの符号付き整数。</dd>
+  <dt><code>rune</code></dt>
+  <dd><code>int32</code> のエイリアス。</dd>
+  <dt><code>int64</code></dt>
+  <dd>8バイトの符号付き整数。</dd>
+  <dt><code>float32</code></dt>
+  <dd>IEEE 754 の32ビット単精度の浮動小数点数。</dd>
+  <dt><code>float64</code></dt>
+  <dd>IEEE 754 の64ビット単精度の浮動小数点数。</dd>
+  <dt><code>complex64</code></dt>
+  <dd>2つの <code>float32</code> で表される複素数。</dd>
+  <dt><code>complex128</code></dt>
+  <dd>2つの <code>float64</code> で表される複素数。</dd>
+</dl>
+
 <h2 id="java">Java
-<span class="article-date">2014/10/27</span></h2>
+<span class="article-date">2015/09/23</span></h2>
 
 <p>数値となるプリミティブ型には、
-<code>char</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code> があり、それぞれに対応するクラスもある。対応するクラスというのは、プリミティブ型とはまったく別の型で、プリミティブ型をオブジェクトにラップしているクラスであり、プリミティブ型と対応するクラスはboxing/unboxingによて相互に変換できる。</p>
+<code>char</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code> があり、それぞれに対応するオブジェクトのクラスもある。対応するクラスというのは、プリミティブ型とは別の型で、プリミティブ型をオブジェクトにラップしているクラスであり、プリミティブ型と対応するクラスはboxing/unboxingによて相互に変換できる。</p>
 
 <dl>
   <dt><code>char</code></dt>
