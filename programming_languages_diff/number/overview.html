@@ -38,6 +38,8 @@
   <dd>4バイトの符号なし整数。</dd>
   <dt><code>uint64</code></dt>
   <dd>8バイトの符号なし整数。</dd>
+  <dt><code>uint</code></dt>
+  <dd>実装によって4バイトまたは8バイトとなりうる符号なし整数。</dd>
   <dt><code>int8</code></dt>
   <dd>1バイトの符号付き整数。</dd>
   <dt><code>int16</code></dt>
@@ -48,6 +50,8 @@
   <dd><code>int32</code> のエイリアス。</dd>
   <dt><code>int64</code></dt>
   <dd>8バイトの符号付き整数。</dd>
+  <dt><code>int</code></dt>
+  <dd>実装によって4バイトまたは8バイトとなりうる符号付き整数。</dd>
   <dt><code>float32</code></dt>
   <dd>IEEE 754 の32ビット単精度の浮動小数点数。</dd>
   <dt><code>float64</code></dt>
@@ -81,32 +85,9 @@
   <dd>IEEE 754 の64ビット倍精度の浮動小数点数。対応するクラスは <code>java.lang.Double</code></dd>
 </dl>
 
-<p>整数リテラルは、10進数での表記のほか、
-<code>0x</code>または<code>0X</code>で始まる16進数表記、<code>0</code>で始まる8進数表記を使える。整数リテラルの最後に <code>l</code> または <code>L</code> を付けると<code>long</code>型の整数になり、付けないと<code>int</code>型の整数になる。それぞれ型の範囲を超える数を書くとコンパイルエラーになる。</p>
+<p>Javaのプリミティブ型としては上記の他に <a href="../boolean/overview.html#java"><code>boolean</code></a> がある。</p>
 
-<p>浮動小数点数のリテラルは、10進数表記のみで、後ろにつける指数表現は <code>e+10</code>, <code>e10</code>, <code>e-10</code> のように書く。
-<code>e</code> の代わりに <code>E</code> でもよい。最後に <code>f</code> または <code>F</code> を付けると<code>float</code>型の浮動小数点数になり、なにも付けないか、または <code>d</code> または <code>D</code> を付けると<code>double</code>型の浮動小数点数になる。それぞれ型の範囲を超える数を書くとコンパイルエラーになる。</p>
-
-<p>NaN値は <code>Float.NaN</code> または <code>Double.NaN</code> と書く。正の無限大は <code>Float.POSITIVE_INFINITY</code> または <code>Double.POSITIVE_INFINITY</code>、負の無限大は <code>Float.NEGATIVE_INFINITY</code> または <code>Double.NEGATIVE_INFINITY</code> と書く。</p>
-
-<p>プリミティブ型としては上記の他に <a href="../boolean/overview.html#java"><code>boolean</code></a> がある。</p>
-
-<p>Integer Literals | The Java Language Specification Java SE 8 Edition<br />
-<a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.10.1" target="_blank" class="external-link">http://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.10.1</a></p>
-
-<p>Floating-Point Literals | The Java Language Specification Java SE 8 Edition<br />
-<a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.10.2" target="_blank" class="external-link">http://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.10.2</a></p>
-
-<h3 id="fe47068">Java7から使える書き方
-<span class="article-date">2013/10/15</span></h3>
-
-<p>Java7からの機能では、<code>0b</code>または<code>0B</code>で始まる2進数表記もできる(<strong>バイナリリテラル</strong>)。
-2進数表記でも最後に <code>l</code> または <code>L</code> を付けることで<code>long</code>型になる。</p>
-
-<p>同じくJava7からは、整数は3ケタごとの区切りなどとして途中にアンダースコアを入れることができる。
-10進数表記、8進数表記、16進数表記、2進数表記ともに使える。</p>
-
-<p>入れる場所はどこでもよく、コンパイラは単に途中のアンダースコアを無視する。ただし、最初や最後にアンダースコアを置くことはできない。最初に置くと識別子になってしまう。アンダースコアは2つ以上連続させることもできる(使い道がわからないが)。</p>
+<p>-&gt; <a href="literal.html#java">数値リテラルの書き方</a></p>
 
 <h2 id="7f4d550">Scala
 <span class="article-date">2015/02/27</span></h2>
@@ -133,8 +114,6 @@ Javaの<code>java.lang.Integer</code>と<code>int</code>は別物だが、Scala�
 
 <p>コンパイル後のJVM上ではJavaのプリミティブ型に変換されているので、パフォーマンスの心配はしなくてよい。けど、オートボクシングの処理が挟まるケースもある。
 <code>scala.Int</code>などにはメソッドがあるが、JVM上ではプリミティブ型にメソッドがあるわけではない。</p>
-
-<p>整数のリテラルは、10進数表記の他、<code>0x</code>または<code>0X</code>で始まる16進数表記を使える。</p>
 
 <h2 id="37528cf">PHP
 <span class="article-date">2014/06/28</span></h2>
@@ -260,6 +239,7 @@ p f.class.superclass
       <li><a href="../../programming_languages_diff/number/">数値型</a>
         <ul>
           <li>数値のデータ型</li>
+          <li><a href="../../programming_languages_diff/number/literal.html">数値リテラルの書き方</a></li>
           <li><a href="../../programming_languages_diff/number/arithmetic-operator.html">四則演算子</a></li>
           <li><a href="../../programming_languages_diff/number/divide.html">除算演算子・剰余演算子</a></li>
           <li><a href="../../programming_languages_diff/number/pow.html">べき乗演算子</a></li>
@@ -270,7 +250,6 @@ p f.class.superclass
           <li><a href="../../programming_languages_diff/number/floor-ceil.html">小数の四捨五入/切り捨て/切り上げをするには (round, floor, ceil)</a></li>
           <li><a href="../../programming_languages_diff/number/to-string.html">数値を文字列に変換するには</a></li>
           <li><a href="../../programming_languages_diff/number/bit-operator.html">ビット演算子</a></li>
-          <li><a href="../../programming_languages_diff/number/literal.html">数値リテラルの書き方</a></li>
           <li><a href="../../programming_languages_diff/number/random.html">乱数を生成するには</a></li>
         </ul>
       </li>
