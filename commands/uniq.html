@@ -21,29 +21,122 @@
 
 <div id="content">
   <h1 id="uniq">uniq コマンド
-<span class="article-date">2014/11/14</span></h1>
+<span class="article-date">2015/09/25</span></h1>
 
-<p>重複した行を1つにまとめるコマンド。連続して同じ内容の行が続いた場合に2行目以降を削除してくれるだけなので、
-<a href="sort.html"><code>sort</code>コマンド</a>でソートしてからこのコマンドで重複を削除するのが基本。</p>
+<p>連続して重複した行を1つにまとめるコマンド。</p>
 
-<p>例</p>
+<p><code>foo.txt</code> が以下の内容の場合、</p>
 
-<pre><code>cat foo.txt | LC_ALL=C uniq
+<pre><code>$ cat foo.txt
+3333
+4444
+1111
+1111
+3333
+3333
+4444
+</code></pre>
+
+<p><code>uniq</code> を使うと以下のようになる。</p>
+
+<pre><code>$ cat foo.txt | uniq
+3333
+4444
+1111
+3333
+4444
+</code></pre>
+
+<p>連続していない離れた重複行も削除したければ、<a href="sort.html"><code>sort</code>コマンド</a>コマンドで予めソートする必要がある。その代わり順番は保存されない。</p>
+
+<pre><code>$ cat foo.txt | sort | uniq
+1111
+3333
+4444
 </code></pre>
 
 <h2 id="42da630">オプション
-<span class="article-date">2014/11/14</span></h2>
+<span class="article-date">2015/09/25</span></h2>
 
 <dl>
   <dt><code>-c</code></dt>
   <dd>重複している行数を先頭に付加する。重複していない行は1になる。</dd>
   <dt><code>-d</code></dt>
-  <dd>逆に重複している行のみを抽出する。2行以上同じ行が連続した場合にそれを1行のみ出力する。
-<code>-c</code> と組み合わせると結果的にカウントが2以上のもののみになる。</dd>
+  <dd>逆に重複している行のみを抽出する。2行以上同じ行が連続した場合にそれを1行のみ出力する。</dd>
+  <dt><code>-D</code></dt>
+  <dd>逆に重複している行のみを重複のまま抽出する。</dd>
   <dt><code>-u</code></dt>
-  <dd>重複した行をまとめるのではなく削除してしまう。
-<code>-c</code> と組み合わせると結果的にカウントが1のもののみになる。</dd>
+  <dd>重複した行をまとめるのではなく削除してしまう。</dd>
 </dl>
+
+<h3 id="84e8748"><code>-c</code> オプションの例
+<span class="article-date">2015/09/25</span></h3>
+
+<p><code>-c</code> オプションは行数を各行の先頭に付けてくれる。自分の環境では各行がインデントされているがなぜだろう？</p>
+
+<pre><code>$ cat foo.txt
+3333
+4444
+1111
+1111
+3333
+3333
+4444
+
+$ cat foo.txt | uniq -c
+      1 3333
+      1 4444
+      2 1111
+      2 3333
+      1 4444
+</code></pre>
+
+<h3 id="069c7fb"><code>-d</code>, <code>-D</code> オプションの例
+<span class="article-date">2015/09/25</span></h3>
+
+<p><code>-d</code> オプションは重複していた行のみを出力する。<code>-c</code> オプションで2以上になる行のみだ。重複行は1行にまとめられる。</p>
+
+<p><code>-D</code> オプションは重複していた行を、重複したまま出力する。</p>
+
+<pre><code>$ cat foo.txt
+3333
+4444
+1111
+1111
+3333
+3333
+4444
+
+$ cat foo.txt | uniq -d
+1111
+3333
+
+$ cat foo.txt | uniq -D
+1111
+1111
+3333
+3333
+</code></pre>
+
+<h3 id="9eeba2c"><code>-u</code> オプションの例
+<span class="article-date">2015/09/25</span></h3>
+
+<p><code>-u</code> オプションは <code>-d</code> オプションとは逆に重複していない行のみを出力する。<code>-c</code> オプションで1になる行のみだ。</p>
+
+<pre><code>$ cat foo.txt
+3333
+4444
+1111
+1111
+3333
+3333
+4444
+
+$ cat foo.txt | uniq -u
+3333
+4444
+4444
+</code></pre>
 
 <h2 id="e56717c">HOWTO</h2>
 
@@ -117,6 +210,7 @@ aaa
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
+      <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
