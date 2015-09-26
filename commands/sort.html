@@ -21,9 +21,109 @@
 
 <div id="content">
   <h1 id="sort">sort コマンド
-<span class="article-date">2014/09/09</span></h1>
+<span class="article-date">2015/09/26</span></h1>
 
-<p>行単位で並び替えができる。列は1つ以上のスペースで区切られるようだが、これは <code>-t</code> オプションで変更できる。</p>
+<p>行を並び替えができるコマンド。</p>
+
+<p><code>foo.txt</code> が以下の内容の場合、</p>
+
+<pre><code>$ cat foo.txt
+3
+44
+111
+11
+333
+33
+4
+4a
+abc
+ab
+ac
+</code></pre>
+
+<p><code>sort</code>コマンドを使うと以下のように辞書順にソートしてくれる。</p>
+
+<pre><code>$ cat foo.txt | sort
+11
+111
+3
+33
+333
+4
+44
+4a
+ab
+abc
+ac
+</code></pre>
+
+<p><code>-n</code> オプションを付けると数字は数値としてソートしてくれる。数字でないものは辞書順になるみたい。</p>
+
+<pre><code>$ cat foo.txt | sort -n
+ab
+abc
+ac
+3
+4
+4a
+11
+33
+44
+111
+333
+</code></pre>
+
+<p>1つ以上のスペースで区切られた複数列のデータの場合にソートキーとなる列を指定してのソートもできる。</p>
+
+<p>以下のような2列のデータがあるとして、</p>
+
+<pre><code>$ cat foo.txt
+1 3
+2 44
+3 111
+4 11
+5 333
+6 33
+7 4
+8 4a
+9 abc
+10 ab
+11 ac
+</code></pre>
+
+<p><code>-k2</code> を付ければ2列目でソートできる。</p>
+
+<pre><code>$ cat foo.txt | sort -k2
+4 11
+3 111
+1 3
+6 33
+5 333
+7 4
+2 44
+8 4a
+10 ab
+9 abc
+11 ac
+</code></pre>
+
+<p><code>-nk2</code> とすれば2列目を数値としてソートする。</p>
+
+<pre><code>$ cat foo.txt | sort -nk2
+10 ab
+11 ac
+9 abc
+1 3
+7 4
+8 4a
+4 11
+6 33
+2 44
+3 111
+5 333
+</code></pre>
+
+<p>列は1つ以上のスペースで区切られるようだが、これは <code>-t</code> オプションで変更できる。</p>
 
 <h2 id="8e99451">オプション
 <span class="article-date">2015/07/01</span></h2>
