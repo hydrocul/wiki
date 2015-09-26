@@ -73,6 +73,8 @@ ac
 333
 </code></pre>
 
+<p><code>cat</code>とパイプを組み合わせなくても <code>sort -n foo.txt</code> というふうにしてもOK。</p>
+
 <p>1つ以上のスペースで区切られた複数列のデータの場合にソートキーとなる列を指定してのソートもできる。</p>
 
 <p>以下のような2列のデータがあるとして、</p>
@@ -126,7 +128,7 @@ ac
 <p>列は1つ以上のスペースで区切られるようだが、これは <code>-t</code> オプションで変更できる。</p>
 
 <h2 id="8e99451">オプション
-<span class="article-date">2015/07/01</span></h2>
+<span class="article-date">2015/09/26</span></h2>
 
 <dl>
   <dt><code>-t</code></dt>
@@ -149,6 +151,8 @@ ac
   <dd>列のデータを数字とみなして並び替える。</dd>
   <dt><code>-r</code></dt>
   <dd>逆順に並び替える。</dd>
+  <dt><code>-f</code></dt>
+  <dd>大文字小文字を区別しない。</dd>
 </dl>
 
 <h2 id="9cb9c44">HOWTO</h2>
