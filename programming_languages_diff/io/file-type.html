@@ -22,13 +22,17 @@
 <div id="content">
   <h1 id="file-type">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</h1>
 
-<h2 id="dfecff4">PHP
-<span class="article-date">2014/12/30</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2015/09/28</span></h2>
 
 <p>例</p>
 
 <pre><code>// ディレクトリかどうかを判定
 if (fileperms("/home/foo/testfile") &amp; 0x4000) {
+    ...;
+}
+// または
+if (is_dir("/home/foo/testfile")) {
     ...;
 }
 

@@ -73,8 +73,16 @@
 
 <h2 id="b0b2daa">HOWTO</h2>
 
+<h3 id="6d95686">標準入力(他のコマンドの出力)とファイルを比較するには
+<span class="article-date">2014/10/24</span></h3>
+
+<p>以下のように、 <code>-</code> を使うと、比較対象の片方を標準入力にすることができる。</p>
+
+<pre><code>$ cat foo.txt | diff bar.txt -
+</code></pre>
+
 <h3 id="4c5fd52">2つのコマンドの出力を比較するには
-<span class="article-date">2014/12/19</span></h3>
+<span class="article-date">2015/09/28</span></h3>
 
 <p>以下のようにすることで、2つのコマンドの出力をファイルに落とすことなく直接 diff にかけることができる。</p>
 
@@ -84,23 +92,15 @@
 <p>でもこれは、<code>diff</code> にとっては標準入力が2つ存在するわけではない。シェルががんばっていて、2つのコマンドの結果をファイルに保存しているのかパイプなのかわからないが、とにかくファイルシステム上にマッピングしていて、
 <code>diff</code> にとっては、2つのファイルが引数として指定されているだけの状態になる。</p>
 
+<p>つまり<code>diff</code>の機能ではなくシェルの機能。</p>
+
 <p>その証拠に、<code>diff</code>の代わりに引数の内容をそのまま表示してくれる<code>echo</code>で</p>
 
 <pre><code>$ echo &lt;(cat foo.txt) &lt;(cat bar.txt)
 </code></pre>
 
 <p>とすると、<code>/proc/self/fd/11 /proc/self/fd/12</code> のように出力される。
-(bash, zsh で動作確認済み)</p>
-
-<h3 id="87acd34">コマンドの出力とファイルを比較するには(標準入力と比較)
-<span class="article-date">2014/10/24</span></h3>
-
-<p>以下のように、 <code>-</code> を使うと、比較対象の片方を標準入力にすることができる。</p>
-
-<pre><code>$ cat foo.txt | diff bar.txt -
-</code></pre>
-
-<p>これは上の2つのコマンドの比較方法と違って、シェルががんばっているわけではなく、<code>diff</code>の機能である。</p>
+(2013/06/04: bash, zsh で動作確認済み)</p>
 
 <h3 id="sdiff">2つのファイルを左右に並べて表示するには (sdiff)
 <span class="article-date">2014/12/19</span></h3>

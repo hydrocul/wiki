@@ -37,7 +37,7 @@ java.io.File[] listFiles()
 </code></pre>
 
 <h2 id="bf87941">PHP
-<span class="article-date">2014/10/16</span></h2>
+<span class="article-date">2015/09/28</span></h2>
 
 <p><code>opendir</code>関数でディレクトリハンドルを開いて、<code>readdir</code>関数で1つずつ読み取っていく。</p>
 
@@ -45,11 +45,15 @@ java.io.File[] listFiles()
 $dhandle = opendir($dir);
 if ($dhandle) {
   while (false !== ($fname = readdir($dhandle))) {
-    $lst[] = $fname;
+    if ($fname != '.' &amp;&amp; $fname != '..') {
+      $lst[] = $fname;
+    }
   }
   closedir($dhandle);
 }
 </code></pre>
+
+<p><code>readdir</code>関数の返り値はディレクトリ名の付かない単なるファイル名になる。</p>
 
 <p><code>opendir</code> 関数 | PHP Manual<br />
 <a href="http://php.net/manual/ja/function.opendir.php" target="_blank" class="external-link">http://php.net/manual/ja/function.opendir.php</a></p>
