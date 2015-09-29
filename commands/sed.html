@@ -515,6 +515,21 @@ cat ファイル名 | head -n 1
 cat ファイル名 | sed -e \$d
 </code></pre>
 
+<h3 id="0ceaeb5">N行おきに抽出するには
+<span class="article-date">2014/09/29</span></h3>
+
+<pre><code>## 1行目、11行目、21行目、、、と10行おきに抽出
+$ cat ファイル名 | sed -ne '1~10p'
+
+## 10行目、20行目、、、と10行おきに抽出
+$ cat ファイル名 | sed -ne '0~10p'
+</code></pre>
+
+<p>perlのワンライナーで以下のようにも書けるが、単純にN行おきに抽出するだけのシンプルな処理であればsedのほうが速い。</p>
+
+<pre><code>$ cat ファイル名 | perl -nle '$.%10==0&amp;&amp;print'
+</code></pre>
+
 <h3 id="c83bda2">パスなどを全置換する際にスラッシュをエスケープするのが面倒な場合
 <span class="article-date">2013/06/18</span></h3>
 
@@ -554,21 +569,6 @@ tail -f access_log | sed -u ...
 </code></pre>
 
 <p>(違いは調べていない、、、)</p>
-
-<h3 id="0ceaeb5">N行おきに抽出するには
-<span class="article-date">2014/09/05</span></h3>
-
-<pre><code># 10行目、20行目、、、と10行おきに抽出
-cat ファイル名 | sed -ne '0~10p'
-
-# 3行目、13行目、23行目、、、と10行おきに抽出
-cat ファイル名 | sed -ne '3~10p'
-</code></pre>
-
-<p>perlのワンライナーで以下のようにも書けるが、単純にN行おきに抽出するだけのシンプルな処理であればsedのほうが速い。</p>
-
-<pre><code>cat ファイル名 | perl -nle '$.%10==0&amp;&amp;print'
-</code></pre>
 
 <h3 id="4839d25">TSVファイルなどでヘッダ行があるファイルから正規表現で行を抽出するには
 <span class="article-date">2015/04/10</span></h3>

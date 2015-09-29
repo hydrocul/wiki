@@ -112,59 +112,6 @@ ssh foohost date; date
 <pre><code>rsync -e "ssh -i &lt;private_key_file&gt;" &lt;ID&gt;@&lt;IP&gt;:&lt;remote_path&gt; &lt;local_path&gt;
 </code></pre>
 
-<h3 id="4e59bff">強制的に切断するには
-<span class="article-date">2014/10/22</span></h3>
-
-<p>sshコマンドでは、エンターを押した直後に <code>~.</code> と入力と切断される。エンターを押した直後の <code>~</code> は
-ssh接続自体へのコマンドのプレフィックスとなる。エンターの直後に <code>~</code> 自体を端末に入力するには <code>~~</code> と2回入力する。</p>
-
-<p>moshコマンドでは、 <code>Ctrl+^ .</code> と入れると、エンターの直後でなくても強制切断される。</p>
-
-<h3 id="b2b71f3">リモートとの間でファイルをバックアップするには</h3>
-
-<h4 id="backup-remot-to-local">サーバにある大量のファイルを tar しながら、ローカルにダウンロードするには
-<span class="article-date">2013/11/12</span></h4>
-
-<pre><code>ssh &lt;ID&gt;@&lt;IP&gt; tar cvzf - &lt;target remote directory&gt; &gt; &lt;local tar file name&gt;
-</code></pre>
-
-<p>リモートでtarを実行してファイルに書き出すのではなく標準出力に出して、それをsshでそのままローカルに転送し、ローカルでファイルに書き出している。</p>
-
-<h4 id="backup-local-to-remote">ローカルにある大量のファイルを tar しながら、リモートにアップロードするには
-<span class="article-date">2013/08/23</span></h4>
-
-<pre><code>tar czf - &lt;target local directory&gt; | ssh &lt;ID&gt;@&lt;IP&gt; "cat &gt; &lt;remote tar file name&gt;"
-</code></pre>
-
-<p>途中で途切れてしまった場合に中途半端なアーカイブファイルがリモートに残ってしまうので、いったん一時ファイルに書き出してからリネームしたほうがいいかもしれない。</p>
-
-<pre><code>tar czf - ローカルのバックアップ対象ディレクトリ | ssh リモートホスト名 "cat &gt; リモートの一時ファイル名 &amp;&amp; mv リモートの一時ファイル名 リモートの保存先tarファイル名"
-</code></pre>
-
-<h3 id="f848184">リモートのファイルシステムをあたかもローカルにあるかのように見せかけるには
-<span class="article-date">2013/09/25</span></h3>
-
-<p><a href="sshfs.html">sshfsコマンド</a>を使う。このコマンドはリモートのファイルシステムのルートまたは特定のディレクトリ配下を、ローカルの任意の場所にマウントする。例えば、リモートのファイルをいちいちダウンロード・アップロードしなくても直接ローカルのエディタで編集することできたりする。</p>
-
-<h3 id="remote-file-exists">リモートに特定のファイルが存在するかどうかを確認するには
-<span class="article-date">2015/07/07</span></h3>
-
-<p>リモートのファイルの存在確認をするとりあえずの方法の例</p>
-
-<pre><code>if [ `ssh FOOHOST "ls /PATH/TO/TARGETFILE"` = "/PATH/TO/TARGETFILE" ]; then
-    # ファイルが存在する場合の処理
-fi
-</code></pre>
-
-<h3 id="2a1afc0">SSHが勝手に切断されないようにするには
-<span class="article-date">2013/11/12</span></h3>
-
-<p>クライアント側(接続元)の <code>~/.ssh/config</code> に以下を記述する。</p>
-
-<pre><code>Host *
-  ServerAliveInterval 60
-</code></pre>
-
 <h3 id="c4c40ec">秘密鍵・公開鍵のペアを作るには
 <span class="article-date">2013/04/03</span></h3>
 
@@ -182,6 +129,23 @@ fi
 <p>このコマンドを実行すると、公開鍵がリモートのサーバに設置される。リモートのサーバにとって初めての公開鍵であれば、パーミッションとかを調整する必要があるかもしれない。ファイル名が <code>authorized_keys</code> だったり <code>authorized_keys2</code> だったりするのはよくわからない。</p>
 
 <p><code>ssh</code>のオプションの中で<code>bash</code>を起動しているのは、FreeBSDのサーバなどでデフォルトのシェルがcshの場合に、<a href="../programming_languages_diff/control_flow/if.html#sh"><code>if</code>の構文</a>が違っていて動かないので、bashを強制するため。</p>
+
+<h3 id="4e59bff">強制的に切断するには
+<span class="article-date">2014/10/22</span></h3>
+
+<p>sshコマンドでは、エンターを押した直後に <code>~.</code> と入力と切断される。エンターを押した直後の <code>~</code> は
+ssh接続自体へのコマンドのプレフィックスとなる。エンターの直後に <code>~</code> 自体を端末に入力するには <code>~~</code> と2回入力する。</p>
+
+<p>moshコマンドでは、 <code>Ctrl+^ .</code> と入れると、エンターの直後でなくても強制切断される。</p>
+
+<h3 id="2a1afc0">SSHが勝手に切断されないようにするには
+<span class="article-date">2013/11/12</span></h3>
+
+<p>クライアント側(接続元)の <code>~/.ssh/config</code> に以下を記述する。</p>
+
+<pre><code>Host *
+  ServerAliveInterval 60
+</code></pre>
 
 <h3 id="0f2673d">ポートフォワードの待ち受けポートに外部から接続できるようにするには
 <span class="article-date">2013/10/16</span></h3>
@@ -220,6 +184,59 @@ iptablesの設定も合わせて確認しておくこと。</p>
 <code>-g</code> を付ける必要がある。さらに</p>
 
 <pre><code>ssh -L 8022:localhost:22 -g remoteA
+</code></pre>
+
+<h3 id="f848184">リモートのファイルシステムをあたかもローカルにあるかのように見せかけるには
+<span class="article-date">2013/09/25</span></h3>
+
+<p><a href="sshfs.html"><code>sshfs</code>コマンド</a>を使う。このコマンドはリモートのファイルシステムのルートまたは特定のディレクトリ配下を、ローカルの任意の場所にマウントする。例えば、リモートのファイルをいちいちダウンロード・アップロードしなくても直接ローカルのエディタで編集することできたりする。</p>
+
+<h3 id="8d0a386">リモートでコマンドを実行してすぐにssh切断するには
+<span class="article-date">2015/09/29</span></h3>
+
+<p><code>ssh</code>コマンドの最後にコマンドを書けばよい。</p>
+
+<pre><code>$ ssh &lt;ID&gt;@&lt;IP&gt; ls -al
+</code></pre>
+
+<p>複数のコマンドを使ったり、パイプを使ったりしたければ、コマンド全体をシングルクオートかダブルクオートで囲む。</p>
+
+<pre><code>## リモートの result.txt に結果を保存
+$ ssh &lt;ID&gt;@&lt;IP&gt; "foo | bar &gt; result.txt"
+
+## ローカルの result.txt に結果を保存
+$ ssh &lt;ID&gt;@&lt;IP&gt; "foo | bar" &gt; result.txt
+</code></pre>
+
+<h3 id="b2b71f3">リモートとの間でファイルをバックアップするには</h3>
+
+<h4 id="backup-remot-to-local">サーバにある大量のファイルを tar しながら、ローカルにダウンロードするには
+<span class="article-date">2013/11/12</span></h4>
+
+<pre><code>$ ssh &lt;ID&gt;@&lt;IP&gt; tar cvzf - &lt;target remote directory&gt; &gt; &lt;local tar file name&gt;
+</code></pre>
+
+<p>リモートでtarを実行してファイルに書き出すのではなく標準出力に出して、それをsshでそのままローカルに転送し、ローカルでファイルに書き出している。</p>
+
+<h4 id="backup-local-to-remote">ローカルにある大量のファイルを tar しながら、リモートにアップロードするには
+<span class="article-date">2013/08/23</span></h4>
+
+<pre><code>$ tar czf - &lt;target local directory&gt; | ssh &lt;ID&gt;@&lt;IP&gt; "cat &gt; &lt;remote tar file name&gt;"
+</code></pre>
+
+<p>途中で途切れてしまった場合に中途半端なアーカイブファイルがリモートに残ってしまうので、いったん一時ファイルに書き出してからリネームしたほうがいいかもしれない。</p>
+
+<pre><code>$ tar czf - ローカルのバックアップ対象ディレクトリ | ssh リモートホスト名 "cat &gt; リモートの一時ファイル名 &amp;&amp; mv リモートの一時ファイル名 リモートの保存先tarファイル名"
+</code></pre>
+
+<h3 id="remote-file-exists">リモートに特定のファイルが存在するかどうかを確認するには
+<span class="article-date">2015/07/07</span></h3>
+
+<p>リモートのファイルの存在確認をするとりあえずの方法の例</p>
+
+<pre><code>if [ `ssh FOOHOST "ls /PATH/TO/TARGETFILE"` = "/PATH/TO/TARGETFILE" ]; then
+    # ファイルが存在する場合の処理
+fi
 </code></pre>
 
 <h2 id="3187f0a">関連するツール</h2>

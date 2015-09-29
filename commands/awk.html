@@ -171,21 +171,26 @@ cat hoge.txt | perl -nle '(!defined($min) || $min&gt;$_) and $min=$_; END{print 
 <p>-&gt; <a href="../programming_languages_diff/list/sum.html">数のリストの合計/平均を計算するには</a></p>
 
 <h3 id="78967d9">テキストファイルの各行の文字数を求めるには
-<span class="article-date">2015/09/08</span></h3>
+<span class="article-date">2015/09/29</span></h3>
 
 <p>各行の、行末の改行を除く文字数を求める例。バイト数ではなくあくまで文字数である。</p>
 
+<p>awkでの例とperlワンライナーでの例を載せておく。</p>
+
 <pre><code>$ cat hoge.txt | awk '{print length();}'
+$ cat hoge.txt | perl -MEncode -nle 'print length(decode_utf8($_))'
 </code></pre>
 
 <p>その最大値を求める例。</p>
 
-<pre><code>$ cat hoge.txt | awk '{print length();}' | awk 'NR==1 {max=$1} {if($1 &gt; max) max = $1} END {print max}'
+<pre><code>$ cat hoge.txt | awk '{print length();}' | awk 'NR==1 {max=$1} {if($1&gt;max) max = $1} END {print max}'
+$ cat hoge.txt | perl -MEncode -nle '$l=length(decode_utf8($_)); $max=$l if $max&lt;$l; END {print $max}'
 </code></pre>
 
 <p>または</p>
 
 <pre><code>$ cat hoge.txt | awk '{print length();}' | sort -rn | head -n1
+$ cat hoge.txt | perl -MEncode -nle 'print length(decode_utf8($_))' | sort -rn | head -n1
 </code></pre>
 
 <h3 id="314bf98">テキストファイルの偶数番目の行のみまたは奇数番目の行のみを抽出するには
