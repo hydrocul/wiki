@@ -281,6 +281,21 @@ sudo date -s "2013/09/04 12:17:00"
 fi
 </code></pre>
 
+<h3 id="7a90ad6">ファイルのタイムスタンプ(更新日時)を取得するには
+<span class="article-date">2015/10/01</span></h3>
+
+<p><code>ls -l foo.txt</code> でもファイルの情報を見ることができるが、更新日時に限定すれば、なぜか<code>date</code>コマンドでも見ることができる。</p>
+
+<pre><code>$ date -r foo.txt
+Tue Sep 29 14:15:04 JST 2015
+</code></pre>
+
+<p>もちろんフォーマットも指定できる。</p>
+
+<pre><code>$ date -r foo.txt "+%Y-%m-%d"
+2015-09-29
+</code></pre>
+
 </div>
 
 <div id="side-menu">
@@ -306,6 +321,7 @@ fi
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
+      <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
