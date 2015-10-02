@@ -21,12 +21,14 @@
 
 <div id="content">
   <h1 id="wc">wc コマンド
-<span class="article-date">2015/02/03</span></h1>
+<span class="article-date">2015/10/02</span></h1>
 
 <p><code>wc オプション ファイル名</code> またはパイプの形式で <code>cat ファイル名 | wc オプション</code> 
-のような形式で、行数や文字数などを数える。ファイルの行数を数えるのなら、パイプを使わずにファイル名をパラメータに渡したほうが速い。他のコマンドの出力を数えるにはパイプの形式を使う。</p>
+のようにして、行数や文字数などを数える。</p>
 
-<p>ファイル名は複数の引数で渡すこともできる。</p>
+<p>ファイルの行数を数えるのなら、パイプを使わずにファイル名をパラメータに渡したほうが速い。他のコマンドの出力を数えるにはパイプの形式を使う。</p>
+
+<p>ファイル名を引数で渡す場合は複数のファイル名を渡すこともできる。その場合は合計ではなく、ファイルごとに数えてくれる。</p>
 
 <p>行数はあくまで改行の数を数えているにすぎないことに注意。最後に改行のない行があった場合はその行がカウントされない。</p>
 
@@ -47,38 +49,37 @@
   <dd>バイト数を数える。最後に改行がある場合はそれも数える。</dd>
 </dl>
 
-<h2 id="c03403e">標準入力の行数を数えるには
-<span class="article-date">2014/06/14</span></h2>
+<h2 id="cd377a7">Perlのワンライナーで行数を数えるには
+<span class="article-date">2015/10/02</span></h2>
 
-<pre><code>cat example.txt | wc -l
-</code></pre>
-
-<p>ちなみにPerlのワンライナーを使いたければ、<code>$.</code> という暗黙の変数が便利。
+<p>Perlでは <code>$.</code> という暗黙の変数が便利。
 <code>$.</code> は最後に読み込んだファイルハンドルの現在の行番号を表す。以下のように使える。</p>
 
-<pre><code>perl -nle 'END {print $.}'
+<pre><code>$ perl -nle 'END {print $.}'
 </code></pre>
 
 <h2 id="2b36974">grepで行数をカウントするには
-<span class="article-date">2015/09/18</span></h2>
+<span class="article-date">2015/10/02</span></h2>
 
-<pre><code>grep -c '' example.txt
+<pre><code>$ grep -c '' example.txt
 </code></pre>
 
-<p>わずかに <code>wc -l</code> のほうが速い。一行がとても長いファイルだと、<code>wc -l</code> のほうが5倍以上速いケースもあるみたいで、わざわざ <code>grep</code> を使う必要性はないかもしれない。</p>
+<p>わずかに <code>wc -l</code> のほうが速い。一行がとても長いファイルだと、<code>wc -l</code> のほうが5倍以上速いケースもあり、行数を数えるだけであればわざわざ <code>grep</code> を使う必要性はほとんどない。</p>
 
-<p>ただ、最後の行に改行が含まれない場合、<code>wc -l</code> では最後の行をカウントしないが、
-<code>grep -c ''</code> では最後の行もカウントする、という違いがある。
+<p><code>grep -c ''</code>も<code>wc -l</code> もほとんどはIOに時間がかかる。CPUの使用量は<code>grep</code>のほうが多い。</p>
+
+<p>ただ、2つのコマンドはカウント結果が異なる場合がある。最後の行に改行が含まれない場合、<code>wc -l</code> では最後の行をカウントしないが、
+<code>grep -c ''</code> では最後の行もカウントする。
 <code>wc -l</code> は実際には行数ではなく改行の数を数えているためである。</p>
 
-<p>正規表現にマッチする行のみの行数をカウントする場合は</p>
+<p>なお、正規表現にマッチする行のみの行数をカウントする場合は</p>
 
-<pre><code>grep PATTERN example.txt | wc -l
+<pre><code>$ grep PATTERN example.txt | wc -l
 </code></pre>
 
 <p>よりも</p>
 
-<pre><code>grep -c PATTERN example.txt
+<pre><code>$ grep -c PATTERN example.txt
 </code></pre>
 
 <p>のほうが速い。</p>

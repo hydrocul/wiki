@@ -131,7 +131,7 @@ def java.lang.String#split(regex: String, limit: Int): Array[String]
 <p><code>scala.collection.immutable.StringLike</code> にある<code>Char</code>型で分割文字列を指定するメソッドも、結局は中で正規表現にされて、<code>java.lang.String#split</code> が呼び出される。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2015/07/17</span></h2>
+<span class="article-date">2015/10/02</span></h2>
 
 <p>例</p>
 
@@ -141,6 +141,33 @@ $arr = explode($separator, $str, $limit);
 </code></pre>
 
 <p><code>$str</code> に空文字列を与えると、空文字列だけの要素数1の配列が返される。</p>
+
+<pre><code>$str = "";
+var_export(explode("\n", $str));
+// 出力結果
+// array (
+//   0 =&gt; '',
+// )
+
+$str = "\n";
+var_export(explode("\n", $str));
+// 出力結果
+// array (
+//   0 =&gt; '',
+//   1 =&gt; '',
+// )
+
+$str = "abc\ndef\n\nghi\n";
+var_export(explode("\n", $str));
+// 出力結果
+// array (
+//   0 =&gt; 'abc',
+//   1 =&gt; 'def',
+//   2 =&gt; '',
+//   3 =&gt; 'ghi',
+//   4 =&gt; '',
+// )
+</code></pre>
 
 <p>正規表現でパターンマッチングして分割するには<code>preg_split</code>関数を使う。</p>
 
