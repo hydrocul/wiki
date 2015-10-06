@@ -54,7 +54,7 @@
 
 
 <h2 id="bash-zsh">cat を使ったファイルの作成と bash, zsh での機能
-<span class="article-date">2013/06/04</span></h2>
+<span class="article-date">2015/10/06</span></h2>
 
 <p>シェルから <code>cat</code> を使ってファイルを作成するには、以下のような方法がある。</p>
 
@@ -66,17 +66,15 @@ hogehoge
 
 <p>ただ、これは zsh では <code>cat</code> を使わなくても以下のようにできる。</p>
 
-<pre><code># zshの場合
-
-$ &gt; foo.txt
+<pre><code>$ &gt; foo.txt
 hogehoge
 # ここで Ctrl+D を押せば、標準入力が閉じられて、
 # 入力した内容がファイルに書きだされる。
 </code></pre>
 
-<p>bash では標準入力を端末で入力させてもらえずに、空っぽのファイルが書きだされる。ファイルが既存だった場合は、内容が削除され、強制的に空っぽのファイルになってしまう。</p>
+<p>bash ではこの方法だと標準入力を端末で入力させてもらえずに、空っぽのファイルが書きだされる。ファイルが既存だった場合は、内容が削除され、強制的に空っぽのファイルになってしまう。</p>
 
-<p>bash での動きは <code>touch</code> に似ているが、 <code>touch</code> は、ファイルが既存だった場合は、内容を削除せずにタイムスタンプだけ新しくする。</p>
+<p>bash での動きは <a href="touch.html"><code>touch</code></a> に似ているが、<code>touch</code> は、ファイルが既存だった場合は、内容を削除せずにタイムスタンプだけ新しくする。</p>
 
 <h2 id="20e6ffc">ディレクトリの中にあるすべてのファイルをまとめて閲覧するには
 <span class="article-date">2013/10/08</span></h2>
@@ -87,6 +85,43 @@ hogehoge
 </code></pre>
 
 <p>-&gt; <a href="../others/oneliner.html#less-many-files">たくさんのファイルをまとめて less で閲覧するには</a></p>
+
+<h2 id="2307da7"><code>cat</code>の使いみち
+<span class="article-date">2015/10/06</span></h2>
+
+<p>行数が膨大なテキストファイルに対してなにかの処理をしたい。</p>
+
+<p>処理に時間がかかってしまうが、その “なにか” を処理させるワンライナーが正しいかどうか不安で何度か試行錯誤する必要がある場合に、試行錯誤中は、テキストファイル全体を処理するのではなく、<a href="head.html"><code>head</code></a>でファイルの一部だけを処理してみる。</p>
+
+<p>ワンライナーが完成したときに、コマンド履歴の <code>head</code> を <code>cat</code> に書き換えるだけで処理を完成させることができる。</p>
+
+<p>“なにか” が仮に文字コード変換だとすると、こんな感じ。</p>
+
+<pre><code>## テキストファイルの文字コードがわからないが、とにかくUTF-8にしたい
+$ head huge.txt | nkf --guess
+CP932 (CRLF)
+
+## CP932 というのをUTF-8にするにはどうしたらいいんだっけ？
+$ head huge.txt | nkf -sW
+...
+
+## 違った、文字化けしちまった、こっちかな？
+$ head huge.txt | nkf -Sw
+...
+
+## 合ってた。さて、改行コードはどうなってる？
+$ head huge.txt | nkf -Sw | nkf --guess
+UTF-8 (CRLF)
+
+## 改行コードも直したい
+$ head huge.txt | nkf -Sw -Lu | nkf --guess
+UTF-8 (LF)
+
+## OK。じゃあ、本番
+$ cat huge.txt | nkf -Sw -Lu &gt; result.txt
+</code></pre>
+
+<p>最後の本番のコマンドは <code>nkf -Sw -Lu huge.txt &gt; result.txt</code> でもよいのだが、直前のコマンド履歴の <code>head</code> を <code>cat</code> に書き換えるだけのほうが、タイピングが楽で間違えないのである。このとき <code>cat</code> はほとんど意味のある仕事をしないが、タイピングを楽にすることに意味がある。</p>
 
 </div>
 
@@ -113,6 +148,7 @@ hogehoge
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
+      <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>

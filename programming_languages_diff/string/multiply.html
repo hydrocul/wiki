@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>同じ文字列を繰り返して連結するには (`*` / `x`) | hydroculのメモ</title>
+<title>同じ文字列を繰り返して連結するには(文字列の乗算みたいな) (`*` / `x`) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,11 +16,11 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>同じ文字列を繰り返して連結するには (`*` / `x`)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>同じ文字列を繰り返して連結するには(文字列の乗算みたいな) (`*` / `x`)</span>
 </div>
 
 <div id="content">
-  <h1 id="multiply">同じ文字列を繰り返して連結するには (<code>*</code> / <code>x</code>)
+  <h1 id="multiply">同じ文字列を繰り返して連結するには(文字列の乗算みたいな) (<code>*</code> / <code>x</code>)
 <span class="article-date">2015/07/27</span></h1>
 
 <table>
@@ -101,7 +101,7 @@ func main() {
 </code></pre>
 
 <p><code>str_repeat</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.str-repeat.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.str-repeat.php</a></p>
+<a href="http://php.net/manual/ja/function.str-repeat.php" target="_blank" class="external-link">http://php.net/manual/ja/function.str-repeat.php</a></p>
 
 <h2 id="python">Python
 <span class="article-date">2014/07/31</span></h2>
@@ -138,9 +138,9 @@ puts ([str] * 3).join(",")
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2015/01/21</span></h2>
+<span class="article-date">2015/10/06</span></h2>
 
-<p><code>x</code> という演算子で文字列の繰り返しができる。左辺に数字を与えられてもそれを文字列として繰り返す。数字の乗算演算子と記号が違うおかげである。<code>x</code> は<a href="../list/multiply.html#perl">配列に対しても使える</a>。</p>
+<p><code>x</code> という演算子で文字列の繰り返しができる。左辺に数字を与えられてもそれを文字列として繰り返す。よくも悪くも数字の乗算演算子と記号が違うおかげである。<code>x</code> は<a href="../list/multiply.html#perl">配列に対しても使える</a>。</p>
 
 <pre><code>print "abc" x 3;
 # =&gt; abcabcabc
@@ -178,7 +178,7 @@ print 1 x 3;
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (strip / trim)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</a></li>
-          <li>同じ文字列を繰り返して連結するには (<code>*</code> / <code>x</code>)</li>
+          <li>同じ文字列を繰り返して連結するには(文字列の乗算みたいな) (<code>*</code> / <code>x</code>)</li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
