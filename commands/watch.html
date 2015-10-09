@@ -32,7 +32,7 @@ watch -n 1 ls -al
 </code></pre>
 
 <h2 id="280718f">オプション
-<span class="article-date">2015/10/08</span></h2>
+<span class="article-date">2015/10/09</span></h2>
 
 <dl>
   <dt><code>-n</code> &lt;秒数&gt;</dt>
@@ -42,7 +42,13 @@ watch -n 1 ls -al
   <dt><code>-t</code></dt>
   <dd>普通は1行目に<code>watch</code>の情報として実行間隔や実行しているコマンドを表示しているが、
 このオプションを付けると、非表示になる。</dd>
+  <dt><code>-e</code></dt>
+  <dd>コマンドがエラー終了したらそれ以降はコマンドを実行しない</dd>
+  <dt><code>-g</code></dt>
+  <dd>コマンドの出力に変化があったら<code>watch</code>を終了する</dd>
 </dl>
+
+<p><code>-e</code>, <code>-g</code> は環境によって使える場合と使えない場合があるようです。手元の Ubuntu 14.04 では使えたが CentOS 6.3 では使えなかった。</p>
 
 <h2 id="cd3af01">パイプが含まれている場合
 <span class="article-date">2014/05/23</span></h2>

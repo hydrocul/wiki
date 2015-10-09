@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>オブジェクトのクラスを動的に判定するには | 型とクラス | プログラミング言語の比較 | hydroculのメモ</title>
+<title>オブジェクトのクラスを動的に判定するには (instanceof) | 型とクラス | プログラミング言語の比較 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,22 +16,27 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">型とクラス</a> &gt; <span>オブジェクトのクラスを動的に判定するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">型とクラス</a> &gt; <span>オブジェクトのクラスを動的に判定するには (instanceof)</span>
 </div>
 
 <div id="content">
-  <h1 id="instance-of">オブジェクトのクラスを動的に判定するには</h1>
+  <h1 id="instance-of">オブジェクトのクラスを動的に判定するには (instanceof)
+<span class="article-date">2015/10/09</span></h1>
+
+<p>あるインスタンスが特定のクラスのインスタンスかどうかを判定する方法。</p>
 
 <h2 id="2eb72d8">Java
-<span class="article-date">2013/08/02</span></h2>
+<span class="article-date">2015/10/09</span></h2>
 
-<p>変数に入っているオブジェクトのクラスを動的に判定する例</p>
+<p><code>instanceof</code> という演算子を使う。</p>
 
 <pre><code>Object obj = ...;
 if (obj instanceof Integer) {
     ...;
 }
 </code></pre>
+
+<p><code>instanceof</code> はインターフェースに対しても使える。</p>
 
 <h2 id="749902c">Scala
 <span class="article-date">2014/10/16</span></h2>
@@ -50,9 +55,9 @@ Javaの<code>instanceof</code>キーワードと同じようにコンパイル�
 <p>ただ、<code>isInstanceOf</code>メソッドを使うのではなく、<code>match</code>式を使うほうがScalaらしい。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2014/06/28</span></h2>
+<span class="article-date">2015/10/09</span></h2>
 
-<p>特定のクラスのインスタンスかどうかを判定する例</p>
+<p><code>instanceof</code> という演算子を使う。</p>
 
 <pre><code>if ($obj instanceof MyClass) {
     ...;
@@ -61,14 +66,14 @@ Javaの<code>instanceof</code>キーワードと同じようにコンパイル�
 
 <p><code>instanceof</code> はインターフェースに対しても使える。</p>
 
-<p>変数に入っている値が配列かどうかを判定する例</p>
+<p>配列かどうかを判定するには <code>is_array</code> という関数を使う。</p>
 
 <pre><code>if (is_array($obj)) {
     ...;
 }
 </code></pre>
 
-<p>整数型かどうかを判定する例</p>
+<p>整数型かどうかを判定するには <code>is_int</code> という関数を使う。</p>
 
 <pre><code>$x = "1";
 var_export(is_int($x)); // =&gt; false
@@ -186,7 +191,7 @@ print (ref $ref_func); # =&gt; CODE
           <li><a href="../../programming_languages_diff/class/constructor.html">コンストラクタとデストラクタ</a></li>
           <li><a href="../../programming_languages_diff/class/new.html">インスタンスを生成するには</a></li>
           <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
-          <li>オブジェクトのクラスを動的に判定するには</li>
+          <li>オブジェクトのクラスを動的に判定するには (instanceof)</li>
           <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
           <li><a href="../../programming_languages_diff/class/access-member.html">クラスメンバーへのアクセス</a></li>
           <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
