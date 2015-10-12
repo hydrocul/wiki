@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>その他 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>列挙型 | その他 | プログラミング言語の比較 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,27 +16,41 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>その他</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/etc/">その他</a> &gt; <span>列挙型</span>
 </div>
 
 <div id="content">
-  <h1 id="etc">その他</h1>
+  <h1 id="enum">列挙型</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="c">C言語
+<span class="article-date">2013/10/08</span></h2>
 
-<ul>
-  <li><a href="../../programming_languages_diff/etc/comment.html">コメントの書き方</a></li>
-  <li><a href="../../programming_languages_diff/etc/elvis.html">エルビス演算子</a></li>
-  <li><a href="../../programming_languages_diff/etc/enum.html">列挙型</a></li>
-  <li><a href="../../programming_languages_diff/etc/indent.html">インデント / セミコロン</a></li>
-  <li><a href="../../programming_languages_diff/etc/magic-comment.html">マジックコメント</a></li>
-  <li><a href="../../programming_languages_diff/etc/null.html">null</a></li>
-  <li><a href="../../programming_languages_diff/etc/object-id.html">オブジェクトのIDを取得するには (identityHashCode / object_id)</a></li>
-  <li><a href="../../programming_languages_diff/etc/op-assignment.html">複合代入演算子</a></li>
-  <li><a href="../../programming_languages_diff/etc/operator-list.html">演算子の一覧と優先順位</a></li>
-  <li><a href="../../programming_languages_diff/etc/reference.html">APIレファレンス</a></li>
-  <li><a href="../../programming_languages_diff/etc/ternary.html">三項演算子</a></li>
-</ul>
+<pre><code>enum FooType {
+    FOO1,
+    FOO2,
+    FOO3
+};
+</code></pre>
+
+<p>整数の定数を単に列挙しただけというイメージ。</p>
+
+<h2 id="java">Java
+<span class="article-date">2013/11/15</span></h2>
+
+<p>Java5から列挙型が使えるようになった。</p>
+
+<pre><code>public enum FooType {
+    FOO1,
+    FOO2,
+    FOO3,
+}
+</code></pre>
+
+<p><code>enum</code> で宣言したものは <code>java.lang.Enum</code> クラスのサブクラスの扱いになる。あくまでクラスの一種なので、内部クラスでない限り、ソースファイル名と列挙型名を同じにする必要があり、そのソースファイルには他のクラスを定義することができない。クラス定義の中に書けば、内部クラスの扱いになるので、この制約はない。</p>
+
+<p>列挙されている名前のリストの最後に余計なカンマがあっても問題ない。</p>
+
+<p><a href="../control_flow/switch.html#java">switch文では列挙型も使える</a>。</p>
 
 </div>
 
@@ -48,11 +62,11 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>その他
+      <li><a href="../../programming_languages_diff/etc/">その他</a>
         <ul>
           <li><a href="../../programming_languages_diff/etc/comment.html">コメントの書き方</a></li>
           <li><a href="../../programming_languages_diff/etc/elvis.html">エルビス演算子</a></li>
-          <li><a href="../../programming_languages_diff/etc/enum.html">列挙型</a></li>
+          <li>列挙型</li>
           <li><a href="../../programming_languages_diff/etc/indent.html">インデント / セミコロン</a></li>
           <li><a href="../../programming_languages_diff/etc/magic-comment.html">マジックコメント</a></li>
           <li><a href="../../programming_languages_diff/etc/null.html">null</a></li>

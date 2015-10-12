@@ -21,11 +21,15 @@
 
 <div id="content">
   <h1 id="cat">cat コマンド
-<span class="article-date">2014/09/17</span></h1>
+<span class="article-date">2015/10/11</span></h1>
 
 <p>ファイルまたは標準入力の内容をそのまま標準出力に出力するコマンド。ファイルの中身を確認するのによく使う。または、複数のファイルを指定することで、複数のファイルを連結するのに使う。</p>
 
 <p><code>cat</code>の反対は <a href="tac.html"><code>tac</code></a>(冗談ではなく、ほんとうにこういうコマンドがある)。</p>
+
+<p>入力の全部ではなく先頭の部分のみを出力したい場合は<a href="head.html"><code>head</code>コマンド</a>を、最後の部分のみを出力したい場合は<a href="tail.html"><code>tail</code>コマンド</a>を使う。</p>
+
+<p>入力の全部をターミナル上でスクロールしながら見るには<a href="less.html"><code>less</code>コマンド</a>を使う。</p>
 
 <h2 id="738c09d">オプション
 <span class="article-date">2013/08/06</span></h2>
@@ -52,6 +56,24 @@
 </script>
 </div>
 
+
+<h2 id="less">長いテキストファイルを見るには
+<span class="article-date">2015/10/11</span></h2>
+
+<p><code>cat</code> だとターミナル上を一瞬で流れてしまうので、最後の1画面分以外は見ることができない。</p>
+
+<p>ターミナルとしてWindowsのTera Termなどを使っていれば、ターミナルのスクロールバーで上のほうを確認できるかもしれない。</p>
+
+<p>または、<a href="tmux.html">tmux</a>などを使っていれば、tmuxのコマンドでスクロールさせ、上のほうを確認できるかもしれない。</p>
+
+<p>ただ大抵は<a href="less.html"><code>less</code>コマンド</a>を使うのが楽である。オススメは <code>less</code> に オプション <code>-XF</code> を付けること。</p>
+
+<pre><code>$ less -XF foo.txt
+</code></pre>
+
+<p><code>-X</code> は<code>less</code>を終了した後も最後に表示していた部分をターミナル上に残す。これがないとターミナルをクリアしてしまう。</p>
+
+<p><code>-F</code> はファイルが短くて1画面に収まる場合は <code>cat</code> と同じ挙動、つまり画面に表示した後、直ちにコマンドを終了する。</p>
 
 <h2 id="bash-zsh">cat を使ったファイルの作成と bash, zsh での機能
 <span class="article-date">2015/10/06</span></h2>
