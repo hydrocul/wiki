@@ -21,21 +21,27 @@
 
 <div id="content">
   <h1 id="cut">cut コマンド
-<span class="article-date">2013/11/21</span></h1>
+<span class="article-date">2015/10/13</span></h1>
 
-<p>タブ区切りでフィールドを選択して出力する。または文字単位・バイト単位で1行の中の場所を選択して出力する。</p>
+<p>タブ区切りでフィールドを選択して出力する、または文字単位・バイト単位で1行の中の場所を選択して出力するコマンド。</p>
 
-<p>例</p>
+<p>cutコマンドの使用例と、同じことをするPerlワンライナーの例</p>
 
-<pre><code># タブ区切りで最初の列と3列目だけを抽出して、タブ区切りで出力する
-cat &lt;file-path&gt; | cut -f1,3
+<pre><code>## タブ区切りで最初の列と3列目だけを抽出して、タブ区切りで出力する
+$ cat foo.txt | cut -f1,3
+$ cat foo.txt | perl -anle 'print "$F[0]\t$F[2]"'
 
-# 以下のようにしても列の順番は入れ替えてくれない
-cat &lt;file-path&gt; | cut -f3,1
+## 以下のようにしても列の順番は入れ替えてくれない
+$ cat foo.txt | cut -f3,1
+## Perlならできる
+$ cat foo.txt | perl -anle 'print "$F[2]\t$F[0]"'
 
-# 各行の4文字目以降を出力する
-cat &lt;file-path&gt; | cut -b4-
+## 各行の4文字目以降を出力する
+$ cat foo.txt | cut -b4-
+$ cat foo.txt | perl -MEncode -nle 'print encode_utf8(substr(decode_utf8($_), 3))'
 </code></pre>
+
+<p>cutコマンドでできる処理であれば、Perlワンライナーを書くよりも簡単にできる。</p>
 
 <h2 id="b13ce3d">オプション
 <span class="article-date">2013/10/08</span></h2>
@@ -56,22 +62,24 @@ cat &lt;file-path&gt; | cut -b4-
   <dd>フィールド単位ではなく文字単位で抽出する範囲を指定する</dd>
 </dl>
 
-<h2 id="5473724">フィールドの区切りをタブではなくスペースにして処理するには
-<span class="article-date">2013/06/17</span></h2>
+<h2 id="828e0c5">HOWTO</h2>
+
+<h3 id="cec7696">フィールドの区切りをタブではなくスペースにして処理するには
+<span class="article-date">2013/06/17</span></h3>
 
 <pre><code>cat &lt;file-path&gt; | cut -d' ' -f1,3
 </code></pre>
 
-<h2 id="ea99fad">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには
-<span class="article-date">2014/05/31</span></h2>
+<h3 id="a9e94cd">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには
+<span class="article-date">2014/05/31</span></h3>
 
 <p>例</p>
 
 <pre><code>cat hoge.txt | sed 's/[\t ]\+/\t/g' | cut -f1,3
 </code></pre>
 
-<h2 id="85b0656">タブをコマンドラインから指定するには
-<span class="article-date">2013/06/17</span></h2>
+<h3 id="9dcc6ab">タブをコマンドラインから指定するには
+<span class="article-date">2013/06/17</span></h3>
 
 <p><code>cut</code> は <code>-f</code> でフィールドを指定した場合、デフォルトでタブ区切りだが、コマンドラインからどうしてもタブ区切りであることを指定したい場合は、以下のように書けなくもない。</p>
 
