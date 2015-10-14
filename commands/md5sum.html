@@ -21,13 +21,21 @@
 
 <div id="content">
   <h1 id="md5sum">md5sum コマンド
-<span class="article-date">2013/10/16</span></h1>
+<span class="article-date">2015/10/14</span></h1>
 
 <p>MD5のハッシュ値を計算するコマンド。使い方は<a href="sha1sum.html">sha1sum</a>と同じ。</p>
 
-<p>例</p>
+<p>ファイルのハッシュ値を計算する例</p>
 
-<pre><code>echo -n "message" | md5sum
+<pre><code>$ md5sum a.txt b.txt
+80aceeaf54e7b65e618b4f60b967d9fc  a.txt
+9ce85ea91c077e7eeb0ee48affec4009  b.txt
+</code></pre>
+
+<p>標準入力のハッシュ値を計算する例</p>
+
+<pre><code>$ echo -n "あいうえお" | md5sum
+86deb27a32903da70a7b2348fcf36bc3  -
 </code></pre>
 
 <p>-&gt; <a href="../programming_languages_diff/string/hash.html">MD5を計算するには</a></p>

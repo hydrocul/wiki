@@ -21,13 +21,21 @@
 
 <div id="content">
   <h1 id="sha1sum">sha1sum コマンド
-<span class="article-date">2013/11/28</span></h1>
+<span class="article-date">2015/10/14</span></h1>
 
 <p>SHA1のハッシュ値を計算するコマンド。使い方は<a href="md5sum.html">md5sum</a>と同じ。</p>
 
-<p>例</p>
+<p>ファイルのハッシュ値を計算する例</p>
 
-<pre><code>cat ./foo.txt | sha1sum
+<pre><code>$ sha1sum a.txt b.txt
+e5b20d2eec521bd04bcd4e5a149962cb1e1b847e  a.txt
+70b81732f8c710dbc5ecc877252cbb5f8e49712b  b.txt
+</code></pre>
+
+<p>標準入力のハッシュ値を計算する例</p>
+
+<pre><code>$ echo -n "あいうえお" | sha1sum
+4ab0856318af20fa77d4492684fb8d9789e00cb6  -
 </code></pre>
 
 <p>-&gt; <a href="../programming_languages_diff/string/hash.html">SHA1を計算するには</a></p>
