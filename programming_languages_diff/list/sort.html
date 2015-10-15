@@ -134,7 +134,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num}  # 破壊的
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/sort_by=21.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/sort_by=21.html</a></p>
 
 <h2 id="e37fa1c">Perl
-<span class="article-date">2015/01/22</span></h2>
+<span class="article-date">2015/10/14</span></h2>
 
 <pre><code>sort(@arr)
 </code></pre>
@@ -149,6 +149,14 @@ Scalaの<code>sortBy</code>と同じ使い方ができる。</p>
 my @result = sort { length($a) &lt;=&gt; length($b) } @arr;
 print "@result";
 # =&gt; hi abc defg
+</code></pre>
+
+<p>中括弧のブロックを与えないと文字列の辞書順で比較するので、配列の要素が数値の場合はブロックを与える必要がある。</p>
+
+<pre><code>my @arr = qw/30 40 10 20/;
+my @result = sort { $a &lt;=&gt; $b } @arr;
+print "@result";
+# =&gt; 10 20 30 40
 </code></pre>
 
 <p>ただこの方法だとブロックの中の<code>length</code>を同じ要素に対して何度も計算することになるので、

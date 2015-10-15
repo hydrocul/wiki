@@ -40,6 +40,9 @@
 <h2 id="4c9d87b">オプション
 <span class="article-date">2014/12/29</span></h2>
 
+<h3 id="f7a63fc">文字コードの指定
+<span class="article-date">2014/12/29</span></h3>
+
 <p>以下のオプションで、大文字が入力の文字コード、小文字が出力の文字コードを表す。</p>
 
 <dl>
@@ -51,16 +54,38 @@
   <dd>EUC-JP (<strong>E</strong>UC-JP の E と覚える)</dd>
   <dt><code>-W</code>, <code>-w</code></dt>
   <dd>UTF-8。(由来はよくわからないが<strong>w</strong>orld<strong>w</strong>ideな文字コードと覚えている)</dd>
+</dl>
+
+<h3 id="b157839">改行コード
+<span class="article-date">2015/10/15</span></h3>
+
+<dl>
+  <dt><code>-Lu</code></dt>
+  <dd>改行コードをLF(0x0A)(Unixでよくある形式)に変換</dd>
+  <dt><code>-Lw</code></dt>
+  <dd>改行コードをCR+LF(0x0D 0x0A)(Windowsでよくある形式に変換</dd>
+  <dt><code>-Lm</code></dt>
+  <dd>改行コードをCR(0x0D)(Macでかつてよくあった形式に変換</dd>
+</dl>
+
+<h3 id="abbe038">その他
+<span class="article-date">2015/10/15</span></h3>
+
+<dl>
   <dt><code>-x</code></dt>
   <dd>半角カナを半角のままにする。このオプションを付けないと全角に変換される</dd>
+  <dt><code>-g</code>, <code>--guess</code></dt>
+  <dd>変換するのではなく、文字コードを推定する</dd>
+  <dt><code>--overwrite</code></dt>
+  <dd>変換した結果を標準出力するのではなく、元ファイルを上書きする</dd>
 </dl>
 
 <h2 id="0a28716">HOWTO</h2>
 
 <h3 id="4851c5c">文字コードを調べるには
-<span class="article-date">2013/06/24</span></h3>
+<span class="article-date">2015/10/15</span></h3>
 
-<p>文字コードが不明で、判別させるには、<code>--guess</code> を使う。ついでに改行コードも判別してくれる。</p>
+<p>文字コードが不明で、判別させるには、<code>-g</code> または <code>--guess</code> を使う。ついでに改行コードも判別してくれる。</p>
 
 <pre><code>nkf --guess foo.txt
 
@@ -68,23 +93,16 @@
 cat foo.txt | nkf --guess
 </code></pre>
 
-<h3 id="8189543">改行コードを変換するには
-<span class="article-date">2013/09/18</span></h3>
-
-<dl>
-  <dt><code>-Lu</code></dt>
-  <dd>LF(Unix形式)に変換</dd>
-  <dt><code>-Lw</code></dt>
-  <dd>CRLF(Windows形式)に変換</dd>
-  <dt><code>-Lm</code></dt>
-  <dd>CR(mac形式)に変換</dd>
-</dl>
-
 <h3 id="437216c">BASE64のエンコード・デコードをするには
 <span class="article-date">2014/10/04</span></h3>
 
 <p><code>nkf</code>コマンドでもBASE64ができるみたいで、<a href="base64.html#nkf"><code>base64</code>コマンドのページ</a>参照。ただ、<code>base64</code>コマンドのほうが多くの環境に入っているので、
 <code>nkf</code>をわざわざ使う理由はないかもしれない。</p>
+
+<h3 id="599144d">ファイルの文字コードを変更して上書きするには
+<span class="article-date">2015/10/15</span></h3>
+
+<p><code>--overwrite</code> というオプションを使う。この場合、入力は標準入力からではなく、ファイル名で与える必要がある。</p>
 
 </div>
 

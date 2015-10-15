@@ -56,29 +56,31 @@ proc_close($proc);
 <a href="http://php.net/manual/ja/function.proc-close.php" target="_blank" class="external-link">http://php.net/manual/ja/function.proc-close.php</a></p>
 
 <h2 id="93c5a26">Perl
-<span class="article-date">2015/07/27</span></h2>
+<span class="article-date">2015/10/15</span></h2>
 
-<pre><code>my $PARENT_READER;
-my $PARENT_WRITER;
-my $CHILD_READER;
+<pre><code>my $CHILD_READER;
 my $CHILD_WRITER;
-pipe($PARENT_READER, $CHILD_WRITER);
+my $PARENT_READER;
+my $PARENT_WRITER;
 pipe($CHILD_READER, $PARENT_WRITER);
+pipe($PARENT_READER, $CHILD_WRITER);
 
 my $pid1 = fork;
 if ($pid1) {
-    close $PARENT_READER;
-    close $PARENT_WRITER;
-    print $CHILD_WRITER "Name: foo\n";
-    print $CHILD_WRITER "Name: bar\n";
-    close $CHILD_WRITER;
-    print $_ foreach (&lt;$CHILD_READER&gt;);
-} else {
-    die unless defined $pid1;
+    # 親プロセス
     close $CHILD_READER;
     close $CHILD_WRITER;
-    open(STDIN, '&lt;&amp;=', fileno($PARENT_READER));
-    open(STDOUT, '&gt;&amp;=', fileno($PARENT_WRITER));
+    print $PARENT_WRITER "Name: foo\n";
+    print $PARENT_WRITER "Name: bar\n";
+    close $PARENT_WRITER;
+    print $_ foreach (&lt;$PARENT_READER&gt;);
+} else {
+    # 子プロセス
+    die unless defined $pid1;
+    close $PARENT_READER;
+    close $PARENT_WRITER;
+    open(STDIN, '&lt;&amp;=', fileno($CHILD_READER));
+    open(STDOUT, '&gt;&amp;=', fileno($CHILD_WRITER));
     exec('sed', 's/Name:/Hello,/g');
 }
 </code></pre>
