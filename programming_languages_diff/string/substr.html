@@ -52,7 +52,9 @@ String java.lang.String#substring(int from, int to)
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#substring-int-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#substring-int-</a></p>
 
 <h2 id="ba2a0e1">PHP
-<span class="article-date">2014/08/21</span></h2>
+<span class="article-date">2015/10/16</span></h2>
+
+<p><code>substr</code>関数を使う。</p>
 
 <p>例</p>
 
@@ -61,6 +63,12 @@ substr($str, $start);
 
 // $str の $start 以降の最大で$len文字の部分文字列
 substr($str, $start, $len])
+</code></pre>
+
+<p><code>substr</code>関数は文字列のつもりで間違って数値が入ってしまっても文字列に勝手に変換してくれるみたい。</p>
+
+<pre><code>var_export(substr("123", 1, 1)); // =&gt; '2'
+var_export(substr(123, 1, 1)); // =&gt; '2'
 </code></pre>
 
 <p><code>substr</code> 関数 | PHP Manual<br />

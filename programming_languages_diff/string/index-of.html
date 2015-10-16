@@ -88,7 +88,9 @@ int java.lang.String#lastIndexOf(String str, int fromIndex)
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#lastIndexOf-java.lang.String-int-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#lastIndexOf-java.lang.String-int-</a></p>
 
 <h2 id="18e1bfa">PHP
-<span class="article-date">2014/02/28</span></h2>
+<span class="article-date">2015/10/16</span></h2>
+
+<p><code>strpos</code>関数を使う。</p>
 
 <pre><code>strpos($mystring, $str)
 </code></pre>
@@ -109,6 +111,18 @@ int java.lang.String#lastIndexOf(String str, int fromIndex)
 
 <pre><code>if (strpos($str, $findme) !== FALSE)
 </code></pre>
+
+<p>PHPでは文字列と数値がしばしば勝手に変換されるので型の意識が薄れがちだが、
+2つ目の引数がたまたま数値になってしまっていたりすると意図したとおりには動かない。</p>
+
+<pre><code>var_export(strpos("123", "2"));  // =&gt; 1
+var_export(strpos("123", 2));    // =&gt; false
+var_export(strpos(123, "2"));    // =&gt; 1
+var_export(strpos(123, 2));      // =&gt; false
+</code></pre>
+
+<p><code>strpos</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.strpos.php" target="_blank" class="external-link">http://php.net/manual/ja/function.strpos.php</a></p>
 
 <h2 id="20e105a">Python
 <span class="article-date">2013/10/21</span></h2>
