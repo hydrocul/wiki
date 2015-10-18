@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)をコピーするには (clone) | hydroculのメモ</title>
+<title>複数の配列(リスト)を連結するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,203 +16,84 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)をコピーするには (clone)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>複数の配列(リスト)を連結するには</span>
 </div>
 
 <div id="content">
-  <h1 id="clone">配列(リスト)をコピーするには (clone)
-<span class="article-date">2013/10/22</span></h1>
-
-<p>イミュータブルなオブジェクトのコピーは意味がないので、ここではミュータブルなリストのコピーについて。</p>
-
-<h2 id="php">PHP
-<span class="article-date">2015/01/21</span></h2>
-
-<p>配列をコピーするには単に代入すればよい。</p>
-
-<pre><code>$src = array(1, 2, 3);
-$dst = $src;
-$src[0] = 10;
-
-var_export($src);
-// 出力結果
-// array (
-//   0 =&gt; 10,
-//   1 =&gt; 2,
-//   2 =&gt; 3,
-// )
-
-var_export($dst);
-// 出力結果
-// array (
-//   0 =&gt; 1,
-//   1 =&gt; 2,
-//   2 =&gt; 3,
-// )
-</code></pre>
-
-<p>要素が配列だとそれもコピーされるので、deep copyということか。</p>
-
-<pre><code>$src = array(1, array(2, 3));
-$dst = $src;
-$src[1][0] = 20;
-
-var_export($src);
-// 出力結果
-// array (
-//   0 =&gt; 1,
-//   1 =&gt;
-//   array (
-//     0 =&gt; 20,
-//     1 =&gt; 3,
-//   ),
-// )
-
-var_export($dst);
-// 出力結果
-// array (
-//   0 =&gt; 1,
-//   1 =&gt;
-//   array (
-//     0 =&gt; 2,
-//     1 =&gt; 3,
-//   ),
-// )
-)
-</code></pre>
-
-<p>PHPでは普通の配列と連想配列は同じものなので、<a href="../map/clone.html#php">連想配列のコピー</a>も同じ。</p>
-
-<h2 id="python">Python
-<span class="article-date">2015/04/26</span></h2>
-
-<p>NumPyでない普通の配列であれば以下の書き方を使う。</p>
-
-<pre><code>dst = src[:]
-</code></pre>
-
-<p><code>[:]</code> は<a href="sub-list.html#python">スライス表記</a>であり、この書き方で shallow copy が可能。</p>
-
-<p>例</p>
-
-<pre><code>arr1 = [1, 2, 3]
-arr2 = arr1[:]
-
-print(id(arr1))
-# =&gt; 139997756485216
-
-print(id(arr2))
-# =&gt; 139997756311240
-
-arr2[1] = 20
-
-print(arr2)
-# =&gt; [1, 20, 3]
-
-# コピー先で書き換えてもコピー元には影響しない
-print(arr1)
-# =&gt; [1, 2, 3]
-</code></pre>
-
-<p>なお、この書き方はNumPyではコピーにはならずビューを提供するのみになる。</p>
-
-<p>スライス表記を左辺に置いてもコピーにはなるが、左辺の変数が予めなんでもいいのでとにかく何かしらの配列である必要がある。この方法では、コピー先の変数に新しいオブジェクトが代入されるのではなく、既存の配列がコピー元と同じになるように書き換えられる。</p>
-
-<pre><code>dst[:] = src
-</code></pre>
-
-<p>例</p>
-
-<pre><code>arr1 = [1, 2, 3]
-arr2 = [100, 200, 300, 400]
-
-arr2[:] = arr1
-
-print(id(arr1))
-# =&gt; 139892140826208
-
-print(id(arr2))
-# =&gt; 139892140652232
-
-arr2[1] = 20
-
-print(arr2)
-# =&gt; [1, 20, 3]
-
-# コピー先で書き換えてもコピー元には影響しない
-print(arr1)
-# =&gt; [1, 2, 3]
-
-# この方法でコピーするとコピー先のIDは変わらない。
-print(id(arr2))
-# =&gt; 139892140652232
-</code></pre>
-
-<p>この左辺にスライス表記を使う方法はNumPyでもコピーになるが、コピー前の配列は同じ大きさである必要がある。</p>
-
-<p>または別の方法としては、<code>copy</code>モジュールがある。</p>
-
-<pre><code>import copy
-
-copy.copy(lst)     # shallow copy
-copy.deepcopy(lst) # deep copy
-</code></pre>
-
-<p>copy — 浅いコピーおよび深いコピー操作 | Python 標準ライブラリ<br />
-<a href="http://docs.python.jp/2.7/library/copy.html" target="_blank" class="external-link">http://docs.python.jp/2.7/library/copy.html</a></p>
+  <h1 id="concat">複数の配列(リスト)を連結するには
+<span class="article-date">2015/01/24</span></h1>
 
 <p>関連</p>
 
 <ul>
-  <li><a href="../../numpy/ndarray-copy.html">NumPyでのndarrayのコピー</a></li>
+  <li><a href="push.html">配列の最後に要素を追加するには</a></li>
+  <li><a href="unshift.html">配列の先頭に要素を追加するには</a></li>
 </ul>
 
-<h2 id="19e4557">Ruby / JRuby
-<span class="article-date">2014/12/31</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2015/07/29</span></h2>
 
-<p><code>Object#clone</code> または <code>Object#dup</code> を使う。</p>
+<p>複数の配列を連結するには<code>array_merge</code>関数を使う。この関数は引数の配列を変更せずに連結した結果を返すのみである。</p>
 
-<p>shallow copy である。</p>
+<pre><code>$a1 = array(1, 2, 3);
+$a2 = array(4, 5, 6);
+$result = array_merge($a1, $a2);
 
-<p><code>Array#clone</code>, <code>Array#dup</code> | Ruby 2.1 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/clone.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/clone.html</a></p>
-
-<h2 id="96029a6">Perl
-<span class="article-date">2015/03/03</span></h2>
-
-<p>shallow copy の例</p>
-
-<pre><code>my @src = ...;
-my @dst = @src
+var_export($a1); echo "\n";
+// =&gt;
+//    array (
+//      0 =&gt; 1,
+//      1 =&gt; 2,
+//      2 =&gt; 3,
+//    )
+var_export($a2); echo "\n";
+// =&gt;
+//    array (
+//      0 =&gt; 4,
+//      1 =&gt; 5,
+//      2 =&gt; 6,
+//    )
+var_export($result); echo "\n";
+// =&gt;
+//    array (
+//      0 =&gt; 1,
+//      1 =&gt; 2,
+//      2 =&gt; 3,
+//      3 =&gt; 4,
+//      4 =&gt; 5,
+//      5 =&gt; 6,
+//    )
 </code></pre>
 
-<p>代入するだけでコピーされる。</p>
+<p>配列のキーが数字以外の場合は、それぞれの配列のキーを変更せずに上書きでマージしていくので、要素が追加されるとは限らない。
+-&gt; <a href="../map/put-all.html#php">連想配列をマージ</a></p>
 
-<p>変数が配列へのレファレンスの場合の例</p>
+<p>3つ以上の配列を連結したい場合も、<code>array_merge</code> に渡す引数にそれらの配列を並べるだけでよい。</p>
 
-<pre><code>my $src = ...;
-my $dst = [@$src];
+<p><code>array_merge</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.array-merge.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-merge.php</a></p>
+
+<h2 id="268e828">Ruby / JRuby
+<span class="article-date">2015/01/06</span></h2>
+
+<p>配列を<code>+</code>演算子でつなぐと連結できる。</p>
+
+<pre><code>p ["abc", "def"] + ["123", "456"] # =&gt; ["abc", "def", "123", "456"]
 </code></pre>
 
-<p>デリファレンスしてから配列を生成し直している。</p>
+<p><code>Array#+</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=2b.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=2b.html</a></p>
 
 <h2 id="javascript">JavaScript
 <span class="article-date">2015/10/18</span></h2>
 
-<p>shallow copy</p>
+<p><code>Array.prototype.concat</code> は配列を連結した新しい配列を生成して返す。この関数は <code>this</code> も引数に渡した配列も変更しない。</p>
 
-<pre><code>arr_copy = arr.concat();
+<pre><code>var newArr = arr1.concat(arr2, arr3);
 </code></pre>
 
-<p>または</p>
-
-<pre><code>Array.prototype.clone = function(){
-    return Array.apply(null, this)
-}
-arr_copy = arr.clone();
-</code></pre>
-
-<p><code>concat()</code> というメソッドは<a href="concat.html#javascript">配列を連結</a>した新しい配列を生成するメソッドであるが、引数を与えないとコピーの目的でも使える。配列の要素自体はコピーしないので、shallow copyである。</p>
+<p>引数がない場合は結果として <code>arr1</code> と同じ内容の新しい配列を生成するだけなので、
+<a href="clone.html#javascript">配列のコピー</a>の目的でも使える。</p>
 
 </div>
 
@@ -262,7 +143,7 @@ arr_copy = arr.clone();
           <li><a href="../../programming_languages_diff/list/set.html">要素の値を設定するには (set)</a></li>
           <li><a href="../../programming_languages_diff/list/remove.html">要素をインデックスで指定して削除するには (delete_at / pop / remove / unset)</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値をすべて削除するには (delete / remove / <code>-</code>)</a></li>
-          <li>配列(リスト)をコピーするには (clone)</li>
+          <li><a href="../../programming_languages_diff/list/clone.html">配列(リスト)をコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">ソートするには (sort / sortBy / sorted / sortWith)</a></li>
           <li><a href="../../programming_languages_diff/list/convert.html">データ型を相互に変換するには (asList / asScala / asJava / to_a / toArray)</a></li>
@@ -270,7 +151,7 @@ arr_copy = arr.clone();
           <li><a href="../../programming_languages_diff/list/to-set.html">配列から集合を生成するには (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">配列(リスト)の中の最大値・最小値を求めるには (max, min)</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数の配列(リスト)の合計を計算するには (sum)</a></li>
-          <li><a href="../../programming_languages_diff/list/concat.html">複数の配列(リスト)を連結するには</a></li>
+          <li>複数の配列(リスト)を連結するには</li>
           <li><a href="../../programming_languages_diff/list/multiply.html">同じ配列を繰り返して連結するには (<code>x</code> / <code>*</code>)</a></li>
           <li><a href="../../programming_languages_diff/list/slice-replace.html">一部を別の配列で置き換えるには (array_splice / splice)</a></li>
           <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
