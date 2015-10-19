@@ -98,7 +98,7 @@ Groovyの演算子オーバーロードにより <code>str[2]</code> のよう�
 <a href="http://beta.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html#getAt(int)" target="_blank" class="external-link">http://beta.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html#getAt(int)</a></p>
 
 <h2 id="283e923">PHP
-<span class="article-date">2014/12/26</span></h2>
+<span class="article-date">2015/10/19</span></h2>
 
 <p><code>[]</code>演算子で0から始まるインデックスで文字を取得できる。</p>
 
@@ -123,6 +123,13 @@ PHP 5.3までだとなぜか <code>$str[0][0]</code> からはエラーになる
 </code></pre>
 
 <p>このコードをPHP 5.4以前で実行すると <code>PHP Parse error:  syntax error, unexpected '['</code> というエラーになる。</p>
+
+<p>Javaなどと同様の感覚で文字を文字コードの数値として取得するには</p>
+
+<pre><code>ord($str[$index])
+</code></pre>
+
+<p>のように<a href="ord.html#php"><code>ord</code></a>を使う。ただし、これは文字コードに関係なくバイト単位になるので、仮名や漢字などのマルチバイト文字の場合には取り扱いに注意が必要。</p>
 
 <h2 id="668d9a9">Python
 <span class="article-date">2015/02/15</span></h2>
@@ -226,7 +233,7 @@ print substr($s, 2, 1);
           <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
           <li><a href="../../programming_languages_diff/string/trim.html">前後の空白を削除するには (strip / trim)</a></li>
           <li><a href="../../programming_languages_diff/string/upper-lower.html">大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</a></li>
-          <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには (<code>*</code> / <code>x</code>)</a></li>
+          <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには(文字列の乗算みたいな) (<code>*</code> / <code>x</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/join.html">文字列の配列を特定の文字列で連結するには (implode / join / mkString)</a></li>
           <li><a href="../../programming_languages_diff/string/split.html">特定の文字やパターンで配列に分割するには (explode / split)</a></li>
           <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>

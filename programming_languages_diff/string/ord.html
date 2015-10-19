@@ -38,7 +38,7 @@ println('あ'.asInstanceOf[Int]) // =&gt; 12354
 
 <p>Unicodeの拡張領域の文字はJVM上では2つのchar型として表現されるので、この方法では拡張領域に対応できない。</p>
 
-<h2 id="8965784">PHP
+<h2 id="php">PHP
 <span class="article-date">2014/11/09</span></h2>
 
 <p><code>ord</code>関数を利用すればよいが、これは実際には文字列をバイナリの配列と見たときの最初の8ビットを整数にしているだけなので、マルチバイトには対応していない。</p>
