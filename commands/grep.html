@@ -63,7 +63,7 @@
 
 
 <h2 id="f911d96">オプション
-<span class="article-date">2015/06/29</span></h2>
+<span class="article-date">2015/10/21</span></h2>
 
 <dl>
   <dt><code>-a</code>, <code>--text</code>, <code>--binary-files=text</code></dt>
@@ -92,6 +92,11 @@ grepはバイナリファイルだと勘違いしてしまう。バイナリ扱�
   <dd>行ごとのバッファリングにする。<code>tail -f</code> などからパイプで受け取るときに便利。</dd>
   <dt><code>-n</code></dt>
   <dd>検索結果の出力に行番号をつける。</dd>
+  <dt><code>-H</code></dt>
+  <dd>検索結果の出力にファイル名を付ける。
+検索対象のファイルが1つの場合にはデフォルトではファイル名は出力されず、
+複数の場合にはデフォルトでファイル名が出力される。
+このオプションを付けるとたとえファイルが1つでもファイル名が出力される。</dd>
   <dt><code>-o</code></dt>
   <dd>マッチした部分のみを表示する。このオプションがなければマッチした行全体を表示する。</dd>
   <dt><code>-r</code></dt>
