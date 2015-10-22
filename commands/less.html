@@ -196,6 +196,37 @@ c.txt
 
 <p>-&gt; <a href="cat.html#less">長いテキストファイルを見るには</a></p>
 
+<h2 id="d0b1288">行番号を表示するには
+<span class="article-date">2015/10/21</span></h2>
+
+<p>オプション <code>-N</code> を使う。</p>
+
+<pre><code>$ less -N foo.txt
+1 Hello,
+2 World.
+</code></pre>
+
+<p><a href="cat.html"><code>cat</code>コマンド</a>で行番号を表示するには、オプション <code>-n</code> を使う。</p>
+
+<pre><code>$ cat -n foo.txt
+1 Hello,
+2 World.
+</code></pre>
+
+<p>いずれも行番号は1から始まる。</p>
+
+<p>行番号を0から始めるには、<code>less</code> や <code>cat</code> での方法がわからないので、自分は</p>
+
+<pre><code>$ cat foo.txt | perl -nle 'print "".($.-1)." $_"' | less
+</code></pre>
+
+<p>または<a href="awk.html"><code>awk</code></a>を使って</p>
+
+<pre><code>$ cat foo.txt | awk '{print NR-1 " " $0;}' | less
+</code></pre>
+
+<p>としている。</p>
+
 </div>
 
 <div id="side-menu">
