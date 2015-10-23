@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="wget">wget コマンド
-<span class="article-date">2015/03/31</span></h1>
+<span class="article-date">2015/10/23</span></h1>
 
 <p>HTTPアクセスをしてコンテンツをファイルに保存するコマンド。
 <a href="curl.html"><code>curl</code></a>でも同じようなことができるが、
@@ -36,10 +36,12 @@ URLからドメイン名やディレクトリ名を削ったものになる。�
 <p>GNU Wget 1.9 Manual 日本語<br />
 <a href="http://www.bookshelf.jp/texi/wget/wget-ja.html" target="_blank" class="external-link">http://www.bookshelf.jp/texi/wget/wget-ja.html</a></p>
 
+<p>※wgetの最新バージョンは2015年3月リリースの1.16.3 (2015/10/23確認)</p>
+
 <p>サーバに接続できなかったり、404などになってしまった場合は終了コード0以外が返される。</p>
 
 <h2 id="af0e4a7">オプション
-<span class="article-date">2015/04/03</span></h2>
+<span class="article-date">2015/10/23</span></h2>
 
 <dl>
   <dt><code>-O</code> ファイル名</dt>
@@ -56,6 +58,8 @@ URLからドメイン名やディレクトリ名を削ったものになる。�
 <code>-nv</code> も併用すると標準エラー出力に一覧が表示されて見やすい</dd>
   <dt><code>-x</code></dt>
   <dd>ドメイン名のディレクトリを作成してダウンロードする。再帰的なダウンロード <code>-r</code> を指定した場合と同様である</dd>
+  <dt><code>--version</code></dt>
+  <dd>wgetのバージョン番号を表示</dd>
 </dl>
 
 <h3 id="ba45dbf">再帰的なダウンロードに関するオプション
