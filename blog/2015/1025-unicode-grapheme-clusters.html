@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Unicodeのgrapheme clusters | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2015/">2015年</a> &gt; <span>Unicodeのgrapheme clusters</span>
+</div>
+
+<div id="content">
+  <h1 id="1025-unicode-grapheme-clusters">Unicodeのgrapheme clusters
+<span class="article-date">2015/10/25</span></h1>
+
+<p>Unicodeテキストを1文字ずつ分割するアルゴリズムをUnicodeの仕様として定められており、grapheme clusters (書記素クラスタ)と呼ばれる。</p>
+
+<p>普通はUnicodeのコードポイント1つずつ文字が割り当てられているので、ほとんどはコードポイント1つが1文字になるのだが、たまにコードポイント2つ以上で1文字になるものもあり、
+1文字ずつテキストを分解するのは意外と複雑なルールになる。</p>
+
+<p>Grapheme clusters について書かれている公式のドキュメントは以下にある。</p>
+
+<p>Unicode® Standard Annex #29 UNICODE TEXT SEGMENTATION<br />
+<a href="http://unicode.org/reports/tr29/" target="_blank" class="external-link">http://unicode.org/reports/tr29/</a></p>
+
+<p>この記事は公式ドキュメントを読んで理解したことを書いたつもり。</p>
+
+<h2 id="7a955af">Grapheme clusters の仕様に関する注意事項
+<span class="article-date">2015/10/25</span></h2>
+
+<p>Unicodeで定められている grapheme clusters の境界は、文字の境界としてこれを使わないといけないというものではない。地域や目的によってはこれを修正したアルゴリズムを使ってもよい。</p>
+
+<h2 id="b92b3d6">Unicode正規化との関係
+<span class="article-date">2015/10/25</span></h2>
+
+<p>NFCまたはNFDで正規化をしてもこの grapheme clusters の境界は変わらない。</p>
+
+<p>NFKCまたはNFKDで正規化をすると grapheme clusters の境界は変わり得る。</p>
+
+<p>例えば、”ﬀ” (U+FB00) は grapheme clusters では1文字の扱いだが、
+NFKCまたはNFKDで正規化すると “ff” (U+0066 U+0066) になり、2文字になる。</p>
+
+<h2 id="d77f5a1">Grapheme clusters の概要
+<span class="article-date">2015/10/25</span></h2>
+
+<p>人間が考える “文字” はUnicodeのコードポイント1つで表現できるとは限らない。
+2つ以上のコードポイントを組み合わせて構成する文字もたくさんある。</p>
+
+<p>例えば</p>
+
+<p>á</p>
+
+<p>という文字は、人間にとって1文字と認識するが、コードポイント2つ(U+0061 U+0301)で構成される。
+(ただし、 “á” は U+00E1 という1つのコードポイントでも表現できる)</p>
+
+<p>Grapheme clusters の境界は、検索、正規表現でのマッチング処理、UIなどで重要である。</p>
+
+<p>マウスなどでテキストを範囲指定するときには、文字単位であってコードポイント単位ではなく、このとき grapheme clusters が使われる。
+U+0061 U+0301 という並びがあったときに U+0301 だけが選択できてはいけない。また、テキストエディタやワープロなどで、U+0061 U+0301 という並びの右にカーソルがある状態で、
+Backspaceを押したときに U+0301 だけが削除されるのではなく、2つのコードポイントが一度に削除されるべきである。ひらがなでも “が” の濁点だけがマウスで選択できたり、右にカーソルがある状態でカーソルの左を押したら “か” と濁点の間にカーソルが表示されたりすると、びっくりするだろう。</p>
+
+<p>ハングルのテキストに対して “하” (U+1112 U+1161) で検索したときに 
+“한” (U+1112 U+1161 U+11AB) という文字はヒットしてほしくないが、
+grapheme clusters を考慮せずに、単にコードポイントを比較したらヒットしてしまうだろう。</p>
+
+<p>Unicodeでは legacy grapheme clusters と extended grapheme clusters という2つの 
+grapheme clusters を定める。大抵の場合は extended grapheme clusters を使うことが推奨されている。
+Legacy grapheme clusters は過去のUnicodeの仕様で互換性のために残されている。</p>
+
+<p>Grapheme clusters の例 (legacy grapheme clusters と extended grapheme clusters で共通)</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>ã</td>
+      <td>U+0061 U+0303</td>
+      <td>結合文字は直前のコードポイントと繋がる</td>
+    </tr>
+    <tr>
+      <td>각</td>
+      <td>U+1100 U+1161 U+11A8</td>
+      <td>ハングル字母は組み合わせて1文字になる</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Extended grapheme clusters の例</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>நி</td>
+      <td>U+0BA8 U+0BBF</td>
+      <td>インドのタミル語の文字は子音と母音を組み合わせて1文字になる</td>
+    </tr>
+    <tr>
+      <td>กำ</td>
+      <td>U+0E01 U+0E33</td>
+      <td>タイ語の文字も子音と母音を組み合わせて1文字になる</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Legacy grapheme clusters でも extended grapheme clusters でもないが、地域によっては独自に grapheme clusters を定義して1文字と扱うべき例</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>ch</td>
+      <td>U+0063 U+0068</td>
+      <td>ほとんどの人にはこれは2文字に見えるだろうが、<br />チェコやスロバキアではこれは1文字である</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="4b5e934">Grapheme clusters の定義で使われる文字種
+<span class="article-date">2015/10/25</span></h2>
+
+<p>Grapheme clusters の境界を定義するために以下の文字種が定義されている。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>CR</td>
+      <td>U+000D CARRIAGE RETURN</td>
+    </tr>
+    <tr>
+      <td>LF</td>
+      <td>U+000A LINE FEED</td>
+    </tr>
+    <tr>
+      <td>Control</td>
+      <td>コントロール文字、私用領域など</td>
+    </tr>
+    <tr>
+      <td>Extend</td>
+      <td>結合文字、インド・東南アジアのコードポイントの一部など</td>
+    </tr>
+    <tr>
+      <td>SpacingMark</td>
+      <td>インド・東南アジアのコードポイントの一部など</td>
+    </tr>
+    <tr>
+      <td>Regional_Indicator</td>
+      <td>U+1F1E6..U+1F1FF</td>
+    </tr>
+    <tr>
+      <td>L</td>
+      <td>ハングル字母の初声</td>
+    </tr>
+    <tr>
+      <td>V</td>
+      <td>ハングル字母の中声</td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>ハングル字母の終声</td>
+    </tr>
+    <tr>
+      <td>LV</td>
+      <td>ハングル音節文字のうち終声のないもの</td>
+    </tr>
+    <tr>
+      <td>LVT</td>
+      <td>ハングル音節文字のうち終声のあるもの</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>大部分のコードポイントはこの文字種のいずれにも該当しない。</p>
+
+<p>コードポイントがどの文字種に該当するかの情報は Unicode Character Database に保存されている。</p>
+
+<p>GraphemeBreakProperty.txt | Unicode Character Database | Unicode Consortium<br />
+<a href="http://www.unicode.org/Public/UCD/latest/ucd/auxiliary/GraphemeBreakProperty.txt" target="_blank" class="external-link">http://www.unicode.org/Public/UCD/latest/ucd/auxiliary/GraphemeBreakProperty.txt</a></p>
+
+<p><strong>Control</strong> には例えば以下が含まれる。</p>
+
+<ul>
+  <li>U+0000..U+001F のうち U+000A, U+000D 以外</li>
+  <li>U+007F..U+009F</li>
+</ul>
+
+<p><strong>Extend</strong> には例えば以下が含まれる。</p>
+
+<ul>
+  <li>U+0300..U+036F (アクセント記号などの結合文字)</li>
+  <li>U+200C, U+200D (ZERO WIDTH NON-JOINER, ZERO WIDTH JOINER)</li>
+  <li>U+3099, U+309A (仮名の濁点・半濁点の結合文字)</li>
+  <li>U+FE00..U+FE0F (異体字セレクタ)</li>
+  <li>U+FF9E, U+FF9F (半角仮名の濁点・半濁点)</li>
+  <li>U+E0100..U+E01EF (漢字用の異体字セレクタ)</li>
+</ul>
+
+<p>結合文字でない濁点・半濁点(U+309B, U+309C)は Extend には含まれない。</p>
+
+<p><strong>SpacingMark</strong> はインド・東南アジアの文字など多数含まれる。</p>
+
+<p><strong>Regional_Indicator</strong> は U+1F1E6..U+1F1FF で国旗の絵文字などを表すのに使われる。例えば U+1F1EF U+1F1F5 は最近のOSやブラウザでは日本の国旗を表示する。日の丸が表示されているだろうか? -&gt; 🇯🇵</p>
+
+<h2 id="0d47ff4">Grapheme clusters の境界定義
+<span class="article-date">2015/10/25</span></h2>
+
+<p>以下のルールが grapheme clusters の定義の本体である。</p>
+
+<p>上のほうが優先度が高い。</p>
+
+<ol>
+  <li>
+    <p>テキストの先頭と最後は境界になる。</p>
+  </li>
+  <li>
+    <p>CR の次に LF が続く箇所は境界にならない</p>
+  </li>
+  <li>
+    <p>Control, CR, LF の前と後ろは境界になる</p>
+  </li>
+  <li>
+    <p>L の次に L, V, LV, LVT のいずれかが続く箇所は境界にならない</p>
+  </li>
+  <li>
+    <p>LV または V の次に V または T が続く箇所は境界にならない</p>
+  </li>
+  <li>
+    <p>LVT または T の次に T が続く箇所は境界にならない</p>
+  </li>
+  <li>
+    <p>Regional_Indicator が連続する箇所は境界にならない</p>
+  </li>
+  <li>
+    <p>Extend の前は境界にならない</p>
+  </li>
+  <li>
+    <p>SpacingMark の前は境界にならない (extended grapheme clusters でのみ適用されるルール)</p>
+  </li>
+  <li>
+    <p>上記ルールが適用されないすべての箇所は境界になる</p>
+  </li>
+</ol>
+
+<h2 id="d31134c">国旗の絵文字
+<span class="article-date">2015/10/25</span></h2>
+
+<p>2つ以上の連続する Regional_Indicator はそれ全体で1文字の扱いになる。</p>
+
+<p>Regional_Indicator は26個のアルファベットの数だけ用意されており、
+2つの Reginal_Indicator のコードポイントで国コードを表すことで、国旗の絵文字を表現するために使われる。</p>
+
+<p>例えば Regional_Indicator の J と P は U+1F1EF と U+1F1F5 であり、この2つを並べると閲覧環境が対応していれば日の丸の絵文字になる。</p>
+
+<p>Regional_Indicator のコードポイントを連続して並べてしまうと、
+grapheme clusters の定義によりそれが全体で1文字の扱いを受けてしまう。</p>
+
+<p>2つ以上の国旗を連続させる場合には、全体が1文字とならないように、国旗の間に 
+Regional_Indicator 以外のコードポイントを置く必要がある。その場合 U+200B ZERO WIDTH SPACE が便利である。</p>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../blog/">ブログ</a>
+    <ul>
+      <li><a href="../../blog/2015/">2015年</a>
+        <ul>
+          <li><a href="../../blog/2015/0201-calendar.html">4段に収まるカレンダー</a></li>
+          <li><a href="../../blog/2015/0421-colored-stderr.html">標準エラー出力に色を付けて標準出力と区別しやすいようにするには</a></li>
+          <li><a href="../../blog/2015/0720-mecab-unidic-furigana.html">MeCabとUniDicの辞書でふりがなを振る方法</a></li>
+          <li><a href="../../blog/2015/0829-mecab-mistake-1.html">MeCabでの形態素解析の誤解析例: 助詞で/でも</a></li>
+          <li>Unicodeのgrapheme clusters</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>
