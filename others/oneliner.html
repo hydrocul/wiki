@@ -90,12 +90,18 @@ echo %E3%81%82 | tr % = | nkf -WmQ
 </ul>
 
 <h2 id="unicode-escape-decode">Unicodeエスケープをデコードするには
-<span class="article-date">2013/04/16</span></h2>
+<span class="article-date">2015/10/26</span></h2>
 
-<p>Unicodeエスケープは、<code>\u5c71</code> のようなもの。</p>
+<p>Unicodeエスケープは、<code>\u5c71</code> のようにコードポイントを16進数で表記したもの。</p>
 
-<pre><code>cat ファイル名 | ruby -ne 'print $_.gsub(/\\u([0-9a-f]{4})/){[$1.hex].pack("U")}'
+<pre><code>## Perlでのワンライナーの例
+$ cat foo.txt | perl -MEncode -nle 's/\\u([a-fA-F0-9]{4})/encode_utf8(chr(hex($1)))/eg; print'
+
+## Rubyでのワンライナーの例
+$ cat foo.txt | ruby -ne 'print $_.gsub(/\\u([0-9a-f]{4})/){[$1.hex].pack("U")}'
 </code></pre>
+
+<p>この例では、16ビットを超えるコードポイントには対応していない。</p>
 
 <h2 id="less-many-files">たくさんのファイルをまとめて less で閲覧するには</h2>
 
