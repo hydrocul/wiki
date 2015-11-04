@@ -249,7 +249,7 @@ Legacy grapheme clusters は過去のUnicodeの仕様で互換性のために残
 </ol>
 
 <h2 id="d31134c">国旗の絵文字
-<span class="article-date">2015/10/25</span></h2>
+<span class="article-date">2015/11/04</span></h2>
 
 <p>2つ以上の連続する Regional_Indicator はそれ全体で1文字の扱いになる。</p>
 
@@ -261,8 +261,9 @@ Legacy grapheme clusters は過去のUnicodeの仕様で互換性のために残
 <p>Regional_Indicator のコードポイントを連続して並べてしまうと、
 grapheme clusters の定義によりそれが全体で1文字の扱いを受けてしまう。</p>
 
-<p>2つ以上の国旗を連続させる場合には、全体が1文字とならないように、国旗の間に 
-Regional_Indicator 以外のコードポイントを置く必要がある。その場合 U+200B ZERO WIDTH SPACE が便利である。</p>
+<p>2つ以上の国旗を連続させる場合には、全体が1文字とならないように、国旗と国旗との間に 
+Regional_Indicator 以外のコードポイントを置く必要がある。その場合 U+200B ZERO WIDTH SPACE が便利である。
+U+200B は Control に分類されている。</p>
 
 </div>
 
