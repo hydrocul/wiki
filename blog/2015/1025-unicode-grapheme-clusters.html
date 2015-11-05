@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Unicodeのgrapheme clusters (書記素クラスタ) | hydroculのメモ</title>
+<title>Unicodeのgrapheme cluster (書記素クラスタ) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,41 +16,41 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2015/">2015年</a> &gt; <span>Unicodeのgrapheme clusters (書記素クラスタ)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2015/">2015年</a> &gt; <span>Unicodeのgrapheme cluster (書記素クラスタ)</span>
 </div>
 
 <div id="content">
-  <h1 id="1025-unicode-grapheme-clusters">Unicodeのgrapheme clusters (書記素クラスタ)
+  <h1 id="1025-unicode-grapheme-clusters">Unicodeのgrapheme cluster (書記素クラスタ)
 <span class="article-date">2015/10/25</span></h1>
 
-<p>Unicodeテキストを1文字ずつ分割するアルゴリズムをUnicodeの仕様として定められており、grapheme clusters (書記素クラスタ)と呼ばれる。</p>
+<p>Unicodeテキストを1文字ずつ分割するアルゴリズムをUnicodeの仕様として定められており、grapheme cluster (書記素クラスタ)と呼ばれる。</p>
 
 <p>普通はUnicodeのコードポイント1つずつ文字が割り当てられているので、ほとんどはコードポイント1つが1文字になるのだが、たまにコードポイント2つ以上で1文字になるものもあり、
 1文字ずつテキストを分解するのは意外と複雑なルールになる。</p>
 
-<p>Grapheme clusters について書かれている公式のドキュメントは以下にある。</p>
+<p>Grapheme cluster について書かれている公式のドキュメントは以下にある。</p>
 
 <p>Unicode® Standard Annex #29 UNICODE TEXT SEGMENTATION<br />
 <a href="http://unicode.org/reports/tr29/" target="_blank" class="external-link">http://unicode.org/reports/tr29/</a></p>
 
 <p>この記事は公式ドキュメントを読んで理解したことを書いたつもり。</p>
 
-<h2 id="7a955af">Grapheme clusters の仕様に関する注意事項
+<h2 id="3f029d3">Grapheme cluster の仕様に関する注意事項
 <span class="article-date">2015/10/25</span></h2>
 
-<p>Unicodeで定められている grapheme clusters の境界は、文字の境界としてこれを使わないといけないというものではない。地域や目的によってはこれを修正したアルゴリズムを使ってもよい。</p>
+<p>Unicodeで定められている grapheme cluster の境界は、文字の境界としてこれを使わないといけないというものではない。地域や目的によってはこれを修正したアルゴリズムを使ってもよい。</p>
 
 <h2 id="b92b3d6">Unicode正規化との関係
 <span class="article-date">2015/10/25</span></h2>
 
-<p>NFCまたはNFDで正規化をしてもこの grapheme clusters の境界は変わらない。</p>
+<p>NFCまたはNFDで正規化をしてもこの grapheme cluster の境界は変わらない。</p>
 
-<p>NFKCまたはNFKDで正規化をすると grapheme clusters の境界は変わり得る。</p>
+<p>NFKCまたはNFKDで正規化をすると grapheme cluster の境界は変わり得る。</p>
 
-<p>例えば、”ﬀ” (U+FB00) は grapheme clusters では1文字の扱いだが、
+<p>例えば、”ﬀ” (U+FB00) は grapheme cluster では1文字の扱いだが、
 NFKCまたはNFKDで正規化すると “ff” (U+0066 U+0066) になり、2文字になる。</p>
 
-<h2 id="d77f5a1">Grapheme clusters の概要
+<h2 id="867a38f">Grapheme cluster の概要
 <span class="article-date">2015/10/25</span></h2>
 
 <p>人間が考える “文字” はUnicodeのコードポイント1つで表現できるとは限らない。
@@ -63,21 +63,21 @@ NFKCまたはNFKDで正規化すると “ff” (U+0066 U+0066) になり、2文
 <p>という文字は、人間にとって1文字と認識するが、コードポイント2つ(U+0061 U+0301)で構成される。
 (ただし、 “á” は U+00E1 という1つのコードポイントでも表現できる)</p>
 
-<p>Grapheme clusters の境界は、検索、正規表現でのマッチング処理、UIなどで重要である。</p>
+<p>Grapheme cluster の境界は、検索、正規表現でのマッチング処理、UIなどで重要である。</p>
 
-<p>マウスなどでテキストを範囲指定するときには、文字単位であってコードポイント単位ではなく、このとき grapheme clusters が使われる。
+<p>マウスなどでテキストを範囲指定するときには、文字単位であってコードポイント単位ではなく、このとき grapheme cluster が使われる。
 U+0061 U+0301 という並びがあったときに U+0301 だけが選択できてはいけない。また、テキストエディタやワープロなどで、U+0061 U+0301 という並びの右にカーソルがある状態で、
 Backspaceを押したときに U+0301 だけが削除されるのではなく、2つのコードポイントが一度に削除されるべきである。ひらがなでも “が” の濁点だけがマウスで選択できたり、右にカーソルがある状態でカーソルの左を押したら “か” と濁点の間にカーソルが表示されたりすると、びっくりするだろう。</p>
 
 <p>ハングルのテキストに対して “하” (U+1112 U+1161) で検索したときに 
 “한” (U+1112 U+1161 U+11AB) という文字はヒットしてほしくないが、
-grapheme clusters を考慮せずに、単にコードポイントを比較したらヒットしてしまうだろう。</p>
+grapheme cluster を考慮せずに、単にコードポイントを比較したらヒットしてしまうだろう。</p>
 
-<p>Unicodeでは legacy grapheme clusters と extended grapheme clusters という2つの 
-grapheme clusters を定める。大抵の場合は extended grapheme clusters を使うことが推奨されている。
-Legacy grapheme clusters は過去のUnicodeの仕様で互換性のために残されている。</p>
+<p>Unicodeでは legacy grapheme cluster と extended grapheme cluster という2つの 
+grapheme cluster を定める。大抵の場合は extended grapheme cluster を使うことが推奨されている。
+Legacy grapheme cluster は過去のUnicodeの仕様で互換性のために残されている。</p>
 
-<p>Grapheme clusters の例 (legacy grapheme clusters と extended grapheme clusters で共通)</p>
+<p>Grapheme cluster の例 (legacy grapheme cluster と extended grapheme cluster で共通)</p>
 
 <table>
   <tbody>
@@ -94,7 +94,7 @@ Legacy grapheme clusters は過去のUnicodeの仕様で互換性のために残
   </tbody>
 </table>
 
-<p>Extended grapheme clusters の例</p>
+<p>Extended grapheme cluster の例</p>
 
 <table>
   <tbody>
@@ -111,7 +111,7 @@ Legacy grapheme clusters は過去のUnicodeの仕様で互換性のために残
   </tbody>
 </table>
 
-<p>Legacy grapheme clusters でも extended grapheme clusters でもないが、地域によっては独自に grapheme clusters を定義して1文字と扱うべき例</p>
+<p>Legacy grapheme cluster でも extended grapheme cluster でもないが、地域によっては独自に grapheme cluster を定義して1文字と扱うべき例</p>
 
 <table>
   <tbody>
@@ -123,10 +123,10 @@ Legacy grapheme clusters は過去のUnicodeの仕様で互換性のために残
   </tbody>
 </table>
 
-<h2 id="4b5e934">Grapheme clusters の定義で使われる文字種
-<span class="article-date">2015/10/25</span></h2>
+<h2 id="3ba5809">Grapheme cluster の定義で使われる文字種
+<span class="article-date">2015/11/05</span></h2>
 
-<p>Grapheme clusters の境界を定義するために以下の文字種が定義されている。</p>
+<p>Grapheme cluster の境界を定義するために以下の文字種が定義されている。</p>
 
 <table>
   <tbody>
@@ -152,7 +152,7 @@ Legacy grapheme clusters は過去のUnicodeの仕様で互換性のために残
     </tr>
     <tr>
       <td>Regional_Indicator</td>
-      <td>U+1F1E6..U+1F1FF</td>
+      <td>国旗の絵文字を構成するコード</td>
     </tr>
     <tr>
       <td>L</td>
@@ -174,10 +174,14 @@ Legacy grapheme clusters は過去のUnicodeの仕様で互換性のために残
       <td>LVT</td>
       <td>ハングル音節文字のうち終声のあるもの</td>
     </tr>
+    <tr>
+      <td>Any</td>
+      <td>上記以外すべて</td>
+    </tr>
   </tbody>
 </table>
 
-<p>大部分のコードポイントはこの文字種のいずれにも該当しない。</p>
+<p>すべてのコードポイントはこの文字種のいずれかに該当する。</p>
 
 <p>コードポイントがどの文字種に該当するかの情報は Unicode Character Database に保存されている。</p>
 
@@ -208,10 +212,10 @@ Legacy grapheme clusters は過去のUnicodeの仕様で互換性のために残
 
 <p><strong>Regional_Indicator</strong> は U+1F1E6..U+1F1FF で国旗の絵文字などを表すのに使われる。例えば U+1F1EF U+1F1F5 は最近のOSやブラウザでは日本の国旗を表示する。日の丸が表示されているだろうか? -&gt; 🇯🇵</p>
 
-<h2 id="0d47ff4">Grapheme clusters の境界定義
-<span class="article-date">2015/10/25</span></h2>
+<h2 id="dc8a083">Grapheme cluster の境界定義
+<span class="article-date">2015/11/05</span></h2>
 
-<p>以下のルールが grapheme clusters の定義の本体である。</p>
+<p>以下のルールが grapheme cluster の定義の本体である。</p>
 
 <p>上のほうが優先度が高い。</p>
 
@@ -241,12 +245,17 @@ Legacy grapheme clusters は過去のUnicodeの仕様で互換性のために残
     <p>Extend の前は境界にならない</p>
   </li>
   <li>
-    <p>SpacingMark の前は境界にならない (extended grapheme clusters でのみ適用されるルール)</p>
+    <p>SpacingMark の前は境界にならない (extended grapheme cluster でのみ適用されるルール)</p>
   </li>
   <li>
     <p>上記ルールが適用されないすべての箇所は境界になる</p>
   </li>
 </ol>
+
+<p>“ã” などのように結合文字が前のコードポイントと結合するのは上記ルール8による。結合文字は直前の文字と結合するが、直前のコードポイントが Control や改行(LF, CR)の場合はルール3により結合せずに単独で文字の扱いになる。</p>
+
+<p>半角カナの濁点・半濁点も Extend に分類されるので、前の文字に結合する。前の文字と結合できないのは前の文字が Control や改行(LF, CR)の場合に限る。つまり前の文字は仮名に限らず、Control や改行(LF, CR)以外のすべての文字と結合できるので、
+“a゙” みたいなのも1文字の扱いになる。</p>
 
 <h2 id="d31134c">国旗の絵文字
 <span class="article-date">2015/11/04</span></h2>
@@ -259,11 +268,17 @@ Legacy grapheme clusters は過去のUnicodeの仕様で互換性のために残
 <p>例えば Regional_Indicator の J と P は U+1F1EF と U+1F1F5 であり、この2つを並べると閲覧環境が対応していれば日の丸の絵文字になる。</p>
 
 <p>Regional_Indicator のコードポイントを連続して並べてしまうと、
-grapheme clusters の定義によりそれが全体で1文字の扱いを受けてしまう。</p>
+grapheme cluster の定義によりそれが全体で1文字の扱いを受けてしまう。</p>
 
 <p>2つ以上の国旗を連続させる場合には、全体が1文字とならないように、国旗と国旗との間に 
 Regional_Indicator 以外のコードポイントを置く必要がある。その場合 U+200B ZERO WIDTH SPACE が便利である。
 U+200B は Control に分類されている。</p>
+
+<h2 id="ec9344c">関連</h2>
+
+<ul>
+  <li><a href="../../others/unicode.html">Unicode関連記事一覧</a></li>
+</ul>
 
 </div>
 
@@ -281,7 +296,7 @@ U+200B は Control に分類されている。</p>
           <li><a href="../../blog/2015/0421-colored-stderr.html">標準エラー出力に色を付けて標準出力と区別しやすいようにするには</a></li>
           <li><a href="../../blog/2015/0720-mecab-unidic-furigana.html">MeCabとUniDicの辞書でふりがなを振る方法</a></li>
           <li><a href="../../blog/2015/0829-mecab-mistake-1.html">MeCabでの形態素解析の誤解析例: 助詞で/でも</a></li>
-          <li>Unicodeのgrapheme clusters (書記素クラスタ)</li>
+          <li>Unicodeのgrapheme cluster (書記素クラスタ)</li>
         </ul>
       </li>
     </ul>
