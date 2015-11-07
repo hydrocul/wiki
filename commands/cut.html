@@ -71,11 +71,43 @@ $ cat foo.txt | perl -MEncode -nle 'print encode_utf8(substr(decode_utf8($_), 3)
 </code></pre>
 
 <h3 id="a9e94cd">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには
-<span class="article-date">2014/05/31</span></h3>
+<span class="article-date">2015/11/07</span></h3>
 
-<p>例</p>
+<p><code>cut</code>コマンドはデフォルトではカラムの区切りはタブ文字であり、
+<code>cut -d' ' -f1,3</code> のようにすれば区切り文字はスペースになるが、いずれにしても区切り文字が連続する箇所はそこに空の列があるものとみなす。</p>
 
-<pre><code>cat hoge.txt | sed 's/[\t ]\+/\t/g' | cut -f1,3
+<p>そのため以下のような位置揃えをしてあるファイルを処理するのは苦手である。</p>
+
+<pre><code>$ cat foo.txt
+0   29     Danny   m
+1   24      Jess   m
+2   29      Joey   m
+3   10      D.J.   f
+4    5     Steph   f
+5    0  Michelle   f
+</code></pre>
+
+<p>こういう場合は以下のように連続するスペースを1つのタブに置換してしまうと楽である。</p>
+
+<pre><code>$ cat foo.txt | sed 's/[\t ]\+/\t/g' | cut -f3
+Danny
+Jess
+Joey
+D.J.
+Steph
+Michelle
+</code></pre>
+
+<p>または<code>cut</code>コマンドの代わりに<a href="awk.html"><code>awk</code>コマンド</a>を使ってもよい。
+<code>awk</code>ではデフォルトで連続するスペースを1つの区切りとみなされる。</p>
+
+<pre><code>$ cat $p/tmp/test.txt | awk '{print $3}'
+Danny
+Jess
+Joey
+D.J.
+Steph
+Michelle
 </code></pre>
 
 <h3 id="9dcc6ab">タブをコマンドラインから指定するには
