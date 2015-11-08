@@ -71,7 +71,7 @@ $ cat foo.txt | perl -MEncode -nle 'print encode_utf8(substr(decode_utf8($_), 3)
 </code></pre>
 
 <h3 id="a9e94cd">1つ以上の連続するスペースまたはタブ文字を区切りとして処理するには
-<span class="article-date">2015/11/07</span></h3>
+<span class="article-date">2015/11/08</span></h3>
 
 <p><code>cut</code>コマンドはデフォルトではカラムの区切りはタブ文字であり、
 <code>cut -d' ' -f1,3</code> のようにすれば区切り文字はスペースになるが、いずれにしても区切り文字が連続する箇所はそこに空の列があるものとみなす。</p>
@@ -98,7 +98,19 @@ Steph
 Michelle
 </code></pre>
 
-<p>または<code>cut</code>コマンドの代わりに<a href="awk.html"><code>awk</code>コマンド</a>を使ってもよい。
+<p>スペースの置換は<code>sed</code>でなくても<code>perl</code>のワンライナーでもできるが、どうせ<code>perl</code>を使うなら、
+<code>cut</code>ですることも<code>perl</code>でやればいい。</p>
+
+<pre><code>$ cat foo.txt | perl -F'\s+' -anle 'print $F[2]'
+Danny
+Jess
+Joey
+D.J.
+Steph
+Michelle
+</code></pre>
+
+<p>または<a href="awk.html"><code>awk</code>コマンド</a>を使ってもよい。
 <code>awk</code>ではデフォルトで連続するスペースを1つの区切りとみなされる。</p>
 
 <pre><code>$ cat $p/tmp/test.txt | awk '{print $3}'
