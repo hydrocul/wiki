@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>コマンドの使い方(Linux) | hydroculのメモ</title>
+<title>join コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,83 +16,78 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <span>コマンドの使い方(Linux)</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>join コマンド</span>
 </div>
 
 <div id="content">
-  <h1 id="commands">コマンドの使い方(Linux)</h1>
+  <h1 id="join">join コマンド
+<span class="article-date">2015/11/09</span></h1>
 
-<h2 id="section">目次</h2>
+<p>特定の列をキーにして、複数のファイルを行単位でJOINする。SQLのJOINみたいな。</p>
 
-<ul>
-  <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
-  <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
-  <li><a href="../commands/awk.html">awk コマンド</a></li>
-  <li><a href="../commands/base64.html">base64 コマンド</a></li>
-  <li><a href="../commands/cat.html">cat コマンド</a></li>
-  <li><a href="../commands/cp.html">cp コマンド</a></li>
-  <li><a href="../commands/crontab.html">crontab コマンド</a></li>
-  <li><a href="../commands/curl.html">curl コマンド</a></li>
-  <li><a href="../commands/cut.html">cut コマンド</a></li>
-  <li><a href="../commands/date.html">date コマンド</a></li>
-  <li><a href="../commands/diff.html">diff コマンド</a></li>
-  <li><a href="../commands/du.html">du コマンド</a></li>
-  <li><a href="../commands/find.html">find コマンド</a></li>
-  <li><a href="../commands/git.html">git コマンド</a></li>
-  <li><a href="../commands/grep.html">grep コマンド</a></li>
-  <li><a href="../commands/head.html">head コマンド</a></li>
-  <li><a href="../incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
-  <li><a href="../commands/jhead.html">jhead コマンド</a></li>
-  <li><a href="../commands/join.html">join コマンド</a></li>
-  <li><a href="../commands/jq.html">jq コマンド</a></li>
-  <li><a href="../commands/less.html">less コマンド</a></li>
-  <li><a href="../commands/lftp.html">lftp コマンド</a></li>
-  <li><a href="../commands/lha.html">lha コマンド</a></li>
-  <li><a href="../commands/ls.html">ls コマンド</a></li>
-  <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
-  <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
-  <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
-  <li><a href="../commands/mosh.html">mosh コマンド</a></li>
-  <li><a href="../commands/netstat.html">netstat コマンド</a></li>
-  <li><a href="../commands/nkf.html">nkf コマンド</a></li>
-  <li><a href="../commands/od.html">od コマンド</a></li>
-  <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-  <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
-  <li><a href="../commands/paste.html">paste コマンド</a></li>
-  <li><a href="../commands/ps.html">ps コマンド</a></li>
-  <li><a href="../commands/pstree.html">pstree コマンド</a></li>
-  <li><a href="../commands/readlink.html">readlink コマンド</a></li>
-  <li><a href="../commands/rsync.html">rsync コマンド</a></li>
-  <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
-  <li><a href="../commands/sed.html">sed コマンド</a></li>
-  <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
-  <li><a href="../commands/siege.html">siege コマンド</a></li>
-  <li><a href="../commands/sort.html">sort コマンド</a></li>
-  <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
-  <li><a href="../commands/split.html">split コマンド</a></li>
-  <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
-  <li><a href="../commands/ssh.html">ssh コマンド</a></li>
-  <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
-  <li><a href="../commands/svn.html">Subversion (svn)</a></li>
-  <li><a href="../commands/tac.html">tac コマンド</a></li>
-  <li><a href="../commands/tail.html">tail コマンド</a></li>
-  <li><a href="../commands/tar.html">tar コマンド</a></li>
-  <li><a href="../commands/tee.html">tee コマンド</a></li>
-  <li><a href="../commands/time.html">time コマンド</a></li>
-  <li><a href="../commands/tmux.html">tmux コマンド</a></li>
-  <li><a href="../commands/top.html">top コマンド</a></li>
-  <li><a href="../commands/touch.html">touch コマンド</a></li>
-  <li><a href="../commands/tr.html">tr コマンド</a></li>
-  <li><a href="../commands/trap.html">trap コマンド</a></li>
-  <li><a href="../commands/uniq.html">uniq コマンド</a></li>
-  <li><a href="../commands/watch.html">watch コマンド</a></li>
-  <li><a href="../commands/wc.html">wc コマンド</a></li>
-  <li><a href="../commands/wget.html">wget コマンド</a></li>
-  <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
-  <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-  <li><a href="../commands/yes.html">yes コマンド</a></li>
-  <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
-</ul>
+<p>キーに関係なく、単に行通しを結合するには<a href="paste.html"><code>paste</code>コマンド</a>を使う。</p>
+
+<p>2つのタブ区切りのファイルをjoinする例</p>
+
+<pre><code>$ cat a.txt
+1       Danny   29
+2       Jess    24
+3       Joey    29
+4       D.J.    10
+5       Steph   5
+6       Michelle        0
+$ cat b.txt
+1       m
+2       m
+3       m
+4       f
+5       f
+6       f
+$ join -1 1 -2 1 a.txt b.txt
+1 Danny 29 m
+2 Jess 24 m
+3 Joey 29 m
+4 D.J. 10 f
+5 Steph 5 f
+6 Michelle 0 f
+</code></pre>
+
+<p><code>-1 1</code> は1つ目のファイルは1つ目のフィールドをキーにするという意味。
+<code>-2 1</code> は2つ目のファイルは1つ目のフィールドをキーにするという意味。</p>
+
+<p>入力はタブ区切りでなくてもスペース区切りでもいい。区切り文字が複数連続していても1つの区切りとみなされるので、スペースで横位置を揃えてある固定長フィールドのファイルも意図通りの動作になる。</p>
+
+<p>出力は単一のスペース区切りになる。</p>
+
+<p>固定長フィールドのファイル処理の例</p>
+
+<pre><code>$ cat test1.txt
+Danny    29 0
+Jess     24 1
+Joey     29 2
+D.J.     10 3
+Steph    5 4
+Michelle 0 5
+$ cat test2.txt
+0 m
+1 m
+2 m
+3 f
+4 f
+5 f
+$ join -1 3 -2 1 test{1,2}.txt
+0 Danny 29 m
+1 Jess 24 m
+2 Joey 29 m
+3 D.J. 10 f
+4 Steph 5 f
+5 Michelle 0 f
+</code></pre>
+
+<p><code>-1 3 -2 1</code> は1つ目のファイルは3つ目のフィールドをキーにし、
+2つ目のファイルは1つ目のフィールドをキーにする、という意味。</p>
+
+<p><code>test{1,2}.txt</code> という書き方は bash や zsh にある機能で、これは<code>test1.txt test2.txt</code> に展開されてからコマンドに渡される。</p>
 
 </div>
 
@@ -102,7 +97,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>コマンドの使い方(Linux)
+  <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
@@ -122,7 +117,7 @@
       <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
-      <li><a href="../commands/join.html">join コマンド</a></li>
+      <li>join コマンド</li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
