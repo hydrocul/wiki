@@ -23,7 +23,7 @@
   <h1 id="mktemp">mktemp コマンド
 <span class="article-date">2014/06/06</span></h1>
 
-<p>一時ファイルを作成するコマンド。デフォルトでは <code>/tmp</code> の中にファイルが生成されるが、セキュリティを考慮して自動でパーミッションが600になる。生成された一時ファイルはサイズ0で、一時ファイルのパスが出力されるので、シェルスクリプトの中では <code>TMP=\</code>mktemp`` のようにしてファイルパスを変数に保存して、あとはこのファイルを自由に書き込み／読み込みをすればよい。</p>
+<p>一時ファイルを作成するコマンド。デフォルトでは <code>/tmp</code> の中にファイルが生成されるが、セキュリティを考慮して自動でパーミッションが600になる。生成された一時ファイルはサイズ0で、一時ファイルのパスが出力されるので、シェルスクリプトの中では <code>TMP=`mktemp`</code> のようにしてファイルパスを変数に保存して、あとはこのファイルを自由に書き込み／読み込みをすればよい。</p>
 
 <p><code>-d</code> をつけるとファイルの代わりにディレクトリを作成できる。このときのパーミッションは700になる。</p>
 
@@ -75,6 +75,7 @@ trap "rm -rf $tmpdir" 0 1 2 3 15 # 最後に実行されるコマンドを登録
       <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/join.html">join コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>

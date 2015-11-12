@@ -21,11 +21,91 @@
 
 <div id="content">
   <h1 id="lscpu">lscpu コマンド
-<span class="article-date">2013/12/16</span></h1>
+<span class="article-date">2015/11/12</span></h1>
 
 <p>CPUの情報を見るコマンド。</p>
 
 <p><code>/proc/cpuinfo</code> を見てもCPUの情報はわかるが、<code>lscpu</code> のほうが、少しわかりやすく表示してくれる。</p>
+
+<p>実行例</p>
+
+<pre><code>$ lscpu
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                2
+On-line CPU(s) list:   0,1
+Thread(s) per core:    1
+Core(s) per socket:    2
+Socket(s):             1
+NUMA node(s):          1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 69
+Stepping:              1
+CPU MHz:               2434.648
+BogoMIPS:              4869.29
+L1d cache:             32K
+L1d cache:             32K
+L2d cache:             6144K
+NUMA node0 CPU(s):     0,1
+</code></pre>
+
+<p>同じマシンで <code>/proc/cpuinfo</code> を見るとこんな感じ</p>
+
+<pre><code>$ cat /proc/cpuinfo
+processor       : 0
+vendor_id       : GenuineIntel
+cpu family      : 6
+model           : 69
+model name      : Intel(R) Core(TM) i5-4258U CPU @ 2.40GHz
+stepping        : 1
+microcode       : 0x19
+cpu MHz         : 2434.648
+cache size      : 6144 KB
+physical id     : 0
+siblings        : 2
+core id         : 0
+cpu cores       : 2
+apicid          : 0
+initial apicid  : 0
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 5
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl pni ssse3 lahf_lm
+bogomips        : 4869.29
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 39 bits physical, 48 bits virtual
+power management:
+
+processor       : 1
+vendor_id       : GenuineIntel
+cpu family      : 6
+model           : 69
+model name      : Intel(R) Core(TM) i5-4258U CPU @ 2.40GHz
+stepping        : 1
+microcode       : 0x19
+cpu MHz         : 2434.648
+cache size      : 6144 KB
+physical id     : 0
+siblings        : 2
+core id         : 1
+cpu cores       : 2
+apicid          : 1
+initial apicid  : 1
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 5
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl pni ssse3 lahf_lm
+bogomips        : 4869.29
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 39 bits physical, 48 bits virtual
+power management:
+</code></pre>
 
 </div>
 
@@ -55,6 +135,7 @@
       <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/join.html">join コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
