@@ -197,11 +197,11 @@ my $dst = [@$src];
 <p>デリファレンスしてから配列を生成し直している。</p>
 
 <h2 id="javascript">JavaScript
-<span class="article-date">2015/10/18</span></h2>
+<span class="article-date">2015/11/13</span></h2>
 
 <p>shallow copy</p>
 
-<pre><code>arr_copy = arr.concat();
+<pre><code>dst = src.concat();
 </code></pre>
 
 <p>または</p>
@@ -209,10 +209,20 @@ my $dst = [@$src];
 <pre><code>Array.prototype.clone = function(){
     return Array.apply(null, this)
 }
-arr_copy = arr.clone();
+dst = src.clone();
 </code></pre>
 
 <p><code>concat()</code> というメソッドは<a href="concat.html#javascript">配列を連結</a>した新しい配列を生成するメソッドであるが、引数を与えないとコピーの目的でも使える。配列の要素自体はコピーしないので、shallow copyである。</p>
+
+<p>deep copyするトリッキーな方法として一度JSONにしてしまう、というのがある。</p>
+
+<pre><code>dst = JSON.parse(JSON.stringify(src));
+</code></pre>
+
+<p>遠回りしているような気がしてかなり気持ち悪い。JSONで表現できない値(関数とか)があると、それはコピーできないし、この方法は推奨されない。</p>
+
+<p>JavaScriptのDeepCopyでJSON.parse/stringifyを使ってはいけない | Qiita<br />
+<a href="http://qiita.com/seihmd/items/74fa9792d05278a2e898" target="_blank" class="external-link">http://qiita.com/seihmd/items/74fa9792d05278a2e898</a></p>
 
 </div>
 
