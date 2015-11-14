@@ -116,6 +116,12 @@
 
 <p><a href="rsync.html"><code>rsync</code></a> での同じ役割をはたすのは <code>-R</code>。</p>
 
+<h2 id="c8275a4">すでに同名のファイルがコピー先にあったときにバックアップを残しておくには
+<span class="article-date">2015/11/14</span></h2>
+
+<p><code>--backup</code> というオプションを付けると、コピー先にすでにファイルが存在した場合に既存ファイルのファイル名の後ろに <code>~</code> を付けてリネームしてから、コピーをする。
+<code>~</code> 付きのファイル名もまたすでに存在していた場合は <code>~</code> 付きの方が上書きで失われる。</p>
+
 </div>
 
 <div id="side-menu">
@@ -144,6 +150,7 @@
       <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/join.html">join コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
