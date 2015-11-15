@@ -117,10 +117,77 @@
 <p><a href="rsync.html"><code>rsync</code></a> での同じ役割をはたすのは <code>-R</code>。</p>
 
 <h2 id="c8275a4">すでに同名のファイルがコピー先にあったときにバックアップを残しておくには
-<span class="article-date">2015/11/14</span></h2>
+<span class="article-date">2015/11/15</span></h2>
 
 <p><code>--backup</code> というオプションを付けると、コピー先にすでにファイルが存在した場合に既存ファイルのファイル名の後ろに <code>~</code> を付けてリネームしてから、コピーをする。
 <code>~</code> 付きのファイル名もまたすでに存在していた場合は <code>~</code> 付きの方が上書きで失われる。</p>
+
+<p>例</p>
+
+<pre><code>$ find
+.
+./src
+./src/a.txt
+./dst
+./dst/a.txt
+$ cp --backup src/a.txt dst/a.txt
+$ find
+.
+./src
+./src/a.txt
+./dst
+./dst/a.txt
+./dst/a.txt~
+</code></pre>
+
+<p>ここでもう一度 <code>cp --backup src/a.txt dst/a.txt</code> とすると、 
+<code>./dst/a.txt~</code> は削除され、<code>./dst/a.txt</code> が <code>./dst/a.txt~1</code> にリネームされてからコピーされる。</p>
+
+<p><code>--backup=t</code> というオプションにすると、2つのチルダの間に番号をつけたファイル名でバックアップしてくれる。このオプションでは何度同じファイル名でバックアップしても古いファイルが上書きで失われることはない。</p>
+
+<pre><code>$ find
+.
+./src
+./src/a.txt
+./dst
+./dst/a.txt
+$ cp --backup=t src/a.txt dst/a.txt
+$ find
+.
+./src
+./src/a.txt
+./dst
+./dst/a.txt
+./dst/a.txt.~1~
+</code></pre>
+
+<p>ここで <code>./dst/a.txt.~1~</code> がある状態でもう一度バックアップすると、
+<code>./dst/a.txt.~1~</code> はそのままに、既存の <code>/dst/a.txt</code> は <code>./dst/a.txt.~2~</code> にリネームされる。</p>
+
+<pre><code>$ cp --backup=t src/a.txt dst/a.txt
+$ find
+.
+./src
+./src/a.txt
+./dst
+./dst/a.txt
+./dst/a.txt.~1~
+./dst/a.txt.~2~
+</code></pre>
+
+<p>ちなみにすでに番号付きのバックアップファイルがあれば <code>--backup</code> だけでも自動で番号付きのバックアップファイル名になる。</p>
+
+<pre><code>$ cp --backup src/a.txt dst/a.txt
+$ find
+.
+./src
+./src/a.txt
+./dst
+./dst/a.txt
+./dst/a.txt.~1~
+./dst/a.txt.~2~
+./dst/a.txt.~3~
+</code></pre>
 
 </div>
 
