@@ -159,6 +159,27 @@ f(*args); # =&gt; a:1 b:2
 
 <p>これらと同様のルールが<a href="../tuple/multiple-assignment.html#ruby">変数への代入</a>にも使える。</p>
 
+<h2 id="4ff1cfc">JavaScript
+<span class="article-date">2015/11/16</span></h2>
+
+<p>関数定義の仮引数のところでどう書こうと、関数定義の中では <code>arguments</code> というローカル変数で引数を配列として取得できる。
+<code>arguments</code> というローカル変数は特に宣言しなくても自動で使えるようになっている。</p>
+
+<pre><code>function f(a) {
+  console.log(a);
+  console.log(arguments);
+}
+f(1, 2, 3);
+// 出力結果
+// 1
+// [1, 2, 3]
+</code></pre>
+
+<p>レファレンスによると <code>arguments</code> は配列のようなものであって、配列ではないらしい。</p>
+
+<p><code>arguments</code> | Mozilla Developer Network<br />
+<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments" target="_blank" class="external-link">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments</a></p>
+
 </div>
 
 <div id="side-menu">
