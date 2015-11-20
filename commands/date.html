@@ -274,7 +274,10 @@ sudo date -s "2013/09/04 12:17:00"
 <p>あらかじめ <code>sudo</code> なしで実行してみて、日時のフォーマットが合っているかを確認するとよい。</p>
 
 <h3 id="fa04a03">月末かどうかをシェルスクリプトで判定するには
-<span class="article-date">2015/05/07</span></h3>
+<span class="article-date">2015/11/20</span></h3>
+
+<p><code>date -d day</code> で翌日の日付を取得できるので、
+<code>'+%d'</code> というフォーマットで日だけにしてそれが1かどうかを見ればよい。</p>
 
 <pre><code>if [ `date -d day '+%d'` = '01' ]; then
     echo きょうは月末日
@@ -324,6 +327,7 @@ Tue Sep 29 14:15:04 JST 2015
       <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/join.html">join コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
