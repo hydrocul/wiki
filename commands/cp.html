@@ -117,9 +117,9 @@
 <p><a href="rsync.html"><code>rsync</code></a> での同じ役割をはたすのは <code>-R</code>。</p>
 
 <h2 id="c8275a4">すでに同名のファイルがコピー先にあったときにバックアップを残しておくには
-<span class="article-date">2015/11/15</span></h2>
+<span class="article-date">2015/11/22</span></h2>
 
-<p><code>--backup</code> というオプションを付けると、コピー先にすでにファイルが存在した場合に既存ファイルのファイル名の後ろに <code>~</code> を付けてリネームしてから、コピーをする。
+<p><code>-b</code> または <code>--backup</code> というオプションを付けると、コピー先にすでにファイルが存在した場合に既存ファイルのファイル名の後ろに <code>~</code> を付けてリネームしてから、コピーをする。
 <code>~</code> 付きのファイル名もまたすでに存在していた場合は <code>~</code> 付きの方が上書きで失われる。</p>
 
 <p>例</p>
@@ -188,6 +188,20 @@ $ find
 ./dst/a.txt.~2~
 ./dst/a.txt.~3~
 </code></pre>
+
+<p><code>-b</code> または <code>--backup</code> オプションに <code>--suffix</code> オプションを併用すると、バックアップファイルのファイル名末尾に付ける文字列を指定できる。ここで <code>date</code> コマンドを使えばバックアップ時の日時をファイル名に入れることができる。</p>
+
+<pre><code>$ cp -b --suffix=.`date +%Y%m%d-%H%M%S` src/a.txt dst/
+$ find
+.
+./src
+./src/a.txt
+./dst
+./dst/a.txt
+./dst/a.txt.20151122-205329
+</code></pre>
+
+<p><code>--suffix</code> で指定する文字列はバックアップファイル名の後ろにそのまま付くので、日時にするのであれば <code>--suffix=</code> の直後に <code>.</code> などを付けたほうが見やすい。</p>
 
 </div>
 
