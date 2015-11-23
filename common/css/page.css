@@ -204,3 +204,12 @@ footer {
   border-bottom: 1px #CCC solid;
   font-size: 90%;
 }
+
+.unicode-char {
+  border: 1px solid #99F;
+  padding: 2px;
+  background-color: #F8F8F8;
+  color: #000;
+  font-size: 300%;
+  text-decoration: none;
+}

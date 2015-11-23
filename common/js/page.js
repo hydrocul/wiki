@@ -11,3 +11,14 @@ if(location.host == 'hydrocul.github.com' || location.host == 'hydrocul.github.i
   })();
 
 }
+
+$(function() {
+  $("a.unicode-char").each(function() {
+    var t = $(this);
+    var code = t.text();
+    t.html("&#x" + code + ";");
+    t.attr("href", "http://unicode-table.com/en/" + code + "/");
+    t.attr("target", "_blank");
+  });
+});
+
