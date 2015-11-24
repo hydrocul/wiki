@@ -123,6 +123,30 @@ if m:
   <dd>文字列の先頭に限らずマッチするかどうかを判定し、マッチしたら <code>MatchObject</code> インスタンスを返し、マッチしなかったら <code>None</code> を返す</dd>
 </dl>
 
+<h2 id="64d5823">Ruby / JRuby
+<span class="article-date">2015/11/23</span></h2>
+
+<p>正規表現にマッチさせると、 <code>Regexp.last_match</code> または <code>$~</code> という名前で正規表現全体やグルーピングにマッチした文字列を取得できる。または <code>$1</code>, <code>$2</code>, <code>$3</code>, … でグルーピングにマッチした文字列を取得できる。これらの変数はスコープごとに別々である。</p>
+
+<pre><code>str = "abcabcc"
+if str =~ /b(c(de?))/
+    p Regexp.last_match[0] # =&gt; "bcd"
+    p $~[0]                # =&gt; "bcd"
+    p Regexp.last_match[1] # =&gt; "cd"
+    p $~[1]                # =&gt; "cd"
+    p $1                   # =&gt; "cd"
+    p Regexp.last_match[2] # =&gt; "d"
+    p $~[2]                # =&gt; "d"
+    p $2                   # =&gt; "d"
+end
+</code></pre>
+
+<p><code>String#scan</code> というメソッドを使うと、文字列の中でマッチするすべての箇所についてグルーピングにマッチした文字列を配列の配列で取得できる。</p>
+
+<pre><code>str = "abcabcc"
+p str.scan(/b(c(de?))/)    # =&gt; [["cd", "d"], ["cde", "de"]]
+</code></pre>
+
 <h2 id="perl">Perl
 <span class="article-date">2015/02/05</span></h2>
 

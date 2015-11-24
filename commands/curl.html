@@ -159,17 +159,20 @@ HEADコマンドなので、GETとは違いレスポンス本体がないかも�
 <code>@foo.txt</code> のように指定する。ファイルではなく標準入力を指定するには <code>@-</code> とする。</p>
 
 <h3 id="f34a9fa">Cookieを使うには
-<span class="article-date">2013/12/30</span></h3>
+<span class="article-date">2015/11/24</span></h3>
 
 <p>リクエスト時にクッキーをサーバに送信するには <code>-b</code> オプションを使う。受信したクッキーを保存するには <code>-c</code> オプションを使う。</p>
 
 <p>例</p>
 
-<pre><code># クッキーを送信
+<pre><code># サーバにクッキーを送信
+curl -b cookie.txt http://www.example.com/
+
+# サーバから受信したクッキーを保存
 curl -c cookie.txt http://www.example.com/
 
-# クッキーを保存
-curl -b cookie.txt http://www.example.com/
+# サーバにクッキーを送信し、受信したクッキーを再び保存
+curl -b cookie.txt -c cookie.txt http://www.example.com/
 </code></pre>
 
 <p>クッキーファイルは以下のようなタブ区切りのフォーマットのテキストファイルである。</p>
@@ -178,7 +181,7 @@ curl -b cookie.txt http://www.example.com/
 .example.com TRUE / FALSE 1450279467 nam2e value2
 </code></pre>
 
-<p>Google Chrome に保存されているクッキーをこのフォーマットに書き出すには、筆者は 
+<p>Google Chrome に保存されているクッキーをこのフォーマットに書き出すには、私は 
 <a href="https://chrome.google.com/webstore/detail/cookietxt-export/lopabhfecdfhgogdbojmaicoicjekelh" target="_blank" class="external-link">cookie.txt export</a> 
 という拡張を使っている。</p>
 
@@ -272,6 +275,7 @@ VirtualHostの設定の動作確認をしたりするのに使える。</p>
       <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/join.html">join コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
