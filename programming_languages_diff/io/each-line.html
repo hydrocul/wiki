@@ -119,7 +119,7 @@ fclose(reader);
 <p><code>BufferedReader#readLine()</code> は <code>"\n"</code>, <code>"\r"</code>, <code>"\r\n"</code> のいずれかを改行とみなす。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2014/07/22</span></h2>
+<span class="article-date">2015/11/26</span></h2>
 
 <p>Scalaの標準のライブラリを使う例（標準入力だが）</p>
 
@@ -164,6 +164,8 @@ Source.fromInputStream(System.in).getLines.foreach { line =&gt;
 
 }
 </code></pre>
+
+<p>この <code>stdinLineIterator</code> が返す各行の文字列には最後の改行を含まない。</p>
 
 <h2 id="php">PHP
 <span class="article-date">2015/06/25</span></h2>
