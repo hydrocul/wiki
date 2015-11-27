@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Unicodeエスケープで文字列リテラルを書くには | hydroculのメモ</title>
+<title>Unicodeエスケープの変換をするには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,99 +16,36 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>Unicodeエスケープで文字列リテラルを書くには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>Unicodeエスケープの変換をするには</span>
 </div>
 
 <div id="content">
-  <h1 id="unicode-escape">Unicodeエスケープで文字列リテラルを書くには</h1>
-
-<h2 id="java">Java / Scala
-<span class="article-date">2014/11/06</span></h2>
-
-<p>Java/ScalaにはUnicodeエスケープという仕組みがある。</p>
-
-<p>Unicodeエスケープは、文字列リテラルの機能ではなく、
-Java/Scalaソースコードをコンパイラがトークンに分割する前の処理として機能する。従って、<code>"\u005C"</code> というのはコンパイルエラーになる。
-<code>\u005C</code> を <code>\</code> に変換してからトークンに分割しようとするが、
-<code>"\"</code> は文字列が終了していないためである。文字列リテラルではなく、コンパイラの前処理として働くUnicodeエスケープは、他の言語にはあまり見られない。</p>
-
-<p>16ビットを超える文字(Unicodeの拡張領域)は、サロゲートペアで2つの16ビットに分割する必要がある。</p>
-
-<p>以下は、微妙なケースの例(Scalaでのコードだが、Javaでも同じ結果であった。
-Java 1.7.0_05, Scala 2.9.2 で確認)</p>
-
-<pre><code>println("\u3044");    // =&gt; い
-println("\\u3044");   // =&gt; \u3044
-println("\\\u3044");  // =&gt; \い
-println("\\\\u3044"); // =&gt; \\u3044
-println("\uu3044");   // =&gt; い
-println("\uuu3044");  // =&gt; い
-println("\\\uu3044"); // =&gt; \い
-</code></pre>
-
-<p><code>u</code>が連続する場合の解釈がちょっと不思議。</p>
+  <h1 id="unicode-escape-2">Unicodeエスケープの変換をするには</h1>
 
 <h2 id="php">PHP
 <span class="article-date">2015/11/25</span></h2>
 
-<p>PHPはUnicodeにネイティブには対応しておらず、
-8ビットを超える文字(U+0100以上)を文字単位で直接16進数で表記する手段がない。
-UTF8でソースコードを書いている場合は、文字列もUTF8にしてバイト単位で16進数表記することは可能。</p>
+<p><code>\u5730\u7403\U0001F30D</code> のようなUnicodeエスケープされた文字列を復元するには以下のようなコードを書けばよい。</p>
 
-<pre><code>// \u1F30D 地球の絵文字は4バイトに分割して表記
-$str = "\xF0\x9F\x8C\x8D";
+<pre><code>function unicode_unescape($str) {
+  $callback = function ($matches) {
+    if (empty($matches[2])) {
+      $code = hexdec($matches[3]);
+      return mb_convert_encoding(pack("N*", $code), "UTF-8", "UTF-32BE");
+    } else {
+      $code = hexdec($matches[2]);
+      return mb_convert_encoding(pack("n*", $code), "UTF-8", "UTF-16BE");
+    }
+  };
+  return preg_replace_callback("/(\\\\u([0-9a-zA-Z]{4})|\\\\U([0-9a-zA-Z]{8}))/", $callback, $str);
+}
+
+$str = "\\u5730\\u7403\\U0001F30D";
+
+echo unicode_unescape($str); // =&gt; 地球🌍
 </code></pre>
 
-<p><a href="unicode-escape-2.html#php">Unicodeエスケープを復元する関数</a>を書いておけば、
-Unicodeエスケープを使って文字列を表現することもできなくはない。</p>
-
-<h2 id="47713b6">Python
-<span class="article-date">2015/06/18</span></h2>
-
-<p><code>\u</code>hhhh (4桁)または <code>\U00</code>hhhhhh (8桁)の形式で16進数表記できる。
-16ビットまでの文字(基本多言語面)は2つの形式のどちらも使えるが、
-16ビットを超える文字(拡張領域)は16進数で4桁を超えるので、大文字の <code>\U00</code>hhhhhh の形式しか使えない。</p>
-
-<p>大文字の <code>\U00</code>hhhhhh の形式は16進数8桁書かないといけなくて、
-Unicodeは6桁で十分なので、無駄な感じがする。</p>
-
-<p>Python2ではUnicode文字列リテラル(<code>u"..."</code>)の中でのみ使用可能。
-Python2での、<code>u"..."</code> 以外の文字列ではエスケープされずそのまま文字列になる。</p>
-
-<p>raw文字列 <code>r"..."</code> の形式ではPython2でもPython3でもこのエスケープは使えない。</p>
-
-<p>Python2での例</p>
-
-<pre><code>print u"\u5730\u7403\U0001F30D"
-# =&gt; 地球🌍
-# 3文字目は地球の絵文字
-</code></pre>
-
-<p>Python3での例</p>
-
-<pre><code>print("\u5730\u7403\U0001F30D")
-# =&gt; 地球🌍
-# 3文字目は地球の絵文字
-</code></pre>
-
-<h2 id="ruby">Ruby
-<span class="article-date">2014/11/19</span></h2>
-
-<p><code>\u</code>hhhh または <code>\u{</code>hhhhhh<code>}</code> の形式で16進数表記できる。</p>
-
-<p><code>\u</code>hhhh の形式では16進数4桁で表記する。<code>\u{</code>hhhhh<code>}</code> の形式では16進数2桁〜6桁で表記する。</p>
-
-<p>16ビットまでの文字(基本多言語面)は2つの形式のどちらも使えるが、
-16ビットを超える文字(拡張領域)は16進数で4桁を超えるので <code>\u{</code>hhhhh<code>}</code> の形式しか使えない。</p>
-
-<p>また、<code>\u{</code>hhhhh<code>}</code> の形式では<code>{}</code>の中にスペース区切りで複数の文字をまとめて書くこともできる。</p>
-
-<p>例</p>
-
-<pre><code>p "\u{5730 7403 1F30D}"
-# =&gt; "地球🌍"
-# 3文字目は地球の絵文字
-</code></pre>
+<p>ただ、これだと <code>\uD83C\uDF0D</code> のようにサロゲートペアで表現されたUnicodeエスケープは文字化けする。</p>
 
 </div>
 
@@ -155,7 +92,7 @@ Python2での、<code>u"..."</code> 以外の文字列ではエスケープさ�
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
-          <li>Unicodeエスケープで文字列リテラルを書くには</li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">Unicodeエスケープで文字列リテラルを書くには</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-upper-lower.html">Unicodeの仕様に基づいた大文字小文字を変換するには</a></li>
         </ul>
