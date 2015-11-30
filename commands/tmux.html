@@ -49,11 +49,11 @@
 </dl>
 
 <h2 id="dce5b9b">用語の説明
-<span class="article-date">2013/07/24</span></h2>
+<span class="article-date">2015/11/30</span></h2>
 
 <dl>
   <dt><strong>セッション</strong></dt>
-  <dd>タブブラウザに例えると1つのウィンドウ。1つ以上の<strong>ウィンドウ</strong>が含まれる。</dd>
+  <dd>ブラウザに例えると複数のタブを内包する1つのウィンドウ。1つ以上の<strong>ウィンドウ</strong>が含まれる。</dd>
   <dt><strong>ウィンドウ</strong></dt>
   <dd>タブブラウザに例えると1つのタブ。1つ以上の<strong>ペイン</strong>が含まれる。</dd>
   <dt><strong>ペイン</strong></dt>
@@ -61,7 +61,7 @@
 </dl>
 
 <h2 id="da52094">コマンドラインでの主なコマンド
-<span class="article-date">2014/10/14</span></h2>
+<span class="article-date">2015/11/30</span></h2>
 
 <pre><code># セッション一覧
 tmux ls
@@ -73,6 +73,9 @@ tmux new -s hoge
 
 # 特定の名前のセッションに接続
 tmux attach -t 名前
+
+# セッションの名前を変更
+tmux rename -t 現名前 新名前
 </code></pre>
 
 <h2 id="e4b8c20">複数のペインで同じ操作をするには

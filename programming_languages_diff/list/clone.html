@@ -25,6 +25,19 @@
 
 <p>イミュータブルなオブジェクトのコピーは意味がないので、ここではミュータブルなリストのコピーについて。</p>
 
+<h2 id="789d947">Go言語 (golang)
+<span class="article-date">2015/11/30</span></h2>
+
+<p>例</p>
+
+<pre><code>arr := []int{0, 1, 2, 3, 4}
+copy(arr[0:3], arr[2:5])
+fmt.Printf("%#v\n", arr)
+// =&gt; []int{2, 3, 4, 3, 4}
+</code></pre>
+
+<p><code>copy</code>関数は配列ではなくスライスを受け入れるため、配列をコピーするには <code>arr[:]</code> などとしてスライスにしたものを<code>copy</code>関数に渡す。</p>
+
 <h2 id="php">PHP
 <span class="article-date">2015/01/21</span></h2>
 
