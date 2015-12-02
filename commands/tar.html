@@ -29,7 +29,7 @@
 <code>-z</code> オプションを付けてgzipでの圧縮も行う場合は <code>.tar.gz</code> や <code>.tgz</code> が使われる。</p>
 
 <h2 id="c27de07">オプション
-<span class="article-date">2014/10/17</span></h2>
+<span class="article-date">2015/12/02</span></h2>
 
 <dl>
   <dt><code>-c</code></dt>
@@ -39,7 +39,8 @@
   <dt><code>-t</code></dt>
   <dd>アーカイブファイルに含まれるファイルの一覧を表示する。たぶんlis<strong>t</strong>の意味</dd>
   <dt><code>-v</code></dt>
-  <dd>処理の進行しているファイル名を表示する</dd>
+  <dd>処理の進行しているファイル名を表示する。
+<code>-t</code> と併用の場合はタイムスタンプやファイルサイズなども表示する。</dd>
   <dt><code>-z</code></dt>
   <dd>gzipで圧縮または展開を同時に行う</dd>
   <dt><code>-f</code></dt>
@@ -49,7 +50,7 @@
 
 <p><code>-z</code> を使う場合は、アーカイブファイルの拡張子として <code>.tar.gz</code> または <code>.tgz</code> がよく使われる。</p>
 
-<p>オプションは先頭のハイフンをとって全部スペースなしでつなげてしまうことができるようで、そのほうがタイプ数が少なくて済むので、普通はそうする。</p>
+<p>オプションは先頭のハイフンをとって全部スペースなしでつなげてしまうことができるようで、そのほうがタイプ数が少なくて済むので、普通はそうする。ただし <code>f</code> はアーカイブファイル名の直前である必要があるので、結果的にオプション群の最後に書くことになる。</p>
 
 <pre><code># 以下の2つは同じ結果になる
 tar tzf foo.tar.gz
@@ -82,6 +83,19 @@ tar tzf tgzファイル名
 </code></pre>
 
 <h2 id="95f6481">HOWTO</h2>
+
+<h3 id="3274ba6">アーカイブファイルの中のファイル一覧を見るには
+<span class="article-date">2015/12/02</span></h3>
+
+<p>ファイル名のみを一覧で表示させるには</p>
+
+<pre><code>$ tar tf archive.tar.gz
+</code></pre>
+
+<p>パーミッション、ファイルオーナー、グループ、ファイルサイズ、タイムスタンプも表示するには</p>
+
+<pre><code>$ tar tvf archive.tar.gz
+</code></pre>
 
 <h3 id="9d496a1">リモートにtarでバックアップ、またはリモートからローカルにtarでバックアップ
 <span class="article-date">2013/08/23</span></h3>

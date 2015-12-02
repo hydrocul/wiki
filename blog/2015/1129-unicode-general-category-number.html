@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="1129-unicode-general-category-number">Unicode文字プロパティのNumber
-<span class="article-date">2015/11/29</span></h1>
+<span class="article-date">2015/12/01</span></h1>
 
 <p>正規表現で数字にマッチさせたい場合に <code>\p{N}</code> というのを使うことがあるが、これにマッチする文字は <code>[0-9]</code> に限らない。
 <code>\p{N}</code> はUnicodeの文字プロパティで N (Number)とされているすべてのコードポイントにマッチする。これはとてもたくさんの文字が該当する。</p>
@@ -43,9 +43,9 @@ p str.scan(/\p{N}/)  # =&gt; ["8", "٨", "८", "೮", "൮", "๘", "໘", "༨
 <p>この3種類それぞれすべての文字を以下にリストアップしてみた。</p>
 
 <ul>
-  <li><a href="#nd">Decimal_Number</a></li>
-  <li><a href="#nl">Letter_Number</a></li>
-  <li><a href="#no">Other_Number</a></li>
+  <li><a href="#nd">Decimal_Number</a> (0〜9までの各種数字)</li>
+  <li><a href="#nl">Letter_Number</a> (“V” がローマ数字の5になるなど、数字の役割をする文字)</li>
+  <li><a href="#no">Other_Number</a> (数字の組み合わせや装飾付きなど、上2つ以外の数字)</li>
 </ul>
 
 <h2 id="nd">Nd (Decimal_Number)
@@ -979,7 +979,7 @@ U+103A1..U+103D5 OLD PERSIAN NUMBER ONE, TWO, TEN, TWENTY, HUNDRED</p>
 U+12400..U+1246E CUNEIFORM NUMERIC SIGN TWO ASH, THREE ASH, …</p>
 
 <h2 id="no">No (Other_Number)
-<span class="article-date">2015/11/30</span></h2>
+<span class="article-date">2015/12/01</span></h2>
 
 <p><a class="unicode-char">2070</a>
 <a class="unicode-char">00B9</a>
@@ -993,6 +993,18 @@ U+12400..U+1246E CUNEIFORM NUMERIC SIGN TWO ASH, THREE ASH, …</p>
 <a class="unicode-char">2079</a><br />
 U+2070, U+00B9, U+00B2, U+00B3, U+2074..U+2079 SUPERSCRIPT ZERO .. NINE<br />
 (コードポイントが連続していない)</p>
+
+<p><a class="unicode-char">2080</a>
+<a class="unicode-char">2081</a>
+<a class="unicode-char">2082</a>
+<a class="unicode-char">2083</a>
+<a class="unicode-char">2084</a>
+<a class="unicode-char">2085</a>
+<a class="unicode-char">2086</a>
+<a class="unicode-char">2087</a>
+<a class="unicode-char">2088</a>
+<a class="unicode-char">2089</a><br />
+U+2080..U+2089 SUBSCRIPT ZERO .. NINE</p>
 
 <p><a class="unicode-char">00BC</a> U+00BC VULGAR FRACTION ONE QUARTER<br />
 <a class="unicode-char">00BD</a> U+00BD VULGAR FRACTION ONE HALF<br />
@@ -1088,18 +1100,6 @@ U+1372..U+137C ETHIOPIC NUMBER TEN, TWENTY, … TEN THOUSAND</p>
 U+17F0..U+17F9 KHMER SYMBOL LEK ATTAK SON, MUOY, …</p>
 
 <p><a class="unicode-char">19DA</a> U+19DA NEW TAI LUE THAM DIGIT ONE</p>
-
-<p><a class="unicode-char">2080</a>
-<a class="unicode-char">2081</a>
-<a class="unicode-char">2082</a>
-<a class="unicode-char">2083</a>
-<a class="unicode-char">2084</a>
-<a class="unicode-char">2085</a>
-<a class="unicode-char">2086</a>
-<a class="unicode-char">2087</a>
-<a class="unicode-char">2088</a>
-<a class="unicode-char">2089</a><br />
-U+2080..U+2089 SUBSCRIPT ZERO .. NINE</p>
 
 <p><a class="unicode-char">2150</a>
 <a class="unicode-char">2151</a>
@@ -1404,16 +1404,18 @@ U+10175..U+10178 GREEK ONE HALF SIGN, GREEK ONE HALF SIGN ALTERNATE FORM, …</p
 <p><a class="unicode-char">1018A</a> U+1018A GREEK ZERO SIGN<br />
 <a class="unicode-char">1018B</a> U+1018B GREEK ONE QUARTER SIGN  </p>
 
-<p><a class="unicode-char">102E1</a> U+102E1 COPTIC EPACT DIGIT ONE<br />
-<a class="unicode-char">102E2</a> U+102E2 COPTIC EPACT DIGIT TWO<br />
-<a class="unicode-char">102E3</a> U+102E3 COPTIC EPACT DIGIT THREE<br />
-<a class="unicode-char">102E4</a> U+102E4 COPTIC EPACT DIGIT FOUR<br />
-<a class="unicode-char">102E5</a> U+102E5 COPTIC EPACT DIGIT FIVE<br />
-<a class="unicode-char">102E6</a> U+102E6 COPTIC EPACT DIGIT SIX<br />
-<a class="unicode-char">102E7</a> U+102E7 COPTIC EPACT DIGIT SEVEN<br />
-<a class="unicode-char">102E8</a> U+102E8 COPTIC EPACT DIGIT EIGHT<br />
-<a class="unicode-char">102E9</a> U+102E9 COPTIC EPACT DIGIT NINE<br />
-<a class="unicode-char">102EA</a> U+102EA COPTIC EPACT NUMBER TEN<br />
+<p><a class="unicode-char">102E1</a>
+<a class="unicode-char">102E2</a>
+<a class="unicode-char">102E3</a>
+<a class="unicode-char">102E4</a>
+<a class="unicode-char">102E5</a>
+<a class="unicode-char">102E6</a>
+<a class="unicode-char">102E7</a>
+<a class="unicode-char">102E8</a>
+<a class="unicode-char">102E9</a><br />
+U+102E1..U+102E9 COPTIC EPACT DIGIT ONE .. NINE</p>
+
+<p><a class="unicode-char">102EA</a> U+102EA COPTIC EPACT NUMBER TEN<br />
 <a class="unicode-char">102EB</a> U+102EB COPTIC EPACT NUMBER TWENTY<br />
 <a class="unicode-char">102EC</a> U+102EC COPTIC EPACT NUMBER THIRTY<br />
 <a class="unicode-char">102ED</a> U+102ED COPTIC EPACT NUMBER FORTY<br />

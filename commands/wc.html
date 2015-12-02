@@ -33,19 +33,20 @@
 <p>行数はあくまで改行の数を数えているにすぎないことに注意。最後に改行のない行があった場合はその行がカウントされない。</p>
 
 <h2 id="faac8ae">オプション
-<span class="article-date">2013/09/12</span></h2>
+<span class="article-date">2015/12/02</span></h2>
 
 <dl>
-  <dt><code>-l</code></dt>
+  <dt><code>-l</code>, <code>--lines</code></dt>
   <dd>行数を数える。実際には改行の数を数えるだけなので、<code>"1\n2\n"</code> は2行と
 数えるが、<code>"1\n2"</code> は1行と数える。改行が1つもないと中身が存在しても0行と
 数える。</dd>
-  <dt><code>-m</code></dt>
+  <dt><code>-m</code>, <code>--chars</code></dt>
   <dd>文字数を数える。マルチバイトな文字もあくまで文字単位で数える。
-文字コードがUTF-8じゃない場合の挙動はどうなんだろう？
+手元の環境ではUTF-8だとコードポイントの数になり、
+UTF-16とかだとよくわからない数になる。
 最後に改行がある場合はそれも数える。
-改行コードがCRLFの場合の挙動はどうなんだろう？</dd>
-  <dt><code>-c</code></dt>
+改行コードがCRLFの場合はそれを2文字と数える。</dd>
+  <dt><code>-c</code>, <code>--bytes</code></dt>
   <dd>バイト数を数える。最後に改行がある場合はそれも数える。</dd>
 </dl>
 
@@ -61,7 +62,7 @@
 <h2 id="2b36974">grepで行数をカウントするには
 <span class="article-date">2015/10/02</span></h2>
 
-<pre><code>$ grep -c '' example.txt
+<pre><code>$ grep -c '' foo.txt
 </code></pre>
 
 <p>わずかに <code>wc -l</code> のほうが速い。一行がとても長いファイルだと、<code>wc -l</code> のほうが5倍以上速いケースもあり、行数を数えるだけであればわざわざ <code>grep</code> を使う必要性はほとんどない。</p>
@@ -74,15 +75,25 @@
 
 <p>なお、正規表現にマッチする行のみの行数をカウントする場合は</p>
 
-<pre><code>$ grep PATTERN example.txt | wc -l
+<pre><code>$ grep PATTERN foo.txt | wc -l
 </code></pre>
 
 <p>よりも</p>
 
-<pre><code>$ grep -c PATTERN example.txt
+<pre><code>$ grep -c PATTERN foo.txt
 </code></pre>
 
 <p>のほうが速い。</p>
+
+<h2 id="518e3e2">UTF-16でのコード数をカウントするには
+<span class="article-date">2015/12/02</span></h2>
+
+<p>つまりサロゲートペアになる文字は2文字とカウントさせるには、UTF-16に変換してそのバイト数を2で割ればよい。</p>
+
+<pre><code>$ cat foo.txt | iconv -f UTF-8 -t UTF-16 | wc --bytes | perl -nle 'print $_/2'
+## または
+$ cat foo.txt | iconv -f UTF-8 -t UTF-16 | wc --bytes | awk '{print $1/2}'
+</code></pre>
 
 </div>
 
