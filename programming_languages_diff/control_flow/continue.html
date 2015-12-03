@@ -44,14 +44,15 @@
 <p><code>continue</code>のような手続き型っぽい構文は存在しない。</p>
 
 <h2 id="e937e8c">PHP
-<span class="article-date">2014/05/05</span></h2>
+<span class="article-date">2015/12/03</span></h2>
 
 <p><a href="for.html#php"><code>for</code>文</a>、<a href="../list/foreach.html#php"><code>foreach</code>文</a>、
 <a href="while.html#php"><code>while</code>文、<code>do while</code>文</a>で <code>continue</code> と書くと、ループ本体の残りの処理をスキップして、次のサイクルに移る。次のサイクルに移るときにループの条件が評価されるので、結果的にそこでループを脱出するかもしれない。
 <code>do while</code>文ではスキップしても最後の条件判定は行われる。</p>
 
 <p><a href="switch.html#php"><code>switch</code>文</a>でも書くことができ、
-<code>switch</code>文から脱出できる。</p>
+<code>switch</code>文から脱出できる。
+<code>switch</code>文を取り囲むループをcontinueできるかと思わせて、実際には<code>switch</code>文の<code>break</code>と同じで、Javaだとかとは違うので、ハマりポイントである。</p>
 
 <h2 id="b7d5964">Python
 <span class="article-date">2014/03/26</span></h2>
