@@ -23,27 +23,29 @@
   <h1 id="floor-ceil">小数の四捨五入/切り捨て/切り上げをするには (round, floor, ceil)</h1>
 
 <h2 id="php">PHP
-<span class="article-date">2014/07/05</span></h2>
+<span class="article-date">2015/12/04</span></h2>
 
 <p>例</p>
 
 <pre><code>$x = 12.5;
 
-echo floor($x) . "\n"; // =&gt; 12
-
-echo ceil($x) . "\n"; // =&gt; 13
-
-echo round($x) . "\n"; // =&gt; 13
+var_export((int)$x); echo "\n"; // =&gt; 12
+var_export(floor($x)); echo "\n"; // =&gt; 12
+var_export(ceil($x)); echo "\n"; // =&gt; 13
+var_export(round($x)); echo "\n"; // =&gt; 13
 
 $x = -12.5;
 
 // 負の切り捨ては絶対値の大きい方に丸められる
-echo floor($x) . "\n"; // =&gt; -13
+var_export(floor($x)); echo "\n"; // =&gt; -13
 
 // 負の切り上げは0に近い方に丸められる
-echo ceil($x) . "\n"; // =&gt; -12
+var_export(ceil($x)); echo "\n"; // =&gt; -12
 
-echo round($x) . "\n"; // =&gt; -13
+var_export(round($x)); echo "\n"; // =&gt; -13
+
+// intへのキャストは0に近い方に丸められる
+var_export((int)$x);   echo "\n"; // =&gt; -12
 </code></pre>
 
 <h2 id="58c67e2">Python
