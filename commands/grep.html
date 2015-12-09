@@ -128,14 +128,23 @@ grepはバイナリファイルだと勘違いしてしまう。バイナリ扱�
 <p><code>-a</code> の代わりに <code>--text</code> や <code>--binary-files=text</code> でもよい。</p>
 
 <h3 id="68ddc1b">シェルスクリプトでファイルにパターンが見つかるかどうかで分岐をさせるには
-<span class="article-date">2014/09/28</span></h3>
+<span class="article-date">2015/12/09</span></h3>
 
-<p>パターンがファイルに見つからない場合に終了コード1を返すので、以下のように書けばよい。</p>
+<p>パターンがファイルに見つかる場合に終了コード0(成功)、見つからない場合に終了コード1(失敗)を返すので、以下のように書けばよい。</p>
 
 <pre><code>if grep PATTERN FILE_PATH &gt;/dev/null; then
-    # パターンが見つかる場合
+    # ファイルにパターンが見つかる場合
 else
-    # パターンが見つからない場合
+    # ファイルにパターンが見つからない場合
+fi
+</code></pre>
+
+<p>ファイルではなく変数に入っている文字列で検査したい場合は以下のように書けばよい。</p>
+
+<pre><code>if echo "$STR" | grep PATTERN &gt;/dev/null; then
+    # $STR がパターンにマッチする場合
+else
+    # $STR がパターンにマッチしない場合
 fi
 </code></pre>
 
@@ -234,6 +243,7 @@ grep -e APATTERN -e BPATTERN foo.txt
       <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/join.html">join コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
