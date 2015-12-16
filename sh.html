@@ -199,7 +199,7 @@ Perlでも同じ。</dd>
 </dl>
 
 <h2 id="boolean-operator">論理演算子
-<span class="article-date">2013/12/19</span></h2>
+<span class="article-date">2015/12/16</span></h2>
 
 <p>以下は<code>test</code>コマンドの演算子。</p>
 
@@ -220,10 +220,11 @@ if [ ! "$a" -eq "$b" ]; then
 fi
 
 # 論理和の例
-if [ "$a" -eq "$b" or "$c" -eq "$d" ]; then
+if [ "$a" -eq "$b" -o "$c" -eq "$d" ]; then
     ...
 fi
-# または
+
+# testコマンドではなくシェルの || を使う論理和の例
 if [ "$a" -eq "$b" ] || [ "$c" -eq "$d" ]; then
     ...
 fi
