@@ -25,7 +25,7 @@
 <p><code>yum</code> または <code>apt-get</code>。Macでは Macports や Homebrew など。</p>
 
 <h2 id="apt-get"><code>apt-get</code>
-<span class="article-date">2013/05/20</span></h2>
+<span class="article-date">2015/12/17</span></h2>
 
 <pre><code># パッケージを検索
 apt-cache search キーワード
@@ -43,6 +43,7 @@ sudo apt-get update
 
 # 現在インストールされているパッケージ全てをバージョンアップ
 sudo apt-get upgrade
+# yum update に対応
 
 # インストール済みのパッケージ一覧を見るには
 dpkg -l
@@ -55,7 +56,7 @@ dpkg -S ファイル名
 </code></pre>
 
 <h2 id="0edb959"><code>yum</code>
-<span class="article-date">2013/05/20</span></h2>
+<span class="article-date">2015/12/17</span></h2>
 
 <pre><code># パッケージを検索
 yum search キーワード
@@ -71,6 +72,9 @@ sudo yum remove パッケージ名
 
 # インストール済みのパッケージ一覧を見るには
 rpm -qa
+
+# 現在インストールされているパッケージ全てをバージョンアップ
+sudo yum update
 
 # パッケージでインストールされるファイルの一覧を見るには
 rpm -ql パッケージ名

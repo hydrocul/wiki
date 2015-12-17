@@ -84,7 +84,7 @@ int compareTo(Double another)
 RubyやPerlにも同様のものがある。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2014/12/24</span></h2>
+<span class="article-date">2015/12/16</span></h2>
 
 <p><code>==</code>, <code>!=</code> で等値性を判定でき、 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> で大小を比較できる。</p>
@@ -96,24 +96,37 @@ RubyやPerlにも同様のものがある。</p>
 
 <p><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> は片方または両方を文字列にした場合に、それを数値に変換してから比較する。文字列通しを文字列として比較するには<a href="../string/compare.html#php"><code>strcmp</code>関数</a>を使う。</p>
 
-<p>比較演算子 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/language.operators.comparison.php" target="_blank" class="external-link">http://www.php.net/manual/ja/language.operators.comparison.php</a></p>
+<pre><code>var_export(200   &lt; 23  ); echo "\n"; // =&gt; false
+var_export(200   &lt; '23'); echo "\n"; // =&gt; false
+var_export('200' &lt; 23  ); echo "\n"; // =&gt; false
+var_export('200' &lt; '23'); echo "\n"; // =&gt; false
+var_export(200   &gt; 23  ); echo "\n"; // =&gt; true
+var_export(200   &gt; '23'); echo "\n"; // =&gt; true
+var_export('200' &gt; 23  ); echo "\n"; // =&gt; true
+var_export('200' &gt; '23'); echo "\n"; // =&gt; true
 
-<p>以下の実行例ではすべて <code>OK</code> と表示される。</p>
-
-<pre><code>if (200   &lt; 23  ) { echo "NG\n"; } else { echo "OK\n"; }
-if (200   &lt; '23') { echo "NG\n"; } else { echo "OK\n"; }
-if ('200' &lt; 23  ) { echo "NG\n"; } else { echo "OK\n"; }
-if ('200' &lt; '23') { echo "NG\n"; } else { echo "OK\n"; }
-if (200   &gt; 23  ) { echo "OK\n"; } else { echo "NG\n"; }
-if (200   &gt; '23') { echo "OK\n"; } else { echo "NG\n"; }
-if ('200' &gt; 23  ) { echo "OK\n"; } else { echo "NG\n"; }
-if ('200' &gt; '23') { echo "OK\n"; } else { echo "NG\n"; }
-
-// 'a' は 0 に変換されてから比較
-if (200   &gt; 'a' ) { echo "OK\n"; } else { echo "NG\n"; }
-if (200   &lt; 'a' ) { echo "NG\n"; } else { echo "OK\n"; }
+// 数字にできない文字列は 0 に変換されてから比較
+var_export(200   &gt; 'a' ); echo "\n"; // =&gt; true
+var_export(200   &lt; 'a' ); echo "\n"; // =&gt; false
 </code></pre>
+
+<p>PHP7からはRubyやPerlなどにある <code>&lt;=&gt;</code> という演算子が使えるようになった。
+<code>-1</code>, <code>0</code>, <code>1</code> のいずれかを返す。</p>
+
+<pre><code>var_export(200   &lt;=&gt; 23);    echo "\n"; // =&gt; 1
+var_export(23    &lt;=&gt; 200);   echo "\n"; // =&gt; -1
+var_export(200   &lt;=&gt; '23');  echo "\n"; // =&gt; 1
+var_export('200' &lt;=&gt; 23);    echo "\n"; // =&gt; 1
+var_export('200' &lt;=&gt; '23');  echo "\n"; // =&gt; 1
+var_export(200   &lt;=&gt; 200);   echo "\n"; // =&gt; 0
+var_export('200' &lt;=&gt; 200);   echo "\n"; // =&gt; 0
+var_export('200' &lt;=&gt; '200'); echo "\n"; // =&gt; 0
+</code></pre>
+
+<p>よくわからないがPHPでは <code>&lt;=&gt;</code> のことを宇宙船というらしい。</p>
+
+<p>比較演算子 | PHP Manual<br />
+<a href="http://php.net/manual/ja/language.operators.comparison.php" target="_blank" class="external-link">http://php.net/manual/ja/language.operators.comparison.php</a></p>
 
 <h2 id="22d8edf">Python
 <span class="article-date">2014/07/31</span></h2>
