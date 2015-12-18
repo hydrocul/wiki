@@ -65,20 +65,26 @@ rsync -e "ssh -i «秘密鍵ファイル名»" «リモートユーザ名»@«�
 <code>remote</code>ホストには <code>dst/hello.txt</code> というパスにファイルがコピーされる。</p>
 
 <h2 id="b39bf91">オプション
-<span class="article-date">2015/03/16</span></h2>
+<span class="article-date">2015/12/18</span></h2>
 
 <dl>
+  <dt><code>-a</code></dt>
+  <dd><code>-rlptgoD</code> と同じ</dd>
   <dt><code>--bwlimit</code></dt>
   <dd>ネットワーク帯域を制限して転送する。-&gt; <a href="#bwlimit">ゆっくり転送するには</a></dd>
-  <dt><code>--progress</code></dt>
-  <dd>コピーの進捗を表示</dd>
-  <dt><code>-l</code>, <code>--links</code></dt>
-  <dd>シンボリックリンクをシンボリックリンクとして転送</dd>
   <dt><code>--copy-links</code></dt>
   <dd>シンボリックリンクはリンク先の中身を転送</dd>
+  <dt><code>-g</code></dt>
+  <dd>グループもコピー</dd>
+  <dt><code>-l</code>, <code>--links</code></dt>
+  <dd>シンボリックリンクをシンボリックリンクとして転送</dd>
+  <dt><code>-o</code></dt>
+  <dd>ファイルオーナーもコピー (root権限でのみ可)</dd>
   <dt><code>-p</code></dt>
   <dd>パーミッションも保存。タイムスタンプも保存するには <code>-t</code> が必要。
 <a href="cp.html"><code>cp</code>コマンド</a>では <code>-p</code> でタイムスタンプも保存してくれるが。</dd>
+  <dt><code>--progress</code></dt>
+  <dd>コピーの進捗を表示</dd>
   <dt><code>-r</code></dt>
   <dd>ディレクトリの場合はその中を再帰的にコピー</dd>
   <dt><code>-t</code></dt>
@@ -167,6 +173,7 @@ rsync --bwlimit=100 remote:foo.txt ./
       <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/join.html">join コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>

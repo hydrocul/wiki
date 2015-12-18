@@ -88,6 +88,19 @@ URLからドメイン名やディレクトリ名を削ったものになる。�
   <dd>他のドメインへもリンクをたどる。このオプションを付けないと、同じドメインの中しかリンクをたどらない</dd>
 </dl>
 
+<h3 id="91c3cdb">ローカルで閲覧するための便宜
+<span class="article-date">2015/12/18</span></h3>
+
+<p>とりあえず <code>-pk</code> を付けてみるとよい。</p>
+
+<dl>
+  <dt><code>-p</code></dt>
+  <dd>そのHTMLページに含まれる画像やCSS、JavaScriptなどもダウンロードする。
+その1ページだけでよければ、<code>-r</code> を付けなくてもよい</dd>
+  <dt><code>-k</code></dt>
+  <dd>リンクや画像への参照などを、ローカルでも開けるように絶対パスから相対パスに書き換える</dd>
+</dl>
+
 <h2 id="e87dc4a">HOWTO</h2>
 
 <h3 id="basic-auth">BASIC認証のあるサイトをダウンロードするには
@@ -188,6 +201,7 @@ wget -r -l5 --convert-links http://www.example.com/
       <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/join.html">join コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
