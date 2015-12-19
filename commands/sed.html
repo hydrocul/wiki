@@ -222,6 +222,26 @@ sed -n -e 20,+3p
 
 <p><code>s</code>コマンドでアドレスの機能を使うと、該当する行だけ置換処理が実行され、それ以外の行は置換せずにそのまま出力される。</p>
 
+<h2 id="a676555">オプション
+<span class="article-date">2015/12/18</span></h2>
+
+<dl>
+  <dt><code>-e</code> script</dt>
+  <dd>処理内容を指定する。</dd>
+  <dt><code>-E</code></dt>
+  <dd>拡張正規表現を使う。</dd>
+  <dt><code>-i</code>, <code>--in-place</code></dt>
+  <dd>結果を標準出力せずにファイルを置き換える。</dd>
+  <dt><code>-n</code></dt>
+  <dd>修理する各行の自動出力をしない。 <code>-p</code> コマンドによる出力のみになる。</dd>
+  <dt><code>-r</code></dt>
+  <dd>拡張正規表現を使う。<code>-E</code> と同じ。</dd>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプを表示</dd>
+  <dt><code>--version</code></dt>
+  <dd>バージョンを表示</dd>
+</dl>
+
 <h2 id="extended-regexp">基本正規表現と拡張正規表現
 <span class="article-date">2014/10/18</span></h2>
 
@@ -338,16 +358,16 @@ OK
 <h2 id="a94f4da">HOWTO</h2>
 
 <h3 id="0250384">大文字小文字を変換するには
-<span class="article-date">2015/07/11</span></h3>
+<span class="article-date">2015/12/18</span></h3>
 
-<p>全部大文字にするには <code>\U</code> というのを使うとよい。</p>
+<p>全部大文字にするには <code>\U</code> というのを使うとよい。<code>U</code> はたぶん <strong>U</strong>pper の略。</p>
 
 <pre><code>head main.go | sed -E 's/(.*)/\U\1/'
 # または
 head main.go | sed 's/\(.*\)/\U\1/'
 </code></pre>
 
-<p>小文字にするには <code>\L</code> というのを使うとよい。</p>
+<p>小文字にするには <code>\L</code> というのを使うとよい。<code>L</code> はたぶん <strong>L</strong>ower の略。</p>
 
 <pre><code>head main.go | sed -E 's/(.*)/\L\1/'
 # または
