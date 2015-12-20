@@ -30,7 +30,7 @@
 <p>sedというコマンド名は Stream EDitor の略らしい。</p>
 
 <h2 id="1db04e2">基本的な使い方
-<span class="article-date">2015/05/13</span></h2>
+<span class="article-date">2015/12/19</span></h2>
 
 <p>標準入力をなにかしら処理して標準出力に出力するので、パイプとして使える。まあたいていのUNIXツールはパイプとして使えるのだが。</p>
 
@@ -57,7 +57,7 @@
 </code></pre>
 
 <p><code>-e</code> オプションがない場合はオプション以外の最初の引数が処理内容とみなされるので、たいていは <code>-e</code> を省略できる。処理内容を指示する引数に拡張正規表現を使いたい場合は、
-<a href="#extended-regexp">後述</a>のように <code>-e</code> の代わりに <code>-E</code> または <code>-r</code> を付ける。</p>
+<a href="#extended-regexp">後述</a>のように <code>-e</code> の代わりに <code>-E</code> を付ける。または <code>-r</code> を併用する。</p>
 
 <p>環境によっては <code>-E</code> や <code>-r</code> がサポートされていないみたい。</p>
 
@@ -228,14 +228,14 @@ sed -n -e 20,+3p
 <dl>
   <dt><code>-e</code> script</dt>
   <dd>処理内容を指定する。</dd>
-  <dt><code>-E</code></dt>
-  <dd>拡張正規表現を使う。</dd>
+  <dt><code>-E</code> script</dt>
+  <dd>拡張正規表現を使って処理内容を指定する。たぶん <code>-r -e</code> script と同じ。</dd>
   <dt><code>-i</code>, <code>--in-place</code></dt>
   <dd>結果を標準出力せずにファイルを置き換える。</dd>
   <dt><code>-n</code></dt>
   <dd>修理する各行の自動出力をしない。 <code>-p</code> コマンドによる出力のみになる。</dd>
   <dt><code>-r</code></dt>
-  <dd>拡張正規表現を使う。<code>-E</code> と同じ。</dd>
+  <dd>拡張正規表現を使う。<a href="#extended-regexp">基本正規表現と拡張正規表現</a>を参照。</dd>
   <dt><code>--help</code></dt>
   <dd>ヘルプを表示</dd>
   <dt><code>--version</code></dt>
@@ -243,12 +243,12 @@ sed -n -e 20,+3p
 </dl>
 
 <h2 id="extended-regexp">基本正規表現と拡張正規表現
-<span class="article-date">2014/10/18</span></h2>
+<span class="article-date">2015/12/18</span></h2>
 
 <p>sedで使える正規表現は基本正規表現と拡張正規表現(extended regular expressions)の2種類ある。</p>
 
 <p>オプションをなにも付けないか <code>-e</code> で実行すると基本正規表現で、
-<code>-e</code> の代わりに <code>-E</code> または <code>-r</code> を付けると拡張正規表現になる。</p>
+<code>-r</code> を付けるかまたは <code>-e</code> の代わりに <code>-E</code> を使うと拡張正規表現になる。</p>
 
 <p>基本正規表現と拡張正規表現とで扱いが異なるのは以下の7文字のみである。</p>
 
@@ -375,9 +375,9 @@ head main.go | sed 's/\(.*\)/\L\1/'
 </code></pre>
 
 <h3 id="9c4c9bd">正規表現の中で ‘{}’ を使うには
-<span class="article-date">2014/10/15</span></h3>
+<span class="article-date">2015/12/19</span></h3>
 
-<p>正規表現で文字数を指定する <code>{}</code> は上で説明したとおり <code>\</code> でエスケープするか、オプション <code>-E</code> または <code>-r</code> を付ける必要がある。</p>
+<p>正規表現で文字数を指定する <code>{}</code> は上で説明したとおり <code>\</code> でエスケープするか、オプション <code>-r</code> を付けるかまたは <code>-e</code> の代わりに <code>-E</code> を使う必要がある。</p>
 
 <pre><code># xxxx を XXXX に置換する例
 sed 's/x{4}/XXXX/g'       # =&gt; NG
