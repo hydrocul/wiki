@@ -230,14 +230,16 @@ $ ssh &lt;ID&gt;@&lt;IP&gt; "foo | bar" &gt; result.txt
 </code></pre>
 
 <h3 id="remote-file-exists">リモートに特定のファイルが存在するかどうかを確認するには
-<span class="article-date">2015/07/07</span></h3>
+<span class="article-date">2015/12/21</span></h3>
 
 <p>リモートのファイルの存在確認をするとりあえずの方法の例</p>
 
-<pre><code>if [ `ssh FOOHOST "ls /PATH/TO/TARGETFILE"` = "/PATH/TO/TARGETFILE" ]; then
+<pre><code>if ssh REMOTE_HOST test -e REMOTE_TARGET_FILE_PATH; then
     # ファイルが存在する場合の処理
 fi
 </code></pre>
+
+<p>ただ、これだとssh接続に失敗した場合には存在しない扱いになってしまう。</p>
 
 <h2 id="3187f0a">関連するツール</h2>
 
@@ -283,6 +285,7 @@ SSH port forwarding を使っている場合は、moshが対応していない�
       <li><a href="../commands/head.html">head コマンド</a></li>
       <li><a href="../incron.html">incrontab / incron コマンド</a></li>
       <li><a href="../commands/jhead.html">jhead コマンド</a></li>
+      <li><a href="../commands/join.html">join コマンド</a></li>
       <li><a href="../commands/jq.html">jq コマンド</a></li>
       <li><a href="../commands/less.html">less コマンド</a></li>
       <li><a href="../commands/lftp.html">lftp コマンド</a></li>
