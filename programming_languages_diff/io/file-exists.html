@@ -65,13 +65,22 @@ boolean exists()
 <p><code>file_exists</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.file-exists.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.file-exists.php</a></p>
 
-<h2 id="78acfda">Ruby
-<span class="article-date">2013/10/09</span></h2>
+<h2 id="2ec886b">Ruby / JRuby
+<span class="article-date">2015/12/26</span></h2>
 
-<pre><code>File.exists?('/home/foo/testfile')
+<pre><code>if File.exist?('/home/foo/testfile')
+  # ファイルがある場合
+  ..
+else
+  # ファイルがない場合
+  ..
+end
 </code></pre>
 
 <p>シンボリックリンクの場合は、リンク先が存在するかどうかをチェックする。リンク先が存在しなければリンクそのものが存在していても <code>false</code> を返す。</p>
+
+<p><code>File.exist?</code> | Ruby 2.2 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.2.0/method/File/s/exist=3f.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.2.0/method/File/s/exist=3f.html</a></p>
 
 <h2 id="975485f">Perl
 <span class="article-date">2015/03/18</span></h2>
@@ -127,6 +136,7 @@ fi
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
           <li>ファイルまたはディレクトリが存在するかどうかを取得するには</li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>

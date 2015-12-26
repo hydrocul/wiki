@@ -24,19 +24,41 @@
 
 <h2 id="f98003e">ファイルまたはディレクトリの存在チェック</h2>
 
+<p>-&gt; <a href="file-exists.html">ファイルの存在チェック</a></p>
+
 <h3 id="df3dae5">PHP
-<span class="article-date">2015/12/21</span></h3>
+<span class="article-date">2015/12/26</span></h3>
 
 <pre><code>if (file_exists($filepath)) {
     // ファイルまたはディレクトリ等が存在する場合
+    ...;
+} else {
+    // ファイルまたはディレクトリ等が存在しない場合
+    ...;
+}
+</code></pre>
+
+<h3 id="0097666">Perl
+<span class="article-date">2015/12/26</span></h3>
+
+<pre><code>if ( -e '/home/foo/testfile' ) {
+    # ファイルまたはディレクトリ等が存在する場合
+    ...;
+} else {
+    # ファイルまたはディレクトリ等が存在しない場合
+    ...;
 }
 </code></pre>
 
 <h3 id="9ac05c9">sh (シェルスクリプト)
-<span class="article-date">2015/12/21</span></h3>
+<span class="article-date">2015/12/26</span></h3>
 
 <pre><code>if [ -e FILEPATH ]; then
     # ファイルまたはディレクトリ等が存在する場合
+    ...
+else
+    # ファイルまたはディレクトリ等が存在しない場合
+    ...
 fi
 </code></pre>
 
