@@ -38,10 +38,22 @@
 }
 </code></pre>
 
+<h3 id="6101f8c">Ruby
+<span class="article-date">2015/12/26</span></h3>
+
+<pre><code>if File.exist?(filepath)
+  # ファイルまたはディレクトリ等が存在する場合
+  ...
+else
+  # ファイルまたはディレクトリ等が存在しない場合
+  ...
+end
+</code></pre>
+
 <h3 id="0097666">Perl
 <span class="article-date">2015/12/26</span></h3>
 
-<pre><code>if ( -e '/home/foo/testfile' ) {
+<pre><code>if ( -e $filepath ) {
     # ファイルまたはディレクトリ等が存在する場合
     ...;
 } else {
@@ -70,6 +82,18 @@ fi
 <pre><code>if (is_dir($filepath)) {
     // ディレクトリの場合
 }
+</code></pre>
+
+<h3 id="f440da9">Ruby
+<span class="article-date">2015/12/26</span></h3>
+
+<pre><code>if File.ftype(filepath) == 'directory'
+  # ディレクトリの場合
+  ...
+else
+  # ディレクトリでない場合
+  ...
+end
 </code></pre>
 
 <h3 id="86d210e">sh (シェルスクリプト)
@@ -209,7 +233,6 @@ fi
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
-          <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>

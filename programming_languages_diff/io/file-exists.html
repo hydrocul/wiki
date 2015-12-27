@@ -70,17 +70,22 @@ boolean exists()
 
 <pre><code>if File.exist?('/home/foo/testfile')
   # ファイルがある場合
-  ..
+  ...
 else
   # ファイルがない場合
-  ..
+  ...
 end
 </code></pre>
+
+<p><code>File.exist?</code> の代わりに <code>FileTest.exist?</code> でもよい。</p>
 
 <p>シンボリックリンクの場合は、リンク先が存在するかどうかをチェックする。リンク先が存在しなければリンクそのものが存在していても <code>false</code> を返す。</p>
 
 <p><code>File.exist?</code> | Ruby 2.2 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.2.0/method/File/s/exist=3f.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.2.0/method/File/s/exist=3f.html</a></p>
+
+<p><code>FileTest.exist?</code> | Ruby 2.2 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.2.0/method/FileTest/m/exist=3f.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.2.0/method/FileTest/m/exist=3f.html</a></p>
 
 <h2 id="975485f">Perl
 <span class="article-date">2015/03/18</span></h2>
@@ -141,7 +146,6 @@ fi
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
-          <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
