@@ -114,6 +114,15 @@ fi
 }
 </code></pre>
 
+<h3 id="cbadc81">Ruby
+<span class="article-date">2015/12/27</span></h3>
+
+<pre><code>if File.ftype(filepath) == 'link'
+  # シンボリックリンクの場合
+  ...
+end
+</code></pre>
+
 <h3 id="7ec5413">sh (シェルスクリプト)
 <span class="article-date">2015/12/21</span></h3>
 
@@ -133,6 +142,15 @@ fi
 <pre><code>if (filesize($filepath) &gt; 0) {
     // ファイルサイズが0より大きい場合
 }
+</code></pre>
+
+<h3 id="388355e">Ruby
+<span class="article-date">2015/12/27</span></h3>
+
+<pre><code>if File.size?(filepath)
+  # ファイルサイズが0より大きい場合
+  ...
+end
 </code></pre>
 
 <h3 id="a05ff95">Perl

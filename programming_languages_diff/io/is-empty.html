@@ -29,16 +29,24 @@
 </ul>
 
 <h2 id="e085a80">Ruby / JRuby
-<span class="article-date">2015/09/09</span></h2>
+<span class="article-date">2015/12/27</span></h2>
 
-<p><code>File.size?</code> というメソッドでファイルサイズが0より大きいかどうかを取得できるので、</p>
+<p><code>File.size?</code> というメソッドでファイルサイズが0より大きいかどうかを取得できる。</p>
 
 <pre><code>if ! File.size?("/home/kenken/pj/ichigo/var/download/mkdir")
     # ファイルサイズが0の場合の処理
 end
 </code></pre>
 
-<p><code>File.size?</code> はファイルが存在しない場合も <code>false</code> を返す。</p>
+<p><code>File.size?</code> はファイルサイズが0またはファイルが存在しない場合に <code>nil</code> を返す。
+0より大きい場合にはそのファイルサイズを返す。
+<code>File.size</code> はファイルサイズが0の場合に0を返し、ファイルが存在しない場合にはエラーになる。</p>
+
+<p><code>File.size</code> | Ruby 2.2 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size.html</a></p>
+
+<p><code>File.size?</code> | Ruby 2.2 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size=3f.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size=3f.html</a></p>
 
 <h2 id="192b08b">Perl
 <span class="article-date">2013/08/19</span></h2>
@@ -85,11 +93,11 @@ fi
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
-          <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
           <li>ファイルサイズが0かどうかを取得するには</li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>

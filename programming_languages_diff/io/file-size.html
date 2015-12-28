@@ -41,11 +41,25 @@ print os.path.getsize(path)
 
 <p><code>path</code>がシンボリックリンクの場合は、リンク先のファイルサイズを取得する。</p>
 
-<h2 id="e3955b0">Ruby
-<span class="article-date">2013/05/28</span></h2>
+<h2 id="8045794">Ruby / JRuby
+<span class="article-date">2015/12/27</span></h2>
 
-<pre><code>File::stat('./hoge.txt').size
+<pre><code>p File.size(filepath)
 </code></pre>
+
+<p>または</p>
+
+<pre><code>p File.stat(filepath).size
+</code></pre>
+
+<p><code>File.size</code> | Ruby 2.2 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size.html</a></p>
+
+<p><code>File.size?</code> | Ruby 2.2 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size=3f.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size=3f.html</a></p>
+
+<p><code>File.stat</code> | Ruby 2.2 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.2.0/method/File/s/stat.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.2.0/method/File/s/stat.html</a></p>
 
 <h2 id="1ff6bd1">Perl
 <span class="article-date">2013/08/19</span></h2>
@@ -87,11 +101,11 @@ print os.path.getsize(path)
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
           <li>ファイルサイズを取得するには</li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
-          <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
