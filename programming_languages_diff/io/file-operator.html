@@ -209,6 +209,22 @@ fi
 }
 </code></pre>
 
+<h3 id="b83e6da">Ruby
+<span class="article-date">2015/12/29</span></h3>
+
+<pre><code>if File.mtime(filepath1) &gt; File.mtime(filepath2)
+  # filepath1 が filepath2 よりもタイムスタンプが新しい場合
+end
+</code></pre>
+
+<h4 id="58f9e69">JRuby
+<span class="article-date">2015/12/29</span></h4>
+
+<p>JRubyでもOK</p>
+
+<p><code>File.mtime</code> | Ruby 2.3 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.3.0/method/File/s/mtime.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.3.0/method/File/s/mtime.html</a></p>
+
 <h3 id="dd5ab3b">sh (シェルスクリプト)
 <span class="article-date">2015/12/21</span></h3>
 
