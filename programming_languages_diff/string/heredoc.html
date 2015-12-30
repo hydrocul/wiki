@@ -217,7 +217,7 @@ World!
 <a href="http://perldoc.jp/docs/perl/5.18.1/perldata.pod#Special32Literals" target="_blank" class="external-link">http://perldoc.jp/docs/perl/5.18.1/perldata.pod#Special32Literals</a></p>
 
 <h2 id="sh">sh (シェルスクリプト)
-<span class="article-date">2014/03/01</span></h2>
+<span class="article-date">2015/12/29</span></h2>
 
 <p>例</p>
 
@@ -232,14 +232,59 @@ EOD
 <p>ヒアドキュメントの中では <code>\</code>`<code> や </code>$` で始まる変数の展開が使える。それらを使いたくない場合は、以下のようにする。</p>
 
 <pre><code>cat &lt;&lt;\EOD
-foo
-bar
-$HOME
-`date`
+MacBookPro 13-inch: $1499
+MacBookPro 15-inch: $1999
 EOD
 </code></pre>
 
 <p>ヒアドキュメントがファイルの最後までの場合は、終端の識別子を省略できる。</p>
+
+<p>ヒアドキュメントの後にパイプで別のコマンドを繋ぎたい場合、ヒアドキュメントの後ろではなく前に書く。</p>
+
+<pre><code>cat &lt;&lt;EOD | sed s/o/0/g
+foo
+bar
+EOD
+</code></pre>
+
+<p>出力は</p>
+
+<pre><code>f00
+bar
+</code></pre>
+
+<p>となる。</p>
+
+<p>スクリプトの見やすさのためにヒアドキュメントの部分もインデントしたい場合、普通にインデントするとインデント自体もヒアドキュメントに含まれてしまうし、
+<code>EOD</code> の終端子はインデントしたら終端子とみなしてくれないので、</p>
+
+<pre><code>if true; then
+    cat &lt;&lt; EOD
+    Hello
+EOD
+fi
+</code></pre>
+
+<p>のよう残念な形になるし、出力は以下のようになってしまう。</p>
+
+<pre><code>    Hello
+</code></pre>
+
+<p>この場合 <code>&lt;&lt;</code> の代わりに <code>&lt;&lt;-</code> を使うとよい。ただしインデントはスペースではなくタブ限定である。</p>
+
+<pre><code>if true; then
+    cat &lt;&lt;- EOD
+    Hello
+    EOD
+fi
+</code></pre>
+
+<p>出力は</p>
+
+<pre><code>Hello
+</code></pre>
+
+<p>となる。</p>
 
 <h2 id="javascript">JavaScript
 <span class="article-date">2015/04/22</span></h2>
