@@ -145,13 +145,21 @@ print(isinstance(True, int))   # True
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/12/07</span></h2>
+<span class="article-date">2015/12/30</span></h2>
 
 <p><code>true</code>, <code>false</code> というキーワードがあり、それぞれ、<code>TrueClass</code>, <code>FalseClass</code> の唯一のインスタンスである。</p>
 
 <p>if文の条件式など、論理値が必要な箇所に
 <code>false</code>, <code>nil</code> が入ると <code>false</code> の扱いになり、それ以外はすべて <code>true</code> の扱いになる。
 <code>0</code> も <code>''</code> も <code>[]</code> も <code>true</code>。</p>
+
+<p><code>TrueClass</code>, <code>FalseClass</code> の共通のスーパークラスとして
+<code>BooleanClass</code> みたいなのはない。</p>
+
+<p>その理由は以下の記事で解説されている。</p>
+
+<p>RubyでBoolClassではなくTrueClass/FalseClassな理由を理解する | Qiita<br />
+<a href="http://qiita.com/yatemmma/items/3597a0e20556fb846d3f" target="_blank" class="external-link">http://qiita.com/yatemmma/items/3597a0e20556fb846d3f</a></p>
 
 <h2 id="cfdef73">JRuby
 <span class="article-date">2014/12/13</span></h2>
