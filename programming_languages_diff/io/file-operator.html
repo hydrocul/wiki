@@ -90,10 +90,15 @@ fi
 <pre><code>if File.ftype(filepath) == 'directory'
   # ディレクトリの場合
   ...
-else
-  # ディレクトリでない場合
-  ...
 end
+</code></pre>
+
+<h3 id="840b003">Perl
+<span class="article-date">2015/12/31</span></h3>
+
+<pre><code>if( -d $filepath ){
+    # ディレクトリの場合
+}
 </code></pre>
 
 <h3 id="86d210e">sh (シェルスクリプト)
@@ -121,6 +126,14 @@ fi
   # シンボリックリンクの場合
   ...
 end
+</code></pre>
+
+<h3 id="db1144c">Perl
+<span class="article-date">2015/12/31</span></h3>
+
+<pre><code>if( -l $filepath ){
+    # シンボリックリンクの場合
+}
 </code></pre>
 
 <h3 id="7ec5413">sh (シェルスクリプト)
