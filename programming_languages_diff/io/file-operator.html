@@ -26,6 +26,17 @@
 
 <p>-&gt; <a href="file-exists.html">ファイルの存在チェック</a></p>
 
+<h3 id="88758fc">Java
+<span class="article-date">2016/01/03</span></h3>
+
+<pre><code>import java.io.File;
+
+if (new File(filepath).exists()) {
+    // ファイルまたはディレクトリ等が存在する場合
+    ...;
+}
+</code></pre>
+
 <h3 id="df3dae5">PHP
 <span class="article-date">2015/12/26</span></h3>
 
@@ -81,6 +92,7 @@ fi
 
 <pre><code>if (is_dir($filepath)) {
     // ディレクトリの場合
+    ...;
 }
 </code></pre>
 
@@ -98,6 +110,7 @@ end
 
 <pre><code>if( -d $filepath ){
     # ディレクトリの場合
+    ...;
 }
 </code></pre>
 
@@ -106,6 +119,7 @@ end
 
 <pre><code>if [ -d FILEPATH ]; then
     # ディレクトリの場合
+    ...
 fi
 </code></pre>
 
@@ -116,6 +130,7 @@ fi
 
 <pre><code>if (fileperms($filepath) &amp; 0xA000) {
     // シンボリックリンクの場合
+    ...;
 }
 </code></pre>
 
@@ -133,6 +148,7 @@ end
 
 <pre><code>if( -l $filepath ){
     # シンボリックリンクの場合
+    ...;
 }
 </code></pre>
 
@@ -141,6 +157,7 @@ end
 
 <pre><code>if [ -L FILEPATH ]; then
     # シンボリックリンクの場合
+    ...
 fi
 </code></pre>
 
@@ -154,6 +171,7 @@ fi
 
 <pre><code>if (filesize($filepath) &gt; 0) {
     // ファイルサイズが0より大きい場合
+    ...;
 }
 </code></pre>
 
@@ -171,6 +189,7 @@ end
 
 <pre><code>if ( -s $filepath) {
     # ファイルサイズが0より大きい場合
+    ...
 }
 </code></pre>
 
@@ -179,36 +198,7 @@ end
 
 <pre><code>if [ -s FILEPATH ]; then
     # ファイルサイズが0より大きい場合
-fi
-</code></pre>
-
-<h2 id="6168537">読み取り権限のチェック</h2>
-
-<h3 id="451ada3">sh (シェルスクリプト)
-<span class="article-date">2015/12/21</span></h3>
-
-<pre><code>if [ -r FILEPATH ]; then
-    # パーミッションが読み取り可能な場合
-fi
-</code></pre>
-
-<h2 id="5d45e0b">書き込み権限のチェック</h2>
-
-<h3 id="04a4ecc">sh (シェルスクリプト)
-<span class="article-date">2015/12/21</span></h3>
-
-<pre><code>if [ -w FILEPATH ]; then
-    # パーミッションが書き込み可能な場合
-fi
-</code></pre>
-
-<h2 id="f8eaff8">実行権限のチェック</h2>
-
-<h3 id="f5ecc5e">sh (シェルスクリプト)
-<span class="article-date">2015/12/21</span></h3>
-
-<pre><code>if [ -x FILEPATH ]; then
-    # パーミッションが実行可能な場合
+    ...
 fi
 </code></pre>
 
@@ -219,6 +209,7 @@ fi
 
 <pre><code>if (filemtime($filePath1) &gt; filemtime($filePath2)) {
     # FILEPATH1 が FILEPATH2 よりもタイムスタンプが新しい場合
+    ...;
 }
 </code></pre>
 
@@ -227,26 +218,30 @@ fi
 
 <pre><code>if File.mtime(filepath1) &gt; File.mtime(filepath2)
   # filepath1 が filepath2 よりもタイムスタンプが新しい場合
+  ...
 end
 </code></pre>
 
-<h4 id="58f9e69">JRuby
-<span class="article-date">2015/12/29</span></h4>
+<h3 id="ce91809">Perl
+<span class="article-date">2016/01/03</span></h3>
 
-<p>JRubyでもOK</p>
-
-<p><code>File.mtime</code> | Ruby 2.3 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.3.0/method/File/s/mtime.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.3.0/method/File/s/mtime.html</a></p>
+<pre><code>if ((stat($filepath1))[9] &gt; (stat($filepath2))[9]) {
+    # $filepath1 が $filepath2 よりもタイムスタンプが新しい場合
+    ...;
+}
+</code></pre>
 
 <h3 id="dd5ab3b">sh (シェルスクリプト)
 <span class="article-date">2015/12/21</span></h3>
 
 <pre><code>if [ FILEPATH1 -nt FILEPATH2 ]; then
     # FILEPATH1 が FILEPATH2 よりもタイムスタンプが新しい場合
+    ...
 fi
 
 if [ FILEPATH1 -ot FILEPATH2 ]; then
     # FILEPATH1 が FILEPATH2 よりもタイムスタンプが古い場合
+    ...
 fi
 </code></pre>
 

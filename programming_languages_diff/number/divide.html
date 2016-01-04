@@ -80,7 +80,7 @@ echo 5.3 % 2.1; // =&gt; 1
 </code></pre>
 
 <h2 id="python">Python
-<span class="article-date">2015/01/27</span></h2>
+<span class="article-date">2016/01/03</span></h2>
 
 <p>演算子 <code>/</code> で除算ができる。</p>
 
@@ -93,10 +93,10 @@ Python3では、整数同士であってもたとえ割り切れるとしても�
 <code>//</code> という演算子を使用する。</p>
 
 <pre><code>print(5 / 2)       # =&gt; Python2: 2, Python3: 2.5
-print(5 // 2)      # =&gt; 2
+print(5 // 2)      # =&gt; Python3: 2
 print(4 / 2)       # =&gt; Python2: 2, Python3: 2.0
 print(2.5 / 1.2)   # =&gt; 2.08333333333
-print(2.5 // 1.2)  # =&gt; 2.0
+print(2.5 // 1.2)  # =&gt; Python3: 2.0
 </code></pre>
 
 <p>演算子 <code>%</code> で剰余を取得できる。整数だけでなく、浮動小数点数でも剰余を計算できる。</p>
@@ -115,6 +115,26 @@ print(-5 % 3)
 print(5.3 % 2.1)
 # =&gt; 1.0999999999999996
 # 自分の環境のPython2では 1.1 になった
+</code></pre>
+
+<p>負が絡む場合の例</p>
+
+<pre><code>print(5 / 2)   # =&gt; Python2: 2,  Python3: 2.5
+print(5 / -2)  # =&gt; Python2: -3, Python3: -2.5
+print(-5 / 2)  # =&gt; Python2: -3, Python3: -2.5
+print(-5 / -2) # =&gt; Python2: 2,  Python3: 2.5
+
+# Python3
+print(5 // 2)   # =&gt; 2
+print(5 // -2)  # =&gt; -3
+print(-5 // 2)  # =&gt; -3
+print(-5 // -2) # =&gt; 2
+
+# Python2 でも Python3 でも同じ
+print(5 % 2)   # =&gt; 1
+print(5 % -2)  # =&gt; -1
+print(-5 % 2)  # =&gt; 1
+print(-5 % -2) # =&gt; -1
 </code></pre>
 
 <h2 id="586c7ec">Ruby
