@@ -45,6 +45,13 @@ if (matcher.find()) {
 }
 </code></pre>
 
+<p>PHP</p>
+
+<pre><code>if (preg_match("/dear\\s+(\\S+)/", "Happy birthday dear Ken", $matches)) {
+    echo $matches[1];
+}
+</code></pre>
+
 <p><a href="#python">Python</a></p>
 
 <pre><code>m = re.compile("dear\\s+(\\S+)").search("Happy birthday dear Ken");
@@ -103,6 +110,14 @@ str match {
 
 <p>パターンマッチングは文字列全体とマッチするかどうかを判定するので、
 <code>"b(c+)".r</code> と書いてもこの場合はマッチしない。</p>
+
+<h2 id="778a4ca">PHP
+<span class="article-date">2016/01/07</span></h2>
+
+<pre><code>if (preg_match("/dear\\s+(\\S+)/", "Happy birthday dear Ken", $matches)) {
+    echo $matches[1];
+}
+</code></pre>
 
 <h2 id="python">Python
 <span class="article-date">2015/04/16</span></h2>
@@ -218,7 +233,7 @@ if ($str =~ /b(c+)/) {
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
-          <li><a href="../../programming_languages_diff/string/unicode-escape.html">文字をUnicodeのコードポイントで指定するには</a></li>
+          <li><a href="../../programming_languages_diff/string/unicode-escape.html">Unicodeエスケープで文字列リテラルを書くには</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
           <li><a href="../../programming_languages_diff/string/unicode-upper-lower.html">Unicodeの仕様に基づいた大文字小文字を変換するには</a></li>
         </ul>
