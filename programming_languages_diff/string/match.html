@@ -90,7 +90,7 @@ fi
 </ul>
 
 <h2 id="php">PHP
-<span class="article-date">2015/07/27</span></h2>
+<span class="article-date">2016/01/08</span></h2>
 
 <p><code>preg_match</code> という関数は、正規表現にマッチしたら <code>1</code>, マッチしなかったら <code>0</code> が返される。正規表現が間違っているなどのエラーの際は <code>false</code> が返される。</p>
 
@@ -99,7 +99,15 @@ preg_match("/x./", "abc\nabc"); // =&gt; 0
 preg_match("/a", "abc\nabc");   // =&gt; false
 </code></pre>
 
-<p>文字列全体のマッチングではなく、部分マッチングである。全体のマッチングをしたいのであれば、正規表現の <code>'\A'</code>, <code>'\z'</code> を使うとよい。</p>
+<p>PHPでは <code>0</code> は <code>if</code> の条件の中に入れたら <code>false</code> とみなされるので、<code>if</code>の条件式の中に素直に書ける。
+(-&gt; <a href="../boolean/to-boolean.html#php">論理値への変換</a>)</p>
+
+<pre><code>if (preg_match("/x./", "abc\nabc")) { // NG
+    ...;
+}
+</code></pre>
+
+<p><code>preg_match</code> は文字列全体のマッチングではなく、部分マッチングであるので、全体のマッチングをしたいのであれば、正規表現の <code>'\A'</code>, <code>'\z'</code> を使うとよい。</p>
 
 <p>正規表現はバックスラッシュを多用するので、<code>""</code> ではなく <code>''</code> で囲んだほうが便利。
 <code>""</code> で囲む場合は、<code>"\\A"</code>, <code>"\\z"</code> などとバックスラッシュをたくさん書く必要がある。</p>
@@ -113,11 +121,14 @@ preg_match('/\Abc\z/', "abc\nabc"); // =&gt; 0
 <code>"!\A/var/log/httpd/.+_log\z!"</code> みたいに。先頭と最後を <code>/</code> にすると、
 <code>"/\A\/var\/log\/httpd\/.+_log\z/"</code> と書かないといけない。その代わり、先頭と最後を <code>!</code> にした場合は、パターン自体に含まれる <code>!</code> は <code>\!</code> と書かないといけない。</p>
 
+<p>3つ目の引数を渡すと、マッチした部分文字列を取得することができる。
+-&gt; <a href="regexp-group.html#php">正規表現で文字列をキャプチャするには</a></p>
+
 <p><code>preg_match</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.preg-match.php" target="_blank" class="external-link">http://php.net/manual/ja/function.preg-match.php</a></p>
+<a href="http://www.php.net/manual/ja/function.preg-match.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.preg-match.php</a></p>
 
 <p>PCRE(Perlと互換性の高い正規表現)のパターン | PHP Manual<br />
-<a href="http://php.net/manual/ja/pcre.pattern.php" target="_blank" class="external-link">http://php.net/manual/ja/pcre.pattern.php</a></p>
+<a href="http://www.php.net/manual/ja/pcre.pattern.php" target="_blank" class="external-link">http://www.php.net/manual/ja/pcre.pattern.php</a></p>
 
 <h2 id="python">Python
 <span class="article-date">2015/04/14</span></h2>
@@ -154,19 +165,28 @@ print("match" if r.match("abc") else "unmatch") # =&gt; match
 <a href="http://docs.python.jp/3/howto/regex.html" target="_blank" class="external-link">http://docs.python.jp/3/howto/regex.html</a></p>
 
 <h2 id="ruby">Ruby / JRuby
-<span class="article-date">2015/04/12</span></h2>
+<span class="article-date">2016/01/08</span></h2>
 
-<p><code>=~</code> という演算子で、正規表現にマッチしていたら、そのインデックスを返し、マッチしなければ <code>nil</code> を返す。</p>
+<p><code>=~</code> という演算子は、正規表現にマッチしていたら、そのマッチした部分の先頭の文字のインデックスを返し、マッチしなければ <code>nil</code> を返す。</p>
 
 <pre><code>"abc\nabc\n" =~ /a./ # =&gt; 0
 "abc\nabc\n" =~ /x./ # =&gt; nil
 </code></pre>
 
-<p>Rubyでは <code>0</code> も <code>if</code> の条件の中に入れたら <code>true</code> とみなされる。</p>
+<p>Rubyでは <code>0</code> も <code>if</code> の条件の中に入れたら <code>true</code> とみなされるので、<code>if</code>の条件式として素直に使える。
+(-&gt; <a href="../boolean/to-boolean.html#ruby">論理値への変換</a>)</p>
 
-<p>-&gt; <a href="../boolean/to-boolean.html#ruby">論理値への変換</a></p>
+<pre><code>if "abc\nabc\n" =~ /a./  # OK
+  ...
+end
+</code></pre>
 
-<p><code>!~</code> という演算子は <code>=~</code> の反対で、正規表現にマッチしていたら <code>false</code> を返し、マッチしなければ <code>true</code> を返す。</p>
+<p>文字列全体のマッチングではなく、部分マッチングであるので、全体のマッチングをしたいのであれば、正規表現の <code>'\A'</code>, <code>'\z'</code> を使うとよい。</p>
+
+<p>マッチングの後 <code>$~</code> や <code>$1</code>, <code>$2</code>, <code>$3</code> でマッチした部分文字列を取得することができる。
+-&gt; <a href="regexp-group.html#ruby">正規表現で文字列をキャプチャするには</a></p>
+
+<p><code>!~</code> という演算子は <code>=~</code> の反対で、正規表現にマッチしていたら <code>false</code> を返し、マッチしなければ <code>true</code> を返す。インデックスは返さない。</p>
 
 <pre><code>/a./ !~ "abc\nabc\n" # =&gt; false
 /x./ !~ "abc\nabc\n" # =&gt; true

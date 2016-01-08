@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="regexp-group">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)
-<span class="article-date">2015/04/16</span></h1>
+<span class="article-date">2016/01/08</span></h1>
 
 <p>正規表現の中にカッコで括られた部分がある場合は、そのカッコの中にマッチした部分だけを取り出す機能があるが、以下は各プログラミング言語別のその方法のメモ。</p>
 
@@ -45,7 +45,7 @@ if (matcher.find()) {
 }
 </code></pre>
 
-<p>PHP</p>
+<p><a href="#php">PHP</a></p>
 
 <pre><code>if (preg_match("/dear\\s+(\\S+)/", "Happy birthday dear Ken", $matches)) {
     echo $matches[1];
@@ -57,6 +57,13 @@ if (matcher.find()) {
 <pre><code>m = re.compile("dear\\s+(\\S+)").search("Happy birthday dear Ken");
 if m:
     print(m.group(1))
+</code></pre>
+
+<p><a href="#ruby">Ruby</a></p>
+
+<pre><code>if "Happy birthday dear Ken" =~ /dear\s+(\S+)/
+  puts $1
+end
 </code></pre>
 
 <p><a href="#perl">Perl</a></p>
@@ -111,13 +118,22 @@ str match {
 <p>パターンマッチングは文字列全体とマッチするかどうかを判定するので、
 <code>"b(c+)".r</code> と書いてもこの場合はマッチしない。</p>
 
-<h2 id="778a4ca">PHP
-<span class="article-date">2016/01/07</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2016/01/08</span></h2>
+
+<p><a href="match.html#php"><code>preg_match</code></a> という関数に3つ目の引数を渡すと、3つ目の引数に配列で保存してくれる。</p>
 
 <pre><code>if (preg_match("/dear\\s+(\\S+)/", "Happy birthday dear Ken", $matches)) {
     echo $matches[1];
 }
 </code></pre>
+
+<p><code>$matches[0]</code> には正規表現全体にマッチした文字列が入り、 
+<code>$matches[1]</code> には1つ目の括弧にマッチした文字列が入り、 
+<code>$matches[2]</code> には2つ目の括弧にマッチした文字列が入る、という具合である。</p>
+
+<p><code>preg_match</code> 関数 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.preg-match.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.preg-match.php</a></p>
 
 <h2 id="python">Python
 <span class="article-date">2015/04/16</span></h2>
@@ -138,7 +154,7 @@ if m:
   <dd>文字列の先頭に限らずマッチするかどうかを判定し、マッチしたら <code>MatchObject</code> インスタンスを返し、マッチしなかったら <code>None</code> を返す</dd>
 </dl>
 
-<h2 id="64d5823">Ruby / JRuby
+<h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/11/23</span></h2>
 
 <p>正規表現にマッチさせると、 <code>Regexp.last_match</code> または <code>$~</code> という名前で正規表現全体やグルーピングにマッチした文字列を取得できる。または <code>$1</code>, <code>$2</code>, <code>$3</code>, … でグルーピングにマッチした文字列を取得できる。これらの変数はスコープごとに別々である。</p>
