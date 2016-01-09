@@ -90,7 +90,7 @@ fi
 </ul>
 
 <h2 id="php">PHP
-<span class="article-date">2016/01/08</span></h2>
+<span class="article-date">2016/01/09</span></h2>
 
 <p><code>preg_match</code> という関数は、正規表現にマッチしたら <code>1</code>, マッチしなかったら <code>0</code> が返される。正規表現が間違っているなどのエラーの際は <code>false</code> が返される。</p>
 
@@ -116,8 +116,7 @@ preg_match("/a", "abc\nabc");   // =&gt; false
 preg_match('/\Abc\z/', "abc\nabc"); // =&gt; 0
 </code></pre>
 
-<p>ファイルパスのパターンマッチングをする場合などで、パターン自体に <code>/</code> をたくさん書く場合、
-<code>\/</code> と書かないといけないのを避けるためにパターンの先頭と最後を <code>/</code> 以外の、例えば <code>!</code> とかにするとよい。
+<p>パターン自体に <code>/</code> を使いたい場合、 <code>\/</code> というふうにエスケープを使う必要がある。ファイルパスのパターンマッチングなどで、パターン自体に <code>/</code> をたくさん書く場合、全部エスケープするのは面倒なので、その場合はパターンの先頭と最後を <code>/</code> 以外の、例えば <code>!</code> とかにするとよい。
 <code>"!\A/var/log/httpd/.+_log\z!"</code> みたいに。先頭と最後を <code>/</code> にすると、
 <code>"/\A\/var\/log\/httpd\/.+_log\z/"</code> と書かないといけない。その代わり、先頭と最後を <code>!</code> にした場合は、パターン自体に含まれる <code>!</code> は <code>\!</code> と書かないといけない。</p>
 
@@ -131,19 +130,20 @@ preg_match('/\Abc\z/', "abc\nabc"); // =&gt; 0
 <a href="http://www.php.net/manual/ja/pcre.pattern.php" target="_blank" class="external-link">http://www.php.net/manual/ja/pcre.pattern.php</a></p>
 
 <h2 id="python">Python
-<span class="article-date">2015/04/14</span></h2>
+<span class="article-date">2016/01/09</span></h2>
 
 <p>コンパイルした正規表現をオブジェクトとして保持して、そのオブジェクトの
 <code>match</code>メソッドなどを呼び出す。</p>
 
 <pre><code>import re
+
 r = re.compile("bc")
 print("match" if r.match("abc") else "unmatch") # =&gt; unmatch
 r = re.compile("ab")
 print("match" if r.match("abc") else "unmatch") # =&gt; match
 </code></pre>
 
-<p><code>match</code>メソッドは、文字列の先頭がマッチするかどうかであり、文字列全体のマッチングではなく、部分マッチングでもない。マッチしない場合は <code>None</code> を返す。</p>
+<p><code>match</code>メソッドは、文字列の先頭がマッチするかどうかであり、文字列全体のマッチングではなく、部分マッチングというわけでもない。</p>
 
 <p><code>search</code>メソッドであれば、他の言語と同様に部分マッチングする。</p>
 
