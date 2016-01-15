@@ -21,11 +21,55 @@
 
 <div id="content">
   <h1 id="pow">べき乗演算子
-<span class="article-date">2014/07/02</span></h1>
+<span class="article-date">2016/01/14</span></h1>
 
 <p>各プログラミング言語におけるべき乗( \(x^y\) )を計算する方法の比較。</p>
 
-<h2 id="983c097">Java / Scala
+<p><a href="#java">Java</a></p>
+
+<pre><code>Math.pow(x, y)
+</code></pre>
+
+<p><a href="#java">Scala</a></p>
+
+<pre><code>Math.pow(x, y)
+</code></pre>
+
+<p>Groovy</p>
+
+<pre><code>x ** y
+Math.pow(x, y)
+</code></pre>
+
+<p><a href="#php">PHP</a></p>
+
+<pre><code>x ** y
+pow(x, y)
+</code></pre>
+
+<p><a href="#python">Python</a></p>
+
+<pre><code>x ** y
+pow(x, y)
+</code></pre>
+
+<p><a href="#ruby">Ruby</a></p>
+
+<pre><code>x ** y
+</code></pre>
+
+<p><a href="#perl">Perl</a></p>
+
+<pre><code>x ** y
+pow(x, y)
+</code></pre>
+
+<p><a href="#javascript">JavaScript</a></p>
+
+<pre><code>Math.pow(x, y)
+</code></pre>
+
+<h2 id="java">Java / Scala
 <span class="article-date">2014/10/31</span></h2>
 
 <p><code>Math.pow</code>を利用する。引数も返り値も浮動小数点数(<code>double</code>)である。</p>
@@ -42,8 +86,8 @@ System.out.println(Math.pow(1.01, 100));
 <p><code>java.lang.Math.pow</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#pow-double-double-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#pow-double-double-</a></p>
 
-<h2 id="86eddfa">PHP
-<span class="article-date">2014/09/22</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2016/01/14</span></h2>
 
 <p><code>pow</code>関数を利用する。</p>
 
@@ -51,15 +95,19 @@ System.out.println(Math.pow(1.01, 100));
 // =&gt; 125
 </code></pre>
 
+<p>PHP 5.6.0からは <code>**</code> 演算子も使えるようになった。</p>
+
+<pre><code>var_export(5 ** 3);
+// =&gt; 125
+</code></pre>
+
 <p><code>pow</code>関数 | PHP Manual<br />
 <a href="http://jp1.php.net/manual/ja/function.pow.php" target="_blank" class="external-link">http://jp1.php.net/manual/ja/function.pow.php</a></p>
-
-<p>PHP 5.6.0からは <code>**</code> が使えるようになったらしい。</p>
 
 <p>Arithmetic Operators<br />
 <a href="http://php.net/language.operators.arithmetic" target="_blank" class="external-link">http://php.net/language.operators.arithmetic</a></p>
 
-<h2 id="2a3e71d">Python
+<h2 id="python">Python
 <span class="article-date">2015/04/06</span></h2>
 
 <p><code>**</code> 演算子を利用する。または<code>math</code>モジュールにある<code>pow</code>関数でも同じ。</p>
@@ -79,7 +127,7 @@ print pow(2.72, 3.14) # =&gt; 23.1497528435
 
 <p>ちなみに <code>^</code> は排他的論理和(XOR)の<a href="bit-operator.html#python">ビット演算子</a>になる。</p>
 
-<h2 id="a47c4fc">Ruby
+<h2 id="ruby">Ruby
 <span class="article-date">2014/10/20</span></h2>
 
 <p><code>**</code> 演算子を利用する。</p>
@@ -91,11 +139,11 @@ p 1.01 ** 100  # =&gt; 2.7048138294215285
 </code></pre>
 
 <p><code>**</code> 演算子 | Ruby 2.1 リファレンスマニュアル<br />
-http://docs.ruby-lang.org/ja/2.1.0/class/Bignum.html#I_–2A–2A<br />
-http://docs.ruby-lang.org/ja/2.1.0/class/Fixnum.html#I_–2A–2A<br />
-http://docs.ruby-lang.org/ja/2.1.0/class/Float.html#I_–2A–2A<br />
-http://docs.ruby-lang.org/ja/2.1.0/class/Complex.html#I_–2A–2A<br />
-http://docs.ruby-lang.org/ja/2.1.0/class/Rational.html#I_–2A–2A</p>
+<a href="http://docs.ruby-lang.org/ja/2.1.0/class/Bignum.html#I%5F--2A--2A" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/class/Bignum.html#I%5F–2A–2A</a><br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/class/Fixnum.html#I%5F--2A--2A" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/class/Fixnum.html#I%5F–2A–2A</a><br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/class/Float.html#I%5F--2A--2A" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/class/Float.html#I%5F–2A–2A</a><br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/class/Complex.html#I%5F--2A--2A" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/class/Complex.html#I%5F–2A–2A</a><br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/class/Rational.html#I%5F--2A--2A" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/class/Rational.html#I%5F–2A–2A</a></p>
 
 <h2 id="3e3e26c">Perl
 <span class="article-date">2014/08/02</span></h2>
@@ -125,7 +173,7 @@ print(pow(10.0, 1.5)); # =&gt; 31.6227766016838
 
 <p><code>**</code> と <code>^</code> のどちらでもよい。</p>
 
-<h2 id="4bbda68">JavaScript
+<h2 id="javascript">JavaScript
 <span class="article-date">2014/07/02</span></h2>
 
 <p><code>Math.pow</code> 関数を利用する。</p>

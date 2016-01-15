@@ -32,11 +32,11 @@
 </ul>
 
 <h2 id="f38a8fb">Java
-<span class="article-date">2015/04/08</span></h2>
+<span class="article-date">2016/01/14</span></h2>
 
-<p>プリミティブ型あれば、対応するラッパークラスにある <code>toString</code> という名前のsitaticメソッドを使う。</p>
+<p>プリミティブ型あれば、対応するラッパークラスにある <code>toString</code> という名前のstaticメソッドを使う。</p>
 
-<p>すでにラッパークラスのオブジェクトになっていれば、そのインスタンスメソッドの <code>#toString</code> を使う。</p>
+<p>すでにラッパークラスのオブジェクトになっていれば、そのインスタンスメソッドの <code>toString</code> を使う。</p>
 
 <p>Signature:</p>
 
@@ -57,7 +57,7 @@ String java.lang.Float#toString()
 String java.lang.Double#toString()
 </code></pre>
 
-<p><code>+</code>演算子でオペランドのどちらかが<code>String</code>型であれば、他方の整数または浮動小数点数はプリミティブ型でもラッパークラスのインスタンスであっても自動で<code>String</code>型に変換してくれるので、文字列と連結する際には上記メソッドを使うことはあまりない。</p>
+<p><code>+</code>演算子でオペランドのどちらかが<code>String</code>型であれば、他方の整数または浮動小数点数はプリミティブ型でもラッパークラスのインスタンスであっても自動で<code>String</code>型に変換してくれるので、文字列と連結する際には上記メソッドを使う必要性は低い。</p>
 
 <h2 id="623929e">PHP
 <span class="article-date">2014/03/29</span></h2>
