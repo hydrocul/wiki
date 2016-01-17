@@ -20,7 +20,43 @@
 </div>
 
 <div id="content">
-  <h1 id="floor-ceil">小数の四捨五入/切り捨て/切り上げ (round, floor, ceil)</h1>
+  <h1 id="floor-ceil">小数の四捨五入/切り捨て/切り上げ (round, floor, ceil)
+<span class="article-date">2016/01/16</span></h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>切り捨て</td>
+      <td>切り上げ</td>
+      <td>四捨五入</td>
+    </tr>
+    <tr>
+      <td><a href="#php">PHP</a></td>
+      <td><code>floor($x)</code><br /><code>(int)$x</code></td>
+      <td><code>ceil($x)</code></td>
+      <td><code>round($x)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#python">Python</a></td>
+      <td><code>math.floor(x)</code></td>
+      <td><code>math.ceil(x)</code></td>
+      <td><code>round(x)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a></td>
+      <td><code>x.floor</code></td>
+      <td><code>x.ceil</code></td>
+      <td><code>x.round</code></td>
+    </tr>
+    <tr>
+      <td><a href="#perl">Perl</a></td>
+      <td><code>floor($x)</code></td>
+      <td><code>ceil($x)</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="php">PHP
 <span class="article-date">2015/12/04</span></h2>
@@ -48,7 +84,7 @@ var_export(round($x)); echo "\n"; // =&gt; -13
 var_export((int)$x);   echo "\n"; // =&gt; -12
 </code></pre>
 
-<h2 id="58c67e2">Python
+<h2 id="python">Python
 <span class="article-date">2015/01/27</span></h2>
 
 <pre><code>import math
@@ -68,7 +104,7 @@ Python3では型もintになる。</p>
 
 <p><code>round</code>はPython3ではちょうど中間(0.5)の場合は偶数の方に丸められる。Python2では絶対値の大きい方に丸められる。</p>
 
-<h2 id="22e7c4a">Ruby / JRuby
+<h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/05/04</span></h2>
 
 <p><code>floor</code>などは数値のオブジェクトのメソッドとして定義されている。</p>
@@ -103,8 +139,8 @@ p x.round # =&gt; -13
 <p><code>Numeric#round</code> メソッド | Ruby 2.2 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.2.0/method/Numeric/i/round.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.2.0/method/Numeric/i/round.html</a></p>
 
-<h2 id="31f8264">Perl
-<span class="article-date">2014/05/10</span></h2>
+<h2 id="perl">Perl
+<span class="article-date">2016/01/16</span></h2>
 
 <p>例</p>
 
@@ -126,6 +162,17 @@ print floor($b) . "\n"; # =&gt; -13
 # 負の切り上げは0に近い方に丸められる
 print ceil($b) . "\n";  # =&gt; -12
 </code></pre>
+
+<p>四捨五入は <code>Math::Round</code> という非標準のライブラリがあるみたいだが、標準の方法はあまりないみたい。</p>
+
+<p>Math::Round | search.cpan.org<br />
+<a href="http://search.cpan.org/dist/Math-Round/Round.pm" target="_blank" class="external-link">http://search.cpan.org/dist/Math-Round/Round.pm</a></p>
+
+<p>四捨五入でも int の使用は避けるべきでは。。。? | 国民宿舎はらぺこ 大浴場<br />
+<a href="http://harapeko.asablo.jp/blog/2006/11/27/972082" target="_blank" class="external-link">http://harapeko.asablo.jp/blog/2006/11/27/972082</a></p>
+
+<p>小数の四捨五入・切り捨てに関する都市伝説を斬る！ | Hata’s Perl Hut<br />
+<a href="http://www.mihr.net/perl/rounding.html" target="_blank" class="external-link">http://www.mihr.net/perl/rounding.html</a></p>
 
 </div>
 
