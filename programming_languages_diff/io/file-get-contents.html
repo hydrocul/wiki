@@ -77,23 +77,37 @@ val str = try {
 <p>最初、上記コードの中で <code>java.lang.StringBuilder</code> を単に <code>StringBuilder</code> と書いてしまっていてハマった。単に <code>StringBuilder</code> と書くと、 <code>scala.collection.mutable.StringBuilder</code> を指してしまい、これには <code>#append(buf: Array[Char], offset: Int, length: Int)</code> というメソッドがなく、なんの警告もなしに代わりに <code>#append(obj: Any)</code> が呼び出されてしまう。このメソッドに引数を複数与えると勝手にタプルに変換されてしまうので、結果的に <code>([C@65b164f2,0,6)([C@65b164f2,0,3)</code> みたいな意味のない文字列が生成されてしまう。</p>
 
 <h2 id="63d834e">PHP
-<span class="article-date">2015/02/05</span></h2>
+<span class="article-date">2016/01/18</span></h2>
 
 <pre><code>$str = file_get_contents('./hoge.txt');
 </code></pre>
 
 <p>失敗した場合は <a href="../boolean/overview.html#php"><code>FALSE</code></a> を返される。</p>
 
-<p>ファイル名ではなくURLを与えると、HTTPアクセスしてレスポンス本体を文字列で取得できる。この関数を呼び出すと、<code>$http_response_header</code> という名前のローカル変数が勝手に作られ、
+<p>ファイル名ではなくURLを与えると、HTTPアクセスしてレスポンス本体を文字列で取得できる。この関数でHTTPアクセスすると、<code>$http_response_header</code> という名前のローカル変数が勝手に作られ、
 HTTPレスポンスヘッダがこの変数に配列で保存される。
-404などのエラーの原因はこの配列の1つ目の要素から文字列で取得できる。ホスト名が違うなど、そもそもサーバにアクセスできなかった場合には、この変数が定義されないので、
-<code>FALSE</code> が返ってきてエラーの原因を調べる場合には以下のようにガードしたほうがよさそう。</p>
+404などのエラーの原因はこの配列の1つ目の要素から文字列で取得できる。ホスト名が違うなど、そもそもサーバにアクセスできなかった場合には、この変数が定義されないので、参照しようとすると
+<code>Undefined variable</code> のPHP Notice が発生してしまう。以下のようにガードしたほうがよさそう。</p>
 
 <pre><code>$source = @file_get_contents($url);
 if (isset($http_response_header)) {
+    var_export($http_response_header);
     ...;
 }
 </code></pre>
+
+<p>出力例</p>
+
+<pre><code>array (
+  0 =&gt; 'HTTP/1.1 200 OK',
+  1 =&gt; 'Server: nginx',
+  2 =&gt; 'Date: Mon, 18 Jan 2016 01:35:17 GMT',
+  3 =&gt; 'Content-Type: text/html; charset=UTF-8',
+  4 =&gt; 'Connection: close',
+  ...
+</code></pre>
+
+<p>それにしても関数を呼び出すだけで特定の名前のローカル変数が勝手に作られるのは気持ち悪いものである。失敗した場合には <code>FALSE</code> が入るとかではなく、変数が作られない、というのも。</p>
 
 <p>ファイル名の代わりに <code>php://stdin</code> と書けば標準入力をまるごと文字列で取得することもできる。</p>
 
@@ -192,16 +206,15 @@ my $str = join('', @lines);
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
-          <li><a href="../../programming_languages_diff/io/is-directory.html">ディレクトリかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/mv.html">ファイル名を変更するには</a></li>
-          <li><a href="../../programming_languages_diff/io/operator.html">ファイルに関する各種演算</a></li>
           <li><a href="../../programming_languages_diff/io/puts.html">標準出力・標準エラー出力するには</a></li>
           <li><a href="../../programming_languages_diff/io/pwd.html">カレントディレクトリを取得するには (pwd)</a></li>
         </ul>
