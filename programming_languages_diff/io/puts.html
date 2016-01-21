@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>標準出力・標準エラー出力するには | 入出力・ファイル操作 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>標準出力・標準エラー出力するには (puts / fputs / println) | 入出力・ファイル操作 | プログラミング言語の比較 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,14 +16,16 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>標準出力・標準エラー出力するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>標準出力・標準エラー出力するには (puts / fputs / println)</span>
 </div>
 
 <div id="content">
-  <h1 id="puts">標準出力・標準エラー出力するには
-<span class="article-date">2014/01/26</span></h1>
+  <h1 id="puts">標準出力・標準エラー出力するには (puts / fputs / println)
+<span class="article-date">2016/01/20</span></h1>
 
-<p>ファイルディスクリプタ0から2までは、プロセス起動時はじめから開かれていて、そのうち1は標準出力、2は標準エラー出力と呼ばれる。標準出力・標準エラー出力のリダイレクトやパイプを使わずに、普通に端末上でプログラムを起動すると、標準出力・標準エラー出力に出力した内容は、端末にそのまま表示される。</p>
+<p>端末から普通にプログラムを起動したときにプログラムから端末に出力させるには、標準出力や標準エラー出力とよばれるものに文字列を出力すればよい。そんな出力をするための <code>puts</code> とか <code>print</code> とか <code>echo</code> みたいな名前の関数のある言語が多い。</p>
+
+<p>実際には、標準出力はファイルディスクリプタ1で、標準エラー出力はファイルディスクリプタ2で、プログラムを起動した時から書き込み用に開いているファイルとみなせるもので、ファイルにデータを書き出す関数をそのまま使えることも多い。</p>
 
 <p>以下は、標準出力・標準エラー出力に出力する方法。</p>
 
@@ -51,7 +53,7 @@ import "os"
 func main() {
     // 標準出力
     os.Stdout.Write([]byte("OK\n"))
-    
+
     // 標準エラー出力
     os.Stderr.Write([]byte("Error\n"))
 }
@@ -65,7 +67,10 @@ import "os"
 import "fmt"
 
 func main() {
+    // 標準出力
     fmt.Print("OK\n")
+
+    // 標準エラー出力
     fmt.Fprint(os.Stderr, "Error\n")
 }
 </code></pre>
@@ -216,7 +221,7 @@ console.log("OK");
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/mv.html">ファイル名を変更するには</a></li>
-          <li>標準出力・標準エラー出力するには</li>
+          <li>標準出力・標準エラー出力するには (puts / fputs / println)</li>
           <li><a href="../../programming_languages_diff/io/pwd.html">カレントディレクトリを取得するには (pwd)</a></li>
         </ul>
       </li>
