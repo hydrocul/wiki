@@ -32,9 +32,14 @@
 <p>※ Perlには<a href="../programming_languages_diff/list/filter.html#perl"><code>grep</code></a>という関数がある</p>
 
 <h2 id="65ad6b9">基本的な使い方
-<span class="article-date">2015/05/21</span></h2>
+<span class="article-date">2016/01/25</span></h2>
 
 <pre><code>grep [オプション...] パターン [ファイル...]
+</code></pre>
+
+<p>パターンを最後に書きたい場合は以下のように <code>-e</code> で明示的にパターンを指定する。</p>
+
+<pre><code>grep [オプション...] [ファイル...] -e パターン
 </code></pre>
 
 <p>ファイルを指定しないと標準入力をパターンマッチングする。</p>
@@ -63,7 +68,7 @@
 
 
 <h2 id="f911d96">オプション
-<span class="article-date">2015/10/28</span></h2>
+<span class="article-date">2016/01/25</span></h2>
 
 <dl>
   <dt><code>-a</code>, <code>--text</code>, <code>--binary-files=text</code></dt>
@@ -79,6 +84,8 @@ grepはバイナリファイルだと勘違いしてしまう。バイナリ扱�
   <dd>カラーで表示する。これを付けなくてもデフォルトでカラー表示かもしれないが、
 出力をパイプでつないだときは自分の環境ではこのオプションを付けないとカラー表示にならなかった。
 <a href="less.html#color"><code>less -R</code></a> を使いたいときには、パイプなのにカラー表示したい、という状況になる。</dd>
+  <dt><code>-e</code> パターン</dt>
+  <dd>パターンを指定する。<code>-e</code> オプションがない場合は最初のパラメータがパターンと見なされる。</dd>
   <dt><code>-E</code></dt>
   <dd>拡張正規表現を使う。 <code>(foo|bar)</code> のような表記の正規表現を使うには、
 <code>-E</code> が必要。</dd>
@@ -160,7 +167,7 @@ grep -A3 -B5 blahbla foo.txt
 </code></pre>
 
 <h3 id="10524f2">複数のパターンで検索するには
-<span class="article-date">2015/07/21</span></h3>
+<span class="article-date">2016/01/25</span></h3>
 
 <p><code>-e</code> オプションでパターンを複数指定すればOR検索になる。</p>
 
@@ -168,7 +175,7 @@ grep -A3 -B5 blahbla foo.txt
 grep -e APATTERN -e BPATTERN foo.txt
 </code></pre>
 
-<p>以下のようにしても同じだが。</p>
+<p>以下のように拡張正規表現で <code>|</code> を使っても同じだが。</p>
 
 <pre><code>grep -E 'APATTERN|BPATTERN' foo.txt
 </code></pre>
