@@ -50,6 +50,20 @@
 
 <p>普通に Ctrl-C を押せば、設定は変更されないので慌てないこと。</p>
 
+<h2 id="13928f1">HOWTO</h2>
+
+<h3 id="d4b58ff">設定内容からコメントや空行を除いて中身のみを表示させるには
+<span class="article-date">2016/01/27</span></h3>
+
+<pre><code>$ crontab -l | grep -E '^[^#].+$'
+</code></pre>
+
+<h3 id="130aef6">他のホストに設定されているcrontabの内容を表示させるには
+<span class="article-date">2016/01/27</span></h3>
+
+<pre><code>$ ssh REMOTE_HOST crontab -l
+</code></pre>
+
 </div>
 
 <div id="side-menu">

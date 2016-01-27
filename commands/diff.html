@@ -51,13 +51,16 @@
 
 
 <h2 id="aeb82ff">オプション
-<span class="article-date">2015/11/10</span></h2>
+<span class="article-date">2016/01/27</span></h2>
 
 <dl>
   <dt><code>-u</code></dt>
   <dd>差分をunified形式というフォーマットで表示する。<code>git diff</code> で表示されるフォーマットもunified形式な気がする。
 慣れの問題かもしれないが、自分はこの形式が一番見やすくてaliasの設定をしている。<br />
 <code>alias diff='diff -u'</code></dd>
+  <dt><code>-U</code> 数字</dt>
+  <dd>差分の前後を表示する行数を指定してunified形式で表示する。<code>-u</code> だけの場合はデフォルトの3行を表示する。
+<a href="git.html#diff-u"><code>git diff</code></a> でも同じオプションが使える。</dd>
   <dt><code>-b</code></dt>
   <dd>連続する空白の長さの違いは無視する。たぶん<a href="git.html#diff-ignore-space"><code>git diff</code></a>の <code>-b</code> オプションと同じ。</dd>
   <dt><code>-w</code></dt>
