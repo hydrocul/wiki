@@ -21,15 +21,15 @@
 
 <div id="content">
   <h1 id="grep">grep コマンド
-<span class="article-date">2015/05/21</span></h1>
+<span class="article-date">2016/01/31</span></h1>
 
 <p>ファイルや標準入力から正規表現でマッチする行を探し出すコマンド。</p>
 
-<p>ログファイルの中から特定のログを探し出したり、ソースコード一式のあるディレクトリで特定のメソッド名などを定義・呼び出ししているところを探したり、いろいろな目的で使う。</p>
+<p>ログファイルの中から特定のログを探し出したり、ソースコードのあるディレクトリで特定のクラス・メソッドなどを定義・呼び出ししているところを探したり、いろいろな目的で使う。</p>
 
 <p>※ grepよりも高速に検索できる <a href="ack-grep.html">ack-grep</a> などもある</p>
 
-<p>※ Perlには<a href="../programming_languages_diff/list/filter.html#perl"><code>grep</code></a>という関数がある</p>
+<p>※ Perlには同じ名前の<a href="../programming_languages_diff/list/filter.html#perl"><code>grep</code></a>という関数がある</p>
 
 <h2 id="65ad6b9">基本的な使い方
 <span class="article-date">2016/01/25</span></h2>
@@ -88,7 +88,7 @@ grepはバイナリファイルだと勘違いしてしまう。バイナリ扱�
   <dd>パターンを指定する。<code>-e</code> オプションがない場合は最初のパラメータがパターンと見なされる。</dd>
   <dt><code>-E</code></dt>
   <dd>拡張正規表現を使う。 <code>(foo|bar)</code> のような表記の正規表現を使うには、
-<code>-E</code> が必要。</dd>
+このオプションが必要。</dd>
   <dt><code>-i</code></dt>
   <dd>大文字小文字を区別せずにマッチングをする。</dd>
   <dt><code>-l</code> (小文字エル)</dt>
