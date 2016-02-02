@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Ubuntu 15.10にPHP 7.0を入れてみた | hydroculのメモ</title>
+<title>CentOS 7.2にPHP 7.0を入れてみた | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,23 +16,29 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2015/">2015年</a> &gt; <span>Ubuntu 15.10にPHP 7.0を入れてみた</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2016/">2016</a> &gt; <span>CentOS 7.2にPHP 7.0を入れてみた</span>
 </div>
 
 <div id="content">
-  <h1 id="1217-php7-on-ubuntu">Ubuntu 15.10にPHP 7.0を入れてみた
-<span class="article-date">2015/12/17</span></h1>
+  <h1 id="0201-php7-on-centos">CentOS 7.2にPHP 7.0を入れてみた
+<span class="article-date">2016/02/01</span></h1>
 
-<p>Ubuntu 15.10 Server のなにも追加のパッケージをインストールしていない素の状態からPHP7だけを入れてみたときの記録です。</p>
-
-<p>パッケージをなにもインストールしていないといいつつ、ssh, git だけは事前に入れちゃってたかも。</p>
+<p>CentOS 7.2 のMinimulでインストールから追加のパッケージをなにもインストールしていない素の状態からPHP7だけを入れてみたときの記録です。</p>
 
 <pre><code>$ cd ~
 $ mkdir php7
 $ cd php7
-$ wget -O php-7.0.0.tar.gz 'http://jp2.php.net/get/php-7.0.0.tar.gz/from/this/mirror'
-$ tar xvzf php-7.0.0.tar.gz
-$ cd php-7.0.0
+$ wget -O php-7.0.2.tar.gz 'http://jp2.php.net/get/php-7.0.2.tar.gz/from/this/mirror'
+-bash: wget: command not found
+</code></pre>
+
+<p>おっとwgetが入っておりませんので、yumで入れます。</p>
+
+<pre><code>$ sudo yum install -y wget
+
+$ wget -O php-7.0.2.tar.gz 'http://jp2.php.net/get/php-7.0.2.tar.gz/from/this/mirror'
+$ tar xvzf php-7.0.2.tar.gz
+$ cd php-7.0.2
 </code></pre>
 
 <p><code>configure</code>のオプションは <code>--prefix</code> の指定のみでやってみます。</p>
@@ -45,9 +51,9 @@ $ cd php-7.0.0
 <pre><code>configure: error: no acceptable C compiler found in $PATH
 </code></pre>
 
-<p>コンパイラすら入っていなかったので、apt-getで入れます。</p>
+<p>コンパイラすら入っていなかったので、<code>apt-get</code>で入れます。</p>
 
-<pre><code>$ sudo apt-get install -y gcc
+<pre><code>$ sudo yum install -y gcc
 
 $ ./configure --prefix=$HOME/php7/usr
 </code></pre>
@@ -57,9 +63,9 @@ $ ./configure --prefix=$HOME/php7/usr
 <pre><code>configure: error: xml2-config not found. Please check your libxml2 installation.
 </code></pre>
 
-<p><code>libxml2-dev</code> というパッケージを入れるといいらしいです。</p>
+<p><code>libxml2-devel</code> というパッケージを入れるといいらしいです。</p>
 
-<pre><code>$ sudo apt-get install -y libxml2-dev
+<pre><code>$ sudo yum install -y libxml2-devel
 
 $ ./configure --prefix=$HOME/php7/usr
 </code></pre>
@@ -67,17 +73,6 @@ $ ./configure --prefix=$HOME/php7/usr
 <p>無事<code>configure</code>が終わりました。次は<code>make</code>です。</p>
 
 <pre><code>$ make &amp;&amp; make install
-The program 'make' can be found in the following packages:
- * make
- * make-guile
-Try: sudo apt-get install &lt;selected package&gt;
-</code></pre>
-
-<p><code>make</code>も入っておりませんでした。<code>gcc</code>がなかったのだから<code>make</code>もあるわけないか。ということでapt-getで入れます。</p>
-
-<pre><code>$ sudo apt-get install -y make
-
-$ make &amp;&amp; make install
 </code></pre>
 
 <p>ここで非常に長い時間がかかります。</p>
@@ -90,7 +85,7 @@ $ make &amp;&amp; make install
 <p>と表示されるので、<code>make test</code> も実行したほうがいいかもしれませんが、スキップしちゃいました。</p>
 
 <pre><code>$ ~/php7/usr/bin/php --version
-PHP 7.0.0 (cli) (built: Dec 17 2015 16:50:44) ( NTS )
+PHP 7.0.2 (cli) (built: Feb  2 2016 00:57:11) ( NTS )
 Copyright (c) 1997-2015 The PHP Group
 Zend Engine v3.0.0, Copyright (c) 1998-2015 Zend Technologies
 $ ~/php7/usr/bin/php -r 'echo "Hello, world.\n";'
@@ -109,17 +104,7 @@ Hello, world.
     <ul>
   <li><a href="../../blog/">ブログ</a>
     <ul>
-      <li><a href="../../blog/2015/">2015年</a>
-        <ul>
-          <li><a href="../../blog/2015/0201-calendar.html">4段に収まるカレンダー</a></li>
-          <li><a href="../../blog/2015/0421-colored-stderr.html">標準エラー出力に色を付けて標準出力と区別しやすいようにするには</a></li>
-          <li><a href="../../blog/2015/0720-mecab-unidic-furigana.html">MeCabとUniDicの辞書でふりがなを振る方法</a></li>
-          <li><a href="../../blog/2015/0829-mecab-mistake-1.html">MeCabでの形態素解析の誤解析例: 助詞で/でも</a></li>
-          <li><a href="../../blog/2015/1025-unicode-grapheme-clusters.html">Unicodeのgrapheme cluster (書記素クラスタ)</a></li>
-          <li><a href="../../blog/2015/1129-unicode-general-category-number.html">Unicodeにある数字の一覧</a></li>
-          <li>Ubuntu 15.10にPHP 7.0を入れてみた</li>
-        </ul>
-      </li>
+      <li><a href="../../blog/2016/">2016</a></li>
     </ul>
   </li>
 </ul>
