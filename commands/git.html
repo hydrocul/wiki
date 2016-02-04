@@ -387,23 +387,17 @@ $ git read-tree -m -u HEAD
 (-&gt; <a href="#remove-tracking-branch">ローカルに残っているリモート追跡用のブランチを削除するには</a>)</p>
 
 <h3 id="5c3959e">追跡するリモートリポジトリの設定を削除するには
-<span class="article-date">2014/06/06</span></h3>
+<span class="article-date">2016/02/04</span></h3>
 
-<pre><code>## git 1.8.1.2 では
-$ git remote remove &lt;remote-name&gt;
-
-## git 1.7.1 では
-$ git remote rm &lt;remote-name&gt;
+<pre><code>$ git remote remove &lt;remote-name&gt;
 </code></pre>
 
-<p>上記のように環境によってコマンドが違っていたのだが、gitのバージョンによって違うのかな。</p>
+<p>または</p>
+
+<pre><code>$ git remote rm &lt;remote-name&gt;
+</code></pre>
 
 <p>&lt;remotename&gt; はリモートリポジトリの名前。リモートリポジトリ自体が削除されなくなるのではなく、ワーキングディレクトリがそのリモートリポジトリを追跡しなくなるだけ。</p>
-
-<h4 id="780a162">追記
-<span class="article-date">2015/08/28</span></h4>
-
-<p>あれ？1.8.3.2 で <code>git remote rm</code> でできたよ。</p>
 
 <h3 id="5b20008"><code>clone</code>するときにリモートリポジトリの名前を <code>origin</code> 以外にするには
 <span class="article-date">2013/10/16</span></h3>
