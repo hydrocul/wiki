@@ -436,11 +436,19 @@ sed -n '/^2013/p'
 sed -n '/^$/p' | wc -l
 </code></pre>
 
-<h3 id="4dac891">1つ以上の連続するスペースまたはタブ文字を1つのスペースに全置換するには
+<h3 id="c872436">連続するスペースまたはタブ文字を1つのスペースに全置換するには
 <span class="article-date">2014/08/21</span></h3>
 
 <pre><code># タブ文字をスペースに全置換
 sed -E 's/[\t ]+/ /g'
+</code></pre>
+
+<h3 id="cb9cf79">連続する空行を1行にまとめるには
+<span class="article-date">2016/02/05</span></h3>
+
+<p>sedでなくて<a href="cat.html#option-s">catコマンド</a>の <code>-s</code> オプションで簡単にできる。</p>
+
+<pre><code>$ cat -s input.txt
 </code></pre>
 
 <h3 id="3d97fb0">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには

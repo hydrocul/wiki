@@ -32,31 +32,48 @@ watch -n 1 ls -al
 </code></pre>
 
 <h2 id="280718f">オプション
-<span class="article-date">2015/10/09</span></h2>
+<span class="article-date">2016/02/05</span></h2>
 
 <dl>
-  <dt><code>-n</code> &lt;秒数&gt;</dt>
-  <dd>実行間隔を指定する</dd>
   <dt><code>-d</code></dt>
   <dd>変化した部分を強調して表示される。</dd>
-  <dt><code>-t</code></dt>
-  <dd>普通は1行目に<code>watch</code>の情報として実行間隔や実行しているコマンドを表示しているが、
-このオプションを付けると、非表示になる。</dd>
   <dt><code>-e</code></dt>
   <dd>コマンドがエラー終了したらそれ以降はコマンドを実行しない</dd>
   <dt><code>-g</code></dt>
   <dd>コマンドの出力に変化があったら<code>watch</code>を終了する</dd>
+  <dt><code>-n</code> &lt;秒数&gt;</dt>
+  <dd>実行間隔を指定する。<code>n</code>と数字の間はスペースがなくてもよい。</dd>
+  <dt><code>-t</code></dt>
+  <dd>普通は1行目に<code>watch</code>の情報として実行間隔や実行しているコマンドを表示しているが、
+このオプションを付けると、非表示になる。</dd>
 </dl>
 
-<p><code>-e</code>, <code>-g</code> は環境によって使える場合と使えない場合があるようです。手元の Ubuntu 14.04 では使えたが CentOS 6.3 では使えなかった。</p>
+<p><code>-e</code>, <code>-g</code> は環境によって使える場合と使えない場合があるようで、手元の Ubuntu 14.04 では使えたが CentOS 6.3 では使えなかった。</p>
+
+<h2 id="6f66ec1">コマンドの中にワイルドカードを使いたい場合
+<span class="article-date">2016/02/05</span></h2>
+
+<p>バッチ処理かなにかで <code>.txt</code> という拡張子を持つファイルが作られたり消されたりするとして、その様子をリアルタイムに監視するために
+<code>ls -al *.txt</code> というコマンドを常時表示させたいとする。</p>
+
+<pre><code>$ watch -n1 ls -al *.txt
+</code></pre>
+
+<p>と書いてしまうと、watchコマンドを開始する前に <code>*.txt</code> の展開をして、
+watchコマンドからは毎秒同じ展開結果でlsコマンドを実行してしまい、意図した結果にならない。</p>
+
+<p>以下のようにコマンド全体をクオーテーションなどで囲むとよい。</p>
+
+<pre><code>$ watch -n1 "ls -al *.txt"
+</code></pre>
 
 <h2 id="cd3af01">パイプが含まれている場合
 <span class="article-date">2014/05/23</span></h2>
 
 <p>実行したいコマンドにパイプが含まれている場合、そのまま <code>watch</code> の後ろに書くと <code>watch</code> コマンド自体の出力をパイプしてしまうので、以下のように実行コマンド全体をダブルクオーテーションなどで囲む。</p>
 
-<pre><code># ファイルの数を3秒ごとに監視
-watch -n 3 "ls | wc -l"
+<pre><code>## ファイルの数を3秒ごとに監視
+$ watch -n 3 "ls | wc -l"
 </code></pre>
 
 </div>
