@@ -156,14 +156,17 @@ def scala.collection.immutable.StringLike#formatLocal(l: Locale, args: Any*): St
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object...-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object…-</a></p>
 
 <h2 id="php">PHP
-<span class="article-date">2014/10/21</span></h2>
+<span class="article-date">2016/02/05</span></h2>
 
 <p><code>sprintf</code> というC言語と同じ名前の関数がある。</p>
 
 <p>例</p>
 
-<pre><code>sprintf("%s %d", $str, $i);
+<pre><code>$formatted = sprintf("%s %d", $str, $i);
 </code></pre>
+
+<p>フォーマット文字列 | PHP Manual<br />
+<a href="http://www.php.net/manual/ja/function.sprintf.php#refsect1-function.sprintf-parameters" target="_blank" class="external-link">http://www.php.net/manual/ja/function.sprintf.php#refsect1-function.sprintf-parameters</a></p>
 
 <p><code>sprintf</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.sprintf.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.sprintf.php</a></p>
@@ -227,13 +230,13 @@ t = ("Ichiro", "Suzuki")
 <a href="http://docs.ruby-lang.org/ja/2.1.0/doc/print_format.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/doc/print_format.html</a></p>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/08/30</span></h2>
+<span class="article-date">2016/02/05</span></h2>
 
 <p><code>sprintf</code>関数でC言語の<code>sprintf</code>と同じような書式化文字列が使える。内部でC言語の<code>sprintf</code>を呼び出しているわけではなくPerlで独自に実装されているらしい。</p>
 
 <p>例</p>
 
-<pre><code>sprintf("%s %d", $str, $i)
+<pre><code>$formatted = sprintf("%s %d", $str, $i)
 </code></pre>
 
 <p><code>printf</code>関数で標準出力やファイルへの出力もできる。</p>
