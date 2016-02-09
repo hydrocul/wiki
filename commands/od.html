@@ -27,18 +27,18 @@
 
 <p>例</p>
 
-<pre><code>od -x ファイル名
+<pre><code>od -avtx1 -Ad ファイル名
 </code></pre>
 
 <p>または</p>
 
-<pre><code>cat ファイル名 | od -x
+<pre><code>cat ファイル名 | od -avtx1 -Ad
 </code></pre>
 
 <p>各行の左にはアドレス(ファイルの先頭からのバイト単位でのオフセット値)が表示される。アドレスはデフォルトでは8進数表記である。</p>
 
 <h2 id="d374533">オプション
-<span class="article-date">2015/03/19</span></h2>
+<span class="article-date">2016/02/08</span></h2>
 
 <dl>
   <dt><code>-Ad</code></dt>
@@ -63,7 +63,17 @@
   <dd>2バイト単位で10進数で出力。<code>u</code>のあとの数字を変えれば任意のバイト単位でできる</dd>
   <dt><code>-c</code></dt>
   <dd>文字で出力、またはC言語のようなバックスラッシュエスケープで出力
-(128以上は8進数で表示されるようだ)</dd>
+(128以上は8進数で表示されるようだ)。<code>-tc</code> と同じ</dd>
+  <dt><code>-tc</code></dt>
+  <dd>文字で出力、またはC言語のようなバックスラッシュエスケープで出力
+(128以上は8進数で表示されるようだ)。<code>-c</code> と同じ</dd>
+  <dt><code>-a</code></dt>
+  <dd>制御文字などは文字の名前で出力。スペースは <code>sp</code> などと。<code>-ta</code> と同じ</dd>
+  <dt><code>-ta</code></dt>
+  <dd>制御文字などは文字の名前で出力。スペースは <code>sp</code> などと。<code>-a</code> と同じ</dd>
+  <dt><code>-v</code></dt>
+  <dd>出力行がまるごと前の行と同じだった場合に、デフォルトでは <code>*</code> だけが表示されて中身が省略されてしまう。
+このオプションを付けると、その制御が無効になる。</dd>
 </dl>
 
 <h2 id="2aaf458">実行例
@@ -75,7 +85,7 @@ Hello, world!
 $ od -x hello.txt
 0000000 6548 6c6c 2c6f 7720 726f 646c 0a21
 0000016
-## 2バイトずつ16進数で表示されている
+## 2バイトずつ16進数で表示される
 
 $ od hello.txt
 0000000 062510 066154 026157 073440 071157 062154 005041
@@ -85,6 +95,42 @@ $ od hello.txt
 $ od -c hello.txt
 0000000   H   e   l   l   o   ,       w   o   r   l   d   !  \n
 0000016
+
+$ od -tx1 -a hello.txt
+0000000  48  65  6c  6c  6f  2c  20  77  6f  72  6c  64  21  0a
+          H   e   l   l   o   ,  sp   w   o   r   l   d   !  nl
+0000016
+## 出力フォーマットを2つ指定すると、2行でそれぞれ表示される
+</code></pre>
+
+<p>1行が15バイトのテキストで同じ行が続く場合の例</p>
+
+<pre><code>$ cat hello3.txt
+Hello, world!!!
+Hello, world!!!
+
+$ od -x hello3.txt
+0000000 6548 6c6c 2c6f 7720 726f 646c 2121 0a21
+*
+0000040
+
+$ od -xv hello3.txt
+0000000 6548 6c6c 2c6f 7720 726f 646c 2121 0a21
+0000020 6548 6c6c 2c6f 7720 726f 646c 2121 0a21
+0000040
+</code></pre>
+
+<p>改行含め同じ16バイトが2回繰り返すことになるので、デフォルトでは2行目が <code>*</code> という表示になってしまう。
+<code>-v</code> を付けることで、繰り返しの場合もちゃんと表示させることができる。</p>
+
+<p>左のアドレス表記を10進数にする例 (<code>-Ad</code>)</p>
+
+<pre><code>$ od -vtx1 -Ad -a hello3.txt
+0000000  48  65  6c  6c  6f  2c  20  77  6f  72  6c  64  21  21  21  0a
+          H   e   l   l   o   ,  sp   w   o   r   l   d   !   !   !  nl
+0000016  48  65  6c  6c  6f  2c  20  77  6f  72  6c  64  21  21  21  0a
+          H   e   l   l   o   ,  sp   w   o   r   l   d   !   !   !  nl
+0000032
 </code></pre>
 
 </div>
