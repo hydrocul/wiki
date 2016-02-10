@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>コマンドの使い方(Linux) | hydroculのメモ</title>
+<title>echo コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,82 +16,107 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <span>コマンドの使い方(Linux)</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>echo コマンド</span>
 </div>
 
 <div id="content">
-  <h1 id="commands">コマンドの使い方(Linux)</h1>
+  <h1 id="echo">echo コマンド
+<span class="article-date">2016/02/08</span></h1>
 
-<h2 id="section">目次</h2>
+<p>文字列を引数で渡してそれをそのまま標準出力に出力するコマンド。</p>
 
-<ul>
-  <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
-  <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
-  <li><a href="../commands/awk.html">awk コマンド</a></li>
-  <li><a href="../commands/base64.html">base64 コマンド</a></li>
-  <li><a href="../commands/cat.html">cat コマンド</a></li>
-  <li><a href="../commands/cp.html">cp コマンド</a></li>
-  <li><a href="../commands/crontab.html">crontab コマンド</a></li>
-  <li><a href="../commands/curl.html">curl コマンド</a></li>
-  <li><a href="../commands/cut.html">cut コマンド</a></li>
-  <li><a href="../commands/date.html">date コマンド</a></li>
-  <li><a href="../commands/diff.html">diff コマンド</a></li>
-  <li><a href="../commands/du.html">du コマンド</a></li>
-  <li><a href="../commands/echo.html">echo コマンド</a></li>
-  <li><a href="../commands/find.html">find コマンド</a></li>
-  <li><a href="../commands/git.html">git コマンド</a></li>
-  <li><a href="../commands/grep.html">grep コマンド</a></li>
-  <li><a href="../commands/head.html">head コマンド</a></li>
-  <li><a href="../incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
-  <li><a href="../commands/jhead.html">jhead コマンド</a></li>
-  <li><a href="../commands/join.html">join コマンド</a></li>
-  <li><a href="../commands/jq.html">jq コマンド</a></li>
-  <li><a href="../commands/less.html">less コマンド</a></li>
-  <li><a href="../commands/lftp.html">lftp コマンド</a></li>
-  <li><a href="../commands/lha.html">lha コマンド</a></li>
-  <li><a href="../commands/ls.html">ls コマンド</a></li>
-  <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
-  <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
-  <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
-  <li><a href="../commands/mosh.html">mosh コマンド</a></li>
-  <li><a href="../commands/netstat.html">netstat コマンド</a></li>
-  <li><a href="../commands/nkf.html">nkf コマンド</a></li>
-  <li><a href="../commands/od.html">od コマンド</a></li>
-  <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-  <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
-  <li><a href="../commands/paste.html">paste コマンド</a></li>
-  <li><a href="../commands/ps.html">ps コマンド</a></li>
-  <li><a href="../commands/readlink.html">readlink コマンド</a></li>
-  <li><a href="../commands/rsync.html">rsync コマンド</a></li>
-  <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
-  <li><a href="../commands/sed.html">sed コマンド</a></li>
-  <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
-  <li><a href="../commands/siege.html">siege コマンド</a></li>
-  <li><a href="../commands/sort.html">sort コマンド</a></li>
-  <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
-  <li><a href="../commands/split.html">split コマンド</a></li>
-  <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
-  <li><a href="../commands/ssh.html">ssh コマンド</a></li>
-  <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
-  <li><a href="../commands/svn.html">Subversion (svn)</a></li>
-  <li><a href="../commands/tac.html">tac コマンド</a></li>
-  <li><a href="../commands/tail.html">tail コマンド</a></li>
-  <li><a href="../commands/tar.html">tar コマンド</a></li>
-  <li><a href="../commands/tee.html">tee コマンド</a></li>
-  <li><a href="../commands/time.html">time コマンド</a></li>
-  <li><a href="../commands/tmux.html">tmux コマンド</a></li>
-  <li><a href="../commands/top.html">top コマンド</a></li>
-  <li><a href="../commands/touch.html">touch コマンド</a></li>
-  <li><a href="../commands/tr.html">tr コマンド</a></li>
-  <li><a href="../commands/trap.html">trap コマンド</a></li>
-  <li><a href="../commands/uniq.html">uniq コマンド</a></li>
-  <li><a href="../commands/watch.html">watch コマンド</a></li>
-  <li><a href="../commands/wc.html">wc コマンド</a></li>
-  <li><a href="../commands/wget.html">wget コマンド</a></li>
-  <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-  <li><a href="../commands/yes.html">yes コマンド</a></li>
-  <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
-</ul>
+<p>引数を複数渡した場合は空白(U+0020)で区切って出力する。</p>
+
+<p>デフォルトでは最後に自動で改行される。</p>
+
+<h2 id="5d46a51">HOWTO</h2>
+
+<h3 id="e230d35">最後に改行をさせないようにするには
+<span class="article-date">2014/12/24</span></h3>
+
+<p><code>-n</code> をつける</p>
+
+<pre><code>$ echo -n "message ..."
+</code></pre>
+
+<p><code>printf</code> コマンドも最後に改行がつかない。</p>
+
+<h3 id="79c6968">文字を16進で指定して出力するには
+<span class="article-date">2015/10/20</span></h3>
+
+<p>環境によっては <code>\x61</code> のような16進表記で文字を書ける。</p>
+
+<p>環境によらず同じ動きをさせるには<code>echo</code>よりも<code>printf</code>コマンドのほうがよい。</p>
+
+<pre><code>$ /usr/bin/printf '\x61\xE3\x81\x82'
+aあ
+</code></pre>
+
+<p>単に <code>printf</code> と書くと、シェルの組み込み関数が起動して、シェルによって挙動が異なってしまう。</p>
+
+<p><code>printf</code> は <code>echo</code> と違ってデフォルトで最後に改行が付かない。</p>
+
+<p>zshの場合</p>
+
+<pre><code>$ printf '\x61\xE3\x81\x82'
+aあ
+$ printf "\x61\xE3\x81\x82"
+aあ
+$ echo '\x61\xE3\x81\x82'
+aあ
+$ echo "\x61\xE3\x81\x82"
+aあ
+$ /usr/bin/printf '\x61\xE3\x81\x82'
+aあ
+$ /usr/bin/printf "\x61\xE3\x81\x82"
+aあ
+$ /bin/echo '\x61\xE3\x81\x82'
+\x61\xE3\x81\x82
+$ /bin/echo "\x61\xE3\x81\x82"
+\x61\xE3\x81\x82
+</code></pre>
+
+<p>bashの場合</p>
+
+<pre><code>$ printf '\x61\xE3\x81\x82'
+aあ
+$ printf "\x61\xE3\x81\x82"
+aあ
+$ echo '\x61\xE3\x81\x82'
+\x61\xE3\x81\x82
+$ echo "\x61\xE3\x81\x82"
+\x61\xE3\x81\x82
+$ /usr/bin/printf '\x61\xE3\x81\x82'
+aあ
+$ /usr/bin/printf "\x61\xE3\x81\x82"
+aあ
+$ /bin/echo '\x61\xE3\x81\x82'
+\x61\xE3\x81\x82
+$ /bin/echo "\x61\xE3\x81\x82"
+\x61\xE3\x81\x82
+</code></pre>
+
+<p>dashの場合</p>
+
+<pre><code>$ printf '\x61\xE3\x81\x82'
+\x61\xE3\x81\x82
+$ printf "\x61\xE3\x81\x82"
+\x61\xE3\x81\x82
+$ echo '\x61\xE3\x81\x82'
+\x61\xE3\x81\x82
+$ echo "\x61\xE3\x81\x82"
+\x61\xE3\x81\x82
+$ /usr/bin/printf '\x61\xE3\x81\x82'
+aあ
+$ /usr/bin/printf "\x61\xE3\x81\x82"
+aあ
+$ /bin/echo '\x61\xE3\x81\x82'
+\x61\xE3\x81\x82
+$ /bin/echo "\x61\xE3\x81\x82"
+\x61\xE3\x81\x82
+</code></pre>
+
+<p>(Ubuntu 14.04 で確認)</p>
 
 </div>
 
@@ -101,7 +126,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>コマンドの使い方(Linux)
+  <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
       <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
@@ -115,7 +140,7 @@
       <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff コマンド</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
-      <li><a href="../commands/echo.html">echo コマンド</a></li>
+      <li>echo コマンド</li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
@@ -139,6 +164,7 @@
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
+      <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
@@ -166,6 +192,7 @@
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
+      <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
       <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
