@@ -122,9 +122,20 @@ end)
 </code></pre>
 
 <h2 id="7aff3a4">Perl
-<span class="article-date">2013/09/28</span></h2>
+<span class="article-date">2016/02/11</span></h2>
 
 <p><a href="while.html#perl"><code>while</code>文</a>の中で <code>last</code> と書くと、そこでループを脱出する。</p>
+
+<p><code>last</code> のあとにラベルを書くと、そのラベルのループを脱出することができ、多段ループの脱出もできる。</p>
+
+<pre><code>OUTER_LOOP: while () {
+    while () {
+        ...;
+        last OUTER_LOOP if ...;
+        ...;
+    }
+}
+</code></pre>
 
 <h2 id="sh">sh (シェルスクリプト)
 <span class="article-date">2013/09/10</span></h2>
