@@ -42,19 +42,17 @@ sshfs -o auto_cache -o reconnect hogesrv:/ ~/mnt/hogesrv
 rm -rf * とかやって、その中にマウントしているリモートのファイルシステムがあったら、リモートの環境を破壊してしまう。</p>
 
 <h2 id="2ea2270">インストール
-<span class="article-date">2014/10/22</span></h2>
+<span class="article-date">2016/02/13</span></h2>
 
-<p>Ubuntuでは<code>apt-get</code>で簡単にインストールできる。</p>
+<p>Ubuntuではsshfsというパッケージに入っている。(Ubuntu 13.10, 14.04, 15.10 で確認)</p>
 
 <pre><code>sudo apt-get install sshfs
 </code></pre>
 
-<p>(Ubuntu 13.10, 14.04 で確認)</p>
-
 <h2 id="b068dc6">リモートのファイルシステム上でのファイルオーナーを無視して、全ファイルのオーナーを特定のものにするには
-<span class="article-date">2014/10/22</span></h2>
+<span class="article-date">2016/02/13</span></h2>
 
-<p><code>-o uid=1000 -o gid=1000</code> というようなオプションをつけると、リモートにあるすべてのファイルのオーナーが、ローカルでの1000番のユーザ、1000番のグループであるかのように見せかけることができる。もちろん実際に権限があるかどうかは別。</p>
+<p><code>-o uid=1000 -o gid=1000</code> というようなオプションをつけると、リモートにあるすべてのファイルが、実際のオーナーに関わらず、ローカルでの1000番のユーザ、1000番のグループであるかのように見せかけることができる。もちろん実際に権限があるかどうかは別。</p>
 
 </div>
 
@@ -66,7 +64,6 @@ rm -rf * とかやって、その中にマウントしているリモートの�
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
@@ -78,6 +75,7 @@ rm -rf * とかやって、その中にマウントしているリモートの�
       <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff コマンド</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
+      <li><a href="../commands/echo.html">echo コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
@@ -101,13 +99,11 @@ rm -rf * とかやって、その中にマウントしているリモートの�
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
-      <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
       <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
-      <li><a href="../commands/siege.html">siege コマンド</a></li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/split.html">split コマンド</a></li>
@@ -129,7 +125,6 @@ rm -rf * とかやって、その中にマウントしているリモートの�
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
-      <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
       <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
