@@ -22,10 +22,12 @@
 <div id="content">
   <h1 id="exit">自身のプロセスを終了するには</h1>
 
-<h2 id="1119091">Java
-<span class="article-date">2013/09/13</span></h2>
+<h2 id="51ca556">Java / Scala
+<span class="article-date">2016/02/16</span></h2>
 
-<p>以下のメソッドを呼び出すとスレッドが残っていてもプロセスが終了し、終了時のステータスを指定できる。</p>
+<p>デーモンスレッドを除くすべてのスレッドが終了するとJavaのプロセスも終了する。</p>
+
+<p>以下のメソッドを呼び出すとスレッドが残っていても強制的にプロセスが終了し、終了時のステータスを指定できる。</p>
 
 <pre><code>System.exit(status);
 </code></pre>
