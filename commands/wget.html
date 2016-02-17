@@ -40,6 +40,16 @@ URLからドメイン名やディレクトリ名を削ったものになる。�
 
 <p>サーバに接続できなかったり、404などになってしまった場合は終了コード0以外が返される。</p>
 
+<h2 id="f97b868">インストール
+<span class="article-date">2016/02/16</span></h2>
+
+<p>Ubuntu, CentOSではwgetというパッケージに入っている。(Ubuntu 13.10, 15.10, CentOS 7.2 で確認)</p>
+
+<pre><code>$ sudo yum install wget
+## または
+$ sudo apt-get install wget
+</code></pre>
+
 <h2 id="af0e4a7">オプション
 <span class="article-date">2015/10/23</span></h2>
 
@@ -183,7 +193,6 @@ wget -r -l5 --convert-links http://www.example.com/
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
@@ -195,6 +204,7 @@ wget -r -l5 --convert-links http://www.example.com/
       <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff コマンド</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
+      <li><a href="../commands/echo.html">echo コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
@@ -218,13 +228,11 @@ wget -r -l5 --convert-links http://www.example.com/
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
-      <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
       <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
-      <li><a href="../commands/siege.html">siege コマンド</a></li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/split.html">split コマンド</a></li>
@@ -246,7 +254,6 @@ wget -r -l5 --convert-links http://www.example.com/
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li>wget コマンド</li>
-      <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
       <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
