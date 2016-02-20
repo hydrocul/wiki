@@ -140,7 +140,7 @@ $ cat foo.txt | ruby -ne 'print $_.gsub(/\\u([0-9a-f]{4})/){[$1.hex].pack("U")}'
 </code></pre>
 
 <h2 id="73ef03e">Perlで1行ごとになにかをパイプ処理するワンライナー
-<span class="article-date">2013/09/06</span></h2>
+<span class="article-date">2016/02/20</span></h2>
 
 <p>例</p>
 
@@ -148,6 +148,12 @@ $ cat foo.txt | ruby -ne 'print $_.gsub(/\\u([0-9a-f]{4})/){[$1.hex].pack("U")}'
 </code></pre>
 
 <p>行は <code>$_</code> で参照できる。</p>
+
+<p><code>-n</code> は標準入力を1行ずつ処理する意味。</p>
+
+<p><code>-l</code> は <code>print</code> で出力の際に最後に改行を付けなくても都度自動で改行してくれる意味。</p>
+
+<p><code>-e</code> はPerlスクリプトをファイルではなくコマンドラインで直接指定する意味。</p>
 
 <h2 id="296c55c">Perlで標準入力全体またはファイル全体を <code>$_</code> に入れて一度に処理するには
 <span class="article-date">2015/06/24</span></h2>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>glibcのインストールされているディレクトリとファイル名 | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2016/">2016年</a> &gt; <span>glibcのインストールされているディレクトリとファイル名</span>
+</div>
+
+<div id="content">
+  <h1 id="0220-glibc-filename">glibcのインストールされているディレクトリとファイル名
+<span class="article-date">2016/02/20</span></h1>
+
+<p>CentOS 6.3 では
+<code>/lib64/libc.so.6</code>
+にシンボリックリンクがあり、リンク先は
+<code>/lib64/libc-2.12.so</code></p>
+
+<p>CentOS 7.2 では
+<code>/lib64/libc.so.6</code>
+にシンボリックリンクがあり、リンク先は
+<code>/lib64/libc-2.17.so</code></p>
+
+<p>Ubuntu 13.10 では
+<code>/lib/x86_64-linux-gnu/libc.so.6</code>
+にシンボリックリンクがあり、リンク先は
+<code>/lib/x86_64-linux-gnu/libc-2.17.so</code></p>
+
+<p>Ubuntu 15.10 では
+<code>/lib/x86_64-linux-gnu/libc.so.6</code>
+にシンボリックリンクがあり、リンク先は
+<code>/lib/x86_64-linux-gnu/libc-2.21.so</code></p>
+
+<p>Ubuntuでは2013年から libc のバージョンは 2.17 だけど、
+CentOSでそのバージョンを使い始めたのは CentOS 7 から。
+CentOS(というかRedHat)はずいぶん保守的なのですね。</p>
+
+<p>ただ、libcのバージョンアップのタイミングとOSリリースサイクルのタイミングを調べると、保守的というよりはたまたまそうなっちゃっただけかも。</p>
+
+<p>GNU C Library Version history | Wikipedia<br />
+<a href="https://en.wikipedia.org/wiki/GNU_C_Library#Version_history" target="_blank" class="external-link">https://en.wikipedia.org/wiki/GNU_C_Library#Version_history</a></p>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../blog/">ブログ</a>
+    <ul>
+      <li><a href="../../blog/2016/">2016年</a>
+        <ul>
+          <li><a href="../../blog/2016/0201-php7-on-centos.html">CentOS 7.2にPHP 7.0を入れてみた</a></li>
+          <li>glibcのインストールされているディレクトリとファイル名</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>

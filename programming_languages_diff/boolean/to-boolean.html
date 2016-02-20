@@ -124,9 +124,18 @@
 <p>他の言語と違い、<code>0</code> も <code>''</code> も <code>[]</code> も <code>true</code>。</p>
 
 <h2 id="perl">Perl
-<span class="article-date">2015/04/21</span></h2>
+<span class="article-date">2016/02/20</span></h2>
 
-<p><code>0</code>, <code>'0'</code>, <code>''</code>, <code>undef</code>, <code>()</code> は false の扱いになり、それ以外は true の扱いになる。</p>
+<p><code>0</code>, <code>0.0</code>, <code>'0'</code>, <code>''</code>, <code>undef</code>, <code>()</code> は false の扱いになり、それ以外は true の扱いになる。</p>
+
+<p><code>0.0</code> は false だが <code>'0.0'</code> は true になることに注意。</p>
+
+<pre><code>$f = "0.0";
+print "OK\n" if $f; # true
+
+$f = "0.0" + 0;
+print "OK\n" unless $f; # false
+</code></pre>
 
 <h2 id="javascript">JavaScript
 <span class="article-date">2015/04/21</span></h2>
