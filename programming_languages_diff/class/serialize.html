@@ -29,22 +29,22 @@
 
 <p>書き出しの例</p>
 
-<pre><code>    val oos = new java.io.ObjectOutputStream(new java.io.FileOutputStream(filePath));
-    try {
-      oos.writeObject(obj);
-    } finally {
-      oos.close();
-    }
+<pre><code>val oos = new java.io.ObjectOutputStream(new java.io.FileOutputStream(filePath));
+try {
+  oos.writeObject(obj);
+} finally {
+  oos.close();
+}
 </code></pre>
 
 <p>読み込みの例</p>
 
-<pre><code>    val ois = new java.io.ObjectInputStream(new java.io.FileInputStream(filePath));
-    try {
-      ois.readObject().asInstanceOf[MorphologicalAnalyzer];
-    } finally {
-      ois.close();
-    }
+<pre><code>val ois = new java.io.ObjectInputStream(new java.io.FileInputStream(filePath));
+try {
+  ois.readObject().asInstanceOf[MorphologicalAnalyzer];
+} finally {
+  ois.close();
+}
 </code></pre>
 
 <p><code>java.io.Serializable</code> を実装している必要がある。必ずしも <code>extends java.io.Serializable</code> と書かなくても、単に <code>extends Serializable</code> でよい。 <code>scala.Serializable</code> が
