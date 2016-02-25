@@ -32,11 +32,13 @@
 <p>入力の全部をターミナル上でスクロールしながら見るには<a href="less.html"><code>less</code>コマンド</a>を使う。</p>
 
 <h2 id="738c09d">オプション
-<span class="article-date">2016/02/23</span></h2>
+<span class="article-date">2016/02/24</span></h2>
 
 <dl>
   <dt><code>-A</code></dt>
   <dd><code>-vET</code> と同じで、行末、タブ、CRを可視化する。</dd>
+  <dt><code>-b</code></dt>
+  <dd>行番号を付加して出力する。<code>-n</code> と似ているが <code>-b</code> は空行には行番号を付けない。</dd>
   <dt><code>-E</code></dt>
   <dd>各行末に <code>$</code> を追加して出力する。</dd>
   <dt><code>-n</code></dt>
@@ -81,7 +83,7 @@
 
 <p><code>-F</code> はファイルが短くて1画面に収まる場合は <code>cat</code> と同じ挙動、つまり画面に表示した後、直ちにコマンドを終了する。</p>
 
-<h2 id="bash-zsh">cat を使ったファイルの作成と bash, zsh での機能
+<h2 id="bash-zsh"><code>cat</code> を使ったファイルの作成と bash, zsh での機能
 <span class="article-date">2015/10/06</span></h2>
 
 <p>シェルから <code>cat</code> を使ってファイルを作成するには、以下のような方法がある。</p>
@@ -104,6 +106,22 @@ hogehoge
 
 <p>bash での動きは <a href="touch.html"><code>touch</code></a> に似ているが、<code>touch</code> は、ファイルが既存だった場合は、内容を削除せずにタイムスタンプだけ新しくする。</p>
 
+<h2 id="4029be9">複数のファイルを連結するには
+<span class="article-date">2016/02/24</span></h2>
+
+<pre><code>$ cat foo.txt bar.txt baz.txt &gt; output.txt
+</code></pre>
+
+<p>とすると、3つのファイルを連結して <code>output.txt</code> というファイルを生成する。</p>
+
+<p>標準入力とファイルを組み合わせて連結するには、標準入力の位置に <code>-</code> を置く。</p>
+
+<pre><code>$ cat foo.txt - baz.txt &gt; output.txt
+</code></pre>
+
+<p>とすると、<code>foo.txt</code> の後ろに標準入力の内容、その後に <code>baz.txt</code> の中身を連結して、
+<code>output.txt</code> を生成する。</p>
+
 <h2 id="20e6ffc">ディレクトリの中にあるすべてのファイルをまとめて閲覧するには
 <span class="article-date">2013/10/08</span></h2>
 
@@ -114,7 +132,7 @@ hogehoge
 
 <p>-&gt; <a href="../others/oneliner.html#less-many-files">たくさんのファイルをまとめて less で閲覧するには</a></p>
 
-<h2 id="2307da7"><code>cat</code>の使いみち
+<h2 id="dbd5f7f"><code>cat</code> の使いみち
 <span class="article-date">2015/10/06</span></h2>
 
 <p>行数が膨大なテキストファイルに対してなにかの処理をしたい。</p>
