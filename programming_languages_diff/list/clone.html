@@ -38,6 +38,32 @@ fmt.Printf("%#v\n", arr)
 
 <p><code>copy</code>関数は配列ではなくスライスを受け入れるため、配列をコピーするには <code>arr[:]</code> などとしてスライスにしたものを<code>copy</code>関数に渡す。</p>
 
+<h2 id="8cac39d">Java
+<span class="article-date">2016/02/25</span></h2>
+
+<p>Signature:</p>
+
+<pre><code>void java.lang.System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
+</code></pre>
+
+<p>例</p>
+
+<pre><code>int[] arr = new int[]{0, 1, 2, 3, 4};
+System.arraycopy(arr, 2, arr, 0, 3);
+for (int i = 0; i &lt; arr.length; i++) {
+    System.out.printf("%d: %d\n", i, arr[i]);
+}
+// 出力例
+// 0: 2
+// 1: 3
+// 2: 4
+// 3: 3
+// 4: 4
+</code></pre>
+
+<p><code>java.lang.System.arraycopy</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/System.html#arraycopy-java.lang.Object-int-java.lang.Object-int-int-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/System.html#arraycopy-java.lang.Object-int-java.lang.Object-int-int-</a></p>
+
 <h2 id="php">PHP
 <span class="article-date">2015/01/21</span></h2>
 
