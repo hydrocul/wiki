@@ -74,8 +74,27 @@ BSD系では、<code>tac</code> の代わりに <a href="tail.html#tac"><code>ta
 
 <p>参考</p>
 
-<p>ShellScript - 逆順出力 tac と tail -r | Qiita<br />
-<a href="http://qiita.com/b4b4r07/items/e465efe0b020407bdd44" target="_blank" class="external-link">http://qiita.com/b4b4r07/items/e465efe0b020407bdd44</a></p>
+<ul>
+  <li>ShellScript - 逆順出力 tac と tail -r | Qiita<br />
+<a href="http://qiita.com/b4b4r07/items/e465efe0b020407bdd44" target="_blank" class="external-link">http://qiita.com/b4b4r07/items/e465efe0b020407bdd44</a></li>
+</ul>
+
+<h2 id="4d66b38">HOWTO</h2>
+
+<h3 id="fc10153">単語を逆順に並べるには
+<span class="article-date">2016/02/28</span></h3>
+
+<p><code>-s</code> というオプションで区切り文字を指定できるので、行ではなく単語を逆順に並べることもできる。</p>
+
+<pre><code>$ echo -n "I'm feeling lucky." | tac -s ' '
+lucky.feeling I'm 
+</code></pre>
+
+<p>さらに <code>-r</code> というオプションを使えば正規表現で区切り文字を指定できる。</p>
+
+<pre><code>$ echo -n "I'm feeling lucky." | tac -r -s '[^a-zA-Z]'
+lucky.feeling m I'
+</code></pre>
 
 </div>
 
@@ -87,7 +106,6 @@ BSD系では、<code>tac</code> の代わりに <a href="tail.html#tac"><code>ta
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
@@ -99,6 +117,7 @@ BSD系では、<code>tac</code> の代わりに <a href="tail.html#tac"><code>ta
       <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff コマンド</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
+      <li><a href="../commands/echo.html">echo コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
@@ -122,13 +141,11 @@ BSD系では、<code>tac</code> の代わりに <a href="tail.html#tac"><code>ta
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
-      <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
       <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
-      <li><a href="../commands/siege.html">siege コマンド</a></li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/split.html">split コマンド</a></li>
@@ -150,7 +167,6 @@ BSD系では、<code>tac</code> の代わりに <a href="tail.html#tac"><code>ta
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
-      <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
       <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
