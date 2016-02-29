@@ -23,32 +23,31 @@
   <h1 id="now">今日の日付を取得するには / 現在時刻を取得するには</h1>
 
 <h2 id="ab4a8d0">PHP
-<span class="article-date">2015/12/24</span></h2>
+<span class="article-date">2016/02/29</span></h2>
 
-<pre><code># 現在日時を YYYY/MM/DD hh:mm:ss の書式の文字列で取得する
+<pre><code>// 現在日時を YYYY/MM/DD hh:mm:ss の書式の文字列で取得する
 $now = date('Y/m/d H:i:s');
 
-# 現在日時を DateTime クラスのインスタンスで取得する
+// 現在日時を DateTime クラスのインスタンスで取得する
 $now = new DateTime();
 
-# 現在日時をUNIXタイムスタンプを秒単位で取得する
+// 現在日時をUNIXタイムスタンプを秒単位で取得する
 $now = time();
 
-# 現在日時をUNIXタイムスタンプをマイクロ秒単位で取得する
+// 現在日時をUNIXタイムスタンプをマイクロ秒単位で取得する
 $now = microtime(true);
 </code></pre>
 
-<p><code>date</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.date.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.date.php</a></p>
-
-<p><code>time</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.time.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.time.php</a></p>
-
-<p><code>microtime</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.microtime.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.microtime.php</a></p>
-
-<p><code>DateTime::__construct</code> | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/datetime.construct.php" target="_blank" class="external-link">http://www.php.net/manual/ja/datetime.construct.php</a></p>
+<ul>
+  <li><code>date</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.date.php" target="_blank" class="external-link">http://php.net/manual/ja/function.date.php</a></li>
+  <li><code>time</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.time.php" target="_blank" class="external-link">http://php.net/manual/ja/function.time.php</a></li>
+  <li><code>microtime</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.microtime.php" target="_blank" class="external-link">http://php.net/manual/ja/function.microtime.php</a></li>
+  <li><code>DateTime::__construct</code> | PHP Manual<br />
+<a href="http://php.net/manual/ja/datetime.construct.php" target="_blank" class="external-link">http://php.net/manual/ja/datetime.construct.php</a></li>
+</ul>
 
 <h2 id="10992df">Ruby / JRuby
 <span class="article-date">2014/04/12</span></h2>
@@ -116,10 +115,6 @@ print "$nowstr\n";
       <li><a href="../../programming_languages_diff/datetime/">日付と時刻</a>
         <ul>
           <li>今日の日付を取得するには / 現在時刻を取得するには</li>
-          <li><a href="../../programming_languages_diff/datetime/calc_date.html">日付単位で計算するには</a></li>
-          <li><a href="../../programming_languages_diff/datetime/calc_time.html">時刻を計算するには</a></li>
-          <li><a href="../../programming_languages_diff/datetime/compare.html">日時オブジェクトを比較するには</a></li>
-          <li><a href="../../programming_languages_diff/datetime/parse.html">文字列を日付に変換するには</a></li>
           <li><a href="../../programming_languages_diff/datetime/timer.html">ミリ秒・マイクロ秒単位で処理時間を計測するには</a></li>
         </ul>
       </li>
