@@ -21,23 +21,32 @@
 
 <div id="content">
   <h1 id="base64">base64 コマンド
-<span class="article-date">2014/12/30</span></h1>
+<span class="article-date">2016/03/02</span></h1>
 
 <p>標準入力のデータをBASE64でエンコードまたはデコードして標準出力するコマンド。デフォルトではエンコードする。オプション <code>-d</code> を付けるとデコードする。</p>
 
-<pre><code>base64    # エンコード
-base64 -d # デコード
+<pre><code>$ base64    foo.dat # エンコード
+$ base64 -d foo.txt # デコード
 </code></pre>
 
-<p>変なところに改行があったりしてうまくデコードできない場合は以下のように<a href="tr.html#rm-char"><code>tr</code>コマンド</a>で削除をするとよい。</p>
+<p>ファイル名を渡さないか <code>-</code> をパラメータにすると標準入力を処理する。</p>
 
-<pre><code>cat src.txt | tr -d '\n' | base64 -d | dst.txt
+<p>エンコード済みのデータの改行位置がおかしかったりしてうまくデコードできない場合は以下のように<a href="tr.html#rm-char"><code>tr</code>コマンド</a>で削除をするとよい。</p>
+
+<pre><code>$ cat src.txt | tr -d '\n' | base64 -d | dst.txt
 </code></pre>
 
 <p><a href="openssl.html"><code>openssl</code>コマンド</a>でもBASE64をエンコード/デコードできる。</p>
 
 <p>PHP、Python、PerlなどでBASE64を取り扱うには
 <a href="../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには</a>も参照。</p>
+
+<p>BASE64の仕様はRFCで定められている。バイナリ3バイトをエンコードすると4バイトに膨らむので容量は約1.33倍になる。</p>
+
+<ul>
+  <li>RFC 4648 - The Base16, Base32, and Base64 Data Encodings<br />
+<a href="http://tools.ietf.org/html/rfc4648" target="_blank" class="external-link">http://tools.ietf.org/html/rfc4648</a></li>
+</ul>
 
 <h2 id="6cdc4f3">PerlのワンライナーでBASE64するには
 <span class="article-date">2014/09/27</span></h2>
@@ -73,7 +82,6 @@ $ echo "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT" | nkf -WmB
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li>base64 コマンド</li>
@@ -85,6 +93,7 @@ $ echo "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT" | nkf -WmB
       <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff コマンド</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
+      <li><a href="../commands/echo.html">echo コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
@@ -108,13 +117,11 @@ $ echo "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT" | nkf -WmB
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
-      <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
       <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
-      <li><a href="../commands/siege.html">siege コマンド</a></li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/split.html">split コマンド</a></li>
@@ -136,7 +143,6 @@ $ echo "44GC44GE44GG44GI44GK44GL44GN44GP44GR44GT" | nkf -WmB
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
-      <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
       <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
