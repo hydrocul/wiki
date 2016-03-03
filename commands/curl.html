@@ -62,7 +62,7 @@ while :; do wget -q -O- 'http://www.example.com/' &gt;/dev/null; done
 
 
 <h2 id="9273204">オプション
-<span class="article-date">2015/06/12</span></h2>
+<span class="article-date">2016/03/03</span></h2>
 
 <dl>
   <dt><code>-o</code> ファイル名</dt>
@@ -79,6 +79,8 @@ while :; do wget -q -O- 'http://www.example.com/' &gt;/dev/null; done
   <dd>SSLのエラーを無視して処理を継続する。</dd>
   <dt><code>-e</code> リファラURL</dt>
   <dd>HTTPリクエストヘッダにリファラを付ける</dd>
+  <dt><code>-v</code></dt>
+  <dd>リクエストヘッダとレスポンスヘッダを標準エラー出力に表示する。</dd>
 </dl>
 
 <h2 id="c8c1f93">HOWTO</h2>
@@ -120,7 +122,7 @@ BASIC認証以外にはDigest認証、NTLM認証に対応している。</p>
 <h3 id="0c817b5">リクエストヘッダやレスポンスヘッダを表示するには
 <span class="article-date">2014/06/09</span></h3>
 
-<p><code>-v</code> を付けると、リクエストヘッダは <code>&gt;</code> で表示され、レスポンスヘッダは <code>&lt;</code> で表示される。</p>
+<p><code>-v</code> を付けると、リクエストヘッダは <code>&gt;</code> で表示され、レスポンスヘッダは <code>&lt;</code> で表示される。どちらも標準エラー出力で表示される。</p>
 
 <pre><code>curl -v http://www.example.com/
 </code></pre>
@@ -257,7 +259,6 @@ VirtualHostの設定の動作確認をしたりするのに使える。</p>
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li><a href="../commands/ack-grep.html">ack-grep コマンド</a></li>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
@@ -269,6 +270,7 @@ VirtualHostの設定の動作確認をしたりするのに使える。</p>
       <li><a href="../commands/date.html">date コマンド</a></li>
       <li><a href="../commands/diff.html">diff コマンド</a></li>
       <li><a href="../commands/du.html">du コマンド</a></li>
+      <li><a href="../commands/echo.html">echo コマンド</a></li>
       <li><a href="../commands/find.html">find コマンド</a></li>
       <li><a href="../commands/git.html">git コマンド</a></li>
       <li><a href="../commands/grep.html">grep コマンド</a></li>
@@ -292,13 +294,11 @@ VirtualHostの設定の動作確認をしたりするのに使える。</p>
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
-      <li><a href="../commands/pstree.html">pstree コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
       <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
-      <li><a href="../commands/siege.html">siege コマンド</a></li>
       <li><a href="../commands/sort.html">sort コマンド</a></li>
       <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
       <li><a href="../commands/split.html">split コマンド</a></li>
@@ -320,7 +320,6 @@ VirtualHostの設定の動作確認をしたりするのに使える。</p>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
-      <li><a href="../commands/wkhtmltoimage.html">wkhtmltoimage コマンド</a></li>
       <li><a href="../commands/xargs.html">xargs コマンド</a></li>
       <li><a href="../commands/yes.html">yes コマンド</a></li>
       <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
