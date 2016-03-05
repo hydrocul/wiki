@@ -58,6 +58,19 @@
   <li><a href="tail.html"><code>tail</code>コマンド</a>: 先頭ではなく最後のn行を抜き出すコマンド</li>
 </ul>
 
+<h2 id="9d8914b">sedコマンドで同じことをするには
+<span class="article-date">2016/03/04</span></h2>
+
+<p><a href="sed.html"><code>sed</code>コマンド</a>でも同じことはできる。</p>
+
+<pre><code>$ sed -n 1,10p hoge.txt
+</code></pre>
+
+<p>または</p>
+
+<pre><code>$ sed 10q hoge.txt
+</code></pre>
+
 </div>
 
 <div id="side-menu">

@@ -374,7 +374,7 @@ head main.go | sed 's/\(.*\)/\U\1/'
 head main.go | sed 's/\(.*\)/\L\1/'
 </code></pre>
 
-<h3 id="9c4c9bd">正規表現の中で ‘{}’ を使うには
+<h3 id="89f6480">正規表現の中で <code>{}</code> を使うには
 <span class="article-date">2015/12/19</span></h3>
 
 <p>正規表現で文字数を指定する <code>{}</code> は上で説明したとおり <code>\</code> でエスケープするか、オプション <code>-r</code> を付けるかまたは <code>-e</code> の代わりに <code>-E</code> を使う必要がある。</p>
@@ -507,21 +507,28 @@ sed -E 's/[\t ]+/ /g'
 </code></pre>
 
 <h3 id="slice">行番号で範囲を指定して抽出するには
-<span class="article-date">2015/01/29</span></h3>
+<span class="article-date">2016/03/04</span></h3>
 
 <p>プログラミング言語でいう<a href="../programming_languages_diff/list/sub-list.html">部分配列とかスライス</a>みたいな。</p>
 
-<pre><code># 2行目から4行目を抽出(4行目を含む)
-cat ファイル名 | sed -n 2,4p
+<pre><code>## 2行目から4行目までを抽出(4行目を含む)
+$ sed -n 2,4p foo.txt
 
-# 2行目のみを抽出
-cat ファイル名 | sed -n 2p
+## 2行目のみを抽出
+$ sed -n 2p foo.txt
 
-# 2行目から最後まで抽出
-cat ファイル名 | sed -n '2,$p'
-# または
-cat ファイル名 | sed -n 2,\$p
+## 2行目から最後までを抽出
+$ sed -n '2,$p' foo.txt
+## または
+$ sed -n 2,\$p foo.txt
+
+## 先頭から4行目までを抽出
+$ sed -n 1,4p foo.txt
+## または
+$ sed 4q foo.txt
 </code></pre>
+
+<p><code>q</code> はその行で終了という意味。</p>
 
 <h3 id="e829c7d">行番号で範囲を指定して削除するには
 <span class="article-date">2013/06/14</span></h3>
