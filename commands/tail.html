@@ -91,20 +91,20 @@ tail -c +10 hoge.txt
 
 <p>CentOSやUbuntuでは、<code>-r</code> オプションを使えないが代わりに<a href="tac.html"><code>tac</code>コマンド</a>を使えばよい。</p>
 
-<h2 id="9bc04de">ログファイルなどのファイルへの出力をリアルタイムに画面に表示するには
-<span class="article-date">2015/04/09</span></h2>
+<h2 id="1e48712">ログファイルなどの追記出力をリアルタイムに画面に表示するには
+<span class="article-date">2016/03/08</span></h2>
 
 <p>以下のように <code>-f</code> を付けると、ログをリアルタイムに監視できる。このコマンドを起動すると、ファイルの最後の部分を表示した後、ファイルの追記を監視して、追記されたらその部分を表示して監視を継続してくれる。監視を終了するには Ctrl+C を押すなどする。</p>
 
-<pre><code>tail -f access_log
+<pre><code>$ tail -f access_log
 </code></pre>
 
-<p>ログファイルを<code>grep</code>などでパイプ処理して<code>tail -f</code>で監視する場合に、</p>
+<p>ログファイルを<code>grep</code>などでパイプ処理して <code>tail -f</code> で監視する場合に、</p>
 
-<pre><code>tail -f access_log | grep 404
+<pre><code>$ tail -f access_log | grep 404
 </code></pre>
 
-<p>のようにすると、<code>grep</code>が出力をバッファリングしてしまうので、リアルタイムな監視ができない。いくらかの出力がたまにまとめて一度に表示されるようになってしまう。そんな場合はバッファリングしないようにする必要があるが、その方法はコマンドによって異なる。</p>
+<p>のようにすると、<code>grep</code>が出力をバッファリングしてしまい、リアルタイムな監視ができない。いくらかの出力がたまにまとめて一度に表示されるようになってしまう。そんな場合はバッファリングしないようにする必要があるが、その方法はコマンドによって異なる。</p>
 
 <p><code>grep</code> の場合は <code>--line-buffered</code> というオプションを付ければ行単位で出力してくれるので、ログの監視には問題ない。</p>
 
@@ -117,6 +117,23 @@ tail -c +10 hoge.txt
   <li><a href="grep.html#tailf"><code>grep</code>を<code>tail -f</code>と組み合わせるには</a></li>
   <li><a href="sed.html#tailf"><code>sed</code>を<code>tail -f</code>と組み合わせるには</a></li>
 </ul>
+
+<h2 id="f4d6180">複数のログファイルを同時に監視するには
+<span class="article-date">2016/03/08</span></h2>
+
+<p><code>-f</code> は複数のファイルを同時に監視することもできる。</p>
+
+<pre><code>$ tail -f access_log error_log
+</code></pre>
+
+<p>複数ファイルの場合は、ファイルにログが書き出されるごとにそのファイル名を</p>
+
+<pre><code>`==&gt; access_log &lt;==`
+</code></pre>
+
+<p>のように表示してからログが表示される。</p>
+
+<p><code>multitail</code> というコマンドや <code>xtail</code> というコマンドもあるらしい。</p>
 
 <h2 id="aa75bc7">特定のプロセスが終了したときに自動で <code>tail -f</code> も終了させるには
 <span class="article-date">2015/07/25</span></h2>
