@@ -222,6 +222,25 @@ grep -e APATTERN -e BPATTERN foo.txt
 
 <p>同様に <code>[^$]</code> と書くと、行末(<code>$</code>)以外の任意の1文字という意味になる。従って<code>hoge</code>の次の1文字もハイライトになる。</p>
 
+<h3 id="7216ce3">マッチした部分をハイライト表示するには
+<span class="article-date">2016/03/09</span></h3>
+
+<p><code>--color</code> を付けるとパターンにマッチした部分を色付きで表示してくれる。</p>
+
+<p><code>grep</code> の出力をパイプで他のコマンドにつなげたときには <code>--color</code> でも色付きにしてくれないので、
+<code>--color=always</code> と書く。</p>
+
+<pre><code>$ grep --color PATTERN foo.txt
+
+$ grep --color=always PATTERN foo.txt | head
+</code></pre>
+
+<p>パイプで<code>less</code>コマンドに流す場合には、色を示すエスケープシーケンスがデフォルトでは正しく表示されないので、
+<code>less</code>に <a href="less.html#color"><code>-R</code></a> というオプションを付ける。</p>
+
+<pre><code>$ grep --color=always PATTERN foo.txt | less -R
+</code></pre>
+
 </div>
 
 <div id="side-menu">
