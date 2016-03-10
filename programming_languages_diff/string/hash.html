@@ -137,6 +137,19 @@ print(hashlib.sha1("あいうえお".encode('utf-8')).hexdigest())
 <p><code>hashlib</code> モジュール | Python 2.7 documentation<br />
 <a href="http://docs.python.jp/2/library/hashlib.html" target="_blank" class="external-link">http://docs.python.jp/2/library/hashlib.html</a></p>
 
+<h2 id="4e5ca00">Ruby / JRuby
+<span class="article-date">2016/03/10</span></h2>
+
+<pre><code>require 'digest/md5'
+require 'digest/sha1'
+
+puts Digest::MD5.hexdigest('あいうえお');
+# =&gt; 86deb27a32903da70a7b2348fcf36bc3
+
+puts Digest::SHA1.hexdigest('あいうえお');
+# =&gt; 4ab0856318af20fa77d4492684fb8d9789e00cb6
+</code></pre>
+
 <h2 id="perl">Perl
 <span class="article-date">2015/03/23</span></h2>
 
