@@ -62,7 +62,7 @@ while :; do wget -q -O- 'http://www.example.com/' &gt;/dev/null; done
 
 
 <h2 id="9273204">オプション
-<span class="article-date">2016/03/03</span></h2>
+<span class="article-date">2016/03/11</span></h2>
 
 <dl>
   <dt><code>-o</code> ファイル名</dt>
@@ -78,7 +78,11 @@ while :; do wget -q -O- 'http://www.example.com/' &gt;/dev/null; done
   <dt><code>-k</code></dt>
   <dd>SSLのエラーを無視して処理を継続する。</dd>
   <dt><code>-e</code> リファラURL</dt>
-  <dd>HTTPリクエストヘッダにリファラを付ける</dd>
+  <dd>HTTPリクエストヘッダにリファラを付ける。</dd>
+  <dt><code>--head</code></dt>
+  <dd>HTTPリクエスト時にHEADメソッドを使い、レスポンスヘッダのみを取得する。</dd>
+  <dt><code>-I</code></dt>
+  <dd>HTTPリクエスト時にHEADメソッドを使い、レスポンスヘッダのみを取得する。</dd>
   <dt><code>-v</code></dt>
   <dd>リクエストヘッダとレスポンスヘッダを標準エラー出力に表示する。</dd>
 </dl>
