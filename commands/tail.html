@@ -92,7 +92,7 @@ tail -c +10 hoge.txt
 <p>CentOSやUbuntuでは、<code>-r</code> オプションを使えないが代わりに<a href="tac.html"><code>tac</code>コマンド</a>を使えばよい。</p>
 
 <h2 id="1e48712">ログファイルなどの追記出力をリアルタイムに画面に表示するには
-<span class="article-date">2016/03/08</span></h2>
+<span class="article-date">2016/03/16</span></h2>
 
 <p>以下のように <code>-f</code> を付けると、ログをリアルタイムに監視できる。このコマンドを起動すると、ファイルの最後の部分を表示した後、ファイルの追記を監視して、追記されたらその部分を表示して監視を継続してくれる。監視を終了するには Ctrl+C を押すなどする。</p>
 
@@ -117,6 +117,8 @@ tail -c +10 hoge.txt
   <li><a href="grep.html#tailf"><code>grep</code>を<code>tail -f</code>と組み合わせるには</a></li>
   <li><a href="sed.html#tailf"><code>sed</code>を<code>tail -f</code>と組み合わせるには</a></li>
 </ul>
+
+<p><a href="less.html#tailf"><code>less</code>コマンド</a>でも <code>tail -f</code> と同じことができる。</p>
 
 <h2 id="f4d6180">複数のログファイルを同時に監視するには
 <span class="article-date">2016/03/08</span></h2>
