@@ -26,29 +26,51 @@
 <p>ファイルをコピーするコマンド。別のホストにファイルをコピーするには<a href="rsync.html"><code>rsync</code></a>を使う。コピーではなく移動させるには<code>mv</code>を使う。</p>
 
 <h2 id="7f97576">基本的な使い方
-<span class="article-date">2015/05/27</span></h2>
+<span class="article-date">2016/03/18</span></h2>
 
-<p>新しいファイル名を指定してコピー</p>
+<h3 id="4be5771">その1: ファイルを別ファイル名にコピー</h3>
 
-<pre><code>$ cp src.txt new.txt
+<pre><code>$  cp src.txt new.txt
 </code></pre>
 
-<p>別のディレクトリに同じファイル名でコピー
-(<code>dstdir</code> というディレクトリがすでに存在する前提で、最後のスラッシュはなくてもよい。
-<code>dstdir</code> が存在しない場合はディレクトリにはならずに、<code>dstdir</code> という名前のファイル名でコピーされてしまう)</p>
+<p>別のディレクトリにも</p>
 
-<pre><code>$ cp src.txt dstdir/
+<pre><code>$  cp src.txt foo/new.txt
 </code></pre>
 
-<p>別のディレクトリに違うファイル名でコピー</p>
+<h3 id="591caf8">その2: ファイル名そのままに別のディレクトリにコピー</h3>
 
-<pre><code>$ cp src.txt dstdir/new.txt
+<p><code>foo</code> といディレクトリがすでに存在するとして、その中にコピー</p>
+
+<pre><code>$ cp src.txt foo
 </code></pre>
 
-<p>ディレクトリを再帰的にコピー
-(<code>dstdir</code> というディレクトリがすでに存在する場合は、 <code>dstdir/srcdir</code> という名前のディレクトリが作成されて、中身が再帰的にコピーされる。存在しない場合は、 <code>dstdir/</code> という名前のディレクトリが作成されて、<code>srcdir</code> の中身が <code>dstdir</code> の中にコピーされる)</p>
+<p>ディレクトリが存在しない場合はその1のパターンになって、<code>foo</code> というファイルが作られる。</p>
 
-<pre><code>$ cp -r srcdir dstdir
+<p>複数ファイルもOK。最後の引数がコピー先となるディレクトリになる。</p>
+
+<pre><code>$ cp src1.txt src2.txt foo
+</code></pre>
+
+<h3 id="e785031">その3: ディレクトリを再帰的に新しいディレクトリにコピー</h3>
+
+<p><code>srcdir</code> というディレクトリがあり、<code>newdir</code> という新しいディレクトリにコピー</p>
+
+<pre><code>$ cp -r srddir newdir
+</code></pre>
+
+<h3 id="ae9397b">その4: ディレクトリを再帰的に別のディレクトリの中にコピー</h3>
+
+<p><code>srcdir</code> というディレクトリがあり、<code>targetdir</code> という既存のディレクトリの中に <code>targetdir/srcdir</code> という名前にコピー</p>
+
+<pre><code>$ cp -r srddir targetdir
+</code></pre>
+
+<p><code>targetdir</code> が存在しない場合はその3のパターンになって、 <code>targetdir</code> という名前のディレクトリが作られる。</p>
+
+<p>複数ディレクトリもOK。</p>
+
+<pre><code>$ cp -r srddir1 srcdir2 targetdir
 </code></pre>
 
 <div class="ad">
