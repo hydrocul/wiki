@@ -21,24 +21,24 @@
 
 <div id="content">
   <h1 id="date">date コマンド
-<span class="article-date">2014/10/13</span></h1>
+<span class="article-date">2016/03/19</span></h1>
 
 <p>現在の時刻を取得したり、設定したりするコマンド。OSが刻んでいる日時がずれている場合は、
 root権限でこのコマンドを使って正しい日時を設定する。</p>
 
-<p>時刻の表示フォーマットは <code>+</code> で始まるパラメータを与えることで指定できる。</p>
+<p>時刻の表示フォーマットを指定することもできる。</p>
 
 <p>「30日後は何日か？」などの簡単な日時の計算もできる。</p>
 
 <p>現在日時ではなく、処理にかかる時間を測定するには<a href="time.html"><code>time</code>コマンド</a>を使う。</p>
 
 <h2 id="5c0ab52">基本的な使い方
-<span class="article-date">2015/04/25</span></h2>
+<span class="article-date">2016/03/19</span></h2>
 
 <pre><code># 現在の日時を表示
 $ date
 
-# フォーマットを指定して表示
+# フォーマットは + で始まる書式で指定
 $ date "+%Y%m%d-%H%M%S"
 
 # 24時間後の日時を表示
@@ -49,9 +49,11 @@ $ date --date tomorrow
 
 # 30日後の日付を表示
 date "+%Y/%m/%d" -d "30 days"
+</code></pre>
 
-# OSが刻んでいる現在日時を訂正
-$ sudo date -s "2013/09/04 12:17:00"
+<p>OSが刻んでいる現在日時を修正するにはroot権限で実行する。</p>
+
+<pre><code>$ sudo date -s "2013/09/04 12:17:00"
 </code></pre>
 
 <h2 id="bd823c6">日時の指定方法
@@ -196,18 +198,30 @@ $ date -d "`date '+%Y/%m/01' -d "\`date '+%Y/%m/01' -d 2015/03/15\` 1 month"` 1 
 $ date -d "`date '+%Y/%m/01' -d "\`date '+%Y/%m/01'\` 1 month"` 1 day ago"
 </code></pre>
 
+<h2 id="fba75d4">オプション
+<span class="article-date">2016/03/19</span></h2>
+
+<dl>
+  <dt><code>-d</code> &lt;日時指定文字列&gt;, <code>--date=</code>&lt;日時指定文字列&gt;</dt>
+  <dd>日時を指定する</dd>
+  <dt><code>-r</code> &lt;ファイルパス&gt;, <code>--reference=</code>&lt;ファイルパス&gt;</dt>
+  <dd>ファイルの更新日時を表示する</dd>
+  <dt><code>-u</code>, <code>--utc</code>, <code>--universal</code></dt>
+  <dd>タイムゾーンをUTCとして表示する</dd>
+</dl>
+
 <h2 id="c13191c">HOWTO</h2>
 
 <h3 id="2842f42">YYYYMMDD-hhmmss の書式で日時を出力するには
 <span class="article-date">2013/03/21</span></h3>
 
-<pre><code>date "+%Y%m%d-%H%M%S"
+<pre><code>$ date "+%Y%m%d-%H%M%S"
 </code></pre>
 
 <h3 id="e714431">YYYY/MM/DD-hh:mm:ss の書式で日時を出力するには
 <span class="article-date">2014/04/21</span></h3>
 
-<pre><code>date "+%Y/%m/%d-%H:%M:%S"
+<pre><code>$ date "+%Y/%m/%d-%H:%M:%S"
 </code></pre>
 
 <p>同じフォーマットをperlで表示するには</p>
@@ -221,7 +235,7 @@ print sprintf("%04d/%02d/%02d-%02d:%02d:%02d", $year, $mon, $mday, $hour, $min, 
 <h3 id="799adf9">曜日を取得するには
 <span class="article-date">2013/09/11</span></h3>
 
-<pre><code>date "+%w"
+<pre><code>$ date "+%w"
 </code></pre>
 
 <p>0-6の数字を出力する。0が日曜日。</p>
@@ -229,27 +243,27 @@ print sprintf("%04d/%02d/%02d-%02d:%02d:%02d", $year, $mon, $mday, $hour, $min, 
 <h3 id="480b7de">明日の日付を取得するには
 <span class="article-date">2013/06/22</span></h3>
 
-<pre><code>date --date "1 day" "+%Y-%m-%d"
+<pre><code>$ date --date "1 day" "+%Y-%m-%d"
 </code></pre>
 
 <p><code>--date</code> オプションに渡す文字列はいろいろ書ける。</p>
 
 <p>例</p>
 
-<pre><code>date --date "2 days" "+%Y-%m-%d"
-date --date "1 day ago" "+%Y-%m-%d"
-date --date "1 days ago" "+%Y-%m-%d" # 単数形複数形が間違っていても大丈夫
-date --date "1 month" "+%Y-%m-%d"
+<pre><code>$ date --date "2 days" "+%Y-%m-%d"
+$ date --date "1 day ago" "+%Y-%m-%d"
+$ date --date "1 days ago" "+%Y-%m-%d" # 単数形複数形が間違っていても大丈夫
+$ date --date "1 month" "+%Y-%m-%d"
 </code></pre>
 
 <h3 id="ab2e2b5">UNIX時間を取得するには
 <span class="article-date">2013/10/21</span></h3>
 
-<pre><code># 現在日時
-date +%s
+<pre><code>## 現在日時
+$ date +%s
 
-# 1日前
-date --date "1day ago" +%s
+## 1日前
+$ date --date "1day ago" +%s
 </code></pre>
 
 <h3 id="4f4db13">UNIX時間から日時を取得するには
@@ -258,8 +272,8 @@ date --date "1day ago" +%s
 <p><code>--date</code> オプションに渡す文字列として、数字の前に <code>@</code> を付けると、
 UNIX時間での指定になる。</p>
 
-<pre><code>date --date @1382282400
-# =&gt; Mon Oct 21 00:20:00 JST 2013
+<pre><code>$ date --date @1382282400
+Mon Oct 21 00:20:00 JST 2013
 </code></pre>
 
 <h3 id="set">日時を設定するには
@@ -267,8 +281,8 @@ UNIX時間での指定になる。</p>
 
 <p>例</p>
 
-<pre><code># 9月4日12時17分に設定
-sudo date -s "2013/09/04 12:17:00"
+<pre><code>## 9月4日12時17分に設定
+$ sudo date -s "2013/09/04 12:17:00"
 </code></pre>
 
 <p>あらかじめ <code>sudo</code> なしで実行してみて、日時のフォーマットが合っているかを確認するとよい。</p>
