@@ -57,7 +57,7 @@ date "+%Y/%m/%d" -d "30 days"
 </code></pre>
 
 <h2 id="211a899">日時表示のフォーマット
-<span class="article-date">2016/03/21</span></h2>
+<span class="article-date">2016/03/23</span></h2>
 
 <p><code>+</code> で始まる書式指定には以下が使える。</p>
 
@@ -98,6 +98,11 @@ date "+%Y/%m/%d" -d "30 days"
     </tr>
     <tr>
       <td>月</td>
+      <td><code>%h</code></td>
+      <td>Jan 〜 Dec。<code>%b</code> と同じ。</td>
+    </tr>
+    <tr>
+      <td>月</td>
       <td><code>%B</code></td>
       <td>January 〜 December</td>
     </tr>
@@ -127,6 +132,16 @@ date "+%Y/%m/%d" -d "30 days"
       <td>1 〜 31。<code>%_d</code> と同じ。1桁の場合はスペースで埋める</td>
     </tr>
     <tr>
+      <td>日</td>
+      <td><code>%j</code></td>
+      <td>001 〜 366。1月1日が001、うるう年の12月31日が366</td>
+    </tr>
+    <tr>
+      <td>日</td>
+      <td><code>%-j</code></td>
+      <td>1 〜 366。1月1日が1、うるう年の12月31日が366</td>
+    </tr>
+    <tr>
       <td>時</td>
       <td><code>%H</code></td>
       <td>00 〜 23</td>
@@ -135,6 +150,16 @@ date "+%Y/%m/%d" -d "30 days"
       <td>時</td>
       <td><code>%-H</code></td>
       <td>0 〜 23</td>
+    </tr>
+    <tr>
+      <td>時</td>
+      <td><code>%I</code></td>
+      <td>01 〜 12</td>
+    </tr>
+    <tr>
+      <td>時</td>
+      <td><code>%-I</code></td>
+      <td>1 〜 12</td>
     </tr>
     <tr>
       <td>分</td>

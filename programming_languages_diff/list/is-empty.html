@@ -98,7 +98,7 @@
 
 <p>Signature:</p>
 
-<pre><code>boolean java.util.List&lt;E&gt;isEmpty()
+<pre><code>boolean java.util.List&lt;E&gt;#isEmpty()
 </code></pre>
 
 <p>例</p>
@@ -114,7 +114,7 @@
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#isEmpty--" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/List.html#isEmpty–</a></p>
 
 <h2 id="scala">Scala
-<span class="article-date">2015/03/22</span></h2>
+<span class="article-date">2016/03/23</span></h2>
 
 <p><code>List</code>クラスなどに<code>isEmpty</code>とその逆の<code>nonEmpty</code>メソッドが存在する。</p>
 
@@ -122,6 +122,15 @@
 
 <pre><code>def scala.collection.TraversableOnce[A]#isEmpty: Boolean
 def scala.collection.TraversableOnce[A]#nonEmpty: Boolean
+</code></pre>
+
+<p>例</p>
+
+<pre><code>if (lst.isEmpty) {
+    println("empty");
+} else {
+    println("not empty");
+}
 </code></pre>
 
 <p>これらは<code>TraversableOnce</code>のメソッドなので、<code>Set</code>や<code>Map</code>でも使える。</p>
