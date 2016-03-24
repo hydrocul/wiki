@@ -57,149 +57,189 @@ date "+%Y/%m/%d" -d "30 days"
 </code></pre>
 
 <h2 id="211a899">日時表示のフォーマット
-<span class="article-date">2016/03/23</span></h2>
+<span class="article-date">2016/03/24</span></h2>
 
 <p><code>+</code> で始まる書式指定には以下が使える。</p>
 
 <p><code>%-d</code> などの <code>-</code> は 桁数が足りないときに <code>0</code> で詰めることはしない、という意味。
 <code>%_d</code> のように <code>-</code> の代わりに <code>_</code> にすると、スペースで詰めてくれる。</p>
 
+<h3 id="7bde86b">年</h3>
+
 <table>
   <tbody>
     <tr>
-      <td>年</td>
       <td><code>%Y</code></td>
       <td>西暦の4桁の年</td>
     </tr>
     <tr>
-      <td>年</td>
       <td><code>%y</code></td>
       <td>西暦の下2桁の年 00 〜 99</td>
     </tr>
     <tr>
-      <td>年</td>
       <td><code>%-y</code></td>
       <td>西暦の下2桁の年 0 〜 99</td>
     </tr>
+  </tbody>
+</table>
+
+<h3 id="1938f64">月</h3>
+
+<table>
+  <tbody>
     <tr>
-      <td>月</td>
       <td><code>%m</code></td>
       <td>01 〜 12</td>
     </tr>
     <tr>
-      <td>月</td>
       <td><code>%-m</code></td>
       <td>1 〜 12</td>
     </tr>
     <tr>
-      <td>月</td>
       <td><code>%b</code></td>
       <td>Jan 〜 Dec</td>
     </tr>
     <tr>
-      <td>月</td>
       <td><code>%h</code></td>
       <td>Jan 〜 Dec。<code>%b</code> と同じ。</td>
     </tr>
     <tr>
-      <td>月</td>
       <td><code>%B</code></td>
       <td>January 〜 December</td>
     </tr>
+  </tbody>
+</table>
+
+<h3 id="16c0862">週</h3>
+
+<table>
+  <tbody>
     <tr>
-      <td>週</td>
       <td><code>%a</code></td>
       <td>Sun, Mon, Tue, Wed, Thu, Fri, Sat</td>
     </tr>
     <tr>
-      <td>週</td>
       <td><code>%A</code></td>
       <td>Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday</td>
     </tr>
+  </tbody>
+</table>
+
+<h3 id="a1b758e">日</h3>
+
+<table>
+  <tbody>
     <tr>
-      <td>日</td>
       <td><code>%d</code></td>
       <td>01 〜 31</td>
     </tr>
     <tr>
-      <td>日</td>
       <td><code>%-d</code></td>
       <td>1 〜 31</td>
     </tr>
     <tr>
-      <td>日</td>
       <td><code>%e</code></td>
-      <td>1 〜 31。<code>%_d</code> と同じ。1桁の場合はスペースで埋める</td>
+      <td>1 〜 31。<code>%_d</code> と同じで、1桁の場合はスペースで埋める</td>
     </tr>
     <tr>
-      <td>日</td>
       <td><code>%j</code></td>
       <td>001 〜 366。1月1日が001、うるう年の12月31日が366</td>
     </tr>
     <tr>
-      <td>日</td>
       <td><code>%-j</code></td>
       <td>1 〜 366。1月1日が1、うるう年の12月31日が366</td>
     </tr>
+  </tbody>
+</table>
+
+<h3 id="a4feb1b">時</h3>
+
+<table>
+  <tbody>
     <tr>
-      <td>時</td>
       <td><code>%H</code></td>
       <td>00 〜 23</td>
     </tr>
     <tr>
-      <td>時</td>
       <td><code>%-H</code></td>
       <td>0 〜 23</td>
     </tr>
     <tr>
-      <td>時</td>
+      <td><code>%k</code></td>
+      <td>0 〜23。 <code>%_H</code> と同じで、1桁の場合はスペースで埋める</td>
+    </tr>
+    <tr>
       <td><code>%I</code></td>
       <td>01 〜 12</td>
     </tr>
     <tr>
-      <td>時</td>
       <td><code>%-I</code></td>
       <td>1 〜 12</td>
     </tr>
     <tr>
-      <td>分</td>
+      <td><code>%l</code></td>
+      <td>1 〜12。 <code>%_I</code> と同じで、1桁の場合はスペースで埋める</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="48af39f">分</h3>
+
+<table>
+  <tbody>
+    <tr>
       <td><code>%M</code></td>
       <td>00 〜 59</td>
     </tr>
     <tr>
-      <td>分</td>
       <td><code>%-M</code></td>
       <td>0 〜 59</td>
     </tr>
+  </tbody>
+</table>
+
+<h3 id="a3e062c">秒</h3>
+
+<table>
+  <tbody>
     <tr>
-      <td>秒</td>
       <td><code>%S</code></td>
       <td>00 〜 59</td>
     </tr>
     <tr>
-      <td>秒</td>
       <td><code>%-S</code></td>
       <td>0 〜 59</td>
     </tr>
     <tr>
-      <td>秒</td>
       <td><code>%s</code></td>
       <td>UNIX時刻 (1970年1月1日0時UTCからのうるう秒を考慮しない秒数)</td>
     </tr>
     <tr>
-      <td> </td>
+      <td><code>%N</code></td>
+      <td>ナノ秒。000000000 〜 999999999</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="13a0b0e">その他</h3>
+
+<table>
+  <tbody>
+    <tr>
       <td><code>%D</code></td>
       <td><code>%m/%d/%y</code> と同じ。例 <code>03/20/16</code></td>
     </tr>
     <tr>
-      <td> </td>
       <td><code>%F</code></td>
       <td><code>%Y-%m-%d</code> と同じ。例 <code>2016-03-20</code></td>
     </tr>
     <tr>
-      <td> </td>
       <td><code>%%</code></td>
       <td><code>%</code> という文字</td>
+    </tr>
+    <tr>
+      <td><code>%n</code></td>
+      <td>改行</td>
     </tr>
   </tbody>
 </table>
