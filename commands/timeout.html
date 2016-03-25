@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>コマンドの使い方(Linux) | hydroculのメモ</title>
+<title>timeout コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,81 +16,53 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <span>コマンドの使い方(Linux)</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>timeout コマンド</span>
 </div>
 
 <div id="content">
-  <h1 id="commands">コマンドの使い方(Linux)</h1>
+  <h1 id="timeout">timeout コマンド
+<span class="article-date">2016/03/25</span></h1>
 
-<h2 id="section">目次</h2>
+<p>任意のコマンドを実行して、一定時間経過しても終了しなかったら、そのコマンドを強制的に終了させるコマンド。</p>
 
-<ul>
-  <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
-  <li><a href="../commands/awk.html">awk コマンド</a></li>
-  <li><a href="../commands/base64.html">base64 コマンド</a></li>
-  <li><a href="../commands/cat.html">cat コマンド</a></li>
-  <li><a href="../commands/cp.html">cp コマンド</a></li>
-  <li><a href="../commands/crontab.html">crontab コマンド</a></li>
-  <li><a href="../commands/curl.html">curl コマンド</a></li>
-  <li><a href="../commands/cut.html">cut コマンド</a></li>
-  <li><a href="../commands/date.html">date コマンド</a></li>
-  <li><a href="../commands/diff.html">diff コマンド</a></li>
-  <li><a href="../commands/du.html">du コマンド</a></li>
-  <li><a href="../commands/echo.html">echo コマンド</a></li>
-  <li><a href="../commands/find.html">find コマンド</a></li>
-  <li><a href="../commands/git.html">git コマンド</a></li>
-  <li><a href="../commands/grep.html">grep コマンド</a></li>
-  <li><a href="../commands/head.html">head コマンド</a></li>
-  <li><a href="../incron.html">incron (inotify cron) (incrontab コマンド)</a></li>
-  <li><a href="../commands/jhead.html">jhead コマンド</a></li>
-  <li><a href="../commands/join.html">join コマンド</a></li>
-  <li><a href="../commands/jq.html">jq コマンド</a></li>
-  <li><a href="../commands/less.html">less コマンド</a></li>
-  <li><a href="../commands/lftp.html">lftp コマンド</a></li>
-  <li><a href="../commands/lha.html">lha コマンド</a></li>
-  <li><a href="../commands/ls.html">ls コマンド</a></li>
-  <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
-  <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
-  <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
-  <li><a href="../commands/mosh.html">mosh コマンド</a></li>
-  <li><a href="../commands/netstat.html">netstat コマンド</a></li>
-  <li><a href="../commands/nkf.html">nkf コマンド</a></li>
-  <li><a href="../commands/od.html">od コマンド</a></li>
-  <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-  <li><a href="../commands/paco.html">Paco (pacKAGE oRGANIZER)</a></li>
-  <li><a href="../commands/paste.html">paste コマンド</a></li>
-  <li><a href="../commands/ps.html">ps コマンド</a></li>
-  <li><a href="../commands/readlink.html">readlink コマンド</a></li>
-  <li><a href="../commands/rsync.html">rsync コマンド</a></li>
-  <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
-  <li><a href="../commands/sed.html">sed コマンド</a></li>
-  <li><a href="../commands/sha1sum.html">sha1sum コマンド</a></li>
-  <li><a href="../commands/sort.html">sort コマンド</a></li>
-  <li><a href="../commands/source-highlight.html">source-highlight コマンド</a></li>
-  <li><a href="../commands/split.html">split コマンド</a></li>
-  <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
-  <li><a href="../commands/ssh.html">ssh コマンド</a></li>
-  <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
-  <li><a href="../commands/svn.html">Subversion (svn)</a></li>
-  <li><a href="../commands/tac.html">tac コマンド</a></li>
-  <li><a href="../commands/tail.html">tail コマンド</a></li>
-  <li><a href="../commands/tar.html">tar コマンド</a></li>
-  <li><a href="../commands/tee.html">tee コマンド</a></li>
-  <li><a href="../commands/time.html">time コマンド</a></li>
-  <li><a href="../commands/timeout.html">timeout コマンド</a></li>
-  <li><a href="../commands/tmux.html">tmux コマンド</a></li>
-  <li><a href="../commands/top.html">top コマンド</a></li>
-  <li><a href="../commands/touch.html">touch コマンド</a></li>
-  <li><a href="../commands/tr.html">tr コマンド</a></li>
-  <li><a href="../commands/trap.html">trap コマンド</a></li>
-  <li><a href="../commands/uniq.html">uniq コマンド</a></li>
-  <li><a href="../commands/watch.html">watch コマンド</a></li>
-  <li><a href="../commands/wc.html">wc コマンド</a></li>
-  <li><a href="../commands/wget.html">wget コマンド</a></li>
-  <li><a href="../commands/xargs.html">xargs コマンド</a></li>
-  <li><a href="../commands/yes.html">yes コマンド</a></li>
-  <li><a href="../commands/zip.html">zip / unzip コマンド</a></li>
-</ul>
+<p>例</p>
+
+<pre><code>## 10秒間pingし続ける
+$ timeout 10 ping www.google.co.jp
+
+## 1分間pingし続ける
+$ timeout 1m ping www.google.co.jp
+</code></pre>
+
+<p>単位はデフォルトでは秒だが、以下のような表現ができる。</p>
+
+<dl>
+  <dt><code>10s</code></dt>
+  <dd>10秒間</dd>
+  <dt><code>10m</code></dt>
+  <dd>10分間</dd>
+  <dt><code>10h</code></dt>
+  <dd>10時間</dd>
+  <dt><code>10d</code></dt>
+  <dd>10日間</dd>
+</dl>
+
+<p>タイムアウトに達してコマンドが強制終了した場合は<code>timeout</code>コマンドは<code>124</code>という終了コードを返す。コマンドが見つからなかった場合は<code>127</code>という終了コードを返す。</p>
+
+<p>コマンドの終了は<code>TERM</code>シグナルによって行われるみたい。</p>
+
+<pre><code>$ timeout 1 sh -c "trap 'echo trapped' TERM; sleep 10"
+Terminated
+trapped
+# 1秒で終了する
+</code></pre>
+
+<p>このシグナルは <code>-s</code> オプションで変更できる。</p>
+
+<h2 id="f7f54dd">インストール
+<span class="article-date">2016/03/24</span></h2>
+
+<p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
 </div>
 
@@ -100,7 +72,7 @@
   </div>
   <div id="side-menu-ls">
     <ul>
-  <li>コマンドの使い方(Linux)
+  <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
       <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
@@ -154,7 +126,7 @@
       <li><a href="../commands/tar.html">tar コマンド</a></li>
       <li><a href="../commands/tee.html">tee コマンド</a></li>
       <li><a href="../commands/time.html">time コマンド</a></li>
-      <li><a href="../commands/timeout.html">timeout コマンド</a></li>
+      <li>timeout コマンド</li>
       <li><a href="../commands/tmux.html">tmux コマンド</a></li>
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
