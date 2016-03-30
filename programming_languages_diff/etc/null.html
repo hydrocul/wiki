@@ -50,7 +50,7 @@
 <p><code>Nil</code> というものもあるが、これは要素が1つもない空の<code>List</code>型のオブジェクトであり、ぜんぜん違う。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2015/02/09</span></h2>
+<span class="article-date">2016/03/30</span></h2>
 
 <p><code>NULL</code> というのがある。<a href="../boolean/overview.html#php"><code>TRUE</code> / <code>FALSE</code></a>と同じく大文字小文字が区別されない。</p>
 
@@ -70,6 +70,20 @@
 
 <p><code>isset</code> は変数だけでなく連想配列の要素が存在するかどうかにも使われる。
 -&gt; <a href="../map/contains-key.html#php">連想配列に特定のキーが含まれているかどうかを判定するには</a></p>
+
+<p><code>NULL</code> はいろいろな値を一致してしまうので注意。</p>
+
+<pre><code>var_export(NULL    == NULL); // =&gt; true
+var_export(''      == NULL); // =&gt; true
+var_export(0       == NULL); // =&gt; true
+var_export(array() == NULL); // =&gt; true
+var_export(FALSE   == NULL); // =&gt; true
+var_export(NULL    === NULL); // =&gt; true
+var_export(''      === NULL); // =&gt; false
+var_export(0       === NULL); // =&gt; false
+var_export(array() === NULL); // =&gt; false
+var_export(FALSE   === NULL); // =&gt; false
+</code></pre>
 
 <p><code>NULL</code> | PHP Manual<br />
 <a href="http://php.net/manual/ja/language.types.null.php" target="_blank" class="external-link">http://php.net/manual/ja/language.types.null.php</a></p>
