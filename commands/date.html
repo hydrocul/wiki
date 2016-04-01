@@ -57,7 +57,7 @@ date "+%Y/%m/%d" -d "30 days"
 </code></pre>
 
 <h2 id="211a899">日時表示のフォーマット
-<span class="article-date">2016/03/24</span></h2>
+<span class="article-date">2016/04/01</span></h2>
 
 <p><code>+</code> で始まる書式指定には以下が使える。</p>
 
@@ -234,11 +234,23 @@ date "+%Y/%m/%d" -d "30 days"
       <td><code>%Y-%m-%d</code> と同じ。例 <code>2016-03-20</code></td>
     </tr>
     <tr>
+      <td><code>%R</code></td>
+      <td><code>%H:%M</code> と同じ。例 <code>21:49</code></td>
+    </tr>
+    <tr>
+      <td><code>%T</code></td>
+      <td><code>%H:%M:%S</code> と同じ。例 <code>21:49:10</code></td>
+    </tr>
+    <tr>
       <td><code>%%</code></td>
       <td><code>%</code> という文字</td>
     </tr>
     <tr>
       <td><code>%n</code></td>
+      <td>改行</td>
+    </tr>
+    <tr>
+      <td><code>%t</code></td>
       <td>改行</td>
     </tr>
   </tbody>
