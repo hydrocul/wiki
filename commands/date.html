@@ -57,7 +57,7 @@ date "+%Y/%m/%d" -d "30 days"
 </code></pre>
 
 <h2 id="211a899">日時表示のフォーマット
-<span class="article-date">2016/04/01</span></h2>
+<span class="article-date">2016/04/03</span></h2>
 
 <p><code>+</code> で始まる書式指定には以下が使える。</p>
 
@@ -115,12 +115,27 @@ date "+%Y/%m/%d" -d "30 days"
 <table>
   <tbody>
     <tr>
+      <td><code>%U</code></td>
+      <td>その年のなかで何番目の週か。日曜を週のはじめとみなして数える。00 〜 53</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="604bdaa">曜日</h3>
+
+<table>
+  <tbody>
+    <tr>
       <td><code>%a</code></td>
       <td>Sun, Mon, Tue, Wed, Thu, Fri, Sat</td>
     </tr>
     <tr>
       <td><code>%A</code></td>
       <td>Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday</td>
+    </tr>
+    <tr>
+      <td><code>%u</code></td>
+      <td>1 〜 7。1が月曜日、7が日曜日</td>
     </tr>
   </tbody>
 </table>
