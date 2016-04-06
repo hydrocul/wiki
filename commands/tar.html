@@ -29,32 +29,32 @@
 <code>-z</code> オプションを付けてgzipでの圧縮も行う場合は <code>.tar.gz</code> や <code>.tgz</code> が使われる。</p>
 
 <h2 id="c27de07">オプション
-<span class="article-date">2015/12/02</span></h2>
+<span class="article-date">2016/04/06</span></h2>
 
 <dl>
   <dt><code>-c</code></dt>
   <dd>新しくアーカイブファイルを作成する。たぶん<strong>c</strong>reateの意味</dd>
-  <dt><code>-x</code></dt>
-  <dd>アーカイブファイルを展開する。たぶんe<strong>x</strong>tractの意味</dd>
+  <dt><code>-f</code></dt>
+  <dd>アーカイブファイル名をパラメータで指定する。これを指定しないと標準入力
+または標準出力が使われる</dd>
   <dt><code>-t</code></dt>
   <dd>アーカイブファイルに含まれるファイルの一覧を表示する。たぶんlis<strong>t</strong>の意味</dd>
   <dt><code>-v</code></dt>
   <dd>処理の進行しているファイル名を表示する。
 <code>-t</code> と併用の場合はタイムスタンプやファイルサイズなども表示する。</dd>
+  <dt><code>-x</code></dt>
+  <dd>アーカイブファイルを展開する。たぶんe<strong>x</strong>tractの意味</dd>
   <dt><code>-z</code></dt>
   <dd>gzipで圧縮または展開を同時に行う</dd>
-  <dt><code>-f</code></dt>
-  <dd>アーカイブファイル名をパラメータで指定する。これを指定しないと標準入力
-または標準出力が使われる</dd>
 </dl>
 
 <p><code>-z</code> を使う場合は、アーカイブファイルの拡張子として <code>.tar.gz</code> または <code>.tgz</code> がよく使われる。</p>
 
 <p>オプションは先頭のハイフンをとって全部スペースなしでつなげてしまうことができるようで、そのほうがタイプ数が少なくて済むので、普通はそうする。ただし <code>f</code> はアーカイブファイル名の直前である必要があるので、結果的にオプション群の最後に書くことになる。</p>
 
-<pre><code># 以下の2つは同じ結果になる
-tar tzf foo.tar.gz
-tar -t -z -f foo.tar.gz
+<pre><code>## 以下の2つは同じ結果になる
+$ tar tzf foo.tar.gz
+$ tar -t -z -f foo.tar.gz
 </code></pre>
 
 <h2 id="9c7528c">基本操作
@@ -200,6 +200,7 @@ tar tzf tgzファイル名
       <li>tar コマンド</li>
       <li><a href="../commands/tee.html">tee コマンド</a></li>
       <li><a href="../commands/time.html">time コマンド</a></li>
+      <li><a href="../commands/timeout.html">timeout コマンド</a></li>
       <li><a href="../commands/tmux.html">tmux コマンド</a></li>
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
