@@ -26,15 +26,15 @@
 <p>テキストファイルの中身をターミナル上でスクロールしながら閲覧できるコマンド。表示中はスペースで下にスクロール、<code>b</code> で上にスクロールできる。</p>
 
 <h2 id="cc7b066">オプション
-<span class="article-date">2015/02/16</span></h2>
+<span class="article-date">2016/04/07</span></h2>
 
 <dl>
-  <dt><code>-N</code></dt>
-  <dd>行番号を表示する。(<a href="cat.html"><code>cat</code></a> でこれに相当するのは <code>-n</code>)</dd>
-  <dt><code>-X</code></dt>
-  <dd>less 終了時に画面をクリアしない。</dd>
   <dt><code>-F</code></dt>
   <dd>行数が短くて位置画面に収まる場合は less がすぐに終了する。</dd>
+  <dt><code>-i</code></dt>
+  <dd>検索モードのときに大文字小文字の区別をしない。ただし、検索キーワードをすべて小文字で入力した場合であって、大文字が混ざっていた場合にはこのオプションをつけていても大文字小文字を区別する。</dd>
+  <dt><code>-N</code></dt>
+  <dd>行番号を表示する。(<a href="cat.html"><code>cat</code></a> でこれに相当するのは <code>-n</code>)</dd>
   <dt><code>-r</code></dt>
   <dd>エスケープシーケンスなどのバイナリをエスケープシーケンスとして解釈せずに、
 そのまま出力される。</dd>
@@ -46,6 +46,8 @@
 色付きで出力される。</dd>
   <dt><code>-S</code></dt>
   <dd>長い行を折り返さずに横方向にもページングできるようにする。</dd>
+  <dt><code>-X</code></dt>
+  <dd>less 終了時に画面をクリアしない。</dd>
 </dl>
 
 <div class="ad">
@@ -289,6 +291,7 @@ c.txt
       <li><a href="../commands/tar.html">tar コマンド</a></li>
       <li><a href="../commands/tee.html">tee コマンド</a></li>
       <li><a href="../commands/time.html">time コマンド</a></li>
+      <li><a href="../commands/timeout.html">timeout コマンド</a></li>
       <li><a href="../commands/tmux.html">tmux コマンド</a></li>
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
