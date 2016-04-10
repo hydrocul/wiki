@@ -93,11 +93,19 @@
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
 <h2 id="4590d63">オプション
-<span class="article-date">2014/09/16</span></h2>
+<span class="article-date">2016/04/10</span></h2>
 
 <dl>
+  <dt><code>-b</code>, <code>--backup</code></dt>
+  <dd><code>foo~</code> のような名前でバックアップを取る。-&gt;<a href="#backup-option">バックアップオプション</a></dd>
+  <dt><code>-d</code></dt>
+  <dd>コピー元にシンボリックリンクがあった場合は、通常はリンク先ファイルをコピーし、
+シンボリックリンクだったという情報が失われるが、
+このオプションを付ければ、シンボリックリンクとしてそのままコピーされる。</dd>
   <dt><code>-i</code></dt>
   <dd>コピー先にすでにファイルが存在する場合は、上書きするかどうかを聞いてくる</dd>
+  <dt><code>-l</code></dt>
+  <dd>ファイルのコピーはハードリンクにする。ディレクトリはハードリンクにはならない。</dd>
   <dt><code>-p</code></dt>
   <dd>パーミッション、ユーザ・グループ、タイムスタンプもコピーする。
 ちなみに<a href="rsync.html"><code>rsync</code>コマンド</a>では <code>-p</code> ではタイムスタンプを保存してくれず、<code>-t</code> が必要になる。</dd>
@@ -107,12 +115,6 @@
   <dd>コピー先にすでにコピー元よりも新しいか同じタイムスタンプのファイルがあった場合はコピーをしない</dd>
   <dt><code>-v</code></dt>
   <dd>ファイル名を表示しながらコピーする</dd>
-  <dt><code>-l</code></dt>
-  <dd>ファイルのコピーはハードリンクにする。ディレクトリはハードリンクにはならない。</dd>
-  <dt><code>-d</code></dt>
-  <dd>コピー元にシンボリックリンクがあった場合は、通常はリンク先ファイルをコピーし、
-シンボリックリンクだったという情報が失われるが、
-このオプションを付ければ、シンボリックリンクとしてそのままコピーされる。</dd>
 </dl>
 
 <h2 id="d0a0215">注意！
@@ -132,6 +134,26 @@
 
 <p>の段階でエンターを押してしまうと、<code>bar.txt</code> の内容が失われて、
 <code>foo.txt</code> が <code>bar.txt</code> にコピーされてしまう。</p>
+
+<h2 id="backup-option">バックアップオプション
+<span class="article-date">2016/04/10</span></h2>
+
+<p><code>-b</code> または <code>--backup</code> というオプションを付けるとコピー先にすでにファイルが存在していた場合に、コピー前にそのファイルをバックアップさせられる。バックアップの方式には以下を選択することができる。</p>
+
+<dl>
+  <dt>オプションを付けない、または <code>--backup=none</code> または <code>--backup=off</code></dt>
+  <dd>バックアップをせずにコピー先を上書きする。(これがデフォルトの動作)</dd>
+  <dt><code>-b</code> または <code>--backup</code> または <code>--backup=existing</code> または <code>--backup=nil</code></dt>
+  <dd><code>--backup=simple</code> または <code>--backup=numbered</code> どちからの動作。すでに <code>foo.~1~</code> のような名前のファイルがあれば
+<code>--backup=numbered</code> で動作し、なければ <code>--backup=simple</code> で動作する。</dd>
+  <dt><code>--backup=simple</code> または <code>--backup=never</code></dt>
+  <dd><code>foo~</code> のように、ファイル名にチルダを付けた名前でバックアップする。すでに <code>foo~</code> が存在すれば、<code>foo~</code> は
+上書きされる。</dd>
+  <dt><code>--backup=numbered</code> または <code>--backup=t</code></dt>
+  <dd><code>foo.~1~</code> のように、ファイル名にドットとチルダと番号を付けた名前でバックアップする。すでに <code>foo.~1~</code> が存在すれば <code>foo.~2~</code> でバックアップされ、<code>foo.~2~</code> も存在すれば <code>foo.~3~</code> でバックアップされる。</dd>
+</dl>
+
+<p>チルダは <code>-S</code> または <code>--suffix</code> オプションや <code>SIMPLE_BACKUP_SUFFIX</code> という環境変数でカスタマイズできる。</p>
 
 <h2 id="f9428e5">ディレクトリ名も含めてファイルをコピーするには
 <span class="article-date">2013/09/16</span></h2>

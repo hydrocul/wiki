@@ -21,9 +21,26 @@
 
 <div id="content">
   <h1 id="contains-all">集合(セット)に別の集合の要素がすべて含まれているかどうかを判定するには (containsAll / issubset / issuperset / subset? / subsetOf / <code>&lt;=</code> / <code>&gt;=</code>)
-<span class="article-date">2015/03/20</span></h1>
+<span class="article-date">2016/04/10</span></h1>
 
 <p>各プログラミング言語での、集合(セット)に別の集合の要素がすべて含まれているかどうかを判定する方法。つまり、部分集合の関係にあるかどうかを調べる方法。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Java</td>
+      <td><code>st.containsAll(subst)</code></td>
+    </tr>
+    <tr>
+      <td>Scala</td>
+      <td><code>subst.subsetOf(st)</code></td>
+    </tr>
+    <tr>
+      <td>Python</td>
+      <td><code>subst.issubset(st)</code><br /><code>subst &lt;= st</code><br /><code>st.issuperset(subst)</code><br /><code>st &gt;= subst</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="83b2631">Java
 <span class="article-date">2013/11/06</span></h2>
@@ -35,8 +52,8 @@
 
 <p>例</p>
 
-<pre><code>// set が elems のすべてを含んでいるかどうか
-set.containsAll(elems);
+<pre><code>// st が subst のすべてを含んでいるかどうか
+st.containsAll(subst);
 </code></pre>
 
 <h2 id="f492e0c">Scala
@@ -58,18 +75,18 @@ println(st.subsetOf(subst)); // =&gt; false
 <h2 id="2f78606">Python
 <span class="article-date">2014/10/29</span></h2>
 
-<pre><code># elems も set も集合型として
+<pre><code># st も subst も集合型として
 
-# elems のすべてが set に含まれているかどうか
-elems.issubset(set)
+# subst のすべてが st に含まれているかどうか
+subst.issubset(st)
 # または
-elems &lt;= set
+subst &lt;= st
 
 # または
-# set が elems のすべてを含んでいるかどうか
-set.issuperset(elems)
+# st が subst のすべてを含んでいるかどうか
+st.issuperset(subst)
 # または
-set &gt;= elems
+st &gt;= subst
 </code></pre>
 
 <p><code>issubset</code>, <code>issuperset</code> はセット(集合型)以外にリストなども受け入れる。</p>
@@ -105,8 +122,8 @@ p st.superset?(subst) # =&gt; true
       <li><a href="../../programming_languages_diff/set/">集合(セット)</a>
         <ul>
           <li><a href="../../programming_languages_diff/set/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/set/contains.html">特定の値が含まれているかどうかを判定するには (contains / in / include? / member?)</a></li>
-          <li>部分集合の関係かどうかを判定するには (containsAll / issubset / issuperset / subset? / subsetOf / <code>&lt;=</code> / <code>&gt;=</code>)</li>
+          <li><a href="../../programming_languages_diff/set/contains.html">contains / in / include? / member?</a></li>
+          <li>containsAll / issubset / issuperset / subset? / subsetOf / <code>&lt;=</code> / <code>&gt;=</code></li>
           <li><a href="../../programming_languages_diff/set/to-list.html">配列(リスト)に変換するには (toArray / toIndexedSeq / toSeq / toIterable / toList / list)</a></li>
           <li><a href="../../programming_languages_diff/set/add.html">要素を追加するには (add / <code>&lt;&lt;</code>)</a></li>
           <li><a href="../../programming_languages_diff/set/remove.html">remove / <code>-</code></a></li>
