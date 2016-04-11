@@ -136,9 +136,13 @@
 <code>foo.txt</code> が <code>bar.txt</code> にコピーされてしまう。</p>
 
 <h2 id="backup-option">バックアップオプション
-<span class="article-date">2016/04/10</span></h2>
+<span class="article-date">2016/04/11</span></h2>
 
-<p><code>-b</code> または <code>--backup</code> というオプションを付けるとコピー先にすでにファイルが存在していた場合に、コピー前にそのファイルをバックアップさせられる。バックアップの方式には以下を選択することができる。</p>
+<p><code>-b</code> または <code>--backup</code> というオプションを付けるとコピー先にすでにファイルが存在していた場合に、コピー前にそのファイルをバックアップさせられる。</p>
+
+<p>このオプションは<code>cp</code>コマンドだけでなく、<a href="mv.html"><code>mv</code>コマンド</a>などでも使える。</p>
+
+<p>バックアップの方式には以下を選択することができる。</p>
 
 <dl>
   <dt>オプションを付けない、または <code>--backup=none</code> または <code>--backup=off</code></dt>
@@ -290,6 +294,7 @@ $ find
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
       <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
+      <li><a href="../commands/mv.html">mv コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
