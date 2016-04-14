@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>複数の配列(リスト)を連結するには | hydroculのメモ</title>
+<title>複数の配列(リスト)を連結するには (array_merge, +, concat) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,11 +16,11 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>複数の配列(リスト)を連結するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>複数の配列(リスト)を連結するには (array_merge, +, concat)</span>
 </div>
 
 <div id="content">
-  <h1 id="concat">複数の配列(リスト)を連結するには
+  <h1 id="concat">複数の配列(リスト)を連結するには (array_merge, +, concat)
 <span class="article-date">2015/01/24</span></h1>
 
 <p>関連</p>
@@ -31,7 +31,7 @@
 </ul>
 
 <h2 id="php">PHP
-<span class="article-date">2015/07/29</span></h2>
+<span class="article-date">2016/04/14</span></h2>
 
 <p>複数の配列を連結するには<code>array_merge</code>関数を使う。この関数は引数の配列を変更せずに連結した結果を返すのみである。</p>
 
@@ -69,6 +69,9 @@ var_export($result); echo "\n";
 -&gt; <a href="../map/put-all.html#php">連想配列をマージ</a></p>
 
 <p>3つ以上の配列を連結したい場合も、<code>array_merge</code> に渡す引数にそれらの配列を並べるだけでよい。</p>
+
+<pre><code>$result = array_merge($a1, $a2, $a3);
+</code></pre>
 
 <p><code>array_merge</code> 関数 | PHP Manual<br />
 <a href="http://php.net/manual/ja/function.array-merge.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-merge.php</a></p>
@@ -129,11 +132,11 @@ var_export($result); echo "\n";
           <li><a href="../../programming_languages_diff/list/foreach.html">for / foreach</a></li>
           <li><a href="../../programming_languages_diff/list/fold-left.html">array_reduce / foldLeft / inject / reduce / reduceLeft</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">zip</a></li>
-          <li><a href="../../programming_languages_diff/list/product.html">2つ以上の配列の要素同士をかけ合わせて配列の配列を作るには (product)</a></li>
-          <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
-          <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べた配列を作成するには (fill)</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列を作成するには (range / seq / to / until)</a></li>
-          <li><a href="../../programming_languages_diff/list/grouped.html">一定の数ごとにグルーピングするには (array_chunk / grouped)</a></li>
+          <li><a href="../../programming_languages_diff/list/product.html">product</a></li>
+          <li><a href="../../programming_languages_diff/list/compare.html">==</a></li>
+          <li><a href="../../programming_languages_diff/list/fill.html">fill</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">range / seq / to / until</a></li>
+          <li><a href="../../programming_languages_diff/list/grouped.html">array_chunk / grouped</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">要素をグルーピングするには (group_by / groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">先頭の要素を削除するには (array_shift / shift)</a></li>
           <li><a href="../../programming_languages_diff/list/unshift.html">配列(リスト)の先頭に要素を追加するには (unshift)</a></li>
@@ -150,7 +153,7 @@ var_export($result); echo "\n";
           <li><a href="../../programming_languages_diff/list/to-set.html">配列から集合を生成するには (toSet)</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">数の配列(リスト)の合計を計算するには (sum)</a></li>
-          <li>複数の配列(リスト)を連結するには</li>
+          <li>array_merge, +, concat</li>
           <li><a href="../../programming_languages_diff/list/multiply.html">同じ配列を繰り返して連結するには (<code>x</code> / <code>*</code>)</a></li>
           <li><a href="../../programming_languages_diff/list/slice-replace.html">一部を別の配列で置き換えるには (array_splice / splice)</a></li>
           <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
