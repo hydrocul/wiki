@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="watch">watch コマンド
-<span class="article-date">2014/05/23</span></h1>
+<span class="article-date">2016/04/15</span></h1>
 
 <p>コマンドを一定の時間ごとに実行して結果を端末にスクロールせずに固定で表示してくれるコマンド。</p>
 
@@ -31,10 +31,15 @@
 watch -n 1 ls -al
 </code></pre>
 
+<p><code>-n1</code> のようにつなげてもよい。<code>-n0.1</code> で0.1秒ごとに実行になる。
+0.1秒よりも細かい精度では指定できない気がする。</p>
+
 <h2 id="280718f">オプション
-<span class="article-date">2016/02/05</span></h2>
+<span class="article-date">2016/04/15</span></h2>
 
 <dl>
+  <dt><code>-c</code></dt>
+  <dd>色表示に対応してくれる。</dd>
   <dt><code>-d</code></dt>
   <dd>変化した部分を強調して表示される。</dd>
   <dt><code>-e</code></dt>
@@ -48,7 +53,7 @@ watch -n 1 ls -al
 このオプションを付けると、非表示になる。</dd>
 </dl>
 
-<p><code>-e</code>, <code>-g</code> は環境によって使える場合と使えない場合があるようで、手元の Ubuntu 14.04 では使えたが CentOS 6.3 では使えなかった。</p>
+<p><code>-c</code>, <code>-e</code>, <code>-g</code> は環境によって使える場合と使えない場合があるようで、手元の Ubuntu 14.04 では使えたが CentOS 6.3 では使えなかった。</p>
 
 <h2 id="6f66ec1">コマンドの中にワイルドカードを使いたい場合
 <span class="article-date">2016/02/05</span></h2>
@@ -74,6 +79,21 @@ watchコマンドからは毎秒同じ展開結果でlsコマンドを実行し�
 
 <pre><code>## ファイルの数を3秒ごとに監視
 $ watch -n 3 "ls | wc -l"
+</code></pre>
+
+<h2 id="25a1d02">コマンドの出力に色をつけるには
+<span class="article-date">2016/04/15</span></h2>
+
+<p>実行するコマンドがカラーで表示しようとする場合でも、watchコマンドはデフォルトではカラー表示してくれない。</p>
+
+<pre><code>$ watch -n1 ls -al --color
+</code></pre>
+
+<p>これを実行するとエスケープシーケンスがあらわに表示されて残念な感じになる。</p>
+
+<p>こういうときUbuntuやCentOS7では <code>-c</code> オプションが使える。</p>
+
+<pre><code>$ watch -n1 -c ls -al --color
 </code></pre>
 
 </div>
@@ -114,6 +134,7 @@ $ watch -n 3 "ls | wc -l"
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
       <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
+      <li><a href="../commands/mv.html">mv コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
@@ -138,6 +159,7 @@ $ watch -n 3 "ls | wc -l"
       <li><a href="../commands/tar.html">tar コマンド</a></li>
       <li><a href="../commands/tee.html">tee コマンド</a></li>
       <li><a href="../commands/time.html">time コマンド</a></li>
+      <li><a href="../commands/timeout.html">timeout コマンド</a></li>
       <li><a href="../commands/tmux.html">tmux コマンド</a></li>
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
