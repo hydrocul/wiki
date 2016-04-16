@@ -124,15 +124,19 @@ $ sudo apt-get install wget
 <p>-&gt; <a href="curl.html#basic-auth"><code>curl</code>コマンドでのBASIC認証</a></p>
 
 <h3 id="f662adc">ウェブページ1ページ分のHTMLと依存している画像やCSSやJSなどをまとめてダウンロードするには 
-<span class="article-date">2014/06/04</span></h3>
+<span class="article-date">2016/04/15</span></h3>
 
-<p>オプション <code>-p</code> を使うと参照されている画像やCSSやJSも合わせてダウンロードしてくれる。さらに <code>--convert-links</code> を指定すれば、HTMLからこれらへの参照が絶対パスになっていたとしても、相対パスに自動で変換してくれるので、ダウンロードしたHTMLをローカルで開くことができるようになる。</p>
+<p>オプション <code>-p</code> を使うと参照されている画像やCSSやJSも合わせてまるごとダウンロードしてくれる。</p>
 
-<pre><code>wget -p http://www.example.com/
+<p>さらに <code>--convert-links</code> を指定すれば、HTMLからこれらへの参照が絶対パスになっていたとしても、相対パスに自動で変換してくれるので、ダウンロードしたHTMLをローカルで開くことができるようになる。</p>
+
+<pre><code>$ wget -p http://www.example.com/
 
 # HTMLはローカルで閲覧できるように、パスを相対パスに書き換える
-wget -p --convert-links http://www.example.com/
+$ wget -p --convert-links http://www.example.com/
 </code></pre>
+
+<p>CSSファイルの中で他のCSSファイルを <code>@import</code> している場合に、wgetのバージョンが1.12以上である必要がある。それより古いとCSSの解釈ができず、必要なファイルをダウンロードしてこれないために、ローカルでHTMLを開いたときにレイアウトが崩れる。</p>
 
 <h3 id="34294df">ウェブサイトを丸ごとダウンロードするには 
 <span class="article-date">2015/04/03</span></h3>
@@ -221,6 +225,7 @@ wget -r -l5 --convert-links http://www.example.com/
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
       <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
+      <li><a href="../commands/mv.html">mv コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
@@ -245,6 +250,7 @@ wget -r -l5 --convert-links http://www.example.com/
       <li><a href="../commands/tar.html">tar コマンド</a></li>
       <li><a href="../commands/tee.html">tee コマンド</a></li>
       <li><a href="../commands/time.html">time コマンド</a></li>
+      <li><a href="../commands/timeout.html">timeout コマンド</a></li>
       <li><a href="../commands/tmux.html">tmux コマンド</a></li>
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
