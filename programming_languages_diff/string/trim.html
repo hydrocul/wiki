@@ -126,13 +126,14 @@ $str = trim($str, $charlist);
   <li>垂直タブ <code>\x0B</code></li>
   <li>LF <code>\x0A</code> <code>\n</code></li>
   <li>CR <code>\x0D</code> <code>\r</code></li>
-  <li>
-    <p>NUL <code>\x00</code> <code>\0</code></p>
-
-    <p># 改行コードのみを削除
-  trim($str, “\r\n”)</p>
-  </li>
+  <li>NUL <code>\x00</code> <code>\0</code></li>
 </ul>
+
+<p>例</p>
+
+<pre><code># 改行コードのみを削除
+trim($str, "\r\n")
+</code></pre>
 
 <p><code>trim</code> 関数 | PHP Manual<br />
 <a href="http://www.php.net/manual/ja/function.trim.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.trim.php</a></p>

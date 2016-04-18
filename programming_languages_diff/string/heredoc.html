@@ -217,7 +217,7 @@ World!
 <a href="http://perldoc.jp/docs/perl/5.18.1/perldata.pod#Special32Literals" target="_blank" class="external-link">http://perldoc.jp/docs/perl/5.18.1/perldata.pod#Special32Literals</a></p>
 
 <h2 id="sh">sh (シェルスクリプト)
-<span class="article-date">2015/12/29</span></h2>
+<span class="article-date">2016/04/18</span></h2>
 
 <p>例</p>
 
@@ -229,7 +229,7 @@ $HOME
 EOD
 </code></pre>
 
-<p>ヒアドキュメントの中では <code>\</code>`<code> や </code>$` で始まる変数の展開が使える。それらを使いたくない場合は、以下のようにする。</p>
+<p>ヒアドキュメントの中では <code>&amp;#x60;</code> や <code>$</code> で始まる変数の展開が使える。それらを使いたくない場合は、以下のように最初の終端識別子の前にバックスラッシュ <code>&amp;#x5C;</code> を付ける。</p>
 
 <pre><code>cat &lt;&lt;\EOD
 MacBookPro 13-inch: $1499
@@ -237,7 +237,7 @@ MacBookPro 15-inch: $1999
 EOD
 </code></pre>
 
-<p>ヒアドキュメントがファイルの最後までの場合は、終端の識別子を省略できる。</p>
+<p>ヒアドキュメントがファイルの最後までの場合は、最後の終端識別子を省略できる。</p>
 
 <p>ヒアドキュメントの後にパイプで別のコマンドを繋ぎたい場合、ヒアドキュメントの後ろではなく前に書く。</p>
 
@@ -265,7 +265,7 @@ EOD
 fi
 </code></pre>
 
-<p>のよう残念な形になるし、出力は以下のようになってしまう。</p>
+<p>のよう残念な形になるし、以下のように出力自体にもインデントが含まれてしまう。</p>
 
 <pre><code>    Hello
 </code></pre>
