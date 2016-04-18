@@ -46,14 +46,13 @@ void &lt;T&gt; java.util.Collections.sort(List&lt;T&gt; list, java.util.Comparat
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-java.util.Comparator-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-java.util.Comparator-</a></p>
 
 <h2 id="3b1af1b">Scala
-<span class="article-date">2015/01/22</span></h2>
+<span class="article-date">2016/04/18</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Seq[A]
-def sorted: Seq[A]
-def sortBy(f: A =&gt; B): Seq[A]
-def sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
+<pre><code>def scala.collection.Seq[A]#sorted: Seq[A]
+def scala.collection.Seq[A]#sortBy(f: A =&gt; B): Seq[A]
+def scala.collection.Seq[A]#sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 </code></pre>
 
 <p>いずれもソート結果のリストを返し、自身は変更しない。</p>
@@ -61,13 +60,15 @@ def sortWith(lt: (A, A) =&gt; Boolean): Seq[A]
 <p>要素の型が比較可能であれば(<code>scala.math.Ordering[A]</code>の実装があれば、といえばいいのか?)、
 <code>sorted</code>メソッドでソート結果を直接得られる。</p>
 
-<p><code>sortBy</code>メソッドは、要素を直接比較してソートするのではなく、要素から何かしらの関数を適用して適用結果でソートする。</p>
+<p><code>sortBy</code>メソッドは、要素を直接比較してソートするのではなく、要素から何かしらの関数を適用して適用結果でソートする。適用結果は比較可能でなければいけない。</p>
 
 <pre><code>val lst = List("abc", "defg", "hi");
 val result = lst.sortBy(_.length);
 println(result);
 // =&gt; List(hi, abc, defg)
 </code></pre>
+
+<p>ちなみに、<code>(Int, Int)</code> や <code>Seq[Int]</code> などの、比較可能な要素からなるタプルやリストも比較可能である。</p>
 
 <p><code>sortWith</code>メソッドは、要素を比較する方法を直接関数で与えてソートする。</p>
 
@@ -228,11 +229,11 @@ console.log(arr.sort(function(a, b){
           <li><a href="../../programming_languages_diff/list/foreach.html">for / foreach</a></li>
           <li><a href="../../programming_languages_diff/list/fold-left.html">array_reduce / foldLeft / inject / reduce / reduceLeft</a></li>
           <li><a href="../../programming_languages_diff/list/zip.html">zip</a></li>
-          <li><a href="../../programming_languages_diff/list/product.html">2つ以上の配列の要素同士をかけ合わせて配列の配列を作るには (product)</a></li>
-          <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (compare)</a></li>
-          <li><a href="../../programming_languages_diff/list/fill.html">同じ値を並べた配列を作成するには (fill)</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列を作成するには (range / seq / to / until)</a></li>
-          <li><a href="../../programming_languages_diff/list/grouped.html">一定の数ごとにグルーピングするには (array_chunk / grouped)</a></li>
+          <li><a href="../../programming_languages_diff/list/product.html">product</a></li>
+          <li><a href="../../programming_languages_diff/list/compare.html">==</a></li>
+          <li><a href="../../programming_languages_diff/list/fill.html">fill</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">range / seq / to / until</a></li>
+          <li><a href="../../programming_languages_diff/list/grouped.html">array_chunk / grouped</a></li>
           <li><a href="../../programming_languages_diff/list/group-by.html">要素をグルーピングするには (group_by / groupBy)</a></li>
           <li><a href="../../programming_languages_diff/list/shift.html">先頭の要素を削除するには (array_shift / shift)</a></li>
           <li><a href="../../programming_languages_diff/list/unshift.html">配列(リスト)の先頭に要素を追加するには (unshift)</a></li>
@@ -243,13 +244,13 @@ console.log(arr.sort(function(a, b){
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値をすべて削除するには (delete / remove / <code>-</code>)</a></li>
           <li><a href="../../programming_languages_diff/list/clone.html">配列(リスト)をコピーするには (clone)</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
-          <li>ソートするには (sort / sortBy / sorted / sortWith)</li>
+          <li>sort / sortBy / sorted / sortWith</li>
           <li><a href="../../programming_languages_diff/list/convert.html">データ型を相互に変換するには (asList / asScala / asJava / to_a / toArray)</a></li>
           <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列から連想配列を生成するには (toMap)</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">配列から集合を生成するには (toSet)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
-          <li><a href="../../programming_languages_diff/list/sum.html">数の配列(リスト)の合計を計算するには (sum)</a></li>
-          <li><a href="../../programming_languages_diff/list/concat.html">複数の配列(リスト)を連結するには</a></li>
+          <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
+          <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
           <li><a href="../../programming_languages_diff/list/multiply.html">同じ配列を繰り返して連結するには (<code>x</code> / <code>*</code>)</a></li>
           <li><a href="../../programming_languages_diff/list/slice-replace.html">一部を別の配列で置き換えるには (array_splice / splice)</a></li>
           <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
