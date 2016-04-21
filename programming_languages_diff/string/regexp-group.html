@@ -47,7 +47,7 @@ if (matcher.find()) {
 
 <p><a href="#php">PHP</a></p>
 
-<pre><code>if (preg_match("/dear\\s+(\\S+)/", "Happy birthday dear Ken", $matches)) {
+<pre><code>if (preg_match('/dear\s+(\S+)/', "Happy birthday dear Ken", $matches)) {
     echo $matches[1];
 }
 </code></pre>
@@ -119,11 +119,11 @@ str match {
 <code>"b(c+)".r</code> と書いてもこの場合はマッチしない。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2016/01/08</span></h2>
+<span class="article-date">2016/04/21</span></h2>
 
 <p><a href="match.html#php"><code>preg_match</code></a> という関数に3つ目の引数を渡すと、3つ目の引数に配列で保存してくれる。</p>
 
-<pre><code>if (preg_match("/dear\\s+(\\S+)/", "Happy birthday dear Ken", $matches)) {
+<pre><code>if (preg_match('/dear\s+(\S+)/', "Happy birthday dear Ken", $matches)) {
     echo $matches[1];
 }
 </code></pre>
