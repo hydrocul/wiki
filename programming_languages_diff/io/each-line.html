@@ -119,9 +119,9 @@ fclose(reader);
 <p><code>BufferedReader#readLine()</code> は <code>"\n"</code>, <code>"\r"</code>, <code>"\r\n"</code> のいずれかを改行とみなす。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2015/11/26</span></h2>
+<span class="article-date">2016/04/22</span></h2>
 
-<p>Scalaの標準のライブラリを使う例（標準入力だが）</p>
+<p>Scalaの標準のライブラリを使う例（これはファイルではなく標準入力だが）</p>
 
 <pre><code>import scala.io.Source;
 
@@ -135,7 +135,7 @@ Source.fromInputStream(System.in).getLines.foreach { line =&gt;
 
 <pre><code>def stdinLineIterator(): Iterator[String] = {
 
-  var fp = new java.io.BufferedReader(new java.io.InputStreamReader(System.in));
+  var fp = new java.io.BufferedReader(new java.io.InputStreamReader(System.in, "UTF-8"));
   var nextLine: String = null;
 
   new Iterator[String] {
@@ -147,7 +147,12 @@ Source.fromInputStream(System.in).getLines.foreach { line =&gt;
         if (nextLine == null) {
           nextLine = fp.readLine;
         }
-        nextLine != null;
+        if (nextLine == null) {
+          fp.close();
+          false;
+        } else {
+          true;
+        }
       }
     }
 
