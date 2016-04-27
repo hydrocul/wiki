@@ -21,9 +21,12 @@
 
 <div id="content">
   <h1 id="cp">cp コマンド
-<span class="article-date">2013/09/09</span></h1>
+<span class="article-date">2016/04/27</span></h1>
 
 <p>ファイルをコピーするコマンド。別のホストにファイルをコピーするには<a href="rsync.html"><code>rsync</code></a>を使う。コピーではなく移動させるには<code>mv</code>を使う。</p>
+
+<p><code>install</code> というよく似たコマンドもある。<code>install</code>コマンドはコピーしながら、コピー先のファイルのパーミッションやオーナーを設定できる。
+root権限でソフトウェアをインストールするときによく使われるらしい。</p>
 
 <h2 id="7f97576">基本的な使い方
 <span class="article-date">2016/03/18</span></h2>
@@ -93,11 +96,12 @@
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
 <h2 id="4590d63">オプション
-<span class="article-date">2016/04/26</span></h2>
+<span class="article-date">2016/04/27</span></h2>
 
 <dl>
   <dt><code>-b</code>, <code>--backup</code></dt>
-  <dd><code>foo~</code> のような名前でバックアップを取る。-&gt;<a href="#backup-option">バックアップオプション</a></dd>
+  <dd>コピー先がすでに存在した場合、<code>foo~</code> のような名前でバックアップを取る。
+-&gt;<a href="#backup-option">バックアップオプション</a></dd>
   <dt><code>-d</code></dt>
   <dd>コピー元にシンボリックリンクがあった場合は、通常はリンク先ファイルをコピーし、
 シンボリックリンクだったという情報が失われるが、
@@ -136,11 +140,11 @@
 <code>foo.txt</code> が <code>bar.txt</code> にコピーされてしまう。</p>
 
 <h2 id="backup-option">バックアップオプション
-<span class="article-date">2016/04/11</span></h2>
+<span class="article-date">2016/04/27</span></h2>
 
 <p><code>-b</code> または <code>--backup</code> というオプションを付けるとコピー先にすでにファイルが存在していた場合に、コピー前にそのファイルをバックアップさせられる。</p>
 
-<p>このオプションは<code>cp</code>コマンドだけでなく、<a href="mv.html"><code>mv</code>コマンド</a>などでも使える。</p>
+<p>このオプションは<code>cp</code>コマンドだけでなく、<a href="mv.html"><code>mv</code>コマンド</a>、<code>ln</code>コマンド、<code>install</code>コマンドでも使える。</p>
 
 <p>バックアップの方式には以下を選択することができる。</p>
 
