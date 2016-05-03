@@ -38,9 +38,13 @@
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
 <h2 id="faac8ae">オプション
-<span class="article-date">2015/12/02</span></h2>
+<span class="article-date">2016/05/02</span></h2>
 
 <dl>
+  <dt><code>-c</code>, <code>--bytes</code></dt>
+  <dd>バイト数を数える。最後に改行がある場合はそれも数える。</dd>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプ表示</dd>
   <dt><code>-l</code>, <code>--lines</code></dt>
   <dd>行数を数える。実際には改行の数を数えるだけなので、<code>"1\n2\n"</code> は2行と
 数えるが、<code>"1\n2"</code> は1行と数える。改行が1つもないと中身が存在しても0行と
@@ -51,8 +55,8 @@
 UTF-16とかだとよくわからない数になる。
 最後に改行がある場合はそれも数える。
 改行コードがCRLFの場合はそれを2文字と数える。</dd>
-  <dt><code>-c</code>, <code>--bytes</code></dt>
-  <dd>バイト数を数える。最後に改行がある場合はそれも数える。</dd>
+  <dt><code>--version</code></dt>
+  <dd>バージョン表示</dd>
 </dl>
 
 <h2 id="cd377a7">Perlのワンライナーで行数を数えるには
@@ -138,6 +142,7 @@ $ cat foo.txt | iconv -f UTF-8 -t UTF-16 | wc --bytes | awk '{print $1/2}'
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
       <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
+      <li><a href="../commands/mv.html">mv コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
@@ -162,6 +167,7 @@ $ cat foo.txt | iconv -f UTF-8 -t UTF-16 | wc --bytes | awk '{print $1/2}'
       <li><a href="../commands/tar.html">tar コマンド</a></li>
       <li><a href="../commands/tee.html">tee コマンド</a></li>
       <li><a href="../commands/time.html">time コマンド</a></li>
+      <li><a href="../commands/timeout.html">timeout コマンド</a></li>
       <li><a href="../commands/tmux.html">tmux コマンド</a></li>
       <li><a href="../commands/top.html">top コマンド</a></li>
       <li><a href="../commands/touch.html">touch コマンド</a></li>
