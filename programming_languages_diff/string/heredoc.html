@@ -174,7 +174,7 @@ EOS
 <a href="http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here" target="_blank" class="external-link">http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fliteral.html#here</a></p>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/12/20</span></h2>
+<span class="article-date">2016/05/05</span></h2>
 
 <p>変数展開されるヒアドキュメントの例</p>
 
@@ -197,6 +197,20 @@ bbb
 EOS
 </code></pre>
 
+<p>複数のヒアドキュメントを1行で使うこともできる。</p>
+
+<pre><code>my @arr = (&lt;&lt;EOS, &lt;&lt;EOS);
+aaa
+EOS
+bbb
+EOS
+
+print @arr;
+# =&gt;
+# aaa
+# bbb
+</code></pre>
+
 <p><code>&lt;&lt;EOS</code>の<code>EOS</code>の部分を終端識別子と言い、裸のままにするかダブルクオートで囲むと、普通のダブルクオートで囲んだ文字列と同様に中の<a href="inline.html#perl">変数名が展開</a>される。シングルクオートで囲めば、普通のシングルクオートで囲んだ文字列と同様に変数名は展開されない。</p>
 
 <p>ヒアドキュメントがファイルの最後まで続くからといって終端の識別子を省略すると、エラーになってしまう。</p>
@@ -217,7 +231,7 @@ World!
 <a href="http://perldoc.jp/docs/perl/5.18.1/perldata.pod#Special32Literals" target="_blank" class="external-link">http://perldoc.jp/docs/perl/5.18.1/perldata.pod#Special32Literals</a></p>
 
 <h2 id="sh">sh (シェルスクリプト)
-<span class="article-date">2016/04/18</span></h2>
+<span class="article-date">2016/05/05</span></h2>
 
 <p>例</p>
 
@@ -251,6 +265,23 @@ EOD
 
 <pre><code>f00
 bar
+</code></pre>
+
+<p>となる。</p>
+
+<p>複数のヒアドキュメントを1行で使うこともできる。</p>
+
+<pre><code>cat &lt;&lt;EOS; cat &lt;&lt;EOS
+aaa
+EOS
+bbb
+EOS
+</code></pre>
+
+<p>出力は</p>
+
+<pre><code>aaa
+bbb
 </code></pre>
 
 <p>となる。</p>
