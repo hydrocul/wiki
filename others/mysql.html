@@ -203,6 +203,30 @@ Ubuntu: <code>/etc/mysql/my.cnf</code></p>
 <pre><code>STOP SLAVE; SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1; SELECT SLEEP(1); START SLAVE; SHOW SLAVE STATUS\G
 </code></pre>
 
+<h2 id="8cb2dbc">接続先のMySQLサーバのバージョンを見るには
+<span class="article-date">2016/05/06</span></h2>
+
+<pre><code>SELECT version();
+</code></pre>
+
+<p>というSQLを実行する。</p>
+
+<p>コマンドラインからは</p>
+
+<pre><code>$ mysql -u root -e "select version();"
++------------+
+| version()  |
++------------+
+| 5.5.29-log |
++------------+
+</code></pre>
+
+<p>または</p>
+
+<pre><code>$ mysql -u root -N -e "select version();" | cat
+5.5.29-log
+</code></pre>
+
 </div>
 
 <div id="side-menu">
