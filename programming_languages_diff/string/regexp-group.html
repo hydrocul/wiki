@@ -179,23 +179,35 @@ p str.scan(/b(c(de?))/)    # =&gt; [["cd", "d"], ["cde", "de"]]
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2015/02/05</span></h2>
+<span class="article-date">2016/05/09</span></h2>
 
-<p>正規表現に掛けると <code>$1</code>, <code>$2</code>, <code>$3</code>, … にグルーピングにマッチした文字列が入る。
-<a href="../vars/argv.html#perl"><code>$0</code></a> は実行されているPerlスクリプトファイル名が入っていて、正規表現とは関係ないので注意。</p>
+<p>正規表現に掛けると <code>$1</code>, <code>$2</code>, <code>$3</code>, … にグルーピングにマッチした文字列が入る。</p>
 
-<p><code>${^POSTMATCH}</code> にはマッチした部分より後ろの文字列が入る。</p>
+<p><a href="../vars/argv.html#perl"><code>$0</code></a> は実行されているPerlスクリプトファイル名が入っていて、正規表現とは関係ないので注意。</p>
 
-<pre><code>my $str = "bcccdef";
+<p>マッチした文字列全体は [<code>$&amp;</code>] という変数で参照できる。ただし、Perl 5.20 よりも古いバージョンの場合、この変数を参照している箇所が1箇所でもあると、スクリプト全体の正規表現処理のスピードが落ちるらしい。
+Perl 5.10 以上であれば、<code>${^MATCH}</code> という変数を使うと速度低下は免れるが、
+<code>/p</code> という修飾子を付ける必要がある。</p>
 
-if ($str =~ /b(c+)/) {
-    print "$1\n";
-    # =&gt; ccc
+<dl>
+  <dt><code>$&#x60;</code>, <code>${^PREMATCH}</code></dt>
+  <dd>マッチした文字列より前の部分</dd>
+  <dt><code>$&amp;</code>, <code>${^MATCH}</code></dt>
+  <dd>マッチした文字列全体</dd>
+  <dt><code>$'</code>, <code>${^POSTMATCH}</code></dt>
+  <dd>マッチした文字列より後ろの部分
 
-    print "${^POSTMATCH}\n";
-    # =&gt; def
-}
+    <p>my $str = “bcccdef”;</p>
+
+    <p>if ($str =~ /b(c+)/p) {
+      print “$1\n”;
+      # =&gt; ccc</p>
+
+    <pre><code>  print "${^POSTMATCH}\n";
+  # =&gt; def   }
 </code></pre>
+  </dd>
+</dl>
 
 <h2 id="4dfe5eb">sh (シェルスクリプト)
 <span class="article-date">2014/12/10</span></h2>
