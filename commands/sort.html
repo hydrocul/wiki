@@ -138,17 +138,24 @@ $ cat foo.txt | sort -
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
 <h2 id="8e99451">オプション
-<span class="article-date">2015/09/26</span></h2>
+<span class="article-date">2016/05/10</span></h2>
 
 <dl>
+  <dt><code>-c</code></dt>
+  <dd>すでにソートされているかどうかをチェックする。チェックのみでソートはしない。
+ソートされていなければ終了コード1を返す。ソートされていれば0を返す。</dd>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプ表示</dd>
   <dt><code>-t</code></dt>
   <dd>列の区切り文字を指定する。デフォルトはスペース。 <code>-t,</code> でコンマ区切りになる。
 <code>-t $'\t'</code> でタブ区切りのファイルを処理できるようになる。
 ただし、Ubuntuの <code>/bin/sh</code> はdashで、dashではこのタブの書き方ができない。</dd>
-  <dt><code>-c</code></dt>
-  <dd>すでにソートされているかどうかをチェックする。チェックのみでソートはしない。
-ソートされていなければ終了コード1を返す。ソートされていれば0を返す。</dd>
+  <dt><code>--version</code></dt>
+  <dd>バージョン表示</dd>
 </dl>
+
+<p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
+<code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
 <h3 id="860a81f">ソート方法に関するオプション
 <span class="article-date">2015/09/26</span></h3>

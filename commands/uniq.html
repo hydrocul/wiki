@@ -61,7 +61,7 @@
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
 <h2 id="42da630">オプション
-<span class="article-date">2015/09/25</span></h2>
+<span class="article-date">2016/05/10</span></h2>
 
 <dl>
   <dt><code>-c</code></dt>
@@ -72,7 +72,14 @@
   <dd>逆に重複している行のみを重複のまま抽出する。</dd>
   <dt><code>-u</code></dt>
   <dd>重複した行をまとめるのではなく削除してしまう。</dd>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプ表示</dd>
+  <dt><code>--version</code></dt>
+  <dd>バージョン表示</dd>
 </dl>
+
+<p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
+<code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
 <h3 id="84e8748"><code>-c</code> オプションの例
 <span class="article-date">2015/09/25</span></h3>

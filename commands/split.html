@@ -40,7 +40,7 @@ split -b 1073741824 -d --verbose foo.tar.gz foo.tar.gz-
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
 <h2 id="d85ee95">オプション
-<span class="article-date">2016/05/02</span></h2>
+<span class="article-date">2016/05/10</span></h2>
 
 <dl>
   <dt><code>-b</code> 数字</dt>
@@ -54,6 +54,9 @@ split -b 1073741824 -d --verbose foo.tar.gz foo.tar.gz-
   <dt><code>--version</code></dt>
   <dd>バージョン表示</dd>
 </dl>
+
+<p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
+<code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
 </div>
 
