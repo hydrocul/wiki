@@ -195,19 +195,21 @@ Perl 5.10 以上であれば、<code>${^MATCH}</code> という変数を使う�
   <dt><code>$&amp;</code>, <code>${^MATCH}</code></dt>
   <dd>マッチした文字列全体</dd>
   <dt><code>$'</code>, <code>${^POSTMATCH}</code></dt>
-  <dd>マッチした文字列より後ろの部分
-
-    <p>my $str = “bcccdef”;</p>
-
-    <p>if ($str =~ /b(c+)/p) {
-      print “$1\n”;
-      # =&gt; ccc</p>
-
-    <pre><code>  print "${^POSTMATCH}\n";
-  # =&gt; def   }
-</code></pre>
-  </dd>
+  <dd>マッチした文字列より後ろの部分</dd>
 </dl>
+
+<p>例</p>
+
+<pre><code>my $str = "bcccdef";
+
+if ($str =~ /b(c+)/p) {
+    print "$1\n";
+    # =&gt; ccc
+
+    print "${^POSTMATCH}\n";
+    # =&gt; def
+}
+</code></pre>
 
 <h2 id="4dfe5eb">sh (シェルスクリプト)
 <span class="article-date">2014/12/10</span></h2>
