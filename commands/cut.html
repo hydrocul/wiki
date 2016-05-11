@@ -49,7 +49,7 @@ $ cat foo.txt | perl -MEncode -nle 'print encode_utf8(substr(decode_utf8($_), 3)
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
 <h2 id="b13ce3d">オプション
-<span class="article-date">2013/10/08</span></h2>
+<span class="article-date">2016/05/11</span></h2>
 
 <dl>
   <dt><code>-f</code></dt>
@@ -65,7 +65,14 @@ $ cat foo.txt | perl -MEncode -nle 'print encode_utf8(substr(decode_utf8($_), 3)
   <dd>フィールド単位ではなくバイト単位で抽出する範囲を指定する</dd>
   <dt><code>-c</code></dt>
   <dd>フィールド単位ではなく文字単位で抽出する範囲を指定する</dd>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプ表示</dd>
+  <dt><code>--version</code></dt>
+  <dd>バージョン表示</dd>
 </dl>
+
+<p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
+<code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
 <h2 id="828e0c5">HOWTO</h2>
 
