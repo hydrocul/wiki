@@ -25,7 +25,7 @@
 <h2 id="2e9372e">Scala</h2>
 
 <h3 id="1cec4ed">Javaのシリアライズ
-<span class="article-date">2014/09/09</span></h3>
+<span class="article-date">2016/05/12</span></h3>
 
 <p>書き出しの例</p>
 
@@ -48,10 +48,12 @@ try {
 </code></pre>
 
 <p><code>java.io.Serializable</code> を実装している必要がある。必ずしも <code>extends java.io.Serializable</code> と書かなくても、単に <code>extends Serializable</code> でよい。 <code>scala.Serializable</code> が
-<code>java.io.Serializable</code> をextendsしていて、代わりに使えるためである。
-<code>case class</code> は勝手に <code>java.io.Serializable</code> を実装してくれている。</p>
+<code>java.io.Serializable</code> をextendsしていて、代わりに使えるためである。</p>
 
-<p>たぶん過去のバージョンではクラス定義に <code>@serializable</code> というアノテーションを付けるだけでもよかったのかもしれないが、手元の Scala 2.10.4 の環境ではこのアノテーションに関して deprecated の警告が出た。</p>
+<p><code>case class</code> は勝手に <code>java.io.Serializable</code> を実装してくれている。</p>
+
+<p>たぶん過去のバージョンではクラス定義に <code>@serializable</code> というアノテーションを付けるだけでもよかったのかもしれないが、手元の Scala 2.10.4 の環境ではこのアノテーションに関して deprecated の警告が出た。
+2.11 ではもうコンパイルエラーになった。</p>
 
 <p>Javaの <code>serialVersionUID</code> フィールドを設定するにはクラス定義に <code>@SerialVersionUID(123456L)</code> というようにアノテーションをつければよい。
 SerialVersionUID が<code>int</code>の範囲を超える数の場合、<code>L</code> を最後に付けないとコンパイルエラーになることに注意。</p>

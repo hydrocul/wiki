@@ -145,6 +145,16 @@ cut -d$'\t' -f1
 
 <p><code>sort</code> でも似たような書き方でできる。</p>
 
+<h3 id="d33155b">シェルスクリプトの変数に入っている文字列の一部を切り出すには
+<span class="article-date">2016/05/11</span></h3>
+
+<p>ファイルではなく変数の値から一部を抜き出すには <code>${VAR:S:L}</code> という書き方をする。すると、<code>S</code>から<code>L</code>文字分の部分文字列を抜き出せる。</p>
+
+<pre><code>s="abcdef"
+echo ${s:2:2}
+# =&gt; cd
+</code></pre>
+
 </div>
 
 <div id="side-menu">

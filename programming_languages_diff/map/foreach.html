@@ -123,11 +123,12 @@ end
 </code></pre>
 
 <h2 id="0fadab0">Perl
-<span class="article-date">2013/10/17</span></h2>
+<span class="article-date">2016/05/12</span></h2>
 
 <p>キーの配列を取得して <code>foreach</code> で回す方法</p>
 
 <pre><code>foreach my $key (keys %hash) {
+  my $value = $hash{$key};
   ...;
 }
 </code></pre>
