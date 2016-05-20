@@ -45,17 +45,24 @@
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
 <h2 id="367a31a">オプション
-<span class="article-date">2016/04/17</span></h2>
+<span class="article-date">2016/05/20</span></h2>
 
 <dl>
   <dt><code>-b</code>, <code>--backup</code></dt>
   <dd>移動先にすでにファイルが存在した場合、<code>foo~</code> のような名前でバックアップを取る。
 このオプションは<code>cp</code>コマンドと同じ。-&gt;<a href="cp.html#backup-option"><code>cp</code>コマンドのバックアップオプション</a></dd>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプ表示</dd>
   <dt><code>-i</code></dt>
   <dd>移動先にすでにファイルが存在する場合は、上書きするかどうかを聞いてくる。このオプションは<a href="cp.html"><code>cp</code>コマンド</a>と同じ</dd>
   <dt><code>-v</code></dt>
   <dd>動作内容を詳細表示</dd>
+  <dt><code>--version</code></dt>
+  <dd>バージョン表示</dd>
 </dl>
+
+<p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
+<code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
 </div>
 
