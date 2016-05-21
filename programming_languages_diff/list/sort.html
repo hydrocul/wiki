@@ -21,31 +21,105 @@
 
 <div id="content">
   <h1 id="sort">配列(リスト)をソートするには (sort / sortBy / sorted / sortWith)
-<span class="article-date">2015/04/07</span></h1>
+<span class="article-date">2016/05/21</span></h1>
 
-<p>配列をソートする方法のプログラミング言語ごとのメモ。</p>
+<p><a href="#java">Java</a></p>
 
-<p>配列自体をソートした状態に変更するものと、与えられた配列は変更せずにソートされた状態の配列を新しく生成するものがある。</p>
+<pre><code>Arrays.sort(arr);
+Collections.sort(lst);
 
-<p>また、辞書順や数値の大小などの自然な比較方法でソートするものと、比較方法を都度指定できるものがある。</p>
+// 比較方法を指定
+Arrays.sort(arr, new Comparator&lt;String&gt;() {
+    public int compare(String str1, String str2) {
+        return str1.compareToIgnoreCase(str2);
+    }
+});
+Collections.sort(lst, new Comparator&lt;String&gt;() {
+    public int compare(String str1, String str2) {
+        return str1.compareToIgnoreCase(str2);
+    }
+});
 
-<h2 id="60f4ea9">Java
-<span class="article-date">2015/04/25</span></h2>
+// Java8から書けるSAM(single abstract method)の記法
+Arrays.sort(arr, (str1, str2) -&gt; str1.compareToIgnoreCase(str2));
+Collections.sort(lst, (str1, str2) -&gt; str1.compareToIgnoreCase(str2));
+</code></pre>
+
+<p><a href="#scala">Scala</a></p>
+
+<pre><code>sortedList = lst.sorted;
+
+// 比較する値を指定
+sortedList = lst.sortBy(_.toLowerCase);
+
+// 比較方法を指定
+sortedList = lst.sortWith((str1, str2) =&gt; str1.compareToIgnoreCase(str2) &lt; 0);
+</code></pre>
+
+<p><a href="#php">PHP</a></p>
+
+<pre><code>sort($arr);
+
+// 比較方法を指定
+usort($arr, function ($a, $b) {
+    return strcasecmp($a, $b);
+});
+</code></pre>
+
+<p><a href="#python">Python</a></p>
+
+<pre><code>sortedList = sorted(lst)
+
+// リスト自身を変更する方法
+lst.sort()
+</code></pre>
+
+<p><a href="#ruby">Ruby</a></p>
+
+<pre><code>sortedArray = arr.sort
+
+# 配列自身を変更する方法
+arr.sort!
+
+# 比較方法を指定
+sortedArray = arr.sort  {|a, b| a.downcase &lt;=&gt; b.downcase}
+arr.sort!{|a, b| a.downcase &lt;=&gt; b.downcase}
+</code></pre>
+
+<h2 id="java">Java
+<span class="article-date">2016/05/21</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>void &lt;T extends java.util.Comparable&lt;? super T&gt;&gt; java.util.Collections.sort(List&lt;T&gt; list)
-void &lt;T&gt; java.util.Collections.sort(List&lt;T&gt; list, java.util.Comparator&lt;? super T&gt; comparator)
+<pre><code>import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparable;
+
+void Arrays.sort(Object[] arr)
+&lt;T&gt; void Arrays.sort(T[] arr, Comparator&lt;? super T&gt; c)
+                            
+void &lt;T extends Comparable&lt;? super T&gt;&gt; Collections.sort(List&lt;T&gt; list)
+void &lt;T&gt; Collections.sort(List&lt;T&gt; list, Comparator&lt;? super T&gt; comparator)
 </code></pre>
 
-<p>staticメソッドで、ソートしたいリストをメソッドに引数で渡す。リスト自体を変更する破壊的なメソッド。
-2つ目のメソッドは <code>Comparator</code> で比較方法をしていできる。</p>
+<p>staticメソッドで、ソートしたい配列またはリストをメソッドに引数で渡す。配列またはリスト自体を変更する破壊的なメソッド。</p>
+
+<p>2つ目の引数に <code>Comparator</code> を渡すことで比較方法を指定することもできる。</p>
+
+<p><code>Arrays.sort</code> は配列の要素型ごとに<code>sort</code>メソッドが用意されている。</p>
+
+<p><code>java.util.Arrays.sort</code> | Java Platform SE 8 Javadoc  <br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#sort-java.lang.Object:A-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#sort-java.lang.Object:A-</a><br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#sort-T:A-java.util.Comparator-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#sort-T:A-java.util.Comparator-</a></p>
 
 <p><code>java.util.Collections.sort</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-</a><br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-java.util.Comparator-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-java.util.Comparator-</a></p>
 
-<h2 id="3b1af1b">Scala
+<p><code>java.util.Comparator</code> | Java Platform SE 8 Javadoc<br />
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html</a></p>
+
+<h2 id="scala">Scala
 <span class="article-date">2016/04/18</span></h2>
 
 <p>Signature:</p>
@@ -78,20 +152,63 @@ println(result);
 // =&gt; List(hi, abc, defg)
 </code></pre>
 
-<h2 id="ff52725">PHP
-<span class="article-date">2014/03/21</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2016/05/21</span></h2>
 
 <p><code>sort</code>関数でソートできる。引数の配列自身を変更する破壊的な関数である。</p>
 
-<pre><code>sort($arr)
+<pre><code>sort($arr);
+</code></pre>
+
+<p>要素の比較方法を関数で指定するには代わりに <code>usort</code> を使う。</p>
+
+<pre><code>usort($arr, $comparator);
+</code></pre>
+
+<p>例</p>
+
+<pre><code>$arr = array("abc", "ghi", "DEF");
+var_export($arr); echo "\n";
+# =&gt;
+# array (
+#   0 =&gt; 'abc',
+#   1 =&gt; 'ghi',
+#   2 =&gt; 'DEF',
+# )
+
+sort($arr);
+var_export($arr); echo "\n";
+# =&gt;
+# array (
+#   0 =&gt; 'DEF',
+#   1 =&gt; 'abc',
+#   2 =&gt; 'ghi',
+# )
+
+usort($arr, function ($a, $b) {
+  return strcasecmp($a, $b);
+});
+var_export($arr); echo "\n";
+# =&gt;
+# array (
+#   0 =&gt; 'abc',
+#   1 =&gt; 'DEF',
+#   2 =&gt; 'ghi',
+# )
 </code></pre>
 
 <p>その他にもソートをするたくさんの関数がある。</p>
 
+<p><code>sort</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.sort.php" target="_blank" class="external-link">http://php.net/manual/ja/function.sort.php</a></p>
+
+<p><code>usort</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.usort.php" target="_blank" class="external-link">http://php.net/manual/ja/function.usort.php</a></p>
+
 <p>配列のソート | PHP Manual<br />
 <a href="http://php.net/manual/ja/array.sorting.php" target="_blank" class="external-link">http://php.net/manual/ja/array.sorting.php</a></p>
 
-<h2 id="9eebbe2">Python
+<h2 id="python">Python
 <span class="article-date">2014/09/07</span></h2>
 
 <pre><code># ソート済みのリストを返し、引数のリストは変更しない
@@ -109,20 +226,33 @@ lst.sort()
 <p>ソート HOWTO | Python 3 documentation<br />
 <a href="http://docs.python.jp/3/howto/sorting.html" target="_blank" class="external-link">http://docs.python.jp/3/howto/sorting.html</a></p>
 
-<h2 id="7a42e68">Ruby / JRuby
-<span class="article-date">2015/01/06</span></h2>
+<h2 id="ruby">Ruby / JRuby
+<span class="article-date">2016/05/21</span></h2>
 
 <p><code>Array#sort</code> または破壊的なメソッド <code>Array#sort!</code> を使う。</p>
 
 <pre><code># ソート済みの配列を返し、配列自身は変更しない
-arr.sort
+sortedArray = arr.sort
 
 # 配列自体をソートしたものに変更する破壊的メソッド
 arr.sort!
 
 # ソート条件をブロックで指定
-arr.sort  {|a, b| a.num &lt;=&gt; b.num}  # 非破壊的
-arr.sort! {|a, b| a.num &lt;=&gt; b.num}  # 破壊的
+sortedArray = arr.sort  {|a, b| a.downcase &lt;=&gt; b.downcase}  # 非破壊的
+arr.sort! {|a, b| a.downcase &lt;=&gt; b.downcase}  # 破壊的
+</code></pre>
+
+<p>例</p>
+
+<pre><code>arr = %w/abc ghi DEF/
+p arr
+# =&gt; ["abc", "ghi", "DEF"]
+
+p arr.sort
+# =&gt; ["DEF", "abc", "ghi"]
+
+p arr.sort {|a, b| a.downcase &lt;=&gt; b.downcase}
+# =&gt; ["abc", "DEF", "ghi"]
 </code></pre>
 
 <p><code>Array#sort</code>, <code>Array#sort!</code> | Ruby 2.1 リファレンスマニュアル<br />
@@ -134,7 +264,7 @@ arr.sort! {|a, b| a.num &lt;=&gt; b.num}  # 破壊的
 <p><code>Array#sort_by!</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/sort_by=21.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/sort_by=21.html</a></p>
 
-<h2 id="e37fa1c">Perl
+<h2 id="perl">Perl
 <span class="article-date">2015/10/14</span></h2>
 
 <pre><code>sort(@arr)
@@ -234,26 +364,25 @@ console.log(arr.sort(function(a, b){
           <li><a href="../../programming_languages_diff/list/fill.html">fill</a></li>
           <li><a href="../../programming_languages_diff/list/range.html">range / seq / to / until</a></li>
           <li><a href="../../programming_languages_diff/list/grouped.html">array_chunk / grouped</a></li>
-          <li><a href="../../programming_languages_diff/list/group-by.html">要素をグルーピングするには (group_by / groupBy)</a></li>
-          <li><a href="../../programming_languages_diff/list/shift.html">先頭の要素を削除するには (array_shift / shift)</a></li>
-          <li><a href="../../programming_languages_diff/list/unshift.html">配列(リスト)の先頭に要素を追加するには (unshift)</a></li>
-          <li><a href="../../programming_languages_diff/list/pop.html">最後の要素を削除するには (array_pop / pop)</a></li>
-          <li><a href="../../programming_languages_diff/list/push.html">配列(リスト)の最後に要素を追加するには (push)</a></li>
-          <li><a href="../../programming_languages_diff/list/set.html">要素の値を設定するには (set)</a></li>
-          <li><a href="../../programming_languages_diff/list/remove.html">要素をインデックスで指定して削除するには (delete_at / pop / remove / unset)</a></li>
-          <li><a href="../../programming_languages_diff/list/remove-by-value.html">特定の値をすべて削除するには (delete / remove / <code>-</code>)</a></li>
-          <li><a href="../../programming_languages_diff/list/clone.html">配列(リスト)をコピーするには (clone)</a></li>
-          <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
+          <li><a href="../../programming_languages_diff/list/group-by.html">group_by / groupBy</a></li>
+          <li><a href="../../programming_languages_diff/list/shift.html">array_shift / shift</a></li>
+          <li><a href="../../programming_languages_diff/list/unshift.html">unshift</a></li>
+          <li><a href="../../programming_languages_diff/list/pop.html">array_pop / pop</a></li>
+          <li><a href="../../programming_languages_diff/list/push.html">push</a></li>
+          <li><a href="../../programming_languages_diff/list/set.html">set</a></li>
+          <li><a href="../../programming_languages_diff/list/remove.html">delete_at / pop / remove / unset</a></li>
+          <li><a href="../../programming_languages_diff/list/remove-by-value.html">delete / remove / <code>-</code></a></li>
+          <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
+          <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li>sort / sortBy / sorted / sortWith</li>
-          <li><a href="../../programming_languages_diff/list/convert.html">データ型を相互に変換するには (asList / asScala / asJava / to_a / toArray)</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列から連想配列を生成するには (toMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
           <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
-          <li><a href="../../programming_languages_diff/list/multiply.html">同じ配列を繰り返して連結するには (<code>x</code> / <code>*</code>)</a></li>
-          <li><a href="../../programming_languages_diff/list/slice-replace.html">一部を別の配列で置き換えるには (array_splice / splice)</a></li>
-          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
+          <li><a href="../../programming_languages_diff/list/multiply.html"><code>x</code> / <code>*</code></a></li>
+          <li><a href="../../programming_languages_diff/list/slice-replace.html">array_splice / splice</a></li>
+          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">ベクトル演算</a></li>
         </ul>
       </li>
     </ul>

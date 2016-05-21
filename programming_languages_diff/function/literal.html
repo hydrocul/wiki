@@ -42,7 +42,7 @@
 <p>Java8からは、関数型インターフェースのインスタンスとしてラムダ式が書けるようになった。</p>
 
 <h3 id="89fcd5c">ラムダ式
-<span class="article-date">2013/09/18</span></h3>
+<span class="article-date">2016/05/21</span></h3>
 
 <p>抽象メソッド1つだけのインターフェースを関数型インターフェース(SAM Type,
 single abstract method type)といい、
@@ -50,7 +50,7 @@ Java8からは、関数型インターフェースを継承する匿名クラス
 
 <p>Java7までの書き方の例</p>
 
-<pre><code>Collections.sort(list, new Comparator&lt;String&gt;(){
+<pre><code>Collections.sort(lst, new Comparator&lt;String&gt;(){
     public int compare(String str1, String str2){
         str1.compareToIgnoreCase(str2);
     }
@@ -59,7 +59,7 @@ Java8からは、関数型インターフェースを継承する匿名クラス
 
 <p>Java8からの書き方の例</p>
 
-<pre><code>Collections.sort((str1, str2) -&gt; str1.compareToIgnoreCase(str2));
+<pre><code>Collections.sort(lst, (str1, str2) -&gt; str1.compareToIgnoreCase(str2));
 </code></pre>
 
 <p>この書き方をしても関数が第一級オブジェクトになるわけではなく、あくまで関数型インターフェースの匿名クラスのインスタンスになる。</p>
@@ -68,7 +68,7 @@ Java8からは、関数型インターフェースを継承する匿名クラス
 
 <p>引数の型を書く例</p>
 
-<pre><code>Collections.sort((String str1, String str2) -&gt; str1.compareToIgnoreCase(str2));
+<pre><code>Collections.sort(lst, (String str1, String str2) -&gt; str1.compareToIgnoreCase(str2));
 </code></pre>
 
 <p>引数が1つで型を省略する場合は、引数のカッコも省略できる。</p>
