@@ -20,9 +20,60 @@
 </div>
 
 <div id="content">
-  <h1 id="max-min">配列(リスト)の中の最大値・最小値を求めるには (max, min)</h1>
+  <h1 id="max-min">配列(リスト)の中の最大値・最小値を求めるには (max, min)
+<span class="article-date">2016/05/22</span></h1>
 
-<h2 id="a0469eb">Scala
+<p><a href="#scala">Scala</a></p>
+
+<pre><code>mx = lst.max;
+mn = lst.min;
+</code></pre>
+
+<p><a href="#python">Python</a></p>
+
+<pre><code>mx = max(lst)
+mn = min(lst)
+</code></pre>
+
+<p>Ruby</p>
+
+<pre><code>mx = arr.max
+mn = arr.min
+</code></pre>
+
+<p><a href="#perl">Perl</a></p>
+
+<pre><code>use List::Util qw/max min/;
+$mx = max(@arr);
+$mn = min(@arr);
+</code></pre>
+
+<h2 id="39c78ea">Java
+<span class="article-date">2016/05/22</span></h2>
+
+<p>簡単に最大値・最小値を求められるメソッドは標準では存在しない。</p>
+
+<p>例</p>
+
+<pre><code>int[] arr = new int[]{20, 40, 10, 40};
+
+int max = arr[0];
+int min = arr[1];
+for (int i = 1; i &lt; arr.length; i++) {
+    int v = arr[i];
+    if (v &gt; max) {
+        max = v;
+    }
+    if (v &lt; min) {
+        min = v;
+    }
+}
+
+System.out.println(max); // =&gt; 40
+System.out.println(min); // =&gt; 10
+</code></pre>
+
+<h2 id="scala">Scala
 <span class="article-date">2015/01/19</span></h2>
 
 <p>Signature:</p>
@@ -68,14 +119,14 @@ min(lst)
 という最大値・最小値に関する複数の関数がある。
 -&gt; <a href="../../numpy/ndarray-max-min.html">NumPyのndarrayの最大値/最小値に関する関数</a></p>
 
-<h2 id="b3007f3">Perl
-<span class="article-date">2015/01/24</span></h2>
+<h2 id="perl">Perl
+<span class="article-date">2016/05/22</span></h2>
 
 <p><code>List::Util</code> というモジュールにある<code>max</code>関数または<code>min</code>関数を使う。</p>
 
 <pre><code>use List::Util qw/max min/;
 
-my @arr = (20, 30, 40, 10, 20, 30);
+my @arr = (20, 40, 10, 40);
 
 print max(@arr);
 # =&gt; 40
@@ -157,8 +208,6 @@ console.log(min);
           <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li>max, min</li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>

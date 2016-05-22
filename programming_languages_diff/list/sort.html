@@ -87,19 +87,15 @@ arr.sort!{|a, b| a.downcase &lt;=&gt; b.downcase}
 </code></pre>
 
 <h2 id="java">Java
-<span class="article-date">2016/05/21</span></h2>
+<span class="article-date">2016/05/22</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparable;
+<pre><code>void java.util.Arrays.sort(Object[] arr)
+&lt;T&gt; void java.util.Arrays.sort(T[] arr, Comparator&lt;? super T&gt; c)
 
-void Arrays.sort(Object[] arr)
-&lt;T&gt; void Arrays.sort(T[] arr, Comparator&lt;? super T&gt; c)
-                            
-void &lt;T extends Comparable&lt;? super T&gt;&gt; Collections.sort(List&lt;T&gt; list)
-void &lt;T&gt; Collections.sort(List&lt;T&gt; list, Comparator&lt;? super T&gt; comparator)
+void &lt;T extends java.util.Comparable&lt;? super T&gt;&gt; java.util.Collections.sort(java.util.List&lt;T&gt; list)
+void &lt;T&gt; java.util.Collections.sort(List&lt;T&gt; list, java.util.Comparator&lt;? super T&gt; comparator)
 </code></pre>
 
 <p>staticメソッドで、ソートしたい配列またはリストをメソッドに引数で渡す。配列またはリスト自体を変更する破壊的なメソッド。</p>
@@ -375,8 +371,6 @@ console.log(arr.sort(function(a, b){
           <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li>sort / sortBy / sorted / sortWith</li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
