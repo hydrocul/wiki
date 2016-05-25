@@ -20,7 +20,39 @@
 </div>
 
 <div id="content">
-  <h1 id="sum">数の配列(リスト)の合計を計算するには (sum)</h1>
+  <h1 id="sum">数の配列(リスト)の合計を計算するには (sum)
+<span class="article-date">2016/05/25</span></h1>
+
+<p><a href="#scala">Scala</a></p>
+
+<pre><code>val s = lst.sum;
+</code></pre>
+
+<p><a href="#groovy">Groovy</a></p>
+
+<pre><code>def s = lst.sum();
+</code></pre>
+
+<p><a href="#php">PHP</a></p>
+
+<pre><code>$s = array_sum($arr);
+</code></pre>
+
+<p><a href="#python">Python</a></p>
+
+<pre><code>s = sum(lst)
+</code></pre>
+
+<p><a href="#ruby">Ruby</a></p>
+
+<pre><code>s = arr.inject(:+)
+</code></pre>
+
+<p><a href="#perl">Perl</a></p>
+
+<pre><code>use List::Util qw/sum/;
+my $sum = sum(@arr);
+</code></pre>
 
 <h2 id="560413c">Java
 <span class="article-date">2013/11/08</span></h2>
@@ -28,17 +60,18 @@
 <p>簡単に計算できるメソッドはないので、<code>for</code>文などでループして計算するしかない。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2016/05/22</span></h2>
+<span class="article-date">2016/05/25</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>def scala.collection.Seq[A]#sum: A
-</code></pre>
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.TraversableOnce@sum:A" target="_blank" class="external-link"><code>def Seq[A]#sum: A</code></a></li>
+</ul>
 
-<p>要素が <code>Int</code> や <code>Double</code> など数値の場合に限る。</p>
+<p>要素(<code>A</code>)が <code>Int</code> や <code>Double</code> など数値の場合に限る。</p>
 
-<h2 id="e6dc7f2">Groovy
-<span class="article-date">2013/10/01</span></h2>
+<h2 id="groovy">Groovy
+<span class="article-date">2016/05/25</span></h2>
 
 <p>Signature:</p>
 
@@ -46,6 +79,12 @@
 </code></pre>
 
 <p>このメソッドはJavaでは定義されていない。</p>
+
+<p>例</p>
+
+<pre><code>def lst = [1, 2, 3];
+print lst.sum(); // =&gt; 6
+</code></pre>
 
 <h2 id="php">PHP
 <span class="article-date">2015/01/24</span></h2>
@@ -69,21 +108,32 @@ echo array_sum($arr);
 print sum(lst)
 </code></pre>
 
-<h2 id="1f8f610">Ruby
-<span class="article-date">2013/05/07</span></h2>
-
-<pre><code>def sum(arr)
-  arr.inject(0, :+)
-end
-</code></pre>
-
-<h2 id="8cfca28">Perl
-<span class="article-date">2013/09/11</span></h2>
+<h2 id="ruby">Ruby / JRuby
+<span class="article-date">2016/05/25</span></h2>
 
 <p>例</p>
 
-<pre><code>my $sum = 0;
+<pre><code>sum = arr.inject(:+)
+</code></pre>
+
+<h2 id="perl">Perl
+<span class="article-date">2015/05/25</span></h2>
+
+<p>例</p>
+
+<pre><code>my @arr = (1, 2, 3);
+my $sum = 0;
 $sum += $_ for @arr;
+print $sum; # =&gt; 6
+</code></pre>
+
+<p>または<code>List::Util</code> というモジュールを使う例</p>
+
+<pre><code>use List::Util qw/sum/;
+
+my @arr = (1, 2, 3);
+my $sum = sum(@arr);
+print $sum; # =&gt; 6
 </code></pre>
 
 <h2 id="sh">sh (シェルスクリプト)
