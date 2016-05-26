@@ -23,11 +23,14 @@
   <h1 id="multiply">同じ配列(リスト)を繰り返して連結するには(乗算みたいな) (<code>x</code> / <code>*</code>)</h1>
 
 <h2 id="python">Python
-<span class="article-date">2014/07/31</span></h2>
+<span class="article-date">2016/05/26</span></h2>
 
 <p>例</p>
 
-<pre><code>print([1, 2, 3] * 3)
+<pre><code>print(["a", "bb", "ccc"] * 3)
+# =&gt; ['a', 'bb', 'ccc', 'a', 'bb', 'ccc', 'a', 'bb', 'ccc']
+
+print([1, 2, 3] * 3)
 # =&gt; [1, 2, 3, 1, 2, 3, 1, 2, 3]
 
 print((1, 2, 3) * 3)
@@ -44,24 +47,32 @@ print((1, 2, 3) * 3)
 <a href="http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operations" target="_blank" class="external-link">http://docs.python.jp/2/reference/expressions.html#binary-arithmetic-operations</a></p>
 
 <h2 id="ruby">Ruby / JRuby
-<span class="article-date">2014/12/31</span></h2>
+<span class="article-date">2016/05/26</span></h2>
 
 <p><code>*</code>演算子を使う。</p>
 
-<pre><code>p [1, 2, 3] * 3
+<pre><code>p ["a", "bb", "ccc"] * 3
+# =&gt; ["a", "bb", "ccc", "a", "bb", "ccc", "a", "bb", "ccc"]
+
+p [1, 2, 3] * 3
 # =&gt; [1, 2, 3, 1, 2, 3, 1, 2, 3]
 </code></pre>
 
-<p>要素がコピーされるわけではないので、可変オブジェクトを繰り返す際には注意が必要。</p>
+<p>要素がコピーされるわけではないので、可変オブジェクトを繰り返す際には注意が必要。要素のオブジェクトを変更すると繰り返したところにも伝搬する。</p>
 
-<p><code>*</code>演算子は文字列に対しても使える。<br />
+<pre><code>arr = ["a", "bb", "ccc"] * 3
+arr[0][0] = 'A'
+p arr
+# =&gt; ["A", "bb", "ccc", "A", "bb", "ccc", "A", "bb", "ccc"]
+</code></pre>
+
+<p><code>*</code>演算子は文字列の繰り返に対しても使える。<br />
 -&gt; <a href="../string/multiply.html#ruby">文字列の繰り返し</a></p>
 
 <h2 id="perl">Perl
-<span class="article-date">2015/01/22</span></h2>
+<span class="article-date">2016/05/26</span></h2>
 
-<p><code>x</code> を乗算の演算子のようにして使う。
-<code>x</code> は<a href="../string/multiply.html#perl">文字列に対しても使える</a>。</p>
+<p><code>x</code> (アルファベットのエックス)を乗算の演算子のようにして使う。</p>
 
 <pre><code>my @arr1 = (1, 2, 3);
 my @arr2 = (@arr1) x 3;
@@ -79,6 +90,9 @@ print Dumper(\@arr2);
 #           3
 #     ];
 </code></pre>
+
+<p><code>x</code>演算子は文字列の繰り返しに対しても使える。<br />
+-&gt; <a href="../string/multiply.html#perl">文字列に繰り返し</a>。</p>
 
 <p>乗法演算子 | perldoc.jp<br />
 <a href="http://perldoc.jp/docs/perl/5.20.1/perlop.pod#Multiplicative32Operators" target="_blank" class="external-link">http://perldoc.jp/docs/perl/5.20.1/perlop.pod#Multiplicative32Operators</a></p>
@@ -130,18 +144,15 @@ print Dumper(\@arr2);
           <li><a href="../../programming_languages_diff/list/set.html">set</a></li>
           <li><a href="../../programming_languages_diff/list/remove.html">delete_at / pop / remove / unset</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">delete / remove / <code>-</code></a></li>
-          <li><a href="../../programming_languages_diff/list/clone.html">配列(リスト)をコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/convert.html">asList / asScala / asJava / to_a / toArray</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列から連想配列を生成するには (toMap)</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
           <li><code>x</code> / <code>*</code></li>
           <li><a href="../../programming_languages_diff/list/slice-replace.html">array_splice / splice</a></li>
-          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
+          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">ベクトル演算</a></li>
         </ul>
       </li>
     </ul>
