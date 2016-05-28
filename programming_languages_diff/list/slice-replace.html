@@ -31,10 +31,10 @@
   <li><a href="sub-list.html">配列の一部を配列として取り出すには</a></li>
 </ul>
 
-<h2 id="36908de">PHP
-<span class="article-date">2013/11/08</span></h2>
+<h2 id="php">PHP
+<span class="article-date">2016/05/27</span></h2>
 
-<p><code>array_splice</code>関数を使う。</p>
+<p><code>array_splice</code>関数を使う。引数に渡した配列自体を書き換える。</p>
 
 <pre><code>$arr = array(10, 20, 30, 40, 50);
 var_export($arr); echo "\n";
@@ -64,7 +64,7 @@ var_export($arr); echo "\n";
 <p><code>array_splice</code> | PHP Manual<br />
 <a href="http://php.net/manual/ja/function.array-splice.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-splice.php</a></p>
 
-<h2 id="12c9d1c">Python
+<h2 id="python">Python
 <span class="article-date">2014/12/31</span></h2>
 
 <p><a href="sub-list.html#python">スライス</a>の書式を代入演算子の左辺に置くと、その部分リストを新しいリストに置き換えられる。</p>
@@ -80,28 +80,33 @@ print(lst)
 # =&gt; [10, 20, 1, 2, 3]
 </code></pre>
 
-<h2 id="7d03143">Ruby / JRuby
-<span class="article-date">2014/12/31</span></h2>
+<h2 id="ruby">Ruby / JRuby
+<span class="article-date">2016/05/27</span></h2>
 
 <p><code>Array#[]</code> を使った<a href="sub-list.html#ruby">スライス</a>を代入演算子の左辺に置くと、その部分リストを新しいリストに置き換えられる。</p>
 
-<pre><code>arr = [10, 20, 30, 40, 50]
-
+<pre><code>arr = [0, 10, 20, 30, 40, 50]
 arr[3..4] = [100, 200, 300]
 p arr
-# =&gt; [10, 20, 30, 100, 200, 300]
-</code></pre>
+# =&gt; [0, 10, 20, 100, 200, 300, 50]
 
-<p>Pythonと違って、<code>[]</code>の中の2つ目の数字のインデックス位置を<strong>含む</strong>ので、見た目同じでも結果が異なる。また、Pythonの <code>lst[2:]</code> みたいに後ろを省略する書き方ができない。</p>
-
-<p><code>[]</code> の中を範囲指定ではなくfromとlengthを指定しうる方法でもできる。</p>
-
-<pre><code>arr = [10, 20, 30, 40, 50]
-
-arr[3, 1] = [100, 200, 300]
+arr = [0, 10, 20, 30, 40, 50]
+arr[3...4] = [100, 200, 300]
 p arr
-# =&gt; [10, 20, 30, 100, 200, 300, 50]
+# =&gt; [0, 10, 20, 100, 200, 300, 40, 50]
+
+arr = [0, 10, 20, 30, 40, 50]
+arr[3,2] = [100, 200, 300]
+p arr
+# =&gt; [0, 10, 20, 100, 200, 300, 50]
 </code></pre>
+
+<p><code>[s..e]</code>の表記の場合は2つ目の数字のインデックス位置を<strong>含む</strong>。<br />
+<code>[s...e]</code>の表記の場合は2つ目の数字のインデックス位置を<strong>含まない</strong>。</p>
+
+<p>Pythonの <code>lst[2:]</code> みたいに後ろを省略する書き方ができない。</p>
+
+<p><code>[s,l]</code> の表記の場合はfromとlengthの指定になる。</p>
 
 </div>
 
@@ -150,18 +155,15 @@ p arr
           <li><a href="../../programming_languages_diff/list/set.html">set</a></li>
           <li><a href="../../programming_languages_diff/list/remove.html">delete_at / pop / remove / unset</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">delete / remove / <code>-</code></a></li>
-          <li><a href="../../programming_languages_diff/list/clone.html">配列(リスト)をコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/convert.html">asList / asScala / asJava / to_a / toArray</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列から連想配列を生成するには (toMap)</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
           <li><a href="../../programming_languages_diff/list/multiply.html"><code>x</code> / <code>*</code></a></li>
           <li>array_splice / splice</li>
-          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
+          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">ベクトル演算</a></li>
         </ul>
       </li>
     </ul>
