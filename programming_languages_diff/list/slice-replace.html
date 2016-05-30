@@ -21,9 +21,24 @@
 
 <div id="content">
   <h1 id="slice-replace">配列(リスト)の一部を別の配列で置き換えるには (array_splice / splice)
-<span class="article-date">2015/03/31</span></h1>
+<span class="article-date">2016/05/30</span></h1>
 
-<p>各プログラミング言語での、配列(リスト)の一部を別の配列で置き換える方法。</p>
+<p>配列(リスト)の一部を別の配列で置き換える方法。</p>
+
+<p><a href="#php">PHP</a></p>
+
+<pre><code>array_splice($arr, $off, $len, $newSubArray); // $arr 自体を変更
+</code></pre>
+
+<p><a href="#python">Python</a></p>
+
+<pre><code>lst[off:endOff] = newSubList
+</code></pre>
+
+<p><a href="#ruby">Ruby</a></p>
+
+<pre><code>arr[off...endOff] = newSubArray
+</code></pre>
 
 <p>関連</p>
 
