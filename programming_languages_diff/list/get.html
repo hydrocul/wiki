@@ -21,13 +21,48 @@
 
 <div id="content">
   <h1 id="get">配列(リスト)からインデックスで要素を参照するには (get)
-<span class="article-date">2014/12/28</span></h1>
+<span class="article-date">2016/05/30</span></h1>
 
 <p>配列の要素を参照する方法の、プログラミング言語ごとのメモ。</p>
 
 <p>多くの言語では先頭が0から始まるインデックスで要素を参照する。</p>
 
-<p><a href="#go">Go言語</a> <a href="#java">Java</a> <a href="#scala">Scala</a> <a href="#php">PHP</a> <a href="#python">Python</a> <a href="#ruby">Ruby</a> <a href="#perl">Perl</a></p>
+<p><a href="#go">Go言語</a></p>
+
+<pre><code>arr[index]
+</code></pre>
+
+<p><a href="#java">Java</a></p>
+
+<pre><code>arr[index]
+lst.get(index)
+</code></pre>
+
+<p><a href="#scala">Scala</a></p>
+
+<pre><code>arr(index)
+lst(index)
+</code></pre>
+
+<p><a href="#php">PHP</a></p>
+
+<pre><code>$arr[$index]
+</code></pre>
+
+<p><a href="#python">Python</a></p>
+
+<pre><code>lst[index]
+</code></pre>
+
+<p><a href="#ruby">Ruby</a></p>
+
+<pre><code>arr[index]
+</code></pre>
+
+<p><a href="#perl">Perl</a></p>
+
+<pre><code>$arr[$index]
+</code></pre>
 
 <h2 id="go">Go言語 (golang)</h2>
 
@@ -84,7 +119,7 @@
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#get-int-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/List.html#get-int-</a></p>
 
 <h2 id="scala">Scala
-<span class="article-date">2014/12/28</span></h2>
+<span class="article-date">2016/05/30</span></h2>
 
 <p><code>Array</code> でも <code>List</code> などの <code>Seq</code> でも同じで、関数呼び出しのように 
 <code>()</code> でアクセスする。
@@ -103,8 +138,14 @@ lst(index)
 lst.apply(index)
 </code></pre>
 
+<p>Signature:</p>
+
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Seq@apply(idx:Int):A" target="_blank" class="external-link"><code>def Seq[A]#apply: A</code></a></li>
+</ul>
+
 <h2 id="php">PHP
-<span class="article-date">2015/01/10</span></h2>
+<span class="article-date">2016/05/30</span></h2>
 
 <p>配列の要素は <code>[]</code> でアクセスする。</p>
 
@@ -115,12 +156,13 @@ lst.apply(index)
 
 <p>-&gt; <a href="index-out-of-bounds-exception.html#php">範囲外のインデックスにアクセスしたときにどうなるか?</a></p>
 
-<p>PHP 5.4までは配列のリテラルに直接 <code>[]</code> でアクセスすることができない。</p>
+<p>PHP 5.4まで(5.4を含む)は配列のリテラルに直接 <code>[]</code> でアクセスすることができない。</p>
 
 <pre><code>echo [10, 20, 30][1];
 </code></pre>
 
-<p>このコードをPHP 5.4以前で実行すると <code>PHP Parse error:  syntax error, unexpected '['</code> というエラーになる。</p>
+<p>このコードをPHP 5.4以前で実行すると <code>PHP Parse error:  syntax error, unexpected '['</code> というエラーになる。
+5.5からはこれで <code>20</code> が出力される。</p>
 
 <h2 id="python">Python
 <span class="article-date">2015/07/04</span></h2>
@@ -282,8 +324,6 @@ print $a-&gt;[2][0];
           <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
