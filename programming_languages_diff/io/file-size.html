@@ -66,14 +66,29 @@ print os.path.getsize(path)
 
 <p><code>-s</code> という演算子を利用する。</p>
 
-<pre><code>print -s './hoge.txt'; # =&gt; 整数が出力される
+<pre><code>print -s './foo.txt'; # =&gt; 整数が出力される
 </code></pre>
 
 <p>ファイルサイズが0より大きいかどうかで分岐するには</p>
 
-<pre><code>if ( -s './hoge.txt' ) {
+<pre><code>if ( -s './foo.txt' ) {
     # ファイルサイズが0より大きい場合の処理
 }
+</code></pre>
+
+<h2 id="d6cffb1">sh (シェルスクリプト)
+<span class="article-date">2016/06/02</span></h2>
+
+<p><a href="../../commands/wc.html"><code>wc</code>コマンド</a>でファイルサイズがわかる。</p>
+
+<pre><code>$ wc -c foo.txt
+9213 foo.txt
+</code></pre>
+
+<p><a href="../../commands/awk.html"><code>awk</code>コマンド</a>と組み合わせればファイルサイズだけを取得できる。</p>
+
+<pre><code>$ wc -c foo.txt | awk '{print $1}'
+9213
 </code></pre>
 
 </div>
@@ -94,6 +109,7 @@ print os.path.getsize(path)
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
           <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
           <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
+          <li>ファイルサイズを取得するには</li>
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには (ls)</a></li>
           <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには (mkdir)</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイル・ディレクトリを削除するには (<code>rm</code> / <code>unlink</code> / <code>rmdir</code>)</a></li>
@@ -102,7 +118,6 @@ print os.path.getsize(path)
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
-          <li>ファイルサイズを取得するには</li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
