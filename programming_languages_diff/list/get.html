@@ -21,48 +21,48 @@
 
 <div id="content">
   <h1 id="get">配列(リスト)からインデックスで要素を参照するには (get)
-<span class="article-date">2016/05/30</span></h1>
+<span class="article-date">2016/06/04</span></h1>
 
 <p>配列の要素を参照する方法の、プログラミング言語ごとのメモ。</p>
 
 <p>多くの言語では先頭が0から始まるインデックスで要素を参照する。</p>
 
-<p><a href="#go">Go言語</a></p>
-
-<pre><code>arr[index]
-</code></pre>
-
-<p><a href="#java">Java</a></p>
-
-<pre><code>arr[index]
-lst.get(index)
-</code></pre>
-
-<p><a href="#scala">Scala</a></p>
-
-<pre><code>arr(index)
-lst(index)
-</code></pre>
-
-<p><a href="#php">PHP</a></p>
-
-<pre><code>$arr[$index]
-</code></pre>
-
-<p><a href="#python">Python</a></p>
-
-<pre><code>lst[index]
-</code></pre>
-
-<p><a href="#ruby">Ruby</a></p>
-
-<pre><code>arr[index]
-</code></pre>
-
-<p><a href="#perl">Perl</a></p>
-
-<pre><code>$arr[$index]
-</code></pre>
+<table>
+  <tbody>
+    <tr>
+      <td><a href="#go">Go言語</a></td>
+      <td><code>arr[index]</code></td>
+    </tr>
+    <tr>
+      <td><a href="#java-arr">Javaの配列</a></td>
+      <td><code>arr[index]</code></td>
+    </tr>
+    <tr>
+      <td><a href="#java-list">Javaの<code>List</code></a></td>
+      <td><code>lst.get(index)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#scala">Scala</a></td>
+      <td><code>lst(index)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#php">PHP</a></td>
+      <td><code>$arr[$index]</code></td>
+    </tr>
+    <tr>
+      <td><a href="#python">Python</a></td>
+      <td><code>lst[index]</code></td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a></td>
+      <td><code>arr[index]</code></td>
+    </tr>
+    <tr>
+      <td><a href="#perl">Perl</a></td>
+      <td><code>$arr[$index]</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="go">Go言語 (golang)</h2>
 
@@ -92,7 +92,7 @@ lst(index)
 
 <h2 id="java">Java</h2>
 
-<h3 id="966a219">配列
+<h3 id="java-arr">配列
 <span class="article-date">2014/05/16</span></h3>
 
 <p>配列の要素は <code>[]</code> でアクセスする。</p>
@@ -102,7 +102,7 @@ lst(index)
 <pre><code>arr[index]
 </code></pre>
 
-<h3 id="e573461"><code>java.util.List</code>
+<h3 id="jara-list"><code>java.util.List</code>
 <span class="article-date">2015/04/25</span></h3>
 
 <p><code>java.util.List</code> は <code>get</code> というメソッドで要素にアクセスする。</p>
