@@ -38,12 +38,19 @@
 <p><code>tee</code>という名前はTの字のように出力を分岐する動作から。</p>
 
 <h2 id="b09054b">オプション
-<span class="article-date">2013/08/21</span></h2>
+<span class="article-date">2016/06/05</span></h2>
 
 <dl>
   <dt><code>-a</code></dt>
   <dd>書き出し先ファイルがすでに存在すれば、追記モードで書き出す。</dd>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプ表示</dd>
+  <dt><code>--version</code></dt>
+  <dd>バージョン表示</dd>
 </dl>
+
+<p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
+<code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
 </div>
 
