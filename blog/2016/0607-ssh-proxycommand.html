@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>sshで踏み台サーバを通して接続するProxyCommandの設定 | hydroculのメモ</title>
+<meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
+<link rel="stylesheet" href="../../common/css/page.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="../../common/js/page.js"></script>
+</head>
+<body class="res">
+
+<div id="breadcrumb">
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2016/">2016年</a> &gt; <span>sshで踏み台サーバを通して接続するProxyCommandの設定</span>
+</div>
+
+<div id="content">
+  <h1 id="0607-ssh-proxycommand">sshで踏み台サーバを通して接続するProxyCommandの設定
+<span class="article-date">2016/06/07</span></h1>
+
+<p><code>gateway</code> というホストを踏み台サーバとして、<code>appserver</code> というホストにsshコマンド一発で多段接続したい場合の設定例。</p>
+
+<pre><code>Host gateway
+    IdentityFile ~/.ssh/id_rsa_for_gateway
+
+Host appserver
+    # ProxyCommand はこの4行のうちのどれか
+    #ProxyCommand nohup ssh gateway nc %h %p
+    #ProxyCommand nohup ssh gateway -W %h:%p
+    #ProxyCommand ssh    -W %h:%p gateway
+    #ProxyCommand ssh -q -W %h:%p gateway
+    IdentityFile ~/.ssh/id_rsa_for_appserver
+</code></pre>
+
+<p>sshコマンドを叩くローカルの <code>~/.ssh/config</code> に上記のように書く。</p>
+
+<p>この記述例の中に <code>ProxyCommand</code> が4つあり、このうちのどれかを書くとどうやら多段接続できるようだが、どれが一番正しいのかはよくわからない。</p>
+
+<p><code>nohup</code> つけると接続開始時に <code>redirecting stderr to stdout</code> と表示されてしまう環境と表示されない環境があった。</p>
+
+<p><code>2&gt;/dev/null</code> をつけると表示されなくなるのだが、いずれにしても
+<code>ssh appserver hogehogecommand</code> みたいにリモートでコマンドを実行したときのエラー出力が標準出力に混ざってしまい、シェルスクリプトだとかで標準出力と標準エラー出力を区別して処理したい場合に支障が出る。</p>
+
+<p><code>nohup</code> をつけずに <code>-q</code> もつけないと、切断時に <code>Killed by signal 1.</code> と表示されてしまう環境と表示されない環境があった。</p>
+
+<p>これもやはり <code>2&gt;/dev/null</code> をつけるというアドバイスをネット上で見つけるが、これだとリモートでコマンドを実行したときのエラー出力も表示されなくなってしまう。</p>
+
+<p><code>nohup</code> つけずに <code>-q</code> をつけないパターンが、余計な警告メッセージが出ず、リモートで実行するコマンドの標準出力と標準エラー出力もちゃんとそのまま出力してくれるので、よさそうではある。</p>
+
+<p>が、正しい方法はよくわからない。</p>
+
+</div>
+
+<div id="side-menu">
+  <div id="side-menu-attention">
+    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+  </div>
+  <div id="side-menu-ls">
+    <ul>
+  <li><a href="../../blog/">ブログ</a>
+    <ul>
+      <li><a href="../../blog/2016/">2016年</a>
+        <ul>
+          <li><a href="../../blog/2016/0201-php7-on-centos.html">CentOS 7.2にPHP 7.0をインストールしてみた</a></li>
+          <li><a href="../../blog/2016/0204-brain-cafe.html">理研の脳科学総合研究センターのサイエンスカフェの内容</a></li>
+          <li><a href="../../blog/2016/0220-glibc-filename.html">glibcのインストールされているディレクトリとファイル名</a></li>
+          <li>sshで踏み台サーバを通して接続するProxyCommandの設定</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<footer>
+  <a href="../../">HOME</a>
+  <a href="../../policy.html">Privacy Policy</a>
+  Copyright &copy; 2012- @hydrocul All Rights Reserved.
+</footer>
+
+</body>
+</html>

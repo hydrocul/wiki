@@ -25,6 +25,20 @@
 
 <p>各プログラミング言語での、連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得する方法。</p>
 
+<h2 id="9f54611">Scala
+<span class="article-date">2016/06/07</span></h2>
+
+<p><code>toSeq</code> というメソッドでタプルを要素とする <code>Seq</code> を得られる。</p>
+
+<pre><code>val map = Map("a" -&gt; 10, "b" -&gt; 20, "c" -&gt; 30);
+println(map);
+# =&gt; Map(a -&gt; 10, b -&gt; 20, c -&gt; 30)
+
+val entries: Seq[(String, Int)] = map.toSeq;
+println(entries);
+# =&gt; ArrayBuffer((a,10), (b,20), (c,30))
+</code></pre>
+
 <h2 id="a0057e4">Python
 <span class="article-date">2014/03/17</span></h2>
 
@@ -75,7 +89,6 @@ p hash.to_a
           <li><a href="../../programming_languages_diff/map/put.html">要素の値を設定するには (put / <code>+</code>)</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ処理するには (each_key / each_pair / each_value / for / foreach)</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset)</a></li>
-          <li><a href="../../programming_languages_diff/map/convert.html">データ型を相互に変換するには (asScala / asJava)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">コピーするには (clone / copy / dup)</a></li>
           <li>キーと値のペアを集合または配列で取得するには (items / to_a)</li>
           <li><a href="../../programming_languages_diff/map/filter.html">特定の条件にマッチする要素のみを取り出すには (delete_if / filter / partition / select)</a></li>
