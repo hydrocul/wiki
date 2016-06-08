@@ -25,18 +25,19 @@
 
 <p>各プログラミング言語での、連想配列(マップ)から要素をキーで指定して削除する方法。</p>
 
-<h2 id="69ae27f">Scala
-<span class="article-date">2013/07/30</span></h2>
+<h2 id="scala">Scala
+<span class="article-date">2016/06/08</span></h2>
+
+<p><code>-</code> という演算子のように書けるメソッドを使う。</p>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Map[A, B]
-def -(key: A): Map[A, B]
+<pre><code>def scala.collection.Map[A, B]#-(key: A): Map[A, B]
 </code></pre>
 
 <p>削除した結果のマップを返し、自身は変更しない。</p>
 
-<h2 id="6106e9b">PHP
+<h2 id="php">PHP
 <span class="article-date">2013/12/20</span></h2>
 
 <pre><code>unset($arr[$key]);
@@ -142,7 +143,6 @@ print Dumper $data;
           <li><a href="../../programming_languages_diff/map/put.html">要素の値を設定するには (put / <code>+</code>)</a></li>
           <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ処理するには (each_key / each_pair / each_value / for / foreach)</a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset)</a></li>
-          <li><a href="../../programming_languages_diff/map/convert.html">データ型を相互に変換するには (asScala / asJava)</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">コピーするには (clone / copy / dup)</a></li>
           <li><a href="../../programming_languages_diff/map/entries.html">キーと値のペアを集合または配列で取得するには (items / to_a)</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">特定の条件にマッチする要素のみを取り出すには (delete_if / filter / partition / select)</a></li>
