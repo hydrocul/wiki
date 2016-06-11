@@ -21,22 +21,24 @@
 
 <div id="content">
   <h1 id="cut">cut コマンド
-<span class="article-date">2015/10/13</span></h1>
+<span class="article-date">2016/06/11</span></h1>
 
-<p>タブ区切りでフィールドを選択して出力する、または文字単位・バイト単位で1行の中の場所を選択して出力するコマンド。</p>
+<p>タブ区切りでフィールドを選択して出力する、または各行の中の一部を範囲指定して出力するコマンド。</p>
 
 <p>cutコマンドの使用例と、同じことをするPerlワンライナーの例</p>
 
 <pre><code>## タブ区切りで最初の列と3列目だけを抽出して、タブ区切りで出力する
+$ cut -f1,3 foo.txt
 $ cat foo.txt | cut -f1,3
 $ cat foo.txt | perl -anle 'print "$F[0]\t$F[2]"'
 
 ## 以下のようにしても列の順番は入れ替えてくれない
-$ cat foo.txt | cut -f3,1
+$ cut -f3,1 foo.txt
 ## Perlならできる
 $ cat foo.txt | perl -anle 'print "$F[2]\t$F[0]"'
 
 ## 各行の4文字目以降を出力する
+$ cut -b4- foo.txt
 $ cat foo.txt | cut -b4-
 $ cat foo.txt | perl -MEncode -nle 'print encode_utf8(substr(decode_utf8($_), 3))'
 </code></pre>
@@ -49,22 +51,23 @@ $ cat foo.txt | perl -MEncode -nle 'print encode_utf8(substr(decode_utf8($_), 3)
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
 <h2 id="b13ce3d">オプション
-<span class="article-date">2016/05/11</span></h2>
+<span class="article-date">2016/06/11</span></h2>
 
 <dl>
+  <dt><code>-b</code></dt>
+  <dd>フィールド単位ではなくバイト単位で抽出する範囲を指定する</dd>
+  <dt><code>-c</code></dt>
+  <dd>フィールド単位ではなく文字単位で抽出する範囲を指定する。
+いまの実装では <code>-b</code> と同じ。</dd>
+  <dt><code>--complement</code></dt>
+  <dd>抽出するフィールドは、<code>-f</code>で指定する番号以外のフィールドとする。</dd>
+  <dt><code>-d</code></dt>
+  <dd>フィールドのデリミタを指定する</dd>
   <dt><code>-f</code></dt>
   <dd>抽出するフィールドの番号を指定する。1から始まる番号でハイフンでの範囲指定や
 コンマ区切りで複数指定できる。
 残念なことに <code>-f3,1</code> とやっても <code>-f1,3</code> と同じになり、フィールドの並び替えは
 できない。</dd>
-  <dt><code>--complement</code></dt>
-  <dd>抽出するフィールドは、<code>-f</code>で指定する番号以外のフィールドとする。</dd>
-  <dt><code>-d</code></dt>
-  <dd>フィールドのデリミタを指定する</dd>
-  <dt><code>-b</code></dt>
-  <dd>フィールド単位ではなくバイト単位で抽出する範囲を指定する</dd>
-  <dt><code>-c</code></dt>
-  <dd>フィールド単位ではなく文字単位で抽出する範囲を指定する</dd>
   <dt><code>--help</code></dt>
   <dd>ヘルプ表示</dd>
   <dt><code>--version</code></dt>
@@ -73,6 +76,14 @@ $ cat foo.txt | perl -MEncode -nle 'print encode_utf8(substr(decode_utf8($_), 3)
 
 <p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
 <code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
+
+<h3 id="b6c6280"><code>-c</code> オプションについて
+<span class="article-date">2016/06/11</span></h3>
+
+<p><code>-c</code> は文字単位で単位指定するオプションで、<code>-b</code> とはマルチバイトの文字があったときに挙動が変わるはずだが、
+cutのソースコードを見るといまは <code>-b</code> と <code>-c</code> の実装はまったく同じのようである。</p>
+
+<p>マニュアルを見ても確かに、いまは同じだが国際化対応をしたら挙動が変わる、というようなことが書いてある。</p>
 
 <h2 id="828e0c5">HOWTO</h2>
 
@@ -135,7 +146,7 @@ Michelle
 </code></pre>
 
 <h3 id="9dcc6ab">タブをコマンドラインから指定するには
-<span class="article-date">2013/06/17</span></h3>
+<span class="article-date">2016/06/11</span></h3>
 
 <p><code>cut</code> は <code>-f</code> でフィールドを指定した場合、デフォルトでタブ区切りだが、コマンドラインからどうしてもタブ区切りであることを指定したい場合は、以下のように書けなくもない。</p>
 
@@ -144,6 +155,8 @@ cut -d$'\t' -f1
 </code></pre>
 
 <p><code>sort</code> でも似たような書き方でできる。</p>
+
+<p>zshでは <code>$</code> がいらないみたい。</p>
 
 <h3 id="d33155b">シェルスクリプトの変数に入っている文字列の一部を切り出すには
 <span class="article-date">2016/05/11</span></h3>
