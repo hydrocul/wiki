@@ -77,11 +77,13 @@ $ cat foo.txt | perl -MEncode -nle 'print encode_utf8(substr(decode_utf8($_), 3)
 <p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
 <code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
-<h3 id="b6c6280"><code>-c</code> オプションについて
+<h3 id="55c2ac2"><code>-c</code> オプションは <code>-b</code> と同じ
 <span class="article-date">2016/06/11</span></h3>
 
 <p><code>-c</code> は文字単位で単位指定するオプションで、<code>-b</code> とはマルチバイトの文字があったときに挙動が変わるはずだが、
 cutのソースコードを見るといまは <code>-b</code> と <code>-c</code> の実装はまったく同じのようである。</p>
+
+<p><a href="https://github.com/coreutils/coreutils/blob/a3311c966e34f2d9f8aa6b1de31b211124803d02/src/cut.c#L507" target="_blank" class="external-link">https://github.com/coreutils/coreutils/blob/a3311c966e34f2d9f8aa6b1de31b211124803d02/src/cut.c#L507</a></p>
 
 <p>マニュアルを見ても確かに、いまは同じだが国際化対応をしたら挙動が変わる、というようなことが書いてある。</p>
 
