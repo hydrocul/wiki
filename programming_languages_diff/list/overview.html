@@ -509,10 +509,11 @@ print Dumper($arr3);
 <p>ちなみにリストのレファレンスを取ろうとして、<code>[$a, $b, $c]</code> の代わりに <code>\($a, $b, $c)</code> と書いてしまうと、これは実は <code>(\$a, \$b, \$c)</code> と同じ意味になってしまう。</p>
 
 <h2 id="javascript">JavaScript
-<span class="article-date">2013/10/25</span></h2>
+<span class="article-date">2016/06/12</span></h2>
 
-<p>オブジェクトのキーに整数を使って要素を定義し、
-<code>prototype</code> に <code>Array.prototype</code> が指定されたものが配列のように振舞う。</p>
+<p>JavaScriptの配列は、キーとして数値を使ったオブジェクトにすぎない。</p>
+
+<p><code>prototype</code> に <code>Array.prototype</code> が指定され、配列のように振舞う。</p>
 
 <p>下の3つは全部同じ配列を生成する。</p>
 
@@ -522,7 +523,7 @@ var arr = {'0': 1, '1': 2, '2': 3}; arr.__proto__ = Array.prototype;
 </code></pre>
 
 <p>最後に余計なカンマがあっても本当は問題ないのだが、
-IEだとエラーになってしまってだめなので、最後のカンマは付けないほうがよい。最近のIEのバージョンだとどうなのかは知らない。</p>
+IEだとエラーになってしまってだめなので、最後のカンマは付けないほうがよい。最近のIEのバージョンだとどうなのかは知らない。(2013/10/25)</p>
 
 <p>JavaScript の配列と連想配列の違い<br />
 <a href="http://d.hatena.ne.jp/amachang/20070202/1170386546" target="_blank" class="external-link">http://d.hatena.ne.jp/amachang/20070202/1170386546</a></p>
@@ -599,8 +600,6 @@ arr = [
           <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
