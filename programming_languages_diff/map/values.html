@@ -16,7 +16,7 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)の各エントリの値を集合(セット)または配列(リスト)で取得するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a> &gt; <span>連想配列(マップ)の各エントリの値を集合(セット)または配列(リスト)で取得するには</span>
 </div>
 
 <div id="content">
@@ -32,13 +32,14 @@
 </ul>
 
 <h2 id="b0ee86c">Scala
-<span class="article-date">2014/12/21</span></h2>
+<span class="article-date">2016/06/14</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Map[A, B]
-def values: Iterable[B]
-</code></pre>
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Map@values:Iterable[B]" target="_blank" class="external-link"><code>def Map[A, B]#values: Iterable[B]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Map@values:Iterable[B]" target="_blank" class="external-link"><code>def Map[A, B]#valuesIterator: Iterator[B]</code></a></li>
+</ul>
 
 <p>例</p>
 
@@ -95,22 +96,22 @@ p hash.values
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
+      <li><a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">要素数を取得するには (count / len / length / size / sizeof)</a></li>
-          <li><a href="../../programming_languages_diff/map/get.html">要素の値を参照するには (get / getOrElse / fetch)</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">size / count / sizeof / len / length (要素数)</a></li>
+          <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty / empty?</a></li>
+          <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch / <code>[]</code> (参照)</a></li>
           <li><a href="../../programming_languages_diff/map/put.html">要素の値を設定するには (put / <code>+</code>)</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ処理するには (each_key / each_pair / each_value / for / foreach)</a></li>
-          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset)</a></li>
-          <li><a href="../../programming_languages_diff/map/clone.html">コピーするには (clone / copy / dup)</a></li>
-          <li><a href="../../programming_languages_diff/map/entries.html">キーと値のペアを集合または配列で取得するには (items / to_a)</a></li>
-          <li><a href="../../programming_languages_diff/map/filter.html">特定の条件にマッチする要素のみを取り出すには (delete_if / filter / partition / select)</a></li>
-          <li><a href="../../programming_languages_diff/map/is-empty.html">空かどうかを判定するには (empty / isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">キーを集合または配列で取得するには (keys / keySet)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">putAll / ++ / array_merge / update / merge / merge!</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">特定の条件にマッチする要素のみを取り出すには (delete_if / filter / partition / select)</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">- / unset / del / delete</a></li>
+          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset)</a></li>
+          <li><a href="../../programming_languages_diff/map/entries.html">キーと値のペアを集合または配列で取得するには (items / to_a)</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">キーを集合または配列で取得するには (keys / keySet)</a></li>
           <li>values</li>
+          <li><a href="../../programming_languages_diff/map/clone.html">コピーするには (clone / copy / dup)</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ処理するには (each_key / each_pair / each_value / for / foreach)</a></li>
         </ul>
       </li>
     </ul>
