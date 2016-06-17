@@ -26,9 +26,9 @@
 <p>あるインスタンスが特定のクラスのインスタンスかどうかを判定する方法。</p>
 
 <h2 id="2eb72d8">Java
-<span class="article-date">2015/10/09</span></h2>
+<span class="article-date">2016/06/17</span></h2>
 
-<p><code>instanceof</code> という演算子を使う。</p>
+<p><code>instanceof</code> という演算子を使う。(長いけどメソッドとかではなくて演算子だ)</p>
 
 <pre><code>Object obj = ...;
 if (obj instanceof Integer) {
@@ -168,11 +168,31 @@ print (ref $ref_func); # =&gt; CODE
 </code></pre>
 
 <h2 id="aa198ce">JavaScript
-<span class="article-date">2013/04/10</span></h2>
+<span class="article-date">2016/06/17</span></h2>
 
-<p>配列かどうかを判定するには</p>
+<p>プリミティブ型を判定するには <code>typeof</code> という演算子を使う。結果を文字列で得られる。</p>
 
-<pre><code> a instanceof Array
+<pre><code>var i = 100;
+var f = 3.14;
+var b = true;
+var s = "foo";
+var a = [10, 20, 30];
+
+console.log(typeof i);         // =&gt; number
+console.log(typeof f);         // =&gt; number
+console.log(typeof b);         // =&gt; boolean
+console.log(typeof s);         // =&gt; string
+console.log(typeof a);         // =&gt; object
+console.log(typeof null);      // =&gt; object
+console.log(typeof undefined); // =&gt; undefined
+</code></pre>
+
+<p>オブジェクトのクラスを判定するには <code>instanceof</code> という演算子を使う。</p>
+
+<pre><code>console.log(s         instanceof Array); // =&gt; false
+console.log(a         instanceof Array); // =&gt; true
+console.log(null      instanceof Array); // =&gt; false
+console.log(undefined instanceof Array); // =&gt; false
 </code></pre>
 
 </div>

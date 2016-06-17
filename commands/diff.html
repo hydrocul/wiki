@@ -92,7 +92,7 @@
 
 <p>以下のようにすることで、2つのコマンドの出力をファイルに落とすことなく直接 diff にかけることができる。</p>
 
-<pre><code>$ diff &lt;(cat foo.txt) &lt;(cat bar.txt)
+<pre><code>$ diff &lt;(cmd1 foo.txt) &lt;(cmd2 bar.txt)
 </code></pre>
 
 <p>でもこれは、<code>diff</code> にとっては標準入力が2つ存在するわけではない。シェルががんばっていて、2つのコマンドの結果をファイルに保存しているのかパイプなのかわからないが、とにかくファイルシステム上にマッピングしていて、
@@ -102,7 +102,7 @@
 
 <p>その証拠に、<code>diff</code>の代わりに引数の内容をそのまま表示してくれる<code>echo</code>で</p>
 
-<pre><code>$ echo &lt;(cat foo.txt) &lt;(cat bar.txt)
+<pre><code>$ echo &lt;(cmd1 foo.txt) &lt;(cmd2 bar.txt)
 </code></pre>
 
 <p>とすると、<code>/proc/self/fd/11 /proc/self/fd/12</code> のように出力される。
@@ -140,7 +140,7 @@ fi
 <p>ちなみに <code>if</code> の中に <code>&gt;/dev/null</code> を付けないと、条件判定するたびにいちいち <code>diff</code> が標準出力にメッセージを出力してしまう。</p>
 
 <h3 id="83c4f55">差分表示をカラーで見やすく表示するには
-<span class="article-date">2015/07/03</span></h3>
+<span class="article-date">2016/06/17</span></h3>
 
 <p><code>colordiff</code> というツールをインストールして使うとカラフルに表示させられるらしい。</p>
 
@@ -163,6 +163,22 @@ $ git diff --no-index fileA.txt fileB.txt
 </code></pre>
 
 <p>git管理下でないディレクトリでは、<code>--no-index</code> を付けなくてもよい。</p>
+
+<p>ただし、コマンド出力を比較したい場合は、<code>git diff --no-index</code> ではうまくいかない。以下のように表示されてしまう。</p>
+
+<pre><code>$ git diff --no-index &lt;(cmd1 foo.txt) &lt;(cmd2 bar.txt)
+diff --git a/proc/self/fd/11 b/proc/self/fd/12
+index 77ce113..e368dd3 120000
+--- a/proc/self/fd/11
++++ b/proc/self/fd/12
+@@ -1 +1 @@
+-pipe:[19021782]
+\ No newline at end of file
++pipe:[19021783]
+\ No newline at end of file
+</code></pre>
+
+<p><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=692857" target="_blank" class="external-link">#692857 - git diff –no-index: needs option to compare symlink targets instead of links (for example when comparing &lt;() substitutions) - Debian Bug report logs</a></p>
 
 </div>
 
