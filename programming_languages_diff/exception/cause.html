@@ -20,20 +20,23 @@
 </div>
 
 <div id="content">
-  <h1 id="cause">例外の原因</h1>
+  <h1 id="cause">例外の原因
+<span class="article-date">2016/06/19</span></h1>
+
+<p>例外オブジェクトにその例外の原因となった別の例外オブジェクトを設定できる機能。</p>
 
 <h2 id="ee0d33c">Java
-<span class="article-date">2013/11/21</span></h2>
+<span class="article-date">2016/06/19</span></h2>
 
 <p><code>Exception</code>などのクラスのコンストラクタには例外の原因となった例外を設定できるものが多い。コンストラクタになくても例外オブジェクトをいったん生成した後にメソッドで設定できる。</p>
 
 <p>Signature:</p>
 
-<pre><code>// java.lang.Throwable
-Throwable initCause(Throwable cause);
-</code></pre>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html#initCause-java.lang.Throwable-" target="_blank" class="external-link"><code>Throwable Throwable#initCause(Throwable cause)</code></a></li>
+</ul>
 
-<p>メソッドで設定できるのは、これが Java 1.4 で導入された後付の機能のためだと思われる。
+<p>メソッドで設定できるのは、これが Java 1.4 で導入された後付の機能だからだと思われる。
 Java 1.4 より前はコンストラクタで <code>cause</code> を設定することができないので、そのときに作られた例外クラスに対しても <code>cause</code> を設定できるようにこのメソッドがある。このメソッドの返り値は例外の例外(<code>cause</code>)ではなく例外自身(<code>this</code>)でメソッドチェーンのためのもの。</p>
 
 <h2 id="4975fba">PHP

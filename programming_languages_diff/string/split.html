@@ -21,46 +21,44 @@
 
 <div id="content">
   <h1 id="split">文字列を特定の文字やパターンで配列に分割するには (explode / split)
-<span class="article-date">2015/04/13</span></h1>
+<span class="article-date">2016/06/20</span></h1>
 
 <p>文字列を特定の区切り文字や正規表現で表すパターンで分割して配列を生成する方法の、プログラミング言語別メモ。</p>
 
-<p><a href="../../commands/split.html"><code>split</code></a>というコマンドもあるが、このコマンドはパターンではなく一定のサイズごとにファイルを分割する。</p>
+<p>コマンドでは<a href="../../commands/split.html"><code>split</code></a>というのもあるが、このコマンドはパターンではなく一定のサイズごとにファイルを分割する。</p>
 
-<p><a href="#go">Go言語</a></p>
-
-<pre><code>strings.Split(str, ",")
-</code></pre>
-
-<p><a href="#java">Java</a></p>
-
-<pre><code>str.split(",")
-</code></pre>
-
-<p><a href="#scala">Scala</a></p>
-
-<pre><code>str.split(",")
-</code></pre>
-
-<p><a href="#php">PHP</a></p>
-
-<pre><code>explode(",", $str)
-</code></pre>
-
-<p><a href="#python">Python</a></p>
-
-<pre><code>str.split(",")
-</code></pre>
-
-<p><a href="#ruby">Ruby</a></p>
-
-<pre><code>str.split(",")
-</code></pre>
-
-<p><a href="#perl">Perl</a></p>
-
-<pre><code>split(/,/, $str)
-</code></pre>
+<table>
+  <tbody>
+    <tr>
+      <td><a href="#go">Go言語</a></td>
+      <td><code>strings.Split(str, ",")</code></td>
+    </tr>
+    <tr>
+      <td><a href="#java">Java</a></td>
+      <td><code>str.split(",")</code></td>
+    </tr>
+    <tr>
+      <td><a href="#scala">Scala</a></td>
+      <td><code>str.split(",")</code></td>
+    </tr>
+    <tr>
+      <td><a href="#php">PHP</a></td>
+      <td><code>explode(",", $str)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#python">Python</a></td>
+      <td><code>str.split(",")</code></td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a></td>
+      <td><code>str.split(",")</code></td>
+    </tr>
+    <tr>
+      <td><a href="#perl">Perl</a></td>
+      <td><code>split(/,/, $str)</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <p>関連</p>
 
