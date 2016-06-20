@@ -96,9 +96,10 @@ arr = strings.Split(str, ",")
 
 <p>Signature:</p>
 
-<pre><code>String[] java.lang.String#split(String regex)
-String[] java.lang.String#split(String regex, int limit)
-</code></pre>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-" target="_blank" class="external-link method-signature"><code>String[] java.lang.String#split(String regex)</code></a></li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-int-" target="_blank" class="external-link method-signature"><code>String[] java.lang.String#split(String regex, int limit)</code></a></li>
+</ul>
 
 <p>空文字列をsplitすると空文字列1つだけの配列を返す。また、分割対象の文字列の最後に区切り文字が1つ以上あると、その部分は単に切り捨てられる。</p>
 
@@ -108,21 +109,17 @@ Java7以降では、正規表現で意味のある記号類以外の普通の1�
 <p>Java 7 時代の String#split() 事情<br />
 <a href="http://blog.k11i.biz/2013/05/java-7-stringsplit.html" target="_blank" class="external-link">http://blog.k11i.biz/2013/05/java-7-stringsplit.html</a></p>
 
-<p><code>java.lang.String#split</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-</a><br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-int-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-int-</a></p>
-
 <h2 id="scala">Scala
 <span class="article-date">2014/10/31</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>def scala.collection.immutable.StringLike#split(separator: Char): Array[String]
-def scala.collection.immutable.StringLike#split(separators: Array[Char]): Array[String]
-
-def java.lang.String#split(regex: String): Array[String]
-def java.lang.String#split(regex: String, limit: Int): Array[String]
-</code></pre>
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.StringLike@split(separator:Char):Array[String]" target="_blank" class="external-link method-signature"><code>def StringLike#split(separator: Char): Array[String]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.StringLike@split(separators:Array[Char]):Array[String]" target="_blank" class="external-link method-signature"><code>def StringLike#split(separators: Array[Char]): Array[String]</code></a></li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-" target="_blank" class="external-link method-signature"><code>def String#split(regex: String): Array[String]</code></a></li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-int-" target="_blank" class="external-link method-signature"><code>def String#split(regex: String, limit: Int): Array[String]</code></a></li>
+</ul>
 
 <p>いずれのメソッドも空文字列をsplitすると空文字列1つだけの配列を返す。また、分割対象の文字列の最後に区切り文字が1つ以上あると、その部分は単に切り捨てられる。</p>
 

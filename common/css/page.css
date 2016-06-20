@@ -181,6 +181,9 @@ footer {
   padding: 4px;
   font-size: 80%;
 }
+#content ul li a.method-signature {
+  font-size: 80%;
+}
 #content blockquote {
   margin: 20px 0 20px 60px;
   border-left: 2px #CCC solid;
