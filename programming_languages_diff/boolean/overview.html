@@ -23,9 +23,9 @@
   <h1 id="overview">論理値/真偽値のデータ型の各プログラミング言語別の概要</h1>
 
 <h2 id="c">C言語
-<span class="article-date">2014/12/07</span></h2>
+<span class="article-date">2016/06/21</span></h2>
 
-<p><code>true</code>, <code>false</code> というキーワードはなく、論理値の型もない。</p>
+<p>論理値の型はなく、<code>true</code>, <code>false</code> というキーワードもない。</p>
 
 <p>if文などの条件式には、
 <code>NULL</code>, <code>0</code>, <code>0.0</code>, <code>'\x00'</code> が入ると <code>false</code> の扱いになり、それ以外は <code>true</code> の扱いになる。</p>
@@ -36,7 +36,7 @@
 <p><code>bool</code>という型があり、<code>true</code>, <code>false</code>という<code>bool</code>型の値を表すキーワードがある。</p>
 
 <p>if文などの条件式には、<code>bool</code>型の<code>false</code>の他にC言語と同様に
-<code>NULL</code>, <code>0</code>, <code>0.0, </code>‘\x00’<code> が入ると</code>false<code>の扱いになり、それ以外は </code>true` の扱いになる。</p>
+<code>NULL</code>, <code>0</code>, <code>0.0</code>, <code>'\x00'</code> が入ると<code>false</code>の扱いになり、それ以外は <code>true</code> の扱いになる。</p>
 
 <h2 id="39bb19b">Go言語 (golang)
 <span class="article-date">2015/06/08</span></h2>
@@ -44,14 +44,12 @@
 <p><code>bool</code>という型があり、<code>true</code>, <code>false</code>という<code>bool</code>型の定数を表す事前宣言済み識別子がある。</p>
 
 <h2 id="java">Java
-<span class="article-date">2015/02/14</span></h2>
+<span class="article-date">2016/06/21</span></h2>
 
 <p><code>boolean</code>というプリミティブ型があり、<code>true</code>, <code>false</code> という<code>boolean</code>型の値を表すキーワードがある。このプリミティブ型に対応するクラスは <code>java.lang.Boolean</code> である。</p>
 
 <p><code>boolean</code>型と<code>java.lang.Boolean</code>型以外を
 <code>if</code>文などの条件式として入れるとコンパイルエラーになる。</p>
-
-<p><code>java.lang.Boolean</code>型はオートボクシングにより<code>boolean</code>型になるので、条件式に入れてもコンパイルエラーにはならない。</p>
 
 <h2 id="7f4d550">Scala
 <span class="article-date">2015/02/27</span></h2>
@@ -107,9 +105,9 @@ if (FALSE == '') {
 </code></pre>
 
 <h2 id="python">Python
-<span class="article-date">2014/12/13</span></h2>
+<span class="article-date">2016/06/21</span></h2>
 
-<p><code>True</code>, <code>False</code> という組み込みの定数があり、<code>bool</code> という型がある。</p>
+<p><code>bool</code> という型があり、<code>True</code>, <code>False</code> という組み込みの定数がある。</p>
 
 <p>if文の条件式など、論理値が必要な箇所に
 <code>False</code>, <code>None</code>, <code>[]</code>, <code>()</code>, <code>{}</code>, <code>""</code>, <code>0</code>, <code>0L</code>, <code>0.0</code>, <code>0j</code> があると 
@@ -145,7 +143,7 @@ print(isinstance(True, int))   # True
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2015/12/30</span></h2>
+<span class="article-date">2016/06/21</span></h2>
 
 <p><code>true</code>, <code>false</code> というキーワードがあり、それぞれ、<code>TrueClass</code>, <code>FalseClass</code> の唯一のインスタンスである。</p>
 
@@ -154,9 +152,7 @@ print(isinstance(True, int))   # True
 <code>0</code> も <code>''</code> も <code>[]</code> も <code>true</code>。</p>
 
 <p><code>TrueClass</code>, <code>FalseClass</code> の共通のスーパークラスとして
-<code>BooleanClass</code> みたいなのはない。</p>
-
-<p>その理由は以下の記事で解説されている。</p>
+<code>BooleanClass</code> みたいなのがあるわけではない。その理由は以下の記事で解説されている。</p>
 
 <p>RubyでBoolClassではなくTrueClass/FalseClassな理由を理解する | Qiita<br />
 <a href="http://qiita.com/yatemmma/items/3597a0e20556fb846d3f" target="_blank" class="external-link">http://qiita.com/yatemmma/items/3597a0e20556fb846d3f</a></p>
@@ -171,9 +167,9 @@ print(isinstance(True, int))   # True
 <p>逆にJavaのライブラリから文字列を受け取るときには <code>boolean</code> または <code>java.lang.Boolean</code> から暗黙のうちにRubyの論理値に変換してくれる。</p>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/02/06</span></h2>
+<span class="article-date">2016/06/21</span></h2>
 
-<p><code>true</code>, <code>false</code> というキーワードはなく、論理値の型もない。</p>
+<p>論理値の型はなく、<code>true</code>, <code>false</code> というキーワードもない。</p>
 
 <p>if文の条件式など、論理値が必要な箇所に
 <code>0</code>, <code>'0'</code>, <code>''</code>, <code>undef</code>, <code>()</code> が入ると <code>false</code> の扱いになり、それ以外は true の扱いになる。ただし、true を表す値としては <code>1</code> を使うことが多く、

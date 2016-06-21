@@ -79,7 +79,7 @@ def count(p: A =&gt; Boolean): Int
 <p>このメソッドで条件にマッチした要素の数を取得できる。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2015/03/24</span></h2>
+<span class="article-date">2016/06/21</span></h2>
 
 <p><code>array_filter</code>関数でできる。</p>
 
@@ -105,6 +105,11 @@ var_export($filtered);
 
 <p><code>array_filter</code> 関数 | PHP Manual<br />
 <a href="http://php.net/manual/ja/function.array-filter.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-filter.php</a></p>
+
+<p>ただし、<code>array_filter</code> は遅いので、普通に foreach で回しながら新しい配列を作ったほうが速い、という話もある。</p>
+
+<p>PHPで高速オシャレな配列操作を求めて | Qiita<br />
+<a href="http://qiita.com/Hiraku/items/190443b33ee7a2167ade" target="_blank" class="external-link">http://qiita.com/Hiraku/items/190443b33ee7a2167ade</a></p>
 
 <h2 id="python">Python
 <span class="article-date">2013/10/09</span></h2>
@@ -251,8 +256,6 @@ print "@newArr";
           <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
