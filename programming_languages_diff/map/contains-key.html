@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset) | hydroculのメモ</title>
+<title>containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists | 連想配列(マップ/ハッシュ/ディクショナリ) | プログラミング言語の比較 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,11 +16,11 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a> &gt; <span>containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists</span>
 </div>
 
 <div id="content">
-  <h1 id="contains-key">連想配列(マップ)に特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset)
+  <h1 id="contains-key">containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists
 <span class="article-date">2015/03/23</span></h1>
 
 <p>各プログラミング言語での、連想配列(マップ)に特定のキーが含まれているかどうかを判定する方法。</p>
@@ -36,9 +36,9 @@
 
 <p>Signature:</p>
 
-<pre><code>// java.util.Map&lt;K, V&gt;
-boolean containsKey(Object key)
-</code></pre>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html#containsKey-java.lang.Object-" target="_blank" class="external-link method-signature"><code>boolean Map&lt;K, V&gt;#containsKey(Object key)</code></a></li>
+</ul>
 
 <h2 id="854c97e">Scala
 <span class="article-date">2014/12/20</span></h2>
@@ -175,23 +175,22 @@ console.log('c' in map);
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
+      <li><a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">要素数を取得するには (count / len / length / size / sizeof)</a></li>
-          <li><a href="../../programming_languages_diff/map/get.html">要素の値を参照するには (get / getOrElse / fetch)</a></li>
-          <li><a href="../../programming_languages_diff/map/put.html">要素の値を設定するには (put / <code>+</code>)</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ処理するには (each_key / each_pair / each_value / for / foreach)</a></li>
-          <li>特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset)</li>
-          <li><a href="../../programming_languages_diff/map/convert.html">データ型を相互に変換するには (asScala / asJava)</a></li>
-          <li><a href="../../programming_languages_diff/map/clone.html">コピーするには (clone / copy / dup)</a></li>
-          <li><a href="../../programming_languages_diff/map/entries.html">キーと値のペアを集合または配列で取得するには (items / to_a)</a></li>
-          <li><a href="../../programming_languages_diff/map/filter.html">特定の条件にマッチする要素のみを取り出すには (delete_if / filter / partition / select)</a></li>
-          <li><a href="../../programming_languages_diff/map/is-empty.html">空かどうかを判定するには (empty / isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">キーを集合または配列で取得するには (keys / keySet)</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">size / count / sizeof / len / length (要素数)</a></li>
+          <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty / empty?</a></li>
+          <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch / <code>[]</code> (参照)</a></li>
+          <li><a href="../../programming_languages_diff/map/put.html">put / <code>[]</code> / <code>+</code> (追加/更新)</a></li>
           <li><a href="../../programming_languages_diff/map/put-all.html">putAll / ++ / array_merge / update / merge / merge!</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">filter / select / partition / delete_if</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">- / unset / del / delete</a></li>
+          <li>containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists</li>
+          <li><a href="../../programming_languages_diff/map/entries.html">キーと値のペアを集合または配列で取得するには (items / to_a)</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">キーを集合または配列で取得するには (keys / keySet)</a></li>
           <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
+          <li><a href="../../programming_languages_diff/map/clone.html">clone / copy / dup</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ処理するには (each_key / each_pair / each_value / for / foreach)</a></li>
         </ul>
       </li>
     </ul>
