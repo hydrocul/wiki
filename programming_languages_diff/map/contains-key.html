@@ -21,9 +21,38 @@
 
 <div id="content">
   <h1 id="contains-key">containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists
-<span class="article-date">2015/03/23</span></h1>
+<span class="article-date">2016/06/22</span></h1>
 
-<p>各プログラミング言語での、連想配列(マップ)に特定のキーが含まれているかどうかを判定する方法。</p>
+<p>連想配列(マップ/ハッシュ/ディクショナリ)に特定のキーが含まれているかどうかを判定する方法。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="#java">Java</a></td>
+      <td><code>map.containsKey(key)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#scala">Scala</a></td>
+      <td><code>map.contains(key)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#php">PHP</a></td>
+      <td><code>array_key_exists($key, $arr)</code><br /><code>isset($arr[$key]))</code></td>
+    </tr>
+    <tr>
+      <td><a href="#python">Python</a></td>
+      <td><code>key in dic</code></td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a></td>
+      <td><code>hash.hash_key?(key)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#perl">Perl</a></td>
+      <td><code>exists($hash{$key})</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <p>関連</p>
 
@@ -31,7 +60,7 @@
   <li><a href="../list/contains.html">配列(リスト)に特定の値が含まれているかどうかを判定するには</a></li>
 </ul>
 
-<h2 id="f0b540d">Java
+<h2 id="java">Java
 <span class="article-date">2013/05/06</span></h2>
 
 <p>Signature:</p>
@@ -40,14 +69,14 @@
   <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html#containsKey-java.lang.Object-" target="_blank" class="external-link method-signature"><code>boolean Map&lt;K, V&gt;#containsKey(Object key)</code></a></li>
 </ul>
 
-<h2 id="854c97e">Scala
+<h2 id="scala">Scala
 <span class="article-date">2014/12/20</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>// scala.collection.Map[A, B]
-def contains(key: A): Boolean
-</code></pre>
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Map@contains(key:A):Boolean" target="_blank" class="external-link method-signature"><code>def Map[A, B]#contains(key: A): Boolean</code></a></li>
+</ul>
 
 <p>Javaとメソッド名が違う。</p>
 
@@ -94,10 +123,10 @@ if (isset($arr['c'])) {
 </code></pre>
 
 <p><code>array_key_exists</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.array-key-exists.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.array-key-exists.php</a></p>
+<a href="http://php.net/manual/ja/function.array-key-exists.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-key-exists.php</a></p>
 
 <p><code>isset</code> | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.isset.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.isset.php</a></p>
+<a href="http://php.net/manual/ja/function.isset.php" target="_blank" class="external-link">http://php.net/manual/ja/function.isset.php</a></p>
 
 <p>ところで <code>isset</code> のほうが <code>array_key_exists</code> よりも速いらしい。</p>
 
@@ -119,7 +148,7 @@ print(dic.has_key('a')) # =&gt; True
 print(dic.has_key('x')) # =&gt; False
 </code></pre>
 
-<h2 id="716b05c">Ruby / JRuby
+<h2 id="ruby">Ruby / JRuby
 <span class="article-date">2014/12/20</span></h2>
 
 <p>以下の4つのメソッドはすべて同じ意味。</p>
@@ -130,7 +159,7 @@ Hash#include?(key)
 Hash#member?(key)
 </code></pre>
 
-<h2 id="782ccd4">Perl
+<h2 id="perl">Perl
 <span class="article-date">2014/02/26</span></h2>
 
 <p>例</p>

@@ -329,14 +329,12 @@ close IN;
 <p><code>open</code>せずに <code>&lt;IN&gt;</code> の代わりに <code>&lt;STDIN&gt;</code> と書けば、標準入力を1行ずつ処理できる。</p>
 
 <h2 id="sh">sh (シェルスクリプト)
-<span class="article-date">2015/04/16</span></h2>
+<span class="article-date">2016/06/23</span></h2>
 
 <p>シェルスクリプトでファイルから1行ずつ読み込んで、繰り返し処理させるには 
-<code>read</code> というshの組み込みコマンドを使うとよい。</p>
+<code>read</code> というシェルの組み込みコマンドを使うとよい。</p>
 
 <p><code>read</code> は標準入力から1行読み込んで変数に保存することができる。<code>read 変数名</code> というふうに使う。</p>
-
-<p>例</p>
 
 <pre><code>cat ./hoge.txt | while read line; do
     # $line で各行の内容にアクセスできる
@@ -344,15 +342,21 @@ close IN;
 done
 </code></pre>
 
-<p>この例の場合、<code>cat</code>の出力をパイプで<code>while</code>文につないでいるので、
-<code>while</code>文の中にある<code>read</code>コマンドは <code>./hoge.txt</code> の内容を1行ずつ読み込む。
-<code>read</code>のあとに<code>line</code>と指定しているので、読み込んだ内容は <code>$line</code> という変数に保存される。
+<p><code>cat</code>の出力をパイプで<code>while</code>文につなぐことで、
+<code>while</code>文の中にある<code>read</code>コマンドは <code>./hoge.txt</code> の内容を1行ずつ読み込める。</p>
+
+<p><code>read</code>のあとに<code>line</code>と指定しているので、読み込んだ内容は <code>$line</code> という変数に保存される。
 <code>while</code>文は、入力の行数だけ繰り返す。途中に空行があっても問題ない。</p>
 
-<p>ただし、この方法だと<code>while</code>文がサブシェルの中で実行されるかもしれないので、その中で変数に代入したり、<code>exit</code>しようとしたりしてもうまくいかないかもしれないので、要注意。</p>
+<p>ただし、この方法だと<code>while</code>文がサブシェルの中で実行されるかもしれないので、
+<code>while</code>ループの中で変数に代入したり、<code>exit</code>しようとしたりしてもうまくいかないかもしれない。ループの中の変数代入が、ループの外に反映されない、ということが起こる。</p>
 
-<p>あと、<code>while</code>文の中で標準入力を受け取るコマンドがあると、<code>cat ./hoge.txt</code> からの入力を消費してしまって、
-<code>read line</code> での読み込みが最初の1回しか実行されなくなってしまう。なので、自分はよく以下のようにする。</p>
+<p>また、<code>while</code>文の中で標準入力を受け取るコマンドがあると、<code>cat ./hoge.txt</code> からの入力を消費してしまって、
+<code>read line</code> での読み込みが最初の1行しかできなくなってしまう。</p>
+
+<p><code>ssh</code>コマンドでリモートホストでコマンドを実行させるときに、標準入力を消費しないつもりだったのに無意味に消費してしまっていることがよくある。そんなときは <code>ssh -n ...</code> のように <code>-n</code> をつける。</p>
+
+<p>ループの中身をまるごと標準入力から隔離したい場合は、自分はよく以下のようにする。</p>
 
 <pre><code>cat ./hoge.txt | while read line; do (
     # $line で各行の内容にアクセスできる
@@ -378,6 +382,7 @@ done
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
           <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
           <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
+          <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには (ls)</a></li>
           <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには (mkdir)</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイル・ディレクトリを削除するには (<code>rm</code> / <code>unlink</code> / <code>rmdir</code>)</a></li>
@@ -386,7 +391,6 @@ done
           <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
-          <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>

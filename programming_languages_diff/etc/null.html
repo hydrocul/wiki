@@ -39,13 +39,18 @@
 <code>variable x might not have been initialized</code> というようなコンパイルエラーになり、デフォルトで<code>null</code>になることはない。</p>
 
 <p>一方、一度も代入されていないクラスのフィールドや配列の要素を参照しようとすると、参照型は <code>null</code> になり、
-<code>int</code>などの数値のプリミティブ型は<code>0</code>、<code>boolean</code>は<code>false</code>になり、コンパイルエラーにはならない。</p>
+<code>int</code>などの数値のプリミティブ型は <code>0</code>、<code>boolean</code> は <code>false</code> になり、コンパイルエラーにはならない。</p>
 
 <h2 id="3f00d5f">Scala
-<span class="article-date">2014/09/12</span></h2>
+<span class="article-date">2016/06/23</span></h2>
 
 <p>Javaとの互換性のためにJavaと同じ<code>null</code>があるが、Scalaでは<code>null</code>はJavaのライブラリを使用するときに現れてしまうのみで、通常の利用は推奨されない。
 <code>null</code>を使いたくなる場面ではScalaでは<code>Option</code>型の <code>Some</code>, <code>None</code> を使う。</p>
+
+<p>一度も代入されていないローカル変数というのはScalaでは文法上ありえない。
+<code>val</code> や <code>var</code> での<a href="../vars/scope.html#scala">変数宣言</a>と同時に代入が必要。</p>
+
+<p>変数宣言時に <code>_</code> で代入すると、<code>Int</code> などでは <code>0</code>、<code>Boolean</code> は <code>false</code> になり、それ以外は <code>null</code> になる。</p>
 
 <p><code>Nil</code> というものもあるが、これは要素が1つもない空の<code>List</code>型のオブジェクトであり、ぜんぜん違う。</p>
 

@@ -38,14 +38,27 @@
 
 <p><code>final</code> を付けると2回以上代入することができない。クラスのフィールドに <code>final</code> を付けると、コンストラクタからのみ1回だけ代入できる。</p>
 
-<h2 id="e8dd410">Scala
-<span class="article-date">2013/09/28</span></h2>
+<h2 id="scala">Scala
+<span class="article-date">2016/06/23</span></h2>
 
-<p>変数には必ず宣言が必要で、静的スコープのローカル変数になる。</p>
+<p>変数には必ず宣言が必要で、静的スコープのローカル変数になる。変数宣言には <code>val</code> と <code>var</code> の2種類ある。</p>
 
 <p><code>val</code> を付けると、宣言と同時に代入が必要で、その後の再代入はできない。変数というよりは値に名前を付けるイメージ。</p>
 
-<p><code>var</code> を付けると、Javaの <code>final</code> の付いていない変数と同様に、再代入が可能だが、代入せずにの宣言のみをすることはできない。</p>
+<p><code>var</code> を付けると、Javaの <code>final</code> の付いていない変数と同様に、再代入が可能。しかし <code>val</code> と同様に代入せずにの宣言のみをすることはできない。</p>
+
+<p>変数宣言の例</p>
+
+<pre><code>val foo = 3; // fooの型は Int になる
+val foo = Vector(1, 2, 3); // fooの型は Vector[Int] になる
+val foo: Seq[Int] = Vector(1, 2, 3); // fooの型は Seq[Int] になる
+val foo: Int = _; // fooの値は 0 になる
+val foo: Seq[Int] = _; // fooの値は null になる
+
+var foo = 3; // var も書き方は val と同じ
+var foo: Boolean = _; // fooの値は false になる
+var foo = _; // 値を決められないのでコンパイルエラー
+</code></pre>
 
 <p>関数の中や <code>if</code> や <code>for</code> などのブロックの中など、だいたい <code>{}</code> で新しいスコープが作成される。</p>
 
