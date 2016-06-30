@@ -34,27 +34,40 @@
 <code>new</code>演算子に引数を渡す必要がある。</p>
 
 <h2 id="466e9ef">Java
-<span class="article-date">2013/09/09</span></h2>
+<span class="article-date">2016/06/30</span></h2>
 
 <p><code>new</code> 演算子を使う。</p>
 
-<pre><code>HogeClass hoge = new HogeClass();
+<pre><code>HogeClass hoge = new HogeClass(arg1, arg2);
 </code></pre>
 
 <p>引数はコンストラクタに渡されるので、コンストラクタの引数型に合わせて、
-<code>new</code>演算子に引数を渡す必要がある。</p>
+<code>()</code> の中に引数を渡す必要がある。</p>
 
 <h2 id="8dcea81">Scala
-<span class="article-date">2013/10/21</span></h2>
+<span class="article-date">2016/06/30</span></h2>
 
 <p>Javaと同様に <code>new</code> 演算子を使う。</p>
 
-<p>case classに関してはクラスオブジェクトにインスタンスを生成する<code>apply</code>メソッドが自動で定義されていているので、<code>new</code>を省略できる。
-<code>apply</code> というメソッドがあるオブジェクトは、それ自体が関数であるかのように後ろにカッコで引数を置くことで、<code>apply</code>メソッドを呼び出すことができるScalaの仕組みである。</p>
-
-<pre><code>val foo = new FooClass(...);
-val bar = BarCaseClass(...);
+<pre><code>val foo = new FooClass(arg1, arg2);
 </code></pre>
+
+<p>コンストラクタに引数がない場合は <code>()</code> を省略できる。</p>
+
+<pre><code>val foo = new FooClass();
+val foo = new FooClass;
+</code></pre>
+
+<p>case classに関しては<code>new</code>を省略できる。</p>
+
+<pre><code>val bar = BarCaseClass(arg1, arg2);
+</code></pre>
+
+<p>Scalaでは、<code>apply</code> というメソッドがあるオブジェクトは、それ自体が関数であるかのように後ろにカッコで引数を置くことで、<code>apply</code>メソッドを呼び出すことができ、
+case classではコンパニオンオブジェクトにインスタンスを生成する<code>apply</code>メソッドがあるので、
+<code>new</code>を省略できるのである。上の例で言うと <code>BarCaseClass.apply</code> というメソッドが存在する。
+<code>BarCaseClass(arg1, arg2)</code> という表記は、 <code>new BarCaseClass(arg1, arg2)</code> の省略形ではなく、
+<code>BarCaseClass.apply(arg1, arg2)</code> の省略形である。</p>
 
 <h2 id="bd673a4">Ruby
 <span class="article-date">2014/11/29</span></h2>
@@ -101,7 +114,7 @@ p str
           <li><a href="../../programming_languages_diff/class/definition.html">クラスを定義するには</a></li>
           <li><a href="../../programming_languages_diff/class/constructor.html">コンストラクタとデストラクタ</a></li>
           <li>インスタンスを生成するには</li>
-          <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
+          <li><a href="../../programming_languages_diff/class/modifier.html">アクセス修飾子</a></li>
           <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには (instanceof)</a></li>
           <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
           <li><a href="../../programming_languages_diff/class/access-member.html">クラスメンバーへのアクセス</a></li>
