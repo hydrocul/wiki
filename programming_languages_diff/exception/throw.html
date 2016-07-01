@@ -21,9 +21,9 @@
 
 <div id="content">
   <h1 id="throw">例外をスローする構文 (throw)
-<span class="article-date">2015/04/05</span></h1>
+<span class="article-date">2016/06/30</span></h1>
 
-<p>例外をスローする構文の、プログラミング言語別メモ。</p>
+<p>各プログラミング言語での、例外をスローする構文の書き方。</p>
 
 <h2 id="3a30556">Java
 <span class="article-date">2013/08/22</span></h2>
@@ -52,10 +52,8 @@
 <h2 id="bfdce20">Python
 <span class="article-date">2014/03/05</span></h2>
 
-<p>Python2では例外をスローするには、以下のような書き方がある。</p>
-
 <pre><code>raise "message ..."
-
+# または
 raise HogeException()
 </code></pre>
 
@@ -64,13 +62,11 @@ raise HogeException()
 <pre><code>raise
 </code></pre>
 
-<h2 id="a8a711b">Ruby
+<h2 id="a3f7573">Ruby / JRuby
 <span class="article-date">2013/12/19</span></h2>
 
-<p>例外をスローするには、以下のような書き方がある。</p>
-
 <pre><code>raise "exception message ..."
-
+# または
 raise ZeroDivisionError, "message ..."
 </code></pre>
 
@@ -84,23 +80,17 @@ raise ZeroDivisionError, "message ..."
 <h2 id="a9112ef">Perl
 <span class="article-date">2015/02/13</span></h2>
 
-<p><code>die</code> でエラーを発生させる。</p>
-
 <pre><code>die "hogehoge error";
 </code></pre>
 
 <h2 id="ad4a322">JavaScript
 <span class="article-date">2013/08/22</span></h2>
 
-<p>例</p>
-
 <pre><code>throw "message ...";
 </code></pre>
 
 <h2 id="14599eb">CoffeeScript
 <span class="article-date">2013/08/22</span></h2>
-
-<p>例</p>
 
 <pre><code>throw("message")
 </code></pre>

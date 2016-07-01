@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)から先頭のn個の要素のみを配列で取得するには (first / take) | hydroculのメモ</title>
+<title>配列(リスト)から先頭のn個の要素のみを配列で取得するには (take / first) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,11 +16,11 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)から先頭のn個の要素のみを配列で取得するには (first / take)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)から先頭のn個の要素のみを配列で取得するには (take / first)</span>
 </div>
 
 <div id="content">
-  <h1 id="take">配列(リスト)から先頭のn個の要素のみを配列で取得するには (first / take)
+  <h1 id="take">配列(リスト)から先頭のn個の要素のみを配列で取得するには (take / first)
 <span class="article-date">2015/01/22</span></h1>
 
 <p>関連</p>
@@ -48,8 +48,9 @@
 
 <p>Signature:</p>
 
-<pre><code>def scala.collection.Seq[A]#take(n: Int): Seq[A]
-</code></pre>
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.TraversableLike@take(n:Int):Repr" target="_blank" class="external-link method-signature"><code>def Seq[A]#take(n: Int): Seq[A]</code></a></li>
+</ul>
 
 <p>結果を新しいリストで返し、自身は変更しない。</p>
 
@@ -134,7 +135,7 @@ cat foo.txt | head -n3
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li>first / take</li>
+          <li>take / first</li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
@@ -165,8 +166,6 @@ cat foo.txt | head -n3
           <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
