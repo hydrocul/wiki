@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists) | hydroculのメモ</title>
+<title>配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists / find) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,11 +16,11 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists / find)</span>
 </div>
 
 <div id="content">
-  <h1 id="any">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists)
+  <h1 id="any">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists / find)
 <span class="article-date">2015/03/22</span></h1>
 
 <p>各プログラミング言語での、配列に特定の条件にマッチする要素が含まれているかどうかを検査する方法。</p>
@@ -33,16 +33,17 @@
 </ul>
 
 <h2 id="339895a">Scala
-<span class="article-date">2015/03/22</span></h2>
+<span class="article-date">2016/07/02</span></h2>
 
 <p><code>List</code>クラスなどに<code>exists</code>というメソッドが、Rubyの<code>any?</code>メソッドに相当するものとして存在する。
 <code>find</code>というメソッドは条件にマッチする最初の要素を取得し、見つからなければ<code>None</code>を返す。</p>
 
 <p>Signature:</p>
 
-<pre><code>def scala.collection.TraversableOnce[A]#exists(p: A =&gt; Boolean): Boolean
-def scala.collection.TraversableOnce[A]#find(p: A =&gt; Boolean): Option[A]
-</code></pre>
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.IterableLike@exists(p:A=&gt;Boolean):Boolean" target="_blank" class="external-link method-signature"><code>def Seq[A]#exists(p: A =&gt; Boolean): Boolean</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.IterableLike@find(p:A=&gt;Boolean):Option[A]" target="_blank" class="external-link method-signature"><code>def Seq[A]#find(p: A =&gt; Boolean): Option[A]</code></a></li>
+</ul>
 
 <p>例</p>
 
@@ -55,7 +56,7 @@ val result2 = lst.exists(_ &gt; 3);
 println(result2); // =&gt; false
 </code></pre>
 
-<p>これらは<code>TraversableOnce</code>のメソッドなので、<code>Set</code>や<code>Map</code>でも使える。</p>
+<p>これらは<code>Set</code>や<code>Map</code>でも使える。</p>
 
 <h2 id="6485b06">Python
 <span class="article-date">2015/03/22</span></h2>
@@ -122,14 +123,14 @@ p arr.any? { |elem| elem &gt; 3 }
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li>any / any? / exists</li>
+          <li>any / any? / exists / find</li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
@@ -153,8 +154,6 @@ p arr.any? { |elem| elem &gt; 3 }
           <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
