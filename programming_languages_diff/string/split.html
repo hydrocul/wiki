@@ -92,7 +92,7 @@ arr = strings.Split(str, ",")
 </code></pre>
 
 <h2 id="java">Java
-<span class="article-date">2015/04/21</span></h2>
+<span class="article-date">2016/07/04</span></h2>
 
 <p>Signature:</p>
 
@@ -102,6 +102,32 @@ arr = strings.Split(str, ",")
 </ul>
 
 <p>空文字列をsplitすると空文字列1つだけの配列を返す。また、分割対象の文字列の最後に区切り文字が1つ以上あると、その部分は単に切り捨てられる。</p>
+
+<p>2つ目の引数に <code>-1</code> を与えると、最後に区切り文字があってもちゃんとそれも区切ってくれる。</p>
+
+<pre><code>String str = "abc,def,ghi,,";
+String[] arr;
+
+arr = str.split(",");
+for (int i = 0; i &lt; arr.length; i++) {
+    System.out.println(i + ": " + arr[i]);
+}
+// 出力結果
+// 0: abc
+// 1: def
+// 2: ghi
+
+arr = str.split(",", -1);
+for (int i = 0; i &lt; arr.length; i++) {
+    System.out.println(i + ": " + arr[i]);
+}
+// 出力結果
+// 0: abc
+// 1: def
+// 2: ghi
+// 3:
+// 4:
+</code></pre>
 
 <p>パターンは正規表現で指定できる。
 Java7以降では、正規表現で意味のある記号類以外の普通の1文字を指定した場合には、正規表現で処理せずに、高速な分割処理がなされるらしい。</p>
