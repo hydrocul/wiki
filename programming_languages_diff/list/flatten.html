@@ -23,7 +23,7 @@
   <h1 id="flatten">配列(リスト)の配列を配列に平坦化するには (flatten)
 <span class="article-date">2015/03/25</span></h1>
 
-<p>各プログラミング言語での、配列の要素もまた配列や集合だった場合にそれを平坦化する方法。</p>
+<p>配列の要素もまた配列や集合だった場合にそれを平坦化する方法。</p>
 
 <p>関連</p>
 
@@ -36,8 +36,9 @@
 
 <p>Signature:</p>
 
-<pre><code>def scala.collection.Seq[A]#flatten[B]: Seq[B]
-</code></pre>
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Traversable@flatten[B]:Traversable[B]" target="_blank" class="external-link method-signature"><code>def Seq[A]#flatten[B]: Seq[B]</code></a></li>
+</ul>
 
 <p>処理結果の<code>Seq</code>を返し、自身は変更しない。<code>A</code> は <code>Seq[B]</code>, <code>Set[B]</code> など 
 <code>B</code> のコレクションである必要がある。Rubyの <code>arr.flatten(1)</code> と同じ動き。</p>
@@ -108,14 +109,14 @@ p arr.flatten    # =&gt; [1, 2, 3, 4]
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
@@ -139,8 +140,6 @@ p arr.flatten    # =&gt; [1, 2, 3, 4]
           <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>

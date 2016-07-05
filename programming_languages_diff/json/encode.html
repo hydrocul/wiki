@@ -43,6 +43,17 @@ json_str = JSON.generate(data)
 <p>JSON.generate | Ruby 1.9.3 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/1.9.3/class/JSON.html#M_GENERATE" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/1.9.3/class/JSON.html#M_GENERATE</a></p>
 
+<h2 id="8c844eb">Perl
+<span class="article-date">2016/07/05</span></h2>
+
+<pre><code>use JSON;
+
+my $json_str = encode_json($obj);
+
+# pretty printing したい場合
+my $json_str = JSON-&gt;new-&gt;pretty-&gt;encode($obj);
+</code></pre>
+
 <h2 id="217b616">JavaScript / CoffeeScript
 <span class="article-date">2013/10/16</span></h2>
 
