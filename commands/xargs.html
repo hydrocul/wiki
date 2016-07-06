@@ -29,7 +29,7 @@
 
 <p>まずは<a href="find.html"><code>find</code>コマンド</a>でリストアップする。</p>
 
-<pre><code>find . -name "*.txt"
+<pre><code>$ find . -name "*.txt"
 </code></pre>
 
 <p>この結果が以下のようだったとする。</p>
@@ -40,20 +40,20 @@ sub/bar.txt
 
 <p>これらを削除するには</p>
 
-<pre><code>rm foo.txt sub/bar.txt
+<pre><code>$ rm foo.txt sub/bar.txt
 </code></pre>
 
 <p>を実行すればよいが、<code>find</code>の結果が大量にある場合は<code>rm</code>コマンドを手で書くのは手間なので、
 <code>find</code>の結果をそのまま<code>rm</code>に渡したい。<code>rm</code>コマンドが標準入力からファイル名を受け取ってくれるならパイプでつなぐだけだが、残念ながら<code>rm</code>にはパラメータで渡す必要がある。こういうときに<code>xargs</code>コマンドを使う。以下のような感じ。</p>
 
-<pre><code>find . -name "*.txt" | xargs rm
+<pre><code>$ find . -name "*.txt" | xargs rm
 </code></pre>
 
 <p><code>xargs</code>コマンドは標準入力から受け取ったデータをそのまま<code>rm</code>コマンドのパラメータとして<code>rm</code>を実行する。</p>
 
-<p>ちなみにいかのようにしても同じようなことができる。</p>
+<p>ちなみに以下のようにしても同じようなことができる。</p>
 
-<pre><code>rm `find . -name "*.txt"`
+<pre><code>$ rm `find . -name "*.txt"`
 </code></pre>
 
 <p>ただし、この場合<code>find</code>の結果があまりに大量だと、エラーになってしまう。コマンドに渡すパラメータの長さには制限があるからである。制限を超えると自分の環境では <code>Argument list too long</code> というエラーが表示される。</p>
@@ -67,11 +67,11 @@ sub/bar.txt
 
 <p>この上限値はカーネルソースの<a href="http://lxr.linux.no/linux+v3.19.1/fs/exec.c" target="_blank" class="external-link"><code>exec.c</code></a>のあたりに実装されていそうだが、よくわからない。</p>
 
-<h2 id="fec7f98"><code>mv</code> に渡す場合は要注意
+<h2 id="mv"><code>mv</code> に渡す場合は要注意
 <span class="article-date">2015/07/14</span></h2>
 
 <p><code>xargs</code> は、コマンドの最後にファイル名を引数として渡す。
-<code>mv</code> コマンドはデフォルトでは、パラメータで渡したファイル名たちの最後のものが移動先になる。なので、移動元のたくさんのファイル名を<code>xargs</code>に渡して<code>mv</code>で移動させるには <code>-t</code> オプションを付けて移動先を明示的に指定する必要がある。</p>
+<a href="mv.html"><code>mv</code> コマンド</a>はデフォルトでは、パラメータで渡したファイル名たちの最後のものが移動先になる。なので、移動元のたくさんのファイル名を<code>xargs</code>に渡して<code>mv</code>で移動させるには <code>-t</code> オプションを付けて移動先を明示的に指定する必要がある。</p>
 
 <pre><code>find . -type f | xargs mv -t ~/dst
 </code></pre>
@@ -185,6 +185,7 @@ test.sh
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
+      <li><a href="../commands/pwd.html">pwd コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
