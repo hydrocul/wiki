@@ -41,8 +41,8 @@ print os.path.getsize(path)
 
 <p><code>path</code>がシンボリックリンクの場合は、リンク先のファイルサイズを取得する。</p>
 
-<h2 id="8045794">Ruby / JRuby
-<span class="article-date">2015/12/27</span></h2>
+<h2 id="ruby">Ruby / JRuby
+<span class="article-date">2016/07/07</span></h2>
 
 <pre><code>p File.size(filepath)
 </code></pre>
@@ -51,6 +51,19 @@ print os.path.getsize(path)
 
 <pre><code>p File.stat(filepath).size
 </code></pre>
+
+<p>ファイルサイズが0かどうかで分岐したい場合は</p>
+
+<pre><code>if ! File.size?(filepath)
+    # ファイルサイズが0より大きい場合の処理
+else
+    # ファイルサイズが0の場合の処理
+end
+</code></pre>
+
+<p><code>File.size?</code> はファイルサイズが0またはファイルが存在しない場合に <code>nil</code> を返す。
+0より大きい場合にはそのファイルサイズを返す。
+<code>File.size</code> はファイルサイズが0の場合に0を返し、ファイルが存在しない場合にはエラーになる。</p>
 
 <p><code>File.size</code> | Ruby 2.2 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size.html</a></p>
@@ -115,13 +128,12 @@ print os.path.getsize(path)
           <li><a href="../../programming_languages_diff/io/rm.html">ファイル・ディレクトリを削除するには (<code>rm</code> / <code>unlink</code> / <code>rmdir</code>)</a></li>
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
-          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには (exists)</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
-          <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/mv.html">ファイル名を変更するには</a></li>

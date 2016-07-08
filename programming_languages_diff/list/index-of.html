@@ -49,25 +49,20 @@ text.attr({stroke: "#000", strokeWidth: 1, "font-size": "32px"});
 </ul>
 
 <h2 id="82d508d">Java
-<span class="article-date">2015/04/25</span></h2>
+<span class="article-date">2016/07/07</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>int java.util.List&lt;E&gt;#indexOf(Object nemo)
-int java.util.List&lt;E&gt;#lastIndexOf(Object nemo)
-</code></pre>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#indexOf-java.lang.Object-" target="_blank" class="external-link method-signature"><code>int List&lt;E&gt;#indexOf(Object nemo)</code></a></li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#lastIndexOf-java.lang.Object-" target="_blank" class="external-link method-signature"><code>int List&lt;E&gt;#lastIndexOf(Object nemo)</code></a></li>
+</ul>
 
 <p>要素が見つからなかった場合は <code>-1</code> を返す。</p>
 
-<p>複数ある場合は最初の要素のインデックスを返す。</p>
+<p>複数ある場合は <code>indexOf</code> は最初の要素のインデックスを返し、 <code>lastIndexOf</code> は最後の要素のインデックスを返す。</p>
 
 <p>要素の比較は <code>equals</code> メソッドで行われる。</p>
-
-<p><code>java.util.List#indexOf</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#indexOf-java.lang.Object-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/List.html#indexOf-java.lang.Object-</a></p>
-
-<p><code>java.util.List#lastIndexOf</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#lastIndexOf-java.lang.Object-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/List.html#lastIndexOf-java.lang.Object-</a></p>
 
 <h2 id="35b67c2">Scala
 <span class="article-date">2014/05/17</span></h2>
@@ -158,14 +153,14 @@ p arr.index { |v| v % 7 == 2 }
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
           <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li>array_search / find_index / index / indexOf / lastIndexOf / rindex</li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
@@ -189,8 +184,6 @@ p arr.index { |v| v % 7 == 2 }
           <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>

@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<meta http-equiv="refresh" content="0;URL=file-operator.html#is-empty" />
 <title>ファイルサイズが0かどうかを取得するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -22,51 +23,7 @@
 <div id="content">
   <h1 id="is-empty">ファイルサイズが0かどうかを取得するには</h1>
 
-<p>参考</p>
-
-<ul>
-  <li><a href="file-size.html">ファイルサイズを取得</a></li>
-</ul>
-
-<h2 id="e085a80">Ruby / JRuby
-<span class="article-date">2015/12/27</span></h2>
-
-<p><code>File.size?</code> というメソッドでファイルサイズが0より大きいかどうかを取得できる。</p>
-
-<pre><code>if ! File.size?("/home/kenken/pj/ichigo/var/download/mkdir")
-    # ファイルサイズが0の場合の処理
-end
-</code></pre>
-
-<p><code>File.size?</code> はファイルサイズが0またはファイルが存在しない場合に <code>nil</code> を返す。
-0より大きい場合にはそのファイルサイズを返す。
-<code>File.size</code> はファイルサイズが0の場合に0を返し、ファイルが存在しない場合にはエラーになる。</p>
-
-<p><code>File.size</code> | Ruby 2.2 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size.html</a></p>
-
-<p><code>File.size?</code> | Ruby 2.2 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size=3f.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/1.9.3/method/File/s/size=3f.html</a></p>
-
-<h2 id="192b08b">Perl
-<span class="article-date">2013/08/19</span></h2>
-
-<p><code>-s</code> という演算子でファイルサイズを整数で取得できるので、</p>
-
-<pre><code>if ( ! -s './hoge.txt' ) {
-    # ファイルサイズが0の場合の処理
-}
-</code></pre>
-
-<h2 id="7e5393f">sh (シェルスクリプト)
-<span class="article-date">2013/08/19</span></h2>
-
-<pre><code>if [ ! -s ./hoge.txt ]; then
-    # ファイルサイズが0の場合の処理
-fi
-</code></pre>
-
-<p>-&gt; <a href="../../sh.html#operator">シェルスクリプトの演算子</a></p>
+<p>-&gt; <a href="file-operator.html#is-empty">ファイルサイズが0かどうかを取得するには</a></p>
 
 </div>
 
@@ -86,19 +43,18 @@ fi
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
           <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
           <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
+          <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには (ls)</a></li>
           <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには (mkdir)</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイル・ディレクトリを削除するには (<code>rm</code> / <code>unlink</code> / <code>rmdir</code>)</a></li>
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
-          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには (exists)</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
-          <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
-          <li>ファイルサイズが0かどうかを取得するには</li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/mv.html">ファイル名を変更するには</a></li>
