@@ -150,15 +150,22 @@ not x
 <a href="http://docs.python.jp/3/reference/expressions.html#boolean-operations" target="_blank" class="external-link">http://docs.python.jp/3/reference/expressions.html#boolean-operations</a></p>
 
 <h2 id="e5a8307">Ruby
-<span class="article-date">2014/01/03</span></h2>
+<span class="article-date">2016/07/08</span></h2>
 
 <p>論理演算子として、<code>&amp;&amp;</code>, <code>||</code>, <code>!</code>, <code>and</code>, <code>or</code>, <code>not</code> がある。</p>
 
 <p><code>!</code>, <code>not</code> は否定で <code>true</code> か <code>false</code> を返す。</p>
 
-<p><code>&amp;&amp;</code>, <code>||</code>, <code>and</code>, <code>or</code> は左の項から順番に評価し、演算子の結果として true か false のいずれかに決定した段階で評価をやめてその項の値を返す(ショートサーキット評価)。その項の値をそのまま返すため、式全体が返す値は <code>true</code> か <code>false</code> に限らない。
+<p><code>&amp;&amp;</code>, <code>||</code>, <code>and</code>, <code>or</code> は左の項から順番に評価し、演算子の結果として true か false のいずれかに決定した段階で評価をやめてその項の値を返す(短絡評価、ショートサーキット評価)。その項の値をそのまま返すため、式全体が返す値は <code>true</code> か <code>false</code> に限らない。
 falseの扱いになるのは、<code>false</code>, <code>nil</code> のみである。
 (-&gt; <a href="to-boolean.html#ruby">論理値への変換</a>)</p>
+
+<p>つまり、</p>
+
+<ul>
+  <li><code>&amp;&amp;</code>, <code>and</code> は左の項から順番に評価し、<code>false</code> または <code>nil</code> になったら、それを演算子の評価結果とし、それより右の項の評価はしない。</li>
+  <li><code>||</code>, <code>or</code> は左の項から順番に評価し、<code>false</code> でも <code>nil</code> でもない値になったら、それを演算子の評価結果とし、それより右の項の評価はしない。</li>
+</ul>
 
 <p><code>and</code>, <code>or</code> は関数の引数リストの区切りであるカンマよりも優先順位が低いため、関数呼び出しの引数リストの中にそのまま書くとコンパイルエラーになる。</p>
 
