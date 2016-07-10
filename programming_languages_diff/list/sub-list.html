@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)の一部を配列として取り出すには (array_slice / slice / subList) | hydroculのメモ</title>
+<title>配列(リスト)の一部を配列として取り出すには (subList / slice / array_slice) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,14 +16,14 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)の一部を配列として取り出すには (array_slice / slice / subList)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)の一部を配列として取り出すには (subList / slice / array_slice)</span>
 </div>
 
 <div id="content">
-  <h1 id="sub-list">配列(リスト)の一部を配列として取り出すには (array_slice / slice / subList)
+  <h1 id="sub-list">配列(リスト)の一部を配列として取り出すには (subList / slice / array_slice)
 <span class="article-date">2015/03/31</span></h1>
 
-<p>各プログラミング言語での、配列(リスト)の一部を配列(リスト)として取り出す方法。</p>
+<p>配列(リスト)の一部を配列として取り出す方法。</p>
 
 <p>関連</p>
 
@@ -31,7 +31,7 @@
   <li><a href="slice-replace.html">配列の一部を別の配列で置き換えるには</a></li>
 </ul>
 
-<h2 id="419fdbd">Go言語 (golang)
+<h2 id="golang">Go言語 (golang)
 <span class="article-date">2015/12/22</span></h2>
 
 <pre><code>arr[start : end]
@@ -63,26 +63,27 @@ fmt.Printf("%#v\n", sl2)
 
 <h2 id="12167e9">Java</h2>
 
-<h3 id="718ca9e"><code>java.util.List</code>
-<span class="article-date">2015/04/25</span></h3>
+<h3 id="java-list"><code>java.util.List</code>
+<span class="article-date">2016/07/10</span></h3>
 
 <p>Signature:</p>
 
-<pre><code>List&lt;E&gt; java.util.List&lt;E&gt;#subList(int from, int until)
-</code></pre>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#subList-int-int-" target="_blank" class="external-link method-signature"><code>List&lt;E&gt; List&lt;E&gt;#subList(int from, int until)</code></a></li>
+</ul>
 
 <p>返り値のリストの最後は、元のリストのインデックス <code>until - 1</code> になる。</p>
 
 <p><code>subList</code> で返されたリストを変更すると、元のリストにも反映される。</p>
 
-<p><code>java.util.List#subList</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#subList-int-int-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/List.html#subList-int-int-</a></p>
-
 <h2 id="76178f0">Scala
 <span class="article-date">2013/10/04</span></h2>
 
-<pre><code>def Seq[A]#slice(from: Int, until: Int): Seq[A]
-</code></pre>
+<p>Signature:</p>
+
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Seq@slice(from:Int,until:Int):Repr" target="_blank" class="external-link method-signature"><code>def Seq[A]#slice(from: Int, until: Int): Seq[A]</code></a></li>
+</ul>
 
 <p>返り値のリストの最後は、元のリストのインデックス <code>until - 1</code> になる。</p>
 
@@ -218,14 +219,14 @@ cat ファイル名 | sed -n 2,4p
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li>array_slice / slice / subList</li>
+          <li>subList / slice / array_slice (部分配列)</li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
@@ -249,8 +250,6 @@ cat ファイル名 | sed -n 2,4p
           <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
