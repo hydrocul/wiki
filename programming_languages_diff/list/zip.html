@@ -71,9 +71,9 @@ p ['a', 'b'].zip([1, 2], [3, 4]) # =&gt; [["a", 1, 3], ["b", 2, 4]]
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/zip.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/zip.html</a></p>
 
 <h2 id="0df299c">Perl
-<span class="article-date">2013/12/10</span></h2>
+<span class="article-date">2016/07/11</span></h2>
 
-<p>例</p>
+<p>関数の自作例</p>
 
 <pre><code>sub zip {
     my ($lst1, $lst2) = @_;
@@ -93,13 +93,22 @@ my $lst2 = [10, 20, 30];
 
 my $zipped = zip($lst1, $lst2);
 
-foreach my $elem (@$zipped) {
-    print "$elem-&gt;[0] $elem-&gt;[1]\n";
-}
+print Dumper $zipped;
 # =&gt;
-# 1 10
-# 2 20
-# 3 30
+# $VAR1 = [
+#           [
+#             1,
+#             10
+#           ],
+#           [
+#             2,
+#             20
+#           ],
+#           [
+#             3,
+#             30
+#           ]
+#     ];
 </code></pre>
 
 </div>
@@ -121,14 +130,14 @@ foreach my $elem (@$zipped) {
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
@@ -152,8 +161,6 @@ foreach my $elem (@$zipped) {
           <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
           <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
           <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/to-map.html">toMap</a></li>
-          <li><a href="../../programming_languages_diff/list/to-set.html">toSet</a></li>
           <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
           <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
           <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
