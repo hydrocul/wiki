@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (items / to_a) | hydroculのメモ</title>
+<title>連想配列(マップ/ハッシュ/ディクショナリ)のキーと値のペアを配列や集合で取得するには (items / to_a) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,14 +16,14 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ)</a> &gt; <span>連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (items / to_a)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a> &gt; <span>連想配列(マップ/ハッシュ/ディクショナリ)のキーと値のペアを配列や集合で取得するには (items / to_a)</span>
 </div>
 
 <div id="content">
-  <h1 id="entries">連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得するには (items / to_a)
+  <h1 id="entries">連想配列(マップ/ハッシュ/ディクショナリ)のキーと値のペアを配列や集合で取得するには (items / to_a)
 <span class="article-date">2015/03/03</span></h1>
 
-<p>各プログラミング言語での、連想配列(マップ)のキーと値のペアを集合(セット)または配列(リスト)で取得する方法。</p>
+<p>連想配列(マップ/ハッシュ/ディクショナリ)のキーと値のペアを配列や集合で取得する方法。</p>
 
 <h2 id="9f54611">Scala
 <span class="article-date">2016/06/07</span></h2>
@@ -81,22 +81,22 @@ p hash.to_a
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li><a href="../../programming_languages_diff/map/">連想配列(マップ)</a>
+      <li><a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">要素数を取得するには (count / len / length / size / sizeof)</a></li>
-          <li><a href="../../programming_languages_diff/map/get.html">要素の値を参照するには (get / getOrElse / fetch)</a></li>
-          <li><a href="../../programming_languages_diff/map/put.html">要素の値を設定するには (put / <code>+</code>)</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ処理するには (each_key / each_pair / each_value / for / foreach)</a></li>
-          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーが含まれているかどうかを判定するには (array_key_exists / contains / containsKey / exists / has_key / in / include / isset)</a></li>
-          <li><a href="../../programming_languages_diff/map/clone.html">コピーするには (clone / copy / dup)</a></li>
-          <li>キーと値のペアを集合または配列で取得するには (items / to_a)</li>
-          <li><a href="../../programming_languages_diff/map/filter.html">特定の条件にマッチする要素のみを取り出すには (delete_if / filter / partition / select)</a></li>
-          <li><a href="../../programming_languages_diff/map/is-empty.html">空かどうかを判定するには (empty / isEmpty)</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">キーを集合または配列で取得するには (keys / keySet)</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">putAll / ++ / array_merge / update / merge / merge!</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">size / count / sizeof / len / length (要素数)</a></li>
+          <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty / empty?</a></li>
+          <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch / <code>[]</code> (参照)</a></li>
+          <li><a href="../../programming_languages_diff/map/put.html">put / <code>[]</code> / <code>+</code> (追加/更新)</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">putAll / <code>++</code> / array_merge / update / merge / merge!</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">filter / select / partition / delete_if</a></li>
           <li><a href="../../programming_languages_diff/map/remove.html">- / unset / del / delete</a></li>
+          <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists</a></li>
+          <li>items / to_a</li>
+          <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
           <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
+          <li><a href="../../programming_languages_diff/map/clone.html">clone / copy / dup</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">foreach / for / each_key / each_pair / each_value</a></li>
         </ul>
       </li>
     </ul>
