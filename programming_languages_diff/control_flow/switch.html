@@ -166,10 +166,10 @@ else
 end
 </code></pre>
 
+<p>C言語やJavaのように fall through することはない。</p>
+
 <p><code>when</code>節で条件にマッチするかどうかの判定は 
 <a href="../class/compare.html#ruby"><code>===</code> 演算子</a>が使われる。</p>
-
-<p>C言語のような fall through は発生しない。</p>
 
 <h2 id="5913ed5">Perl
 <span class="article-date">2013/09/28</span></h2>
@@ -207,7 +207,7 @@ esac
 <p><code>esac</code>って<code>case</code>を逆から読んだものだけど、これをタイプするの慣れないと難しいよね。</p>
 
 <h2 id="df9a5cf">JavaScript
-<span class="article-date">2015/05/07</span></h2>
+<span class="article-date">2016/07/14</span></h2>
 
 <p>C言語ライクの<code>switch</code>文を使える。</p>
 
@@ -223,6 +223,8 @@ esac
     break;
 }
 </code></pre>
+
+<p><code>break</code> を書かないと<code>switch</code>文から脱出せずに次のラベルを引き続き実行してしまう。(fall through)</p>
 
 </div>
 
