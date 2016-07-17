@@ -21,23 +21,35 @@
 
 <div id="content">
   <h1 id="time">time コマンド
-<span class="article-date">2014/08/29</span></h1>
+<span class="article-date">2016/07/17</span></h1>
 
 <p>コマンドの実行時間を計測するコマンド。<code>time</code> のあとに実行するコマンドを引数で渡す。</p>
 
 <p>例</p>
 
-<pre><code>time ls -al
+<pre><code>$ time ls -al
 </code></pre>
 
 <p><code>time</code> はコマンドを実行した後に、実行にかかった時間を標準エラー出力に書き出す。</p>
 
 <p><code>time</code> は外部コマンドではなく、シェルの組み込みコマンドである。普通の外部コマンドとは違い、リダイレクトの表記よりも結合の優先順位が低いので、以下のようにパイプで繋いでも、パイプ全体の実行にかかった時間を測定できる。</p>
 
-<pre><code>time firstcommand | longlongcommand
+<pre><code>$ time firstcommand | longlongcommand
 </code></pre>
 
 <p>zshの<code>time</code>コマンドでは、上記のようにパイプで複数つなげたコマンドを対象とする場合は、各コマンドごとの処理時間などを表示してくれる。bashではそれができない。</p>
+
+<p>リダイレクトも同じ理屈で、<code>time</code>コマンドの出力をファイルに保存しようとして</p>
+
+<pre><code>$ time ls -al 2&gt;time.txt
+</code></pre>
+
+<p>と書いても <code>2&gt;time.txt</code> は <code>ls</code> にしかかからない。ので、</p>
+
+<pre><code>$ (time ls -al) 2&gt;time.txt
+</code></pre>
+
+<p>とするとよい。</p>
 
 <p>ヘルプ表示に関して、bashでは、他のシェルの組み込みコマンド(ビルトインコマンド)と同様に、
 <code>help time</code> というふうに <code>help</code> コマンドでヘルプを表示できる。<code>help</code> も組み込みコマンドである。残念ながらzshではできないみたい。</p>
@@ -103,7 +115,9 @@
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
+      <li><a href="../commands/pwd.html">pwd コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
+      <li><a href="../commands/rm.html">rm コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
