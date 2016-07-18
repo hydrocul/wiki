@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="time">time コマンド
-<span class="article-date">2016/07/17</span></h1>
+<span class="article-date">2016/07/18</span></h1>
 
 <p>コマンドの実行時間を計測するコマンド。<code>time</code> のあとに実行するコマンドを引数で渡す。</p>
 
@@ -32,14 +32,61 @@
 
 <p><code>time</code> はコマンドを実行した後に、実行にかかった時間を標準エラー出力に書き出す。</p>
 
-<p><code>time</code> は外部コマンドではなく、シェルの組み込みコマンドである。普通の外部コマンドとは違い、リダイレクトの表記よりも結合の優先順位が低いので、以下のようにパイプで繋いでも、パイプ全体の実行にかかった時間を測定できる。</p>
+<p><code>time</code> は外部コマンドではなく、シェルの組み込みコマンドである。シェルによって出力例はだいぶ違う。</p>
+
+<p>zshでの例</p>
+
+<pre><code>$ time tar czf foobar.tar.gz foobar
+tar czf foobar.tar.gz foobar  1.10s user 1.20s system 42% cpu 5.424 total
+</code></pre>
+
+<p>bashでの例</p>
+
+<pre><code>$ time tar czf foobar.tar.gz foobar
+
+real    0m1.186s
+user    0m0.755s
+sys     0m0.427s
+</code></pre>
+
+<p>ヘルプ表示は、bashでは、他のシェルの組み込みコマンド(ビルトインコマンド)と同様に、
+<code>help time</code> というふうに <code>help</code> コマンドでヘルプを表示できる。<code>help</code> も組み込みコマンドである。残念ながらzshではできないみたい。</p>
+
+<p>プログラミング言語の中で実行時間を計測するには、
+<a href="../programming_languages_diff/datetime/timer.html">処理時間を計測</a>参照。</p>
+
+<p>現在の時刻を調べるのは<code>time</code>ではなく、<a href="date.html"><code>date</code>コマンド</a>である。</p>
+
+<h2 id="e6ffe39">パイプを使う場合
+<span class="article-date">2016/07/18</span></h2>
+
+<p>普通の外部コマンドとは違い、<code>time</code> はパイプの表記やリダイレクト表記よりも結合の優先順位が低いので、以下のようにパイプで繋いでも、パイプ全体の実行にかかった時間を測定できる。</p>
 
 <pre><code>$ time firstcommand | longlongcommand
 </code></pre>
 
 <p>zshの<code>time</code>コマンドでは、上記のようにパイプで複数つなげたコマンドを対象とする場合は、各コマンドごとの処理時間などを表示してくれる。bashではそれができない。</p>
 
-<p>リダイレクトも同じ理屈で、<code>time</code>コマンドの出力をファイルに保存しようとして</p>
+<p>zshでの例</p>
+
+<pre><code>$ time tar cf - foobar | gzip &gt; foobar.tar.gz
+tar cf - foobar  0.00s user 0.07s system 6% cpu 1.134 total
+gzip &gt; foobar.tar.gz  0.72s user 0.35s system 93% cpu 1.151 total
+</code></pre>
+
+<p>bashでの例</p>
+
+<pre><code>$ time tar cf - foobar | gzip &gt; foobar.tar.gz
+
+real    0m1.168s
+user    0m0.742s
+sys     0m0.418s
+</code></pre>
+
+<h2 id="4593a6a"><code>time</code>の結果をリダイレクトしたい場合
+<span class="article-date">2016/07/18</span></h2>
+
+<p><code>time</code>の結果は標準エラー出力されるが、<code>time</code>コマンドの出力をファイルに保存しようとして</p>
 
 <pre><code>$ time ls -al 2&gt;time.txt
 </code></pre>
@@ -51,23 +98,14 @@
 
 <p>とするとよい。</p>
 
-<p>ヘルプ表示に関して、bashでは、他のシェルの組み込みコマンド(ビルトインコマンド)と同様に、
-<code>help time</code> というふうに <code>help</code> コマンドでヘルプを表示できる。<code>help</code> も組み込みコマンドである。残念ながらzshではできないみたい。</p>
-
-<p>プログラミング言語の中で実行時間を計測するには、
-<a href="../programming_languages_diff/datetime/timer.html">処理時間を計測</a>参照。</p>
-
-<p>現在の時刻を調べるのは<code>time</code>ではなく、<a href="date.html"><code>date</code>コマンド</a>である。</p>
-
 <h2 id="26be8a1">オプション
 <span class="article-date">2013/11/21</span></h2>
 
 <dl>
   <dt><code>-o</code> ファイル名</dt>
-  <dd>結果をファイルに書き出す。</dd>
+  <dd>結果をファイルに書き出す。このオプションはzshやbashの組み込みコマンドでは使えない。
+<code>/usr/bin/time</code> なら使えた。</dd>
 </dl>
-
-<p>zshを使っていると、<code>time</code>コマンドがzsh内蔵のものになるようで、このオプションが使えないようである。その場合は、 <code>/usr/bin/time</code> などとパスを直接指定すればよい。</p>
 
 </div>
 
