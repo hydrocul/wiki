@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>特定のインデックスの文字を取得するには (charAt / getAt) | 文字列 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>特定のインデックスの文字を取得するには (charAt / getAt) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -36,15 +36,13 @@
 
 <p>Signature:</p>
 
-<pre><code>char java.lang.String#charAt(int index)
-</code></pre>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#charAt-int-" target="_blank" class="external-link method-signature"><code>char String#charAt(int index)</code></a></li>
+</ul>
 
 <p><code>java.lang.String</code> だけでなく <code>java.lang.StringBuilder</code> や <code>java.lang.StringBuffer</code> でも同様に使える。</p>
 
 <p>文字列(<code>java.lang.String</code>)はイミュータブルなので、文字を取得できるのみで、書き換えることはできない。</p>
-
-<p><code>java.lang.String#charAt</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#charAt-int-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#charAt-int-</a></p>
 
 <h2 id="d424e3c">Scala
 <span class="article-date">2015/02/15</span></h2>
@@ -55,10 +53,10 @@
 
 <p>Signature:</p>
 
-<pre><code>def java.lang.String#charAt(index: Int): Char
-
-def scala.collection.immutable.StringLike#apply(index: Int): Char
-</code></pre>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#charAt-int-" target="_blank" class="external-link method-signature"><code>def java.lang.String#charAt(index: Int): Char</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.StringLike@apply(n:Int):Char" target="_blank" class="external-link method-signature"><code>def StringLike#apply(index: Int): Char</code></a></li>
+</ul>
 
 <p><code>apply</code>メソッドが定義されているので、<code>str(2)</code> のように<a href="../list/get.html#scala">配列の要素へのアクセス</a>と同じように文字を取得できる。</p>
 
