@@ -23,7 +23,7 @@
   <h1 id="access-member">クラスメンバーへのアクセス</h1>
 
 <h2 id="3d5ac75">C言語 / C++
-<span class="article-date">2015/03/18</span></h2>
+<span class="article-date">2016/07/19</span></h2>
 
 <p>以下の例は構造体、クラスで共通だが、メンバ関数に関してはC++のみ。</p>
 
@@ -48,8 +48,10 @@ FooClass::method1(arg1, arg2)
 
 <p>構造体やクラスの変数名からはドット(<code>.</code>)で、ポインタからは <code>-&gt;</code> で、クラス名から静的メンバには二重コロン(<code>::</code>)でアクセスする。</p>
 
+<p>メンバ関数呼び出しは引数がなくても括弧が必要。</p>
+
 <h2 id="d7c89f1">Java
-<span class="article-date">2014/10/27</span></h2>
+<span class="article-date">2016/07/19</span></h2>
 
 <pre><code>// インスタンスフィールド
 obj.field1;
@@ -64,8 +66,10 @@ obj.method1(arg1, arg2);
 FooClass.method1(arg1, arg2);
 </code></pre>
 
+<p>メソッド呼び出しは引数がなくても括弧が必要。</p>
+
 <h2 id="ac9e2a6">Scala
-<span class="article-date">2014/10/27</span></h2>
+<span class="article-date">2016/07/19</span></h2>
 
 <pre><code>// フィールド
 obj.field1;
@@ -76,28 +80,35 @@ FooClass.staticField1;
 // メソッド
 obj.method1(arg1, arg2);
 
+// 引数がないメソッド呼び出し
+obj.method2;
+
 // コンパニオンオブジェクトのメソッド
 FooClass.method1(arg1, arg2);
 </code></pre>
 
-<h2 id="8310e4a">PHP
-<span class="article-date">2015/04/06</span></h2>
+<p>メソッド呼び出しは引数がなければ括弧は不要。</p>
 
-<pre><code>// インスタンスフィールド
+<h2 id="8310e4a">PHP
+<span class="article-date">2016/07/19</span></h2>
+
+<pre><code>// プロパティ
 $obj-&gt;field1;
 
-// クラスフィールド
+// クラスプロパティ
 FooClass::$staticField1;
 
 // クラスで定義されている定数
 FooClass::BAR
 
-// インスタンスメソッド
+// メソッド
 $obj-&gt;method1($arg1, $arg2);
 
 // クラスメソッド
 FooClass::method1($arg1, $arg2);
 </code></pre>
+
+<p>メソッド呼び出しは引数がなくても括弧が必要。プロパティとメソッドのアクセスは括弧の有無で区別されるので名前空間が異なり、同じ名前のプロパティとメソッドが共存できる。</p>
 
 <h2 id="ae88629">Ruby
 <span class="article-date">2013/12/14</span></h2>
@@ -153,7 +164,7 @@ FooClass-&gt;method1($arg1, $arg2);
           <li><a href="../../programming_languages_diff/class/definition.html">クラスを定義するには</a></li>
           <li><a href="../../programming_languages_diff/class/constructor.html">コンストラクタとデストラクタ</a></li>
           <li><a href="../../programming_languages_diff/class/new.html">インスタンスを生成するには</a></li>
-          <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
+          <li><a href="../../programming_languages_diff/class/modifier.html">アクセス修飾子</a></li>
           <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには (instanceof)</a></li>
           <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
           <li>クラスメンバーへのアクセス</li>

@@ -27,13 +27,42 @@
 
 <p>参考: <a href="diff.html#sdiff"><code>diff</code>コマンド</a></p>
 
+<h2 id="c0c8eb8">基本的な使い方
+<span class="article-date">2016/07/19</span></h2>
+
+<p>2つのファイル名を引数で渡すと、差分が標準出力される。</p>
+
+<pre><code>$ sdiff foo.txt bar.txt
+</code></pre>
+
+<p>片方のファイル名として <code>-</code> と書くと、標準入力が使われる。</p>
+
+<pre><code>$ foocmd | sdiff - bar.txt
+</code></pre>
+
 <h2 id="ae02bea">オプション
-<span class="article-date">2013/09/05</span></h2>
+<span class="article-date">2016/07/19</span></h2>
 
 <dl>
+  <dt><code>-b</code></dt>
+  <dd>連続する空白の長さの違いは無視する。<a href="diff.html"><code>diff</code></a>の <code>-b</code> と同じ</dd>
+  <dt><code>-B</code></dt>
+  <dd>空行は無視する。<a href="diff.html"><code>diff</code></a>の <code>-B</code> と同じ</dd>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプ表示</dd>
+  <dt><code>-i</code></dt>
+  <dd>大文字小文字の違いを無視する。<a href="diff.html"><code>diff</code></a>の <code>-i</code> と同じ</dd>
   <dt><code>-s</code></dt>
-  <dd>違う行のみを表示する。デフォルトだと全行が表示される。</dd>
+  <dd>違う行のみを表示する。デフォルトだと全行が表示される</dd>
+  <dt><code>-v</code>, <code>--version</code></dt>
+  <dd>バージョン表示</dd>
+  <dt><code>-w &lt;NUM&gt;</code>, <code>--width=&lt;NUM&gt;</code></dt>
+  <dd>画面の横幅を指定する。デフォルトは130らしくて、ターミナルを横長にして使ってみたいこのコマンドにしては横幅が小さすぎる。
+<a href="diff.html"><code>diff --side-by-side</code></a>の <code>-W</code> と同じ</dd>
 </dl>
+
+<p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
+<code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
 </div>
 
@@ -81,7 +110,9 @@
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
+      <li><a href="../commands/pwd.html">pwd コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
+      <li><a href="../commands/rm.html">rm コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li>sdiff コマンド</li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
