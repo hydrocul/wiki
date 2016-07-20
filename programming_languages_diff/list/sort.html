@@ -91,26 +91,20 @@ arr.sort!{|a, b| a.downcase &lt;=&gt; b.downcase}
 
 <p>Signature:</p>
 
-<pre><code>void java.util.Arrays.sort(Object[] arr)
-&lt;T&gt; void java.util.Arrays.sort(T[] arr, Comparator&lt;? super T&gt; c)
-
-void &lt;T extends java.util.Comparable&lt;? super T&gt;&gt; java.util.Collections.sort(java.util.List&lt;T&gt; list)
-void &lt;T&gt; java.util.Collections.sort(List&lt;T&gt; list, java.util.Comparator&lt;? super T&gt; comparator)
-</code></pre>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#sort-java.lang.Object:A-" target="_blank" class="external-link method-signature"><code>void java.util.Arrays.sort(Object[] arr)</code></a></li>
+  <li>
+    <p><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#sort-T:A-java.util.Comparator-" target="_blank" class="external-link method-signature"><code>&lt;T&gt; void java.util.Arrays.sort(T[] arr, Comparator&lt;? super T&gt; c)</code></a></p>
+  </li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-" target="_blank" class="external-link method-signature"><code>void &lt;T extends java.util.Comparable&lt;? super T&gt;&gt; java.util.Collections.sort(java.util.List&lt;T&gt; list)</code></a></li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-java.util.Comparator-" target="_blank" class="external-link method-signature"><code>void &lt;T&gt; java.util.Collections.sort(List&lt;T&gt; list, java.util.Comparator&lt;? super T&gt; comparator)</code></a></li>
+</ul>
 
 <p>staticメソッドで、ソートしたい配列またはリストをメソッドに引数で渡す。配列またはリスト自体を変更する破壊的なメソッド。</p>
 
 <p>2つ目の引数に <code>Comparator</code> を渡すことで比較方法を指定することもできる。</p>
 
 <p><code>Arrays.sort</code> は配列の要素型ごとに<code>sort</code>メソッドが用意されている。</p>
-
-<p><code>java.util.Arrays.sort</code> | Java Platform SE 8 Javadoc  <br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#sort-java.lang.Object:A-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#sort-java.lang.Object:A-</a><br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#sort-T:A-java.util.Comparator-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#sort-T:A-java.util.Comparator-</a></p>
-
-<p><code>java.util.Collections.sort</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-</a><br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-java.util.Comparator-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-java.util.Comparator-</a></p>
 
 <p><code>java.util.Comparator</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html</a></p>
@@ -340,14 +334,14 @@ console.log(arr.sort(function(a, b){
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
