@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>値のペアの配列(リスト)から連想配列(マップ)を生成するには (toMap) | hydroculのメモ</title>
+<title>値のペアの配列(リスト)から連想配列を生成するには (toMap) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,26 +16,27 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>値のペアの配列(リスト)から連想配列(マップ)を生成するには (toMap)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>値のペアの配列(リスト)から連想配列を生成するには (toMap)</span>
 </div>
 
 <div id="content">
-  <h1 id="to-map">値のペアの配列(リスト)から連想配列(マップ)を生成するには (toMap)
+  <h1 id="to-map">値のペアの配列(リスト)から連想配列を生成するには (toMap)
 <span class="article-date">2015/04/05</span></h1>
 
-<p>各プログラミング言語での、値のペアの配列(リスト)から連想配列(マップ)を生成する方法。</p>
+<p>値のペアの配列(リスト)から連想配列(マップ/ハッシュ/ディクショナリ)を生成する方法。</p>
 
 <p><code>[["a", 1], ["b", 2], ["c", 3]]</code> というような配列の配列から <code>{"a": 1, "c": 3, "b": 2}</code> というような連想配列への変換である。もしくは <code>["a", 1, "b", 2, "c", 3]</code> というような長さが偶数の配列から連想配列への変換である。</p>
 
 <h2 id="9dac89f">Scala
-<span class="article-date">2013/10/14</span></h2>
+<span class="article-date">2016/07/21</span></h2>
 
 <p><a href="../tuple/overview.html#scala">タプル</a>のリストを<a href="../map/overview.html#scala">マップ</a>に変換する方法。</p>
 
 <p>Signature:</p>
 
-<pre><code>def scala.collection.Seq[A]#toMap[T, U]: Map[T, U]
-</code></pre>
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Seq@toMap[T,U]:scala.collection.Map[T,U]" target="_blank" class="external-link method-signature"><code>def Seq[(T, U)]#toMap[T, U]: Map[T, U]</code></a></li>
+</ul>
 
 <p>例</p>
 
@@ -109,14 +110,14 @@ print $map{d};
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
