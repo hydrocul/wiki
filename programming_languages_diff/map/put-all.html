@@ -47,34 +47,62 @@ def ++(xs: Seq[(A, B)]): Map[A, B]
 <p>要素を追加した新しいマップを返し、自身は変更しない。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2015/04/06</span></h2>
+<span class="article-date">2016/07/22</span></h2>
 
-<p><code>array_merge</code> を使うと2つ以上の配列をマージすることができる。同じキーが複数の配列に含まれていた場合はあとから追加したもので上書きされる。
-<code>array_merge</code> は引数の配列を変更せず、マージした結果を返すのみである。</p>
+<p><code>array_merge</code> を使うと2つ以上の配列をマージしてできる新しい配列を取得することができる。元の配列は変更しない。</p>
+
+<p>同じキーが複数の配列に含まれていた場合はあとから追加したもので上書きされる。</p>
+
+<p><code>array_merge</code> の代わりに <code>array_merge_recursive</code> を使うと、同じキーは要素自体が配列になり、値が失われない。</p>
 
 <pre><code>$arr1 = array('a' =&gt; 1, 'b' =&gt; 2, );
 $arr2 = array('a' =&gt; 10, 'c' =&gt; 30, );
-$merged_arr = array_merge($arr1, $arr2);
-var_export($merged_arr);
+
+var_export(array_merge($arr1, $arr2));
 // 出力結果
 // array (
 //   'a' =&gt; 10,
 //   'b' =&gt; 2,
 //   'c' =&gt; 30,
 // )
+
+var_export(array_merge_recursive($arr1, $arr2));
+// 出力結果
+// array (
+//   'a' =&gt;
+//   array (
+//     0 =&gt; 1,
+//     1 =&gt; 10,
+//   ),
+//   'b' =&gt; 2,
+//   'c' =&gt; 30,
+// )
 </code></pre>
 
-<p>要素がまた配列だったときに要素同士をマージしてはくれなくて、要素全体が後から追加したもので上書きされる。</p>
+<p><code>array_merge</code> は配列が入れ子になっていた場合に再帰的に要素同士をマージすることはなくて、単純に要素全体が後から追加したもので上書きされる。</p>
+
+<p><code>array_merge_recursive</code> は要素同士もマージする。</p>
 
 <pre><code>$arr1 = array("a" =&gt; 1, "b" =&gt; array("bA" =&gt; 21));
 $arr2 = array("b" =&gt; array("bB" =&gt; 22), "c" =&gt; 3);
-$merged_arr = array_merge($arr1, $arr2);
-var_export($merged_arr);
+
+var_export(array_merge($arr1, $arr2));
 // 出力結果
 // array (
 //   'a' =&gt; 1,
 //   'b' =&gt;
 //   array (
+//     'bB' =&gt; 22,
+//   ),
+//   'c' =&gt; 3,
+// )
+
+var_export(array_merge_recursive($arr1, $arr2));
+// array (
+//   'a' =&gt; 1,
+//   'b' =&gt;
+//   array (
+//     'bA' =&gt; 21,
 //     'bB' =&gt; 22,
 //   ),
 //   'c' =&gt; 3,
@@ -168,9 +196,9 @@ print Dumper $merged;
           <li><a href="../../programming_languages_diff/map/put.html">put / <code>[]</code> / <code>+</code> (追加/更新)</a></li>
           <li>putAll / <code>++</code> / array_merge / update / merge / merge!</li>
           <li><a href="../../programming_languages_diff/map/filter.html">filter / select / partition / delete_if</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">- / unset / del / delete</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">unset / del / delete / <code>-</code></a></li>
           <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists</a></li>
-          <li><a href="../../programming_languages_diff/map/entries.html">キーと値のペアを集合または配列で取得するには (items / to_a)</a></li>
+          <li><a href="../../programming_languages_diff/map/entries.html">items / to_a</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
           <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">clone / copy / dup</a></li>
