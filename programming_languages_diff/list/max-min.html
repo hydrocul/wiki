@@ -119,6 +119,37 @@ min(lst)
 という最大値・最小値に関する複数の関数がある。
 -&gt; <a href="../../numpy/ndarray-max-min.html">NumPyのndarrayの最大値/最小値に関する関数</a></p>
 
+<h3 id="bf81c2e">Ruby / JRuby
+<span class="article-date">2015/01/06</span></h3>
+
+<p><code>max</code>, <code>min</code> というメソッドを使う。</p>
+
+<pre><code>arr = [20, 40, 10, 40]
+
+p arr.max
+# =&gt; 40
+p arr.min
+# =&gt; 10
+</code></pre>
+
+<p><code>Enumerable#max</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/max.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/max.html</a></p>
+
+<p><code>Enumerable#max_by</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/max_by.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/max_by.html</a></p>
+
+<p><code>Enumerable#min</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/min.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/min.html</a></p>
+
+<p><code>Enumerable#min_by</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/min_by.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/min_by.html</a></p>
+
+<p><code>Enumerable#minmax</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/minmax.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/minmax.html</a></p>
+
+<p><code>Enumerable#minmax_by</code> | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/minmax_by.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/minmax_by.html</a></p>
+
 <h2 id="perl">Perl
 <span class="article-date">2016/05/22</span></h2>
 
@@ -177,14 +208,14 @@ console.log(min);
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
