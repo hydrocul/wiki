@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列を数値に変換するには (parseInt / toInt) | 文字列 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>文字列を数値に変換するには (parseInt / toInt) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -21,9 +21,11 @@
 
 <div id="content">
   <h1 id="to-num">文字列を数値に変換するには (parseInt / toInt)
-<span class="article-date">2014/11/03</span></h1>
+<span class="article-date">2016/07/24</span></h1>
 
-<p>多くの言語では動的/静的の違いはあっても文字列と数値とで型が区別されるので、文字列から数値への変換が必要なことが多い。以下はプログラミング言語ごとの変換の方法のメモ。</p>
+<p>文字列を数値に変換する方法。</p>
+
+<p>多くの言語では動的/静的の違いはあっても文字列と数値とで型が区別されるので、文字列から数値への変換が必要なことが多い。</p>
 
 <p>逆の<a href="../number/to-string.html">数値から文字列に変換する方法</a>も参照。</p>
 
@@ -71,12 +73,12 @@ func main() {
 
 <p>Signature:</p>
 
-<pre><code>static java.lang.Integer#parseInt(String str)
-static java.lang.Integer#parseInt(String str, int radix)
-
-static java.lang.Integer#parseUnsignedInt(String str)
-static java.lang.Integer#parseUnsignedInt(String str, int radix)
-</code></pre>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseInt-java.lang.String-" target="_blank" class="external-link method-signature"><code>int Integer.parseInt(String str)</code></a></li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseInt-java.lang.String-int-" target="_blank" class="external-link method-signature"><code>int Integer.parseInt(String str, int radix)</code></a></li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseUnsignedInt-java.lang.String-" target="_blank" class="external-link method-signature"><code>int Integer.parseUnsignedInt(String str)</code></a></li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseUnsignedInt-java.lang.String-int-" target="_blank" class="external-link method-signature"><code>int Integer.parseUnsignedInt(String str, int radix)</code></a></li>
+</ul>
 
 <p>例</p>
 
@@ -91,14 +93,6 @@ int i = Integer.parseInt(str, 16);
 
 <p>文字列が <code>"0"</code> で始まっていてもそれは単に無視されて変換されるので、
 <code>"09"</code> は <code>9</code> になる。</p>
-
-<p><code>java.lang.Integer#parseInt</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseInt-java.lang.String-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseInt-java.lang.String-</a><br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseInt-java.lang.String-int-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseInt-java.lang.String-int-</a></p>
-
-<p><code>java.lang.Integer#parseUnsignedInt</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseUnsignedInt-java.lang.String-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseUnsignedInt-java.lang.String-</a><br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseUnsignedInt-java.lang.String-int-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseUnsignedInt-java.lang.String-int-</a></p>
 
 <h2 id="b451d62">Scala
 <span class="article-date">2015/02/01</span></h2>

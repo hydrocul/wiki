@@ -21,11 +21,11 @@
 
 <div id="content">
   <h1 id="literal">無名関数
-<span class="article-date">2014/10/04</span></h1>
+<span class="article-date">2016/07/25</span></h1>
 
-<p>ここでは式の中に書ける無名関数の各プログラミング言語での書き方の説明をする。</p>
+<p>無名関数の書き方。</p>
 
-<p>ラムダ式とかクロージャとかの概念とつながってるかもしれない。</p>
+<p>ラムダ式とかクロージャとかの概念と関係あるかもしれない。</p>
 
 <p>通常の関数定義・メソッド定義は<a href="method-definition.html">関数定義・メソッド定義</a>参照。</p>
 
@@ -135,14 +135,21 @@ Scalaでは <code>-&gt;</code> は別の意味の演算子として存在する�
 1引数の非常に簡単な式の関数を書くには <code>_</code> は便利である。</p>
 
 <h2 id="3b01008">PHP
-<span class="article-date">2015/04/02</span></h2>
+<span class="article-date">2016/07/25</span></h2>
 
 <p>PHP5.3以降で使える無名関数の例</p>
 
 <pre><code>$f = function ($arg) {
     echo "$arg\n";
-}
+};
 $f("Hello");
+</code></pre>
+
+<p>PHP7以降で使える、無名関数をその場で呼び出す例</p>
+
+<pre><code>(function ($arg) {
+    echo "$arg\n";
+})("Hello");
 </code></pre>
 
 <p>無名関数を宣言している外側の変数を無名関数の中から参照するには、
@@ -179,7 +186,7 @@ $fname("Hello");
 <a href="http://www.php.net/manual/ja/functions.variable-functions.php" target="_blank" class="external-link">http://www.php.net/manual/ja/functions.variable-functions.php</a></p>
 
 <h2 id="269ff61">Perl
-<span class="article-date">2014/03/01</span></h2>
+<span class="article-date">2016/07/25</span></h2>
 
 <p>無名関数の例</p>
 
@@ -195,19 +202,6 @@ $f-&gt;(...);
 <pre><code>sub {
     ...;
 }-&gt;(...);
-</code></pre>
-
-<p>サブルーチンをサブルーチンの中に置くこともできるが、中のサブルーチンは外からも呼び出せてしまうようだ。</p>
-
-<pre><code>sub f {
-    ...;
-    sub g {
-        ...;
-    }
-    ...;
-}
-f(...);
-g(...); # =&gt; No problem
 </code></pre>
 
 <p>クロージャーとして使う例</p>

@@ -169,7 +169,7 @@ FLUSH PRIVILEGES
 <p>LOAD DATA INFILE Syntax | MySQL 5.5 Reference Manual<br />
 <a href="http://dev.mysql.com/doc/refman/5.5/en/load-data.html" target="_blank" class="external-link">http://dev.mysql.com/doc/refman/5.5/en/load-data.html</a></p>
 
-<h2 id="72e44a5">MySQLサーバをskip-name-resolveオプション付きで起動するときは注意が要る件について
+<h2 id="3f83a55">MySQLサーバをskip-name-resolveオプション付きで起動するときは注意がいる件
 <span class="article-date">2013/07/02</span></h2>
 
 <p><a href="http://backslash.ddo.jp/wordpress/archives/397" target="_blank" class="external-link">http://backslash.ddo.jp/wordpress/archives/397</a></p>
@@ -188,12 +188,15 @@ FLUSH PRIVILEGES
 Ubuntu: <code>/etc/mysql/my.cnf</code></p>
 
 <h2 id="0083114">mysqlコマンドからポート番号を指定して接続するには
-<span class="article-date">2014/05/27</span></h2>
+<span class="article-date">2016/07/25</span></h2>
 
-<pre><code>mysql -P ポート番号
+<pre><code>mysql -h ホスト名 -P ポート番号
 </code></pre>
 
 <p>小文字の <code>-p</code> にすると、ポート番号の指定ではなく、パスワードのプロンプトを出すオプションになる。</p>
+
+<p>普通とは違うポート番号につなぐには、たとえローカルのMySQLであっても <code>-h</code> がいるみたい。
+<code>-h</code> を指定せずに <code>-P</code> だけ指定しても <code>-P</code> が無視されてしまった。</p>
 
 <h2 id="efbe5c3">レプリケーションエラーをとりあえず解決する方法方法
 <span class="article-date">2015/08/17</span></h2>

@@ -176,23 +176,38 @@
 <p><code>#</code> は常にコメント開始の印というわけではなく、文字列や正規表現の中であったり、<a href="../list/last.html#perl">配列の最後の要素番号を取得する <code>$#arr</code></a> のようなものもある。</p>
 
 <h2 id="45d47a5">sh (シェルスクリプト)
-<span class="article-date">2016/05/13</span></h2>
+<span class="article-date">2016/07/25</span></h2>
 
 <pre><code># 単一行コメント
+</code></pre>
 
-&lt;&lt;EOF
+<p>以下のような書き方で複数行のコメントアウトに近いことはできる。</p>
+
+<pre><code>&lt;&lt;EOF
+  複数行コメント
+  複数行コメント
+EOF
+
+# または
+
+cat &lt;&lt;EOF &gt;/dev/null
   複数行コメント
   複数行コメント
 EOF
 </code></pre>
 
-<p>この書き方を知らなかった頃はよく以下のように複数行コメントアウトをしていた。</p>
+<p>ただし、この書き方はあくまで<a href="../string/heredoc.html#sh">ヒアドキュメント</a>なので、シェルスクリプトはこれをヒアドキュメントとして文字列に組み立てるところまでは実行する。</p>
 
-<pre><code>cat &lt;&lt;EOF &gt;/dev/null
-  複数行コメント
-  複数行コメント
+<p>つまり以下のように書くと、 <code>DEBUG</code> という出力はされるし、見えないけど <code>ls</code> コマンドも実行される。</p>
+
+<pre><code>&lt;&lt;EOF
+コメントあいうえお
+$(echo "DEBUG" &gt;&amp;2; ls)
+コメントかきくけこ
 EOF
 </code></pre>
+
+<p>なので、実行してほしくない部分を <code>&lt;&lt;EOF</code> … <code>EOF</code> で囲んでも、思わぬコードが実行されてしまうリスクがある。</p>
 
 <h2 id="cbea7d8">Haskell
 <span class="article-date">2013/09/17</span></h2>

@@ -222,7 +222,7 @@ end
 <p><a href="../vars/scope.html#ruby">グローバル変数</a>は <code>$</code> で始まる名前になっていて、メソッドの中からグローバル変数を参照することはできる。</p>
 
 <h2 id="1cf9d63">Perl
-<span class="article-date">2015/03/18</span></h2>
+<span class="article-date">2016/07/25</span></h2>
 
 <p>サブルーチンの定義の例</p>
 
@@ -252,6 +252,19 @@ end
 </code></pre>
 
 <p>サブルーチン定義の中では引数は、<code>@_</code>, <code>$_[...]</code> などで参照する。</p>
+
+<p>サブルーチンの中でサブルーチンを定義することもできるようだが、中のサブルーチンは外からも呼び出せてしまうようだ。</p>
+
+<pre><code>sub f {
+    ...;
+    sub g {
+        ...;
+    }
+    ...;
+}
+f(...);
+g(...); # =&gt; No problem
+</code></pre>
 
 <h2 id="62acba8">sh (シェルスクリプト)
 <span class="article-date">2014/09/29</span></h2>
