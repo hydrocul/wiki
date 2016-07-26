@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>同じ値を並べた配列(リスト)を作成するには (fill) | hydroculのメモ</title>
+<title>同じ値で埋めた配列(リスト)を作成するには (fill) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,14 +16,14 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>同じ値を並べた配列(リスト)を作成するには (fill)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>同じ値で埋めた配列(リスト)を作成するには (fill)</span>
 </div>
 
 <div id="content">
-  <h1 id="fill">同じ値を並べた配列(リスト)を作成するには (fill)
+  <h1 id="fill">同じ値で埋めた配列(リスト)を作成するには (fill)
 <span class="article-date">2015/03/27</span></h1>
 
-<p>各プログラミング言語での、同じ値を並べた配列(リスト)を作成する方法。</p>
+<p>同じ値を並べた配列(リスト)を作成する方法。</p>
 
 <h2 id="2f6394c">Scala
 <span class="article-date">2015/03/27</span></h2>
@@ -55,6 +55,26 @@ scala.collection.mutable.Seq.fill[A](n1: Int, n2: Int, n3: Int)(elem: =&gt; A): 
 <pre><code>println(Seq.fill(3)(java.lang.Math.random()));
 // =&gt; List(0.6325425328171801, 0.4376259819974295, 0.48787100947790263)
 </code></pre>
+
+<h2 id="e9bfbbd">PHP
+<span class="article-date">2016/07/26</span></h2>
+
+<pre><code># インデックスが0から始まる、1 が3つの配列を生成
+$arr = array_fill(0, 3, 1);
+var_export($arr);
+# 出力結果
+# array (
+#   0 =&gt; 1,
+#   1 =&gt; 1,
+#   2 =&gt; 1,
+# )
+</code></pre>
+
+<p>PHP 5.6 よりも前のバージョンでは2つ目の引数が0だと
+<code>PHP Warning:  array_fill(): Number of elements must be positive</code> という警告が出てしまう。</p>
+
+<p><code>array_fill</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.array-fill.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-fill.php</a></p>
 
 <h2 id="ab415ec">Python
 <span class="article-date">2014/08/09</span></h2>
@@ -199,14 +219,14 @@ print Dumper \@arr;
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>

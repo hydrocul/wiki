@@ -23,12 +23,12 @@
   <h1 id="watch">watch コマンド
 <span class="article-date">2016/04/15</span></h1>
 
-<p>コマンドを一定の時間ごとに実行して結果を端末にスクロールせずに固定で表示してくれるコマンド。</p>
+<p>コマンドを一定の時間ごとに実行して結果を端末にスクロールさせずに固定で表示してくれるコマンド。</p>
 
 <p>例</p>
 
-<pre><code># `ls -al` を1秒ごとに実行
-watch -n 1 ls -al
+<pre><code>## `ls -al` を1秒ごとに実行
+$ watch -n 1 ls -al
 </code></pre>
 
 <p><code>-n1</code> のようにつなげてもよい。<code>-n0.1</code> で0.1秒ごとに実行になる。
@@ -55,11 +55,19 @@ watch -n 1 ls -al
 
 <p><code>-c</code>, <code>-e</code>, <code>-g</code> は環境によって使える場合と使えない場合があるようで、手元の Ubuntu 14.04 では使えたが CentOS 6.3 では使えなかった。</p>
 
+<h2 id="f4619a8">バージョンによる違い
+<span class="article-date">2016/04/15</span></h2>
+
+<p>このコマンドを提供しているプロジェクトがもともとは procps というところで、それをforkしたものが procps-ng。
+CentOS 6では本家 procps を使っていて、Ubuntu や CentOS 7 では procps-ng を使っている。</p>
+
+<p>たぶん、<code>-e</code> や <code>-g</code> は procps-ng になってからのオプション。</p>
+
 <h2 id="6f66ec1">コマンドの中にワイルドカードを使いたい場合
 <span class="article-date">2016/02/05</span></h2>
 
 <p>バッチ処理かなにかで <code>.txt</code> という拡張子を持つファイルが作られたり消されたりするとして、その様子をリアルタイムに監視するために
-<code>ls -al *.txt</code> というコマンドを常時表示させたいとする。</p>
+<code>ls -al *.txt</code> というコマンドを常時表示させたいとする。そのとき、</p>
 
 <pre><code>$ watch -n1 ls -al *.txt
 </code></pre>
@@ -91,7 +99,7 @@ $ watch -n 3 "ls | wc -l"
 
 <p>これを実行するとエスケープシーケンスがあらわに表示されて残念な感じになる。</p>
 
-<p>こういうときUbuntuやCentOS7では <code>-c</code> オプションが使える。</p>
+<p>こういうときUbuntuやCentOS 7では <code>-c</code> オプションが使える。</p>
 
 <pre><code>$ watch -n1 -c ls -al --color
 </code></pre>
@@ -142,7 +150,9 @@ $ watch -n 3 "ls | wc -l"
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
+      <li><a href="../commands/pwd.html">pwd コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
+      <li><a href="../commands/rm.html">rm コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
