@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>パスからファイル名を取得するには (basename) | 入出力・ファイル操作 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>ファイルのパスからファイル名を取得するには (basename) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,14 +16,18 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>パスからファイル名を取得するには (basename)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>ファイルのパスからファイル名を取得するには (basename)</span>
 </div>
 
 <div id="content">
-  <h1 id="basename">パスからファイル名を取得するには (basename)
+  <h1 id="basename">ファイルのパスからファイル名を取得するには (basename)
 <span class="article-date">2013/09/16</span></h1>
 
-<p>ファイルパスからファイル名の部分を取り出す方法。ディレクトリの部分を取り出す方法は<a href="dirname.html">dirname</a>。拡張子を取り出す方法は<a href="extname.html">extname</a>。</p>
+<p>ファイルパスからファイル名の部分を取り出す方法。</p>
+
+<p>ディレクトリの部分を取り出す方法は<a href="dirname.html">dirname</a>。</p>
+
+<p>拡張子を取り出す方法は<a href="extname.html">extname</a>。</p>
 
 <h2 id="ebf2406">Java
 <span class="article-date">2015/02/07</span></h2>
@@ -52,9 +56,12 @@ public class Test {
 </code></pre>
 
 <h2 id="4930960">PHP
-<span class="article-date">2013/09/13</span></h2>
+<span class="article-date">2016/07/28</span></h2>
 
-<pre><code>basename($path);
+<pre><code>echo basename("/aaa/bbb"); // =&gt; bbb
+echo basename("/aaa/"); // =&gt; aaa
+echo basename("/aaa"); // =&gt; aaa
+echo basename("aaa"); // =&gt; aaa
 </code></pre>
 
 <p><code>basename</code> 関数 | PHP Manual<br />
@@ -120,21 +127,20 @@ print basename("aaa") . "\n"; # =&gt; aaa
           <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
           <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
-          <li>パスからファイル名を取得するには (basename)</li>
+          <li>ファイルのパスからファイル名を取得するには (basename)</li>
           <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
+          <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには (ls)</a></li>
           <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには (mkdir)</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイル・ディレクトリを削除するには (<code>rm</code> / <code>unlink</code> / <code>rmdir</code>)</a></li>
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
-          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには (exists)</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
-          <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
           <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
-          <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/mv.html">ファイル名を変更するには</a></li>
