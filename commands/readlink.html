@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="readlink">readlink コマンド
-<span class="article-date">2014/11/23</span></h1>
+<span class="article-date">2016/08/01</span></h1>
 
 <p>シンボリックリンクのリンク先を確認できるコマンド。</p>
 
@@ -29,50 +29,67 @@
 
 <p>例</p>
 
-<pre><code>readlink -f シンボリックリンクのパス
+<pre><code>$ readlink -f シンボリックリンクのパス
 </code></pre>
 
-<p><code>-f</code> を付けると階層の途中にあるすべてのシンボリックリンクを解決して、絶対パスにしてくれるみたい。付けないと、途中にシンボリックリンクがあった場合に1つだけしか解決しない。</p>
+<p><code>-f</code> を付けると階層の途中にあるすべてのシンボリックリンクを解決して、絶対パスにしてくれるみたい。</p>
 
-<p><code>-f</code> を付けないと、指定したパスがシンボリックリンクでない場合は、なにも表示せずに、終了コード1を返す。</p>
+<p><code>-f</code> を付けないと、途中にシンボリックリンクがあった場合に1つだけしか解決せず、また、指定したパスがシンボリックリンクでない場合は、なにも表示せずに、終了コード1を返す。</p>
 
 <p>実行例</p>
 
-<pre><code>mkdir symtest
-cd symtest
-mkdir -p aaa/bbb
-ln -s aaa a
-ln -s bbb aaa/b
+<pre><code>$ mkdir symtest
+$ cd symtest
+$ mkdir -p aaa/bbb
+$ ln -s aaa a
+$ ln -s bbb aaa/b
 
-readlink a
-# aaa
+$ readlink a
+aaa
 
-readlink a/b
-# bbb
+$ readlink a/b
+bbb
 
-#readlink a/bbb
-# 終了コード1で異常終了
+$ readlink a/bbb
+## 終了コード1で異常終了
 
-#readlink aaa/bbb
-# 終了コード1で異常終了
+$ readlink aaa/bbb
+## 終了コード1で異常終了
 
-readlink -f a
-# /home/hoge/symtest/aaa
+$ readlink -f a
+/home/hoge/symtest/aaa
 
-readlink -f a/b
-# /home/hoge/symtest/aaa/bbb
+$ readlink -f a/b
+/home/hoge/symtest/aaa/bbb
 
-readlink -f a/bbb
-# /home/hoge/symtest/aaa/bbb
+$ readlink -f a/bbb
+/home/hoge/symtest/aaa/bbb
 
-readlink -f aaa/bbb
-# /home/hoge/symtest/aaa/bbb
+$ readlink -f aaa/bbb
+/home/hoge/symtest/aaa/bbb
 </code></pre>
 
 <h2 id="4e4cba2">インストール
 <span class="article-date">2016/03/17</span></h2>
 
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
+
+<h2 id="0439244">オプション
+<span class="article-date">2016/08/01</span></h2>
+
+<dl>
+  <dt><code>-f</code></dt>
+  <dd>シンボリックリンクがパス階層の途中にあったり、連鎖している場合にもすべてのリンクを解決する</dd>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプ表示</dd>
+  <dt><code>-n</code></dt>
+  <dd>最後に改行を出力しない。<code>echo</code> の <code>-n</code> と同じ</dd>
+  <dt><code>--version</code></dt>
+  <dd>バージョン表示</dd>
+</dl>
+
+<p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
+<code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
 </div>
 
@@ -120,7 +137,9 @@ readlink -f aaa/bbb
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
+      <li><a href="../commands/pwd.html">pwd コマンド</a></li>
       <li>readlink コマンド</li>
+      <li><a href="../commands/rm.html">rm コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
