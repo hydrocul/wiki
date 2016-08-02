@@ -21,52 +21,106 @@
 
 <div id="content">
   <h1 id="readlink">readlink コマンド
-<span class="article-date">2016/08/01</span></h1>
+<span class="article-date">2016/08/02</span></h1>
 
 <p>シンボリックリンクのリンク先を確認できるコマンド。</p>
-
-<p>-&gt; <a href="../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></p>
 
 <p>例</p>
 
 <pre><code>$ readlink -f シンボリックリンクのパス
 </code></pre>
 
-<p><code>-f</code> を付けると階層の途中にあるすべてのシンボリックリンクを解決して、絶対パスにしてくれるみたい。</p>
+<p><code>-f</code> を付けると階層の途中にあるすべてのシンボリックリンクを解決して、絶対パスにしてくれる。</p>
 
-<p><code>-f</code> を付けないと、途中にシンボリックリンクがあった場合に1つだけしか解決せず、また、指定したパスがシンボリックリンクでない場合は、なにも表示せずに、終了コード1を返す。</p>
+<p><code>-f</code> を付けないと、階層の途中にあるシンボリックリンクはそのままで、また、指定したパスがシンボリックリンクでない場合は、なにも表示せずに、終了コード1を返す。</p>
 
-<p>実行例</p>
+<h2 id="6efcbf5">実行例
+<span class="article-date">2016/08/02</span></h2>
 
-<pre><code>$ mkdir symtest
-$ cd symtest
-$ mkdir -p aaa/bbb
-$ ln -s aaa a
-$ ln -s bbb aaa/b
+<p>準備</p>
 
-$ readlink a
+<pre><code>$ mkdir -p aaa/bbb
+$ ln -s aaa AAA
+## aaa へのリンクを AAA という名前で作成
+$ ln -s bbb aaa/BBB
+## bbb へのリンクを aaa/BBB という名前で作成
+## リンク先たる「bbb」は aaa/BBB からの相対パス
+
+$ ln -s dummy aaa/DUMMY
+## 存在しないリンク先
+</code></pre>
+
+<p>状況</p>
+
+<pre><code>$ find .
+.
+./AAA           # &lt;- aaa へのシンボリックリンク
+./aaa
+./aaa/DUMMY     # &lt;- リンク先が存在しないシンボリックリンク
+./aaa/bbb
+./aaa/BBB       # &lt;- bbb へのシンボリックリンク
+</code></pre>
+
+<p>基本的な使い方の例</p>
+
+<pre><code>$ readlink AAA
 aaa
 
-$ readlink a/b
+$ readlink AAA/BBB
 bbb
 
-$ readlink a/bbb
-## 終了コード1で異常終了
-
 $ readlink aaa/bbb
-## 終了コード1で異常終了
+## bbbはシンボリックリンクではないので、終了コード1で異常終了
 
-$ readlink -f a
-/home/hoge/symtest/aaa
+$ readlink AAA/bbb
+## AAAはシンボリックリンクだけどもbbbはシンボリックリンクではないので、終了コード1で異常終了
 
-$ readlink -f a/b
-/home/hoge/symtest/aaa/bbb
+$ readlink aaa/DUMMY
+dummy
+## リンク先が存在しなくてもリンク先を表示
+</code></pre>
 
-$ readlink -f a/bbb
-/home/hoge/symtest/aaa/bbb
+<p><code>-f</code> を使う例</p>
+
+<pre><code>$ readlink -f AAA
+/home/foo/readlinktest/aaa
+## 絶対パスで表示
+
+$ readlink -f AAA/BBB
+/home/foo/readlinktest/aaa/bbb
+## AAAもBBBもリンク先に変換
+
+$ readlink -f AAA/bbb
+/home/foo/readlinktest/aaa/bbb
+## 階層の途中であるAAAだけでもリンク先に変換
 
 $ readlink -f aaa/bbb
-/home/hoge/symtest/aaa/bbb
+/home/foo/readlinktest/aaa/bbb
+## シンボリックリンクがなにもない場合はそのまま
+
+$ readlink -f AAA/DUMMY
+/home/foo/readlinktest/aaa/dummy
+
+$ readlink -e aaa/DUMMY
+## -f の代わりに -e を付けるとリンク先が存在しない場合に、終了コード1で異常終了
+## 存在する場合は -f と同じ
+</code></pre>
+
+<p>シンボリックリンクへのシンボリックリンクがある場合</p>
+
+<pre><code>$ ln -s AAA AAB
+## AAA へのリンクを AAB という名前で作成
+## 以下のように連鎖的なリンクになる
+## AAA -&gt; aaa
+## AAB -&gt; AAA
+
+$ readlink AAB
+AAA
+# -f がないと直接のリンク先を表示
+
+$ readlink -f AAB
+/home/foo/readlinktest/aaa
+# -f を付けるとシンボリックリンクを2回たどって絶対パスで表示
 </code></pre>
 
 <h2 id="4e4cba2">インストール
@@ -75,15 +129,19 @@ $ readlink -f aaa/bbb
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
 <h2 id="0439244">オプション
-<span class="article-date">2016/08/01</span></h2>
+<span class="article-date">2016/08/02</span></h2>
 
 <dl>
+  <dt><code>-e</code></dt>
+  <dd>リンク先が存在しない場合にはリンク先を表示せずにエラー</dd>
   <dt><code>-f</code></dt>
   <dd>シンボリックリンクがパス階層の途中にあったり、連鎖している場合にもすべてのリンクを解決する</dd>
   <dt><code>--help</code></dt>
   <dd>ヘルプ表示</dd>
   <dt><code>-n</code></dt>
   <dd>最後に改行を出力しない。<code>echo</code> の <code>-n</code> と同じ</dd>
+  <dt><code>-v</code></dt>
+  <dd>エラーの場合にエラーメッセージを表示</dd>
   <dt><code>--version</code></dt>
   <dd>バージョン表示</dd>
 </dl>
