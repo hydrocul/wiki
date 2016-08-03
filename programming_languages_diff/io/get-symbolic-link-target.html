@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>シンボリックリンクのリンク先を取得する | hydroculのメモ</title>
+<title>シンボリックリンクのリンク先を取得する (readlink) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,14 +16,61 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>シンボリックリンクのリンク先を取得する</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/io/">入出力・ファイル操作</a> &gt; <span>シンボリックリンクのリンク先を取得する (readlink)</span>
 </div>
 
 <div id="content">
-  <h1 id="get-symbolic-link-target">シンボリックリンクのリンク先を取得する</h1>
+  <h1 id="get-symbolic-link-target">シンボリックリンクのリンク先を取得する (readlink)</h1>
 
 <h2 id="a8d9349">PHP
-<span class="article-date">2016/08/01</span></h2>
+<span class="article-date">2016/08/03</span></h2>
+
+<p><code>readlink</code>関数が<a href="../../commands/readlink.html"><code>readlink</code>コマンド</a>とほとんど同じように動作する。</p>
+
+<p>準備</p>
+
+<pre><code>$ mkdir -p aaa/bbb
+$ ln -s aaa AAA
+## aaa へのリンクを AAA という名前で作成
+$ ln -s bbb aaa/BBB
+## bbb へのリンクを aaa/BBB という名前で作成
+## リンク先たる「bbb」は aaa/BBB からの相対パス
+
+$ ln -s dummy aaa/DUMMY
+## 存在しないリンク先
+</code></pre>
+
+<p>状況</p>
+
+<pre><code>$ find .
+.
+./AAA           # &lt;- aaa へのシンボリックリンク
+./aaa
+./aaa/DUMMY     # &lt;- リンク先が存在しないシンボリックリンク
+./aaa/bbb
+./aaa/BBB       # &lt;- bbb へのシンボリックリンク
+</code></pre>
+
+<p>実行例</p>
+
+<pre><code>echo readlink("AAA"); echo "\n";
+// aaa
+
+echo readlink("AAA/BBB"); echo "\n";
+// bbb
+
+echo readlink("aaa/bbb"); echo "\n";
+// PHP Warning:  readlink(): Invalid argument
+// bbbはシンボリックリンクではないので
+
+echo readlink("AAA/bbb"); echo "\n";
+// PHP Warning:  readlink(): Invalid argument
+// AAAはシンボリックリンクだけどもbbbはシンボリックリンクではないので
+
+echo readlink("AAA/DUMMY"); echo "\n";
+// dummy
+// リンク先が存在しなくてもOK
+</code></pre>
 
 <p><code>readlink</code> 関数 | PHP Manual<br />
 <a href="http://php.net/manual/ja/function.readlink.php" target="_blank" class="external-link">http://php.net/manual/ja/function.readlink.php</a></p>
@@ -96,7 +143,7 @@ end
           <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
-          <li>シンボリックリンクのリンク先を取得する</li>
+          <li>シンボリックリンクのリンク先を取得する (readlink)</li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/mv.html">ファイル名を変更するには</a></li>
