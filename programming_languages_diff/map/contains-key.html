@@ -90,7 +90,7 @@ println(map.contains("A"));
 </code></pre>
 
 <h2 id="php">PHP
-<span class="article-date">2015/09/02</span></h2>
+<span class="article-date">2016/08/04</span></h2>
 
 <p><code>array_key_exists</code>関数または<code>isset</code>を使う。
 <code>isset</code> は通常の関数ではなく、PHPの言語構造である。</p>
@@ -112,14 +112,24 @@ if (array_key_exists('c', $arr)) {
 } else {
   echo "not exists\n";
 }
-# =&gt; exists
+// =&gt; exists
 
+// NULLと要素が存在しないのとは区別できない
 if (isset($arr['c'])) {
   echo "exists\n";
 } else {
   echo "not exists or NULL\n";
 }
-# =&gt; not exists or NULL
+// =&gt; not exists or NULL
+
+// 子要素が配列でないのに配列のつもりでアクセスしてもwarning等は発生しない
+// isset は関数でなく言語構造だから
+if (isset($arr['b']['B'])) {
+  echo "exists\n";
+} else {
+  echo "not exists or NULL\n";
+}
+// =&gt; not exists or NULL
 </code></pre>
 
 <p><code>array_key_exists</code> 関数 | PHP Manual<br />
@@ -211,11 +221,11 @@ console.log('c' in map);
           <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty / empty?</a></li>
           <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch / <code>[]</code> (参照)</a></li>
           <li><a href="../../programming_languages_diff/map/put.html">put / <code>[]</code> / <code>+</code> (追加/更新)</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">putAll / ++ / array_merge / update / merge / merge!</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">putAll / <code>++</code> / array_merge / update / merge / merge!</a></li>
           <li><a href="../../programming_languages_diff/map/filter.html">filter / select / partition / delete_if</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">- / unset / del / delete</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">unset / del / delete / <code>-</code></a></li>
           <li>containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists</li>
-          <li><a href="../../programming_languages_diff/map/entries.html">キーと値のペアを集合または配列で取得するには (items / to_a)</a></li>
+          <li><a href="../../programming_languages_diff/map/entries.html">items / to_a</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
           <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
           <li><a href="../../programming_languages_diff/map/clone.html">clone / copy / dup</a></li>
