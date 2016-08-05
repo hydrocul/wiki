@@ -56,11 +56,21 @@ String java.lang.String#toLowerCase()
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toLowerCase--" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toLowerCase–</a></p>
 
 <h2 id="b46711f">PHP
-<span class="article-date">2013/10/08</span></h2>
+<span class="article-date">2016/08/05</span></h2>
 
-<pre><code>$uppercase_str = strtoupper($str)
-$lowercase_str = strtolower($str)
+<p><code>strtoupper</code>関数、<code>strtolower</code>関数を使う。</p>
+
+<pre><code>$uppercase_str = strtoupper($str);
+$lowercase_str = strtolower($str);
 </code></pre>
+
+<p>この2つはロケールに依存する。</p>
+
+<p><code>strtoupper</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.strtoupper.php" target="_blank" class="external-link">http://php.net/manual/ja/function.strtoupper.php</a></p>
+
+<p><code>strtolower</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.strtolower.php" target="_blank" class="external-link">http://php.net/manual/ja/function.strtolower.php</a></p>
 
 <h2 id="1799318">Python
 <span class="article-date">2014/11/12</span></h2>
@@ -113,8 +123,8 @@ my $lowercase_str = lc($str);
 <h2 id="f365308">JavaScript / CoffeeScript
 <span class="article-date">2013/09/11</span></h2>
 
-<pre><code>uppercase_str = str.toUpperCase()
-lowercase_str = str.toLowerCase()
+<pre><code>upperCaseStr = str.toUpperCase();
+lowerCaseStr = str.toLowerCase();
 </code></pre>
 
 </div>
