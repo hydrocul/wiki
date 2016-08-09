@@ -23,16 +23,22 @@
   <h1 id="to-list">集合(セット)から配列(リスト)に変換するには (toArray / toIndexedSeq / toSeq / toIterable / toList / list)
 <span class="article-date">2015/03/20</span></h1>
 
-<p>各プログラミング言語での、集合から配列に変換する方法。</p>
+<p>集合から配列に変換する方法。</p>
 
 <h2 id="8ea26af">Java
-<span class="article-date">2014/10/28</span></h2>
+<span class="article-date">2016/08/09</span></h2>
 
 <p><code>java.util.Set</code> から配列に変換する例</p>
 
 <pre><code>String[] arr = new String[st.size()];
 st.toArray(arr);
 </code></pre>
+
+<p>Signature:</p>
+
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html#toArray-T:A-" target="_blank" class="external-link method-signature"><code>E[] Set&lt;E&gt;.toArray(E[] arr)</code></a></li>
+</ul>
 
 <p><code>java.util.Set</code> から <code>java.util.List</code> に変換する例</p>
 
@@ -43,6 +49,12 @@ import java.util.Set;
 Set&lt;String&gt; st = ...;
 List&lt;String&gt; lst = new ArrayList&lt;String&gt;(st);
 </code></pre>
+
+<p>Signature:</p>
+
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html#ArrayList-java.util.Collection-" target="_blank" class="external-link method-signature"><code>ArrayList&lt;E&gt;(Collection&lt;? extends E&gt; c)</code></a></li>
+</ul>
 
 <h2 id="a4db220">Scala
 <span class="article-date">2015/03/21</span></h2>
