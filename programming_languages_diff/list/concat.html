@@ -30,6 +30,26 @@
   <li><a href="unshift.html">配列の先頭に要素を追加するには</a></li>
 </ul>
 
+<h2 id="3a3da91">Scala
+<span class="article-date">2016/08/10</span></h2>
+
+<p><code>Seq</code> の <code>++:</code> という演算子のように書けるメソッドを使う。または <code>List</code> であれば <code>:::</code> という演算子のように書けるメソッドも使える。</p>
+
+<p>Signature:</p>
+
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Seq@++:[B&gt;:A,That](that:Traversable[B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That" target="_blank" class="external-link method-signature"><code>def Seq[A]#++:(prefix: Seq[A]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List@:::(prefix:List[A]):List[A]" target="_blank" class="external-link method-signature"><code>def List[A]#:::(prefix: List[A])</code></a></li>
+</ul>
+
+<p>例</p>
+
+<pre><code>val lst1 = List(1, 2, 3);
+val lst2 = List(4, 5, 6);
+val result = lst1 ::: lst2;
+print(result); // =&gt; List(1, 2, 3, 4, 5, 6)
+</code></pre>
+
 <h2 id="php">PHP
 <span class="article-date">2016/04/14</span></h2>
 
@@ -117,14 +137,14 @@ var_export($result); echo "\n";
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
