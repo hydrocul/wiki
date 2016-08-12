@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>型とクラス | プログラミング言語の比較 | hydroculのメモ</title>
+<title>クラス階層 | 型とクラス | プログラミング言語の比較 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,30 +16,48 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>型とクラス</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/class/">型とクラス</a> &gt; <span>クラス階層</span>
 </div>
 
 <div id="content">
-  <h1 id="class">型とクラス</h1>
+  <h1 id="hierarchy">クラス階層</h1>
 
-<h2 id="section">目次</h2>
+<h2 id="879544d">C++
+<span class="article-date">2016/08/12</span></h2>
 
-<ul>
-  <li><a href="../../programming_languages_diff/class/definition.html">クラスを定義するには</a></li>
-  <li><a href="../../programming_languages_diff/class/constructor.html">コンストラクタとデストラクタ</a></li>
-  <li><a href="../../programming_languages_diff/class/new.html">インスタンスを生成するには</a></li>
-  <li><a href="../../programming_languages_diff/class/modifier.html">クラスメンバーのアクセス修飾子</a></li>
-  <li><a href="../../programming_languages_diff/class/instance-of.html">オブジェクトのクラスを動的に判定するには (instanceof)</a></li>
-  <li><a href="../../programming_languages_diff/class/abstract.html">抽象クラス・インターフェース</a></li>
-  <li><a href="../../programming_languages_diff/class/access-member.html">クラスメンバーへのアクセス</a></li>
-  <li><a href="../../programming_languages_diff/class/alias.html">型名のエイリアスのようなもの</a></li>
-  <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
-  <li><a href="../../programming_languages_diff/class/compare.html">オブジェクトの比較演算子</a></li>
-  <li><a href="../../programming_languages_diff/class/generics.html">総称型 / ジェネリクス</a></li>
-  <li><a href="../../programming_languages_diff/class/hierarchy.html">クラス階層</a></li>
-  <li><a href="../../programming_languages_diff/class/serialize.html">オブジェクトをシリアライズ・デシリアライズするには</a></li>
-  <li><a href="../../programming_languages_diff/class/this.html">thisキーワード</a></li>
-</ul>
+<p>すべてのクラスに共通するスーパークラスは存在しない。</p>
+
+<h2 id="fe5714b">Java
+<span class="article-date">2013/09/21</span></h2>
+
+<p>すべてのクラスのスーパークラスとして <code>Object</code> がある。</p>
+
+<h2 id="e918b3a">Scala
+<span class="article-date">2013/09/21</span></h2>
+
+<p>すべてのクラスのスーパークラスとして <code>Any</code> がある。</p>
+
+<h2 id="8d9a62f">PHP
+<span class="article-date">2016/08/12</span></h2>
+
+<p>すべてのクラスに共通するスーパークラスは存在しない。</p>
+
+<p><code>get_parent_class</code> でスーパークラスを調べると <code>false</code> になる。</p>
+
+<pre><code>class A {
+}
+
+class B extends A {
+}
+
+var_export(get_parent_class(new B())); echo "\n"; // =&gt; 'A'
+var_export(get_parent_class(new A())); echo "\n"; // =&gt; false
+</code></pre>
+
+<h2 id="a601e63">Ruby
+<span class="article-date">2014/02/22</span></h2>
+
+<p>すべてのクラスのスーパークラスとして <code>BasicObject</code> がある。</p>
 
 </div>
 
@@ -51,7 +69,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>型とクラス
+      <li><a href="../../programming_languages_diff/class/">型とクラス</a>
         <ul>
           <li><a href="../../programming_languages_diff/class/definition.html">クラスを定義するには</a></li>
           <li><a href="../../programming_languages_diff/class/constructor.html">コンストラクタとデストラクタ</a></li>
@@ -64,7 +82,7 @@
           <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
           <li><a href="../../programming_languages_diff/class/compare.html">オブジェクトの比較演算子</a></li>
           <li><a href="../../programming_languages_diff/class/generics.html">総称型 / ジェネリクス</a></li>
-          <li><a href="../../programming_languages_diff/class/hierarchy.html">クラス階層</a></li>
+          <li>クラス階層</li>
           <li><a href="../../programming_languages_diff/class/serialize.html">オブジェクトをシリアライズ・デシリアライズするには</a></li>
           <li><a href="../../programming_languages_diff/class/this.html">thisキーワード</a></li>
         </ul>
