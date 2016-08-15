@@ -76,17 +76,51 @@ bar""";
 <p>シングルクオーテーション3つ連続とダブルクオーテーション3つ連続の両方が含まれる文字列はどうやって書くんだろう？</p>
 
 <h2 id="php">PHP
-<span class="article-date">2013/09/23</span></h2>
+<span class="article-date">2016/08/15</span></h2>
 
-<p>普通のヒアドキュメントとNowdocというものがある。ヒアドキュメントでは、<code>"</code> で囲んだ文字列リテラルと同じように、<code>$</code> で始まる部分が変数名としてその値に展開がされるのに対して、Nowdocは、<code>'</code> で囲んだ文字列リテラルと同じように、そういった展開がされない。</p>
+<p>例</p>
+
+<pre><code>$str = &lt;&lt;&lt;EOS
+foo
+bar
+EOS;
+</code></pre>
+
+<p>普通のヒアドキュメントとNowdocというものがある。ヒアドキュメントでは、<code>"</code> で囲んだ文字列リテラルと同じように、<code>$</code> で始まる部分が変数名としてその値に
+<a href="inline.html#php">インライン展開</a>されるのに対して、
+Nowdocは、<code>'</code> で囲んだ文字列リテラルと同じように、そういった展開がされない。</p>
 
 <p>NowdocはPHP5.3以降でのみ使える。</p>
 
+<pre><code>$greeting = "Hello";
+
+// ヒアドキュメント
+echo &lt;&lt;&lt;EOS
+$greeting, World!
+
+EOS;
+// =&gt; Hello, World!
+
+// ヒアドキュメント
+echo &lt;&lt;&lt;"EOS"
+$greeting, World!
+
+EOS;
+// =&gt; Hello, World!
+
+// Nowdoc
+echo &lt;&lt;&lt;'EOS'
+$greeting, World!
+
+EOS;
+// =&gt; $greeting, World!
+</code></pre>
+
 <p>ヒアドキュメント | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc" target="_blank" class="external-link">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc</a></p>
+<a href="http://php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc" target="_blank" class="external-link">http://php.net/manual/ja/language.types.string.php#language.types.string.syntax.heredoc</a></p>
 
 <p>Nowdoc | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc" target="_blank" class="external-link">http://www.php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc</a></p>
+<a href="http://php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc" target="_blank" class="external-link">http://php.net/manual/ja/language.types.string.php#language.types.string.syntax.nowdoc</a></p>
 
 <h2 id="python">Python
 <span class="article-date">2015/04/22</span></h2>
