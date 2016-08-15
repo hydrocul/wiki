@@ -39,7 +39,7 @@
 <p>という意味になる。<code>a</code>が <code>null</code> だったらデフォルトの値にする、という使い方などに便利。<code>null</code> だけでなく <code>0</code> や <code>""</code> の場合も<code>b</code>になる。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2013/09/17</span></h2>
+<span class="article-date">2016/08/14</span></h2>
 
 <p>PHP5.3以降でエルビス演算子を使える。</p>
 
@@ -57,6 +57,21 @@
 <p><code>$a</code> が <code>false</code>, <code>null</code>, <code>0</code>, <code>0.0</code>, <code>''</code>, <code>'0'</code>, <code>array()</code>
 の場合に <code>$b</code> になり、それ以外の場合は、<code>$a</code> になる。
 -&gt; <a href="../boolean/to-boolean.html#php">論理値への変換</a></p>
+
+<p>PHP 7からはNull Coalescing Operator (Null合体演算子)という<code>??</code>演算子がある。</p>
+
+<p><code>??</code> の判定は <code>isset</code> と同様で、<code>null</code> 以外が代入されている場合にその値を返し、<code>null</code> が代入されているかまたはまだ一度もその変数に代入されていない場合に
+<code>??</code> の右を返す。</p>
+
+<pre><code>$s = $cond ?? "";
+var_export($s);
+// =&gt; ''
+
+$cond = false;
+$s = $cond ?? "";
+var_export($s);
+// =&gt; false
+</code></pre>
 
 </div>
 
