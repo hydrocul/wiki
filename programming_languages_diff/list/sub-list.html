@@ -63,8 +63,26 @@ fmt.Printf("%#v\n", sl2)
 
 <h2 id="12167e9">Java</h2>
 
+<h3 id="java-arr">配列
+<span class="article-date">2016/08/16</span></h3>
+
+<p>Signature:</p>
+
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#copyOfRange-T:A-int-int-" target="_blank" class="external-link method-signature"><code>T&lt;E&gt; E[] Arrays.copyOfRange(E[] original, int from, int until)</code></a></li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#copyOfRange-int:A-int-int-" target="_blank" class="external-link method-signature"><code>int[] Arrays.copyOfRange(int[] original, int from, int until)</code></a></li>
+</ul>
+
+<p>新しい配列を生成して、そこに元の配列の一部をコピーする。</p>
+
+<p>すべてのプリミティブ型のメソッドが用意されている。</p>
+
+<p>返り値の配列の最後の要素は、元の配列のインデックス <code>until - 1</code> の要素になる。</p>
+
+<p>配列のコピーなので、返り値の配列の要素を変更しても、元の配列には反映されない。ただし、要素のオブジェクト自体はコピーしないので、要素のオブジェクトが可変の場合にそれを変更したら元の配列からも変更が見える。</p>
+
 <h3 id="java-list"><code>java.util.List</code>
-<span class="article-date">2016/07/10</span></h3>
+<span class="article-date">2016/08/16</span></h3>
 
 <p>Signature:</p>
 
@@ -72,7 +90,9 @@ fmt.Printf("%#v\n", sl2)
   <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#subList-int-int-" target="_blank" class="external-link method-signature"><code>List&lt;E&gt; List&lt;E&gt;#subList(int from, int until)</code></a></li>
 </ul>
 
-<p>返り値のリストの最後は、元のリストのインデックス <code>until - 1</code> になる。</p>
+<p>リストの一部のビューをリストとして取得できる。</p>
+
+<p>返り値のリストの最後は、元のリストのインデックス <code>until - 1</code> の要素になる。</p>
 
 <p><code>subList</code> で返されたリストを変更すると、元のリストにも反映される。</p>
 
@@ -85,7 +105,7 @@ fmt.Printf("%#v\n", sl2)
   <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Seq@slice(from:Int,until:Int):Repr" target="_blank" class="external-link method-signature"><code>def Seq[A]#slice(from: Int, until: Int): Seq[A]</code></a></li>
 </ul>
 
-<p>返り値のリストの最後は、元のリストのインデックス <code>until - 1</code> になる。</p>
+<p>返り値のリストの最後は、元のリストのインデックス <code>until - 1</code> の要素になる。</p>
 
 <h2 id="d81533e">PHP
 <span class="article-date">2015/01/13</span></h2>
