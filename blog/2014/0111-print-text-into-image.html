@@ -25,7 +25,7 @@
 
 <p>フォトフレームに大量のjpg画像を入れているのだが、画像が表示されるだけでタイムスタンプなどのメタ情報が一切表示されないので、フォトフレームを見ただけではいつの写真だかわからないものが多い。</p>
 
-<p>ローカルで管理しているjpgのファイル名は撮影日時を元にした14桁の数字になっているので、とりあえずファイル名をそのまま画像に直接書き出しておけば、画像だけを表示しているフォトフレームでも撮影日時がわかるようになる。</p>
+<p>ローカルで管理しているjpgのファイル名は撮影日時を元にした YYYYMMDDhhmmssの14桁の数字になっているので、とりあえずファイル名をそのまま画像に直接書き出しておけば、画像だけを表示しているフォトフレームでも撮影日時がわかるようになる。</p>
 
 <p>フォトフレームに入れたい画像が5000枚以上あるので、手でやる訳にはいかない。</p>
 
@@ -66,23 +66,23 @@ imagejpeg($img, $dst_fname);
 
 <p><code>imagecreatefromjpg</code>関数は、画像ファイルから画像をロードする関数である。反対に<code>imagejpg</code>関数は、画像をファイルに保存する関数である。</p>
 
-<p>imagecreatefromjpg 関数 | PHPマニュアル<br />
-<a href="http://www.php.net/manual/ja/function.imagecreatefromjpeg.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.imagecreatefromjpeg.php</a></p>
+<p><code>imagecreatefromjpg</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.imagecreatefromjpeg.php" target="_blank" class="external-link">http://php.net/manual/ja/function.imagecreatefromjpeg.php</a></p>
 
-<p>imagejpg 関数 | PHPマニュアル<br />
-<a href="http://www.php.net/manual/ja/function.imagejpeg.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.imagejpeg.php</a></p>
+<p><code>imagejpg</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.imagejpeg.php" target="_blank" class="external-link">http://php.net/manual/ja/function.imagejpeg.php</a></p>
 
 <p><code>imagettftext</code> でテキストを画像に印字する。今回は、左上に印字したので、固定の座標でよかったが、下とか右端にしたい場合は、その前に画像のサイズを取得しないといけない。</p>
 
-<p>imagegettftext 関数 | PHPマニュアル<br />
-<a href="http://www.php.net/manual/ja/function.imagettftext.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.imagettftext.php</a></p>
+<p><code>imagegettftext</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.imagettftext.php" target="_blank" class="external-link">http://php.net/manual/ja/function.imagettftext.php</a></p>
 
 <p>最初は <code>imagetftext</code> ではなく、<code>imagestring</code> を使おうとしたのだが、フォントや大きさの指定の仕方がよくわからなかくてあきらめた。
 <code>imagestring</code> の2つ目の引数がフォントの大きさのようで、
 PHPマニュアルには1〜5とされているが、5を指定しても小さすぎたのである。</p>
 
-<p>imagestring 関数 | PHPマニュアル<br />
-<a href="http://www.php.net/manual/ja/function.imagestring.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.imagestring.php</a></p>
+<p><code>imagestring</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.imagestring.php" target="_blank" class="external-link">http://php.net/manual/ja/function.imagestring.php</a></p>
 
 </div>
 

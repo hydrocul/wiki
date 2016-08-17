@@ -71,7 +71,7 @@ $ while :; do wget -q -O- 'http://www.example.com/' &gt;/dev/null; done
   <dd>ダウンロードの進捗とエラーメッセージを表示しない。このオプションを指定しないと、標準エラー出力に進捗を表示する。<code>-S</code> を併用しないとエラーメッセージまで表示しなくなっちゃう。</dd>
   <dt><code>-S</code></dt>
   <dd><code>-s</code> を使うとエラーメッセージも表示しなくなってしまうが、<code>-s</code> と <code>-S</code> を併用すると、エラーメッセージは表示する。
-エラーメッセージは例えば <code>curl: (6) Could not resolve host</code> のようなもの。</dd>
+エラーメッセージは例えばホスト名がまちがっていたときの <code>curl: (6) Could not resolve host</code> だとかである。</dd>
   <dt><code>-f</code> または <code>--fail</code></dt>
   <dd>HTTPで400番台のレスポンスコードが返ってきたときに<code>curl</code>コマンドを異常終了する。このオプションを指定しないと、
 400番台でも<code>curl</code>コマンドの終了コードは0になる。</dd>
@@ -323,6 +323,7 @@ VirtualHostの設定の動作確認をしたりするのに使える。</p>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pwd.html">pwd コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
+      <li><a href="../commands/rm.html">rm コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
