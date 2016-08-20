@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>2016年 | ブログ | hydroculのメモ</title>
+<title>XMLファイルをコマンドで見やすく整形するには (pretty printing) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,22 +16,26 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <span>2016年</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2016/">2016年</a> &gt; <span>XMLファイルをコマンドで見やすく整形するには (pretty printing)</span>
 </div>
 
 <div id="content">
-  <h1 id="2016">2016年</h1>
+  <h1 id="0818-xml-pretty-print">XMLファイルをコマンドで見やすく整形するには (pretty printing)
+<span class="article-date">2016/08/19</span></h1>
 
-<h2 id="section">目次</h2>
+<p>XMLファイルに改行やインデントを入れて、ターミナル上で人間にとって読みやすく表示させる方法。</p>
 
-<ul>
-  <li><a href="../../blog/2016/0201-php7-on-centos.html">CentOS 7.2にPHP 7.0をインストールしてみた</a></li>
-  <li><a href="../../blog/2016/0204-brain-cafe.html">理研の脳科学総合研究センターのサイエンスカフェの内容</a></li>
-  <li><a href="../../blog/2016/0220-glibc-filename.html">glibcのインストールされているディレクトリとファイル名</a></li>
-  <li><a href="../../blog/2016/0607-ssh-proxycommand.html">sshで踏み台サーバを通して接続するProxyCommandの設定</a></li>
-  <li><a href="../../blog/2016/0802-switch-comment-out.html">ソースコード中のコードをコメントアウトで簡単に無効化したり有効化したりするには</a></li>
-  <li><a href="../../blog/2016/0818-xml-pretty-print.html">XMLファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
-</ul>
+<p>Pythonがあれば以下のようなワンライナーでXMLのpretty printができる。</p>
+
+<p>Python3であれば</p>
+
+<pre><code>$ cat FOO.xml | python -c 'import sys; import xml.dom.minidom; s = sys.stdin.read(); print(xml.dom.minidom.parseString(s).toprettyxml())'
+</code></pre>
+
+<p>Python2であれば</p>
+
+<pre><code>$ cat FOO.xml | python -c 'import sys; import xml.dom.minidom; s = sys.stdin.read(); print xml.dom.minidom.parseString(s).toprettyxml().encode("utf_8")'
+</code></pre>
 
 </div>
 
@@ -43,14 +47,14 @@
     <ul>
   <li><a href="../../blog/">ブログ</a>
     <ul>
-      <li>2016年
+      <li><a href="../../blog/2016/">2016年</a>
         <ul>
           <li><a href="../../blog/2016/0201-php7-on-centos.html">CentOS 7.2にPHP 7.0をインストールしてみた</a></li>
           <li><a href="../../blog/2016/0204-brain-cafe.html">理研の脳科学総合研究センターのサイエンスカフェの内容</a></li>
           <li><a href="../../blog/2016/0220-glibc-filename.html">glibcのインストールされているディレクトリとファイル名</a></li>
           <li><a href="../../blog/2016/0607-ssh-proxycommand.html">sshで踏み台サーバを通して接続するProxyCommandの設定</a></li>
           <li><a href="../../blog/2016/0802-switch-comment-out.html">ソースコード中のコードをコメントアウトで簡単に無効化したり有効化したりするには</a></li>
-          <li><a href="../../blog/2016/0818-xml-pretty-print.html">XMLファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
+          <li>XMLファイルをコマンドで見やすく整形するには (pretty printing)</li>
         </ul>
       </li>
     </ul>
