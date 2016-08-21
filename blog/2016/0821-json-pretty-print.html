@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>XMLファイルをコマンドで見やすく整形するには (pretty printing) | hydroculのメモ</title>
+<title>JSONファイルをコマンドで見やすく整形するには (pretty printing) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,31 +16,31 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2016/">2016年</a> &gt; <span>XMLファイルをコマンドで見やすく整形するには (pretty printing)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2016/">2016年</a> &gt; <span>JSONファイルをコマンドで見やすく整形するには (pretty printing)</span>
 </div>
 
 <div id="content">
-  <h1 id="0818-xml-pretty-print">XMLファイルをコマンドで見やすく整形するには (pretty printing)
-<span class="article-date">2016/08/19</span></h1>
+  <h1 id="0821-json-pretty-print">JSONファイルをコマンドで見やすく整形するには (pretty printing)
+<span class="article-date">2016/08/21</span></h1>
 
-<p>XMLファイルに改行やインデントを入れて、ターミナル上で人間にとって読みやすく表示させる方法。</p>
+<p>JSONファイルに改行やインデントを入れて、ターミナル上で人間にとって読みやすく表示させる方法。</p>
 
-<p>Pythonがあれば以下のようなワンライナーでXMLのpretty printができる。</p>
+<pre><code>$ cat FOO.json | perl -MEncode -MJSON::PP -e '$json=JSON::PP-&gt;new-&gt;pretty; $obj=$json-&gt;decode(join("",(&lt;STDIN&gt;))); print encode_utf8($json-&gt;encode($obj))'
 
-<p>Python3であれば</p>
-
-<pre><code>$ cat FOO.xml | python -c 'import sys; import xml.dom.minidom; s = sys.stdin.read(); print(xml.dom.minidom.parseString(s).toprettyxml())'
+# または
+$ cat FOO.json | perl -MEncode -MJSON::PP -e '$json=JSON::PP-&gt;new-&gt;pretty-&gt;canonical; $obj=$json-&gt;decode(join("",(&lt;STDIN&gt;))); print encode_utf8($json-&gt;encode($obj))'
 </code></pre>
 
-<p>Python2であれば</p>
+<p>1つ目は、オブジェクトの中の要素はJSONで書かれているのと同じ順番で表示される。</p>
 
-<pre><code>$ cat FOO.xml | python -c 'import sys; import xml.dom.minidom; s = sys.stdin.read(); print xml.dom.minidom.parseString(s).toprettyxml().encode("utf_8")'
-</code></pre>
+<p>2つ目は、オブジェクトの中の要素はキーのアルファベット順にソートして表示される。</p>
 
-<h2 id="1e3ed42">関連</h2>
+<p>json_pp というPerlで書かれたツールの中身は実質上記のワンライナーと同じである。</p>
+
+<h2 id="369ffbb">関連</h2>
 
 <ul>
-  <li><a href="0821-json-pretty-print.html">JSONファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
+  <li><a href="0818-xml-pretty-print.html">XMLファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
 </ul>
 
 </div>
@@ -60,8 +60,8 @@
           <li><a href="../../blog/2016/0220-glibc-filename.html">glibcのインストールされているディレクトリとファイル名</a></li>
           <li><a href="../../blog/2016/0607-ssh-proxycommand.html">sshで踏み台サーバを通して接続するProxyCommandの設定</a></li>
           <li><a href="../../blog/2016/0802-switch-comment-out.html">ソースコード中のコードをコメントアウトで簡単に無効化したり有効化したりするには</a></li>
-          <li>XMLファイルをコマンドで見やすく整形するには (pretty printing)</li>
-          <li><a href="../../blog/2016/0821-json-pretty-print.html">JSONファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
+          <li><a href="../../blog/2016/0818-xml-pretty-print.html">XMLファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
+          <li>JSONファイルをコマンドで見やすく整形するには (pretty printing)</li>
         </ul>
       </li>
     </ul>
