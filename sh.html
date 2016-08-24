@@ -23,20 +23,9 @@
   <h1 id="sh">シェルスクリプト</h1>
 
 <h2 id="a1af67f">シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには
-<span class="article-date">2013/04/03</span></h2>
+<span class="article-date">2016/08/24</span></h2>
 
-<pre><code># シェルスクリプトの絶対パスを取得
-SCRIPT_HOME=$0
-
-if [ -n "`readlink $SCRIPT_HOME`" ] ; then
-    # そのパスがシンボリックリンクの場合
-    # シンボリックリンクのリンク先を取得
-    SCRIPT_HOME="`readlink $SCRIPT_HOME`"
-fi
-
-# 取得したパスのディレクトリを取得
-SCRIPT_HOME="`dirname $SCRIPT_HOME`"
-</code></pre>
+<p>-&gt; <a href="blog/2016/0823-readlink-parent-dir.html">シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには</a></p>
 
 <h2 id="15ac1de">ファイルの相対パスから絶対パスに変換するには
 <span class="article-date">2014/02/10</span></h2>

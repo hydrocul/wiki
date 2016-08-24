@@ -57,9 +57,9 @@ $f1(); // =&gt; 2
 
 <p>関数の外側のスコープにある変数を参照するには <code>use ($i)</code> のように宣言する必要がある。さらにその変数を書き換えるには <code>use (&amp;$i)</code> のように宣言する必要がある。</p>
 
-<p>上記の例で <code>use (&amp;$i)</code> を <code>use ($i)</code> と書くと、<code>$i++</code> でエラーは発生しないが、書き換えた結果は無視され、4箇所とも<code>0</code>が出力される。</p>
+<p>上記の例で <code>use (&amp;$i)</code> を <code>use ($i)</code> と書くと、<code>$i++</code> でエラーは発生しないが、書き換えた結果は無視され、4回とも<code>0</code>が出力される。</p>
 
-<p>そもそも <code>use</code> を書かなかった場合は 
+<p><code>use</code> を書かなかった場合は <code>$i</code> を参照できないので、
 <code>PHP Notice:  Undefined variable: i</code> が出力される。</p>
 
 <h2 id="63190e8">Ruby
