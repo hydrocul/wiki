@@ -36,6 +36,25 @@
 
 <p>PIDの欄がプロセスIDである。一般ユーザ権限だとプロセスIDが表示されないものがあるので、知りたいプロセスが表示されていなかったら、root権限になるとよい。</p>
 
+<h2 id="c154e7f">特定のポートが開いているかどうかを確認するには
+<span class="article-date">2016/08/26</span></h2>
+
+<p>シェルスクリプトの中で簡単に確認する例</p>
+
+<pre><code>if nc -z -w 1 localhost $port; then
+    # 開いている場合
+else
+    # 閉じている場合
+fi
+</code></pre>
+
+<p><code>nc</code> のオプション</p>
+
+<ul>
+  <li><code>-z</code>: ポートのスキャンのみをし、データの送信はしない</li>
+  <li><code>-w</code>: タイムアウトの指定</li>
+</ul>
+
 <h2 id="871f6a7">詳細不明のSSHトンネルと思しきLISTENしているポートを強制的に閉じるには
 <span class="article-date">2014/03/10</span></h2>
 
