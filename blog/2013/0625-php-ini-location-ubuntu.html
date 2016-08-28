@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="0625-php-ini-location-ubuntu">Ubuntuでの php.ini の場所
-<span class="article-date">2013/06/25</span></h1>
+<span class="article-date">2016/08/28</span></h1>
 
 <p><a href="../../others/linux-pkg-manager.html#apt-get"><code>apt-get</code></a> でインストールした場合、Apacheで動くPHPの 
 <code>php.ini</code> は <code>/etc/php5/apache2/php.ini</code> にある。この場所は <code>phpinfo();</code> で確認できる。</p>
@@ -30,12 +30,16 @@
 <code>/etc/php5/cli/php.ini</code> にある。この場所は
 <code>php -i | grep php.ini</code> で確認できる。</p>
 
-<p>2つの <code>php.ini</code> の違いは <code>diff /etc/php5/apache2/php.ini /etc/php5/cli/php.ini</code>
-で確認できるが、Apacheで動く方は、PCNTL関数の実行とメモリの最大値が制限されているようだ。</p>
+<p>2つの <code>php.ini</code> の違いは</p>
+
+<pre><code>$ diff /etc/php5/apache2/php.ini /etc/php5/cli/php.ini
+</code></pre>
+
+<p>で確認できるが、Apacheで動く方は、PCNTL関数の実行とメモリの最大値が制限されているようだ。</p>
 
 <p>(Ubuntu 13.04 で確認)</p>
 
-<p>CentOS 6.4では <code>/etc/php.ini</code> にある。</p>
+<p>CentOS 6.4,7.2 ではApache版もCLI版も <code>/etc/php.ini</code> にある。</p>
 
 </div>
 
@@ -50,7 +54,7 @@
       <li><a href="../../blog/2013/">2013年</a>
         <ul>
           <li><a href="../../blog/2013/0408-sfx-mac.html">拡張子sfxのファイルをMacで解凍するには</a></li>
-          <li><a href="../../blog/2013/0409-mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するライブラリ</a></li>
+          <li><a href="../../blog/2013/0409-mpdf-html-pdf-php.html">mPDF: HTMLをPDFに変換するPHPのライブラリ</a></li>
           <li><a href="../../blog/2013/0430-postfix-alias.html">postfixでのaliasの設定</a></li>
           <li><a href="../../blog/2013/0601-phone-disk-error-mac.html">Macの Phone Disk というソフトで MacFUSE file system is not available (-1) というエラー</a></li>
           <li><a href="../../blog/2013/0602-flickr-bonk.html">flickrで動画をアップロードしても Bonk! と表示されてしまう場合</a></li>
