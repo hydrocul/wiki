@@ -62,6 +62,16 @@ UTF-16とかだとよくわからない数になる。
 <p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
 <code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
+<h2 id="7d06cf9">ディレクトリの中の全ファイルの行数の合計を数えるには
+<span class="article-date">2016/08/29</span></h2>
+
+<p>カレントディレクトリの中にサブディレクトリがなくてファイルしかない場合は</p>
+
+<pre><code>$ wc -l *
+</code></pre>
+
+<p>これで、最後の行に合計の行数が表示される。</p>
+
 <h2 id="cd377a7">Perlのワンライナーで行数を数えるには
 <span class="article-date">2015/10/02</span></h2>
 
@@ -153,7 +163,9 @@ $ cat foo.txt | iconv -f UTF-8 -t UTF-16 | wc --bytes | awk '{print $1/2}'
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
+      <li><a href="../commands/pwd.html">pwd コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
+      <li><a href="../commands/rm.html">rm コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>

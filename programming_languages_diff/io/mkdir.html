@@ -51,14 +51,14 @@ boolean mkdirs()
 <code>mkdir</code> は1階層のみの作成で、それに対し、 <code>mkdirs</code> は <code>mkdir -p</code> に相当し、複数の階層をまとめて作成できる。</p>
 
 <h2 id="1642748">Ruby
-<span class="article-date">2013/06/24</span></h2>
+<span class="article-date">2016/08/29</span></h2>
 
 <pre><code>Dir::mkdir('foodir')
 </code></pre>
 
 <p>または、<code>mkdir -p</code> に相当する方法として</p>
 
-<pre><code>require 'fileutls'
+<pre><code>require 'fileutils'
 FileUtils::mkdir_p('foodir/bardir')
 </code></pre>
 
@@ -93,7 +93,7 @@ mkpath("foodir/bardir");
           <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
           <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
           <li><a href="../../programming_languages_diff/io/dirname.html">パスからディレクトリ名を取得するには (dirname)</a></li>
-          <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
+          <li><a href="../../programming_languages_diff/io/basename.html">ファイルのパスからファイル名を取得するには (basename)</a></li>
           <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
           <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには (ls)</a></li>
@@ -106,7 +106,7 @@ mkpath("foodir/bardir");
           <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
-          <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
+          <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する (readlink)</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/mv.html">ファイル名を変更するには</a></li>

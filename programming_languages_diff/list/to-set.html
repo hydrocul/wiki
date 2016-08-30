@@ -74,7 +74,7 @@ lst.toSet.toList
 </code></pre>
 
 <h2 id="25c5e59">Ruby / JRuby
-<span class="article-date">2015/01/04</span></h2>
+<span class="article-date">2016/08/29</span></h2>
 
 <p>Rubyには集合のデータ型がないが、以下は配列から重複を削除する例である。</p>
 
@@ -88,6 +88,7 @@ p arr.uniq
 p arr | []
 # =&gt; [10, 20, 30, 40, 50]
 
+# 上記方法は元の配列を変更しない
 p arr
 # =&gt; [10, 20, 30, 40, 50, 30]
 
@@ -134,14 +135,14 @@ print(keys %uniq);
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
