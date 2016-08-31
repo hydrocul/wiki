@@ -116,9 +116,14 @@ BASIC認証以外にはDigest認証、NTLM認証に対応している。</p>
 </code></pre>
 
 <h3 id="b3dc49b"><code>curl: (3) [globbing] illegal character in range specification at pos ...</code> のようなエラー
-<span class="article-date">2013/09/20</span></h3>
+<span class="article-date">2016/08/31</span></h3>
 
-<p>URLに <code>[]</code> が含まれている場合は、オプションとして <code>-g</code> を付けないといけないみたい。</p>
+<p>URLに <code>[]</code> が含まれている場合は、オプションとして <code>-g</code> または <code>--globoff</code> を付けないといけない。</p>
+
+<pre><code>$ curl --globoff 'http://www.example.com/?p[]=foo'
+</code></pre>
+
+<p>curlが <code>[]</code> を特別視しているのを無効化するためなので、URLを <code>' '</code> で囲んで、シェルスクリプトが特別解釈をしないようにしたとしても、このオプションは必要。</p>
 
 <h3 id="a01b194"><code>curl: (35) Unknown SSL protocol error in connection to ...</code> のようなエラー
 <span class="article-date">2013/10/29</span></h3>
