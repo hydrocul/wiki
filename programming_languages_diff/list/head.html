@@ -44,7 +44,7 @@
       <td><code>lst.head</code></td>
     </tr>
     <tr>
-      <td>PHP</td>
+      <td><a href="#php">PHP</a></td>
       <td><code>$arr[0]</code></td>
     </tr>
     <tr>
@@ -114,6 +114,52 @@ System.out.println(lst.get(0)); // =&gt; 3
 <p>空の<code>Seq</code>に対して<code>head</code>を呼び出すと、
 <code>java.util.NoSuchElementException</code> の例外がスローされてしまう。</p>
 
+<h2 id="php">PHP
+<span class="article-date">2016/09/01</span></h2>
+
+<pre><code>$arr = array(10, 20, 30, 40, 50);
+echo $arr[0];
+// =&gt; 10
+</code></pre>
+
+<p>ただし、これは配列のインデックスが0から始まっていることが前提となっているので、以下の例ではうまくいかない。</p>
+
+<pre><code>$arr = array(1 =&gt; 20, 2 =&gt; 30);
+echo $arr[0];
+// =&gt; Notice: Undefined offset: 0
+</code></pre>
+
+<p><code>reset</code>関数を使うといいらしい。</p>
+
+<pre><code>$arr = array(1 =&gt; 20, 2 =&gt; 30);
+echo reset($arr);
+// =&gt; 20
+</code></pre>
+
+<p><code>reset</code>関数はインデックスに関係なく最初の要素が返されるので、以下の例では場合によっては意図しない挙動になる。</p>
+
+<pre><code>$arr = array();
+$arr[1] = 20;
+$arr[0] = 10;
+
+echo reset($arr);
+// =&gt; 20
+// インデックス0ではなく、最初に挿入された要素!
+</code></pre>
+
+<p>配列が空の場合は、インデックス0でのアクセスだとNoticeが発生し、<code>reset</code>は<code>false</code>が返される。</p>
+
+<pre><code>$arr = array();
+
+echo $arr[0];
+// =&gt; Notice: Undefined offset: 0
+var_export(reset($arr));
+// =&gt; false
+</code></pre>
+
+<p><code>reset</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.reset.php" target="_blank" class="external-link">http://php.net/manual/ja/function.reset.php</a></p>
+
 <h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/01/04</span></h2>
 
@@ -172,14 +218,14 @@ head -n1
           <li>first / head / headOption</li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
