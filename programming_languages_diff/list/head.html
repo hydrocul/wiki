@@ -115,21 +115,21 @@ System.out.println(lst.get(0)); // =&gt; 3
 <code>java.util.NoSuchElementException</code> の例外がスローされてしまう。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2016/09/01</span></h2>
+<span class="article-date">2016/09/02</span></h2>
 
 <pre><code>$arr = array(10, 20, 30, 40, 50);
 echo $arr[0];
 // =&gt; 10
 </code></pre>
 
-<p>ただし、これは配列のインデックスが0から始まっていることが前提となっているので、以下の例ではうまくいかない。</p>
+<p>もちろん、これは配列のインデックスが0から始まっていることが前提となっているので、以下の例ではうまくいかない。</p>
 
 <pre><code>$arr = array(1 =&gt; 20, 2 =&gt; 30);
 echo $arr[0];
 // =&gt; Notice: Undefined offset: 0
 </code></pre>
 
-<p><code>reset</code>関数を使うといいらしい。</p>
+<p>この場合、<code>reset</code>関数を使うといいらしい。</p>
 
 <pre><code>$arr = array(1 =&gt; 20, 2 =&gt; 30);
 echo reset($arr);
@@ -147,7 +147,7 @@ echo reset($arr);
 // インデックス0ではなく、最初に挿入された要素!
 </code></pre>
 
-<p>配列が空の場合は、インデックス0でのアクセスだとNoticeが発生し、<code>reset</code>は<code>false</code>が返される。</p>
+<p>配列が空の場合は、 <code>$arr[0]</code> はNoticeが発生し、<code>reset($arr)</code>は<code>false</code>が返される。</p>
 
 <pre><code>$arr = array();
 
