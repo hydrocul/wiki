@@ -143,24 +143,28 @@ print(a, b, c)
 # [1, 'abc'] 1 abc
 </code></pre>
 
-<h2 id="ruby">Ruby
-<span class="article-date">2014/10/13</span></h2>
+<h2 id="ruby">Ruby / JRuby
+<span class="article-date">2016/09/07</span></h2>
 
 <p><code>=</code> を複数並べれば、複数の変数に同じ値を代入できる。</p>
 
 <pre><code>a = b = 3
-print a # =&gt; 3
-print b # =&gt; 3
+puts a # =&gt; 3
+puts b # =&gt; 3
 </code></pre>
 
 <p>コンマ区切りで複数の変数への代入をまとめてできる。(多重代入)</p>
 
 <pre><code>a, b = 3, 'abc'
+puts a # =&gt; 3
+puts b # =&gt; abc
 </code></pre>
 
 <p>右辺は配列にしてもよい。</p>
 
 <pre><code>a, b = [3, 'abc']
+puts a # =&gt; 3
+puts b # =&gt; abc
 </code></pre>
 
 <p><a href="../function/var-args.html#ruby">メソッド呼び出し</a>時と同様に <code>*</code> で配列を展開したり、逆に配列で受け取ったりできる。</p>
