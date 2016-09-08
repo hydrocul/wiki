@@ -294,6 +294,23 @@ MariaDB [(none)]&gt; SHOW MASTER LOGS;
 2 rows in set (0.00 sec)
 </code></pre>
 
+<h2 id="bb4fcec">バイナリログの形式を確認するには
+<span class="article-date">2016/09/07</span></h2>
+
+<p><code>STATEMENT</code>, <code>ROW</code>, <code>MIXED</code> のうちのどれなのかを確認する方法。</p>
+
+<pre><code>mysql&gt; SHOW VARIABLES LIKE "binlog_format";
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| binlog_format | MIXED |
++---------------+-------+
+1 row in set (0.00 sec)
+</code></pre>
+
+<p>MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.1.2 レプリケーション形式<br />
+<a href="https://dev.mysql.com/doc/refman/5.6/ja/replication-formats.html" target="_blank" class="external-link">https://dev.mysql.com/doc/refman/5.6/ja/replication-formats.html</a></p>
+
 </div>
 
 <div id="side-menu">

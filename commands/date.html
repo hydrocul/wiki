@@ -496,12 +496,17 @@ Mon Oct 21 00:20:00 JST 2013
 </code></pre>
 
 <h3 id="set">日時を設定するには
-<span class="article-date">2013/09/04</span></h3>
+<span class="article-date">2016/09/07</span></h3>
 
 <p>例</p>
 
 <pre><code>## 9月4日12時17分に設定
 $ sudo date -s "2013/09/04 12:17:00"
+</code></pre>
+
+<p>日付のフォーマットがよくわからないが、以下のフォーマットでもできた。</p>
+
+<pre><code>$ sudo date -s "2013-09-04T12:17:00"
 </code></pre>
 
 <p>あらかじめ <code>sudo</code> なしで実行してみて、日時のフォーマットが合っているかを確認するとよい。</p>
