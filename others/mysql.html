@@ -193,7 +193,7 @@ Ubuntu: <code>/etc/mysql/my.cnf</code></p>
 <pre><code>mysql -h ホスト名 -P ポート番号
 </code></pre>
 
-<p>小文字の <code>-p</code> にすると、ポート番号の指定ではなく、パスワードのプロンプトを出すオプションになる。</p>
+<p>小文字の <code>-p</code> にしてしまうと、ポート番号の指定ではなく、パスワードのプロンプトを出すオプションになる。</p>
 
 <p>普通とは違うポート番号につなぐには、たとえローカルのMySQLであっても <code>-h</code> がいるみたい。
 <code>-h</code> を指定せずに <code>-P</code> だけ指定しても <code>-P</code> が無視されてしまった。</p>
@@ -310,6 +310,28 @@ MariaDB [(none)]&gt; SHOW MASTER LOGS;
 
 <p>MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.1.2 レプリケーション形式<br />
 <a href="https://dev.mysql.com/doc/refman/5.6/ja/replication-formats.html" target="_blank" class="external-link">https://dev.mysql.com/doc/refman/5.6/ja/replication-formats.html</a></p>
+
+<h2 id="edd0d01">コマンドラインでパスワードを指定し、パスワードプロンプトを回避するには
+<span class="article-date">2016/09/08</span></h2>
+
+<pre><code>$ mysql -u ユーザ名 -p
+</code></pre>
+
+<p>とすると、パスワードのプロンプトが出る。</p>
+
+<p><code>-p</code> のあとに空白をおかずに続けてパスワードを書けば、プロンプトが出ずに直接接続できる。</p>
+
+<pre><code>$ mysql -u ユーザ名 -pパスワード
+</code></pre>
+
+<p>ただ、これだとパスワード情報が<code>ps</code>コマンドとかでほかのLinuxユーザ権限からも見れてしまうので、いやだという場合もある。</p>
+
+<p>その場合は、環境変数でパスワードを指定する。</p>
+
+<pre><code>$ MYSQL_PWD=パスワード mysql -u ユーザ名
+</code></pre>
+
+<p>いずれの方法もコマンド履歴にはパスワードが書かれてしまうが、それは気にしなくていいという場合にのみ。</p>
 
 </div>
 
