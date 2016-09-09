@@ -311,13 +311,13 @@ MariaDB [(none)]&gt; SHOW MASTER LOGS;
 <p>MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.1.2 レプリケーション形式<br />
 <a href="https://dev.mysql.com/doc/refman/5.6/ja/replication-formats.html" target="_blank" class="external-link">https://dev.mysql.com/doc/refman/5.6/ja/replication-formats.html</a></p>
 
-<h2 id="edd0d01">コマンドラインでパスワードを指定し、パスワードプロンプトを回避するには
+<h2 id="cd11e36">コマンドラインでパスワードプロンプトを回避するには
 <span class="article-date">2016/09/08</span></h2>
 
 <pre><code>$ mysql -u ユーザ名 -p
 </code></pre>
 
-<p>とすると、パスワードのプロンプトが出る。</p>
+<p>とすると、パスワードのプロンプトが出てしまう。</p>
 
 <p><code>-p</code> のあとに空白をおかずに続けてパスワードを書けば、プロンプトが出ずに直接接続できる。</p>
 
@@ -331,7 +331,7 @@ MariaDB [(none)]&gt; SHOW MASTER LOGS;
 <pre><code>$ MYSQL_PWD=パスワード mysql -u ユーザ名
 </code></pre>
 
-<p>いずれの方法もコマンド履歴にはパスワードが書かれてしまうが、それは気にしなくていいという場合にのみ。</p>
+<p>いずれの方法もコマンド履歴にはパスワードが書かれてしまうが、それは気にしなくていいという場合にのみ有効だ。</p>
 
 </div>
 

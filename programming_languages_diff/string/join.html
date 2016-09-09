@@ -115,7 +115,7 @@ func main() {
 <p>リストの要素が文字列でなくても要素ごとに <code>toString</code> メソッドで文字列に変換されてから連結される。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2015/04/06</span></h2>
+<span class="article-date">2016/09/09</span></h2>
 
 <p><code>implode</code>関数を使う。</p>
 
@@ -127,7 +127,7 @@ func main() {
 
 <p>実は<code>implode</code>の2つの引数はどちらが先に来てもよい。ちょっと気持ち悪いが、これはPHPの有名な「歴史的な理由」。</p>
 
-<p>ちなみに <code>(string)$arr</code> とすると、配列の中身に関係なく <code>"Array"</code> という文字列になる。</p>
+<p>ちなみに <code>(string)$arr</code> とすると、<code>Notice: Array to string conversion</code> というNoticeとともに、配列の中身に関係なく固定で <code>"Array"</code> という文字列が返される。</p>
 
 <h2 id="python">Python
 <span class="article-date">2014/12/30</span></h2>
