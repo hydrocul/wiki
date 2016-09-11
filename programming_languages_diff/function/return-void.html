@@ -23,15 +23,18 @@
   <h1 id="return-void">関数の中で返り値が指定されていない場合の扱い</h1>
 
 <h2 id="b30ef11">Java
-<span class="article-date">2013/09/06</span></h2>
+<span class="article-date">2016/09/11</span></h2>
 
-<p>返り値が<code>void</code>型のメソッドは<code>return</code>文がなくてもよいが、それ以外は<code>return</code>文が必須。</p>
+<p><code>return</code>文が必須。</p>
+
+<p>ただし、返り値が<code>void</code>型のメソッドは<code>return</code>文がなくてもよく、返り値が<code>void</code>型のメソッドからは返り値を取得することはできない。</p>
 
 <h2 id="fcf1c7d">Scala
-<span class="article-date">2013/09/12</span></h2>
+<span class="article-date">2016/09/11</span></h2>
 
-<p>返り値が<code>Unit</code>型以外のメソッドは
-<code>return</code>文がない場合は、最後に評価された式の結果が返り値となる。</p>
+<p><code>return</code>文がない場合は、最後に評価された式の結果が返り値となる。</p>
+
+<p>ただし、返り値が<code>Unit</code>型のメソッドは、最後の式によらず、常に <code>()</code> という値が返される。</p>
 
 <h2 id="1269ca8">PHP
 <span class="article-date">2013/09/06</span></h2>
@@ -47,9 +50,6 @@
 <span class="article-date">2013/09/06</span></h2>
 
 <p><code>return</code>文がない場合は、最後に評価された式の結果が返り値となる。変数への代入文が最後だとしてもその代入された値が返り値になる。</p>
-
-<p>returnを書くべきか、省略すべきか<br />
-<a href="http://shugo.net/jit/20120229.html" target="_blank" class="external-link">http://shugo.net/jit/20120229.html</a></p>
 
 <h2 id="0b32633">Perl
 <span class="article-date">2014/12/29</span></h2>
