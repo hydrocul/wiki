@@ -58,10 +58,10 @@ public class Test {
 <h2 id="4930960">PHP
 <span class="article-date">2016/07/28</span></h2>
 
-<pre><code>echo basename("/aaa/bbb"); // =&gt; bbb
-echo basename("/aaa/"); // =&gt; aaa
-echo basename("/aaa"); // =&gt; aaa
-echo basename("aaa"); // =&gt; aaa
+<pre><code>echo basename("/aaa/bbb"); # =&gt; bbb
+echo basename("/aaa/");    # =&gt; aaa
+echo basename("/aaa");     # =&gt; aaa
+echo basename("aaa");      # =&gt; aaa
 </code></pre>
 
 <p><code>basename</code> 関数 | PHP Manual<br />
@@ -76,18 +76,20 @@ print os.path.basename(path)
 </code></pre>
 
 <h2 id="ruby">Ruby
-<span class="article-date">2014/02/22</span></h2>
+<span class="article-date">2016/09/11</span></h2>
 
-<pre><code>File.basename(path)
+<pre><code>p File.basename("/aaa/bbb") # =&gt; "bbb"
+p File.basename("/aaa/")    # =&gt; "aaa"
+p File.basename("/aaa")     # =&gt; "aaa"
+p File.basename("aaa")      # =&gt; "aaa"
 </code></pre>
 
 <p><a href="dirname.html#ruby"><code>dirname</code></a> の情報も必要であれば、それらを同時に取得できる <code>File#split</code> というのもある。</p>
 
-<pre><code>p File.split("/aaa/bbb/ccc")
-# =&gt; ["/aaa/bbb", "ccc"]
-
-p File.split("/aaa/bbb/ccc/")
-# =&gt; ["/aaa/bbb", "ccc"]
+<pre><code>p File.split("/aaa/bbb") # =&gt; ["/aaa", "bbb"]
+p File.split("/aaa/")    # =&gt; ["/", "aaa"]
+p File.split("/aaa")     # =&gt; ["/", "aaa"]
+p File.split("aaa")      # =&gt; [".", "aaa"]
 </code></pre>
 
 <h2 id="efc92b9">Perl
@@ -140,7 +142,7 @@ print basename("aaa") . "\n"; # =&gt; aaa
           <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
-          <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
+          <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する (readlink)</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/mv.html">ファイル名を変更するには</a></li>

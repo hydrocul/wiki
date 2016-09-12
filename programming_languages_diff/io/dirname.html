@@ -26,9 +26,12 @@
 <p>ディレクトリの部分を取り出す方法。ファイルパスからファイル名の部分を取り出す方法は<a href="basename.html">basename</a>。</p>
 
 <h2 id="b2dc2ea">PHP
-<span class="article-date">2013/09/13</span></h2>
+<span class="article-date">2016/09/11</span></h2>
 
-<pre><code>dirname($path);
+<pre><code>echo dirname("/aaa/bbb"); # =&gt; /aaa
+echo dirname("/aaa/");    # =&gt; /
+echo dirname("/aaa");     # =&gt; /
+echo dirname("aaa");      # =&gt; .
 </code></pre>
 
 <p><code>dirname</code> 関数 | PHP Manual<br />
@@ -42,13 +45,22 @@
 print os.path.dirname(path)
 </code></pre>
 
-<h2 id="ruby">Ruby
-<span class="article-date">2014/02/22</span></h2>
+<h2 id="ruby">Ruby / JRuby
+<span class="article-date">2016/09/11</span></h2>
 
-<pre><code>File.dirname(path)
+<pre><code>p File.dirname("/aaa/bbb") # =&gt; "/aaa"
+p File.dirname("/aaa/")    # =&gt; "/"
+p File.dirname("/aaa")     # =&gt; "/"
+p File.dirname("aaa")      # =&gt; "."
 </code></pre>
 
 <p><a href="basename.html#ruby"><code>basename</code></a> の情報も必要であれば、それらを同時に取得できる <a href="basename.html#ruby"><code>File#split</code></a> というのもある。</p>
+
+<pre><code>p File.split("/aaa/bbb") # =&gt; ["/aaa", "bbb"]
+p File.split("/aaa/")    # =&gt; ["/", "aaa"]
+p File.split("/aaa")     # =&gt; ["/", "aaa"]
+p File.split("aaa")      # =&gt; [".", "aaa"]
+</code></pre>
 
 <h2 id="perl">Perl
 <span class="article-date">2013/08/24</span></h2>
@@ -92,21 +104,20 @@ dirname aaa      # =&gt; .
           <li><a href="../../programming_languages_diff/io/each-line.html">ファイルの中身を1行ずつテキスト処理するには</a></li>
           <li><a href="../../programming_languages_diff/io/fwrite.html">ファイルに書き込むには (fwrite)</a></li>
           <li>パスからディレクトリ名を取得するには (dirname)</li>
-          <li><a href="../../programming_languages_diff/io/basename.html">パスからファイル名を取得するには (basename)</a></li>
+          <li><a href="../../programming_languages_diff/io/basename.html">ファイルのパスからファイル名を取得するには (basename)</a></li>
           <li><a href="../../programming_languages_diff/io/extname.html">パスやファイル名から拡張子を取得するには (extname)</a></li>
+          <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/ls.html">ディレクトリの中のファイル一覧を取得するには (ls)</a></li>
           <li><a href="../../programming_languages_diff/io/mkdir.html">ディレクトリを作成するには (mkdir)</a></li>
           <li><a href="../../programming_languages_diff/io/rm.html">ファイル・ディレクトリを削除するには (<code>rm</code> / <code>unlink</code> / <code>rmdir</code>)</a></li>
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
-          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには (exists)</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
-          <li><a href="../../programming_languages_diff/io/file-size.html">ファイルサイズを取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
           <li><a href="../../programming_languages_diff/io/flush.html">標準出力をフラッシュするには (flush)</a></li>
-          <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する</a></li>
-          <li><a href="../../programming_languages_diff/io/is-empty.html">ファイルサイズが0かどうかを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/io/get-symbolic-link-target.html">シンボリックリンクのリンク先を取得する (readlink)</a></li>
           <li><a href="../../programming_languages_diff/io/is-file.html">ファイルかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/is-symbolic-link.html">シンボリックリンクかどうかを調べるには</a></li>
           <li><a href="../../programming_languages_diff/io/mv.html">ファイル名を変更するには</a></li>
