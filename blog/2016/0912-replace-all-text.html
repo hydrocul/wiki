@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>2016年 | ブログ | hydroculのメモ</title>
+<title>ディレクトリの中を再帰的に全置換するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,25 +16,39 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <span>2016年</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2016/">2016年</a> &gt; <span>ディレクトリの中を再帰的に全置換するには</span>
 </div>
 
 <div id="content">
-  <h1 id="2016">2016年</h1>
+  <h1 id="0912-replace-all-text">ディレクトリの中を再帰的に全置換するには
+<span class="article-date">2016/09/12</span></h1>
 
-<h2 id="section">目次</h2>
+<p>GNU sedがあれば、置換対象のファイルを <a href="../../commands/grep.html"><code>grep</code></a> でリストアップして、<a href="../../commands/sed.html"><code>sed</code></a>の <code>-i</code> オプションを使う。</p>
 
-<ul>
-  <li><a href="../../blog/2016/0201-php7-on-centos.html">CentOS 7.2にPHP 7.0をインストールしてみた</a></li>
-  <li><a href="../../blog/2016/0204-brain-cafe.html">理研の脳科学総合研究センターのサイエンスカフェの内容</a></li>
-  <li><a href="../../blog/2016/0220-glibc-filename.html">glibcのインストールされているディレクトリとファイル名</a></li>
-  <li><a href="../../blog/2016/0607-ssh-proxycommand.html">sshで踏み台サーバを通して接続するProxyCommandの設定</a></li>
-  <li><a href="../../blog/2016/0802-switch-comment-out.html">ソースコード中のコードをコメントアウトで簡単に無効化したり有効化したりするには</a></li>
-  <li><a href="../../blog/2016/0818-xml-pretty-print.html">XMLファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
-  <li><a href="../../blog/2016/0821-json-pretty-print.html">JSONファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
-  <li><a href="../../blog/2016/0823-readlink-parent-dir.html">シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには</a></li>
-  <li><a href="../../blog/2016/0912-replace-all-text.html">ディレクトリの中を再帰的に全置換するには</a></li>
-</ul>
+<pre><code>$ grep -rl 置換前 . | xargs sed -i 's/置換前/置換後/g'
+</code></pre>
+
+<p>ファイルの拡張子などで条件を絞って全置換するには <a href="../../commands/find.html"><code>find</code></a> を使う。</p>
+
+<pre><code>$ find . -name "*.txt" | xargs sed -i 's/置換前/置換後/g'
+</code></pre>
+
+<p>または</p>
+
+<pre><code>$ find . -name "*.txt" -exec sed -i 's/置換前/置換後/g' {} \;
+</code></pre>
+
+<p><code>find</code>を使う方法は、<code>find</code>で見つけてきた全ファイルのタイムスタンプを、たとえそのファイルに置換文字列が含まれていなくも、変えてしまう。</p>
+
+<p>置換時に元ファイルをリネームしてバックアップしておきたい場合は <code>sed</code> の <code>-i</code> オプションにsuffixを付ける。</p>
+
+<pre><code>$ grep -rl 置換前 . | xargs sed -i.bak 's/置換前/置換後/g'
+</code></pre>
+
+<p>カレントディレクトリの中にあるすべてのファイルのすべての行の先頭に <code>//</code> を追加する例</p>
+
+<pre><code>$ find . -type f -exec sed -i 's/^/\/\//g' {} \;
+</code></pre>
 
 </div>
 
@@ -46,7 +60,7 @@
     <ul>
   <li><a href="../../blog/">ブログ</a>
     <ul>
-      <li>2016年
+      <li><a href="../../blog/2016/">2016年</a>
         <ul>
           <li><a href="../../blog/2016/0201-php7-on-centos.html">CentOS 7.2にPHP 7.0をインストールしてみた</a></li>
           <li><a href="../../blog/2016/0204-brain-cafe.html">理研の脳科学総合研究センターのサイエンスカフェの内容</a></li>
@@ -56,7 +70,7 @@
           <li><a href="../../blog/2016/0818-xml-pretty-print.html">XMLファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
           <li><a href="../../blog/2016/0821-json-pretty-print.html">JSONファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
           <li><a href="../../blog/2016/0823-readlink-parent-dir.html">シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには</a></li>
-          <li><a href="../../blog/2016/0912-replace-all-text.html">ディレクトリの中を再帰的に全置換するには</a></li>
+          <li>ディレクトリの中を再帰的に全置換するには</li>
         </ul>
       </li>
     </ul>

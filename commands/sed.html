@@ -471,32 +471,9 @@ sed -E 's/[\t ]+/ /g'
 <p>BSDやMacに入っているsedはGNU sedではなく、<code>-i</code> オプションがないらしい。</p>
 
 <h3 id="find-sed-recursive">ディレクトリの中を再帰的に全置換するには
-<span class="article-date">2015/09/17</span></h3>
+<span class="article-date">2016/09/12</span></h3>
 
-<p>GNU sedがあれば、置換対象のファイルを <a href="grep.html"><code>grep</code></a> でリストアップして、<code>sed</code>の <code>-i</code> オプションを使う。</p>
-
-<pre><code>grep -rl 置換前 . | xargs sed -i 's/置換前/置換後/g'
-</code></pre>
-
-<p>ファイルの拡張子などで条件を絞って全置換するには <a href="find.html"><code>find</code></a> を使う。</p>
-
-<pre><code>find . -name "*.txt" | xargs sed -i 's/置換前/置換後/g'
-</code></pre>
-
-<p>または</p>
-
-<pre><code>find . -name "*.txt" -exec sed -i 's/置換前/置換後/g' {} \;
-</code></pre>
-
-<p>ただ、このやり方だと、<code>find</code>で見つけてきたファイルは置換文字列が含まれていなくも、タイムスタンプが変わってしまう。</p>
-
-<p>カレントディレクトリの中にあるすべてのファイルのすべての行の先頭に <code>//</code> を追加する例</p>
-
-<pre><code>find . -type f -exec sed -i 's/^/\/\//g' {} \;
-</code></pre>
-
-<p>ディレクトリの中にあるたくさんのファイルの文字列を全置換する方法<br />
-<a href="http://d.hatena.ne.jp/hydrocul/20111211/1323595015" target="_blank" class="external-link">http://d.hatena.ne.jp/hydrocul/20111211/1323595015</a></p>
+<p>-&gt; <a href="../blog/2016/0912-replace-all-text.html">ディレクトリの中を再帰的に全置換するには</a></p>
 
 <h3 id="538fd69">2つ以上の全置換を一括で実行するには
 <span class="article-date">2013/06/17</span></h3>
