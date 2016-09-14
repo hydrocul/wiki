@@ -195,7 +195,7 @@ $len = mb_strlen($str, "UTF-8");
 <pre><code>l = len(str)
 </code></pre>
 
-<p>Unicode拡張領域の文字も含めマルチバイトの文字が含まれていても文字数を正しく取得できる。</p>
+<p>Unicode拡張領域の文字(UTF8で4バイトの文字)も含めマルチバイトの文字が含まれていても文字数を正しく取得できる。</p>
 
 <h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/03/31</span></h2>
@@ -210,7 +210,7 @@ l = str.size
 <p>2つのメソッドは全く同じ。<a href="../list/size.html#ruby">配列のサイズ</a>、
 <a href="../map/size.html#ruby">ハッシュのサイズ</a>も同じ名前の2つのメソッドがある。</p>
 
-<p>Unicode拡張領域の文字も含めマルチバイトの文字が含まれていても文字数を正しく取得できる。</p>
+<p>Unicode拡張領域の文字(UTF8で4バイトの文字)も含めマルチバイトの文字が含まれていても文字数を正しく取得できる。</p>
 
 <p><code>String#bytesize</code> というメソッドは文字数ではなくバイト数になる。</p>
 
@@ -239,7 +239,7 @@ length($str)
 </code></pre>
 
 <p>文字列をソースコード中に直接書いた場合は <code>use utf8;</code> としないと、マルチバイトの文字列でもバイト数を数えてしまう。
-<code>use utf8;</code> と書いておけば、Unicode拡張領域の文字も含めマルチバイトの文字が含まれていても文字数を正しく取得できる。</p>
+<code>use utf8;</code> と書いておけば、Unicode拡張領域の文字(UTF8で4バイトの文字)も含めマルチバイトの文字が含まれていても文字数を正しく取得できる。</p>
 
 <p><code>length</code> 関数 | perldoc.jp<br />
 <a href="http://perldoc.jp/func/length" target="_blank" class="external-link">http://perldoc.jp/func/length</a></p>
