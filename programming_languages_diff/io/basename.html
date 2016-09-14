@@ -106,11 +106,14 @@ print basename("aaa") . "\n"; # =&gt; aaa
 </code></pre>
 
 <h2 id="f8fb649">sh (シェルスクリプト)
-<span class="article-date">2013/10/09</span></h2>
+<span class="article-date">2016/09/13</span></h2>
 
-<p><code>basename</code>コマンドを利用する。</p>
+<p><code>basename</code>コマンドは引数で与えられたパスのファイル名の部分を標準出力に出力する。</p>
 
-<pre><code>basename $path
+<pre><code>basename /aaa/bbb # =&gt; bbb
+basename /aaa/    # =&gt; aaa
+basename /aaa     # =&gt; aaa
+basename aaa      # =&gt; aaa
 </code></pre>
 
 </div>
