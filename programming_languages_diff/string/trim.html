@@ -110,15 +110,15 @@ func main() {
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#trim--" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#trim–</a></p>
 
 <h2 id="php">PHP
-<span class="article-date">2014/10/29</span></h2>
+<span class="article-date">2016/09/16</span></h2>
 
-<p><code>trim</code>関数でできる。</p>
+<p><code>trim</code>関数で両端にある空白類を削除できる。</p>
 
 <pre><code>$str = trim($str);
 $str = trim($str, $charlist);
 </code></pre>
 
-<p>2番目の引数を指定しない場合は、両端にある以下の文字が削除される。</p>
+<p>2番目の引数を指定しない場合は、空白類として以下の文字が削除される。</p>
 
 <ul>
   <li>空白 <code>\x20</code></li>
@@ -136,10 +136,9 @@ trim($str, "\r\n")
 </code></pre>
 
 <p><code>trim</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.trim.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.trim.php</a></p>
+<a href="http://php.net/manual/ja/function.trim.php" target="_blank" class="external-link">http://php.net/manual/ja/function.trim.php</a></p>
 
-<p><code>trim</code>では全角スペースを取り除くことはできない。2つ目の引数に全角スペースを入れると、
-1つ目の引数の文字列によっては文字列が破壊されて文字化けを起こしてしまう。</p>
+<p><code>trim</code>は全角に対応しているので、たとえ第2引数に全角スペースを指定しても正常に動作しない。第2引数に全角スペースを入れると、第1引数の内容によっては文字列が破壊されて文字化けを起こしてしまう。</p>
 
 <p>PHPで文字列の最初と最後の半角、全角スペースを取り除く<br />
 <a href="http://unsolublesugar.com/20120622/200605/" target="_blank" class="external-link">http://unsolublesugar.com/20120622/200605/</a></p>
