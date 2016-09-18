@@ -23,14 +23,16 @@
   <h1 id="add">集合(セット)に要素を追加するには (add / <code>&lt;&lt;</code>)</h1>
 
 <h2 id="328c3b8">Java
-<span class="article-date">2013/11/26</span></h2>
+<span class="article-date">2016/09/17</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>boolean java.util.Set&lt;E&gt;#add(E elem)
-</code></pre>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html#add-E-" target="_blank" class="external-link method-signature"><code>boolean Set&lt;E&gt;#add(E elem)</code></a></li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html#addAll-java.util.Collection-" target="_blank" class="external-link method-signature"><code>boolean addAll(Collection&lt;? extends E&gt; c)</code></a></li>
+</ul>
 
-<p>セットに含まれておらずに追加できた場合は <code>true</code> を返す。もともと含まれていた場合は <code>false</code> を返す。</p>
+<p>セットに含まれておらずに追加できた場合(<code>addAll</code> は1つでも追加できた場合)は <code>true</code> を返す。もともと含まれていた場合(<code>addAll</code> は1つも追加しなかった場合)は <code>false</code> を返す。</p>
 
 <h2 id="88362a4">Scala
 <span class="article-date">2015/03/21</span></h2>
