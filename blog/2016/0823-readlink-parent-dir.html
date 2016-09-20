@@ -30,8 +30,10 @@
   local path="$1"
 
   while [ -n "$path" ]; do
-    cd "${path%/*}"
-    local name="${path##*/}"
+    if [ "${path%/*}" != "$path" ]; then
+      cd "${path%/*}" # $path に含まれる最後の "/" から後ろを削除したパスにcd
+    fi
+    local name="${path##*/}" # $path に含まれる最後の "/" から後ろを name に代入
     path="$(readlink "$name" || true)"
   done
 
@@ -64,6 +66,7 @@ echo $SCRIPT_HOME
           <li><a href="../../blog/2016/0818-xml-pretty-print.html">XMLファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
           <li><a href="../../blog/2016/0821-json-pretty-print.html">JSONファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
           <li>シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには</li>
+          <li><a href="../../blog/2016/0912-replace-all-text.html">ディレクトリの中を再帰的に全置換するには</a></li>
         </ul>
       </li>
     </ul>
