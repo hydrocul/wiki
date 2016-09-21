@@ -21,21 +21,21 @@
 
 <div id="content">
   <h1 id="0821-json-pretty-print">JSONファイルをコマンドで見やすく整形するには (pretty printing)
-<span class="article-date">2016/08/21</span></h1>
+<span class="article-date">2016/09/21</span></h1>
 
 <p>JSONファイルに改行やインデントを入れて、ターミナル上で人間にとって読みやすく表示させる方法。</p>
 
-<pre><code>$ cat FOO.json | perl -MEncode -MJSON::PP -e '$json=JSON::PP-&gt;new-&gt;pretty; $obj=$json-&gt;decode(join("",(&lt;STDIN&gt;))); print encode_utf8($json-&gt;encode($obj))'
+<pre><code>$ cat FOO.json | perl -MEncode -MJSON::PP -e '$json=JSON::PP-&gt;new-&gt;pretty; $obj=$json-&gt;decode(decode_utf8(join("",(&lt;STDIN&gt;)))); print encode_utf8($json-&gt;encode($obj))'
 
 # または
-$ cat FOO.json | perl -MEncode -MJSON::PP -e '$json=JSON::PP-&gt;new-&gt;pretty-&gt;canonical; $obj=$json-&gt;decode(join("",(&lt;STDIN&gt;))); print encode_utf8($json-&gt;encode($obj))'
+$ cat FOO.json | perl -MEncode -MJSON::PP -e '$json=JSON::PP-&gt;new-&gt;pretty-&gt;canonical; $obj=$json-&gt;decode(decode_utf8(join("",(&lt;STDIN&gt;)))); print encode_utf8($json-&gt;encode($obj))'
 </code></pre>
 
 <p>1つ目は、オブジェクトの中の要素はJSONで書かれているのと同じ順番で表示される。</p>
 
 <p>2つ目は、オブジェクトの中の要素はキーのアルファベット順にソートして表示される。</p>
 
-<p>json_pp というPerlで書かれたツールの中身は実質上記のワンライナーと同じである。</p>
+<p>json_pp というPerlで書かれたツールの中身は実質これらワンライナーと同じである。</p>
 
 <h2 id="369ffbb">関連</h2>
 
@@ -62,6 +62,8 @@ $ cat FOO.json | perl -MEncode -MJSON::PP -e '$json=JSON::PP-&gt;new-&gt;pretty-
           <li><a href="../../blog/2016/0802-switch-comment-out.html">ソースコード中のコードをコメントアウトで簡単に無効化したり有効化したりするには</a></li>
           <li><a href="../../blog/2016/0818-xml-pretty-print.html">XMLファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
           <li>JSONファイルをコマンドで見やすく整形するには (pretty printing)</li>
+          <li><a href="../../blog/2016/0823-readlink-parent-dir.html">シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには</a></li>
+          <li><a href="../../blog/2016/0912-replace-all-text.html">ディレクトリの中を再帰的に全置換するには</a></li>
         </ul>
       </li>
     </ul>
