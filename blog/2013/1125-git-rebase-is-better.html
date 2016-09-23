@@ -37,7 +37,7 @@ var illRedCircleColor = "#F33";
 
 <p>下の図は左から右にコミットグラフが伸びている様子です。</p>
 
-<svg id="illustration1" height="200"></svg>
+<svg id="illustration1" height="200" width="500"></svg>
 <script>
 $(function(){
     var snap = Snap("#illustration1");
@@ -55,7 +55,7 @@ $(function(){
 
 <p>Aさんは開発の過程でリファクタリングにせまられ、ある定数の名前を変更してソースコードを改善しました。定数を参照しているところも全部書き換えてテストも問題ありません。</p>
 
-<svg id="illustration2" height="180"></svg>
+<svg id="illustration2" height="180" width="500"></svg>
 <script>
 $(function(){
     var snap = Snap("#illustration2");
@@ -74,7 +74,7 @@ $(function(){
 
 <p>Bさんは別の機能の開発にその定数を参照する必要がありました。この時点ではBさんはAさんのブランチをmergeもrebaseもしてないので変更前の定数名で参照しています。</p>
 
-<svg id="illustration3" height="180"></svg>
+<svg id="illustration3" height="180" width="500"></svg>
 <script>
 $(function(){
     var snap = Snap("#illustration3");
@@ -94,7 +94,7 @@ $(function(){
 
 <p>AさんとBさんはその後も開発を続けます。</p>
 
-<svg id="illustration4" height="180"></svg>
+<svg id="illustration4" height="180" width="500"></svg>
 <script>
 $(function(){
     var snap = Snap("#illustration4");
@@ -123,7 +123,7 @@ git merge work/a --no-ff # not fast-forward
 git push origin master
 </code></pre>
 
-<svg id="illustration5" height="260"></svg>
+<svg id="illustration5" height="260" width="500"></svg>
 <script>
 $(function(){
     var snap = Snap("#illustration5");
@@ -160,7 +160,7 @@ git push origin master
 
 <p>しかし、マージ後の<code>master</code>ブランチでテストにNGが出てしまいました。</p>
 
-<svg id="illustration6" height="260"></svg>
+<svg id="illustration6" height="260" width="500"></svg>
 <script>
 $(function(){
     var snap = Snap("#illustration6");
@@ -199,7 +199,7 @@ Bさんが調査を開始すると、定数を定義している箇所が間違�
 
 <p>同じ過程をrebaseを使う方法ですとどうなるでしょうか。以下の状態までは同じです。</p>
 
-<svg id="illustration7" height="180"></svg>
+<svg id="illustration7" height="180" width="500"></svg>
 <script>
 $(function(){
     var snap = Snap("#illustration7");
@@ -228,7 +228,7 @@ git merge work/a  # do not create merge commit, but only update the branch point
 git push origin master
 </code></pre>
 
-<svg id="illustration8" height="180"></svg>
+<svg id="illustration8" height="180" width="500"></svg>
 <script>
 $(function(){
     var snap = Snap("#illustration8");
@@ -254,7 +254,7 @@ $(function(){
 git rebase origin/master
 </code></pre>
 
-<svg id="illustration9" height="180"></svg>
+<svg id="illustration9" height="180" width="500"></svg>
 <script>
 $(function(){
     var snap = Snap("#illustration9");
@@ -289,7 +289,7 @@ git commit --amend
 git cherry-pick ... # 赤いコミットより後ろのコミットを cherry-pick
 </code></pre>
 
-<svg id="illustration10" height="180"></svg>
+<svg id="illustration10" height="180" width="500"></svg>
 <script>
 $(function(){
     var snap = Snap("#illustration10");
@@ -317,7 +317,7 @@ git merge work/b2
 git push origin master
 </code></pre>
 
-<svg id="illustration11" height="100"></svg>
+<svg id="illustration11" height="100" width="500"></svg>
 <script>
 $(function(){
     var snap = Snap("#illustration11");
