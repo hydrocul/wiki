@@ -28,8 +28,8 @@
 
 <p>例</p>
 
-<pre><code># リモートのルートをローカルの ~/mnt/hogesrv にマウント
-sshfs -o auto_cache -o reconnect hogesrv:/ ~/mnt/hogesrv
+<pre><code>## リモートのルートをローカルの ~/mnt/hogesrv にマウント
+$ sshfs -o auto_cache -o reconnect hogesrv:/ ~/mnt/hogesrv
 </code></pre>
 
 <p>書式は<a href="rsync.html"><code>rsync</code>コマンド</a>に似ているかもしれない。</p>
@@ -46,7 +46,7 @@ rm -rf * とかやって、その中にマウントしているリモートの�
 
 <p>Ubuntuではsshfsというパッケージに入っている。(Ubuntu 13.10, 14.04, 15.10 で確認)</p>
 
-<pre><code>sudo apt-get install sshfs
+<pre><code>$ sudo apt-get install sshfs
 </code></pre>
 
 <h2 id="b068dc6">リモートのファイルシステム上でのファイルオーナーを無視して、全ファイルのオーナーを特定のものにするには
@@ -64,7 +64,6 @@ rm -rf * とかやって、その中にマウントしているリモートの�
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat コマンド</a></li>
@@ -100,7 +99,9 @@ rm -rf * とかやって、その中にマウントしているリモートの�
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
+      <li><a href="../commands/pwd.html">pwd コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
+      <li><a href="../commands/rm.html">rm コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
@@ -124,6 +125,7 @@ rm -rf * とかやって、その中にマウントしているリモートの�
       <li><a href="../commands/tr.html">tr コマンド</a></li>
       <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/uniq.html">uniq コマンド</a></li>
+      <li><a href="../commands/uptime.html">uptime コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>

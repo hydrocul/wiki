@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>adduser / useradd コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
+<title>uptime コマンド | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,29 +16,20 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>adduser / useradd コマンド</span>
+  <a href="../">hydroculのメモ</a> &gt; <a href="../commands/">コマンドの使い方(Linux)</a> &gt; <span>uptime コマンド</span>
 </div>
 
 <div id="content">
-  <h1 id="adduser">adduser / useradd コマンド
-<span class="article-date">2015/04/03</span></h1>
+  <h1 id="uptime">uptime コマンド
+<span class="article-date">2016/02/19</span></h1>
 
-<p>この2つはLinuxユーザを作成するコマンド。root権限でないとユーザを作成できない。</p>
+<p>サーバが起動してからの経過時間を確認できるコマンド。</p>
 
-<h2 id="73bde13">Ubuntu
-<span class="article-date">2013/05/13</span></h2>
+<pre><code>$ uptime
+ 09:05:25 up 253 days, 22:28, 19 users,  load average: 0.69, 0.50, 0.45
+</code></pre>
 
-<dl>
-  <dt><code>adduser</code></dt>
-  <dd>対話形式でユーザを新規作成する</dd>
-  <dt><code>useradd</code></dt>
-  <dd>オプションでいろいろ指定して、非対話形式でユーザを新規作成する。オプション無しでユーザ名だけで新規作成してしまうと、ホームディレクトリがなかったりする。</dd>
-</dl>
-
-<h2 id="191e2a9">CentOS
-<span class="article-date">2013/05/13</span></h2>
-
-<p><code>adduser</code> と <code>useradd</code> は全く同じ。一方が他方にシンボリックリンクになっている。非対話形式だがホームディレクゴリはデフォルトで作成される。ユーザ作成後に <code>passwd</code> でパスワードの設定が必要。</p>
+<p>この出力例では、OSが起動してから253日間経っている。</p>
 
 </div>
 
@@ -111,7 +102,7 @@
       <li><a href="../commands/tr.html">tr コマンド</a></li>
       <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/uniq.html">uniq コマンド</a></li>
-      <li><a href="../commands/uptime.html">uptime コマンド</a></li>
+      <li>uptime コマンド</li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>

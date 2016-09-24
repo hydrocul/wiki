@@ -34,7 +34,7 @@
 
 <p>Ubuntuではzip, unzipというパッケージに入っている。(Ubuntu 13.10, 15.10 で確認)</p>
 
-<pre><code>sudo apt-get install zip unzip
+<pre><code>$ sudo apt-get install zip unzip
 </code></pre>
 
 <h2 id="4655347">パスワード付きのZIPの作成・解凍
@@ -42,41 +42,39 @@
 
 <p>パスワード付きのZIPの作成(圧縮)または解凍をコマンドで行うには <code>-P</code> オプションを使う。</p>
 
-<pre><code>zip -P パスワード ZIPファイル名 圧縮対象ファイル
-unzip -P パスワード ZIPファイル名
+<pre><code>$ zip -P «パスワード» «ZIPファイル名» «圧縮対象ファイル»
+$ unzip -P «パスワード» «ZIPファイル名»
 </code></pre>
 
 <p>ただし、コマンドラインにパスワードを与えると、履歴やpsコマンドでわかってしまうので、セキュリティ上はよくない。</p>
-
-<p><a href="http://d.hatena.ne.jp/hydrocul/20110227/1298798530" target="_blank" class="external-link">http://d.hatena.ne.jp/hydrocul/20110227/1298798530</a></p>
 
 <h2 id="a62ebc8">ディレクトリまるごとzip圧縮するには
 <span class="article-date">2014/04/17</span></h2>
 
 <p>オプション <code>-r</code> を付ける。</p>
 
-<pre><code>zip -r ZIPファイル名 対象ディレクトリ
+<pre><code>$ zip -r «ZIPファイル名» «対象ディレクトリ»
 </code></pre>
 
 <p><code>tar</code> での以下に相当する。</p>
 
-<pre><code>tar cvzf TARGZファイル名 対象ディレクトリ
+<pre><code>$ tar cvzf «TARGZファイル名» «対象ディレクトリ»
 </code></pre>
 
 <h2 id="c6fea14">zipファイルを解凍するには
 <span class="article-date">2014/10/24</span></h2>
 
-<pre><code>unzip ZIPファイル名
+<pre><code>$ unzip «ZIPファイル名»
 </code></pre>
 
 <p>Javaの開発環境に付属の<code>jar</code>コマンドでもできる。</p>
 
-<pre><code>jar xvf ZIPファイル名
+<pre><code>$ jar xvf «ZIPファイル名»
 </code></pre>
 
 <p>これらは <code>tar</code> での以下に相当する。</p>
 
-<pre><code>tar xvzf TARGZファイル名
+<pre><code>$ tar xvzf «TARGZファイル名»
 </code></pre>
 
 <p>jar は tar と同じ使い方で、ただ tar に付けるオプション <code>z</code> だけ削除する、と覚えると楽。</p>
@@ -84,17 +82,17 @@ unzip -P パスワード ZIPファイル名
 <h2 id="3ac4844">zipファイルに含まれるファイルの一覧を見るには
 <span class="article-date">2013/07/10</span></h2>
 
-<pre><code>unzip -l ZIPファイル名
+<pre><code>$ unzip -l «ZIPファイル名»
 </code></pre>
 
 <p><code>jar</code> でもできる。</p>
 
-<pre><code>jar tf ZIPファイル名
+<pre><code>$ jar tf «ZIPファイル名»
 </code></pre>
 
 <p>これらは <code>tar</code> での以下に相当する。</p>
 
-<pre><code>tar tzf TARGZファイル名
+<pre><code>$ tar tzf «TARGZファイル名»
 </code></pre>
 
 <p>jar は tar と同じ使い方で、ただ tar に付けるオプション <code>z</code> だけ削除する、と覚えると楽。</p>
@@ -106,7 +104,7 @@ unzip -P パスワード ZIPファイル名
 
 <p>これを応用して、ローカルにある大量のファイルを圧縮しながらリモートにSSHで転送するには以下のようにする。</p>
 
-<pre><code>zip -r - 圧縮対象ディレクトリ | ssh リモートホスト "cat &gt; リモートでの書き出し先圧縮ファイルパス"
+<pre><code>$ zip -r - «圧縮対象ディレクトリ» | ssh «リモートホスト» "cat &gt; «リモートでの書き出し先圧縮ファイルパス»"
 </code></pre>
 
 <p>ローカルにディスク容量の余裕がなく、あまりにも大容量で一時的にであっても圧縮ファイルをローカルに置くことができない場合にこの方法が便利。</p>
@@ -123,7 +121,6 @@ unzip -P パスワード ZIPファイル名
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat コマンド</a></li>
@@ -159,7 +156,9 @@ unzip -P パスワード ZIPファイル名
       <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
+      <li><a href="../commands/pwd.html">pwd コマンド</a></li>
       <li><a href="../commands/readlink.html">readlink コマンド</a></li>
+      <li><a href="../commands/rm.html">rm コマンド</a></li>
       <li><a href="../commands/rsync.html">rsync コマンド</a></li>
       <li><a href="../commands/sdiff.html">sdiff コマンド</a></li>
       <li><a href="../commands/sed.html">sed コマンド</a></li>
@@ -183,6 +182,7 @@ unzip -P パスワード ZIPファイル名
       <li><a href="../commands/tr.html">tr コマンド</a></li>
       <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/uniq.html">uniq コマンド</a></li>
+      <li><a href="../commands/uptime.html">uptime コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
