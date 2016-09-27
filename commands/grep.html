@@ -250,6 +250,28 @@ $ grep --color=always PATTERN foo.txt | head
 <pre><code>$ grep --color=always PATTERN foo.txt | less -R
 </code></pre>
 
+<h3 id="f99f2b5">マッチした部分とその前後一定文字数のみを表示するには
+<span class="article-date">2016/09/26</span></h3>
+
+<p>パターンの前後に <code>.{5}</code> みたいなのを付けて、オプション <code>-o</code> を付けると、パターンにマッチした部分とその前後5文字ずつが出力される。</p>
+
+<pre><code>$ grep -h -r -E '.{5}Word.{5}' -o *
+aded Word, ver
+lib('Word.Appl
+,$newWord);
+wrongWord = "s
+rightWord = "j
+wrongWord,$rig
+($newWord);$x+
+,$newWord[$x])
+ $newWord);
+e/bwdWordCache
+tion&gt;Word stri
+rd='&gt;Word Proc
+rd='&gt;Word Proc
+rd='&gt;Word Proc
+</code></pre>
+
 </div>
 
 <div id="side-menu">
@@ -260,7 +282,6 @@ $ grep --color=always PATTERN foo.txt | head
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat コマンド</a></li>
@@ -322,6 +343,7 @@ $ grep --color=always PATTERN foo.txt | head
       <li><a href="../commands/tr.html">tr コマンド</a></li>
       <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/uniq.html">uniq コマンド</a></li>
+      <li><a href="../commands/uptime.html">uptime コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>
