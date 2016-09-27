@@ -30,7 +30,7 @@
 <p>sedというコマンド名は Stream EDitor の略らしい。</p>
 
 <h2 id="1db04e2">基本的な使い方
-<span class="article-date">2015/12/19</span></h2>
+<span class="article-date">2016/09/27</span></h2>
 
 <p>標準入力をなにかしら処理して標準出力に出力するので、パイプとして使える。まあたいていのUNIXツールはパイプとして使えるのだが。</p>
 
@@ -57,36 +57,34 @@
 </code></pre>
 
 <p><code>-e</code> オプションがない場合はオプション以外の最初の引数が処理内容とみなされるので、たいていは <code>-e</code> を省略できる。処理内容を指示する引数に拡張正規表現を使いたい場合は、
-<a href="#extended-regexp">後述</a>のように <code>-e</code> の代わりに <code>-E</code> を付ける。または <code>-r</code> を併用する。</p>
+<a href="#extended-regexp">後述</a>のように <code>-E</code> または <code>-r</code> を付ける。</p>
 
 <p>環境によっては <code>-E</code> や <code>-r</code> がサポートされていないみたい。</p>
 
 <h2 id="544ea65">複数の処理をさせるには
-<span class="article-date">2014/08/29</span></h2>
+<span class="article-date">2016/09/27</span></h2>
 
 <p><code>-e</code>オプションを複数指定すれば、コマンドを複数実行することができる。またはコマンドを <code>;</code> で区切って複数並べることもできる。</p>
 
-<p>コマンドが複数ある場合、コマンド1つずつ全行操作するのではなく、各行ごとにコマンドをすべて実行していく。つまり、以下の2つのコマンドは結果が違う可能性がある。</p>
+<p>コマンドが複数ある場合、コマンド1つずつ全行操作するのではなく、各行ごとにコマンドをすべて実行していく。つまり、以下の2つの方法は結果が違う可能性がある。</p>
 
 <pre><code>$ cat ... | sed -e ... | sed -e ...
 $ cat ... | sed -e ... -e ...
 </code></pre>
 
-<p>例えば <code>sed -n -e '11,20!d' -e 6,15p</code> または <code>sed -n -e '11,20!d;6,15p</code> は、
-11行目から20行目以外を削除するコマンドと、
-6行目から15行目のみを抽出するコマンドだが、これは、11行目から20行目以外を削除した結果に対して6行目から15行目を抽出する(つまりトータルでは16行目から20行目のみを抽出する)のではなく、
-11行目から20行目と6行目から15行目が重なる行、つまり11行目から15行目のみを抽出する。</p>
+<p>例えば、1つ目のコマンドに行番号を指定して行を削除する処理があり、
+2つ目のコマンドに行番号を指定して出力する処理がある場合、上記2つの方法のいずれかによって行番号がずれる可能性がある。</p>
 
 <h2 id="ed756ff"><code>-e</code> で指定する処理内容
-<span class="article-date">2015/09/12</span></h2>
+<span class="article-date">2016/09/27</span></h2>
 
 <p><code>-e</code> のあとのパラメータは、アドレス、コマンド1文字、コマンドパラメータの順に書くことで、処理内容を表す。アドレスはどの行を処理対象とするかを表す。すべての行を処理する場合はアドレスを省略できるので、コマンドの1文字から始まることになる。コマンドは <code>s</code>, <code>d</code>, <code>p</code>などがある。</p>
 
 <p>例</p>
 
-<pre><code>$ sed -e 's/xxx/XXX/g' # sコマンド
-$ sed -e '30,31d'      # dコマンド
-$ sed -n -e '30p'      # pコマンド
+<pre><code>$ sed -e 's/xxx/XXX/g' # sコマンド (アドレスがなくて、sのあとはパラメータ)
+$ sed -e '30,31d'      # dコマンド (dの前にアドレスがあり、パラメータがない)
+$ sed -n -e '30p'      # pコマンド (これもアドレスがあり、パラメータがない)
 </code></pre>
 
 <h3 id="replace"><code>s</code>コマンド
@@ -94,9 +92,7 @@ $ sed -n -e '30p'      # pコマンド
 
 <p><code>s</code>コマンドは正規表現で置換処理をする。</p>
 
-<p>例</p>
-
-<pre><code>sed -e 's/abc/ABC/g'
+<pre><code>$ sed -e 's/abc/ABC/g'
 </code></pre>
 
 <p>最後の <code>g</code> はすべてのマッチした文字列を置換することを意味する。
@@ -112,11 +108,11 @@ $ sed -n -e '30p'      # pコマンド
 <p>置換後の文字列に <code>&amp;</code> を指定するとマッチした文字列の部分が出力され、
 <code>\1</code>, <code>\2</code>… を指定するとマッチした文字列のうち正規表現内でカッコでグルーピングされた部分が出力される。</p>
 
-<pre><code>echo xx34 | sed -e 's/xx\(.\)/-&amp; \1-/g'
-# =&gt; -xx3 3-4
+<pre><code>$ echo xx34 | sed -e 's/xx\(.\)/-&amp; \1-/g'
+## =&gt; -xx3 3-4
 
-echo xx34 | sed -E 's/xx(.)/-&amp; \1-/g'
-# =&gt; -xx3 3-4
+$echo xx34 | sed -E 's/xx(.)/-&amp; \1-/g'
+## =&gt; -xx3 3-4
 </code></pre>
 
 <p><code>-e</code> と <code>-E</code> の違いは<a href="#extended-regexp">基本正規表現と拡張正規表現</a>を参照。</p>
@@ -125,15 +121,15 @@ echo xx34 | sed -E 's/xx(.)/-&amp; \1-/g'
 
 <p><code>s</code>コマンドの前に数字を置くと、その行のみがマッチングの対象になる。(アドレスという)</p>
 
-<pre><code># 3行目のみを全置換の対象とする
-# gを付けているのでその行に複数マッチすれば全部置換される
-sed 3s/abc/ABC/g
+<pre><code>## 3行目のみを全置換の対象とする
+## gを付けているのでその行に複数マッチすれば全部置換される
+$ sed 3s/abc/ABC/g
 
-# 3行目から5行目のみを全置換の対象とする
-sed 3,5s/abc/ABC/g
+## 3行目から5行目のみを全置換の対象とする
+$ sed 3,5s/abc/ABC/g
 
-# 3行目から5行目のみを全置換の対象とする
-sed '3,$s/abc/ABC/g'
+## 3行目から5行目のみを全置換の対象とする
+$ sed '3,$s/abc/ABC/g'
 </code></pre>
 
 <p>-&gt; <a href="../programming_languages_diff/string/replace.html">各プログラミング言語での正規表現で置換</a></p>
@@ -145,17 +141,17 @@ sed '3,$s/abc/ABC/g'
 
 <p><code>sed d</code> とすると、すべての行が削除されてなにも出力しなくなってしまう。普通は後述のアドレスの機能を使って削除する行を指定して、残りを出力させる。</p>
 
-<pre><code># 1行目から5行目を削除して6行目以降を出力
-sed 1,5d
+<pre><code>## 1行目から5行目を削除して6行目以降を出力
+$ sed 1,5d
 </code></pre>
 
 <p><code>!</code> を付けると、逆に対象行以外を削除するコマンドになる。</p>
 
-<pre><code># 1行目から行目のみを出力
-# ! はシェルが特別に解釈してしまうので、
-# シングルクオーテーションを付けるか \ でエスケープが必要
-sed '1,5!d'
-sed 1,5\!d
+<pre><code>## 1行目から行目のみを出力
+## ! はシェルが特別に解釈してしまうので、
+## シングルクオーテーションを付けるか \ でエスケープが必要
+$ sed '1,5!d'
+$ sed 1,5\!d
 </code></pre>
 
 <h3 id="6889b9a"><code>p</code>コマンド
@@ -410,8 +406,8 @@ echo "bc abcc" | sed -E 's/b(c*)/\1/g'
 <h3 id="a79f8f1">タブ文字を全置換するには
 <span class="article-date">2013/06/17</span></h3>
 
-<pre><code># タブ文字をスペースに全置換
-sed '/\t/ /g'
+<pre><code>## タブ文字をスペースに全置換
+$ sed '/\t/ /g'
 </code></pre>
 
 <h3 id="1bcb217">正規表現にマッチする行を削除するには
@@ -630,7 +626,6 @@ test test
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat コマンド</a></li>
@@ -692,6 +687,7 @@ test test
       <li><a href="../commands/tr.html">tr コマンド</a></li>
       <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/uniq.html">uniq コマンド</a></li>
+      <li><a href="../commands/uptime.html">uptime コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>

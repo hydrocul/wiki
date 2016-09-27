@@ -21,23 +21,48 @@
 
 <div id="content">
   <h1 id="set">配列(リスト)の要素の値を設定(代入)するには (set)
-<span class="article-date">2015/03/26</span></h1>
+<span class="article-date">2016/09/27</span></h1>
 
-<p>各プログラミング言語での、配列(リスト)の要素の値をインデックスで指定して設定(代入)する方法。</p>
+<p>配列(リスト)の要素の値をインデックスで指定して設定(代入)する方法。</p>
 
 <p>大抵の言語では<a href="get.html">要素を参照する書式</a>を代入演算子の左辺に置くと、右辺の値を要素として代入してくれる。</p>
 
-<p>破壊的な操作であり、リストの類がイミュータブル(不変)オブジェクトになっている言語では当然この操作はできない。</p>
-
-<p>関連</p>
-
-<ul>
-  <li><a href="../map/put.html">連想配列(マップ)の要素の値を設定するには</a></li>
-</ul>
+<table>
+  <tbody>
+    <tr>
+      <td><a href="#java-arr">Javaの配列</a></td>
+      <td><code>arr[index] = value;</code></td>
+    </tr>
+    <tr>
+      <td><a href="#java-list">Javaの<code>List</code></a></td>
+      <td><code>lst.set(index, value);</code></td>
+    </tr>
+    <tr>
+      <td><a href="#scala">Scala</a></td>
+      <td><code>lst(index) = value;</code></td>
+    </tr>
+    <tr>
+      <td><a href="#php">PHP</a></td>
+      <td><code>$arr[$index] = $value;</code></td>
+    </tr>
+    <tr>
+      <td><a href="#python">Python</a></td>
+      <td><code>lst[index] = value</code></td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a></td>
+      <td><code>arr[index] = value</code></td>
+    </tr>
+    <tr>
+      <td>Perl</td>
+      <td><code>$arr[$index] = $value;</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="c84daec">Java</h2>
 
-<h3 id="379a792">配列
+<h3 id="java-arr">配列
 <span class="article-date">2015/03/26</span></h3>
 
 <p>要素への参照を代入文の左辺に置けば、要素に値を設定できる。</p>
@@ -45,7 +70,7 @@
 <pre><code>arr[index] = value;
 </code></pre>
 
-<h3 id="8d73c2a"><code>java.util.List</code>
+<h3 id="java-list"><code>java.util.List</code>
 <span class="article-date">2015/04/25</span></h3>
 
 <p>代入演算子の左辺に配列の要素を置くことはできず、メソッド呼び出しする。</p>
@@ -61,7 +86,7 @@
 <p><code>java.util.List#set</code> | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#set-int-E-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/List.html#set-int-E-</a></p>
 
-<h2 id="cc653b7">Scala
+<h2 id="scala">Scala
 <span class="article-date">2015/01/19</span></h2>
 
 <p>イミュータブル(不変)オブジェクトである<code>List</code>などでは要素を変更することはできないが、変更可能なオブジェクト(<code>Array</code>や<code>ListBuffer</code>など)では要素への参照を代入演算子の左辺に置くことで変更できる。</p>
@@ -98,7 +123,7 @@ println(lst);
 
 <p>と書いても同じ。<code>scala.collection.mutable.Seq</code> に <code>update</code> メソッドがあるので、これの派生クラスであれば <code>ListBuffer</code> に限らず同じ書き方ができる。</p>
 
-<h2 id="569bedd">PHP
+<h2 id="php">PHP
 <span class="article-date">2015/03/26</span></h2>
 
 <p>要素への参照を代入文の左辺に置けば、要素に値を設定できる。</p>
@@ -108,7 +133,17 @@ println(lst);
 
 <p><code>$index</code> を省略すると、配列の最後に要素を追加する意味になる。-&gt; <a href="push.html#php"><code>array_push</code></a></p>
 
-<h2 id="e59f34f">Ruby / JRuby
+<h2 id="python">Python
+<span class="article-date">2015/03/26</span></h2>
+
+<p>リストの場合は、要素への参照を代入文の左辺に置けば、要素に値を設定できる。</p>
+
+<pre><code>lst[index] = value
+</code></pre>
+
+<p>イミュータブルなオブジェクトであるタプルでは要素を変更できない。</p>
+
+<h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/03/26</span></h2>
 
 <p>要素への参照を代入文の左辺に置けば、要素に値を設定できる。</p>
@@ -118,15 +153,13 @@ println(lst);
 
 <p>配列のサイズ以上のインデックスを指定した場合は、サイズが拡張され、間は <code>nil</code> で埋められる。</p>
 
-<h2 id="d87a28d">Python
-<span class="article-date">2015/03/26</span></h2>
+<h2 id="b789212">関連
+<span class="article-date">2016/09/27</span></h2>
 
-<p>リストの場合は、要素への参照を代入文の左辺に置けば、要素に値を設定できる。</p>
-
-<pre><code>lst[index] = value
-</code></pre>
-
-<p>イミュータブルなオブジェクトであるタプルでは要素を変更できない。</p>
+<ul>
+  <li><a href="get.html">配列(リスト)の要素を参照するには</a></li>
+  <li><a href="../map/put.html">連想配列(マップ)の要素の値を設定するには</a></li>
+</ul>
 
 </div>
 
@@ -142,19 +175,20 @@ println(lst);
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/list/get.html">get</a></li>
+          <li>set</li>
           <li><a href="../../programming_languages_diff/list/size.html">count / len / length / size / sizeof</a></li>
           <li><a href="../../programming_languages_diff/list/is-empty.html">empty / isEmpty</a></li>
           <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
           <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
           <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">first / take</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
           <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">array_slice / slice / subList</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
           <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
           <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
           <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
           <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
           <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
           <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
           <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
@@ -172,7 +206,6 @@ println(lst);
           <li><a href="../../programming_languages_diff/list/unshift.html">unshift</a></li>
           <li><a href="../../programming_languages_diff/list/pop.html">array_pop / pop</a></li>
           <li><a href="../../programming_languages_diff/list/push.html">push</a></li>
-          <li>set</li>
           <li><a href="../../programming_languages_diff/list/remove.html">delete_at / pop / remove / unset</a></li>
           <li><a href="../../programming_languages_diff/list/remove-by-value.html">delete / remove / <code>-</code></a></li>
           <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
