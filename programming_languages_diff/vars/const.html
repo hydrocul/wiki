@@ -47,12 +47,12 @@ FOO;
 <p>定数の定義で定数名を文字列で指定するのがちょっと気持ち悪い。</p>
 
 <p>定数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/language.constants.php" target="_blank" class="external-link">http://www.php.net/manual/ja/language.constants.php</a></p>
+<a href="http://php.net/manual/ja/language.constants.php" target="_blank" class="external-link">http://php.net/manual/ja/language.constants.php</a></p>
 
 <h3 id="0d59acf">オブジェクト定数
-<span class="article-date">2014/04/02</span></h3>
+<span class="article-date">2016/09/28</span></h3>
 
-<p>クラスの中にメンバーとして定数を定義することもでき、これは上述の定数とは違い、<code>const</code>を付けた代入文で定義する。</p>
+<p>クラスの中にメンバーとして定数を定義することもでき、これは上述の定数とは違い、<code>const</code>を付けた代入文で定義する。インスタンスではなくクラスに対して定義するもので、インスタンスごとに異なる値で定義することはできない。</p>
 
 <p>この定数名も先頭に <code>$</code> を付けず、慣例ではすべて大文字にする。</p>
 
@@ -65,8 +65,10 @@ const BAR = 20;
 HogeClass::BAR;
 </code></pre>
 
+<p>PHP 5.3からの機能。</p>
+
 <p>オブジェクト定数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/language.oop5.constants.php" target="_blank" class="external-link">http://www.php.net/manual/ja/language.oop5.constants.php</a></p>
+<a href="http://php.net/manual/ja/language.oop5.constants.php" target="_blank" class="external-link">http://php.net/manual/ja/language.oop5.constants.php</a></p>
 
 <h2 id="ruby">Ruby
 <span class="article-date">2014/01/26</span></h2>
