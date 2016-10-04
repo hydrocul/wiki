@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには | hydroculのメモ</title>
+<title>シェルスクリプトでシンボリックリンクを解決しながらその絶対パスを取得するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,33 +16,57 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2016/">2016年</a> &gt; <span>シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../blog/">ブログ</a> &gt; <a href="../../blog/2016/">2016年</a> &gt; <span>シェルスクリプトでシンボリックリンクを解決しながらその絶対パスを取得するには</span>
 </div>
 
 <div id="content">
-  <h1 id="0823-readlink-parent-dir">シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには
-<span class="article-date">2016/08/24</span></h1>
+  <h1 id="0823-readlink-parent-dir">シェルスクリプトでシンボリックリンクを解決しながらその絶対パスを取得するには
+<span class="article-date">2016/10/04</span></h1>
+
+<p>シェルスクリプトで、シンボリックリンクを実体ファイルのパスに変換しながら、相対パスを絶対パスに変換するには、以下のような関数でできる。</p>
 
 <p><a href="../../commands/readlink.html"><code>readlink</code>コマンド</a>でシンボリックリンクを再帰的に解決させる。</p>
 
+<pre><code>read_real_path() {
+    local cwd="$(pwd)"
+    local path="$1"
+
+    while [ -n "$path" ]; do
+        if [ "${path%/*}" != "$path" ]; then
+            cd "${path%/*}" # $path に含まれる最後の "/" から後ろを削除したパスにcd
+        fi
+        local name="${path##*/}" # $path に含まれる最後の "/" から後ろを name に代入
+        path="$(readlink "$name" || true)"
+    done
+
+    echo $(pwd)/$name
+    cd "$cwd"
+}
+
+# シェルスクリプト自身の絶対パスを取得する例
+SCRIPT_PATH="$(read_real_path $0)"
+echo $SCRIPT_PATH
+</code></pre>
+
+<p>これをちょっと修正して、シェルスクリプトファイル自身の置かれているディレクトリを絶対パスを取得する例</p>
+
 <pre><code>read_parent_dir() {
-  local cwd="$(pwd)"
-  local path="$1"
+    local cwd="$(pwd)"
+    local path="$1"
 
-  while [ -n "$path" ]; do
-    if [ "${path%/*}" != "$path" ]; then
-      cd "${path%/*}" # $path に含まれる最後の "/" から後ろを削除したパスにcd
-    fi
-    local name="${path##*/}" # $path に含まれる最後の "/" から後ろを name に代入
-    path="$(readlink "$name" || true)"
-  done
+    while [ -n "$path" ]; do
+        if [ "${path%/*}" != "$path" ]; then
+            cd "${path%/*}" # $path に含まれる最後の "/" から後ろを削除したパスにcd
+        fi
+        local name="${path##*/}" # $path に含まれる最後の "/" から後ろを name に代入
+        path="$(readlink "$name" || true)"
+    done
 
-  pwd
-  cd "$cwd"
+    pwd
+    cd "$cwd"
 }
 
 SCRIPT_HOME="$(read_parent_dir $0)"
-
 echo $SCRIPT_HOME
 </code></pre>
 
@@ -65,7 +89,7 @@ echo $SCRIPT_HOME
           <li><a href="../../blog/2016/0802-switch-comment-out.html">ソースコード中のコードをコメントアウトで簡単に無効化したり有効化したりするには</a></li>
           <li><a href="../../blog/2016/0818-xml-pretty-print.html">XMLファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
           <li><a href="../../blog/2016/0821-json-pretty-print.html">JSONファイルをコマンドで見やすく整形するには (pretty printing)</a></li>
-          <li>シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには</li>
+          <li>シェルスクリプトでシンボリックリンクを解決しながらその絶対パスを取得するには</li>
           <li><a href="../../blog/2016/0912-replace-all-text.html">ディレクトリの中を再帰的に全置換するには</a></li>
           <li><a href="../../blog/2016/0925-jgrammar.html">日本語国文法の統計のコラム</a></li>
         </ul>
