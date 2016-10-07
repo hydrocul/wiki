@@ -37,14 +37,25 @@
 <p>要素を1つだけ追加するには<a href="put.html#java"><code>put</code></a>を使う。</p>
 
 <h2 id="a616721">Scala
-<span class="article-date">2013/09/16</span></h2>
+<span class="article-date">2016/10/07</span></h2>
 
-<pre><code>// scala.collection.Map[A, B]
-def ++(xs: Map[A, B]): Map[A, B]
-def ++(xs: Seq[(A, B)]): Map[A, B]
-</code></pre>
+<p>Signature:</p>
+
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Map@++(xs:Traversable[(A,B)]):scala.collection.Map[A,B]" target="_blank" class="external-link method-signature"><code>def Map[A, B]#++(xs: Map[A, B]): Map[A, B]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Map@++(xs:Traversable[(A,B)]):scala.collection.Map[A,B]" target="_blank" class="external-link method-signature"><code>def Map[A, B]#++(xs: Seq[(A, B)]): Map[A, B]</code></a></li>
+</ul>
 
 <p>要素を追加した新しいマップを返し、自身は変更しない。</p>
+
+<p>同じキーが両方の Map に含まれていた場合は右のものが優先される。</p>
+
+<pre><code>val map1 = Map("a" -&gt; 1, "b" -&gt; 2);
+val map2 = Map("a" -&gt; 10, "c" -&gt; 30);
+
+println(map1 ++ map2);
+// =&gt; Map(a -&gt; 10, b -&gt; 2, c -&gt; 30)
+</code></pre>
 
 <h2 id="php">PHP
 <span class="article-date">2016/07/22</span></h2>
