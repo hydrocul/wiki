@@ -68,7 +68,7 @@
 
 
 <h2 id="f911d96">オプション
-<span class="article-date">2016/07/10</span></h2>
+<span class="article-date">2016/10/11</span></h2>
 
 <dl>
   <dt><code>-a</code>, <code>--text</code>, <code>--binary-files=text</code></dt>
@@ -92,11 +92,11 @@ grepはバイナリファイルだと勘違いしてしまう。バイナリ扱�
   <dd>拡張正規表現を使う。 <code>(foo|bar)</code> のような表記の正規表現を使うには、
 このオプションが必要。</dd>
   <dt><code>-h</code></dt>
-  <dd>ファイル名を出力しない</dd>
+  <dd>ファイル名を出力しない。<code>-l</code> と併用すると <code>-h</code> は無視される。</dd>
   <dt><code>-i</code></dt>
   <dd>大文字小文字を区別せずにマッチングをする。</dd>
   <dt><code>-l</code></dt>
-  <dd>(小文字エル) マッチしたファイルのファイル名のみを出力する。</dd>
+  <dd>(小文字エル) マッチしたファイルのファイル名のみを出力する。ファイル中の土の部分がマッチしたかは表示しない。</dd>
   <dt><code>-L</code></dt>
   <dd>マッチしなかったファイルのファイル名を出力する。</dd>
   <dt><code>--line-buffered</code></dt>
