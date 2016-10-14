@@ -59,31 +59,37 @@ $ apt-get source パッケージ名
 </code></pre>
 
 <h2 id="0edb959"><code>yum</code>
-<span class="article-date">2015/12/17</span></h2>
+<span class="article-date">2016/10/13</span></h2>
 
-<pre><code># パッケージを検索
-yum search キーワード
+<pre><code>## パッケージ一覧を表示
+$ yum list
 
-# インストール
-sudo yum install パッケージ名
+## パッケージを検索
+$ yum search キーワード
 
-# 質問には全部Yesと答えることにして自動でインストールする
-sudo yum -y install パッケージ名
+## インストール
+$ sudo yum install パッケージ名
 
-# アンインストール
-sudo yum remove パッケージ名
+## 質問には全部Yesと答えることにして自動でインストールする
+$ sudo yum -y install パッケージ名
 
-# インストール済みのパッケージ一覧を見るには
-rpm -qa
+## アンインストール
+$ sudo yum remove パッケージ名
 
-# 現在インストールされているパッケージ全てをバージョンアップ
-sudo yum update
+## パッケージ一覧を更新するには
+$ sudo yum makecache
 
-# パッケージでインストールされるファイルの一覧を見るには
-rpm -ql パッケージ名
+## インストール済みのパッケージ一覧を見るには
+$ rpm -qa
 
-# 特定のファイルがどのパッケージに含まれるかを調べるには
-rpm -qf ファイル名
+## 現在インストールされているパッケージ全てをバージョンアップ
+$ sudo yum update
+
+## パッケージでインストールされるファイルの一覧を見るには
+$ rpm -ql パッケージ名
+
+## 特定のファイルがどのパッケージに含まれるかを調べるには
+$ rpm -qf ファイル名
 </code></pre>
 
 <h2 id="1f36a04">Macports
