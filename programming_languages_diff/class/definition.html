@@ -23,18 +23,18 @@
   <h1 id="definition">クラスを定義するには</h1>
 
 <h2 id="5541c8b">C言語
-<span class="article-date">2013/09/10</span></h2>
-
-<p>C言語にはクラスはないが、データ構造を作れる構造体というものがある。</p>
+<span class="article-date">2016/10/15</span></h2>
 
 <p>構造体定義の例</p>
 
 <pre><code>struct FooStruct {
-    /* フィールド宣言 */
+    /* メンバ変数宣言 */
     int field1;
     int field2;
 }
 </code></pre>
+
+<p>C言語にはクラスはない。データ構造を作れる構造体というものがある。構造体は他の言語でのクラスと比較すると、メソッド(メンバ関数)がなく、フィールド(プロパティ、メンバ変数)がすべて public になっている。</p>
 
 <h2 id="b6e3b6a">C++
 <span class="article-date">2014/01/26</span></h2>
@@ -72,12 +72,13 @@ void FooClass::method1(){
 }
 </code></pre>
 
-<p><a href="modifier.html">アクセス修飾子</a>(<code>public</code> や <code>private</code>)は、メンバごとに付けるのではなく、上記のようにグループ分けして書く。</p>
+<p><a href="modifier.html">アクセス修飾子</a>(<code>public</code> や <code>private</code>)は、
+Javaなどのようにメンバごとに付けるのではなく、上記例のようにグループ分けして書く。</p>
 
 <p>またクラス宣言の中にはメンバ関数(メソッド)はシグニチャの宣言のみを書いて、メンバ関数の定義はクラス宣言の外側に書く。クラス宣言の外側ではクラス名とメソッド名を二重コロン(<code>::</code>)でつなぐ。普通はクラス宣言はヘッダファイルに書き、メンバ関数定義はソースファイルに書く。</p>
 
 <h2 id="e8f6b75">Java
-<span class="article-date">2015/02/25</span></h2>
+<span class="article-date">2016/10/15</span></h2>
 
 <p>クラス定義の例</p>
 
@@ -109,9 +110,44 @@ void FooClass::method1(){
 }
 </code></pre>
 
-<p>この例はトップレベルクラスのクラス定義の例であるが、トップレベルのクラス定義を書くソースファイルのファイル名はクラス名と一致させないといけない。<code>FooClass</code>というクラスを定義したソースファイルであれば 
-<code>FooClass.java</code> という名前のファイルである必要がある。
+<p>クラス定義を書くソースファイルのファイル名はクラス名と一致させないといけない。
+<code>FooClass</code>というクラスを定義したソースファイルであれば 
+<code>FooClass.java</code> という名前のファイルに書く必要がある。
 1クラスに1ソースファイル必要である。</p>
+
+<p>トップレベルのクラスではなく、クラス定義やメソッド定義の中に書く内部クラスはその限りではない。</p>
+
+<h2 id="ade7030">Scala
+<span class="article-date">2016/10/15</span></h2>
+
+<p>クラス定義の例</p>
+
+<pre><code>class FooClass (arg1: Int, val field1: String) extends SuperClass width SuperInterface {
+  // 上の括弧はコンストラクタの引数になる
+  // field1 はインスタンスフィールドになる
+
+  // インスタンスメソッド定義
+  def method1() {
+    ...;
+  }
+
+}
+</code></pre>
+
+<p>Javaと違い、クラス名とソースファイル名を一致させる必要はなく、1ソースファイルに複数のクラスを定義することも可能。</p>
+
+<h3 id="1392d54">case class
+<span class="article-date">2014/10/18</span></h3>
+
+<p>例</p>
+
+<pre><code>case class FooCaseClass(field1: Int, field2: String) extends SuperClass;
+</code></pre>
+
+<p><code>case class</code>はいくつかのメソッドやフィールドが自動で定義される。以下のページがわかりやすい。</p>
+
+<p>ケースクラス<br />
+<a href="http://www.ne.jp/asahi/hishidama/home/tech/scala/class.html#h_case_class" target="_blank" class="external-link">http://www.ne.jp/asahi/hishidama/home/tech/scala/class.html#h_case_class</a></p>
 
 <h2 id="11e8b3e">PHP
 <span class="article-date">2015/06/25</span></h2>
@@ -244,6 +280,7 @@ a = Foo::Bar.new
           <li><a href="../../programming_languages_diff/class/class-object.html">クラスを表すオブジェクト</a></li>
           <li><a href="../../programming_languages_diff/class/compare.html">オブジェクトの比較演算子</a></li>
           <li><a href="../../programming_languages_diff/class/generics.html">総称型 / ジェネリクス</a></li>
+          <li><a href="../../programming_languages_diff/class/hierarchy.html">クラス階層</a></li>
           <li><a href="../../programming_languages_diff/class/serialize.html">オブジェクトをシリアライズ・デシリアライズするには</a></li>
           <li><a href="../../programming_languages_diff/class/this.html">thisキーワード</a></li>
         </ul>
