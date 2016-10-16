@@ -55,9 +55,9 @@ Java8からは<a href="literal.html#java">ラムダ式</a>)がある。ラムダ
 </code></pre>
 
 <h2 id="37048bd">Scala
-<span class="article-date">2015/03/23</span></h2>
+<span class="article-date">2016/10/15</span></h2>
 
-<p>メソッドの定義は、クラス定義の中に書く。</p>
+<p>メソッド定義の例</p>
 
 <pre><code>def f(arg1: String, arg2: Int): String = {
   ...;
@@ -66,6 +66,14 @@ Java8からは<a href="literal.html#java">ラムダ式</a>)がある。ラムダ
 
 <p>最後の式が自動で返り値になるので、途中で関数から脱出する場合をのぞいて<code>return</code>は省略できる。</p>
 
+<p>Scalaのメソッド定義はJavaと違って</p>
+
+<pre><code>def f(引数リスト): 戻り値の型 = 式
+</code></pre>
+
+<p>である。メソッド本体はJavaのように中括弧で囲むことは不要で、式を書くことになっている。
+<code>{ ... }</code> (中括弧)はScalaでは式であり、中括弧の中の最後の式が中括弧全体の結果になるので、メソッド本体に式を複数書く必要がある場合は中括弧で囲む。メソッドの本体が式1つで済む場合は中括弧を使わないことが多い。</p>
+
 <p>返り値が <code>Unit</code> の場合(Javaでいうと<code>void</code>で返り値がない場合)は、以下でも可。</p>
 
 <pre><code>def f(arg1: String, arg2: Int) {
@@ -73,18 +81,11 @@ Java8からは<a href="literal.html#java">ラムダ式</a>)がある。ラムダ
 }
 </code></pre>
 
-<p>最後の式が自動で返り値になる(返り値型が<code>Unit</code>でない場合)ので、途中で関数から脱出する場合をのぞいて<code>return</code>は省略できる。</p>
-
 <p>引数がない場合はカッコを省略できる。</p>
 
 <pre><code>def f: String = {
   ...;
 }
-</code></pre>
-
-<p>メソッドの本体が式1つの場合は中括弧を省略できる。</p>
-
-<pre><code>def f: String = ...;
 </code></pre>
 
 <p>返り値の型が明確な場合は型を省略できる。</p>
