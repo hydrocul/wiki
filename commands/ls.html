@@ -46,7 +46,7 @@ alias ls='ls --color=auto' 2&gt;/dev/null
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
 <h2 id="f18bf0d">オプション
-<span class="article-date">2016/05/19</span></h2>
+<span class="article-date">2016/10/17</span></h2>
 
 <dl>
   <dt><code>-a</code></dt>
@@ -55,7 +55,8 @@ alias ls='ls --color=auto' 2&gt;/dev/null
   <dt><code>-C</code></dt>
   <dd>複数列で表示。<code>ls</code>は標準出力が端末の場合にはこれがデフォルト。
 標準出力がパイプの場合には、デフォルトでは1ファイル1行で縦に並べて出力されるが、
-このオプションをつけると端末の場合と同様に横に並べてくれる。</dd>
+このオプションをつけると端末の場合と同様に横に並べてくれる。
+逆に標準出力が端末であっても1ファイル1行にしたい場合は <code>-1</code> を付ける。</dd>
   <dt><code>-d</code></dt>
   <dd>引数にディレクトリを指定すると普通はそのディレクトリの中のファイル一覧を表示するが、
 このオプションを付けると、ディレクトリそのものを表示する</dd>
@@ -92,6 +93,8 @@ alias ls='ls --color=auto' 2&gt;/dev/null
   <dd>タイムスタンプの新しい順にソートして表示</dd>
   <dt><code>--version</code></dt>
   <dd>バージョン表示</dd>
+  <dt><code>-1</code> (イチ)</dt>
+  <dd><code>-C</code> の反対で、標準出力が端末であっても1ファイルを1行で縦に並べて出力する。</dd>
 </dl>
 
 <p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名やディレクトリ名とみなしてくれるので、
@@ -138,7 +141,6 @@ alias ls='ls --color=auto' 2&gt;/dev/null
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li><a href="../commands/adduser.html">adduser / useradd コマンド</a></li>
       <li><a href="../commands/awk.html">awk コマンド</a></li>
       <li><a href="../commands/base64.html">base64 コマンド</a></li>
       <li><a href="../commands/cat.html">cat コマンド</a></li>
@@ -200,6 +202,7 @@ alias ls='ls --color=auto' 2&gt;/dev/null
       <li><a href="../commands/tr.html">tr コマンド</a></li>
       <li><a href="../commands/trap.html">trap コマンド</a></li>
       <li><a href="../commands/uniq.html">uniq コマンド</a></li>
+      <li><a href="../commands/uptime.html">uptime コマンド</a></li>
       <li><a href="../commands/watch.html">watch コマンド</a></li>
       <li><a href="../commands/wc.html">wc コマンド</a></li>
       <li><a href="../commands/wget.html">wget コマンド</a></li>

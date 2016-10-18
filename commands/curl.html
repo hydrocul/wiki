@@ -62,7 +62,7 @@ $ while :; do wget -q -O- 'http://www.example.com/' &gt;/dev/null; done
 
 
 <h2 id="9273204">オプション
-<span class="article-date">2016/10/06</span></h2>
+<span class="article-date">2016/10/18</span></h2>
 
 <dl>
   <dt><code>-e</code> リファラURL</dt>
@@ -83,12 +83,30 @@ $ while :; do wget -q -O- 'http://www.example.com/' &gt;/dev/null; done
   <dt><code>-S</code></dt>
   <dd><code>-s</code> を使うとエラーメッセージも表示しなくなってしまうが、<code>-s</code> と <code>-S</code> を併用すると、エラーメッセージは表示する。
 エラーメッセージは例えばホスト名がまちがっていたときの <code>curl: (6) Could not resolve host</code> だとかである。</dd>
-  <dt><code>-k</code></dt>
-  <dd>SSLのエラーを無視して処理を継続する。</dd>
   <dt><code>-v</code></dt>
   <dd>リクエストヘッダとレスポンスヘッダを標準エラー出力に表示する。</dd>
   <dt><code>-#</code></dt>
   <dd>プログレスバーを表示。<code>-s</code> をつけちゃうと意味がない。<code>#</code> はシェルスクリプト中やzshの設定によってはコメンと扱いになってしまうので、その場合は <code>-\#</code> と書く。</dd>
+</dl>
+
+<h3 id="1742755">SSLに関して
+<span class="article-date">2016/10/18</span></h3>
+
+<dl>
+  <dt><code>--sslv2</code></dt>
+  <dd>SSLv2</dd>
+  <dt><code>--sslv3</code></dt>
+  <dd>SSLv3</dd>
+  <dt><code>--tlsv1</code></dt>
+  <dd>TLSv1.x</dd>
+  <dt><code>--tlsv1.0</code></dt>
+  <dd>TLSv1.0</dd>
+  <dt><code>--tlsv1.1</code></dt>
+  <dd>TLSv1.1</dd>
+  <dt><code>--tlsv1.2</code></dt>
+  <dd>TLSv1.2</dd>
+  <dt><code>-k</code></dt>
+  <dd>SSLのエラーを無視して処理を継続する。</dd>
 </dl>
 
 <h2 id="c8c1f93">HOWTO</h2>
