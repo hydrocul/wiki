@@ -462,6 +462,17 @@ hogehoge || exit $?
 
 <p>終了コード0以外のコードを返したコマンドがあったら、処理を続行せずに、シェルスクリプト自身もその終了コードを返して終了してくれる。</p>
 
+<h2 id="b2954b6">標準入出力が端末なのかパイプなのかリダイレクトなのかを判定するには
+<span class="article-date">2016/10/12</span></h2>
+
+<p>-&gt; <a href="blog/2016/1012-is-pipe-or-terminal.html">シェルスクリプトで標準入出力が端末なのかパイプなのかリダイレクトなのかを判定するには</a></p>
+
+<h2 id="2019740">標準出力の行頭にタイムスタンプを付けるには
+<span class="article-date">2015/09/29</span></h2>
+
+<pre><code>FOOCOMMAND | perl -MTime::HiRes -npe 'BEGIN{$|=1} ($epoc,$micro)=Time::HiRes::gettimeofday();($s,$m,$h,$D,$M,$Y)=localtime($epoc);$_=sprintf("%04d/%02d/%02d-%02d:%02d:%02d.%03d ",$Y+1900,$M+1,$D,$h,$m,$s,$micro/1000).$_'
+</code></pre>
+
 </div>
 
 <div id="side-menu">
