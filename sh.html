@@ -28,32 +28,9 @@
 <p>-&gt; <a href="blog/2016/0823-readlink-parent-dir.html">シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには</a></p>
 
 <h2 id="15ac1de">ファイルの相対パスから絶対パスに変換するには
-<span class="article-date">2014/02/10</span></h2>
+<span class="article-date">2016/10/22</span></h2>
 
-<p>以下は、そのファイルのある場所に <code>cd</code> して <code>pwd</code> で絶対パスを取得する方法。</p>
-
-<p><code>$FILE_PATH</code> にパスが与えられているとして、</p>
-
-<pre><code># $FILE_PATH を絶対パスに変換
-
-if [ ! -e $FILE_PATH ]; then
-    echo "Not found: $FILE_PATH"
-    exit 1
-fi
-cd `dirname $FILE_PATH`
-FILE_PATH=`pwd`/`basename $FILE_PATH`
-</code></pre>
-
-<p><code>$FILE_PATH</code> がもともと絶対パスだった場合は、結果的に絶対パスのままになる。</p>
-
-<p>このスクリプトだと存在しないファイルだった場合は、最初のチェックでエラーになってしまう。</p>
-
-<p><code>cd</code> してパスを取得しているので、少なくとも <code>cd \</code>dirname $FILE_PATH`` には 成功する必要がある。そのため、ファイルが存在しなくてもよいがディレクトリは存在する必要があって、従って、ファイルが存在しなくてもいいようにするとしても、</p>
-
-<pre><code>if [ ! -e `dirname $FILE_PATH` ]; then
-</code></pre>
-
-<p>というチェックは必要になる。</p>
+<p>-&gt; <a href="blog/2016/0823-readlink-parent-dir.html">シェルスクリプトファイルの実体のあるディレクトリの絶対パスをシェルスクリプト自身が取得するには</a></p>
 
 <h2 id="f485d83">シェルスクリプトに与えられた任意の数の引数を繰り返し処理するには
 <span class="article-date">2013/04/03</span></h2>
