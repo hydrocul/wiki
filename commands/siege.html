@@ -21,9 +21,11 @@
 
 <div id="content">
   <h1 id="siege">siege コマンド
-<span class="article-date">2016/09/23</span></h1>
+<span class="article-date">2016/10/25</span></h1>
 
-<p>HTTPサーバのパフォーマンスを調べるためのコマンド。同じようにサーバ負荷を検証するツールとして<code>ab</code>コマンドなどがある。</p>
+<p>Web負荷テストのコマンド。</p>
+
+<p>HTTPサーバに負荷をかけてパフォーマンスを調べられる。同じように負荷テストをするツールとして<code>ab</code>コマンドなどがある。</p>
 
 <p>Apacheさえ入っていれば大抵<code>ab</code>コマンドも入っているので、
 <code>ab</code>コマンドのほうを覚えたほうがいいかも。</p>
@@ -57,7 +59,7 @@
 <p>(Ubuntu 13.10 で apt-get でインストールした siege 2.7.0 で確認)</p>
 
 <h2 id="28f99ce">オプション
-<span class="article-date">2014/10/14</span></h2>
+<span class="article-date">2016/10/25</span></h2>
 
 <dl>
   <dt><code>-b</code></dt>
@@ -75,11 +77,26 @@
   <dd>URLを指定されたファイルの中からリクエストごとにランダムに選ぶことを指示する。</dd>
   <dt><code>-f</code> ファイル名</dt>
   <dd>URLのリストが書かれたファイルを指定する。</dd>
+  <dt><code>-R</code> ファイル名, <code>--rc</code> ファイル名</dt>
+  <dd>設定ファイルを指定する。</dd>
   <dt><code>-v</code></dt>
   <dd>詳細表示</dd>
   <dt><code>--log=</code>&lt;ファイル名&gt;</dt>
   <dd>ログの書き出し</dd>
 </dl>
+
+<h2 id="e51f49f">ファイルに書かれたURLはURLエンコード済みであって勝手にさらにエンコードさせないようにするには
+<span class="article-date">2016/10/25</span></h2>
+
+<p>設定ファイル <code>siegerc</code> に以下の内容を書き、</p>
+
+<pre><code>url-escaping = false
+</code></pre>
+
+<p>以下のように <code>-R</code> または <code>--rc</code> で設定ファイルを指定する。</p>
+
+<pre><code>$ siege --rc=./siegerc
+</code></pre>
 
 </div>
 
