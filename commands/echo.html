@@ -44,7 +44,7 @@
 <p><code>printf</code> コマンドも最後に改行がつかない。</p>
 
 <h3 id="79c6968">文字を16進で指定して出力するには
-<span class="article-date">2016/10/30</span></h3>
+<span class="article-date">2016/11/03</span></h3>
 
 <p>環境によっては <code>\x61</code> のような16進表記で文字を書ける。</p>
 
@@ -58,8 +58,9 @@ aあ
 
 <p><code>printf</code> は <code>echo</code> と違ってデフォルトで最後に改行が付かない。</p>
 
-<p>以下の例のように、<code>\x61</code> などと書いてシェルによらず16進数表記で解釈されるのは
-<code>/usr/bin/printf</code> しかない。</p>
+<p>以下の例のように、<code>\x61</code> などと書いてシェルによらず16進数表記で解釈してほしい場合は、シェル組み込みに頼らずに外部コマンドの<code>/usr/bin/printf</code> を使うしかない。</p>
+
+<p>シェル組み込みの <code>printf</code></p>
 
 <p>zshの場合</p>
 
@@ -67,18 +68,6 @@ aあ
 aあ
 $ printf "\x61\xE3\x81\x82"
 aあ
-$ echo '\x61\xE3\x81\x82'
-aあ
-$ echo "\x61\xE3\x81\x82"
-aあ
-$ /usr/bin/printf '\x61\xE3\x81\x82'
-aあ
-$ /usr/bin/printf "\x61\xE3\x81\x82"
-aあ
-$ /bin/echo '\x61\xE3\x81\x82'
-\x61\xE3\x81\x82
-$ /bin/echo "\x61\xE3\x81\x82"
-\x61\xE3\x81\x82
 </code></pre>
 
 <p>bashの場合</p>
@@ -87,18 +76,6 @@ $ /bin/echo "\x61\xE3\x81\x82"
 aあ
 $ printf "\x61\xE3\x81\x82"
 aあ
-$ echo '\x61\xE3\x81\x82'
-\x61\xE3\x81\x82
-$ echo "\x61\xE3\x81\x82"
-\x61\xE3\x81\x82
-$ /usr/bin/printf '\x61\xE3\x81\x82'
-aあ
-$ /usr/bin/printf "\x61\xE3\x81\x82"
-aあ
-$ /bin/echo '\x61\xE3\x81\x82'
-\x61\xE3\x81\x82
-$ /bin/echo "\x61\xE3\x81\x82"
-\x61\xE3\x81\x82
 </code></pre>
 
 <p>dashの場合</p>
@@ -107,15 +84,81 @@ $ /bin/echo "\x61\xE3\x81\x82"
 \x61\xE3\x81\x82
 $ printf "\x61\xE3\x81\x82"
 \x61\xE3\x81\x82
-$ echo '\x61\xE3\x81\x82'
-\x61\xE3\x81\x82
-$ echo "\x61\xE3\x81\x82"
-\x61\xE3\x81\x82
-$ /usr/bin/printf '\x61\xE3\x81\x82'
+</code></pre>
+
+<p>外部コマンドの <code>printf</code></p>
+
+<p>zshの場合</p>
+
+<pre><code>$ /usr/bin/printf '\x61\xE3\x81\x82'
 aあ
 $ /usr/bin/printf "\x61\xE3\x81\x82"
 aあ
-$ /bin/echo '\x61\xE3\x81\x82'
+</code></pre>
+
+<p>bashの場合</p>
+
+<pre><code>$ /usr/bin/printf '\x61\xE3\x81\x82'
+aあ
+$ /usr/bin/printf "\x61\xE3\x81\x82"
+aあ
+</code></pre>
+
+<p>dashの場合</p>
+
+<pre><code>$ /usr/bin/printf '\x61\xE3\x81\x82'
+aあ
+$ /usr/bin/printf "\x61\xE3\x81\x82"
+aあ
+</code></pre>
+
+<p>シェル組み込みの <code>echo</code></p>
+
+<p>zshの場合</p>
+
+<pre><code>$ echo '\x61\xE3\x81\x82'
+aあ
+$ echo "\x61\xE3\x81\x82"
+aあ
+</code></pre>
+
+<p>bashの場合</p>
+
+<pre><code>$ echo '\x61\xE3\x81\x82'
+\x61\xE3\x81\x82
+$ echo "\x61\xE3\x81\x82"
+\x61\xE3\x81\x82
+</code></pre>
+
+<p>dashの場合</p>
+
+<pre><code>$ echo '\x61\xE3\x81\x82'
+\x61\xE3\x81\x82
+$ echo "\x61\xE3\x81\x82"
+\x61\xE3\x81\x82
+</code></pre>
+
+<p>外部コマンドの <code>echo</code></p>
+
+<p>zshの場合</p>
+
+<pre><code>$ /bin/echo '\x61\xE3\x81\x82'
+\x61\xE3\x81\x82
+$ /bin/echo "\x61\xE3\x81\x82"
+\x61\xE3\x81\x82
+</code></pre>
+
+<p>bashの場合</p>
+
+<pre><code>$ /bin/echo '\x61\xE3\x81\x82'
+\x61\xE3\x81\x82
+$ /bin/echo "\x61\xE3\x81\x82"
+\x61\xE3\x81\x82
+</code></pre>
+
+<p>dashの場合</p>
+
+<pre><code>$ /bin/echo '\x61\xE3\x81\x82'
 \x61\xE3\x81\x82
 $ /bin/echo "\x61\xE3\x81\x82"
 \x61\xE3\x81\x82
