@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="0625-php-ini-location-ubuntu">Ubuntuでの php.ini の場所
-<span class="article-date">2016/08/28</span></h1>
+<span class="article-date">2016/11/04</span></h1>
 
 <p><a href="../../others/linux-pkg-manager.html#apt-get"><code>apt-get</code></a> でインストールした場合、Apacheで動くPHPの 
 <code>php.ini</code> は <code>/etc/php5/apache2/php.ini</code> にある。この場所は <code>phpinfo();</code> で確認できる。</p>
@@ -35,11 +35,15 @@
 <pre><code>$ diff /etc/php5/apache2/php.ini /etc/php5/cli/php.ini
 </code></pre>
 
-<p>で確認できるが、Apacheで動く方は、PCNTL関数の実行とメモリの最大値が制限されているようだ。</p>
+<p>で確認できる。これによるとApacheで動く方は、PCNTL関数の実行とメモリの最大値が制限されているようだ。</p>
 
 <p>(Ubuntu 13.04 で確認)</p>
 
 <p>CentOS 6.4,7.2 ではApache版もCLI版も <code>/etc/php.ini</code> にある。</p>
+
+<p>2016/11/04 追記</p>
+
+<p>ApacheモジュールではなくFPM(FastCGI)で動かす場合は、Ubuntuでは <code>/etc/php5/fpm/php.ini</code> になるらしい。</p>
 
 </div>
 
