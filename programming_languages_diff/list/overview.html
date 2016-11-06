@@ -148,18 +148,23 @@ list.add("c");
 <p><code>java.util.List</code> を配列に変換するには<a href="convert.html#java">相互変換</a>参照。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2015/03/22</span></h2>
+<span class="article-date">2016/11/06</span></h2>
+
+<p>Scalaのコレクションフレームワークとして <code>scala.collection.Seq</code> トレイトや、関連する多くのトレイト、実装クラスがある。</p>
 
 <p>Javaの組み込み型である配列と、Javaのクラスライブラリでサポートされている 
-<code>java.util.List</code> インターフェースやその実装クラスのほかに、
-Scalaのコレクションフレームワークとして <code>scala.collection.Seq</code> トレイトや、関連する多くのトレイト、実装クラスがある。</p>
+<code>java.util.List</code> インターフェースやその実装クラスも使えるが、
+Javaのライブラリとのやりとりで限定的に使うことが多い。
+Scalaのコレクションフレームワークのほうが使いやすいためである。</p>
 
 <p>Scalaのコレクションフレームワークにある基本的なトレイトだけでもたくさんあり、以下のページにある図がわかりやすい。</p>
 
-<p>可変コレクションおよび不変コレクション | Scala Documentation<br />
-<a href="http://docs.scala-lang.org/ja/overviews/collections/overview.html" target="_blank" class="external-link">http://docs.scala-lang.org/ja/overviews/collections/overview.html</a></p>
+<ul>
+  <li>可変コレクションおよび不変コレクション | Scala Documentation<br />
+<a href="http://docs.scala-lang.org/ja/overviews/collections/overview.html" target="_blank" class="external-link">http://docs.scala-lang.org/ja/overviews/collections/overview.html</a></li>
+</ul>
 
-<p>Scalaでは、コレクションはJavaでいうプリミティブ型も要素として持つことができる。たぶんJVM上では対応するラッパークラスにボクシングされているのだとは思うが。</p>
+<p>Scalaでは、コレクションはJavaでいうプリミティブ型も要素として持つことができる。たぶんJVM上では対応するラッパークラスにボクシングされているのだとは思う。</p>
 
 <p><code>scala.collection.immutable.List</code> は不変型の片方向連結リストを実装した 
 <code>scala.collection.Seq</code> のサブクラスで、Scalaでは非常によく使われる。片方向連結リストなので、先頭から順番にアクセスしたり、先頭付近を変更するには速いが、インデックスでのランダムアクセスは遅い。不変(イミュータブル)なので、変更するには変更後の新しいインスタンスを生成することになる。インスタンス自体を変更するには可変型の <code>scala.collection.mutable.ListBuffer</code> を使うとよい。
@@ -171,12 +176,26 @@ Scalaのコレクションフレームワークとして <code>scala.collection.
 
 <p>Javaの配列も JavaやScalaのクラスライブラリにあるコレクション型もすべて、インデックスは0から始まる。</p>
 
-<p>Scalaコレクションのアーキテクチャ<br />
-<a href="http://eed3si9n.github.io/scala-collections-impl-doc-ja/" target="_blank" class="external-link">http://eed3si9n.github.io/scala-collections-impl-doc-ja/</a></p>
+<ul>
+  <li>Scalaコレクションのアーキテクチャ<br />
+<a href="http://eed3si9n.github.io/scala-collections-impl-doc-ja/" target="_blank" class="external-link">http://eed3si9n.github.io/scala-collections-impl-doc-ja/</a></li>
+</ul>
+
+<p>インスタンス生成の例</p>
+
+<pre><code>// scala.collection.immutable.List
+val lst = 1 :: 2 :: 3 :: Nil;
+// または
+val lst = List(1, 2, 3);
+</code></pre>
 
 <p>Javaの配列の生成の例</p>
 
-<pre><code>arr = Array(1, 2, 3);
+<pre><code>// scala.Array (Javaの配列)
+val arr = Array(1, 2, 3);
+
+// 要素を指定せずにサイズだけ指定
+val arr = new Array(3);
 </code></pre>
 
 <p><code>scala.collection.immutable.List</code> のインスタンス生成の例</p>
