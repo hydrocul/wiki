@@ -21,15 +21,37 @@
 
 <div id="content">
   <h1 id="uptime">uptime コマンド
-<span class="article-date">2016/02/19</span></h1>
+<span class="article-date">2016/11/07</span></h1>
 
 <p>サーバが起動してからの経過時間を確認できるコマンド。</p>
 
 <pre><code>$ uptime
- 09:05:25 up 253 days, 22:28, 19 users,  load average: 0.69, 0.50, 0.45
+ 11:05:06 up 31 days, 16:40,  1 user,  load average: 0.00, 0.01, 0.00
 </code></pre>
 
-<p>この出力例では、OSが起動してから253日間経っている。</p>
+<p>この出力例では、OSが起動してから31日間経っている。</p>
+
+<p>起動時間が18分しかない出力例</p>
+
+<pre><code>$ uptime
+ 11:06:01 up 22 min,  1 user,  load average: 0.05, 0.05, 0.05
+</code></pre>
+
+<p>最初の出力項目は現在時刻のようだ。</p>
+
+<p><code>-s</code> オプションを付けると、起動した日時が表示される。</p>
+
+<pre><code>$ uptime -s
+2016-10-06 18:25:06
+</code></pre>
+
+<p><code>-p</code> オプションを付けると、わかりやすいのだかわかりにくいのだか、起動してからの経過時間のフォーマットが変わる。</p>
+
+<pre><code>$ uptime -p
+up 4 weeks, 3 days, 16 hours, 42 minutes
+</code></pre>
+
+<p>CentOSでもUbuntuでも同じようなフォーマットで出力されるようだ。</p>
 
 </div>
 
@@ -66,6 +88,7 @@
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li><a href="../commands/mecab.html">mecab コマンド</a></li>
       <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/mv.html">mv コマンド</a></li>
