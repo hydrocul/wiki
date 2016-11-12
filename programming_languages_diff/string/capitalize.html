@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>文字列 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>文字列の1文字目を大文字にするには (capitalize) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,53 +16,70 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <span>文字列</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/string/">文字列</a> &gt; <span>文字列の1文字目を大文字にするには (capitalize)</span>
 </div>
 
 <div id="content">
-  <h1 id="string">文字列</h1>
+  <h1 id="capitalize">文字列の1文字目を大文字にするには (capitalize)</h1>
 
-<h2 id="section">目次</h2>
+<p>文字列の1文字目を大文字にする方法。</p>
+
+<h2 id="097ec16">Scala
+<span class="article-date">2014/11/11</span></h2>
+
+<p><code>String</code> から暗黙の型変換される <code>scala.collection.immutable.StringOps</code> に <code>capitalize</code> というメソッドがあり、
+1文字目を大文字に変換できる。ただし、Unicodeのタイトル文字ではなく単に大文字にしているので、Unicodeとして期待する動作とは違う。</p>
+
+<p>val str = “\u01F3abc”;
+println(str.capitalize);
+// =&gt; Ǳabc</p>
+
+<p>“ǳabc” の1文字目(U+01F3)を大文字にした文字列は
+“ǲabc” (U+01F2)になることが本当は期待される。</p>
+
+<p>詳しくは<a href="../../blog/2014/1109-upper-lower-title.html">Unicodeの大文字と小文字のまとめ</a>参照。</p>
+
+<p>Signature:</p>
 
 <ul>
-  <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
-  <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
-  <li><a href="../../programming_languages_diff/string/heredoc.html">ヒアドキュメント / 複数行文字列</a></li>
-  <li><a href="../../programming_languages_diff/string/escape.html">エスケープシーケンス</a></li>
-  <li><a href="../../programming_languages_diff/string/inline.html">文字列に変数・式を埋め込むには</a></li>
-  <li><a href="../../programming_languages_diff/string/char-at.html">特定のインデックスの文字を取得するには (charAt / getAt)</a></li>
-  <li><a href="../../programming_languages_diff/string/substr.html">部分文字列をインデックスで指定して取得するには (substr)</a></li>
-  <li><a href="../../programming_languages_diff/string/length.html">文字列の長さを取得するには (len / length / mb_strlen / size / strlen)</a></li>
-  <li><a href="../../programming_languages_diff/string/is-empty.html">文字列が空かどうかを取得するには (isEmpty)</a></li>
-  <li><a href="../../programming_languages_diff/string/compare.html">2つの文字列を比較するには (equals / strcasecmp / strcmp / <code>==</code> / <code>!=</code> / <code>&lt;</code> / <code>&lt;=</code> / <code>&gt;=</code> / <code>&gt;</code> / <code>&lt;=&gt;</code> / gt / ge / lt / le)</a></li>
-  <li><a href="../../programming_languages_diff/string/format.html">書式化文字列 (format / sprintf)</a></li>
-  <li><a href="../../programming_languages_diff/string/index-of.html">部分文字列を検索するには (indexOf, lastIndexOf)</a></li>
-  <li><a href="../../programming_languages_diff/string/trim.html">文字列の前後の空白を削除するには (strip / trim)</a></li>
-  <li><a href="../../programming_languages_diff/string/upper-lower.html">文字列の大文字小文字を変換するには (downcase / lc / strtolower / toLowerCase, strtoupper / toUpperCase / uc / upcase)</a></li>
-  <li><a href="../../programming_languages_diff/string/multiply.html">同じ文字列を繰り返して連結するには(文字列の乗算みたいな) (<code>*</code> / <code>x</code>)</a></li>
-  <li><a href="../../programming_languages_diff/string/join.html">文字列の配列(リスト)を特定の文字列で連結するには (implode / join / mkString)</a></li>
-  <li><a href="../../programming_languages_diff/string/split.html">文字列を特定の文字やパターンで配列に分割するには (explode / split)</a></li>
-  <li><a href="../../programming_languages_diff/string/random.html">ランダム文字列を生成するには</a></li>
-  <li><a href="../../programming_languages_diff/string/ord.html">文字(≠文字列)のコードポイントを数字として取得するには</a></li>
-  <li><a href="../../programming_languages_diff/string/chr.html">コードポイントから文字に変換するには (chr)</a></li>
-  <li><a href="../../programming_languages_diff/string/urlencode-urldecode.html">URLエンコード / URLデコードするには (urlencode, urldecode)</a></li>
-  <li><a href="../../programming_languages_diff/string/base64.html">BASE64でエンコード・デコードするには (base64)</a></li>
-  <li><a href="../../programming_languages_diff/string/hash.html">バイナリのハッシュを計算するには (md5, sha1)</a></li>
-  <li><a href="../../programming_languages_diff/string/regexp-reference.html">正規表現のレファレンス</a></li>
-  <li><a href="../../programming_languages_diff/string/match.html">正規表現で文字列のパターンマッチングするには (match / preg_match / search / <code>=~</code>)</a></li>
-  <li><a href="../../programming_languages_diff/string/match-whole.html">正規表現で文字列全体をパターンマッチングするには (match / matches)</a></li>
-  <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
-  <li><a href="../../programming_languages_diff/string/starts-with.html">文字列が特定の文字や文字列で始まっているかどうかを判定するには (start_with? / startsWith)</a></li>
-  <li><a href="../../programming_languages_diff/string/ends-with.html">文字列が特定の文字や文字列で終わっているかどうかを見るには (end_with? / endsWith)</a></li>
-  <li><a href="../../programming_languages_diff/string/capitalize.html">文字列の1文字目を大文字にするには (capitalize)</a></li>
-  <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
-  <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
-  <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
-  <li><a href="../../programming_languages_diff/string/unicode-combining.html">Unicode結合文字の取り扱い</a></li>
-  <li><a href="../../programming_languages_diff/string/unicode-escape.html">Unicodeエスケープで文字列リテラルを書くには</a></li>
-  <li><a href="../../programming_languages_diff/string/unicode-supplementary.html">Unicode拡張領域の取り扱い</a></li>
-  <li><a href="../../programming_languages_diff/string/unicode-upper-lower.html">Unicodeの仕様に基づいた大文字小文字を変換するには</a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/immutable/StringLike.html#capitalize:String" target="_blank" class="external-link method-signature"><code>def StringOps#capitalize</code></a></li>
 </ul>
+
+<h2 id="d0df3ab">Groovy
+<span class="article-date">2014/11/11</span></h2>
+
+<p>Groovyでは<code>String</code>クラスに<code>capitalize</code>というメソッドが追加されており、
+1文字目を大文字に変換できる。ただし、Unicodeのタイトル文字ではなく単に大文字にしているので、Unicodeとして期待する動作とは違う。</p>
+
+<pre><code>def str = "\u01F3abc"
+println str.capitalize()
+// =&gt; Ǳabc
+</code></pre>
+
+<p>“ǳabc” の1文字目(U+01F3)を大文字にした文字列は
+“ǲabc” (U+01F2)になることが本当は期待される。</p>
+
+<p>詳しくは<a href="../../blog/2014/1109-upper-lower-title.html">Unicodeの大文字と小文字のまとめ</a>参照。</p>
+
+<p><code>java.lang.String#capitalize</code> | Groovy JDK API Documentation<br />
+<a href="http://beta.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html#capitalize()" target="_blank" class="external-link">http://beta.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html#capitalize()</a></p>
+
+<h2 id="a6bec50">Ruby
+<span class="article-date">2014/11/11</span></h2>
+
+<p><code>capitalize</code>または<code>capitalize!</code>というメソッドでできる。</p>
+
+<p><code>capitalize</code>は変換した新しい文字列を返し、<code>capitalize!</code>はその文字列自身を破壊的に変更する。</p>
+
+<pre><code>p "heLLO".capitalize
+# =&gt; "Hello"
+
+p "\u01F3s\u00FAsz".capitalize
+# =&gt; "ǳsúsz"
+</code></pre>
+
+<p><code>String#capitalize</code> メソッド, <code>String#capitalize!</code> メソッド | Ruby 2.1 リファレンスマニュアル<br />
+<a href="http://docs.ruby-lang.org/ja/2.1.0/class/String.html#I_CAPITALIZE" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/class/String.html#I_CAPITALIZE</a></p>
 
 </div>
 
@@ -74,7 +91,7 @@
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
-      <li>文字列
+      <li><a href="../../programming_languages_diff/string/">文字列</a>
         <ul>
           <li><a href="../../programming_languages_diff/string/overview.html">概要</a></li>
           <li><a href="../../programming_languages_diff/string/literal.html">文字列の書き方</a></li>
@@ -105,7 +122,7 @@
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字列で終わっているかどうかを見るには (end_with? / endsWith)</a></li>
-          <li><a href="../../programming_languages_diff/string/capitalize.html">1文字目を大文字にするには (capitalize)</a></li>
+          <li>1文字目を大文字にするには (capitalize)</li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
