@@ -53,6 +53,26 @@ $ base64 -d foo.txt # デコード
 
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
 
+<h2 id="b4c3cc9">オプション
+<span class="article-date">2016/11/14</span></h2>
+
+<dl>
+  <dt><code>-d</code></dt>
+  <dd>デコードする。デフォルトではエンコード</dd>
+  <dt><code>--decode</code></dt>
+  <dd>デコードする。デフォルトではエンコード</dd>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプ表示</dd>
+  <dt><code>--version</code></dt>
+  <dd>バージョン表示</dd>
+</dl>
+
+<p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
+<code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
+
+<p>(<code>-</code> という名前のファイル名を渡すと標準入力の意味になってしまうので、
+<code>-</code> という名前のファイル名を扱う方法は不明。<code>--</code> を使ってもダメ)</p>
+
 <h2 id="6cdc4f3">PerlのワンライナーでBASE64するには
 <span class="article-date">2014/09/27</span></h2>
 
