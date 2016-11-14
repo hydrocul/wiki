@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="head">head コマンド
-<span class="article-date">2016/03/03</span></h1>
+<span class="article-date">2016/11/14</span></h1>
 
 <p>テキストファイルまたは標準入力の先頭のn行を抜き出すコマンド。行単位ではなくバイト単位での指定も可能。デフォルトでは先頭の10行を抜き出す。</p>
 
@@ -37,19 +37,33 @@
 <pre><code>$ head -n 10 hoge.txt
 </code></pre>
 
-<p>それ以前に <code>n</code> は省略でき、ハイフンと数字だけでよい。</p>
+<p><code>n</code> は省略でき、ハイフンと数字だけでよい。</p>
 
 <pre><code>$ head -10 hoge.txt
 </code></pre>
 
+<p>先頭10行は <code>head</code> のデフォルト動作なので、オプション全部省略。</p>
+
+<pre><code>$ head hoge.txt
+</code></pre>
+
 <p>パイプを使う例</p>
 
-<pre><code>$ cat hoge.txt | head -n10
+<pre><code>$ cat hoge.txt | head
 </code></pre>
 
 <p>先頭の10バイトを表示</p>
 
 <pre><code>$ head -c10 hoge.txt
+</code></pre>
+
+<p>複数のファイルを指定した場合は、ファイル名とともに表示する。</p>
+
+<pre><code>$ head foo.txt bar.txt
+==&gt; foo.txt &lt;==
+...
+==&gt; bar.txt &lt;==
+...
 </code></pre>
 
 <p>関連</p>
@@ -62,6 +76,27 @@
 <span class="article-date">2016/03/17</span></h2>
 
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
+
+<h2 id="ad7c20c">オプション
+<span class="article-date">2016/11/14</span></h2>
+
+<dl>
+  <dt><code>-c</code> バイト数</dt>
+  <dd>バイト数を指定</dd>
+  <dt><code>-n</code> 行数</dt>
+  <dd>行数を指定</dd>
+  <dt><code>-q</code></dt>
+  <dd>複数ファイルを指定してもファイル名の出力はしない</dd>
+  <dt><code>-v</code></dt>
+  <dd>ファイル1つだけの場合も、複数ファイルのときと同様にファイル名を出力する</dd>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプ表示</dd>
+  <dt><code>--version</code></dt>
+  <dd>バージョン表示</dd>
+</dl>
+
+<p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
+<code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
 <h2 id="9d8914b">sedコマンドで同じことをするには
 <span class="article-date">2016/03/07</span></h2>
