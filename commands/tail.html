@@ -21,26 +21,62 @@
 
 <div id="content">
   <h1 id="tail">tail コマンド
-<span class="article-date">2015/08/19</span></h1>
+<span class="article-date">2016/11/15</span></h1>
 
 <p>テキストファイルまたはパイプでのテキスト入力の最後のn行を抜き出すコマンド。行単位ではなくバイト単位での指定も可能。デフォルトでは最後の10行を抜き出す。</p>
 
+<p>ログファイルにログが追記されていく様子をリアルタイムに見るためにも使う。</p>
+
 <p>行数は <code>-n</code> オプションで、バイト単位であれば <code>-c</code> オプションで指定する。</p>
 
-<pre><code># 最後の10行を表示
-tail -n 10 hoge.txt
+<p>最後の10行を表示</p>
 
-# 最後の10行を表示(パイプを使う例)
-cat hoge.txt | tail -n 10
+<pre><code>$ tail -n10 hoge.txt
+</code></pre>
 
-# 最後の10バイトを表示
-tail -c 10 hoge.txt
+<p><code>-n</code> と <code>10</code> は分けて書いてもよい。</p>
+
+<pre><code>$ tail -n 10 hoge.txt
+</code></pre>
+
+<p><code>n</code> は省略でき、ハイフンと数字だけでよい。</p>
+
+<pre><code>$ tail -10 hoge.txt
+</code></pre>
+
+<p>最後の10行というのは <code>tail</code> のデフォルト動作なので、オプション全部省略。</p>
+
+<pre><code>$ tail hoge.txt
+</code></pre>
+
+<p>パイプを使う例</p>
+
+<pre><code>cat hoge.txt | tail
+</code></pre>
+
+<p>最後の10バイトを表示 (行数ではなくバイト数で指定)</p>
+
+<pre><code>tail -c10 hoge.txt
+</code></pre>
+
+<p>複数のファイルを指定した場合は、ファイル名とともに表示する。</p>
+
+<pre><code>$ tail foo.txt bar.txt
+==&gt; foo.txt &lt;==
+...
+==&gt; bar.txt &lt;==
+...
+</code></pre>
+
+<p>ログファイルのリアルタイム監視</p>
+
+<pre><code>$ tail -f foo.log
 </code></pre>
 
 <p>関連</p>
 
 <ul>
-  <li><a href="head.html"><code>head</code>コマンド</a></li>
+  <li><a href="head.html"><code>head</code>コマンド</a>: 最後ではなく先頭のn行を抜き出すコマンド</li>
 </ul>
 
 <h2 id="bb2165c">インストール
