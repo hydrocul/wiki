@@ -25,14 +25,16 @@
 
 <p>ファイルを一定の大きさごとに分割するコマンド。</p>
 
-<p>foo.tar.gz という巨大なバイナリファイルがあるとするとそれをオプションで指定する一定のサイズごとに分割して、
-foo.tar.gz-aa, foo.tar.gz-ab, foo.tar.gz-ac,,, というような名前のファイルを生成する。もとの巨大なファイルはそのまま残る。</p>
+<p><code>foo.tar.gz</code> という巨大なバイナリファイルがあるとするとそれをオプションで指定する一定のサイズごとに分割して、
+<code>foo.tar.gz-aa</code>, <code>foo.tar.gz-ab</code>, <code>foo.tar.gz-ac</code>,,, というような名前のファイルを生成する。もとの巨大なファイルはそのまま残る。</p>
 
-<pre><code># 1GBごとに分割する
-split -b 1073741824 -d --verbose foo.tar.gz foo.tar.gz-
+<p>1GBごとに分割する例</p>
+
+<pre><code>$ split -b 1073741824 -d --verbose foo.tar.gz foo.tar.gz-
 </code></pre>
 
-<p>この例では foo.tar.gz というファイルを foo.tar.gz-00, foo.tar.gz-01, foo.tar.gz-02 というような名前のファイルに分割する。</p>
+<p>この例では <code>-d</code> を付けているので、
+<code>foo.tar.gz</code> というファイルを <code>foo.tar.gz-00</code>, <code>foo.tar.gz-01</code>, <code>foo.tar.gz-02</code> というような名前のファイルに分割する。</p>
 
 <h2 id="0713e1a">インストール
 <span class="article-date">2016/03/17</span></h2>
