@@ -137,12 +137,12 @@ Scalaでは<code>StringOps#format</code>メソッドを使うこともできる�
 
 <p>Signature:</p>
 
-<pre><code>String java.lang.String.format(String format, Object... args)
-String java.lang.String.format(java.util.Locale l, String format, Object... args)
-
-def scala.collection.immutable.StringLike#format(args: Any*): String
-def scala.collection.immutable.StringLike#formatLocal(l: Locale, args: Any*): String
-</code></pre>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object...-" target="_blank" class="external-link method-signature"><code>String String.format(String format, Object... args)</code></a></li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.util.Locale-java.lang.String-java.lang.Object...-" target="_blank" class="external-link method-signature"><code>String String.format(java.util.Locale l, String format, Object... args)</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/immutable/StringLike.html#format(args:Any*):String" target="_blank" class="external-link method-signature"><code>def StringLike#format(args: Any*): String</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/immutable/StringLike.html#formatLocal(l:java.util.Locale,args:Any*):String" target="_blank" class="external-link method-signature"><code>def StringLike#formatLocal(l: Locale, args: Any*): String</code></a></li>
+</ul>
 
 <p>例</p>
 
@@ -151,9 +151,6 @@ def scala.collection.immutable.StringLike#formatLocal(l: Locale, args: Any*): St
 
 <p>Format String Syntax | Java Platform SE 8 Javadoc<br />
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax</a></p>
-
-<p><code>java.lang.String.format</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object...-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object…-</a></p>
 
 <h2 id="php">PHP
 <span class="article-date">2016/02/05</span></h2>
@@ -304,6 +301,7 @@ t = ("Ichiro", "Suzuki")
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字列で終わっているかどうかを見るには (end_with? / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/capitalize.html">1文字目を大文字にするには (capitalize)</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
