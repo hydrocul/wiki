@@ -23,14 +23,20 @@
   <h1 id="mktemp">mktemp コマンド
 <span class="article-date">2014/06/06</span></h1>
 
-<p>一時ファイルを作成するコマンド。デフォルトでは <code>/tmp</code> の中にファイルが生成されるが、セキュリティを考慮して自動でパーミッションが600になる。生成された一時ファイルはサイズ0で、一時ファイルのパスが出力されるので、シェルスクリプトの中では <code>TMP=`mktemp`</code> のようにしてファイルパスを変数に保存して、あとはこのファイルを自由に書き込み／読み込みをすればよい。</p>
+<p>一時ファイルを作成するコマンド。</p>
+
+<p>デフォルトでは <code>/tmp</code> の中にファイルが生成されるが、セキュリティを考慮して自動でパーミッションが600になる。</p>
+
+<p>生成された一時ファイルはサイズ0で、一時ファイルのパスが出力されるので、シェルスクリプトの中では <code>TMP=`mktemp`</code> のようにしてファイルパスを変数に保存して、あとはこのファイルを自由に書き込み／読み込みをすればよい。</p>
 
 <p><code>-d</code> をつけるとファイルの代わりにディレクトリを作成できる。このときのパーミッションは700になる。</p>
 
 <p><code>tempfile</code> というコマンドもあるらしい。</p>
 
-<h2 id="4203faf">シェルスクリプトの中で一時ファイルを作って、スクリプト終了時に削除されるようにするには
-<span class="article-date">2016/09/01</span></h2>
+<h2 id="3a1285e">HOWTO</h2>
+
+<h3 id="9f44a0a">シェルスクリプトの中で一時ファイルを作って、スクリプト終了時に削除されるようにするには
+<span class="article-date">2016/09/01</span></h3>
 
 <p><code>trap</code>コマンドを使って、シェルスクリプト終了時にに必ず削除されるようにするとよい。</p>
 
@@ -46,6 +52,17 @@ trap "rm -rf $tmpdir" EXIT # 最後に実行されるコマンドを登録
 
 <p><code>trap</code> で指定しても、シェルスクリプトがexecで別のコマンドに移ってしまうと実行されない。
 <code>exec 2&gt;&amp;1</code> のような、execでもそのシェルスクリプトにとどまったままだと <code>trap</code> は生きたままになる。</p>
+
+<h3 id="ebfcf04">一時的な名前付きパイプを作るには
+<span class="article-date">2016/11/18</span></h3>
+
+<p><code>mkfifo</code> と <code>mktemp</code> を組み合わせる。</p>
+
+<pre><code>$ mkfifo `mktemp -u`
+</code></pre>
+
+<p>ただし、これだと複数のプロセスで同時にそれぞれの名前付きパイプを作ろうとした場合に、
+<code>mktemp</code> が偶然同じ名前にしてしまって、衝突するリスクがある。</p>
 
 </div>
 
@@ -82,6 +99,8 @@ trap "rm -rf $tmpdir" EXIT # 最後に実行されるコマンドを登録
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li><a href="../commands/mecab.html">mecab コマンド</a></li>
+      <li><a href="../commands/mkdir.html">mkdir コマンド</a></li>
       <li>mktemp コマンド</li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/mv.html">mv コマンド</a></li>
