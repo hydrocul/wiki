@@ -111,6 +111,10 @@ footer {
   margin: 10px;
   font-size: 80%;
 }
+#side-menu .adlabel {
+  padding-left: 10px;
+  font-size: 70%;
+}
 #side-menu-ls {
   margin: 10px;
   font-size: 80%;
