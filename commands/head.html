@@ -21,11 +21,13 @@
 
 <div id="content">
   <h1 id="head">head コマンド
-<span class="article-date">2016/11/14</span></h1>
+<span class="article-date">2016/11/26</span></h1>
 
 <p>テキストファイルまたは標準入力の先頭のn行を抜き出すコマンド。行単位ではなくバイト単位での指定も可能。デフォルトでは先頭の10行を抜き出す。</p>
 
 <p>行数は <code>-n</code> オプションで、バイト単位であれば <code>-c</code> オプションで指定する。</p>
+
+<p>(<code>-n</code> や <code>-c</code> を指定するぐらいなら実は<a href="#sed"><code>sed</code>コマンド</a>のほうがキータイプ数が少ない。)</p>
 
 <p>先頭の10行を表示</p>
 
@@ -52,7 +54,7 @@
 <pre><code>$ cat hoge.txt | head
 </code></pre>
 
-<p>先頭の10バイトを表示</p>
+<p>先頭の10バイトを表示 (行数ではなくバイト数で指定)</p>
 
 <pre><code>$ head -c10 hoge.txt
 </code></pre>
@@ -80,11 +82,20 @@
 <h2 id="ad7c20c">オプション
 <span class="article-date">2016/11/14</span></h2>
 
+<h3 id="bf451eb">表示する量に関するオプション
+<span class="article-date">2016/11/14</span></h3>
+
 <dl>
   <dt><code>-c</code> バイト数</dt>
   <dd>バイト数を指定</dd>
   <dt><code>-n</code> 行数</dt>
   <dd>行数を指定</dd>
+</dl>
+
+<h3 id="6b2f55c">その他のオプション
+<span class="article-date">2016/11/14</span></h3>
+
+<dl>
   <dt><code>-q</code></dt>
   <dd>複数ファイルを指定してもファイル名の出力はしない</dd>
   <dt><code>-v</code></dt>
@@ -98,10 +109,10 @@
 <p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
 <code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
-<h2 id="9d8914b">sedコマンドで同じことをするには
-<span class="article-date">2016/03/07</span></h2>
+<h2 id="sed">sedコマンドで同じことをするには
+<span class="article-date">2016/11/26</span></h2>
 
-<p><a href="sed.html"><code>sed</code>コマンド</a>でも同じことはできる。</p>
+<p>先頭のn行を抜き出すのであれば<a href="sed.html"><code>sed</code>コマンド</a>でも同じことはできる。</p>
 
 <pre><code>$ sed -n 1,10p hoge.txt
 </code></pre>
@@ -119,6 +130,19 @@
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
@@ -149,6 +173,7 @@
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
       <li><a href="../commands/mecab.html">mecab コマンド</a></li>
+      <li><a href="../commands/mkdir.html">mkdir コマンド</a></li>
       <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/mv.html">mv コマンド</a></li>
