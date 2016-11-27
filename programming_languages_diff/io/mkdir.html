@@ -22,21 +22,6 @@
 <div id="content">
   <h1 id="mkdir">ディレクトリを作成するには (mkdir)</h1>
 
-<h2 id="bb05b40">Go言語
-<span class="article-date">2015/01/31</span></h2>
-
-<p><code>os.Mkdir</code> または <code>os.MkdirAll</code> という関数で作成できる。
-<code>os.MkdirAll</code> は <code>mkdir -p</code> に相当する。</p>
-
-<pre><code>package main
-
-import "os"
-
-func main() {
-    os.MkdirAll("/home/kenken/pj/tmp/a/b", 0755)
-}
-</code></pre>
-
 <h2 id="f658d18">Java
 <span class="article-date">2013/11/25</span></h2>
 
@@ -50,16 +35,34 @@ boolean mkdirs()
 <p>これらのメソッドは作成するディレクトリを引数で渡すのではなく、作成するパスの <code>File</code> オブジェクトを先に生成してからそのインスタンスのこのメソッドを呼び出す。作成できたら <code>true</code> を返す。
 <code>mkdir</code> は1階層のみの作成で、それに対し、 <code>mkdirs</code> は <code>mkdir -p</code> に相当し、複数の階層をまとめて作成できる。</p>
 
+<h2 id="6a2c0cb">PHP
+<span class="article-date">2016/11/25</span></h2>
+
+<pre><code>mkdir("foo_dir")
+</code></pre>
+
+<p>または、<code>mkdir -p</code> に相当する方法として</p>
+
+<pre><code>mkdir("parent_dir/foo_dir", 0777, true)
+</code></pre>
+
+<p>2つ目の引数は<a href="../../commands/chmod.html"><code>chmod</code>コマンド</a>で指定するパーミッションと同じで、引数を1つしか指定しなかった場合のデフォルトパーミッションは <code>0777</code> になる。</p>
+
+<p>3つ目の引数は <code>true</code> を指定すると<a href="../../commands/mkdir.html"><code>mkdir</code>コマンド</a>の <code>-p</code> オプションと同じになる。</p>
+
+<p><code>mkdir</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.mkdir.php" target="_blank" class="external-link">http://php.net/manual/ja/function.mkdir.php</a></p>
+
 <h2 id="1642748">Ruby
 <span class="article-date">2016/08/29</span></h2>
 
-<pre><code>Dir::mkdir('foodir')
+<pre><code>Dir::mkdir('foo_dir')
 </code></pre>
 
 <p>または、<code>mkdir -p</code> に相当する方法として</p>
 
 <pre><code>require 'fileutils'
-FileUtils::mkdir_p('foodir/bardir')
+FileUtils::mkdir_p('parent_dir/foo_dir')
 </code></pre>
 
 <h2 id="9a801b4">Perl
@@ -74,7 +77,17 @@ FileUtils::mkdir_p('foodir/bardir')
 
 <pre><code>use File::Path;
 
-mkpath("foodir/bardir");
+mkpath("parent_dir/foo_dir");
+</code></pre>
+
+<h2 id="bf649bf">sh (シェルスクリプト)
+<span class="article-date">2016/11/25</span></h2>
+
+<p><a href="../../commands/mkdir.html"><code>mkdir</code>コマンド</a>を利用する。</p>
+
+<pre><code>mkdir foo_dir
+
+mkdir -p parent_dir/foo_dir
 </code></pre>
 
 </div>
@@ -83,6 +96,19 @@ mkpath("foodir/bardir");
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
@@ -101,7 +127,7 @@ mkpath("foodir/bardir");
           <li><a href="../../programming_languages_diff/io/rm.html">ファイル・ディレクトリを削除するには (<code>rm</code> / <code>unlink</code> / <code>rmdir</code>)</a></li>
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
-          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには (exists)</a></li>
+          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルやディレクトリが存在するかどうかを取得するには (exists)</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>
