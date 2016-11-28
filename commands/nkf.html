@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="nkf">nkf コマンド
-<span class="article-date">2013/12/16</span></h1>
+<span class="article-date">2016/11/24</span></h1>
 
 <p>文字コードを変換するツール。</p>
 
@@ -29,13 +29,15 @@
 
 <p>例えば EUC-JP を UTF-8 に変換するには</p>
 
-<pre><code>cat ファイル名 | nkf -Ew
+<pre><code>$ cat ファイル名 | nkf -Ew
 </code></pre>
 
 <p>または</p>
 
-<pre><code>nkf -Ew ファイル名
+<pre><code>$ nkf -Ew ファイル名
 </code></pre>
+
+<p>nkf は Network Kanji Filter の意味らしい。</p>
 
 <h2 id="5710d2f">インストール
 <span class="article-date">2016/05/02</span></h2>
@@ -79,15 +81,16 @@ $ sudo apt-get install nkf
 </dl>
 
 <h3 id="abbe038">その他
-<span class="article-date">2015/10/15</span></h3>
+<span class="article-date">2016/11/24</span></h3>
 
 <dl>
   <dt><code>-x</code></dt>
   <dd>半角カナを半角のままにする。このオプションを付けないと全角に変換される</dd>
-  <dt><code>-g</code>, <code>--guess</code></dt>
+  <dt><code>-g</code> または <code>--guess</code></dt>
   <dd>変換するのではなく、文字コードを推定する</dd>
   <dt><code>--overwrite</code></dt>
-  <dd>変換した結果を標準出力するのではなく、元ファイルを上書きする</dd>
+  <dd>変換した結果を標準出力するのではなく、元ファイルを上書きする。
+入力は標準入力からではなく、ファイル名で与える必要がある。</dd>
 </dl>
 
 <h2 id="0a28716">HOWTO</h2>
@@ -109,10 +112,9 @@ cat foo.txt | nkf --guess
 <p><code>nkf</code>コマンドでもBASE64ができるみたいで、<a href="base64.html#nkf"><code>base64</code>コマンドのページ</a>参照。ただ、<code>base64</code>コマンドのほうが多くの環境に入っているので、
 <code>nkf</code>をわざわざ使う理由はないかもしれない。</p>
 
-<h3 id="599144d">ファイルの文字コードを変更して上書きするには
-<span class="article-date">2015/10/15</span></h3>
+<h3 id="599144d">ファイルの文字コードを変更して上書きするには</h3>
 
-<p><code>--overwrite</code> というオプションを使う。この場合、入力は標準入力からではなく、ファイル名で与える必要がある。</p>
+<p>-&gt; <a href="nkf-convert-charset.html">ファイルの文字コードを変換するには</a></p>
 
 </div>
 
@@ -120,6 +122,19 @@ cat foo.txt | nkf --guess
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
@@ -150,6 +165,7 @@ cat foo.txt | nkf --guess
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
       <li><a href="../commands/mecab.html">mecab コマンド</a></li>
+      <li><a href="../commands/mkdir.html">mkdir コマンド</a></li>
       <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/mv.html">mv コマンド</a></li>
