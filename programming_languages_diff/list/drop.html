@@ -31,19 +31,19 @@
 </ul>
 
 <h2 id="cf5f354">Go言語 (golang)
-<span class="article-date">2015/08/18</span></h2>
+<span class="article-date">2016/11/28</span></h2>
 
 <p>配列もスライスも <code>[n:]</code> というスライス表記で先頭のn個を除く部分をスライスで取得することができる。元が配列であってもスライスになる。</p>
 
 <pre><code>    n := 2
 
-    arr := [...]int{10, 20, 30, 40, 50}
+    arr := [...]int{10, 20, 30, 40, 50} // (配列)
     fmt.Printf("%#v\n", arr[n:])
-    // =&gt; []int{30, 40, 50}
+    // =&gt; []int{30, 40, 50}                (スライス)
 
-    sl := []int{10, 20, 30, 40, 50}
+    sl := []int{10, 20, 30, 40, 50}     // (スライス)
     fmt.Printf("%#v\n", sl[n:])
-    // =&gt; []int{30, 40, 50}
+    // =&gt; []int{30, 40, 50}                (スライス)
 </code></pre>
 
 <h2 id="0af1795">Scala
@@ -77,6 +77,29 @@ println(result);
 print(lst[2:])
 # =&gt; [30, 40, 50]
 </code></pre>
+
+<h2 id="a0dd5f3">PHP
+<span class="article-date">2016/11/28</span></h2>
+
+<p><code>array_slice($arr, $n)</code> のようにする。</p>
+
+<pre><code>$arr = array(10, 20, 30, 40, 50);
+
+$n = 2;
+
+var_export(array_slice($arr, $n));
+// 出力結果
+// array (
+//   0 =&gt; 30,
+//   1 =&gt; 40,
+//   2 =&gt; 50,
+// )
+</code></pre>
+
+<p><code>array_slice</code> は結果を新しい配列で返し、引数の配列を変更しない。</p>
+
+<p><code>array_slice</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.array-slice.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-slice.php</a></p>
 
 <h2 id="9d09781">Ruby / JRuby
 <span class="article-date">2015/01/05</span></h2>
@@ -141,6 +164,19 @@ sed -n 2,\$p foo.txt
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>

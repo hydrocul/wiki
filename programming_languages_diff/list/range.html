@@ -22,6 +22,8 @@
 <div id="content">
   <h1 id="range">連続した数値の配列(リスト)を作成するには (range / seq / to / until)</h1>
 
+<p>連続した数値の配列(リスト)を作成する方法。</p>
+
 <p><a href="#scala">Scala</a> <a href="#php">PHP</a> <a href="#python">Python</a> <a href="#ruby">Ruby</a> <a href="#sh">sh</a></p>
 
 <h2 id="scala">Scala
@@ -43,10 +45,10 @@
 <p>Signature:</p>
 
 <ul>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.runtime.RichInt@to(end:Int,step:Int):scala.collection.immutable.Range.Inclusive" target="_blank" class="external-link method-signature"><code>def RichInt#to(end: Int, step: Int): IndexedSeq[Int]</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.runtime.RichInt@to(end:Int):scala.collection.immutable.Range.Inclusive" target="_blank" class="external-link method-signature"><code>def RichInt#to(end: Int): IndexedSeq[Int]</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.runtime.RichInt@until(end:Int,step:Int):scala.collection.immutable.Range" target="_blank" class="external-link method-signature"><code>def RichInt#until(end: Int, step: Int): IndexedSeq[Int]</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.runtime.RichInt@until(end:Int):scala.collection.immutable.Range" target="_blank" class="external-link method-signature"><code>def RichInt#until(end: Int): IndexedSeq[Int]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/runtime/RichInt.html#to(end:Int):scala.collection.immutable.Range.Inclusive" target="_blank" class="external-link method-signature"><code>def RichInt#to(end: Int): IndexedSeq[Int]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/runtime/RichInt.html#to(end:Int,step:Int):scala.collection.immutable.Range.Inclusive" target="_blank" class="external-link method-signature"><code>def RichInt#to(end: Int, step: Int): IndexedSeq[Int]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/runtime/RichInt.html#until(end:Int):scala.collection.immutable.Range" target="_blank" class="external-link method-signature"><code>def RichInt#until(end: Int): IndexedSeq[Int]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/runtime/RichInt.html#until(end:Int,step:Int):scala.collection.immutable.Range" target="_blank" class="external-link method-signature"><code>def RichInt#until(end: Int, step: Int): IndexedSeq[Int]</code></a></li>
 </ul>
 
 <p>返り値にある型はすべて <code>IndexedSeq[Int]</code> を実装している。</p>
@@ -190,7 +192,7 @@ seq 3 2 10
 
 <p><code>for</code>文に与えれば番号でループすることができる。</p>
 
-<pre><code>for i in `seq 5`; do
+<pre><code>for i in $(seq 5); do
     echo $i
 done
 </code></pre>
@@ -201,6 +203,19 @@ done
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
