@@ -21,9 +21,9 @@
 
 <div id="content">
   <h1 id="tail">配列(リスト)の先頭以外の残りの要素を配列で取得するには (tail)
-<span class="article-date">2015/08/04</span></h1>
+<span class="article-date">2016/11/28</span></h1>
 
-<p>配列(リスト)の先頭の要素を取得する方法についての、プログラミング言語別のメモ。</p>
+<p>配列(リスト)の先頭以外の残りを配列で取得する方法。</p>
 
 <table>
   <tbody>
@@ -36,32 +36,30 @@
       <td><code>lst.tail</code></td>
     </tr>
     <tr>
+      <td><a href="#php">PHP</a></td>
+      <td><code>array_slice($arr, 1)</code></td>
+    </tr>
+    <tr>
       <td><a href="#ruby">Ruby</a></td>
       <td><code>arr.drop(1)</code></td>
     </tr>
   </tbody>
 </table>
 
-<p>関連</p>
-
-<ul>
-  <li><a href="drop.html">先頭のn個以外の残りを取得するには</a></li>
-</ul>
-
 <h2 id="go">Go言語 (golang)
-<span class="article-date">2015/08/14</span></h2>
+<span class="article-date">2016/11/28</span></h2>
 
 <p><code>[1:]</code> というスライス表記を使えば先頭を除く2つ目以降の要素からなるスライスを取得できる。配列・スライスどちらに対しても使えるが、配列に対して <code>[1:]</code> と書いても結果はスライスになる。</p>
 
 <p>例</p>
 
-<pre><code>arr := [...]int{10, 20, 30, 40, 50}
+<pre><code>arr := [...]int{10, 20, 30, 40, 50} // (配列)
 fmt.Printf("%#v\n", arr[1:])
-// =&gt; []int{20, 30, 40, 50}
+// =&gt; []int{20, 30, 40, 50}            (スライス)
 
-sl := []int{10, 20, 30, 40, 50}
+sl := []int{10, 20, 30, 40, 50}     // (スライス)
 fmt.Printf("%#v\n", sl[1:])
-// =&gt; []int{20, 30, 40, 50}
+// =&gt; []int{20, 30, 40, 50}            (スライス)
 </code></pre>
 
 <h2 id="scala">Scala
@@ -70,7 +68,7 @@ fmt.Printf("%#v\n", sl[1:])
 <p>Signature:</p>
 
 <ul>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.TraversableLike@tail:Repr" target="_blank" class="external-link method-signature"><code>def Seq[A]#tail: Seq[A]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#tail:Repr" target="_blank" class="external-link method-signature"><code>def Seq[A]#tail: Seq[A]</code></a></li>
 </ul>
 
 <p>例</p>
@@ -80,6 +78,28 @@ fmt.Printf("%#v\n", sl[1:])
 println(lst.tail);
 // =&gt; List(20, 30, 40, 50)
 </code></pre>
+
+<h2 id="php">PHP
+<span class="article-date">2016/11/28</span></h2>
+
+<p><code>array_slice($arr, 1)</code> のようにする。</p>
+
+<pre><code>$arr = array(10, 20, 30, 40, 50);
+
+var_export(array_slice($arr, 1));
+// 出力結果
+// array (
+//   0 =&gt; 20,
+//   1 =&gt; 30,
+//   2 =&gt; 40,
+//   3 =&gt; 50,
+// )
+</code></pre>
+
+<p><code>array_slice</code> は結果を新しい配列で返し、引数の配列を変更しない。</p>
+
+<p><code>array_slice</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.array-slice.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-slice.php</a></p>
 
 <h2 id="ruby">Ruby / JRuby
 <span class="article-date">2015/01/07</span></h2>
@@ -102,12 +122,32 @@ p arr.drop(1)
 tail -n+2 foo.txt # foo.txt の 2行目以降を出力の意味
 </code></pre>
 
+<h2 id="d225bfe">関連
+<span class="article-date">2016/11/28</span></h2>
+
+<ul>
+  <li><a href="drop.html">先頭のn個以外の残りを取得するには</a></li>
+</ul>
+
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
