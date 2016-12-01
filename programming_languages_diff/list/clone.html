@@ -21,7 +21,9 @@
 
 <div id="content">
   <h1 id="clone">配列(リスト)をコピーするには (clone)
-<span class="article-date">2013/10/22</span></h1>
+<span class="article-date">2016/11/25</span></h1>
+
+<p>配列(リスト)をコピーする方法。</p>
 
 <p>イミュータブルなオブジェクトのコピーは意味がないので、ここではミュータブルなリストのコピーについて。</p>
 
@@ -65,9 +67,9 @@ for (int i = 0; i &lt; arr.length; i++) {
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/System.html#arraycopy-java.lang.Object-int-java.lang.Object-int-int-" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/System.html#arraycopy-java.lang.Object-int-java.lang.Object-int-int-</a></p>
 
 <h2 id="php">PHP
-<span class="article-date">2015/01/21</span></h2>
+<span class="article-date">2016/11/25</span></h2>
 
-<p>配列をコピーするには単に代入すればよい。</p>
+<p>配列を別の変数に代入するだけでコピーになる。</p>
 
 <pre><code>$src = array(1, 2, 3);
 $dst = $src;
@@ -90,7 +92,7 @@ var_export($dst);
 // )
 </code></pre>
 
-<p>要素が配列だとそれもコピーされるので、deep copyということか。</p>
+<p>しかも deep copy になる。</p>
 
 <pre><code>$src = array(1, array(2, 3));
 $dst = $src;
@@ -269,6 +271,19 @@ dst = src.clone();
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>

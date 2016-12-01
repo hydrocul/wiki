@@ -20,27 +20,22 @@
 </div>
 
 <div id="content">
-  <h1 id="take">配列(リスト)から先頭のn個の要素のみを配列で取得するには (take / first)
-<span class="article-date">2015/01/22</span></h1>
+  <h1 id="take">配列(リスト)から先頭のn個の要素のみを配列で取得するには (take / first)</h1>
 
-<p>関連</p>
-
-<ul>
-  <li><a href="drop.html">最初のn個以外の要素を配列で取得するには</a></li>
-</ul>
+<p>配列(リスト)から先頭のn個の要素のみを配列で取得する方法。</p>
 
 <h2 id="9702417">Go言語 (golang)
-<span class="article-date">2015/08/15</span></h2>
+<span class="article-date">2016/11/27</span></h2>
 
 <p>配列もスライスも <code>[:n]</code> というスライス表記で先頭からn個の要素のスライスを取得することができる。配列であってもスライスになる。</p>
 
-<pre><code>    arr := [...]int{10, 20, 30, 40, 50}
-    fmt.Printf("%#v\n", arr[:n])
-    // =&gt; []int{10, 20, 30}
+<pre><code>arr := [...]int{10, 20, 30, 40, 50} // (配列)
+fmt.Printf("%#v\n", arr[:n])
+// =&gt; []int{10, 20, 30}                (スライス)
 
-    sl := []int{10, 20, 30, 40, 50}
-    fmt.Printf("%#v\n", sl[:n])
-    // =&gt; []int{10, 20, 30}
+sl := []int{10, 20, 30, 40, 50}     // (スライス)
+fmt.Printf("%#v\n", sl[:n])
+// =&gt; []int{10, 20, 30}                (スライス)
 </code></pre>
 
 <h2 id="ef1f430">Scala
@@ -49,22 +44,35 @@
 <p>Signature:</p>
 
 <ul>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.TraversableLike@take(n:Int):Repr" target="_blank" class="external-link method-signature"><code>def Seq[A]#take(n: Int): Seq[A]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#take(n:Int):Repr" target="_blank" class="external-link method-signature"><code>def Seq[A]#take(n: Int): Seq[A]</code></a></li>
 </ul>
 
 <p>結果を新しいリストで返し、自身は変更しない。</p>
 
-<p>もともと要素がn個よりも少ない場合はそのまま返し、エラーにはならない。</p>
+<p>もともと要素が<code>n</code>個よりも少ない場合はそのまま返し、エラーにはならない。</p>
 
 <h2 id="6834b93">PHP
-<span class="article-date">2014/05/17</span></h2>
+<span class="article-date">2016/11/27</span></h2>
 
-<p>例</p>
+<p><code>array_slice($arr, 0, $n)</code> のようにする。</p>
 
-<pre><code>array_slice($arr, 0, $n);
+<pre><code>$arr = array(10, 20, 30, 40, 50);
+
+$n = 3;
+
+var_export(array_slice($arr, 0, $n));
+
+// 出力結果
+// array (
+//   0 =&gt; 10,
+//   1 =&gt; 20,
+//   2 =&gt; 30,
+// )
 </code></pre>
 
-<p>結果を新しい配列で返し、自身は変更しない。</p>
+<p><code>array_slice</code> は結果を新しい配列で返し、引数の配列を変更しない。</p>
+
+<p>もともと要素が<code>$n</code>個よりも少ない場合はそのまま返し、エラーにはならない。</p>
 
 <p><code>array_slice</code> 関数 | PHP Manual<br />
 <a href="http://php.net/manual/ja/function.array-slice.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-slice.php</a></p>
@@ -108,7 +116,7 @@ p arr.first(3)
 <h2 id="6a48f3f">sh (シェルスクリプト)
 <span class="article-date">2015/01/29</span></h2>
 
-<p>配列ではないが、テキストファイルに関して、先頭のn行だけを標準出力させる例</p>
+<p>配列ではないが、テキストファイルに関して、先頭のn行だけを標準出力させる例 (<a href="../../commands/head.html"><code>head</code>コマンド</a>)</p>
 
 <pre><code># 最初の3行を出力
 head -n3 foo.txt
@@ -116,12 +124,48 @@ head -n3 foo.txt
 cat foo.txt | head -n3
 </code></pre>
 
+<h2 id="db02025">関連
+<span class="article-date">2016/11/28</span></h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>1個</td>
+      <td>n個</td>
+    </tr>
+    <tr>
+      <td>最初の○○以外の要素を取得するには</td>
+      <td><a href="tail.html">tail</a></td>
+      <td><a href="drop.html">drop</a></td>
+    </tr>
+    <tr>
+      <td>最初の○○の要素を取得するには</td>
+      <td><a href="head.html">head</a></td>
+      <td>take</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
