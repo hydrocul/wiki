@@ -118,13 +118,11 @@ grepはバイナリファイルだと勘違いしてしまう。バイナリ扱�
 
 <h2 id="b5d2d7b">HOWTO</h2>
 
-<h3 id="tailf">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには
-<span class="article-date">2013/07/03</span></h3>
+<h3 id="tailf">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</h3>
 
-<pre><code>tail -f access_log | grep --line-buffered hogehoge
-</code></pre>
-
-<p><code>--line-buffered</code> を付けないとgrepがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
+<ul>
+  <li><a href="tail-f-grep.html">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</a></li>
+</ul>
 
 <h3 id="3ff08ce"><code>Binary file foo.txt matches</code> というように表示されてしまう場合
 <span class="article-date">2014/08/28</span></h3>
@@ -278,6 +276,19 @@ rd='&gt;Word Proc
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
@@ -307,6 +318,8 @@ rd='&gt;Word Proc
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li><a href="../commands/mecab.html">mecab コマンド</a></li>
+      <li><a href="../commands/mkdir.html">mkdir コマンド</a></li>
       <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/mv.html">mv コマンド</a></li>
