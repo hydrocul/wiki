@@ -33,12 +33,14 @@
 <p>コンパイルエラーになる。</p>
 
 <h2 id="4a7749d">PHP
-<span class="article-date">2015/02/14</span></h2>
+<span class="article-date">2016/12/02</span></h2>
 
-<p>実行時に警告が発生する。</p>
+<p>PHP 7.1 からは実行時に Fatal error が発生する。</p>
 
-<p>足りなかった引数は未定義の変数と同じで、関数の中から参照しようとした際に <code>PHP Notice: Undefined variable</code> が発生し、
-<code>NULL</code> になる。</p>
+<p>PHP 7.0 までは実行時、関数呼出しで <code>Missing argument</code> という Warning が発生する。</p>
+
+<p>さらに、関数の中では足りなかった引数は未定義の変数と同じになるので、関数の中から参照しようとした際に <code>Undefined variable</code> という Notice が発生し、
+<code>NULL</code> の扱いになる。</p>
 
 <h2 id="d6e7d99">Python
 <span class="article-date">2013/08/13</span></h2>
@@ -75,6 +77,19 @@ f(1);
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
