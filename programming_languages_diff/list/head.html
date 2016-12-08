@@ -58,13 +58,6 @@
   </tbody>
 </table>
 
-<p>関連</p>
-
-<ul>
-  <li><a href="last.html">最後の要素を取得するには(last)</a></li>
-  <li><a href="tail.html">先頭以外の残りを配列(リスト)で取得するには(tail)</a></li>
-</ul>
-
 <h2 id="go">Go言語 (golang)
 <span class="article-date">2015/06/13</span></h2>
 
@@ -107,8 +100,8 @@ System.out.println(lst.get(0)); // =&gt; 3
 <p>Signature:</p>
 
 <ul>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.IterableLike@head:A" target="_blank" class="external-link method-signature"><code>def Seq[A]#head: A</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.IterableLike@headOption:Option[A]" target="_blank" class="external-link method-signature"><code>def Seq[A]#headOption: Option[A]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#head:A" target="_blank" class="external-link method-signature"><code>def Seq[A]#head: A</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#headOption:Option[A]" target="_blank" class="external-link method-signature"><code>def Seq[A]#headOption: Option[A]</code></a></li>
 </ul>
 
 <p>空の<code>Seq</code>に対して<code>head</code>を呼び出すと、
@@ -124,14 +117,14 @@ echo $arr[0];
 
 <p>もちろん、これは配列のインデックスが0から始まっていることが前提となっているので、以下の例ではうまくいかない。</p>
 
-<pre><code>$arr = array(1 =&gt; 20, 2 =&gt; 30);
+<pre><code>$arr = array(1 =&gt; 20, 2 =&gt; 30, 5 =&gt; 50);
 echo $arr[0];
 // =&gt; Notice: Undefined offset: 0
 </code></pre>
 
 <p>この場合、<code>reset</code>関数を使うといいらしい。</p>
 
-<pre><code>$arr = array(1 =&gt; 20, 2 =&gt; 30);
+<pre><code>$arr = array(1 =&gt; 20, 2 =&gt; 30, 5 =&gt; 50);
 echo reset($arr);
 // =&gt; 20
 </code></pre>
@@ -199,12 +192,53 @@ sed '1!d'
 head -n1
 </code></pre>
 
+<h2 id="08b784e">関連
+<span class="article-date">2016/12/04</span></h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>1個</td>
+      <td>n個</td>
+    </tr>
+    <tr>
+      <td>最初の○○以外の要素を取得するには</td>
+      <td><a href="tail.html">tail</a></td>
+      <td><a href="drop.html">drop</a></td>
+    </tr>
+    <tr>
+      <td>最初の○○の要素を取得するには</td>
+      <td>head</td>
+      <td><a href="take.html">take</a></td>
+    </tr>
+    <tr>
+      <td>最後の○○の要素を取得するには</td>
+      <td><a href="last.html">last</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
