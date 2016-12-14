@@ -33,7 +33,7 @@
 </ul>
 
 <h2 id="php">PHP
-<span class="article-date">2015/09/28</span></h2>
+<span class="article-date">2016/11/24</span></h2>
 
 <pre><code>// ディレクトリかどうかを判定
 if (fileperms("/home/foo/testfile") &amp; 0x4000) {
@@ -48,6 +48,10 @@ if (is_dir("/home/foo/testfile")) {
 if (fileperms("/home/foo/testfile") &amp; 0x8000) {
     ...;
 }
+// または
+if (is_file("/home/foo/testfile")) {
+    ...;
+}
 
 // シンボリックリンクかどうかを判定
 if (fileperms("/home/foo/testfile") &amp; 0xA000) {
@@ -57,8 +61,18 @@ if (fileperms("/home/foo/testfile") &amp; 0xA000) {
 
 <p><code>fileperms</code>で、他にもソケットやパイプなどの判定ができるみたい。</p>
 
+<p><code>is_file</code> はディレクトリに対しては <code>false</code> になる。</p>
+
+<p><code>is_dir</code> と <code>is_file</code> は、対象が存在しない場合は <code>false</code> になる。</p>
+
 <p><code>fileperms</code> 関数 | PHP Manual<br />
 <a href="http://php.net/manual/ja/function.fileperms.php" target="_blank" class="external-link">http://php.net/manual/ja/function.fileperms.php</a></p>
+
+<p><code>is_dir</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.is-dir.php" target="_blank" class="external-link">http://php.net/manual/ja/function.is-dir.php</a></p>
+
+<p><code>is_file</code> 関数 | PHP Manual<br />
+<a href="http://php.net/manual/ja/function.is-file.php" target="_blank" class="external-link">http://php.net/manual/ja/function.is-file.php</a></p>
 
 <h2 id="88ccf80">Python
 <span class="article-date">2014/10/16</span></h2>
