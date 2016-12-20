@@ -21,38 +21,42 @@
 
 <div id="content">
   <h1 id="sum">数の配列(リスト)の合計を計算するには (sum)
-<span class="article-date">2016/05/25</span></h1>
+<span class="article-date">2016/12/20</span></h1>
 
-<p><a href="#scala">Scala</a></p>
+<p>各プログラミング言語での、数字の配列(リスト)の合計を計算する方法。</p>
 
-<pre><code>val s = lst.sum;
-</code></pre>
-
-<p><a href="#groovy">Groovy</a></p>
-
-<pre><code>def s = lst.sum();
-</code></pre>
-
-<p><a href="#php">PHP</a></p>
-
-<pre><code>$s = array_sum($arr);
-</code></pre>
-
-<p><a href="#python">Python</a></p>
-
-<pre><code>s = sum(lst)
-</code></pre>
-
-<p><a href="#ruby">Ruby</a></p>
-
-<pre><code>s = arr.inject(:+)
-</code></pre>
-
-<p><a href="#perl">Perl</a></p>
-
-<pre><code>use List::Util qw/sum/;
-my $sum = sum(@arr);
-</code></pre>
+<table>
+  <tbody>
+    <tr>
+      <td><a href="#scala">Scala</a></td>
+      <td><code>lst.sum</code></td>
+    </tr>
+    <tr>
+      <td><a href="#groovy">Groovy</a></td>
+      <td><code>lst.sum()</code></td>
+    </tr>
+    <tr>
+      <td><a href="#php">PHP</a></td>
+      <td><code>array_sum($arr)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#python">Python</a></td>
+      <td><code>sum(lst)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a></td>
+      <td><code>arr.inject(:+)</code></td>
+    </tr>
+    <tr>
+      <td><a href="#ruby">Ruby</a> 2.4-</td>
+      <td><code>arr.sum</code></td>
+    </tr>
+    <tr>
+      <td><a href="#perl">Perl</a></td>
+      <td><code>sum(@arr)</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="560413c">Java
 <span class="article-date">2013/11/08</span></h2>
@@ -65,7 +69,7 @@ my $sum = sum(@arr);
 <p>Signature:</p>
 
 <ul>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Seq@sum:A" target="_blank" class="external-link method-signature"><code>def Seq[A]#sum: A</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#sum:A" target="_blank" class="external-link method-signature"><code>def Seq[A]#sum: A</code></a></li>
 </ul>
 
 <p>要素(<code>A</code>)が <code>Int</code> や <code>Double</code> など数値の場合に限る。</p>
@@ -75,10 +79,11 @@ my $sum = sum(@arr);
 
 <p>Signature:</p>
 
-<pre><code>Object java.util.Collection#sum()
-</code></pre>
+<ul>
+  <li><a href="http://docs.groovy-lang.org/latest/html/groovy-jdk/java/lang/Iterable.html#sum()" target="_blank" class="external-link method-signature"><code>Object Iterable#sum()</code></a></li>
+</ul>
 
-<p>このメソッドはJavaでは定義されていない。</p>
+<p>このメソッドはJavaでは定義されておらず、Groovy独自のメソッド。</p>
 
 <p>例</p>
 
@@ -109,12 +114,18 @@ print sum(lst)
 </code></pre>
 
 <h2 id="ruby">Ruby / JRuby
-<span class="article-date">2016/05/25</span></h2>
+<span class="article-date">2016/12/20</span></h2>
 
-<p>例</p>
+<pre><code>arr = [1, 2, 3]
+p arr.inject(:+)
+# =&gt; 6
 
-<pre><code>sum = arr.inject(:+)
+# Ruby2.4.0からは
+p arr.sum
+# =&gt; 6
 </code></pre>
+
+<p>Ruby 2.4以降は <code>sum</code> というメソッドが使える。</p>
 
 <h2 id="perl">Perl
 <span class="article-date">2015/05/25</span></h2>
@@ -165,6 +176,19 @@ cat hoge.txt | perl -nle '$s+=$_;END{print $s/$.}'
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
