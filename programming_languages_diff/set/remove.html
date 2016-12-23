@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>集合(セット)から特定の要素を削除するには | hydroculのメモ</title>
+<title>集合(セット)から特定の要素を削除するには (remove) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,11 +16,11 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">集合(セット)</a> &gt; <span>集合(セット)から特定の要素を削除するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/set/">集合(セット)</a> &gt; <span>集合(セット)から特定の要素を削除するには (remove)</span>
 </div>
 
 <div id="content">
-  <h1 id="remove">集合(セット)から特定の要素を削除するには
+  <h1 id="remove">集合(セット)から特定の要素を削除するには (remove)
 <span class="article-date">2015/03/16</span></h1>
 
 <p>集合(セット)から特定の要素を削除する方法。</p>
@@ -30,28 +30,29 @@
 
 <p>Signature:</p>
 
-<pre><code>boolean java.util.Set&lt;E&gt;#remove(Object o)
-</code></pre>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html#remove-java.lang.Object-" target="_blank" class="external-link method-signature"><code>boolean Set&lt;E&gt;#remove(Object o)</code></a></li>
+</ul>
 
 <p>セットに含まれていた場合は <code>true</code> を返す。もともと含まれていなかった場合は <code>false</code> を返す。</p>
 
 <h2 id="69ae27f">Scala
-<span class="article-date">2016/10/02</span></h2>
+<span class="article-date">2016/12/23</span></h2>
 
 <p>Signature:</p>
 
 <ul>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Set@-(elem:A):This" target="_blank" class="external-link method-signature"><code>def Set[E]#- (elem: E): Set[E]</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Set@-(elem1:A,elem2:A,elems:A*):Repr" target="_blank" class="external-link method-signature"><code>def Set[E]#- (elem1: E, elem2: E, elems: E*): Set[E]</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.mutable.Set@-=(elem:A):SetLike.this.type" target="_blank" class="external-link method-signature"><code>def Set[E]#-= (elem: E): Set[E]</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.mutable.Set@-=(elem1:A,elem2:A,elems:A*):Shrinkable.this.type" target="_blank" class="external-link method-signature"><code>def Set[E]#-= (elem1: E, elem2: E, elems: E*): Set[E]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Set.html#-(elem:A):This" target="_blank" class="external-link method-signature"><code>def Set[E]#- (elem: E): Set[E]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Set.html#-(elem1:A,elem2:A,elems:A*):Repr" target="_blank" class="external-link method-signature"><code>def Set[E]#- (elem1: E, elem2: E, elems: E*): Set[E]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/mutable/Set.html#-=(elem:A):SetLike.this.type" target="_blank" class="external-link method-signature"><code>def Set[E]#-= (elem: E): Set[E]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/mutable/Set.html#-=(elem1:A,elem2:A,elems:A*):Shrinkable.this.type" target="_blank" class="external-link method-signature"><code>def Set[E]#-= (elem1: E, elem2: E, elems: E*): Set[E]</code></a></li>
 </ul>
 
-<p><code>-</code> は元の<code>Set</code>のインスタンスを変更せずに、要素が削除された新しい<code>Set</code>のインスタンスを返す。</p>
+<p><code>-</code> は元の<code>Set</code>のインスタンスを変更せずに、要素が削除された新しい<code>Set</code>のインスタンスを返す。もともと含まれない要素を削除しようとすると単に同じオブジェクトが返される。</p>
 
-<p><code>-=</code> は元の<code>Set</code>のインスタンス自体を変更し、そのインスタンス自体を返す。</p>
+<p><code>-=</code> は元の<code>Set</code>のインスタンス自体を変更し、そのインスタンス自体を返す。もともと含まれない要素を削除しようとしてもなにも変化しない。</p>
 
-<p><code>-=</code> は可変の<code>Set</code>でしか使えない。</p>
+<p><code>-=</code> は可変(mutable)な<code>Set</code>でしか使えない。</p>
 
 <pre><code>val st = Set("abc", "def", "ghi");
 val newst = st - "def";
@@ -72,8 +73,6 @@ println(newst);
 // =&gt; Set(abc)
 </code></pre>
 
-<p>もともと含まれない要素を削除しようとしてもなにも変化せずに同じ集合が得られる。</p>
-
 <h2 id="49fabee">Python
 <span class="article-date">2013/10/08</span></h2>
 
@@ -86,6 +85,19 @@ println(newst);
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
