@@ -47,7 +47,7 @@
 <p>Signature:</p>
 
 <ul>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Set@contains(elem:A):Boolean" target="_blank" class="external-link method-signature"><code>def Set[E]#contains(elem: E): Boolean</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Set.html#contains(elem:A):Boolean" target="_blank" class="external-link method-signature"><code>def Set[E]#contains(elem: E): Boolean</code></a></li>
 </ul>
 
 <p>例</p>
@@ -59,7 +59,9 @@ println(st.contains("ABC")) // =&gt; false
 </code></pre>
 
 <h2 id="python">Python
-<span class="article-date">2013/10/06</span></h2>
+<span class="article-date">2016/12/23</span></h2>
+
+<p><code>in</code> という演算子が使える。</p>
 
 <pre><code>elem in set
 </code></pre>
@@ -69,6 +71,17 @@ println(st.contains("ABC")) // =&gt; false
 <p>この否定は</p>
 
 <pre><code>elem not in set
+</code></pre>
+
+<p>例</p>
+
+<pre><code>st = {"abc", "def", "ghi"}
+print("abc" in st)
+# =&gt; True
+print("ABC" in st)
+# =&gt; False
+print("ABC" not in st)
+# =&gt; True
 </code></pre>
 
 <p><a href="../list/contains.html#python"><code>in</code> 演算子はリストに対しても使える</a>。</p>
@@ -94,6 +107,19 @@ p st.include? "ABC" # =&gt; false
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
