@@ -20,14 +20,34 @@
 </div>
 
 <div id="content">
-  <h1 id="all">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all / all?)
-<span class="article-date">2015/01/21</span></h1>
+  <h1 id="all">配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査するには (all / all?)</h1>
 
-<p>関連</p>
+<p>配列(リスト)のすべての要素が特定の条件にマッチするかどうかを検査する方法。</p>
+
+<p>Rubyでいう <code>all?</code>。</p>
+
+<h2 id="07ba8b2">Scala
+<span class="article-date">2016/12/25</span></h2>
+
+<p><code>List</code>クラスなどに <code>forall</code> というメソッドが、Rubyの<code>all?</code>メソッドに相当するものとして存在する。</p>
+
+<p>Signature:</p>
 
 <ul>
-  <li><a href="any.html">特定の条件にマッチする要素が1つでも含まれているかどうかを検査するには</a></li>
+  <li>
+    <p><a href="http://www.scala-lang.org/api/current/scala/collection/mutable/Iterable.html#forall(p:A=&gt;Boolean):Boolean" target="_blank" class="external-link method-signature"><code>def Iterable[A]#forall(p: A =&gt; Boolean): Boolean</code></a></p>
+
+    <p>val lst = List(1, 2, 3);</p>
+
+    <p>println(lst.forall(_ % 2 == 0));
+  // =&gt; false</p>
+
+    <p>println(lst.forall(_ &lt;= 3));
+  // =&gt; true</p>
+  </li>
 </ul>
+
+<p><code>Iterable</code> は <code>List</code> などの <code>Seq</code> や <code>Set</code>、<code>Map</code> の共通のスーパークラス(トレイト)なので、これらのメソッドは <code>Set</code> や <code>Map</code> でも使える。</p>
 
 <h2 id="eb7c8a3">Python
 <span class="article-date">2014/09/13</span></h2>
@@ -72,12 +92,32 @@ p arr.all? { |elem| elem &lt;= 3 }
 <p><code>Enumerable#all?</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/all=3f.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/all=3f.html</a></p>
 
+<h2 id="8a6cd86">関連
+<span class="article-date">2015/01/21</span></h2>
+
+<ul>
+  <li><a href="any.html">特定の条件にマッチする要素が1つでも含まれているかどうかを検査するには</a></li>
+</ul>
+
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>

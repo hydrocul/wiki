@@ -20,20 +20,14 @@
 </div>
 
 <div id="content">
-  <h1 id="any">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists / find)
-<span class="article-date">2015/03/22</span></h1>
+  <h1 id="any">配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査するには (any / any? / exists / find)</h1>
 
-<p>各プログラミング言語での、配列に特定の条件にマッチする要素が含まれているかどうかを検査する方法。</p>
+<p>配列(リスト)に特定の条件にマッチする要素が含まれているかどうかを検査する方法。</p>
 
-<p>関連</p>
-
-<ul>
-  <li><a href="all.html">すべての要素が特定の条件にマッチするかどうかを検査するには</a></li>
-  <li><a href="contains.html">特定の要素が含まれているかどうかを検査するには</a></li>
-</ul>
+<p>Rubyでいう <code>any?</code>。</p>
 
 <h2 id="339895a">Scala
-<span class="article-date">2016/07/02</span></h2>
+<span class="article-date">2016/12/25</span></h2>
 
 <p><code>List</code>クラスなどに<code>exists</code>というメソッドが、Rubyの<code>any?</code>メソッドに相当するものとして存在する。
 <code>find</code>というメソッドは条件にマッチする最初の要素を取得し、見つからなければ<code>None</code>を返す。</p>
@@ -41,22 +35,21 @@
 <p>Signature:</p>
 
 <ul>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.IterableLike@exists(p:A=&gt;Boolean):Boolean" target="_blank" class="external-link method-signature"><code>def Seq[A]#exists(p: A =&gt; Boolean): Boolean</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/index.html#scala.collection.IterableLike@find(p:A=&gt;Boolean):Option[A]" target="_blank" class="external-link method-signature"><code>def Seq[A]#find(p: A =&gt; Boolean): Option[A]</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/mutable/Iterable.html#exists(p:A=&gt;Boolean):Boolean" target="_blank" class="external-link method-signature"><code>def Iterable[A]#exists(p: A =&gt; Boolean): Boolean</code></a></li>
+  <li>
+    <p><a href="http://www.scala-lang.org/api/current/scala/collection/mutable/Iterable.html#find(p:A=&gt;Boolean):Option[A]" target="_blank" class="external-link method-signature"><code>def Iterable[A]#find(p: A =&gt; Boolean): Option[A]</code></a></p>
+
+    <p>val lst = List(1, 2, 3);</p>
+
+    <p>val result1 = lst.exists(_ % 2 == 0);
+  println(result1); // =&gt; true</p>
+
+    <p>val result2 = lst.exists(_ &gt; 3);
+  println(result2); // =&gt; false</p>
+  </li>
 </ul>
 
-<p>例</p>
-
-<pre><code>val lst = List(1, 2, 3);
-
-val result1 = lst.exists(_ % 2 == 0);
-println(result1); // =&gt; true
-
-val result2 = lst.exists(_ &gt; 3);
-println(result2); // =&gt; false
-</code></pre>
-
-<p>これらは<code>Set</code>や<code>Map</code>でも使える。</p>
+<p><code>Iterable</code> は <code>List</code> などの <code>Seq</code> や <code>Set</code>、<code>Map</code> の共通のスーパークラス(トレイト)なので、これらのメソッドは <code>Set</code> や <code>Map</code> でも使える。</p>
 
 <h2 id="6485b06">Python
 <span class="article-date">2015/03/22</span></h2>
@@ -104,12 +97,33 @@ p arr.any? { |elem| elem &gt; 3 }
 <p><code>Enumerable#any?</code> | Ruby 2.1 リファレンスマニュアル<br />
 <a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/any=3f.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/any=3f.html</a></p>
 
+<h2 id="8c1404d">関連
+<span class="article-date">2015/03/22</span></h2>
+
+<ul>
+  <li><a href="all.html">すべての要素が特定の条件にマッチするかどうかを検査するには</a></li>
+  <li><a href="contains.html">特定の要素が含まれているかどうかを検査するには</a></li>
+</ul>
+
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
