@@ -120,20 +120,49 @@
 <a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#size--" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/List.html#size–</a></p>
 
 <h2 id="scala">Scala
-<span class="article-date">2016/04/18</span></h2>
+<span class="article-date">2016/12/25</span></h2>
 
-<p>Javaの配列(<code>Array</code>)であってもScalaのコレクション型であっても <code>size</code> というメソッドが使える。
-Javaの配列ではJavaと同じ<code>length</code>もメソッドとして使える。</p>
+<p>Javaの配列(<code>Array</code>)であってもScalaのコレクション型であっても <code>length</code>, <code>size</code> というメソッドが使える。
+2つはまったく同じ。</p>
 
 <p>Signature:</p>
 
-<pre><code>def scala.Array[A]#length: Int
-def scala.Array[A]#size: Int
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#length:Int" target="_blank" class="external-link method-signature"><code>def Seq[A]#length: Int</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#size:Int" target="_blank" class="external-link method-signature"><code>def Seq[A]#size: Int</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/Array.html#length:Int" target="_blank" class="external-link method-signature"><code>def Array[A]#length: Int</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/Array.html#size:Int" target="_blank" class="external-link method-signature"><code>def Array[A]#size: Int</code></a></li>
+</ul>
 
-def scala.collection.Seq[A]#size: Int
-</code></pre>
+<p>これらはメソッドだが括弧はいらない。</p>
 
-<p>上記はメソッドだが括弧はいらない。</p>
+<p>長さを直接必要とせず、比較をしたいだけであれば、<code>lengthCompare</code> というメソッドも使える。長さが<code>len</code>よりも短ければ負、<code>len</code>ちょうどであれば<code>0</code>、<code>len</code>よりも長ければ正を返す。</p>
+
+<p>長さを調べるのにすべての要素をたどる必要のある <code>List</code> などでは、比較だけであればすべての要素をたどらなくても <code>len</code> だけたどれば十分であるので、
+<code>lengthCompare</code> はそのように実装されている。</p>
+
+<ul>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#lengthCompare(len:Int):Int" target="_blank" class="external-link method-signature"><code>def Seq[A]#lengthCompare(len: Int): Int</code></a></li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/Array.html#lengthCompare(len:Int):Int" target="_blank" class="external-link method-signature"><code>def Array[A]#lengthCompare(len: Int): Int</code></a></li>
+</ul>
+
+<p><code>hasDefiniteSize</code> というメソッドは有限の長さがあるとわかっている場合に <code>true</code> を返す。無限の長さの場合や有限だとは限らない場合は <code>false</code> を返す。
+<code>List</code> など大抵のコレクション型は <code>true</code> になるが、 <code>Stream</code> 型は <code>false</code> になる。
+<code>Stream</code> 型で本当に無限の長さの場合に <code>size</code> メソッドを呼び出すと無限ループになってしまう。</p>
+
+<ul>
+  <li>
+    <p><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#hasDefiniteSize:Boolean" target="_blank" class="external-link method-signature"><code>def Seq[A]#hasDefiniteSize: Boolean</code></a></p>
+
+    <p>def fib(a: Int, b: Int): Stream[Int] = a #:: fib(b, a + b);</p>
+
+    <p>println(fib(1, 1).hasDefiniteSize);
+  // =&gt; false</p>
+
+    <p>println(fib(1, 1).size);
+  // 終わらない</p>
+  </li>
+</ul>
 
 <h2 id="php">PHP
 <span class="article-date">2015/03/25</span></h2>
@@ -226,6 +255,19 @@ console.log(arr.length); // =&gt; 0
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
