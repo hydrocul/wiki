@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<meta http-equiv="refresh" content="0;URL=../howto/tail-f-grep.html" />
 <title>ログファイルなどの `tail -f` の出力をgrepで絞り込んで表示するには | etc | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -20,20 +21,9 @@
 </div>
 
 <div id="content">
-  <h1 id="tail-f-grep">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには
-<span class="article-date">2016/11/30</span></h1>
+  <h1 id="tail-f-grep">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</h1>
 
-<p>Apacheなどのログファイルを<a href="../tail.html"><code>tail</code>コマンド</a>でリアルタイムに監視しようと思って</p>
-
-<pre><code>$ tail -f access_log | grep PATTERN
-</code></pre>
-
-<p>とすると、<code>grep</code>が出力をバッファリングしてしまう。これではリアルタイムな監視ができず、いくらかの出力がたまにまとめて一度に表示されるようになってしまう。</p>
-
-<p>その場合は、 <code>grep</code> に <code>--line-buffered</code> というオプションを付ける。すると <code>grep</code> は行単位で出力してくれるので、ログのリアルタイム監視ができる。</p>
-
-<pre><code>$ tail -f access_log | grep --line-buffered PATTERN
-</code></pre>
+<p>-&gt; <a href="../howto/tail-f-grep.html">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</a></p>
 
 </div>
 

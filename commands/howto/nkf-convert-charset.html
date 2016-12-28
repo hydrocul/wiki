@@ -2,8 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="refresh" content="0;URL=../howto/nkf-convert-charset.html" />
-<title>ファイルの文字コードを変換するには | etc | コマンドの使い方(Linux) | hydroculのメモ</title>
+<title>ファイルの文字コードを変換するには | howto | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -17,13 +16,44 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../commands/">コマンドの使い方(Linux)</a> &gt; <a href="../../commands/etc/">etc</a> &gt; <span>ファイルの文字コードを変換するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../commands/">コマンドの使い方(Linux)</a> &gt; <a href="../../commands/howto/">howto</a> &gt; <span>ファイルの文字コードを変換するには</span>
 </div>
 
 <div id="content">
-  <h1 id="nkf-convert-charset">ファイルの文字コードを変換するには</h1>
+  <h1 id="nkf-convert-charset">ファイルの文字コードを変換するには
+<span class="article-date">2016/11/24</span></h1>
 
-<p>-&gt; <a href="../howto/nkf-convert-charset.html">ファイルの文字コードを変換するには</a></p>
+<p>保存されているテキストファイルの文字コードを変換して同じ名前で保存し直す方法。</p>
+
+<h2 id="4aebed9">nkfコマンド
+<span class="article-date">2016/11/24</span></h2>
+
+<p><a href="../nkf.html"><code>nkf</code></a>コマンドに <code>--overwrite</code> オプションを使うと、文字コードを変換した上で、ファイルに直接上書き保存してくれる。</p>
+
+<p>Shift-JISからUTF-8に変更する例</p>
+
+<pre><code>$ nkf -Sw --overwrite foo.txt
+</code></pre>
+
+<p>ディレクトリ配下にある複数のテキストファイルを一括して変更する例</p>
+
+<pre><code>$ nkf -Sw --overwrite `find . -name "*.txt"`
+</code></pre>
+
+<h2 id="02f39f8">iconvコマンド
+<span class="article-date">2016/11/24</span></h2>
+
+<p><code>-o</code> オプションで出力先ファイルを入力ファイルと同じにする。</p>
+
+<p>Shift-JISからUTF-8に変更する例</p>
+
+<pre><code>$ iconv -f SHIFT-JIS -t UTF-8 foo.txt -o foo.txt
+</code></pre>
+
+<p>ディレクトリ配下にある複数のテキストファイルを一括して変更する例</p>
+
+<pre><code>$ find . -name "*.txt" -exec iconv -f SHIFT-JIS -t UTF-8 {} -o {} \;
+</code></pre>
 
 </div>
 
@@ -48,7 +78,7 @@
     <ul>
   <li><a href="../../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li><a href="../../commands/etc/">etc</a></li>
+      <li><a href="../../commands/howto/">howto</a></li>
     </ul>
   </li>
 </ul>
