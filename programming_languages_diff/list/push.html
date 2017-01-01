@@ -20,15 +20,24 @@
 </div>
 
 <div id="content">
-  <h1 id="push">配列(リスト)の最後に要素を追加するには (push)
-<span class="article-date">2015/10/18</span></h1>
+  <h1 id="push">配列(リスト)の最後に要素を追加するには (push)</h1>
 
-<p>関連</p>
+<p>配列(リスト)の最後に要素を追加する方法。</p>
+
+<h2 id="b36b40b">Java</h2>
+
+<h3 id="dbd551b">配列
+<span class="article-date">2014/08/01</span></h3>
+
+<p>配列は長さが固定なので、長さが変わるような操作をする手段はない。</p>
+
+<h3 id="c13c9d6"><code>java.util.List</code>
+<span class="article-date">2016/12/26</span></h3>
+
+<p>Signature:</p>
 
 <ul>
-  <li><a href="unshift.html">先頭に追加するには</a></li>
-  <li><a href="pop.html">最後にから削除するには</a></li>
-  <li><a href="concat.html">配列を連結するには</a></li>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#add-E-" target="_blank" class="external-link method-signature"><code>boolean List&lt;E&gt;#add(E obj)</code></a></li>
 </ul>
 
 <h2 id="php">PHP
@@ -138,12 +147,52 @@ var new_arr = arr1.concat(arr2)
 
 <p><code>concat</code> は非破壊的なメソッドなので、<code>arr1</code> や <code>arr2</code> 自身は変更されない。</p>
 
+<h2 id="e91ae5f">関連
+<span class="article-date">2016/12/26</span></h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>に追加</td>
+      <td>を取得して削除</td>
+    </tr>
+    <tr>
+      <td>先頭</td>
+      <td><a href="unshift.html"><code>unshift</code></a></td>
+      <td><a href="shift.html"><code>shift</code></a></td>
+    </tr>
+    <tr>
+      <td>最後</td>
+      <td><code>push</code></td>
+      <td><a href="pop.html"><code>pop</code></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><a href="concat.html">配列を連結するには</a></li>
+</ul>
+
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
