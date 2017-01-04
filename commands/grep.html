@@ -21,15 +21,17 @@
 
 <div id="content">
   <h1 id="grep">grep コマンド
-<span class="article-date">2016/01/31</span></h1>
+<span class="article-date">2017/01/04</span></h1>
 
 <p>ファイルや標準入力から正規表現でマッチする行を探し出すコマンド。</p>
 
 <p>ログファイルの中から特定のログを探し出したり、ソースコードのコード検索したり、いろいろな目的で使う。</p>
 
-<p>※ grepよりも高速に検索できる <a href="ack-grep.html">ack-grep</a> などもある</p>
+<p>※ grepよりも高速に検索できる <a href="ack-grep.html">ack-grep</a> などもある。</p>
 
-<p>※ Perlには同じ名前の<a href="../programming_languages_diff/list/filter.html#perl"><code>grep</code></a>という関数がある</p>
+<p>※ Perlには同じ名前の<a href="../programming_languages_diff/list/filter.html#perl"><code>grep</code></a>という関数がある。</p>
+
+<p>※ git管理下のディレクトリの場合には <code>git grep</code> も便利。</p>
 
 <h2 id="65ad6b9">基本的な使い方
 <span class="article-date">2016/01/25</span></h2>
@@ -68,73 +70,97 @@
 
 
 <h2 id="f911d96">オプション
-<span class="article-date">2016/10/11</span></h2>
+<span class="article-date">2017/01/04</span></h2>
+
+<p>パラメータを取らない1文字(ハイフン含めれば2文字)のオプションは、つなげることができる。つまり <code>-r -n -i</code> は <code>-rni</code> と書ける。</p>
 
 <dl>
   <dt><code>-a</code>, <code>--text</code>, <code>--binary-files=text</code></dt>
   <dd>通常だとgrepがバイナリだと認識してしまうファイルも強制的にテキストとして認識させる。
 テキストファイルでも最初の方に少しテキストでないバイナリがゴミとかで含まれちゃっていると、
 grepはバイナリファイルだと勘違いしてしまう。バイナリ扱いになってしまうと、差分の内容が表示されないので、
-無理にテキストファイルとして扱わせるオプション。</dd>
+無理にテキストファイルとして扱わせるオプション。
+<code>-a</code>, <code>--text</code> は <code>git grep</code> でも使える。</dd>
   <dt><code>-A</code> 行数</dt>
-  <dd>このオプションを指定するとマッチした行の後も指定した行数を出力する。</dd>
+  <dd>このオプションを指定するとマッチした行の後も指定した行数を出力する。
+<code>git grep</code> でも使える。</dd>
   <dt><code>-B</code> 行数</dt>
-  <dd>このオプションを指定するとマッチした行の前も指定した行数を出力する。</dd>
+  <dd>このオプションを指定するとマッチした行の前も指定した行数を出力する。
+<code>git grep</code> でも使える。</dd>
   <dt><code>-C</code> 行数</dt>
-  <dd>このオプションを指定するとマッチした行の前後も指定した行数を出力する。<code>-A</code> と <code>-B</code> をいっしょに指定できる。<code>-C3</code> はたぶん <code>-A3 -B3</code> と同じ。</dd>
+  <dd>このオプションを指定するとマッチした行の前後も指定した行数を出力する。<code>-A</code> と <code>-B</code> をいっしょに指定できる。<code>-C3</code> はたぶん <code>-A3 -B3</code> と同じ。
+<code>git grep</code> でも使える。</dd>
   <dt><code>--color=always</code></dt>
   <dd>カラーで表示する。これを付けなくてもデフォルトでカラー表示かもしれないが、
 出力をパイプでつないだときは自分の環境ではこのオプションを付けないとカラー表示にならなかった。
-<a href="less.html#color"><code>less -R</code></a> を使いたいときには、パイプなのにカラー表示したい、という状況になる。</dd>
+<a href="less.html#color"><code>less -R</code></a> を使いたいときには、パイプなのにカラー表示したい、という状況になる。
+<code>git grep</code> でも使える。</dd>
   <dt><code>-e</code> パターン</dt>
-  <dd>パターンを指定する。<code>-e</code> オプションがない場合は最初のパラメータがパターンと見なされる。</dd>
+  <dd>パターンを指定する。<code>-e</code> オプションがない場合は最初のパラメータがパターンと見なされる。
+<code>git grep</code> でも使える。</dd>
   <dt><code>-E</code></dt>
   <dd>拡張正規表現を使う。 <code>(foo|bar)</code> のような表記の正規表現を使うには、
-このオプションが必要。</dd>
+このオプションが必要。
+<code>git grep</code> でも同じ。</dd>
   <dt><code>-h</code></dt>
-  <dd>ファイル名を出力しない。<code>-l</code> と併用すると <code>-h</code> は無視される。</dd>
+  <dd>ファイル名を出力しない。<code>-l</code> と併用すると <code>-h</code> は無視される。
+<code>git grep</code> でも使える。</dd>
   <dt><code>-i</code></dt>
-  <dd>大文字小文字を区別せずにマッチングをする。</dd>
+  <dd>大文字小文字を区別せずにマッチングをする。
+<code>git grep</code> でも使える。</dd>
   <dt><code>-l</code></dt>
-  <dd>(小文字エル) マッチしたファイルのファイル名のみを出力する。ファイル中の土の部分がマッチしたかは表示しない。</dd>
+  <dd>(小文字エル) マッチしたファイルのファイル名のみを出力する。ファイル中の土の部分がマッチしたかは表示しない。
+<code>git grep</code> でも使える。</dd>
   <dt><code>-L</code></dt>
-  <dd>マッチしなかったファイルのファイル名を出力する。</dd>
+  <dd>マッチしなかったファイルのファイル名を出力する。
+<code>git grep</code> でも使える。</dd>
   <dt><code>--line-buffered</code></dt>
-  <dd>行ごとのバッファリングにする。<code>tail -f</code> などからパイプで受け取るときに便利。</dd>
-  <dt><code>-n</code></dt>
-  <dd>検索結果の出力に行番号をつける。</dd>
+  <dd>行ごとのバッファリングにする。<code>tail -f</code> などからパイプで受け取るときに便利。
+<code>git grep</code> では使えない。</dd>
+  <dt><code>-n</code>, <code>--line-number</code></dt>
+  <dd>検索結果の出力に行番号をつける。
+<code>git grep</code> でも使える。</dd>
   <dt><code>-H</code></dt>
   <dd>検索結果の出力にファイル名を付ける。
 検索対象のファイルが1つの場合にはデフォルトではファイル名は出力されず、
 複数の場合にはデフォルトでファイル名が出力される。
-このオプションを付けるとたとえファイルが1つでもファイル名が出力される。</dd>
+このオプションを付けるとたとえファイルが1つでもファイル名が出力される。
+<code>git grep</code> では付けても意味がないみたい。</dd>
   <dt><code>-o</code></dt>
-  <dd>マッチした部分のみを表示する。このオプションがなければマッチした行全体を表示する。</dd>
+  <dd>マッチした部分のみを表示する。このオプションがなければマッチした行全体を表示する。
+<code>git grep</code> では使えない。</dd>
   <dt><code>-r</code></dt>
-  <dd>ディレクトリを再帰的にたどって検索する。</dd>
+  <dd>ディレクトリを再帰的にたどって検索する。
+<code>git grep</code> では使えないが、このオプションを付けなくてもディレクトリを再帰的にたどってくれる。</dd>
   <dt><code>-v</code></dt>
-  <dd>通常とは逆に、マッチしない行を出力する。</dd>
+  <dd>通常とは逆に、マッチしない行を出力する。
+<code>git grep</code> でも使える。</dd>
 </dl>
 
 <h2 id="b5d2d7b">HOWTO</h2>
 
-<h3 id="tailf">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</h3>
+<h3 id="2641055">git管理下のディレクトリを再帰的にgrepするには
+<span class="article-date">2017/01/04</span></h3>
 
-<ul>
-  <li><a href="howto/tail-f-grep.html">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</a></li>
-</ul>
+<p><code>git grep</code> というコマンドは <code>grep</code> とほとんど同じように使えて、検索対象を指定しなくてもカレントディレクトリから下のgitで管理しているファイルのみを検索してくれる。
+<code>.gitignore</code> に登録されていて、git管理対象外のファイルは検索されない。</p>
+
+<pre><code>$ git grep PATTERN
+</code></pre>
 
 <h3 id="3ff08ce"><code>Binary file foo.txt matches</code> というように表示されてしまう場合
-<span class="article-date">2014/08/28</span></h3>
+<span class="article-date">2017/01/04</span></h3>
 
 <p>テキストファイルをgrepしたつもりなのに、<code>Binary File</code> と言われてしまったら、オプション <code>-a</code> を付ける。</p>
 
 <p>例</p>
 
-<pre><code>grep -a blahbla foo.txt
+<pre><code>$ grep -a blahbla foo.txt
 </code></pre>
 
-<p><code>-a</code> の代わりに <code>--text</code> や <code>--binary-files=text</code> でもよい。</p>
+<p><code>-a</code> の代わりに <code>--text</code> や <code>--binary-files=text</code> でも同じ。</p>
+
+<p><code>-a</code>, <code>--text</code> は <code>git grep</code> でも使える。</p>
 
 <h3 id="68ddc1b">シェルスクリプトでファイルにパターンが見つかるかどうかで分岐をさせるには
 <span class="article-date">2015/12/09</span></h3>
@@ -158,7 +184,7 @@ fi
 </code></pre>
 
 <h3 id="328adcf">マッチした行の前後数行を表示するには
-<span class="article-date">2016/07/10</span></h3>
+<span class="article-date">2017/01/04</span></h3>
 
 <p><code>-C</code> オプションで表示する行数を指定する。または <code>-A</code> オプションと <code>-B</code> オプションで指定する。</p>
 
@@ -173,27 +199,32 @@ $ grep -C3 blahbla foo.txt
 $ grep -A3 -B5 blahbla foo.txt
 </code></pre>
 
+<p>これらのオプションは <code>git grep</code> でも使える。</p>
+
 <h3 id="10524f2">複数のパターンで検索するには
 <span class="article-date">2016/01/25</span></h3>
 
 <p><code>-e</code> オプションでパターンを複数指定すればOR検索になる。</p>
 
-<pre><code># APATTERN か BPATTERN どちらかまたは両方のある行を検索
-grep -e APATTERN -e BPATTERN foo.txt
+<p>APATTERN か BPATTERN どちらかまたは両方のある行を検索</p>
+
+<pre><code>$ grep -e APATTERN -e BPATTERN foo.txt
 </code></pre>
 
 <p>以下のように拡張正規表現で <code>|</code> を使っても同じだが。</p>
 
-<pre><code>grep -E 'APATTERN|BPATTERN' foo.txt
+<pre><code>$ grep -E 'APATTERN|BPATTERN' foo.txt
 </code></pre>
 
 <h3 id="6559f3e">大文字小文字区別せずに検索するには
-<span class="article-date">2015/07/21</span></h3>
+<span class="article-date">2017/01/04</span></h3>
 
-<p><code>-i</code> オプションを付けると大文字小文字区別せずに検索してくれる。</p>
+<p><code>-i</code> または <code>--ignore-case</code> オプションを付けると大文字小文字区別せずに検索してくれる。</p>
 
-<pre><code>grep -i PATTERN foo.txt
+<pre><code>$ grep -i PATTERN foo.txt
 </code></pre>
+
+<p>これらのオプションは <code>git grep</code> でも使える。</p>
 
 <h3 id="5a6be06">行頭または行末に限定してパターンを検索するには
 <span class="article-date">2015/09/11</span></h3>
@@ -230,7 +261,7 @@ grep -e APATTERN -e BPATTERN foo.txt
 <p>同様に <code>[^$]</code> と書くと、行末(<code>$</code>)以外の任意の1文字という意味になる。従って<code>hoge</code>の次の1文字もハイライトになる。</p>
 
 <h3 id="7216ce3">マッチした部分をハイライト表示するには
-<span class="article-date">2016/03/09</span></h3>
+<span class="article-date">2017/01/04</span></h3>
 
 <p><code>--color</code> を付けるとパターンにマッチした部分を色付きで表示してくれる。</p>
 
@@ -246,6 +277,16 @@ $ grep --color=always PATTERN foo.txt | head
 <code>less</code>に <a href="less.html#color"><code>-R</code></a> というオプションを付ける。</p>
 
 <pre><code>$ grep --color=always PATTERN foo.txt | less -R
+</code></pre>
+
+<p><code>git grep</code> は出力をパイプにしても <code>--color</code> だけで十分。</p>
+
+<pre><code>$ git grep --color PATTERN foo.txt | less -R
+</code></pre>
+
+<p>というか、<code>git</code> ではページャが設定されていることが多いので、 <code>less</code> とつなげる必要はなさそう。</p>
+
+<pre><code>$ git grep --color PATTERN foo.txt
 </code></pre>
 
 <h3 id="f99f2b5">マッチした部分とその前後一定文字数のみを表示するには
@@ -269,6 +310,12 @@ rd='&gt;Word Proc
 rd='&gt;Word Proc
 rd='&gt;Word Proc
 </code></pre>
+
+<h3 id="tailf">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</h3>
+
+<ul>
+  <li><a href="howto/tail-f-grep.html">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</a></li>
+</ul>
 
 </div>
 
