@@ -27,8 +27,31 @@
 
 <p>ディレクトリのタイムスタンプも変更できる。</p>
 
-<h2 id="fb8ed84">ファイルのタイムスタンプを任意の日時に変更するには
+<h2 id="7f935b0">オプション
 <span class="article-date">2017/01/05</span></h2>
+
+<dl>
+  <dt><code>-a</code></dt>
+  <dd>ファイルの更新時刻は変更せずにアクセス時刻だけを変更する</dd>
+  <dt><code>-c</code>, <code>--no-create</code></dt>
+  <dd>ファイルが存在しない場合はファイルの作成をしない</dd>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプ表示</dd>
+  <dt><code>-r</code> &lt;FILE_PATH&gt;</dt>
+  <dd>このオプションで指定するファイルと同じタイムスタンプに変更する</dd>
+  <dt><code>-t</code> 日時</dt>
+  <dd>現在日時ではなく任意の日時に指定できる。日時のフォーマットは <code>YYYYMMDDHHmm</code>[<code>.ss</code>] など。</dd>
+  <dt><code>--version</code></dt>
+  <dd>バージョン表示</dd>
+</dl>
+
+<p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
+<code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
+
+<h2 id="311aa66">HOWTO</h2>
+
+<h3 id="de1ae49">ファイルのタイムスタンプを任意の日時に変更するには
+<span class="article-date">2017/01/08</span></h3>
 
 <p><code>-t</code> で日時を指定できる。</p>
 
@@ -42,16 +65,19 @@ touch -t 1309061200.00 hoge.txt
 <p>日時は以下のいずれかの書式。</p>
 
 <ul>
-  <li><code>YYYYMMDDHHmm</code>[<code>.ss</code>]</li>
-  <li><code>YYMMDDHHmm</code>[<code>.ss</code>]</li>
-  <li><code>MMDDHHmm</code>[<code>.ss</code>]</li>
+  <li><code>YYYYMMDDHHmm</code></li>
+  <li><code>YYYYMMDDHHmm.ss</code></li>
+  <li><code>YYMMDDHHmm</code></li>
+  <li><code>YYMMDDHHmm.ss</code></li>
+  <li><code>MMDDHHmm</code></li>
+  <li><code>MMDDHHmm.ss</code></li>
 </ul>
 
 <p>日時を設定する<a href="date.html#set"><code>date</code>コマンド</a>は <code>"2013/09/04 12:17:00"</code> のような書式で、
 <code>touch</code>コマンドとは異なる。</p>
 
-<h2 id="d5b265f">ファイルのタイムスタンプを別のファイルのタイムスタンプと同じに変更するには
-<span class="article-date">2017/01/06</span></h2>
+<h3 id="174dde9">ファイルのタイムスタンプを別のファイルのタイムスタンプと同じに変更するには
+<span class="article-date">2017/01/06</span></h3>
 
 <p><code>-r</code> というオプションで他のファイルを指定すると、そのファイルと同じタイムスタンプにしてくれる。</p>
 
