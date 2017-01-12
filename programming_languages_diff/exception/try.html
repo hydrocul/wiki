@@ -73,14 +73,19 @@
 <p>Java7から例外を再スローするときの型推論が改善されている。</p>
 
 <h2 id="df8f7b8">Scala
-<span class="article-date">2014/04/02</span></h2>
+<span class="article-date">2017/01/11</span></h2>
 
 <pre><code>try {
   ...;
 } catch {
-  case e: IOException =&gt; ...;
-  case e: FileNotFoundException =&gt; ...;
-  case e =&gt; ...;
+  case e: IOException =&gt;
+    ...;
+  case e: FileNotFoundException =&gt;
+    ...;
+  case _: Exception =&gt; // 例外オブジェクトを変数で捕捉する必要がない場合
+    ...;
+  case e =&gt; // 例外オブジェクトの型を問わない場合
+    ...;
 } finally {
   ...;
 }
@@ -88,6 +93,8 @@
 
 <p><code>try</code>式は式なので、値を返す。<code>try</code>節の中から例外がスローされなかった場合は、
 <code>finally</code>節の中を実行した後に<code>try</code>節の中の最後の式の値が<code>try</code>式全体の返り値になる。</p>
+
+<p><code>catch</code>節の書き方は<a href="../control_flow/switch.html#scala"><code>match</code>式</a>と同じ。</p>
 
 <h2 id="8a39adb">PHP
 <span class="article-date">2014/05/26</span></h2>
@@ -217,6 +224,19 @@ finally
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
