@@ -105,8 +105,12 @@ if ($cmp &lt; 0) {
 print "abc" ne "abc"; # =&gt; ''
 </code></pre>
 
-<p><a href="../control_flow/if.html#perl"><code>if</code>文</a>の
-    print “abc” eq “abc”; # =&gt; 1</p>
+<p><a href="../control_flow/if.html#perl"><code>if</code>文</a>の条件式に入れると、 <code>'1'</code> は真、 <code>''</code> は偽の扱いになる。</p>
+
+<pre><code>if ("abc" eq "abc") {
+    ...;
+}
+</code></pre>
 
 <p><code>undef</code> と <code>''</code> を <code>eq</code> で比較すると <code>Use of uninitialized value</code> という警告が出るが、等値との判定はされる。</p>
 
