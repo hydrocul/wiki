@@ -23,7 +23,7 @@
   <h1 id="compare">オブジェクトの比較演算子</h1>
 
 <h2 id="ff5136c">Java
-<span class="article-date">2014/10/15</span></h2>
+<span class="article-date">2017/01/17</span></h2>
 
 <p>プリミティブ型の値が等値かどうかを判定するには、演算子 <code>==</code>, <code>!=</code> を使う。</p>
 
@@ -38,7 +38,18 @@
 }
 </code></pre>
 
-<p>ただし、クラスごとに<code>equals</code>が適切に実装されている必要がある。</p>
+<p>ただし、<code>equals</code>はクラスごとに<code>equals</code>が適切に実装されている必要がある。</p>
+
+<p>プリミティブ型をボクシングした参照型と対応するプリミティブ型を <code>==</code> で比較した場合は、プリミティブ型として等値か等値かどうかを判定する。</p>
+
+<pre><code>if (Boolean.FALSE == false) {
+    // OK
+}
+
+if (Integer.valueOf(1000000) == 1000000) {
+    // OK
+}
+</code></pre>
 
 <p>Javaにおける <code>==</code> はRubyにおける <code>equal?</code> に似ていて、
 Javaにおける <code>equals</code> はRubyにおける <code>==</code> に似ている。</p>
@@ -112,6 +123,19 @@ Rubyにおける <code>equal?</code> はJavaにおける <code>==</code> に似�
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
