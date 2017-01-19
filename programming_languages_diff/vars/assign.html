@@ -80,24 +80,35 @@ Scalaでは <code>val</code> で再代入できないようにすることが推
 <a href="../tuple/multiple-assignment.html#python">マルチターゲット代入</a>の機能がある。</p>
 
 <h2 id="1ae6e41">sh (シェルスクリプト)
-<span class="article-date">2015/03/12</span></h2>
+<span class="article-date">2017/01/17</span></h2>
 
 <p>シェル変数を定義する例</p>
 
 <pre><code>x=Hello
-# または
-x="Hello"
+</code></pre>
+
+<p>または</p>
+
+<pre><code>x="Hello"
 </code></pre>
 
 <p>環境変数を定義する例</p>
 
 <pre><code>export x=Hello
-# または
-export x="Hello"
-# または
-x=Hello
+</code></pre>
+
+<p>または</p>
+
+<pre><code>export x="Hello"
+</code></pre>
+
+<p>または</p>
+
+<pre><code>x=Hello
 export x
 </code></pre>
+
+<p>シェルスクリプトでは <code>=</code> の前後にはスペースを入れてはいけない。これは非常にはまりやすい。</p>
 
 <p>シェル変数または環境変数を削除する例</p>
 
@@ -117,6 +128,19 @@ export x
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
