@@ -450,12 +450,55 @@ hogehoge || exit $?
 <pre><code>FOOCOMMAND | perl -MTime::HiRes -npe 'BEGIN{$|=1} ($epoc,$micro)=Time::HiRes::gettimeofday();($s,$m,$h,$D,$M,$Y)=localtime($epoc);$_=sprintf("%04d/%02d/%02d-%02d:%02d:%02d.%03d ",$Y+1900,$M+1,$D,$h,$m,$s,$micro/1000).$_'
 </code></pre>
 
+<h2 id="fef15b7">標準出力と標準エラー出力をまとめて1つのファイルに書き出すには
+<span class="article-date">2017/01/19</span></h2>
+
+<p><code>2&gt;&amp;1</code> とすれば標準エラー出力を標準出力に合流させられる。</p>
+
+<pre><code>$ COMMAND &gt;foo.txt 2&gt;&amp;1
+</code></pre>
+
+<p>逆順に書くとダメ。これでは標準エラー出力だけ画面に出力される。</p>
+
+<pre><code>$ COMMAND 2&gt;&amp;1 &gt;foo.txt
+</code></pre>
+
+<p><code>&amp;&gt;</code> または <code>&gt;&amp;</code> という記号を使っても同じことができる。この2つは同じ。こっちのほうが短く簡潔に書ける。</p>
+
+<pre><code>$ COMMAND &amp;&gt; foo.txt
+
+$ COMMAND &gt;&amp; foo.txt
+</code></pre>
+
+<p>追記したい場合は</p>
+
+<pre><code>$ COMMAND &amp;&gt;&gt; foo.txt
+</code></pre>
+
+<p>で、これは以下と同じ。</p>
+
+<pre><code>$ COMMAND &gt;&gt;foo.txt 2&gt;&amp;1
+</code></pre>
+
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="./commands/">コマンドの使い方(Linux)</a></li>
