@@ -51,22 +51,29 @@ FooClass::method1(arg1, arg2)
 <p>メンバ関数呼び出しは引数がなくても括弧が必要。</p>
 
 <h2 id="d7c89f1">Java
-<span class="article-date">2016/07/19</span></h2>
+<span class="article-date">2017/01/18</span></h2>
 
 <pre><code>// インスタンスフィールド
 obj.field1;
 
-// クラスフィールド
+// クラスフィールド (staticフィールド)
 FooClass.staticField1;
 
 // インスタンスメソッド
 obj.method1(arg1, arg2);
 
-// クラスメソッド
-FooClass.method1(arg1, arg2);
+// クラスメソッド (staticメソッド)
+FooClass.method2(arg1, arg2);
 </code></pre>
 
 <p>メソッド呼び出しは引数がなくても括弧が必要。</p>
+
+<p>JavaからScalaのコンパニオンオブジェクトのフィールドにアクセスするには</p>
+
+<pre><code>FooClass$.MODULE$.field1
+</code></pre>
+
+<p>のようにする。コンパニオンオブジェクトのクラス名は後ろに <code>$</code> が付き、インスタンスは <code>MODULE$</code> というstaticなフィールドに保存されている。</p>
 
 <h2 id="ac9e2a6">Scala
 <span class="article-date">2016/07/19</span></h2>
@@ -75,7 +82,7 @@ FooClass.method1(arg1, arg2);
 obj.field1;
 
 // コンパニオンオブジェクトのフィールド
-FooClass.staticField1;
+FooClass.field1;
 
 // メソッド
 obj.method1(arg1, arg2);
@@ -155,6 +162,19 @@ FooClass-&gt;method1($arg1, $arg2);
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
