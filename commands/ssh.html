@@ -73,25 +73,12 @@ $ ssh foohost date; date
 <h2 id="7f8730a">HOWTO</h2>
 
 <h3 id="port">ポートが22以外のSSHサーバに接続するには
-<span class="article-date">2013/05/28</span></h3>
+<span class="article-date">2017/01/16</span></h3>
 
-<pre><code>ssh -p &lt;port&gt; &lt;user&gt;@&lt;hostname&gt;
+<pre><code>$ ssh -p &lt;port&gt; &lt;user&gt;@&lt;hostname&gt;
 </code></pre>
 
-<p>moshは</p>
-
-<pre><code>mosh --ssh="ssh -p &lt;port&gt;" &lt;user&gt;@&lt;hostname&gt;
-</code></pre>
-
-<p>sshfsは</p>
-
-<pre><code>sshfs -p &lt;port&gt; &lt;user&gt;@&lt;hostname&gt;:&lt;remote_path&gt; &lt;local_path&gt;
-</code></pre>
-
-<p>rsyncは</p>
-
-<pre><code>rsync -e "ssh -p &lt;port&gt;" &lt;user&gt;@&lt;hostname&gt;:&lt;remote_path&gt; &lt;local_path&gt;
-</code></pre>
+<p>-&gt; <a href="howto/ssh-port.html">mosh, sshfs, rsyncの場合</a></p>
 
 <h3 id="46a6f68">秘密鍵を個別に指定して接続するには
 <span class="article-date">2013/05/28</span></h3>
@@ -265,6 +252,19 @@ SSH port forwarding を使っている場合は、moshが対応していない�
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
@@ -295,6 +295,7 @@ SSH port forwarding を使っている場合は、moshが対応していない�
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
       <li><a href="../commands/mecab.html">mecab コマンド</a></li>
+      <li><a href="../commands/mkdir.html">mkdir コマンド</a></li>
       <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/mv.html">mv コマンド</a></li>
@@ -318,7 +319,6 @@ SSH port forwarding を使っている場合は、moshが対応していない�
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li>ssh コマンド</li>
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
-      <li><a href="../commands/svn.html">Subversion (svn)</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
