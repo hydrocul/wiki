@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ポートが22以外のSSHサーバに接続するには | HOWTO | コマンドの使い方(Linux) | hydroculのメモ</title>
+<title>HOWTO | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,34 +16,19 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../commands/">コマンドの使い方(Linux)</a> &gt; <a href="../../commands/howto/">HOWTO</a> &gt; <span>ポートが22以外のSSHサーバに接続するには</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../commands/">コマンドの使い方(Linux)</a> &gt; <span>HOWTO</span>
 </div>
 
 <div id="content">
-  <h1 id="ssh-port">ポートが22以外のSSHサーバに接続するには
-<span class="article-date">2017/01/23</span></h1>
+  <h1 id="howto">HOWTO</h1>
 
-<p><a href="../ssh.html">sshコマンド</a>では</p>
+<h2 id="section">目次</h2>
 
-<pre><code>$ ssh -p &lt;port&gt; &lt;user&gt;@&lt;hostname&gt;
-</code></pre>
-
-<p><a href="../mosh.html">moshコマンド</a>では<br />
-(回線が切れても復帰後に自動で再接続してくれるsshコマンド)</p>
-
-<pre><code>$ mosh --ssh="ssh -p &lt;port&gt;" &lt;user&gt;@&lt;hostname&gt;
-</code></pre>
-
-<p><a href="../rsync.html">rsyncコマンド</a>では</p>
-
-<pre><code>$ rsync -e "ssh -p &lt;port&gt;" &lt;user&gt;@&lt;hostname&gt;:&lt;remote_path&gt; &lt;local_path&gt;
-</code></pre>
-
-<p><a href="../sshfs.html">sshfsコマンド</a>では<br />
-(リモートのファイルシステムをローカルにマウントするコマンド)</p>
-
-<pre><code>$ sshfs -p &lt;port&gt; &lt;user&gt;@&lt;hostname&gt;:&lt;remote_path&gt; &lt;local_path&gt;
-</code></pre>
+<ul>
+  <li><a href="../../commands/howto/nkf-convert-charset.html">ファイルの文字コードを変換するには</a></li>
+  <li><a href="../../commands/howto/ssh-port.html">ポートが22以外のSSHサーバに接続するには</a></li>
+  <li><a href="../../commands/howto/tail-f-grep.html">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</a></li>
+</ul>
 
 </div>
 
@@ -68,10 +53,10 @@
     <ul>
   <li><a href="../../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li><a href="../../commands/howto/">HOWTO</a>
+      <li>HOWTO
         <ul>
           <li><a href="../../commands/howto/nkf-convert-charset.html">ファイルの文字コードを変換するには</a></li>
-          <li>ポートが22以外のSSHサーバに接続するには</li>
+          <li><a href="../../commands/howto/ssh-port.html">ポートが22以外のSSHサーバに接続するには</a></li>
           <li><a href="../../commands/howto/tail-f-grep.html">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</a></li>
         </ul>
       </li>
