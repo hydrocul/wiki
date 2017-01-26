@@ -28,17 +28,45 @@
 <p>チェック例外ともいう。</p>
 
 <h2 id="java">Java
-<span class="article-date">2013/08/22</span></h2>
+<span class="article-date">2017/01/24</span></h2>
 
 <p>検査例外をスローする可能性のあるメソッドには、メソッドシグニチャに 
-<code>throws</code> が必要。検査例外は <code>Exception</code> でかつ <code>RuntimeException</code> でないもの。非検査例外は <code>Error</code> または <code>RuntimeException</code>。</p>
+<code>throws</code> の宣言が必要。検査例外は <code>Exception</code> でかつ <code>RuntimeException</code> でないもの。非検査例外は <code>Error</code> または <code>RuntimeException</code>。</p>
 
-<p>-&gt; <a href="class-hierarchy.html#java">Javaの例外クラス階層</a></p>
+<p>例外クラスの階層</p>
+
+<pre><code>Throwable            (チェック例外)
+  Exception          (チェック例外)
+    RuntimeException (非チェック例外)
+      ...            (非チェック例外)
+    ...              (チェック例外)
+  Error              (非チェック例外)
+    ...              (非チェック例外)
+</code></pre>
+
+<p><code>throws</code> の宣言のあるメソッド定義の例</p>
+
+<pre><code>// 抽象メソッド
+int method1(int arg) throws FooException, BarException;
+
+// 実体定義のあるメソッド
+int method2(int arg) throws FooException, BarException {
+    ...;
+}
+</code></pre>
 
 <h2 id="eb914c6">Scala
-<span class="article-date">2013/07/18</span></h2>
+<span class="article-date">2017/01/24</span></h2>
 
 <p>Javaの検査例外も含めすべての例外が非検査例外の扱いになる。</p>
+
+<p>メソッド定義には <code>throws</code> の宣言は不要だが、
+Javaとの相互運用のために <code>throws</code> 宣言が必要な場合は以下のように書く。</p>
+
+<pre><code>@throws(classOf[FooException])
+@throws(classOf[BarException])
+def method1(arg: Int): Int;
+</code></pre>
 
 <h2 id="c7d5fdf">PHP
 <span class="article-date">2013/09/11</span></h2>
@@ -64,6 +92,19 @@
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
