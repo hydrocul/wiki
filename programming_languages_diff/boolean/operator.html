@@ -229,12 +229,75 @@ x || y
 ! 1      # =&gt; ''
 </code></pre>
 
+<h2 id="b675a15">sh (シェルスクリプト)
+<span class="article-date">2017/01/24</span></h2>
+
+<p>if文などでの論理演算子もどき。</p>
+
+<pre><code># 論理積(AND)の例
+if [ "$x1" -eq "$x2" -a "$y1" -eq "$y2" ]; then
+    ...
+fi
+# または
+if [ "$x1" -eq "$x2" ] &amp;&amp; [ "$y1" -eq "$y2" ]; then
+    ...
+fi
+
+# 論理和(OR)の例
+if [ "$x1" -eq "$x2" -o "$y1" -eq "$y2" ]; then
+    ...
+fi
+# または
+if [ "$x1" -eq "$x2" ] || [ "$y1" -eq "$y2" ]; then
+    ...
+fi
+
+# 否定(NOT)の例
+if [ ! "$x1" -eq "$x2" ]; then
+    ...
+fi
+# または
+if ! [ "$x1" -eq "$x2" ]; then
+    ...
+fi
+</code></pre>
+
+<p>1つ目のコマンドに成功した場合に限って2つ目のコマンドを実行するには <code>&amp;&amp;</code> で区切る。</p>
+
+<pre><code>COMMAND1 arg11 arg21 ... &amp;&amp; COMMAND2 arg21 arg22 ...
+</code></pre>
+
+<p>1つ目のコマンドに失敗した場合に限って2つ目のコマンドを実行するには <code>||</code> で区切る。</p>
+
+<pre><code>COMMAND1 arg11 arg21 ... || COMMAND2 arg21 arg22 ...
+</code></pre>
+
+<p>これらは他のプログラミング言語での短絡評価の仕組みに似ている。</p>
+
+<p>コマンドの実行に失敗したらシェルスクリプトを異常終了させるには</p>
+
+<pre><code>COMMAND1 arg11 arg21 ... || exit $?
+</code></pre>
+
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
