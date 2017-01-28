@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>HOWTO | コマンドの使い方(Linux) | hydroculのメモ</title>
+<title>テキストファイルに行番号を付けるには | HOWTO | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,20 +16,76 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../commands/">コマンドの使い方(Linux)</a> &gt; <span>HOWTO</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../commands/">コマンドの使い方(Linux)</a> &gt; <a href="../../commands/howto/">HOWTO</a> &gt; <span>テキストファイルに行番号を付けるには</span>
 </div>
 
 <div id="content">
-  <h1 id="howto">HOWTO</h1>
+  <h1 id="nl">テキストファイルに行番号を付けるには
+<span class="article-date">2017/01/28</span></h1>
 
-<h2 id="section">目次</h2>
+<p>以下のようなテキストファイルがあったとする。</p>
 
-<ul>
-  <li><a href="../../commands/howto/nkf-convert-charset.html">ファイルの文字コードを変換するには</a></li>
-  <li><a href="../../commands/howto/nl.html">テキストファイルに行番号を付けるには</a></li>
-  <li><a href="../../commands/howto/ssh-port.html">ポートが22以外のSSHサーバに接続するには</a></li>
-  <li><a href="../../commands/howto/tail-f-grep.html">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</a></li>
-</ul>
+<pre><code>$ cat foo.txt
+abc
+def
+ABC
+
+abc
+</code></pre>
+
+<p><a href="../nl.html"><code>nl</code>コマンド</a>では</p>
+
+<pre><code>$ nl foo.txt
+     1  abc
+     2  def
+     3  ABC
+
+     4  abc
+</code></pre>
+
+<p><a href="../cat.html"><code>cat -n</code></a> では</p>
+
+<pre><code>$ cat -n foo.txt
+     1  abc
+     2  def
+     3  ABC
+     4
+     5  abc
+</code></pre>
+
+<p><a href="../cat.html"><code>cat -b</code></a> では</p>
+
+<pre><code>$ cat -b foo.txt
+     1  abc
+     2  def
+     3  ABC
+
+     4  abc
+</code></pre>
+
+<p><a href="../less.html"><code>less -N</code></a> では</p>
+
+<pre><code>$ less -N foo.txt
+      1 abc
+      2 def
+      3 ABC
+      4
+      5 abc
+</code></pre>
+
+<p>いずれも行番号は1から始まる。</p>
+
+<p>行番号を0から始めるには、<code>less</code> や <code>cat</code> での方法がわからないので、自分は</p>
+
+<pre><code>$ cat foo.txt | perl -nle 'print "".($.-1)." $_"' | less
+</code></pre>
+
+<p>または<a href="../awk.html"><code>awk</code></a>を使って</p>
+
+<pre><code>$ cat foo.txt | awk '{print NR-1 " " $0;}' | less
+</code></pre>
+
+<p>としている。</p>
 
 </div>
 
@@ -54,10 +110,10 @@
     <ul>
   <li><a href="../../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li>HOWTO
+      <li><a href="../../commands/howto/">HOWTO</a>
         <ul>
           <li><a href="../../commands/howto/nkf-convert-charset.html">ファイルの文字コードを変換するには</a></li>
-          <li><a href="../../commands/howto/nl.html">テキストファイルに行番号を付けるには</a></li>
+          <li>テキストファイルに行番号を付けるには</li>
           <li><a href="../../commands/howto/ssh-port.html">ポートが22以外のSSHサーバに接続するには</a></li>
           <li><a href="../../commands/howto/tail-f-grep.html">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</a></li>
         </ul>
