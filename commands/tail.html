@@ -89,14 +89,14 @@
 
 <p>最後のn行ではなく、先頭の n-1 行を削ったn行目以降を出力するには <code>+</code> を付ける。</p>
 
-<pre><code># 最初の9行を除いて10行目からを表示
-tail -n +10 hoge.txt
+<pre><code>## 最初の9行を除いて10行目からを表示
+$ tail -n +10 hoge.txt
 </code></pre>
 
 <p>行単位ではなくバイト単位も同様。</p>
 
-<pre><code># 最初の9バイトを除いて10バイト目からを表示
-tail -c +10 hoge.txt
+<pre><code>## 最初の9バイトを除いて10バイト目からを表示
+$ tail -c +10 hoge.txt
 </code></pre>
 
 <h2 id="e33b592">n行目だけを出力するには
@@ -107,14 +107,14 @@ tail -c +10 hoge.txt
 
 <p>10行目だけを出力する例</p>
 
-<pre><code>head -n10 | tail -n1
+<pre><code>$ cat hoge.txt | head -n10 | tail -n1
 </code></pre>
 
 <p>まあ、2つのコマンドを組み合わせなくても<a href="sed.html#slice"><code>sed</code>コマンド</a>を使ったほうが簡単かも。</p>
 
 <p>10行目だけを出力する例</p>
 
-<pre><code>sed -n 10p
+<pre><code>$ cat hoge.txt | sed -n 10p
 </code></pre>
 
 <h2 id="tac">行を逆順にするには
@@ -249,7 +249,6 @@ tail -f --pid $! log.txt
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pwd.html">pwd コマンド</a></li>
