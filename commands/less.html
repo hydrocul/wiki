@@ -26,7 +26,7 @@
 <p>テキストファイルの中身をターミナル上でスクロールしながら閲覧できるコマンド。表示中はスペースで下にスクロール、<code>b</code> で上にスクロールできる。</p>
 
 <h2 id="cc7b066">オプション
-<span class="article-date">2016/06/19</span></h2>
+<span class="article-date">2017/01/28</span></h2>
 
 <dl>
   <dt><code>-F</code></dt>
@@ -34,7 +34,8 @@
   <dt><code>--help</code></dt>
   <dd>ヘルプ表示</dd>
   <dt><code>-i</code></dt>
-  <dd>検索モードでキーワードをすべて小文字で入力した場合に、大文字小文字の区別をしない。検索キーワードに大文字が混ざっていた場合にはこのオプションをつけていても大文字小文字を区別する。</dd>
+  <dd>検索モードでキーワードをすべて小文字で入力した場合に、大文字小文字の区別をしない。
+検索キーワードに大文字が混ざっていた場合にはこのオプションをつけていても大文字小文字を区別する。</dd>
   <dt><code>-N</code></dt>
   <dd>行番号を表示する。(<a href="cat.html"><code>cat</code></a> でこれに相当するのは <code>-n</code>)</dd>
   <dt><code>-r</code></dt>
@@ -47,7 +48,8 @@
 <a href="ls.html"><code>ls</code></a> は <code>--color</code>、 <a href="grep.html"><code>grep</code></a> は <code>--color=always</code> を付けると
 色付きで出力される。</dd>
   <dt><code>-S</code></dt>
-  <dd>長い行を折り返さずに横方向にもページングできるようにする。</dd>
+  <dd>長い行を折り返さずに横方向にもページングできるようにする。
+各行の左の方だけ見えれば十分な場合にもこのオプションは便利。</dd>
   <dt><code>--version</code></dt>
   <dd>バージョン表示</dd>
   <dt><code>-X</code></dt>
@@ -205,36 +207,25 @@ c.txt
 
 <p>-&gt; <a href="cat.html#less">長いテキストファイルを見るには</a></p>
 
-<h2 id="d0b1288">行番号を表示するには
-<span class="article-date">2015/10/21</span></h2>
+<h3 id="f331bb6">行番号を表示するには</h3>
 
-<p>オプション <code>-N</code> を使う。</p>
+<p>-&gt; <a href="howto/nl.html">テキストファイルに行番号を付けるには</a></p>
 
-<pre><code>$ less -N foo.txt
-1 Hello,
-2 World.
+<h3 id="e7828ff">閲覧中に <code>grep</code> のように検索にマッチした部分だけを表示させるには
+<span class="article-date">2017/01/28</span></h3>
+
+<pre><code>$ grep foo.txt -e PATTERN | less
 </code></pre>
 
-<p><a href="cat.html"><code>cat</code>コマンド</a>で行番号を表示するには、オプション <code>-n</code> を使う。</p>
+<p>のかわりに</p>
 
-<pre><code>$ cat -n foo.txt
-1 Hello,
-2 World.
+<pre><code>$ less foo.txt
 </code></pre>
 
-<p>いずれも行番号は1から始まる。</p>
+<p>として、 <code>&amp;</code> を押して、検索キーワードを入力して Enter を押すと、検索にマッチした行だけの表示に変わる。 <code>&amp;</code> を押して続けて Enter を押せば、全行表示に戻る。</p>
 
-<p>行番号を0から始めるには、<code>less</code> や <code>cat</code> での方法がわからないので、自分は</p>
-
-<pre><code>$ cat foo.txt | perl -nle 'print "".($.-1)." $_"' | less
-</code></pre>
-
-<p>または<a href="awk.html"><code>awk</code></a>を使って</p>
-
-<pre><code>$ cat foo.txt | awk '{print NR-1 " " $0;}' | less
-</code></pre>
-
-<p>としている。</p>
+<p>検索にマッチしない行だけを表示(<code>grep -v -e PATTERN</code> のかわり)させたければ、
+<code>&amp;</code> を押して、 <code>!</code> を押してから検索キーワード、Enter を押せばよい。</p>
 
 </div>
 
@@ -291,9 +282,9 @@ c.txt
       <li><a href="../commands/mv.html">mv コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
+      <li><a href="../commands/nl.html">nl コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pwd.html">pwd コマンド</a></li>
