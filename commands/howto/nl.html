@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="nl">テキストファイルに行番号を付けるには
-<span class="article-date">2017/01/28</span></h1>
+<span class="article-date">2017/01/30</span></h1>
 
 <p>以下のようなテキストファイルがあったとする。</p>
 
@@ -41,6 +41,16 @@ abc
      3  ABC
 
      4  abc
+</code></pre>
+
+<p><a href="../nl.html"><code>nl -b a</code></a>では</p>
+
+<pre><code>$ nl -b a foo.txt
+     1  abc
+     2  def
+     3  ABC
+     4
+     5  abc
 </code></pre>
 
 <p><a href="../cat.html"><code>cat -n</code></a> では</p>
