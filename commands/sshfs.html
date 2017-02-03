@@ -21,15 +21,19 @@
 
 <div id="content">
   <h1 id="sshfs">sshfs コマンド
-<span class="article-date">2014/10/22</span></h1>
+<span class="article-date">2017/01/23</span></h1>
 
 <p>SSHを使ってリモートのファイルシステムをローカルにマウントするためのコマンド。これによってリモートにあるファイルを直接ローカルのエディタで編集したり、
 <code>cp</code>コマンドや<code>mv</code>コマンドなどでリモートのファイルを操作できるようになる。</p>
 
-<p>例</p>
+<pre><code>$ sshfs &lt;user&gt;@&lt;hostname&gt;:&lt;remote_path&gt; &lt;local_path&gt;
+</code></pre>
 
-<pre><code>## リモートのルートをローカルの ~/mnt/hogesrv にマウント
-$ sshfs -o auto_cache -o reconnect hogesrv:/ ~/mnt/hogesrv
+<p>(<a href="rsync.html"><code>rsync</code>コマンド</a>でリモートからローカルにファイルをダウンロードするときの書式に似ている。</p>
+
+<p>例 (リモートのルートをローカルの ~/mnt/hogesrv にマウント)</p>
+
+<pre><code>$ sshfs -o auto_cache -o reconnect hogesrv:/ ~/mnt/hogesrv
 </code></pre>
 
 <p>書式は<a href="rsync.html"><code>rsync</code>コマンド</a>に似ているかもしれない。</p>
@@ -115,9 +119,9 @@ rm -rf * とかやって、その中にマウントしているリモートの�
       <li><a href="../commands/mv.html">mv コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
+      <li><a href="../commands/nl.html">nl コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pwd.html">pwd コマンド</a></li>
