@@ -21,24 +21,46 @@
 
 <div id="content">
   <h1 id="nl">nl コマンド
-<span class="article-date">2017/01/28</span></h1>
+<span class="article-date">2017/01/30</span></h1>
 
 <p>行番号を先頭に表示してくれるコマンド。</p>
 
 <p>空行には行番号が付与されず、カウントもされない。</p>
 
-<pre><code>$ cat $p/sample-codes/test.txt
+<pre><code>$ cat foo.txt
 abc
 def
 ABC
 
 abc
-$ nl $p/sample-codes/test.txt
+
+$ nl foo.txt
      1  abc
      2  def
      3  ABC
 
      4  abc
+
+$ nl -b afoo.txt
+     1  abc
+     2  def
+     3  ABC
+     4
+     5  abc
+
+$ nl -n rz foo.txt
+000001  abc
+000002  def
+000003  ABC
+
+000004  abc
+
+$ nl -v 0 foo.txt
+     0  abc
+     1  def
+     2  ABC
+
+     3  abc
 </code></pre>
 
 <p><a href="howto/nl.html"><code>cat -n</code>, <code>cat -b</code>, <code>less -N</code></a>でも同じようなことができる。</p>
