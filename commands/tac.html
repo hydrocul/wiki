@@ -49,7 +49,7 @@ abc
 <pre><code>$ cat foo.txt | tac
 </code></pre>
 
-<p>行の順番は変えずに行の中の文字を逆順にする <code>rev</code> というコマンドもある。</p>
+<p>行の順番は変えずに行の中の文字を逆順にする <a href="rev.html"><code>rev</code></a> というコマンドもある。</p>
 
 <pre><code>$ ( echo しんぶんし; echo たけやぶ焼けた) | cat
 しんぶんし
@@ -70,6 +70,23 @@ $ ( echo しんぶんし; echo たけやぶ焼けた) | tac
 <span class="article-date">2016/03/17</span></h2>
 
 <p>Coreutilsというパッケージに入っているので、CentOSにもUbuntuにも始めから入っている。</p>
+
+<h2 id="89ff755">オプション
+<span class="article-date">2017/02/18</span></h2>
+
+<dl>
+  <dt><code>--help</code></dt>
+  <dd>ヘルプ表示</dd>
+  <dt><code>-r</code></dt>
+  <dd><code>-s</code> で指定する区切り文字を正規表現で解釈する</dd>
+  <dt><code>-s</code> &lt;STRING&gt;</dt>
+  <dd>改行ではなく、指定の文字を区切り文字にする</dd>
+  <dt><code>--version</code></dt>
+  <dd>バージョン表示</dd>
+</dl>
+
+<p><code>--</code> というパラメータを渡すとそれ以降のパラメータをオプションではなくファイル名とみなしてくれるので、
+<code>-</code> で始まるファイル名を扱いたい場合に使うとよい。</p>
 
 <h2 id="2e5fbba">移植性
 <span class="article-date">2015/11/04</span></h2>
@@ -107,6 +124,19 @@ lucky.feeling m I'
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
@@ -136,14 +166,16 @@ lucky.feeling m I'
       <li><a href="../commands/ls.html">ls コマンド</a></li>
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
+      <li><a href="../commands/mecab.html">mecab コマンド</a></li>
+      <li><a href="../commands/mkdir.html">mkdir コマンド</a></li>
       <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/mv.html">mv コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
+      <li><a href="../commands/nl.html">nl コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pwd.html">pwd コマンド</a></li>
@@ -159,7 +191,6 @@ lucky.feeling m I'
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
-      <li><a href="../commands/svn.html">Subversion (svn)</a></li>
       <li>tac コマンド</li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
