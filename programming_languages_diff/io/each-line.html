@@ -186,7 +186,7 @@ source.close();
 <p>この <code>stdinLineIterator</code> が返す各行の文字列には最後の改行を含まない。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2015/06/25</span></h2>
+<span class="article-date">2017/02/27</span></h2>
 
 <p>例</p>
 
@@ -194,7 +194,8 @@ source.close();
 if ($fh) {
   while (!feof($fh)) {
     $line = fgets($fh);
-    // $line には最後の改行を含む
+    // $line には最後の改行を含む。
+    // ファイルの最後が改行の場合、最後のループは空文字列になる。
     ...;
   }
   fclose($fh);
