@@ -124,18 +124,38 @@ alias ls='ls --color=auto' 2&gt;/dev/null
 </code></pre>
 
 <h2 id="sort-by-timestamp">タイムスタンプの新しい順にファイル一覧を表示するには
-<span class="article-date">2015/02/04</span></h2>
+<span class="article-date">2017/03/10</span></h2>
 
-<p><code>ls -lt</code> とすればよい。古い順にするには <code>ls -ltr</code> とする。</p>
+<pre><code>$ ls -lt
+</code></pre>
+
+<p>とすればよい。古い順にするには</p>
+
+<pre><code>$ ls -ltr
+</code></pre>
+
+<p>とする。</p>
+
+<p>秒まで表示するには</p>
+
+<pre><code>$ ls -t --full-time
+</code></pre>
+
+<p>または</p>
+
+<pre><code>$ ls -tr --full-time
+</code></pre>
+
+<p>とする。</p>
 
 <p><code>-t</code>というオプションを知らなかったときは以下の方法を使っていた。</p>
 
-<pre><code>ls -alF --time-style="+%Y-%m-%d %H:%M:%S" | sort -r -k6,7
+<pre><code>$ ls -alF --time-style="+%Y-%m-%d %H:%M:%S" | sort -r -k6,7
 </code></pre>
 
 <p>逆に古い順にソートするには</p>
 
-<pre><code>ls -alF --time-style="+%Y-%m-%d %H:%M:%S" | sort -k6,7
+<pre><code>$ ls -alF --time-style="+%Y-%m-%d %H:%M:%S" | sort -k6,7
 </code></pre>
 
 <p>ディレクトリを階層的にたどってすべてのファイルを新しい順に並べるには<code>ls</code>コマンドでなく、
@@ -196,9 +216,9 @@ alias ls='ls --color=auto' 2&gt;/dev/null
       <li><a href="../commands/mv.html">mv コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
+      <li><a href="../commands/nl.html">nl コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pwd.html">pwd コマンド</a></li>
