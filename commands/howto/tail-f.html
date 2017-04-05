@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>HOWTO | コマンドの使い方(Linux) | hydroculのメモ</title>
+<title>ログファイルなどの追記出力をリアルタイムに見るには | HOWTO | コマンドの使い方(Linux) | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -16,20 +16,36 @@
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../commands/">コマンドの使い方(Linux)</a> &gt; <span>HOWTO</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../commands/">コマンドの使い方(Linux)</a> &gt; <a href="../../commands/howto/">HOWTO</a> &gt; <span>ログファイルなどの追記出力をリアルタイムに見るには</span>
 </div>
 
 <div id="content">
-  <h1 id="howto">HOWTO</h1>
+  <h1 id="tail-f">ログファイルなどの追記出力をリアルタイムに見るには
+<span class="article-date">2017/03/26</span></h1>
 
-<h2 id="section">目次</h2>
+<p><code>tail -f</code> や <code>less +F</code> は、ログファイルがリネームや削除されても最初に開いたファイルを監視し続ける。</p>
+
+<p>一方で <code>tail -F</code> は、ログファイルがリネームや削除され、元のファイルと同じ名前のファイルが作成された場合に、新しいファイルの方を監視し直してくれる。</p>
+
+<p><code>tailf</code> はログファイルがリネームや削除されると、終了する。</p>
+
+<p><code>tail -f</code> や <code>tail -F</code> や <code>tailf</code> は本当にリアルタイムに監視できている気がするが、
+<code>less +F</code> は一瞬反応が遅い気がする。</p>
+
+<p><code>tail -f</code> や <code>tail -F</code> や <code>tailf</code> を終了するには <code>Ctrl-C</code> を押す。</p>
+
+<p><code>less +F</code> を終了するには <code>Ctrl-C</code> を押して追記監視モードを解除してから <code>q</code> で <code>less</code> を脱出する。追記監視モードを解除したあとに <code>Shift-F</code> を押すと、追記監視モードに戻る。</p>
+
+<p>というか、起動時に <code>+F</code> を付けずに普通に <code>less</code> を起動した後に 
+<code>Shift-F</code> を押しても追記監視モードに変わる。</p>
+
+<h2 id="ad3eeed">関連</h2>
 
 <ul>
-  <li><a href="../../commands/howto/nkf-convert-charset.html">ファイルの文字コードを変換するには</a></li>
-  <li><a href="../../commands/howto/nl.html">テキストファイルに行番号を付けるには</a></li>
-  <li><a href="../../commands/howto/ssh-port.html">ポートが22以外のSSHサーバに接続するには</a></li>
-  <li><a href="../../commands/howto/tail-f.html">ログファイルなどの追記出力をリアルタイムに見るには</a></li>
-  <li><a href="../../commands/howto/tail-f-grep.html">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</a></li>
+  <li><a href="tail-f-grep.html">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</a></li>
+  <li><a href="../tail.html"><code>tail</code>コマンド</a></li>
+  <li><a href="../tailf.html"><code>tailf</code>コマンド</a></li>
+  <li><a href="../less.html"><code>less</code>コマンド</a></li>
 </ul>
 
 </div>
@@ -55,12 +71,12 @@
     <ul>
   <li><a href="../../commands/">コマンドの使い方(Linux)</a>
     <ul>
-      <li>HOWTO
+      <li><a href="../../commands/howto/">HOWTO</a>
         <ul>
           <li><a href="../../commands/howto/nkf-convert-charset.html">ファイルの文字コードを変換するには</a></li>
           <li><a href="../../commands/howto/nl.html">テキストファイルに行番号を付けるには</a></li>
           <li><a href="../../commands/howto/ssh-port.html">ポートが22以外のSSHサーバに接続するには</a></li>
-          <li><a href="../../commands/howto/tail-f.html">ログファイルなどの追記出力をリアルタイムに見るには</a></li>
+          <li>ログファイルなどの追記出力をリアルタイムに見るには</li>
           <li><a href="../../commands/howto/tail-f-grep.html">ログファイルなどの <code>tail -f</code> の出力をgrepで絞り込んで表示するには</a></li>
         </ul>
       </li>

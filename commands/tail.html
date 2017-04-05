@@ -133,11 +133,16 @@ $ tail -c +10 hoge.txt
 <p>CentOSやUbuntuでは、<code>-r</code> オプションを使えないが代わりに<a href="tac.html"><code>tac</code>コマンド</a>を使えばよい。</p>
 
 <h2 id="1e48712">ログファイルなどの追記出力をリアルタイムに画面に表示するには
-<span class="article-date">2016/12/15</span></h2>
+<span class="article-date">2017/03/26</span></h2>
 
 <p>以下のように <code>-f</code> を付けると、ログをリアルタイムに監視できる。このコマンドを起動すると、ファイルの最後の部分を表示した後、ファイルの追記を監視して、追記されたらその部分を表示して監視を継続してくれる。監視を終了するには Ctrl+C を押すなどする。</p>
 
 <pre><code>$ tail -f access_log
+</code></pre>
+
+<p><a href="tailf.html"><code>tailf</code>コマンド</a>でも同じ。</p>
+
+<pre><code>$ tailf access_log
 </code></pre>
 
 <p>ログファイルを<code>grep</code>などでパイプ処理して <code>tail -f</code> で監視する場合に、</p>
@@ -152,14 +157,15 @@ $ tail -c +10 hoge.txt
 <pre><code>tail -f access_log | grep --line-buffered 404
 </code></pre>
 
+<p><a href="less.html#tailf"><code>less</code>コマンド</a>でも <code>+F</code> というオプションで <code>tail -f</code> と同じことができる。</p>
+
 <p>関連</p>
 
 <ul>
+  <li><a href="howto/tail-f.html">ログファイルなどの追記出力をリアルタイムに見るには</a></li>
   <li><a href="howto/tail-f-grep.html"><code>grep</code>を<code>tail -f</code>と組み合わせるには</a></li>
   <li><a href="sed.html#tailf"><code>sed</code>を<code>tail -f</code>と組み合わせるには</a></li>
 </ul>
-
-<p><a href="less.html#tailf"><code>less</code>コマンド</a>でも <code>+F</code> というオプションで <code>tail -f</code> と同じことができる。</p>
 
 <h2 id="f4d6180">複数のログファイルを同時に監視するには
 <span class="article-date">2016/03/08</span></h2>
@@ -247,6 +253,7 @@ tail -f --pid $! log.txt
       <li><a href="../commands/mv.html">mv コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
+      <li><a href="../commands/nl.html">nl コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
@@ -266,6 +273,7 @@ tail -f --pid $! log.txt
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li>tail コマンド</li>
+      <li><a href="../commands/tailf.html">tailf コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
       <li><a href="../commands/tee.html">tee コマンド</a></li>
       <li><a href="../commands/time.html">time コマンド</a></li>
