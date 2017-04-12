@@ -76,7 +76,7 @@ end
 <h3 id="9ac05c9">sh (シェルスクリプト)
 <span class="article-date">2015/12/26</span></h3>
 
-<pre><code>if [ -e FILEPATH ]; then
+<pre><code>if [ -e "$FILEPATH" ]; then
     # ファイルまたはディレクトリ等が存在する場合
     ...
 else
@@ -128,7 +128,7 @@ end
 <h3 id="86d210e">sh (シェルスクリプト)
 <span class="article-date">2015/12/21</span></h3>
 
-<pre><code>if [ -d FILEPATH ]; then
+<pre><code>if [ -d "$FILEPATH" ]; then
     # ディレクトリの場合
     ...
 fi
@@ -166,7 +166,7 @@ end
 <h3 id="7ec5413">sh (シェルスクリプト)
 <span class="article-date">2015/12/21</span></h3>
 
-<pre><code>if [ -L FILEPATH ]; then
+<pre><code>if [ -L "$FILEPATH" ]; then
     # シンボリックリンクの場合
     ...
 fi
@@ -174,8 +174,7 @@ fi
 
 <h2 id="is-empty">ファイルサイズのチェック</h2>
 
-<p>-&gt; <a href="is-empty.html">ファイルサイズが0かどうかを取得するには</a><br />
--&gt; <a href="file-size.html">ファイルサイズを取得するには</a></p>
+<p>-&gt; <a href="file-size.html">ファイルサイズを取得するには</a></p>
 
 <h3 id="ba9d102">Java
 <span class="article-date">2016/01/11</span></h3>
@@ -220,7 +219,7 @@ end
 <h3 id="f4e378d">sh (シェルスクリプト)
 <span class="article-date">2015/12/21</span></h3>
 
-<pre><code>if [ -s FILEPATH ]; then
+<pre><code>if [ -s "$FILEPATH" ]; then
     # ファイルサイズが0より大きい場合
     ...
 fi
@@ -232,7 +231,7 @@ fi
 <span class="article-date">2015/12/21</span></h3>
 
 <pre><code>if (filemtime($filePath1) &gt; filemtime($filePath2)) {
-    # FILEPATH1 が FILEPATH2 よりもタイムスタンプが新しい場合
+    # $filePath1 が $filePath2 よりもタイムスタンプが新しい場合
     ...;
 }
 </code></pre>
@@ -258,12 +257,12 @@ end
 <h3 id="dd5ab3b">sh (シェルスクリプト)
 <span class="article-date">2015/12/21</span></h3>
 
-<pre><code>if [ FILEPATH1 -nt FILEPATH2 ]; then
+<pre><code>if [ "$FILEPATH1" -nt "$FILEPATH2" ]; then
     # FILEPATH1 が FILEPATH2 よりもタイムスタンプが新しい場合
     ...
 fi
 
-if [ FILEPATH1 -ot FILEPATH2 ]; then
+if [ "$FILEPATH"1 -ot "$FILEPATH"2 ]; then
     # FILEPATH1 が FILEPATH2 よりもタイムスタンプが古い場合
     ...
 fi
