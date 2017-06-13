@@ -98,11 +98,15 @@
 </dl>
 
 <h2 id="5ca314b">アクション
-<span class="article-date">2015/05/25</span></h2>
+<span class="article-date">2017/04/19</span></h2>
 
 <dl>
   <dt><code>-ls</code></dt>
   <dd><a href="ls.html"><code>ls</code>コマンド</a>の <code>-gids</code> オプションと似たような書式で検索結果を表示する。</dd>
+  <dt><code>-print</code></dt>
+  <dd>ファイルのパスを改行区切りで表示する。このアクションがデフォルト。</dd>
+  <dt><code>-print0</code></dt>
+  <dd>ファイルのパスをNULL文字区切りで表示する。</dd>
   <dt><code>-printf</code> 書式</dt>
   <dd>書式に基づいてファイルのパスを表示する。パスだけでなく、タイムスタンプやファイルサイズも表示できる。</dd>
   <dt><code>-exec</code> コマンド <code>\;</code></dt>
@@ -342,9 +346,9 @@ $ ls -aR | grep PATTERN
       <li><a href="../commands/mv.html">mv コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
+      <li><a href="../commands/nl.html">nl コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pwd.html">pwd コマンド</a></li>
@@ -362,6 +366,7 @@ $ ls -aR | grep PATTERN
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
+      <li><a href="../commands/tailf.html">tailf コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
       <li><a href="../commands/tee.html">tee コマンド</a></li>
       <li><a href="../commands/time.html">time コマンド</a></li>
