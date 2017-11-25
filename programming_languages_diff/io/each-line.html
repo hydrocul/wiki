@@ -192,10 +192,13 @@ source.close();
 
 <pre><code>$fh = fopen($filePath, 'r');
 if ($fh) {
-  while (!feof($fh)) {
-    $line = fgets($fh);
+  while (($line = fgets($fh)) !== false) {
+    // ファイルの最後が改行の場合、その改行を含む行がループの最後になる。
     // $line には最後の改行を含む。
-    // ファイルの最後が改行の場合、最後のループは空文字列になる。
+    
+    // 改行を削除
+    $line = preg_replace('/\r?\n?\z/', '', $line);
+    
     ...;
   }
   fclose($fh);

@@ -161,12 +161,33 @@ print join(',', (1, 2, 3) x 3);
 <p>乗法演算子 | perldoc.jp<br />
 <a href="http://perldoc.jp/docs/perl/5.20.1/perlop.pod#Multiplicative32Operators" target="_blank" class="external-link">http://perldoc.jp/docs/perl/5.20.1/perlop.pod#Multiplicative32Operators</a></p>
 
+<h2 id="sh">sh (シェルスクリプト)
+<span class="article-date">2017/07/30</span></h2>
+
+<pre><code>str=$(head -c 3 /dev/zero | sed -e 's/\x00/abc/g')
+echo $str
+# =&gt; abcabcabc
+</code></pre>
+
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>

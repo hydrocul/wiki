@@ -152,13 +152,27 @@ Java7以降では、正規表現で意味のある記号類以外の普通の1�
 <p><code>scala.collection.immutable.StringLike</code> にある<code>Char</code>型で分割文字列を指定するメソッドも、結局は中で正規表現にされて、<code>java.lang.String#split</code> が呼び出される。</p>
 
 <h2 id="php">PHP
-<span class="article-date">2015/10/02</span></h2>
+<span class="article-date">2017/04/24</span></h2>
 
 <p>例</p>
 
 <pre><code>$arr = explode($separator, $str);
 # または
 $arr = explode($separator, $str, $limit);
+</code></pre>
+
+<p>最後に区切り文字があってもちゃんとそれも区切ってくれる。</p>
+
+<pre><code>$str = "abc,def,ghi,,";
+var_export(explode(",", $str)); echo "\n";
+// 出力結果
+// array (
+//   0 =&gt; 'abc',
+//   1 =&gt; 'def',
+//   2 =&gt; 'ghi',
+//   3 =&gt; '',
+//   4 =&gt; '',
+// )
 </code></pre>
 
 <p><code>$str</code> に空文字列を与えると、空文字列だけの要素数1の配列が返される。</p>
@@ -176,17 +190,6 @@ var_export(explode("\n", $str));
 // array (
 //   0 =&gt; '',
 //   1 =&gt; '',
-// )
-
-$str = "abc\ndef\n\nghi\n";
-var_export(explode("\n", $str));
-// 出力結果
-// array (
-//   0 =&gt; 'abc',
-//   1 =&gt; 'def',
-//   2 =&gt; '',
-//   3 =&gt; 'ghi',
-//   4 =&gt; '',
 // )
 </code></pre>
 
@@ -323,6 +326,19 @@ print Dumper \@arr;
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>

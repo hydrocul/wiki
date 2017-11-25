@@ -72,7 +72,7 @@ func f() (int, string) {
 <p>簡単に複数の戻り値を返す方法はなさそう。</p>
 
 <h2 id="scala">Scala
-<span class="article-date">2014/10/13</span></h2>
+<span class="article-date">2017/06/09</span></h2>
 
 <p><a href="overview.html#scala">タプル</a>を返せばよい。</p>
 
@@ -86,6 +86,11 @@ val (a, b) = f();
 
 println(a); // =&gt; 1
 println(b); // =&gt; abc
+</code></pre>
+
+<p>返り値の一部が不要な場合は、アンダースコアを使う。</p>
+
+<pre><code>val (a, _) = f();
 </code></pre>
 
 <h2 id="e0f1da3">PHP
@@ -106,7 +111,7 @@ echo "$str\n"; # =&gt; abc
 <a href="http://www.php.net/manual/ja/functions.returning-values.php" target="_blank" class="external-link">http://www.php.net/manual/ja/functions.returning-values.php</a></p>
 
 <h2 id="6821494">Python
-<span class="article-date">2016/01/04</span></h2>
+<span class="article-date">2017/06/09</span></h2>
 
 <p><a href="../list/overview.html#python">リストまたはタプル</a>を使えば、関数から複数値を返せる。受け取る方は変数名をコンマ区切りで複数書くだけ。</p>
 
@@ -120,6 +125,11 @@ echo "$str\n"; # =&gt; abc
 a, b = f()
 print(a) # =&gt; 1
 print(b) # =&gt; abc
+</code></pre>
+
+<p>返り値の一部が不要な場合は、アンダースコアだけの変数名を使って、不要であることを明示するのがよい。</p>
+
+<pre><code>a, _ = f()
 </code></pre>
 
 <h2 id="ee3804b">Ruby / JRuby
@@ -153,6 +163,19 @@ my ($num, $str) = f;
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>

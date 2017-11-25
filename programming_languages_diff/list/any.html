@@ -36,18 +36,19 @@
 
 <ul>
   <li><a href="http://www.scala-lang.org/api/current/scala/collection/mutable/Iterable.html#exists(p:A=&gt;Boolean):Boolean" target="_blank" class="external-link method-signature"><code>def Iterable[A]#exists(p: A =&gt; Boolean): Boolean</code></a></li>
-  <li>
-    <p><a href="http://www.scala-lang.org/api/current/scala/collection/mutable/Iterable.html#find(p:A=&gt;Boolean):Option[A]" target="_blank" class="external-link method-signature"><code>def Iterable[A]#find(p: A =&gt; Boolean): Option[A]</code></a></p>
-
-    <p>val lst = List(1, 2, 3);</p>
-
-    <p>val result1 = lst.exists(_ % 2 == 0);
-  println(result1); // =&gt; true</p>
-
-    <p>val result2 = lst.exists(_ &gt; 3);
-  println(result2); // =&gt; false</p>
-  </li>
+  <li><a href="http://www.scala-lang.org/api/current/scala/collection/mutable/Iterable.html#find(p:A=&gt;Boolean):Option[A]" target="_blank" class="external-link method-signature"><code>def Iterable[A]#find(p: A =&gt; Boolean): Option[A]</code></a></li>
 </ul>
+
+<p>例</p>
+
+<pre><code>val lst = List(1, 2, 3);
+
+val result1 = lst.exists(_ % 2 == 0);
+println(result1); // =&gt; true
+
+val result2 = lst.exists(_ &gt; 3);
+println(result2); // =&gt; false
+</code></pre>
 
 <p><code>Iterable</code> は <code>List</code> などの <code>Seq</code> や <code>Set</code>、<code>Map</code> の共通のスーパークラス(トレイト)なので、これらのメソッドは <code>Set</code> や <code>Map</code> でも使える。</p>
 

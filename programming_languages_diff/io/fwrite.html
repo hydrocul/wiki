@@ -150,16 +150,16 @@ b
 </code></pre>
 
 <h2 id="perl">Perl
-<span class="article-date">2014/03/17</span></h2>
+<span class="article-date">2017/05/17</span></h2>
 
-<pre><code>open(FH, '&gt;', './foo.txt');
+<pre><code>open(FH, '&gt;', './foo.txt') or die;
 print FH $data;
 close(FH);
 </code></pre>
 
 <p>または</p>
 
-<pre><code>open(my $fh, '&gt;', './foo.txt');
+<pre><code>open(my $fh, '&gt;', './foo.txt') or die;
 print $fh $data;
 close($fh);
 </code></pre>
@@ -182,6 +182,19 @@ close($fh);
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
@@ -200,7 +213,7 @@ close($fh);
           <li><a href="../../programming_languages_diff/io/rm.html">ファイル・ディレクトリを削除するには (<code>rm</code> / <code>unlink</code> / <code>rmdir</code>)</a></li>
           <li><a href="../../programming_languages_diff/io/recursive.html">ディレクトリの中をを再帰的にたどってすべてのファイルに対してなにかの処理をするには</a></li>
           <li><a href="../../programming_languages_diff/io/dump.html">デバッグのためにオブジェクトの中身を表示させるには (dump)</a></li>
-          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルまたはディレクトリが存在するかどうかを取得するには (exists)</a></li>
+          <li><a href="../../programming_languages_diff/io/file-exists.html">ファイルやディレクトリが存在するかどうかを取得するには (exists)</a></li>
           <li><a href="../../programming_languages_diff/io/file-get-timestamp.html">ファイルの最終更新日時(タイムスタンプ)を取得するには</a></li>
           <li><a href="../../programming_languages_diff/io/file-operator.html">ファイルに関する各種演算</a></li>
           <li><a href="../../programming_languages_diff/io/file-type.html">ファイルの種類(ファイル / ディレクトリ / シンボリックリンク)を確認するには</a></li>

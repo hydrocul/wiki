@@ -135,7 +135,7 @@ Scalaでは <code>-&gt;</code> は別の意味の演算子として存在する�
 1引数の非常に簡単な式の関数を書くには <code>_</code> は便利である。</p>
 
 <h2 id="3b01008">PHP
-<span class="article-date">2016/07/25</span></h2>
+<span class="article-date">2017/05/02</span></h2>
 
 <p>PHP5.3以降で使える無名関数の例</p>
 
@@ -158,6 +158,14 @@ $f("Hello");
 <pre><code>$var1 = ...;
 $f = function ($arg) use ($var1) {
     echo "$arg, $var1\n";
+}
+$f("Hello");
+
+$var1 = ...;
+$var2 = ...;
+$f = function ($arg) use (&amp;$var1, &amp;$var2) {
+    $var1 = $arg;
+    $var2 = $arg;
 }
 $f("Hello");
 </code></pre>

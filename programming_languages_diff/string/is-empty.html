@@ -21,7 +21,7 @@
 
 <div id="content">
   <h1 id="is-empty">文字列が空かどうかを取得するには (isEmpty)
-<span class="article-date">2015/05/14</span></h1>
+<span class="article-date">2017/04/24</span></h1>
 
 <p>文字列の長さが0かどうかを判定する方法の、プログラミング言語別のメモ。</p>
 
@@ -41,7 +41,7 @@
 
 <p><a href="#php">PHP</a></p>
 
-<pre><code>if (empty($str)) {
+<pre><code>if (strlen($str) === 0) {
     echo "Empty!\n");
 }
 </code></pre>
@@ -99,11 +99,11 @@ fi
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#isEmpty--" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#isEmpty–</a></p>
 
 <h2 id="php">PHP
-<span class="article-date">2015/03/31</span></h2>
+<span class="article-date">2017/04/24</span></h2>
 
 <p>例</p>
 
-<pre><code>if (strlen($str) == 0) {
+<pre><code>if (strlen($str) === 0) {
   ...;
 }
 </code></pre>
@@ -114,6 +114,8 @@ fi
   ...;
 }
 </code></pre>
+
+<p><code>empty</code>関数は空文字列 <code>""</code> だけでなく <code>"0"</code> に対しても empty という判定をしてしまう問題がある。</p>
 
 <p><code>empty</code>関数に変数でないもの(リテラルや関数の返り値など)を渡すと、PHP5.4以前だと以下のようにエラーになってしまう。</p>
 
@@ -177,6 +179,19 @@ fi
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
@@ -212,6 +227,7 @@ fi
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字列で終わっているかどうかを見るには (end_with? / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/capitalize.html">1文字目を大文字にするには (capitalize)</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>

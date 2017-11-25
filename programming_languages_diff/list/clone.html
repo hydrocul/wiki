@@ -28,9 +28,9 @@
 <p>イミュータブルなオブジェクトのコピーは意味がないので、ここではミュータブルなリストのコピーについて。</p>
 
 <h2 id="789d947">Go言語 (golang)
-<span class="article-date">2015/11/30</span></h2>
+<span class="article-date">2017/07/23</span></h2>
 
-<p>例</p>
+<p><code>copy</code>関数を使う。別の配列へのコピーだけでなく、同じ配列の中で別の領域にコピーすることもできる。</p>
 
 <pre><code>arr := []int{0, 1, 2, 3, 4}
 copy(arr[0:3], arr[2:5])
@@ -41,14 +41,14 @@ fmt.Printf("%#v\n", arr)
 <p><code>copy</code>関数は配列ではなくスライスを受け入れるため、配列をコピーするには <code>arr[:]</code> などとしてスライスにしたものを<code>copy</code>関数に渡す。</p>
 
 <h2 id="8cac39d">Java
-<span class="article-date">2016/02/25</span></h2>
+<span class="article-date">2017/07/23</span></h2>
 
 <p>Signature:</p>
 
 <pre><code>void java.lang.System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
 </code></pre>
 
-<p>例</p>
+<p>別の配列へのコピーだけでなく、同じ配列の中で別の領域にコピーすることもできる。</p>
 
 <pre><code>int[] arr = new int[]{0, 1, 2, 3, 4};
 System.arraycopy(arr, 2, arr, 0, 3);

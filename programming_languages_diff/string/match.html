@@ -90,7 +90,7 @@ fi
 </ul>
 
 <h2 id="php">PHP
-<span class="article-date">2016/01/09</span></h2>
+<span class="article-date">2016/06/03</span></h2>
 
 <p><code>preg_match</code> という関数は、正規表現にマッチしたら <code>1</code>, マッチしなかったら <code>0</code> が返される。正規表現が間違っているなどのエラーの際は <code>false</code> が返される。</p>
 
@@ -120,14 +120,24 @@ preg_match('/\Abc\z/', "abc\nabc"); // =&gt; 0
 <code>"!\A/var/log/httpd/.+_log\z!"</code> みたいに。先頭と最後を <code>/</code> にすると、
 <code>"/\A\/var\/log\/httpd\/.+_log\z/"</code> と書かないといけない。その代わり、先頭と最後を <code>!</code> にした場合は、パターン自体に含まれる <code>!</code> は <code>\!</code> と書かないといけない。</p>
 
+<p>日本語などのマルチバイトの文字を扱うには正規表現に修飾子 <code>u</code> を使う。</p>
+
+<pre><code>if (preg_match('/\A[ぁ-ゖ]*\z/u', $str)) {
+    ...;
+}
+</code></pre>
+
 <p>3つ目の引数を渡すと、マッチした部分文字列を取得することができる。
 -&gt; <a href="regexp-group.html#php">正規表現で文字列をキャプチャするには</a></p>
 
 <p><code>preg_match</code> 関数 | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/function.preg-match.php" target="_blank" class="external-link">http://www.php.net/manual/ja/function.preg-match.php</a></p>
+<a href="http://php.net/manual/ja/function.preg-match.php" target="_blank" class="external-link">http://php.net/manual/ja/function.preg-match.php</a></p>
 
 <p>PCRE(Perlと互換性の高い正規表現)のパターン | PHP Manual<br />
-<a href="http://www.php.net/manual/ja/pcre.pattern.php" target="_blank" class="external-link">http://www.php.net/manual/ja/pcre.pattern.php</a></p>
+<a href="http://php.net/manual/ja/pcre.pattern.php" target="_blank" class="external-link">http://php.net/manual/ja/pcre.pattern.php</a></p>
+
+<p>正規表現パターンに使用可能な修飾子 | PHP Manual<br />
+<a href="http://php.net/manual/ja/reference.pcre.pattern.modifiers.php" target="_blank" class="external-link">http://php.net/manual/ja/reference.pcre.pattern.modifiers.php</a></p>
 
 <h2 id="python">Python
 <span class="article-date">2016/01/09</span></h2>
@@ -273,6 +283,19 @@ fi
   <div id="side-menu-attention">
     このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
@@ -308,6 +331,7 @@ fi
           <li><a href="../../programming_languages_diff/string/regexp-group.html">正規表現の括弧のグルーピングにマッチした文字列を取得するには (group)</a></li>
           <li><a href="../../programming_languages_diff/string/starts-with.html">特定の字列で始まっているかどうかを判定するには (start_with? / startsWith)</a></li>
           <li><a href="../../programming_languages_diff/string/ends-with.html">特定の文字列で終わっているかどうかを見るには (end_with? / endsWith)</a></li>
+          <li><a href="../../programming_languages_diff/string/capitalize.html">1文字目を大文字にするには (capitalize)</a></li>
           <li><a href="../../programming_languages_diff/string/replace.html">文字列を全置換するには (replace)</a></li>
           <li><a href="../../programming_languages_diff/string/strcat.html">文字列の連結をするには (strcat / <code>+</code> / <code>.</code>)</a></li>
           <li><a href="../../programming_languages_diff/string/to-num.html">文字列を数値に変換するには (parseInt / toInt)</a></li>
