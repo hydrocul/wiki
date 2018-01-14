@@ -92,12 +92,14 @@ $ ssh foohost date; date
 </code></pre>
 
 <h3 id="c4c40ec">秘密鍵・公開鍵のペアを作るには
-<span class="article-date">2013/04/03</span></h3>
+<span class="article-date">2017/08/06</span></h3>
 
-<p>以下のコマンドで <code>~/.ssh/id_rsa</code>, <code>~/.ssh/id_rsa.pub</code> にできる。</p>
+<p>以下のコマンドで作れる。</p>
 
-<pre><code>ssh-keygen -t rsa
+<pre><code>$ ssh-keygen -t rsa -b 4096 -C 'your_email@example.com'
 </code></pre>
+
+<p>保存先などを質問されるので、答えていく。保存先のデフォルトは <code>~/.ssh/id_rsa</code>, <code>~/.ssh/id_rsa.pub</code> になる。</p>
 
 <h3 id="821c6f4">公開鍵をリモートのサーバに簡単に設置するには
 <span class="article-date">2013/04/03</span></h3>
@@ -311,6 +313,7 @@ SSH port forwarding を使っている場合は、moshが対応していない�
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
+      <li><a href="../commands/tailf.html">tailf コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
       <li><a href="../commands/tee.html">tee コマンド</a></li>
       <li><a href="../commands/time.html">time コマンド</a></li>
