@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>連想配列(マップ/ハッシュ/ディクショナリ)に特定のキーが含まれているかどうかを判定するには (containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists) | 連想配列(マップ/ハッシュ/ディクショナリ) | プログラミング言語の比較 | hydroculのメモ</title>
+<title>連想配列(マップ/ハッシュ/ディクショナリ)に特定のキーの有無を判定するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -11,205 +11,232 @@
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a> &gt; <span>連想配列(マップ/ハッシュ/ディクショナリ)に特定のキーが含まれているかどうかを判定するには (containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a> &gt; <span>特定のキーの有無を判定するには</span>
 </div>
 
 <div id="content">
-  <h1 id="contains-key">連想配列(マップ/ハッシュ/ディクショナリ)に特定のキーが含まれているかどうかを判定するには (containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists)
-<span class="article-date">2016/06/22</span></h1>
+  <section>
+<h1>連想配列(マップ/ハッシュ/ディクショナリ)に特定のキーの有無を判定するには
+<span class="article-date">2021/01/14</span></h1>
 
 <p>連想配列(マップ/ハッシュ/ディクショナリ)に特定のキーが含まれているかどうかを判定する方法。</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td><a href="#java">Java</a></td>
-      <td><code>map.containsKey(key)</code></td>
-    </tr>
-    <tr>
-      <td><a href="#scala">Scala</a></td>
-      <td><code>map.contains(key)</code></td>
-    </tr>
-    <tr>
-      <td><a href="#php">PHP</a></td>
-      <td><code>array_key_exists($key, $arr)</code><br /><code>isset($arr[$key]))</code></td>
-    </tr>
-    <tr>
-      <td><a href="#python">Python</a></td>
-      <td><code>key in dic</code></td>
-    </tr>
-    <tr>
-      <td><a href="#ruby">Ruby</a></td>
-      <td><code>hash.hash_key?(key)</code></td>
-    </tr>
-    <tr>
-      <td><a href="#perl">Perl</a></td>
-      <td><code>exists($hash{$key})</code></td>
-    </tr>
-  </tbody>
-</table>
+<table><thead>
+<tr>
+<th>言語</th>
+<th>記述例</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#java">Java</a></td>
+<td><code class="prettyprint">map.containsKey(key)</code></td>
+</tr>
+<tr>
+<td><a href="#scala">Scala</a></td>
+<td><code class="prettyprint">map.contains(key)</code></td>
+</tr>
+<tr>
+<td><a href="#javascript">JavaScript</a></td>
+<td><code class="prettyprint">key in obj</code></td>
+</tr>
+<tr>
+<td><a href="#php">PHP</a></td>
+<td><code class="prettyprint">array_key_exists($key, $arr)</code><br/><code class="prettyprint">isset($arr[$key]))</code></td>
+</tr>
+<tr>
+<td><a href="#perl">Perl</a></td>
+<td><code class="prettyprint">exists($hash{$key})</code></td>
+</tr>
+<tr>
+<td><a href="#ruby">Ruby</a></td>
+<td><code class="prettyprint">hash.has_key?(key)</code></td>
+</tr>
+<tr>
+<td><a href="#python">Python</a></td>
+<td><code class="prettyprint">key in dic</code></td>
+</tr>
+</tbody></table>
 
 <p>関連</p>
 
 <ul>
-  <li><a href="../list/contains.html">配列(リスト)に特定の値が含まれているかどうかを判定するには</a></li>
+<li><a href="../list/contains.html">配列(リスト)に特定の値が含まれているかどうかを判定するには</a></li>
 </ul>
 
+<section>
 <h2 id="java">Java
-<span class="article-date">2013/05/06</span></h2>
+<span class="article-date">2021/01/14</span></h2>
 
-<p>Signature:</p>
+<p><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html#containsKey(java.lang.Object)"><code class="prettyprint">boolean Map&lt;K, V&gt;#containsKey(Object key)</code></a></p>
 
-<ul>
-  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html#containsKey-java.lang.Object-" target="_blank" class="external-link method-signature"><code>boolean Map&lt;K, V&gt;#containsKey(Object key)</code></a></li>
-</ul>
-
+</section>
+<section>
 <h2 id="scala">Scala
 <span class="article-date">2014/12/20</span></h2>
 
-<p>Signature:</p>
-
-<ul>
-  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Map.html#contains(key:K):Boolean" target="_blank" class="external-link method-signature"><code>def Map[A, B]#contains(key: A): Boolean</code></a></li>
-</ul>
+<p><a href="http://www.scala-lang.org/api/current/scala/collection/Map.html#contains(key:K):Boolean"><code class="prettyprint">def Map[A, B]#contains(key: A): Boolean</code></a></p>
 
 <p>Javaとはメソッド名が違う。</p>
 
 <p>例</p>
 
-<pre><code>val map = Map("a" -&gt; 1, "b" -&gt; 2, "c" -&gt; 3);
-println(map.contains("a"));
+<pre><code class="prettyprint">val map = Map(&quot;a&quot; -&gt; 1, &quot;b&quot; -&gt; 2, &quot;c&quot; -&gt; 3);
+println(map.contains(&quot;a&quot;));
 // =&gt; true
-println(map.contains("A"));
+println(map.contains(&quot;A&quot;));
 // =&gt; false
 </code></pre>
 
+</section>
+<section>
+<h2 id="javascript">JavaScript
+<span class="article-date">2021/01/14</span></h2>
+
+<p><code class="prettyprint">in</code> という演算子を使う。</p>
+
+<p>例</p>
+
+<pre><code class="prettyprint">var map = {a: 1, b: 2}
+
+console.log(&#39;a&#39; in map);
+// =&gt; true
+console.log(&#39;c&#39; in map);
+// =&gt; false
+</code></pre>
+
+<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/in">in - JavaScript | MDN</a></p>
+
+</section>
+<section>
 <h2 id="php">PHP
 <span class="article-date">2016/08/04</span></h2>
 
-<p><code>array_key_exists</code>関数または<code>isset</code>を使う。
-<code>isset</code> は通常の関数ではなく、PHPの言語構造である。</p>
+<p><code class="prettyprint">array_key_exists</code>関数または<code class="prettyprint">isset</code>を使う。<br>
+<code class="prettyprint">isset</code> は通常の関数ではなく、PHPの言語構造である。</p>
 
-<pre><code>$arr = array('a' =&gt; 1, 'b' =&gt; 2);
+<pre><code class="prettyprint">$arr = array(&#39;a&#39; =&gt; 1, &#39;b&#39; =&gt; 2);
 
-var_export(array_key_exists('a', $arr)); // =&gt; true
-var_export(isset($arr['a']));            // =&gt; true
-var_export(array_key_exists('A', $arr)); // =&gt; false
-var_export(isset($arr['A']));            // =&gt; false
+var_export(array_key_exists(&#39;a&#39;, $arr)); // =&gt; true
+var_export(isset($arr[&#39;a&#39;]));            // =&gt; true
+var_export(array_key_exists(&#39;A&#39;, $arr)); // =&gt; false
+var_export(isset($arr[&#39;A&#39;]));            // =&gt; false
 </code></pre>
 
-<p><code>isset</code>は値が<code>NULL</code>の場合に要素が存在していても<code>FALSE</code>を返してしまう。</p>
+<p><code class="prettyprint">isset</code>は値が<code class="prettyprint">NULL</code>の場合に要素が存在していても<code class="prettyprint">FALSE</code>を返してしまう。</p>
 
-<pre><code>$arr = array('a' =&gt; 1, 'b' =&gt; 2, 'c' =&gt; NULL);
+<pre><code class="prettyprint">$arr = array(&#39;a&#39; =&gt; 1, &#39;b&#39; =&gt; 2, &#39;c&#39; =&gt; NULL);
 
-if (array_key_exists('c', $arr)) {
-  echo "exists\n";
+if (array_key_exists(&#39;c&#39;, $arr)) {
+  echo &quot;exists\n&quot;;
 } else {
-  echo "not exists\n";
+  echo &quot;not exists\n&quot;;
 }
 // =&gt; exists
 
 // NULLと要素が存在しないのとは区別できない
-if (isset($arr['c'])) {
-  echo "exists\n";
+if (isset($arr[&#39;c&#39;])) {
+  echo &quot;exists\n&quot;;
 } else {
-  echo "not exists or NULL\n";
+  echo &quot;not exists or NULL\n&quot;;
 }
 // =&gt; not exists or NULL
 
 // 子要素が配列でないのに配列のつもりでアクセスしてもwarning等は発生しない
 // isset は関数でなく言語構造だから
-if (isset($arr['b']['B'])) {
-  echo "exists\n";
+if (isset($arr[&#39;b&#39;][&#39;B&#39;])) {
+  echo &quot;exists\n&quot;;
 } else {
-  echo "not exists or NULL\n";
+  echo &quot;not exists or NULL\n&quot;;
 }
 // =&gt; not exists or NULL
 </code></pre>
 
-<p><code>array_key_exists</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.array-key-exists.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-key-exists.php</a></p>
+<p><a href="http://php.net/manual/ja/function.array-key-exists.php"><code class="prettyprint">array_key_exists</code> 関数 | PHP Manual</a><br>
+<a href="http://php.net/manual/ja/function.isset.php"><code class="prettyprint">isset</code> | PHP Manual</a></p>
 
-<p><code>isset</code> | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.isset.php" target="_blank" class="external-link">http://php.net/manual/ja/function.isset.php</a></p>
-
-<p>ところで <code>isset</code> のほうが <code>array_key_exists</code> よりも速いらしい。</p>
-
-<p>PHPの変数チェック速度比較 <code>isset</code> vs <code>array_key_exists</code> vs 直接チェック | k-motoyan888’s diary<br />
-<a href="http://k-motoyan888.hatenablog.com/entry/2013/07/24/202111" target="_blank" class="external-link">http://k-motoyan888.hatenablog.com/entry/2013/07/24/202111</a></p>
-
-<h2 id="python">Python
-<span class="article-date">2014/09/07</span></h2>
-
-<p>Python3では<code>in</code>演算子を使う。Python2では<code>in</code>演算子に加えて、<code>has_key</code>メソッドも同じように使える。どちらも<code>True</code>か<code>False</code>を返す。</p>
-
-<pre><code>dic = {'a': 1, 'b': 2}
-
-print('a' in dic) # =&gt; True
-print('x' in dic) # =&gt; False
-
-# Python3 ではエラーになる
-print(dic.has_key('a')) # =&gt; True
-print(dic.has_key('x')) # =&gt; False
-</code></pre>
-
-<h2 id="ruby">Ruby / JRuby
-<span class="article-date">2014/12/20</span></h2>
-
-<p>以下の4つのメソッドはすべて同じ意味。</p>
-
-<pre><code>Hash#has_key?(key)
-Hash#key?(key)
-Hash#include?(key)
-Hash#member?(key)
-</code></pre>
-
+</section>
+<section>
 <h2 id="perl">Perl
 <span class="article-date">2014/02/26</span></h2>
 
 <p>例</p>
 
-<pre><code>if (exists($hash{$key})) {
+<pre><code class="prettyprint">if (exists($hash{$key})) {
     ...;
 }
 </code></pre>
 
 <p>レファレンスの場合の例</p>
 
-<pre><code>if (exists($hash_ref-&gt;{$key})) {
+<pre><code class="prettyprint">if (exists($hash_ref-&gt;{$key})) {
     ...;
 }
 </code></pre>
 
-<p><code>defined</code> を使ってしまうと、キーが存在しない場合と、
-<code>undef</code> が値として保存されている場合の区別ができなくなってしまう。</p>
+<p><code class="prettyprint">defined</code> を使ってしまうと、キーが存在しない場合と、<br>
+<code class="prettyprint">undef</code> が値として保存されている場合の区別ができなくなってしまう。</p>
 
-<h2 id="d8c52fa">JavaScript
-<span class="article-date">2014/01/15</span></h2>
+</section>
+<section>
+<h2 id="ruby">Ruby
+<span class="article-date">2021/01/14</span></h2>
 
-<p><code>in</code> という演算子があるので、これを使う。</p>
+<p>以下の4つのメソッドはすべて同じ意味。</p>
 
-<p>例</p>
-
-<pre><code>var map = {a: 1, b: 2}
-
-console.log('a' in map);
-// =&gt; true
-console.log('c' in map);
-// =&gt; false
+<pre><code class="prettyprint">Hash#has_key?(key)
+Hash#key?(key)
+Hash#include?(key)
+Hash#member?(key)
 </code></pre>
+
+<p><a href="https://docs.ruby-lang.org/ja/latest/method/Hash/i/has_key=3f.html">Hash#has_key? (Ruby 3.0.0 リファレンスマニュアル)</a></p>
+
+</section>
+<section>
+<h2 id="python">Python
+<span class="article-date">2014/09/07</span></h2>
+
+<p>Python3では<code class="prettyprint">in</code>演算子を使う。Python2では<code class="prettyprint">in</code>演算子に加えて、<code class="prettyprint">has_key</code>メソッドも同じように使える。<br>
+どちらも<code class="prettyprint">True</code>か<code class="prettyprint">False</code>を返す。</p>
+
+<pre><code class="prettyprint">dic = {&#39;a&#39;: 1, &#39;b&#39;: 2}
+
+print(&#39;a&#39; in dic) # =&gt; True
+print(&#39;x&#39; in dic) # =&gt; False
+
+# Python3 ではエラーになる
+print(dic.has_key(&#39;a&#39;)) # =&gt; True
+print(dic.has_key(&#39;x&#39;)) # =&gt; False
+</code></pre>
+
+</section>
+</section>
 
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+    このサイトは個人メモの集合です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
@@ -217,19 +244,19 @@ console.log('c' in map);
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">size / count / sizeof / len / length (要素数)</a></li>
-          <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty / empty?</a></li>
-          <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch / <code>[]</code> (参照)</a></li>
-          <li><a href="../../programming_languages_diff/map/put.html">put / <code>[]</code> / <code>+</code> (追加/更新)</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">putAll / <code>++</code> / array_merge / update / merge / merge!</a></li>
-          <li><a href="../../programming_languages_diff/map/filter.html">filter / select / partition / delete_if</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">unset / del / delete / <code>-</code></a></li>
-          <li>containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists</li>
+          <li><a href="../../programming_languages_diff/map/values.html">値を集合(セット)または配列(リスト)で取得するには</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">要素をキーで指定して削除するには</a></li>
+          <li><a href="../../programming_languages_diff/map/put.html">要素を追加・更新するには</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ処理するには</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">要素数を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/map/is-empty.html">空かどうかを判定するには</a></li>
+          <li>特定のキーの有無を判定するには</li>
+          <li><a href="../../programming_languages_diff/map/clone.html">コピーするには</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">キーを集合(セット)または配列(リスト)で取得するには</a></li>
           <li><a href="../../programming_languages_diff/map/entries.html">items / to_a</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
-          <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
-          <li><a href="../../programming_languages_diff/map/clone.html">clone / copy / dup</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">foreach / for / each_key / each_pair / each_value</a></li>
+          <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch / `[]` (参照)</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">putAll / `++` / array_merge / update / merge / merge!</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">filter / select / partition / delete_if</a></li>
         </ul>
       </li>
     </ul>
