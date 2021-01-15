@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>例外を捕捉する構文 (try / catch / finally) | 例外処理 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>例外をキャッチする構文 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -11,33 +11,27 @@
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exception/">例外処理</a> &gt; <span>例外を捕捉する構文 (try / catch / finally)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exception/">例外処理</a> &gt; <span>例外をキャッチする構文</span>
 </div>
 
 <div id="content">
-  <h1 id="try">例外を捕捉する構文 (try / catch / finally)</h1>
+  <section>
+<h1>例外をキャッチする構文
+<span class="article-date">2021/01/15</span></h1>
 
-<h2 id="897da8a">C++
-<span class="article-date">2013/09/11</span></h2>
+<p>Java、Scala、JavaScript、CoffeeScript、PHP、C++、Perl、Ruby、Pythonでの例外をキャッチする構文。</p>
 
-<pre><code>try {
-  ...;
-} catch (FooClass e) {
-  ...;
-} catch (BarClass e) {
-  ...;
-}
-</code></pre>
-
-<h2 id="7655c41">Java
+<section>
+<h2>Java
 <span class="article-date">2013/12/15</span></h2>
 
-<pre><code>try {
+<pre><code class="prettyprint">try {
   ...;
 } catch (FileNotFoundException e) {
   ...;
@@ -50,7 +44,7 @@
 
 <p>Java7から使える try-with-resources 構文では以下のように書ける。finally節を書かなくても try のカッコの中で生成したオブジェクトを確実にcloseしてくれる。この構文ではcatch節も書かずにtryのみも可能。</p>
 
-<pre><code>try (FileInputStream in = new FileInputStream(...)) {
+<pre><code class="prettyprint">try (FileInputStream in = new FileInputStream(...)) {
   ...;
 } catch (FileNotFoundException e) {
   ...;
@@ -61,21 +55,23 @@
 
 <p>同じくJava7からの機能では、catch節のカッコの中に複数の例外クラスを書ける。</p>
 
-<pre><code>try {
+<pre><code class="prettyprint">try {
   ...;
 } catch (IllegalArgumentException | IOException e) {
   ...;
 }
 </code></pre>
 
-<p><code>IOException | FileNotFoundException</code> のような一方が他方に含まれるような書き方はできないし、意味がない。</p>
+<p><code class="prettyprint">IOException | FileNotFoundException</code> のような一方が他方に含まれるような書き方はできないし、意味がない。</p>
 
 <p>Java7から例外を再スローするときの型推論が改善されている。</p>
 
-<h2 id="df8f7b8">Scala
+</section>
+<section>
+<h2>Scala
 <span class="article-date">2017/01/11</span></h2>
 
-<pre><code>try {
+<pre><code class="prettyprint">try {
   ...;
 } catch {
   case e: IOException =&gt;
@@ -91,63 +87,97 @@
 }
 </code></pre>
 
-<p><code>try</code>式は式なので、値を返す。<code>try</code>節の中から例外がスローされなかった場合は、
-<code>finally</code>節の中を実行した後に<code>try</code>節の中の最後の式の値が<code>try</code>式全体の返り値になる。</p>
+<p><code class="prettyprint">try</code>式は式なので、値を返す。<code class="prettyprint">try</code>節の中から例外がスローされなかった場合は、<code class="prettyprint">finally</code>節の中を実行した後に<code class="prettyprint">try</code>節の中の最後の式の値が<code class="prettyprint">try</code>式全体の返り値になる。</p>
 
-<p><code>catch</code>節の書き方は<a href="../control_flow/switch.html#scala"><code>match</code>式</a>と同じ。</p>
+<p><code class="prettyprint">catch</code>節の書き方は<a href="../control_flow/switch.html#scala"><code class="prettyprint">match</code>式</a>と同じ。</p>
 
-<h2 id="8a39adb">PHP
-<span class="article-date">2014/05/26</span></h2>
+</section>
+<section>
+<h2>JavaScript
+<span class="article-date">2013/08/22</span></h2>
 
-<pre><code>try {
+<pre><code class="prettyprint">try {
+  ...;
+} catch(ex) {
+  ...;
+} finally {
+  ...;
+}
+</code></pre>
+
+</section>
+<section>
+<h2>CoffeeScript
+<span class="article-date">2013/08/22</span></h2>
+
+<pre><code class="prettyprint">try
+  ...
+catch ex
+  ...
+finally
+  ...
+</code></pre>
+
+</section>
+<section>
+<h2>PHP
+<span class="article-date">2021/01/15</span></h2>
+
+<pre><code class="prettyprint">try {
     ...;
 } catch (Exception $e) {
+    ...;
+} catch (FooException | BarException $e) { // 複数の例外クラスをまとめてキャッチ
     ...;
 } finally {
     ...;
 }
 </code></pre>
 
-<p><code>finally</code>節が書けるのはPHP5.5以降。</p>
+<p><code class="prettyprint">finally</code>節が書けるのはPHP 5.5以降。</p>
 
-<p>例外 | PHP Manual<br />
-<a href="http://php.net/manual/ja/language.exceptions.php" target="_blank" class="external-link">http://php.net/manual/ja/language.exceptions.php</a></p>
+<p>複数の例外クラスをまとめてキャッチできるのはPHP 7.1以降。</p>
 
-<h2 id="python">Python
-<span class="article-date">2013/08/22</span></h2>
+<p><a href="https://www.php.net/manual/en/language.exceptions.php">PHP: Exceptions - Manual</a></p>
 
-<pre><code>try:
-  ...
-except:
-  ...
-finally:
-  ...
+</section>
+<section>
+<h2>C++
+<span class="article-date">2013/09/11</span></h2>
+
+<pre><code class="prettyprint">try {
+  ...;
+} catch (FooClass e) {
+  ...;
+} catch (BarClass e) {
+  ...;
+}
 </code></pre>
 
-<p><code>except</code>節で例外オブジェクトを利用したい場合は、以下のように書く。</p>
+</section>
+<section>
+<h2>Perl
+<span class="article-date">2021/01/15</span></h2>
 
-<pre><code>except ex:
+<pre><code class="prettyprint">eval {
+    ...;
+};
+if ($@) {
+    # 例外が発生した場合の処理
+    ...;
+}
 </code></pre>
 
-<p><code>except</code>節で特定の例外クラスだけを捕捉したい場合は、以下のように書く。</p>
+<p><code class="prettyprint">guard</code>または<code class="prettyprint">scope_guard</code>を使えば、他の言語のfinallyに相当することができる。</p>
 
-<pre><code>except HogeException:
+<p><a href="https://perldoc.jp/docs/modules/Scope-Guard-0.20/Guard.pod">Scope::Guard - レキシカルスコープにおけるリソース管理 - perldoc.jp</a></p>
 
-# または
-except HogeException, ex:
-</code></pre>
-
-<p><code>except</code>節の中で同じ例外を再スローするには単に</p>
-
-<pre><code>raise
-</code></pre>
-
-<p>とだけ書く。</p>
-
-<h2 id="97daef4">Ruby / JRuby
+</section>
+<section>
+<h2>Ruby
 <span class="article-date">2013/12/19</span></h2>
 
-<pre><code>begin
+<pre><code class="prettyprint">begin
   ...
 rescue
   ...
@@ -158,71 +188,71 @@ ensure
 end
 </code></pre>
 
-<p><code>rescue</code>節で例外オブジェクトを利用したい場合は、以下のように書く。</p>
+<p><code class="prettyprint">rescue</code>節で例外オブジェクトを利用したい場合は、以下のように書く。</p>
 
-<pre><code>rescue =&gt; e
+<pre><code class="prettyprint">rescue =&gt; e
 </code></pre>
 
-<p>エラーメッセージは、 <code>e.message</code> で取得できる。</p>
+<p>エラーメッセージは、 <code class="prettyprint">e.message</code> で取得できる。</p>
 
-<p>スタックトレースを出力するには <code>print e.backtrace.join("\n")</code> と書く。</p>
+<p>スタックトレースを出力するには <code class="prettyprint">print e.backtrace.join(&quot;\n&quot;)</code> と書く。</p>
 
-<p><code>rescue</code>節で特定のクラスの例外だけを捕捉したい場合は、以下のように書く。</p>
+<p><code class="prettyprint">rescue</code>節で特定のクラスの例外だけを捕捉したい場合は、以下のように書く。</p>
 
-<pre><code>rescue ZeroDivisionError =&gt; e
+<pre><code class="prettyprint">rescue ZeroDivisionError =&gt; e
 </code></pre>
 
 <p>例外クラス名はコンマ区切りで複数書ける。</p>
 
-<p>捕捉する例外クラスのクラス名を省略すると、 <code>StandardError</code> を捕捉するとみなされるので、
-<code>StandardError</code> 以外の <code>Exception</code> のインスタンスは捕捉されない。</p>
+<p>捕捉する例外クラスのクラス名を省略すると、 <code class="prettyprint">StandardError</code> を捕捉するとみなされるので、<code class="prettyprint">StandardError</code> 以外の <code class="prettyprint">Exception</code> のインスタンスは捕捉されない。</p>
 
-<p><code>rescue</code>節自体は複数書くことができる。</p>
+<p><code class="prettyprint">rescue</code>節自体は複数書くことができる。</p>
 
-<p><code>rescue</code>節の中では <code>retry</code> と書くと、beginからやりなおしてくれる。これは他の言語にはあまりない機能である。</p>
+<p><code class="prettyprint">rescue</code>節の中では <code class="prettyprint">retry</code> と書くと、beginからやりなおしてくれる。これは他の言語にはあまりない機能である。</p>
 
-<p><code>else</code>節は例外が発生しなかった場合に<code>ensure</code>節の前に実行される。これも他の言語にはあまりない機能である。</p>
+<p><code class="prettyprint">else</code>節は例外が発生しなかった場合に<code class="prettyprint">ensure</code>節の前に実行される。これも他の言語にはあまりない機能である。</p>
 
-<h2 id="43536fc">Perl
-<span class="article-date">2013/09/11</span></h2>
-
-<pre><code>eval {
-    ...;
-};
-if ($@) {
-    # 例外が発生した場合の処理
-    ...;
-}
-</code></pre>
-
-<h2 id="7bf0076">JavaScript
+</section>
+<section>
+<h2 id="python">Python
 <span class="article-date">2013/08/22</span></h2>
 
-<pre><code>try {
-  ...;
-} catch(ex){
-  ...;
-} finally {
-  ...;
-}
-</code></pre>
-
-<h2 id="afe2a20">CoffeeScript
-<span class="article-date">2013/08/22</span></h2>
-
-<pre><code>try
+<pre><code class="prettyprint">try:
   ...
-catch ex
+except:
   ...
-finally
+finally:
   ...
 </code></pre>
+
+<p><code class="prettyprint">except</code>節で例外オブジェクトを利用したい場合は、以下のように書く。</p>
+
+<pre><code class="prettyprint">except ex:
+</code></pre>
+
+<p><code class="prettyprint">except</code>節で特定の例外クラスだけを捕捉したい場合は、以下のように書く。</p>
+
+<pre><code class="prettyprint">except HogeException:
+
+# または
+except HogeException, ex:
+</code></pre>
+
+<p><code class="prettyprint">except</code>節の中で同じ例外を再スローするには単に</p>
+
+<pre><code class="prettyprint">raise
+</code></pre>
+
+<p>とだけ書く。</p>
+
+</section>
+</section>
 
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+    このサイトは個人メモの集合です。
   </div>
   <div class="ad">
 <div class="adlabel">スポンサーリンク</div>
@@ -243,8 +273,8 @@ finally
     <ul>
       <li><a href="../../programming_languages_diff/exception/">例外処理</a>
         <ul>
-          <li>例外を捕捉する構文 (try / catch / finally)</li>
-          <li><a href="../../programming_languages_diff/exception/throw.html">例外をスローする構文 (throw)</a></li>
+          <li>例外をキャッチする構文</li>
+          <li><a href="../../programming_languages_diff/exception/throw.html">例外をスローする構文</a></li>
           <li><a href="../../programming_languages_diff/exception/cause.html">例外の原因</a></li>
           <li><a href="../../programming_languages_diff/exception/class-hierarchy.html">例外クラス階層</a></li>
           <li><a href="../../programming_languages_diff/exception/checked.html">検査例外と非検査例外</a></li>
