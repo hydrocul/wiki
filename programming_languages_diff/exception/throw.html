@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>例外をスローする構文 (throw) | 例外処理 | プログラミング言語の比較 | hydroculのメモ</title>
+<title>例外をスローする構文 | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -11,104 +11,141 @@
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exception/">例外処理</a> &gt; <span>例外をスローする構文 (throw)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/exception/">例外処理</a> &gt; <span>例外をスローする構文</span>
 </div>
 
 <div id="content">
-  <h1 id="throw">例外をスローする構文 (throw)
-<span class="article-date">2016/06/30</span></h1>
+  <section>
+<h1>例外をスローする構文
+<span class="article-date">2021/01/15</span></h1>
 
-<p>各プログラミング言語での、例外をスローする構文の書き方。</p>
+<p>Java、Scala、JavaScript、CoffeeScript、Go言語、PHP、Perl、Ruby、Pythonでの例外をスローする構文の書き方。</p>
 
-<h2 id="3a30556">Java
+<section>
+<h2>Java
 <span class="article-date">2013/08/22</span></h2>
 
-<p>例</p>
-
-<pre><code>throw new Exception("message ...");
+<pre><code class="prettyprint">throw new Exception(&quot;message ...&quot;);
 </code></pre>
 
-<h2 id="535cf08">Scala
+</section>
+<section>
+<h2>Scala
 <span class="article-date">2013/08/22</span></h2>
 
-<p>例</p>
-
-<pre><code>throw new Exception("message ...");
+<pre><code class="prettyprint">throw new Exception(&quot;message ...&quot;);
 </code></pre>
 
-<h2 id="45d2a4b">PHP
-<span class="article-date">2014/05/17</span></h2>
+</section>
+<section>
+<h2>JavaScript
+<span class="article-date">2021/01/15</span></h2>
 
-<p>例</p>
-
-<pre><code>throw new Exception("message ...");
+<pre><code class="prettyprint">throw &quot;message ...&quot;;
 </code></pre>
 
-<h2 id="bfdce20">Python
-<span class="article-date">2014/03/05</span></h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw">throw - JavaScript | MDN</a></p>
 
-<pre><code>raise "message ..."
+</section>
+<section>
+<h2>CoffeeScript
+<span class="article-date">2013/08/22</span></h2>
+
+<pre><code class="prettyprint">throw(&quot;message&quot;)
+</code></pre>
+
+</section>
+<section>
+<h2>PHP
+<span class="article-date">2021/01/15</span></h2>
+
+<pre><code class="prettyprint">throw new Exception(&quot;message ...&quot;);
+</code></pre>
+
+<p>PHP 8以降はthrowはexpressionの扱い。7以前はstatementの扱い。</p>
+
+<p><a href="https://www.php.net/manual/en/language.exceptions.php">PHP: Exceptions - Manual</a></p>
+
+</section>
+<section>
+<h2>Perl
+<span class="article-date">2021/01/15</span></h2>
+
+<pre><code class="prettyprint">die &quot;hogehoge error&quot;;
+</code></pre>
+
+<p><a href="https://perldoc.jp/func/die">Perlの組み込み関数 die の翻訳 - perldoc.jp</a></p>
+
+</section>
+<section>
+<h2>Ruby
+<span class="article-date">2021/01/15</span></h2>
+
+<pre><code class="prettyprint">raise &quot;exception message ...&quot;
 # または
-raise HogeException()
-</code></pre>
-
-<p><code>except</code>節で補足した例外を再スローするには、以下のようにシンプルに書ける。</p>
-
-<pre><code>raise
-</code></pre>
-
-<h2 id="a3f7573">Ruby / JRuby
-<span class="article-date">2013/12/19</span></h2>
-
-<pre><code>raise "exception message ..."
-# または
-raise ZeroDivisionError, "message ..."
+raise ZeroDivisionError, &quot;message ...&quot;
 </code></pre>
 
 <p>2つ目の構文は以下と同じである。</p>
 
-<pre><code>raise ZeroDivisionError.new("message ...")
+<pre><code class="prettyprint">raise ZeroDivisionError.new(&quot;message ...&quot;)
 </code></pre>
 
-<p><code>raise</code>はRubyの構文ではなく定義済みのメソッドである。</p>
+<p><code class="prettyprint">raise</code>はRubyの構文ではなく定義済みのメソッドである。<code class="prettyprint">raise</code>の代わりに<code class="prettyprint">fail</code>と書いても同じ。</p>
 
-<h2 id="a9112ef">Perl
-<span class="article-date">2015/02/13</span></h2>
+<p><a href="https://docs.ruby-lang.org/ja/latest/method/Kernel/m/fail.html">Kernel.#fail (Ruby 3.0.0 リファレンスマニュアル)</a></p>
 
-<pre><code>die "hogehoge error";
+</section>
+<section>
+<h2>Python
+<span class="article-date">2014/03/05</span></h2>
+
+<pre><code class="prettyprint">raise &quot;message ...&quot;
+# または
+raise HogeException()
 </code></pre>
 
-<h2 id="ad4a322">JavaScript
-<span class="article-date">2013/08/22</span></h2>
+<p><code class="prettyprint">except</code>節で補足した例外を再スローするには、以下のようにシンプルに書ける。</p>
 
-<pre><code>throw "message ...";
+<pre><code class="prettyprint">raise
 </code></pre>
 
-<h2 id="14599eb">CoffeeScript
-<span class="article-date">2013/08/22</span></h2>
-
-<pre><code>throw("message")
-</code></pre>
+</section>
+</section>
 
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+    このサイトは個人メモの集合です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
     <ul>
       <li><a href="../../programming_languages_diff/exception/">例外処理</a>
         <ul>
-          <li><a href="../../programming_languages_diff/exception/try.html">例外を捕捉する構文 (try / catch / finally)</a></li>
-          <li>例外をスローする構文 (throw)</li>
+          <li><a href="../../programming_languages_diff/exception/try.html">例外を捕捉する構文</a></li>
+          <li>例外をスローする構文</li>
           <li><a href="../../programming_languages_diff/exception/cause.html">例外の原因</a></li>
           <li><a href="../../programming_languages_diff/exception/class-hierarchy.html">例外クラス階層</a></li>
           <li><a href="../../programming_languages_diff/exception/checked.html">検査例外と非検査例外</a></li>

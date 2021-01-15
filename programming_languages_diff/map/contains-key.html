@@ -25,7 +25,7 @@
 <h1>連想配列(マップ/ハッシュ/ディクショナリ)に特定のキーの有無を判定するには
 <span class="article-date">2021/01/14</span></h1>
 
-<p>連想配列(マップ/ハッシュ/ディクショナリ)に特定のキーが含まれているかどうかを判定する方法。</p>
+<p>Java、Scala、JavaScript、PHP、Perl、Ruby、Pythonでの連想配列(マップ/ハッシュ/ディクショナリ)に特定のキーが含まれているかどうかを判定する方法。</p>
 
 <table><thead>
 <tr>
@@ -117,8 +117,7 @@ console.log(&#39;c&#39; in map);
 <h2 id="php">PHP
 <span class="article-date">2016/08/04</span></h2>
 
-<p><code class="prettyprint">array_key_exists</code>関数または<code class="prettyprint">isset</code>を使う。<br>
-<code class="prettyprint">isset</code> は通常の関数ではなく、PHPの言語構造である。</p>
+<p><code class="prettyprint">array_key_exists</code>関数または<code class="prettyprint">isset</code>を使う。<code class="prettyprint">isset</code> は通常の関数ではなく、PHPの言語構造である。</p>
 
 <pre><code class="prettyprint">$arr = array(&#39;a&#39; =&gt; 1, &#39;b&#39; =&gt; 2);
 
@@ -179,8 +178,7 @@ if (isset($arr[&#39;b&#39;][&#39;B&#39;])) {
 }
 </code></pre>
 
-<p><code class="prettyprint">defined</code> を使ってしまうと、キーが存在しない場合と、<br>
-<code class="prettyprint">undef</code> が値として保存されている場合の区別ができなくなってしまう。</p>
+<p><code class="prettyprint">defined</code> を使ってしまうと、キーが存在しない場合と、<code class="prettyprint">undef</code> が値として保存されている場合の区別ができなくなってしまう。</p>
 
 </section>
 <section>
@@ -202,8 +200,7 @@ Hash#member?(key)
 <h2 id="python">Python
 <span class="article-date">2014/09/07</span></h2>
 
-<p>Python3では<code class="prettyprint">in</code>演算子を使う。Python2では<code class="prettyprint">in</code>演算子に加えて、<code class="prettyprint">has_key</code>メソッドも同じように使える。<br>
-どちらも<code class="prettyprint">True</code>か<code class="prettyprint">False</code>を返す。</p>
+<p>Python3では<code class="prettyprint">in</code>演算子を使う。Python2では<code class="prettyprint">in</code>演算子に加えて、<code class="prettyprint">has_key</code>メソッドも同じように使える。どちらも<code class="prettyprint">True</code>か<code class="prettyprint">False</code>を返す。</p>
 
 <pre><code class="prettyprint">dic = {&#39;a&#39;: 1, &#39;b&#39;: 2}
 
@@ -244,19 +241,19 @@ print(dic.has_key(&#39;x&#39;)) # =&gt; False
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/map/values.html">値を集合(セット)または配列(リスト)で取得するには</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">要素をキーで指定して削除するには</a></li>
-          <li><a href="../../programming_languages_diff/map/put.html">要素を追加・更新するには</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ処理するには</a></li>
           <li><a href="../../programming_languages_diff/map/size.html">要素数を取得するには</a></li>
           <li><a href="../../programming_languages_diff/map/is-empty.html">空かどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/map/get.html">値を参照するには</a></li>
+          <li><a href="../../programming_languages_diff/map/put.html">要素を追加・更新するには</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">要素をまとめて追加するには</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">条件にマッチする要素のみを取り出すには</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">要素をキーで指定して削除するには</a></li>
           <li>特定のキーの有無を判定するには</li>
-          <li><a href="../../programming_languages_diff/map/clone.html">コピーするには</a></li>
+          <li><a href="../../programming_languages_diff/map/entries.html">キーと値のペアを配列や集合で取得するには</a></li>
           <li><a href="../../programming_languages_diff/map/keys.html">キーを集合(セット)または配列(リスト)で取得するには</a></li>
-          <li><a href="../../programming_languages_diff/map/entries.html">items / to_a</a></li>
-          <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch / `[]` (参照)</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">putAll / `++` / array_merge / update / merge / merge!</a></li>
-          <li><a href="../../programming_languages_diff/map/filter.html">filter / select / partition / delete_if</a></li>
+          <li><a href="../../programming_languages_diff/map/values.html">値を集合(セット)または配列(リスト)で取得するには</a></li>
+          <li><a href="../../programming_languages_diff/map/clone.html">コピーするには</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ処理するには</a></li>
         </ul>
       </li>
     </ul>
