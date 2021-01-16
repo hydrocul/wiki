@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>連想配列(マップ/ハッシュ/ディクショナリ)の要素数を取得するには (size / count / sizeof / len / length) | hydroculのメモ</title>
+<title>連想配列(マップ/ハッシュ/ディクショナリ)の要素数を取得するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -11,109 +11,138 @@
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a> &gt; <span>連想配列(マップ/ハッシュ/ディクショナリ)の要素数を取得するには (size / count / sizeof / len / length)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a> &gt; <span>要素数を取得するには</span>
 </div>
 
 <div id="content">
-  <h1 id="size">連想配列(マップ/ハッシュ/ディクショナリ)の要素数を取得するには (size / count / sizeof / len / length)
-<span class="article-date">2015/03/05</span></h1>
+  <section>
+<h1>連想配列(マップ/ハッシュ/ディクショナリ)の要素数を取得するには
+<span class="article-date">2021/01/16</span></h1>
 
-<p>連想配列(マップ/ハッシュ/ディクショナリ)の要素数を取得する方法。</p>
+<p>Java、Scala、JavaScript、PHP、Perl、Ruby、Pythonで連想配列(マップ/ハッシュ/ディクショナリ)の要素数を取得する方法。</p>
 
 <p>関連</p>
 
 <ul>
-  <li><a href="../list/size.html">配列(リスト)の要素数を取得するには</a></li>
+<li><a href="../list/size.html">配列(リスト)の要素数を取得するには</a></li>
 </ul>
 
-<h2 id="2eb9f4a">Java
-<span class="article-date">2016/06/14</span></h2>
+<section>
+<h2>Java
+<span class="article-date">2021/01/16</span></h2>
 
-<p>Signature:</p>
+<pre><code class="prettyprint">map.size()
+</code></pre>
 
-<ul>
-  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html#size--" target="_blank" class="external-link method-signature"><code>int Map&lt;K, V&gt;#size()</code></a></li>
-</ul>
+<p><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html#size()"><code class="prettyprint">int Map&lt;K, V&gt;#size()</code></a></p>
 
-<h2 id="292698e">Scala
-<span class="article-date">2016/06/14</span></h2>
+</section>
+<section>
+<h2>Scala
+<span class="article-date">2021/01/16</span></h2>
 
-<p>Signature:</p>
+<pre><code class="prettyprint">map.size
+</code></pre>
 
-<ul>
-  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Map.html#size:Int" target="_blank" class="external-link method-signature"><code>def Map[A, B]#size: Int</code></a></li>
-</ul>
+<p><a href="http://www.scala-lang.org/api/current/scala/collection/Map.html#size:Int"><code class="prettyprint">def Map[A, B]#size: Int</code></a></p>
 
+</section>
+<section>
+<h2>JavaScript
+<span class="article-date">2021/01/16</span></h2>
+
+<p><code class="prettyprint">Object.keys</code> という関数でキーの配列を取得して、<code class="prettyprint">length</code> を取得すればよい。</p>
+
+<pre><code class="prettyprint">Object.keys(obj).length
+</code></pre>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys">Object.keys() - JavaScript | MDN</a></p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length">Array.prototype.length - JavaScript | MDN</a></p>
+
+</section>
+<section>
 <h2 id="php">PHP
-<span class="article-date">2015/03/25</span></h2>
+<span class="article-date">2021/01/16</span></h2>
 
-<p>PHPの連想配列は普通の配列と区別がつかないので、<a href="../list/size.html#php">配列と同様に</a>以下の2つの関数を使える。</p>
+<p>PHPの連想配列は普通の配列と区別がなく、<a href="../list/size.html#php">配列と同様に</a>以下の2つの関数を使える。</p>
 
-<pre><code>count($arr)
+<pre><code class="prettyprint">count($arr)
 sizeof($arr)
 </code></pre>
 
 <p>この2つの関数はまったく同じ意味で、配列の要素の数を返す。</p>
 
-<p><code>count</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.count.php" target="_blank" class="external-link">http://php.net/manual/ja/function.count.php</a></p>
+<p><a href="https://www.php.net/manual/en/function.count.php">PHP: count - Manual</a></p>
 
-<p><code>sizeof</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.sizeof.php" target="_blank" class="external-link">http://php.net/manual/ja/function.sizeof.php</a></p>
+<p><a href="https://www.php.net/manual/en/function.sizeof.php">PHP: sizeof - Manual</a></p>
 
-<h2 id="python">Python
-<span class="article-date">2014/12/26</span></h2>
-
-<pre><code>l = len(dic)
-</code></pre>
-
-<p><code>len</code> という関数は、<a href="../list.size.html#python">シーケンス型といわれるリスト、タプル、文字列に対しても</a>使える。</p>
-
-<h2 id="ruby">Ruby / JRuby
-<span class="article-date">2014/10/20</span></h2>
-
-<p>例</p>
-
-<pre><code>l = hash.length
-# または
-l = hash.size
-</code></pre>
-
-<p>2つのメソッドは全く同じ。<a href="../list/size.html#ruby">配列のサイズ</a>、
-<a href="../string/length.html#ruby">文字列の長さ</a>も同じ名前の2つのメソッドがある。</p>
-
-<p><code>Hash#length</code> メソッド, <code>Hash#size</code> メソッド | Ruby 2.1 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.1.0/class/Hash.html#I_LENGTH" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/class/Hash.html#I_LENGTH</a></p>
-
-<h2 id="6ee8f24">Perl
+</section>
+<section>
+<h2>Perl
 <span class="article-date">2014/12/26</span></h2>
 
 <p>キーの配列をスカラコンテキストで参照すると、要素の数を取得できる。</p>
 
-<pre><code>my %hash = (a =&gt; 1, b =&gt; 2);
+<pre><code class="prettyprint">my %hash = (a =&gt; 1, b =&gt; 2);
 print scalar keys %hash;
 # =&gt; 2
 </code></pre>
 
-<h2 id="9700156">JavaScript
-<span class="article-date">2015/07/18</span></h2>
+</section>
+<section>
+<h2 id="ruby">Ruby
+<span class="article-date">2021/01/16</span></h2>
 
-<p><code>Object.keys</code> という関数でキーの配列にして、<code>length</code> を取得すればよい。</p>
+<p>例</p>
 
-<pre><code>var len = Object.keys(obj).length;
+<pre><code class="prettyprint">l = hash.length
+# または
+l = hash.size
 </code></pre>
+
+<p>2つのメソッドは全く同じ。<a href="../list/size.html#ruby">配列のサイズ</a>、<a href="../string/length.html#ruby">文字列の長さ</a>も同じ名前の2つのメソッドがある。</p>
+
+<p><a href="https://docs.ruby-lang.org/ja/latest/method/Hash/i/length.html">Hash#length (Ruby 3.0.0 リファレンスマニュアル)</a></p>
+
+</section>
+<section>
+<h2 id="python">Python
+<span class="article-date">2014/12/26</span></h2>
+
+<pre><code class="prettyprint">l = len(dic)
+</code></pre>
+
+<p><code class="prettyprint">len</code> という関数は、<a href="../list.size.html#python">シーケンス型といわれるリスト、タプル、文字列に対しても</a>使える。</p>
+
+</section>
+</section>
 
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+    このサイトは個人メモの集合です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
@@ -121,19 +150,19 @@ print scalar keys %hash;
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li>size / count / sizeof / len / length (要素数)</li>
-          <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty / empty?</a></li>
-          <li><a href="../../programming_languages_diff/map/get.html">get / getOrElse / fetch / <code>[]</code> (参照)</a></li>
-          <li><a href="../../programming_languages_diff/map/put.html">put / <code>[]</code> / <code>+</code> (追加/更新)</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">putAll / <code>++</code> / array_merge / update / merge / merge!</a></li>
-          <li><a href="../../programming_languages_diff/map/filter.html">filter / select / partition / delete_if</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">unset / del / delete / <code>-</code></a></li>
-          <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists</a></li>
-          <li><a href="../../programming_languages_diff/map/entries.html">items / to_a</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
-          <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
-          <li><a href="../../programming_languages_diff/map/clone.html">clone / copy / dup</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">foreach / for / each_key / each_pair / each_value</a></li>
+          <li>要素数を取得するには</li>
+          <li><a href="../../programming_languages_diff/map/is-empty.html">空かどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/map/get.html">値を参照するには</a></li>
+          <li><a href="../../programming_languages_diff/map/put.html">要素を追加・更新するには</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">要素をまとめて追加するには</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">条件にマッチする要素のみを取り出すには</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">要素をキーで指定して削除するには</a></li>
+          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーの有無を判定するには</a></li>
+          <li><a href="../../programming_languages_diff/map/entries.html">キーと値のペアを配列や集合で取得するには</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">キーを集合(セット)または配列(リスト)で取得するには</a></li>
+          <li><a href="../../programming_languages_diff/map/values.html">値を集合(セット)または配列(リスト)で取得するには</a></li>
+          <li><a href="../../programming_languages_diff/map/clone.html">コピーするには</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ処理するには</a></li>
         </ul>
       </li>
     </ul>
