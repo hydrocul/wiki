@@ -11,6 +11,7 @@
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="../common/js/page.js"></script>
 </head>
 <body class="res">
@@ -20,7 +21,8 @@
 </div>
 
 <div id="content">
-  <h1 id="sed">sed コマンド
+  <section>
+<h1>sed コマンド
 <span class="article-date">2015/05/13</span></h1>
 
 <p>文字列を全置換したり、行単位で抽出したり、削除したり、いろいろなテキスト処理のできるコマンド。処理内容はコマンドラインパラメータで指定して、非対話的に一括処理できる。</p>
@@ -29,99 +31,99 @@
 
 <p>sedというコマンド名は Stream EDitor の略らしい。</p>
 
-<h2 id="1db04e2">基本的な使い方
-<span class="article-date">2016/09/27</span></h2>
+<section>
+<h2>基本的な使い方
+<span class="article-date">2021/01/17</span></h2>
 
 <p>標準入力をなにかしら処理して標準出力に出力するので、パイプとして使える。まあたいていのUNIXツールはパイプとして使えるのだが。</p>
 
 <p>ファイル名を指定すればそのファイルを読み込んで処理して標準出力に出力する。</p>
 
-<p>ファイル名を指定してオプション <code>-i</code> を使えば、そのファイルを読み込んで、結果をそのファイルに上書きする。ファイル自体を編集したい場合には便利。
-(<code>-i</code> はGNU sed限定)</p>
+<p>ファイル名を指定してオプション <code class="prettyprint">-i</code> を使えば、そのファイルを読み込んで、結果をそのファイルに上書きする。ファイル自体を編集したい場合には便利。(<code class="prettyprint">-i</code> はGNU sed限定)</p>
 
-<p>処理内容は、置換処理や行の削除、選択などいろいろできて、オプション <code>-e</code> で指定する。</p>
+<p>処理内容は、置換処理や行の削除、選択などいろいろできて、オプション <code class="prettyprint">-e</code> で指定する。</p>
 
 <p>パイプで使う場合の例</p>
 
-<pre><code>$ cat ./hoge.txt | sed -e 's/xxx/XXX/g' &gt; ./hoge-new.txt
+<pre><code class="prettyprint lang-console">$ cat ./hoge.txt | sed -e &#39;s/xxx/XXX/g&#39; &gt; ./hoge-new.txt
 </code></pre>
 
 <p>ファイル名を指定して使う場合の例</p>
 
-<pre><code>$ sed -e 's/xxx/XXX/g' ./hoge.txt &gt; ./hoge-new.txt
+<pre><code class="prettyprint lang-console">$ sed -e &#39;s/xxx/XXX/g&#39; ./hoge.txt &gt; ./hoge-new.txt
 </code></pre>
 
 <p>ファイルを書き換えてしまう例(複数のファイルを指定できる)</p>
 
-<pre><code>$ sed -i -e 's/xxx/XXX/g' ./hoge.txt ./hoge2.txt ./hoge3.txt
+<pre><code class="prettyprint lang-console">$ sed -i -e &#39;s/xxx/XXX/g&#39; ./hoge.txt ./hoge2.txt ./hoge3.txt
 </code></pre>
 
-<p><code>-e</code> オプションがない場合はオプション以外の最初の引数が処理内容とみなされるので、たいていは <code>-e</code> を省略できる。処理内容を指示する引数に拡張正規表現を使いたい場合は、
-<a href="#extended-regexp">後述</a>のように <code>-E</code> または <code>-r</code> を付ける。</p>
+<p><code class="prettyprint">-e</code> オプションがない場合はオプション以外の最初の引数が処理内容とみなされるので、たいていは <code class="prettyprint">-e</code> を省略できる。処理内容を指示する引数に拡張正規表現を使いたい場合は、後述のように <code class="prettyprint">-E</code> または <code class="prettyprint">-r</code> を付ける。</p>
 
-<p>環境によっては <code>-E</code> や <code>-r</code> がサポートされていないみたい。</p>
+<p>環境によっては <code class="prettyprint">-E</code> や <code class="prettyprint">-r</code> がサポートされていないみたい。</p>
 
-<h2 id="544ea65">複数の処理をさせるには
+</section>
+<section>
+<h2>複数の処理をさせるには
 <span class="article-date">2016/09/27</span></h2>
 
-<p><code>-e</code>オプションを複数指定すれば、コマンドを複数実行することができる。またはコマンドを <code>;</code> で区切って複数並べることもできる。</p>
+<p><code class="prettyprint">-e</code>オプションを複数指定すれば、コマンドを複数実行することができる。またはコマンドを <code class="prettyprint">;</code> で区切って複数並べることもできる。</p>
 
 <p>コマンドが複数ある場合、コマンド1つずつ全行操作するのではなく、各行ごとにコマンドをすべて実行していく。つまり、以下の2つの方法は結果が違う可能性がある。</p>
 
-<pre><code>$ cat ... | sed -e ... | sed -e ...
+<pre><code class="prettyprint">$ cat ... | sed -e ... | sed -e ...
 $ cat ... | sed -e ... -e ...
 </code></pre>
 
-<p>例えば、1つ目のコマンドに行番号を指定して行を削除する処理があり、
-2つ目のコマンドに行番号を指定して出力する処理がある場合、上記2つの方法のいずれかによって行番号がずれる可能性がある。</p>
+<p>例えば、1つ目のコマンドに行番号を指定して行を削除する処理があり、2つ目のコマンドに行番号を指定して出力する処理がある場合、上記2つの方法のいずれかによって行番号がずれる可能性がある。</p>
 
-<h2 id="ed756ff"><code>-e</code> で指定する処理内容
+</section>
+<section>
+<h2>`-e` で指定する処理内容
 <span class="article-date">2016/09/27</span></h2>
 
-<p><code>-e</code> のあとのパラメータは、アドレス、コマンド1文字、コマンドパラメータの順に書くことで、処理内容を表す。アドレスはどの行を処理対象とするかを表す。すべての行を処理する場合はアドレスを省略できるので、コマンドの1文字から始まることになる。コマンドは <code>s</code>, <code>d</code>, <code>p</code>などがある。</p>
+<p><code class="prettyprint">-e</code> のあとのパラメータは、アドレス、コマンド1文字、コマンドパラメータの順に書くことで、処理内容を表す。アドレスはどの行を処理対象とするかを表す。すべての行を処理する場合はアドレスを省略できるので、コマンドの1文字から始まることになる。コマンドは <code class="prettyprint">s</code>, <code class="prettyprint">d</code>, <code class="prettyprint">p</code>などがある。</p>
 
 <p>例</p>
 
-<pre><code>$ sed -e 's/xxx/XXX/g' # sコマンド (アドレスがなくて、sのあとはパラメータ)
-$ sed -e '30,31d'      # dコマンド (dの前にアドレスがあり、パラメータがない)
-$ sed -n -e '30p'      # pコマンド (これもアドレスがあり、パラメータがない)
+<pre><code class="prettyprint">$ sed -e &#39;s/xxx/XXX/g&#39; # sコマンド (アドレスがなくて、sのあとはパラメータ)
+$ sed -e &#39;30,31d&#39;      # dコマンド (dの前にアドレスがあり、パラメータがない)
+$ sed -n -e &#39;30p&#39;      # pコマンド (これもアドレスがあり、パラメータがない)
 </code></pre>
 
-<h3 id="replace"><code>s</code>コマンド
+<section>
+<h3 id="replace">`s`コマンド
 <span class="article-date">2015/02/01</span></h3>
 
-<p><code>s</code>コマンドは正規表現で置換処理をする。</p>
+<p><code class="prettyprint">s</code>コマンドは正規表現で置換処理をする。</p>
 
-<pre><code>$ sed -e 's/abc/ABC/g'
+<pre><code class="prettyprint">$ sed -e &#39;s/abc/ABC/g&#39;
 </code></pre>
 
-<p>最後の <code>g</code> はすべてのマッチした文字列を置換することを意味する。
-<code>g</code> がなくても全行で置換を実行するが、1行に2つ以上マッチした場合は
-1つ目しか置換されない。</p>
+<p>最後の <code class="prettyprint">g</code> はすべてのマッチした文字列を置換することを意味する。<code class="prettyprint">g</code> がなくても全行で置換を実行するが、1行に2つ以上マッチした場合は1つ目しか置換されない。</p>
 
-<p><code>g</code> がなくても全行の置換をするが、1行に複数マッチする場合でも各行の最初のマッチしか置換をしない。</p>
+<p><code class="prettyprint">g</code> がなくても全行の置換をするが、1行に複数マッチする場合でも各行の最初のマッチしか置換をしない。</p>
 
-<p>区切り記号の <code>/</code> は他の記号でもよく、パスの置換などで置換対象に <code>/</code> が含まれている場合は、<code>!</code> など他の記号を使ったほうが便利。</p>
+<p>区切り記号の <code class="prettyprint">/</code> は他の記号でもよく、パスの置換などで置換対象に <code class="prettyprint">/</code> が含まれている場合は、<code class="prettyprint">!</code> など他の記号を使ったほうが便利。</p>
 
-<p>上の例では <code>abc</code> が置換前の正規表現、<code>ABC</code> が置換後の文字列。</p>
+<p>上の例では <code class="prettyprint">abc</code> が置換前の正規表現、<code class="prettyprint">ABC</code> が置換後の文字列。</p>
 
-<p>置換後の文字列に <code>&amp;</code> を指定するとマッチした文字列の部分が出力され、
-<code>\1</code>, <code>\2</code>… を指定するとマッチした文字列のうち正規表現内でカッコでグルーピングされた部分が出力される。</p>
+<p>置換後の文字列に <code class="prettyprint">&amp;</code> を指定するとマッチした文字列の部分が出力され、<code class="prettyprint"></code>, <code class="prettyprint"></code>... を指定するとマッチした文字列のうち正規表現内でカッコでグルーピングされた部分が出力される。</p>
 
-<pre><code>$ echo xx34 | sed -e 's/xx\(.\)/-&amp; \1-/g'
+<pre><code class="prettyprint">$ echo xx34 | sed -e &#39;s/xx\(.\)/-&amp; -/g&#39;
 ## =&gt; -xx3 3-4
 
-$echo xx34 | sed -E 's/xx(.)/-&amp; \1-/g'
+$echo xx34 | sed -E &#39;s/xx(.)/-&amp; -/g&#39;
 ## =&gt; -xx3 3-4
 </code></pre>
 
-<p><code>-e</code> と <code>-E</code> の違いは<a href="#extended-regexp">基本正規表現と拡張正規表現</a>を参照。</p>
+<p><code class="prettyprint">-e</code> と <code class="prettyprint">-E</code> の違いは<a href="#extended-regexp">基本正規表現と拡張正規表現</a>を参照。</p>
 
-<p><code>-n</code> オプションを追加して<code>p</code>フラグを付けると、マッチした行のみを出力する。</p>
+<p><code class="prettyprint">-n</code> オプションを追加して<code class="prettyprint">p</code>フラグを付けると、マッチした行のみを出力する。</p>
 
-<p><code>s</code>コマンドの前に数字を置くと、その行のみがマッチングの対象になる。(アドレスという)</p>
+<p><code class="prettyprint">s</code>コマンドの前に数字を置くと、その行のみがマッチングの対象になる。(アドレスという)</p>
 
-<pre><code>## 3行目のみを全置換の対象とする
+<pre><code class="prettyprint">## 3行目のみを全置換の対象とする
 ## gを付けているのでその行に複数マッチすれば全部置換される
 $ sed 3s/abc/ABC/g
 
@@ -129,49 +131,53 @@ $ sed 3s/abc/ABC/g
 $ sed 3,5s/abc/ABC/g
 
 ## 3行目から5行目のみを全置換の対象とする
-$ sed '3,$s/abc/ABC/g'
+$ sed &#39;3,$s/abc/ABC/g&#39;
 </code></pre>
 
 <p>-&gt; <a href="../programming_languages_diff/string/replace.html">各プログラミング言語での正規表現で置換</a></p>
 
-<h3 id="ca52b95"><code>d</code>コマンド
+</section>
+<section>
+<h3>`d`コマンド
 <span class="article-date">2015/05/13</span></h3>
 
-<p><code>d</code>コマンドは行を削除する。</p>
+<p><code class="prettyprint">d</code>コマンドは行を削除する。</p>
 
-<p><code>sed d</code> とすると、すべての行が削除されてなにも出力しなくなってしまう。普通は後述のアドレスの機能を使って削除する行を指定して、残りを出力させる。</p>
+<p><code class="prettyprint">sed d</code> とすると、すべての行が削除されてなにも出力しなくなってしまう。普通は後述のアドレスの機能を使って削除する行を指定して、残りを出力させる。</p>
 
-<pre><code>## 1行目から5行目を削除して6行目以降を出力
+<pre><code class="prettyprint">## 1行目から5行目を削除して6行目以降を出力
 $ sed 1,5d
 </code></pre>
 
-<p><code>!</code> を付けると、逆に対象行以外を削除するコマンドになる。</p>
+<p><code class="prettyprint">!</code> を付けると、逆に対象行以外を削除するコマンドになる。</p>
 
-<pre><code>## 1行目から行目のみを出力
+<pre><code class="prettyprint">## 1行目から行目のみを出力
 ## ! はシェルが特別に解釈してしまうので、
 ## シングルクオーテーションを付けるか \ でエスケープが必要
-$ sed '1,5!d'
+$ sed &#39;1,5!d&#39;
 $ sed 1,5\!d
 </code></pre>
 
-<h3 id="6889b9a"><code>p</code>コマンド
+</section>
+<section>
+<h3>`p`コマンド
 <span class="article-date">2013/10/01</span></h3>
 
-<p>行を単に出力する。通常は <code>-n</code> オプションと組み合わせる。
-<code>sed</code>コマンドでは処理結果をデフォルトで出力するが、
-<code>-n</code> オプションを付けるとデフォルトの出力がされなくなり、
-<code>p</code>コマンドの出力のみになる。</p>
+<p>行を単に出力する。通常は <code class="prettyprint">-n</code> オプションと組み合わせる。<code class="prettyprint">sed</code>コマンドでは処理結果をデフォルトで出力するが、<code class="prettyprint">-n</code> オプションを付けるとデフォルトの出力がされなくなり、<code class="prettyprint">p</code>コマンドの出力のみになる。</p>
 
-<h2 id="6c6098f">アドレス
+</section>
+</section>
+<section>
+<h2>アドレス
 <span class="article-date">2015/09/12</span></h2>
 
 <p>コマンドの実行対象行を指定する行番号をアドレスという。行番号だけでなくや正規表現で指定して、その正規表現にマッチする行を実行対象とすることもできる。</p>
 
-<p>アドレスは <code>-e</code> のあとの処理内容を表すコマンドの前に付ける。</p>
+<p>アドレスは <code class="prettyprint">-e</code> のあとの処理内容を表すコマンドの前に付ける。</p>
 
-<p>以下の例は<code>p</code>コマンドでの例だが、<code>s</code>, <code>y</code>, <code>d</code> コマンドなどでも使える。</p>
+<p>以下の例は<code class="prettyprint">p</code>コマンドでの例だが、<code class="prettyprint">s</code>, <code class="prettyprint">y</code>, <code class="prettyprint">d</code> コマンドなどでも使える。</p>
 
-<pre><code># 先頭の行のみを出力
+<pre><code class="prettyprint"># 先頭の行のみを出力
 sed -n -e 1p
 
 # 最後の行のみを出力
@@ -199,7 +205,7 @@ grep -v -e xxx
 
 # 正規表現にマッチする行を出力
 # 先頭に \ を付ければ、正規表現を囲む記号はなんでもよい
-sed -n -e '\%xxx%p'
+sed -n -e &#39;\%xxx%p&#39;
 
 # 1つ目の正規表現にマッチする行から2つ目の正規表現にマッチする行までを出力
 sed -n -e /xxx/,/yyy/p
@@ -210,288 +216,320 @@ sed -n -e /xxx/,+3p
 
 # 正規表現にマッチする行から最後までを出力
 # $ が最後という意味になる
-sed -n -e '/xxx/,$p'
+sed -n -e &#39;/xxx/,$p&#39;
 
 # 20行目から23行目までの4行分を出力
 sed -n -e 20,+3p
 </code></pre>
 
-<p><code>s</code>コマンドでアドレスの機能を使うと、該当する行だけ置換処理が実行され、それ以外の行は置換せずにそのまま出力される。</p>
+<p><code class="prettyprint">s</code>コマンドでアドレスの機能を使うと、該当する行だけ置換処理が実行され、それ以外の行は置換せずにそのまま出力される。</p>
 
-<h2 id="a676555">オプション
-<span class="article-date">2016/01/31</span></h2>
+</section>
+<section>
+<h2>オプション
+<span class="article-date">2021/01/17</span></h2>
 
-<dl>
-  <dt><code>-e</code> script</dt>
-  <dd>処理内容を指定する。</dd>
-  <dt><code>-E</code></dt>
-  <dd>拡張正規表現を使う。<a href="#extended-regexp">基本正規表現と拡張正規表現</a>を参照。</dd>
-  <dt><code>-i</code>, <code>--in-place</code></dt>
-  <dd>結果を標準出力せずにファイルを置き換える。</dd>
-  <dt><code>-n</code></dt>
-  <dd>修理する各行の自動出力をしない。 <code>-p</code> コマンドによる出力のみになる。</dd>
-  <dt><code>-r</code></dt>
-  <dd>拡張正規表現を使う。<code>-E</code> と同じなのかな(?)</dd>
-  <dt><code>--help</code></dt>
-  <dd>ヘルプを表示</dd>
-  <dt><code>--version</code></dt>
-  <dd>バージョンを表示</dd>
-</dl>
+<dl><dt><code class="prettyprint">-e</code> script</dt>
+<dd>処理内容を指定する。</dd>
 
+<dt><code class="prettyprint">-E</code></dt>
+<dd>拡張正規表現を使う。<a href="#extended-regexp">基本正規表現と拡張正規表現</a>を参照。</dd>
+
+<dt><code class="prettyprint">-i</code>, <code class="prettyprint">--in-place</code></dt>
+<dd>標準出力せずにファイルを上書きで書き換える。</dd>
+
+<dt><code class="prettyprint">-n</code></dt>
+<dd>修理する各行の自動出力をしない。 <code class="prettyprint">-p</code> コマンドによる出力のみになる。</dd>
+
+<dt><code class="prettyprint">-r</code></dt>
+<dd>拡張正規表現を使う。<code class="prettyprint">-E</code> と同じ。</dd>
+
+<dt><code class="prettyprint">-u</code></dt>
+<dd>出力をバッファリングしない。<code class="prettyprint">tail -f</code>と組み合わせるときに有用。</dd>
+
+<dt><code class="prettyprint">--help</code></dt>
+<dd>ヘルプを表示</dd>
+
+<dt><code class="prettyprint">--version</code></dt>
+<dd>バージョンを表示</dd></dl>
+
+</section>
+<section>
 <h2 id="extended-regexp">基本正規表現と拡張正規表現
-<span class="article-date">2015/12/18</span></h2>
+<span class="article-date">2021/01/17</span></h2>
 
 <p>sedで使える正規表現は基本正規表現と拡張正規表現(extended regular expressions)の2種類ある。</p>
 
-<p>オプションをなにも付けないか <code>-e</code> で実行すると基本正規表現で、
-<code>-r</code> を付けるかまたは <code>-e</code> の代わりに <code>-E</code> を使うと拡張正規表現になる。</p>
+<p><code class="prettyprint">-E</code> または <code class="prettyprint">-r</code> を付けると拡張正規表現になり、それ以外は基本正規表現になる。</p>
 
 <p>基本正規表現と拡張正規表現とで扱いが異なるのは以下の7文字のみである。</p>
 
-<pre><code>+ ? { } ( ) |
+<pre><code class="prettyprint">+ ? { } ( ) |
 </code></pre>
 
 <p>これらの文字の前にバックスラッシュでエスケープするかどうかで、正規表現での特殊な意味になるか、単にその文字そのものの意味になるかが、基本正規表現と拡張正規表現とで変わる。拡張正規表現という名前の割には機能が上がっているわけではない。</p>
 
 <p>以下は自分の環境(GNU sed 4.2.2)で検証した結果。</p>
 
-<p>まずは <code>+</code> の例。拡張正規表現では <code>+</code> で直前の文字が1文字以上の意味になり、
-<code>\+</code> で <code>+</code> そのものを表すが、基本正規表現では逆になる(?)。
-(その説明だと2番目の実行例が説明できない)</p>
+<p>まずは <code class="prettyprint">+</code> の例。拡張正規表現では <code class="prettyprint">+</code> で直前の文字が1文字以上の意味になり、<code class="prettyprint"></code> で <code class="prettyprint">+</code> そのものを表すが、基本正規表現では逆になる(?)。(その説明だと2番目の実行例が説明できない)</p>
 
-<pre><code>$ echo '+' | sed 's/+/OK/g'
+<pre><code class="prettyprint">$ echo &#39;+&#39; | sed &#39;s/+/OK/g&#39;
 OK
-$ echo '+' | sed 's/\+/OK/g'
+$ echo &#39;+&#39; | sed &#39;s//OK/g&#39;
 OK
-$ echo '+' | sed -E 's/+/OK/g'
+$ echo &#39;+&#39; | sed -E &#39;s/+/OK/g&#39;
 sed: -e expression #1, char 8: Invalid preceding regular expression
-$ echo '+' | sed -E 's/\+/OK/g'
+$ echo &#39;+&#39; | sed -E &#39;s//OK/g&#39;
 OK
-$ echo 'x' | sed 's/x+/OK/g'
+$ echo &#39;x&#39; | sed &#39;s/x+/OK/g&#39;
 x
-$ echo 'x' | sed 's/x\+/OK/g'
+$ echo &#39;x&#39; | sed &#39;s/x/OK/g&#39;
 OK
-$ echo 'x' | sed -E 's/x+/OK/g'
+$ echo &#39;x&#39; | sed -E &#39;s/x+/OK/g&#39;
 OK
-$ echo 'x' | sed -E 's/x\+/OK/g'
+$ echo &#39;x&#39; | sed -E &#39;s/x/OK/g&#39;
 x
 </code></pre>
 
-<p>次は <code>?</code> の例だが、これは <code>+</code> と同様。拡張正規表現では <code>?</code> で直前の文字が0文字または1文字の意味になり、
-<code>?+</code> で <code>?</code> そのものを表すが、基本正規表現では逆になる(?)。
-(やはり2番目の実行例が説明できない)</p>
+<p>次は <code class="prettyprint">?</code> の例だが、これは <code class="prettyprint">+</code> と同様。拡張正規表現では <code class="prettyprint">?</code> で直前の文字が0文字または1文字の意味になり、<code class="prettyprint">?+</code> で <code class="prettyprint">?</code> そのものを表すが、基本正規表現では逆になる(?)。(やはり2番目の実行例が説明できない)</p>
 
-<pre><code>$ echo '?' | sed 's/?/OK/g'
+<pre><code class="prettyprint">$ echo &#39;?&#39; | sed &#39;s/?/OK/g&#39;
 OK
-$ echo '?' | sed 's/\?/OK/g'
+$ echo &#39;?&#39; | sed &#39;s/\?/OK/g&#39;
 OK
-$ echo '?' | sed -E 's/?/OK/g'
+$ echo &#39;?&#39; | sed -E &#39;s/?/OK/g&#39;
 sed: -e expression #1, char 8: Invalid preceding regular expression
-$ echo '?' | sed -E 's/\?/OK/g'
+$ echo &#39;?&#39; | sed -E &#39;s/\?/OK/g&#39;
 OK
-$ echo 'x' | sed 's/x?/OK/g'
+$ echo &#39;x&#39; | sed &#39;s/x?/OK/g&#39;
 x
-$ echo 'x' | sed 's/x\?/OK/g'
+$ echo &#39;x&#39; | sed &#39;s/x\?/OK/g&#39;
 OK
-$ echo 'x' | sed -E 's/x?/OK/g'
+$ echo &#39;x&#39; | sed -E &#39;s/x?/OK/g&#39;
 OK
-$ echo 'x' | sed -E 's/x\?/OK/g'
+$ echo &#39;x&#39; | sed -E &#39;s/x\?/OK/g&#39;
 x
 </code></pre>
 
-<p>続いて <code>{}</code> の例。<code>{}</code> は正規表現でとしては以下のような意味がある。</p>
+<p>続いて <code class="prettyprint">{}</code> の例。<code class="prettyprint">{}</code> は正規表現でとしては以下のような意味がある。</p>
 
-<dl>
-  <dt><code>{</code>n<code>}</code></dt>
-  <dd>直前の文字がちょうどn文字の連続</dd>
-  <dt><code>{</code>n,<code>}</code></dt>
-  <dd>直前の文字がn文字以上の連続</dd>
-  <dt><code>{</code>n,m<code>}</code></dt>
-  <dd>直前の文字がn文字以上m文字以下の連続</dd>
-</dl>
+<dl><dt><code class="prettyprint">{</code>n<code class="prettyprint">}</code></dt>
+<dd>直前の文字がちょうどn文字の連続</dd>
 
-<p><code>+</code> や <code>?</code> と同様に拡張正規表現ではそのまま使えるが、基本正規表現ではバックスラッシュを付けないといけない。</p>
+<dt><code class="prettyprint">{</code>n,<code class="prettyprint">}</code></dt>
+<dd>直前の文字がn文字以上の連続</dd>
 
-<pre><code>$ echo '{' | sed 's/{/OK/g'
+<dt><code class="prettyprint">{</code>n,m<code class="prettyprint">}</code></dt>
+<dd>直前の文字がn文字以上m文字以下の連続</dd></dl>
+
+<p><code class="prettyprint">+</code> や <code class="prettyprint">?</code> と同様に拡張正規表現ではそのまま使えるが、基本正規表現ではバックスラッシュを付けないといけない。</p>
+
+<pre><code class="prettyprint">$ echo &#39;{&#39; | sed &#39;s/{/OK/g&#39;
 OK
-$ echo '{' | sed 's/\{/OK/g'
+$ echo &#39;{&#39; | sed &#39;s/\{/OK/g&#39;
 sed: -e expression #1, char 9: Invalid preceding regular expression
-$ echo '{' | sed -E 's/{/OK/g'
+$ echo &#39;{&#39; | sed -E &#39;s/{/OK/g&#39;
 sed: -e expression #1, char 8: Invalid preceding regular expression
-$ echo '{' | sed -E 's/\{/OK/g'
+$ echo &#39;{&#39; | sed -E &#39;s/\{/OK/g&#39;
 OK
-$ echo 'xx' | sed 's/x{2}/OK/g'
+$ echo &#39;xx&#39; | sed &#39;s/x{2}/OK/g&#39;
 xx
-$ echo 'xx' | sed 's/x\{2\}/OK/g'
+$ echo &#39;xx&#39; | sed &#39;s/x\{2\}/OK/g&#39;
 OK
-$ echo 'xx' | sed -E 's/x{2}/OK/g'
+$ echo &#39;xx&#39; | sed -E &#39;s/x{2}/OK/g&#39;
 OK
-$ echo 'xx' | sed -E 's/x\{2\}/OK/g'
+$ echo &#39;xx&#39; | sed -E &#39;s/x\{2\}/OK/g&#39;
 xx
 </code></pre>
 
-<p><code>()</code> や <code>|</code> も同様に拡張正規表現ではそのまま使えるが、基本正規表現ではバックスラッシュを付けないといけない。逆にその文字そのものは、基本正規表現ではそのまま書けばよいが、拡張正規表現ではバックスラッシュが必要。</p>
+<p><code class="prettyprint">()</code> や <code class="prettyprint">|</code> も同様に拡張正規表現ではそのまま使えるが、基本正規表現ではバックスラッシュを付けないといけない。逆にその文字そのものは、基本正規表現ではそのまま書けばよいが、拡張正規表現ではバックスラッシュが必要。</p>
 
-<pre><code>$ echo '(' | sed 's/(/OK/g'
+<pre><code class="prettyprint">$ echo &#39;(&#39; | sed &#39;s/(/OK/g&#39;
 OK
-$ echo '(' | sed 's/\(/OK/g'
+$ echo &#39;(&#39; | sed &#39;s/\(/OK/g&#39;
 sed: -e expression #1, char 9: Unmatched ( or \(
-$ echo '(' | sed -E 's/(/OK/g'
+$ echo &#39;(&#39; | sed -E &#39;s/(/OK/g&#39;
 sed: -e expression #1, char 8: Unmatched ( or \(
-$ echo '(' | sed -E 's/\(/OK/g'
+$ echo &#39;(&#39; | sed -E &#39;s/\(/OK/g&#39;
 OK
 
-$ echo 'a|b' | sed 's/a|b/OK/g'
+$ echo &#39;a|b&#39; | sed &#39;s/a|b/OK/g&#39;
 OK
-$ echo 'a|b' | sed 's/a\|b/OK/g'
+$ echo &#39;a|b&#39; | sed &#39;s/a\|b/OK/g&#39;
 OK|OK
-$ echo 'a|b' | sed -E 's/a|b/OK/g'
+$ echo &#39;a|b&#39; | sed -E &#39;s/a|b/OK/g&#39;
 OK|OK
-$ echo 'a|b' | sed -E 's/a\|b/OK/g'
+$ echo &#39;a|b&#39; | sed -E &#39;s/a\|b/OK/g&#39;
 OK
 </code></pre>
 
-<h2 id="a94f4da">HOWTO</h2>
+</section>
+<section>
+<h2>HOWTO
+</h2>
 
-<h3 id="0250384">大文字小文字を変換するには
+
+<section>
+<h3>大文字小文字を変換するには
 <span class="article-date">2015/12/18</span></h3>
 
-<p>全部大文字にするには <code>\U</code> というのを使うとよい。<code>U</code> はたぶん <strong>U</strong>pper の略。</p>
+<p>全部大文字にするには <code class="prettyprint">\U</code> というのを使うとよい。<code class="prettyprint">U</code> はたぶん <strong>U</strong>pper の略。</p>
 
-<pre><code>head main.go | sed -E 's/(.*)/\U\1/'
+<pre><code class="prettyprint">head main.go | sed -E &#39;s/(.*)/\U/&#39;
 # または
-head main.go | sed 's/\(.*\)/\U\1/'
+head main.go | sed &#39;s/\(.*\)/\U/&#39;
 </code></pre>
 
-<p>小文字にするには <code>\L</code> というのを使うとよい。<code>L</code> はたぶん <strong>L</strong>ower の略。</p>
+<p>小文字にするには <code class="prettyprint">\L</code> というのを使うとよい。<code class="prettyprint">L</code> はたぶん <strong>L</strong>ower の略。</p>
 
-<pre><code>head main.go | sed -E 's/(.*)/\L\1/'
+<pre><code class="prettyprint">head main.go | sed -E &#39;s/(.*)/\L/&#39;
 # または
-head main.go | sed 's/\(.*\)/\L\1/'
+head main.go | sed &#39;s/\(.*\)/\L/&#39;
 </code></pre>
 
-<h3 id="89f6480">正規表現の中で <code>{}</code> を使うには
+</section>
+<section>
+<h3>正規表現の中で `{}` を使うには
 <span class="article-date">2015/12/19</span></h3>
 
-<p>正規表現で文字数を指定する <code>{}</code> は上で説明したとおり <code>\</code> でエスケープするか、オプション <code>-r</code> を付けるかまたは <code>-e</code> の代わりに <code>-E</code> を使う必要がある。</p>
+<p>正規表現で文字数を指定する <code class="prettyprint">{}</code> は上で説明したとおり <code class="prettyprint">\</code> でエスケープするか、オプション <code class="prettyprint">-r</code> を付けるかまたは <code class="prettyprint">-e</code> の代わりに <code class="prettyprint">-E</code> を使う必要がある。</p>
 
-<pre><code># xxxx を XXXX に置換する例
-sed 's/x{4}/XXXX/g'       # =&gt; NG
-sed 's/x\{4\}/XXXX/g'     # =&gt; OK
-sed "s/x{4}/XXXX/g"       # =&gt; NG
-sed "s/x\{4\}/XXXX/g"     # =&gt; OK
-sed "s/x\\\{4\\\}/XXXX/g" # =&gt; NG
+<pre><code class="prettyprint"># xxxx を XXXX に置換する例
+sed &#39;s/x{4}/XXXX/g&#39;       # =&gt; NG
+sed &#39;s/x\{4\}/XXXX/g&#39;     # =&gt; OK
+sed &quot;s/x{4}/XXXX/g&quot;       # =&gt; NG
+sed &quot;s/x\{4\}/XXXX/g&quot;     # =&gt; OK
+sed &quot;s/x\\{4\\}/XXXX/g&quot; # =&gt; NG
 </code></pre>
 
-<h3 id="group">正規表現の中の <code>()</code> で囲まれた部分を使って置換するには
+</section>
+<section>
+<h3 id="group">正規表現の中の `()` で囲まれた部分を使って置換するには
 <span class="article-date">2015/02/01</span></h3>
 
-<p>置換後の文字列には、<code>\1</code>, <code>\2</code> などを指定することで、正規表現にマッチしたグループに置き換えられる。</p>
+<p>置換後の文字列には、<code class="prettyprint"></code>, <code class="prettyprint"></code> などを指定することで、正規表現にマッチしたグループに置き換えられる。</p>
 
-<pre><code>echo "bc abcc" | sed 's/b\(c*\)/\1/g'
+<pre><code class="prettyprint">echo &quot;bc abcc&quot; | sed &#39;s/b\(c*\)//g&#39;
 # =&gt; c acc
 
-echo "bc abcc" | sed -e 's/b\(c*\)/\1/g'
+echo &quot;bc abcc&quot; | sed -e &#39;s/b\(c*\)//g&#39;
 # =&gt; c acc
 
-echo "bc abcc" | sed -E 's/b(c*)/\1/g'
+echo &quot;bc abcc&quot; | sed -E &#39;s/b(c*)//g&#39;
 # =&gt; c acc
 </code></pre>
 
-<p>正規表現の中の <code>()</code> には <code>\</code> でエスケープしないといけない。 
-<code>-e</code> の代わりに <code>-E</code> をつけると、上で説明したとおり拡張正規表現になってエスケープが不要になる。</p>
+<p>正規表現の中の <code class="prettyprint">()</code> には <code class="prettyprint">\</code> でエスケープしないといけない。<code class="prettyprint">-e</code> の代わりに <code class="prettyprint">-E</code> をつけると、上で説明したとおり拡張正規表現になってエスケープが不要になる。</p>
 
 <p>-&gt; <a href="../programming_languages_diff/string/regexp-group.html">正規表現のグルーピングにマッチした文字列を使うには</a></p>
 
-<h3 id="a79f8f1">タブ文字を全置換するには
+</section>
+<section>
+<h3>タブ文字を全置換するには
 <span class="article-date">2013/06/17</span></h3>
 
-<pre><code>## タブ文字をスペースに全置換
-$ sed '/\t/ /g'
+<pre><code class="prettyprint">## タブ文字をスペースに全置換
+$ sed &#39;/\t/ /g&#39;
 </code></pre>
 
-<h3 id="1bcb217">正規表現にマッチする行を削除するには
+</section>
+<section>
+<h3>正規表現にマッチする行を削除するには
 <span class="article-date">2013/06/17</span></h3>
 
-<pre><code># '2013' が含まれる行を削除
-sed '/^2013/d'
+<pre><code class="prettyprint"># &#39;2013&#39; が含まれる行を削除
+sed &#39;/^2013/d&#39;
 
 # 空行を削除
-sed '/^$/d'
+sed &#39;/^$/d&#39;
 </code></pre>
 
-<h3 id="fbbb15e">正規表現にマッチする行を抽出するには
+</section>
+<section>
+<h3>正規表現にマッチする行を抽出するには
 <span class="article-date">2013/09/25</span></h3>
 
-<pre><code># '2013' が含まれる行のみを出力
-sed '/^2013/!d'
+<pre><code class="prettyprint"># &#39;2013&#39; が含まれる行のみを出力
+sed &#39;/^2013/!d&#39;
 # または
-sed -n '/^2013/p'
+sed -n &#39;/^2013/p&#39;
 
 # 空行の数をカウント
-sed -n '/^$/p' | wc -l
+sed -n &#39;/^$/p&#39; | wc -l
 </code></pre>
 
-<h3 id="c872436">連続するスペースまたはタブ文字を1つのスペースに全置換するには
+</section>
+<section>
+<h3>連続するスペースまたはタブ文字を1つのスペースに全置換するには
 <span class="article-date">2014/08/21</span></h3>
 
-<pre><code># タブ文字をスペースに全置換
-sed -E 's/[\t ]+/ /g'
+<pre><code class="prettyprint"># タブ文字をスペースに全置換
+sed -E &#39;s/[\t ]+/ /g&#39;
 </code></pre>
 
-<h3 id="cb9cf79">連続する空行を1行にまとめるには
+</section>
+<section>
+<h3>連続する空行を1行にまとめるには
 <span class="article-date">2016/02/05</span></h3>
 
-<p>sedでなくて<a href="cat.html#option-s">catコマンド</a>の <code>-s</code> オプションで簡単にできる。</p>
+<p>sedでなくて<a href="cat.md#option-s">catコマンド</a>の <code class="prettyprint">-s</code> オプションで簡単にできる。</p>
 
-<pre><code>$ cat -s input.txt
+<pre><code class="prettyprint">$ cat -s input.txt
 </code></pre>
 
-<h3 id="3d97fb0">標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには
+</section>
+<section>
+<h3>標準入力ではなくファイルの中のテキストを全置換してファイルを置き換えるには
 <span class="article-date">2014/10/15</span></h3>
 
-<p>GNU sedであれば、<code>-i</code> オプションを付ければ、ファイルを直接書き換えることができる。</p>
+<p>GNU sedであれば、<code class="prettyprint">-i</code> オプションを付ければ、ファイルを直接書き換えることができる。</p>
 
-<pre><code>sed -i -e 's/置換前/置換後/g' ファイル名
+<pre><code class="prettyprint">sed -i -e &#39;s/置換前/置換後/g&#39; ファイル名
 </code></pre>
 
-<p><code>-i</code> がないと、全置換後の結果を標準出力に吐き出して、ファイルは書き換えない。</p>
+<p><code class="prettyprint">-i</code> がないと、全置換後の結果を標準出力に吐き出して、ファイルは書き換えない。</p>
 
 <p>ちなみに以下のようにしてもうまくいかない。</p>
 
-<pre><code>cat foo.txt | sed -i -e 's/.../.../g' &gt; foo.txt
+<pre><code class="prettyprint">cat foo.txt | sed -i -e &#39;s/.../.../g&#39; &gt; foo.txt
 </code></pre>
 
-<p>ファイルからの入力と結果の書き出しは並列で実行されるため、標準入力から読み込もうにも結果を書き出すために先にファイルサイズが0になってしまい、結果として <code>foo.txt</code> はからのファイルになる。</p>
+<p>ファイルからの入力と結果の書き出しは並列で実行されるため、標準入力から読み込もうにも結果を書き出すために先にファイルサイズが0になってしまい、結果として <code class="prettyprint">foo.txt</code> はからのファイルになる。</p>
 
-<p>BSDやMacに入っているsedはGNU sedではなく、<code>-i</code> オプションがないらしい。</p>
+<p>BSDやMacに入っているsedはGNU sedではなく、<code class="prettyprint">-i</code> オプションがないらしい。</p>
 
+</section>
+<section>
 <h3 id="find-sed-recursive">ディレクトリの中を再帰的に全置換するには
 <span class="article-date">2016/09/12</span></h3>
 
 <p>-&gt; <a href="../blog/2016/0912-replace-all-text.html">ディレクトリの中を再帰的に全置換するには</a></p>
 
-<h3 id="538fd69">2つ以上の全置換を一括で実行するには
+</section>
+<section>
+<h3>2つ以上の全置換を一括で実行するには
 <span class="article-date">2013/06/17</span></h3>
 
-<p><code>-e</code> で2つ以上の全置換を実行できる。</p>
+<p><code class="prettyprint">-e</code> で2つ以上の全置換を実行できる。</p>
 
-<pre><code>cat ファイル名 | sed -e 's/置換前/置換後/g' -e 's/別の置換前/別の置換後/g'
+<pre><code class="prettyprint">cat ファイル名 | sed -e &#39;s/置換前/置換後/g&#39; -e &#39;s/別の置換前/別の置換後/g&#39;
 </code></pre>
 
+</section>
+<section>
 <h3 id="slice">行番号で範囲を指定して抽出するには
 <span class="article-date">2016/03/04</span></h3>
 
-<p>プログラミング言語でいう<a href="../programming_languages_diff/list/sub-list.html">部分配列とかスライス</a>みたいな。</p>
+<p>プログラミング言語でいう<a href="../programming_languages_diff/list/sub-list.md">部分配列とかスライス</a>みたいな。</p>
 
-<pre><code>## 2行目から4行目までを抽出(4行目を含む)
+<pre><code class="prettyprint">## 2行目から4行目までを抽出(4行目を含む)
 $ sed -n 2,4p foo.txt
 
 ## 2行目のみを抽出
 $ sed -n 2p foo.txt
 
 ## 2行目から最後までを抽出
-$ sed -n '2,$p' foo.txt
+$ sed -n &#39;2,$p&#39; foo.txt
 ## または
 $ sed -n 2,\$p foo.txt
 
@@ -501,19 +539,21 @@ $ sed -n 1,4p foo.txt
 $ sed 4q foo.txt
 </code></pre>
 
-<p><code>q</code> はその行で終了という意味。</p>
+<p><code class="prettyprint">q</code> はその行で終了という意味。</p>
 
-<h3 id="e829c7d">行番号で範囲を指定して削除するには
+</section>
+<section>
+<h3>行番号で範囲を指定して削除するには
 <span class="article-date">2013/06/14</span></h3>
 
-<pre><code># 2行目から4行目を削除(4行目も削除)
+<pre><code class="prettyprint"># 2行目から4行目を削除(4行目も削除)
 cat ファイル名 | sed -e 2,4d
 
 # 2行目のみを削除
 cat ファイル名 | sed -e 2d
 
 # 2行目から最後まで削除
-cat ファイル名 | sed -e '2,$d'
+cat ファイル名 | sed -e &#39;2,$d&#39;
 # または
 cat ファイル名 | sed -e 2,\$d
 # または head でも同じことができる
@@ -523,91 +563,105 @@ cat ファイル名 | head -n 1
 cat ファイル名 | sed -e \$d
 </code></pre>
 
-<h3 id="0ceaeb5">N行おきに抽出するには
+</section>
+<section>
+<h3>N行おきに抽出するには
 <span class="article-date">2014/09/29</span></h3>
 
-<pre><code>## 1行目、11行目、21行目、、、と10行おきに抽出
-$ cat ファイル名 | sed -ne '1~10p'
+<pre><code class="prettyprint">## 1行目、11行目、21行目、、、と10行おきに抽出
+$ cat ファイル名 | sed -ne &#39;1~10p&#39;
 
 ## 10行目、20行目、、、と10行おきに抽出
-$ cat ファイル名 | sed -ne '0~10p'
+$ cat ファイル名 | sed -ne &#39;0~10p&#39;
 </code></pre>
 
 <p>perlのワンライナーで以下のようにも書けるが、単純にN行おきに抽出するだけのシンプルな処理であればsedのほうが速い。</p>
 
-<pre><code>$ cat ファイル名 | perl -nle '$.%10==0&amp;&amp;print'
+<pre><code class="prettyprint">$ cat ファイル名 | perl -nle &#39;$.%10==0&amp;&amp;print&#39;
 </code></pre>
 
-<h3 id="c83bda2">パスなどを全置換する際にスラッシュをエスケープするのが面倒な場合
+</section>
+<section>
+<h3>パスなどを全置換する際にスラッシュをエスケープするのが面倒な場合
 <span class="article-date">2013/06/18</span></h3>
 
-<p><code>s/.../..../g</code> の記法のスラッシュは記号なら比較的なんでもよくて、3つ同じ記号を使っていることに意味があるので、<code>s@...@...@g</code> のようにも書ける。</p>
+<p><code class="prettyprint">s/.../..../g</code> の記法のスラッシュは記号なら比較的なんでもよくて、3つ同じ記号を使っていることに意味があるので、<code class="prettyprint">s@...@...@g</code> のようにも書ける。</p>
 
 <p>例</p>
 
-<pre><code>cat ファイル名 | sed -e 's@/etc/foo/bar@/home/my/etc/foo/bar@g'
+<pre><code class="prettyprint">cat ファイル名 | sed -e &#39;s@/etc/foo/bar@/home/my/etc/foo/bar@g&#39;
 </code></pre>
 
-<h3 id="tailf">ログファイルなどの <code>tail -f</code> の出力をsedで処理しながら表示するには
+</section>
+<section>
+<h3 id="tailf">ログファイルなどの `tail -f` の出力をsedで処理しながら表示するには
 <span class="article-date">2013/07/09</span></h3>
 
-<pre><code>tail -f access_log | sed --unbuffered ...
+<pre><code class="prettyprint">tail -f access_log | sed --unbuffered ...
 # または
 tail -f access_log | sed -u ...
 </code></pre>
 
-<p><code>--unbuffered</code> または <code>-u</code> を付けないとsedがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
+<p><code class="prettyprint">--unbuffered</code> または <code class="prettyprint">-u</code> を付けないとsedがバッファリングをしてしまって、リアルタイムに表示されなくなってしまう。</p>
 
-<h3 id="bf49847">空行を削除するには
+</section>
+<section>
+<h3>空行を削除するには
 <span class="article-date">2014/03/17</span></h3>
 
-<p><code>^$</code> という正規表現と、<code>d</code>での削除コマンドを使う。</p>
+<p><code class="prettyprint">^$</code> という正規表現と、<code class="prettyprint">d</code>での削除コマンドを使う。</p>
 
-<pre><code>cat ファイル名 | sed '/^$/d'
+<pre><code class="prettyprint">cat ファイル名 | sed &#39;/^$/d&#39;
 </code></pre>
 
 <p>空白文字だけの行も空行とみなして削除するには、</p>
 
-<pre><code>cat ファイル名 | sed '/^[[:blank:]]*$/d'
+<pre><code class="prettyprint">cat ファイル名 | sed &#39;/^[[:blank:]]*$/d&#39;
 </code></pre>
 
 <p>または</p>
 
-<pre><code>cat ファイル名 | sed '/^\s*$/d'
+<pre><code class="prettyprint">cat ファイル名 | sed &#39;/^\s*$/d&#39;
 </code></pre>
 
 <p>(違いは調べていない、、、)</p>
 
-<h3 id="4839d25">TSVファイルなどでヘッダ行があるファイルから正規表現で行を抽出するには
+</section>
+<section>
+<h3>TSVファイルなどでヘッダ行があるファイルから正規表現で行を抽出するには
 <span class="article-date">2015/04/10</span></h3>
 
-<p>1行目がヘッダ行などでこれは正規表現に関係なく残しておいて、残りの行は正規表現にマッチしたもののみにしたい場合、
-1行目を抽出するコマンド <code>1p</code> と正規表現で抽出するコマンドを組み合わせる。</p>
+<p>1行目がヘッダ行などでこれは正規表現に関係なく残しておいて、残りの行は正規表現にマッチしたもののみにしたい場合、<br>
+1行目を抽出するコマンド <code class="prettyprint">1p</code> と正規表現で抽出するコマンドを組み合わせる。</p>
 
-<pre><code>cat ファイル名 | sed -n -e 1p -e /パターン/p
+<pre><code class="prettyprint">cat ファイル名 | sed -n -e 1p -e /パターン/p
 </code></pre>
 
-<h3 id="b847452">指定の行番号に行を挿入するには
+</section>
+<section>
+<h3>指定の行番号に行を挿入するには
 <span class="article-date">2015/08/01</span></h3>
 
-<p><code>sed 3i test</code> のように書くと、3行目に <code>test</code> という行を挿入する、という意味になる。</p>
+<p><code class="prettyprint">sed 3i test</code> のように書くと、3行目に <code class="prettyprint">test</code> という行を挿入する、という意味になる。</p>
 
-<p>また、<code>sed 3a test</code> と書くと、3行目の次に <code>test</code> という行を挿入する、という意味になる。</p>
+<p>また、<code class="prettyprint">sed 3a test</code> と書くと、3行目の次に <code class="prettyprint">test</code> という行を挿入する、という意味になる。</p>
 
-<pre><code>$ seq 5
+<pre><code class="prettyprint">$ seq 5
 1
 2
 3
 4
 5
-$ seq 5 | sed '3i test'
+
+$ seq 5 | sed &#39;3i test&#39;
 1
 2
 test
 3
 4
 5
-$ seq 5 | sed '3a test test'
+
+$ seq 5 | sed &#39;3a test test&#39;
 1
 2
 3
@@ -616,11 +670,15 @@ test test
 5
 </code></pre>
 
+</section>
+</section>
+</section>
+
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+    このサイトは個人メモの集合です。
   </div>
   <div class="ad">
 <div class="adlabel">スポンサーリンク</div>
@@ -691,6 +749,7 @@ test test
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
+      <li><a href="../commands/tailf.html">tailf コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
       <li><a href="../commands/tee.html">tee コマンド</a></li>
       <li><a href="../commands/time.html">time コマンド</a></li>
