@@ -11,6 +11,7 @@
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="../common/js/page.js"></script>
 </head>
 <body class="res">
@@ -20,120 +21,149 @@
 </div>
 
 <div id="content">
-  <h1 id="jq">jq コマンド
-<span class="article-date">2015/03/18</span></h1>
+  <section>
+<h1>jq コマンド
+<span class="article-date">2021/01/18</span></h1>
 
-<p>JSON形式のデータを見やすく表示したり、データを抽出したりするコマンド。</p>
+<p>JSON形式のデータをカラーで見やすく表示したり、データを抽出したりするコマンド。</p>
 
 <p>例</p>
 
-<pre><code>$ echo '{"name": "taro", "age": 30, "sex": "male"}' | jq .
+<pre><code class="prettyprint">$ echo &#39;{&quot;name&quot;: &quot;taro&quot;, &quot;age&quot;: 30, &quot;sex&quot;: &quot;male&quot;}&#39; | jq .
 {
-  "sex": "male",
-  "age": 30,
-  "name": "taro"
+  &quot;sex&quot;: &quot;male&quot;,
+  &quot;age&quot;: 30,
+  &quot;name&quot;: &quot;taro&quot;
 }
 </code></pre>
 
-<p>JSON全体を単に見やすく表示するツールであれば <code>json_pp</code> というツールもある。</p>
-
-<h2 id="e221e7b">インストール
-<span class="article-date">2014/10/17</span></h2>
+<section>
+<h2>インストール
+<span class="article-date">2021/01/18</span></h2>
 
 <p>Ubuntuでは</p>
 
-<pre><code>sudo apt-get install jq
+<pre><code class="prettyprint">sudo apt install -y jq
 </code></pre>
 
-<p>(Ubuntu 13.10, 14.04 で確認)</p>
+<p>(Ubuntu 20.04 で確認)</p>
 
-<h2 id="b970620">基本的な使い方
+<p>CentOSでは</p>
+
+<pre><code class="prettyprint">sudo yum install -y jq
+</code></pre>
+
+<p>(CentOS 8 で確認)</p>
+
+</section>
+<section>
+<h2>基本的な使い方
 <span class="article-date">2014/10/17</span></h2>
 
 <p>JSON全体を表示。</p>
 
-<pre><code>$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq .
+<pre><code class="prettyprint">$ echo &#39;{&quot;name&quot;: &quot;taro&quot;, &quot;age&quot;: 30, &quot;foo&quot;: [&quot;abc&quot;, &quot;def&quot;], &quot;bar&quot;: {&quot;あ&quot;:10, &quot;い&quot;:20}}&#39; | jq .
 {
-  "bar": {
-    "い": 20,
-    "あ": 10
+  &quot;bar&quot;: {
+    &quot;い&quot;: 20,
+    &quot;あ&quot;: 10
   },
-  "foo": [
-    "abc",
-    "def"
+  &quot;foo&quot;: [
+    &quot;abc&quot;,
+    &quot;def&quot;
   ],
-  "age": 30,
-  "name": "taro"
+  &quot;age&quot;: 30,
+  &quot;name&quot;: &quot;taro&quot;
 }
 </code></pre>
 
 <p>要素を取得。</p>
 
-<pre><code>$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq '.["name"]'
-"taro"
+<pre><code class="prettyprint">$ echo &#39;{&quot;name&quot;: &quot;taro&quot;, &quot;age&quot;: 30, &quot;foo&quot;: [&quot;abc&quot;, &quot;def&quot;], &quot;bar&quot;: {&quot;あ&quot;:10, &quot;い&quot;:20}}&#39; | jq &#39;.[&quot;name&quot;]&#39;
+&quot;taro&quot;
 </code></pre>
 
 <p>こうも書ける。省略の記法なのかな。</p>
 
-<pre><code>$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq .name
-"taro"
+<pre><code class="prettyprint">$ echo &#39;{&quot;name&quot;: &quot;taro&quot;, &quot;age&quot;: 30, &quot;foo&quot;: [&quot;abc&quot;, &quot;def&quot;], &quot;bar&quot;: {&quot;あ&quot;:10, &quot;い&quot;:20}}&#39; | jq .name
+&quot;taro&quot;
 </code></pre>
 
-<p><code>-r</code> オプションを付けると、結果が文字列の場合にJSON形式ではなく、文字列を直接出力してくれる。</p>
+<p><code class="prettyprint">-r</code> オプションを付けると、結果が文字列の場合にJSON形式ではなく、文字列を直接出力してくれる。</p>
 
-<pre><code>$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq -r .name
+<pre><code class="prettyprint">$ echo &#39;{&quot;name&quot;: &quot;taro&quot;, &quot;age&quot;: 30, &quot;foo&quot;: [&quot;abc&quot;, &quot;def&quot;], &quot;bar&quot;: {&quot;あ&quot;:10, &quot;い&quot;:20}}&#39; | jq -r .name
 taro
 </code></pre>
 
 <p>要素がまた構造を持っていても大丈夫。</p>
 
-<pre><code>$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq '.["foo"]'
+<pre><code class="prettyprint">$ echo &#39;{&quot;name&quot;: &quot;taro&quot;, &quot;age&quot;: 30, &quot;foo&quot;: [&quot;abc&quot;, &quot;def&quot;], &quot;bar&quot;: {&quot;あ&quot;:10, &quot;い&quot;:20}}&#39; | jq &#39;.[&quot;foo&quot;]&#39;
 [
-  "abc",
-  "def"
+  &quot;abc&quot;,
+  &quot;def&quot;
 ]
-$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq '.["bar"]'
-{
-  "い": 20,
-  "あ": 10
-}
 </code></pre>
 
 <p>要素の要素を取得。</p>
 
-<pre><code>$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq '.["foo"][0]'
-"abc"
-$ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "い":20}}' | jq '.["bar"]["あ"]'
+<pre><code class="prettyprint">$ echo &#39;{&quot;name&quot;: &quot;taro&quot;, &quot;age&quot;: 30, &quot;foo&quot;: [&quot;abc&quot;, &quot;def&quot;], &quot;bar&quot;: {&quot;あ&quot;:10, &quot;い&quot;:20}}&#39; | jq &#39;.[&quot;foo&quot;][0]&#39;
+&quot;abc&quot;
+
+$ echo &#39;{&quot;name&quot;: &quot;taro&quot;, &quot;age&quot;: 30, &quot;foo&quot;: [&quot;abc&quot;, &quot;def&quot;], &quot;bar&quot;: {&quot;あ&quot;:10, &quot;い&quot;:20}}&#39; | jq &#39;.[&quot;bar&quot;][&quot;あ&quot;]&#39;
 10
 </code></pre>
 
-<h2 id="3a3dbd1">オプション
+</section>
+<section>
+<h2>オプション
+<span class="article-date">2021/01/18</span></h2>
+
+<dl><dt><code class="prettyprint">-C</code></dt>
+<dd>デフォルトではカラーで表示してくれるが、<code class="prettyprint">less</code>コマンドなどパイプをつなげるとカラー表示してくれない。しかしこのオプションを付ければカラー表示を強制してくれる。</dd>
+
+<dt><code class="prettyprint">-M</code></dt>
+<dd>カラー表示を無効にする</dd>
+
+<dt><code class="prettyprint">-r</code></dt>
+<dd>文字列の場合に <code class="prettyprint">&quot;&quot;</code> で囲まずに直接出力</dd>
+
+<dt><code class="prettyprint">-S</code></dt>
+<dd>オブジェクトの中のキーをソートする</dd></dl>
+
+</section>
+<section>
+<h2>色付きで<code class="prettyprint">less</code>で見るには
 <span class="article-date">2014/10/14</span></h2>
 
-<dl>
-  <dt><code>-C</code></dt>
-  <dd>デフォルトではカラーで表示してくれるが、<code>less</code>コマンドなどパイプをつなげるとカラー表示してくれない。
-しかしこのオプションを付ければカラー表示を矯正してくれる。</dd>
-  <dt><code>-M</code></dt>
-  <dd>カラー表示を無効にする</dd>
-</dl>
-
-<h2 id="3d98c31">色付きで<code>less</code>で見るには
-<span class="article-date">2014/10/14</span></h2>
-
-<p><code>-C</code> を付けてカラー表示を矯正させ、<code>less</code>コマンドでは <code>-R</code> オプションを付けてエスケープシーケンスを有効にするとよい。</p>
+<p><code class="prettyprint">-C</code> を付けてカラー表示を矯正させ、<code class="prettyprint">less</code>コマンドでは <code class="prettyprint">-R</code> オプションを付けてエスケープシーケンスを有効にするとよい。</p>
 
 <p>例</p>
 
-<pre><code>curl -s 'http://www.gaitameonline.com/rateaj/getrate' | jq -C . | less -R
+<pre><code class="prettyprint">curl -s &#39;http://www.gaitameonline.com/rateaj/getrate&#39; | jq -C . | less -R
 </code></pre>
+
+</section>
+</section>
 
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+    このサイトは個人メモの集合です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../commands/">コマンドの使い方(Linux)</a>
@@ -164,14 +194,15 @@ $ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "�
       <li><a href="../commands/lscpu.html">lscpu コマンド</a></li>
       <li><a href="../commands/md5sum.html">md5sum コマンド</a></li>
       <li><a href="../commands/mecab.html">mecab コマンド</a></li>
+      <li><a href="../commands/mkdir.html">mkdir コマンド</a></li>
       <li><a href="../commands/mktemp.html">mktemp コマンド</a></li>
       <li><a href="../commands/mosh.html">mosh コマンド</a></li>
       <li><a href="../commands/mv.html">mv コマンド</a></li>
       <li><a href="../commands/netstat.html">netstat コマンド</a></li>
       <li><a href="../commands/nkf.html">nkf コマンド</a></li>
+      <li><a href="../commands/nl.html">nl コマンド</a></li>
       <li><a href="../commands/od.html">od コマンド</a></li>
       <li><a href="../commands/openssl.html">openssl コマンド</a></li>
-      <li><a href="../commands/paco.html">paco コマンド</a></li>
       <li><a href="../commands/paste.html">paste コマンド</a></li>
       <li><a href="../commands/ps.html">ps コマンド</a></li>
       <li><a href="../commands/pwd.html">pwd コマンド</a></li>
@@ -187,9 +218,9 @@ $ echo '{"name": "taro", "age": 30, "foo": ["abc", "def"], "bar": {"あ":10, "�
       <li><a href="../commands/sqlite.html">sqlite3 コマンド</a></li>
       <li><a href="../commands/ssh.html">ssh コマンド</a></li>
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
-      <li><a href="../commands/svn.html">Subversion (svn)</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
+      <li><a href="../commands/tailf.html">tailf コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
       <li><a href="../commands/tee.html">tee コマンド</a></li>
       <li><a href="../commands/time.html">time コマンド</a></li>

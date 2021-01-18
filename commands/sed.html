@@ -79,7 +79,7 @@ $ cat ... | sed -e ... -e ...
 
 </section>
 <section>
-<h2>`-e` で指定する処理内容
+<h2><code class="prettyprint">-e</code> で指定する処理内容
 <span class="article-date">2016/09/27</span></h2>
 
 <p><code class="prettyprint">-e</code> のあとのパラメータは、アドレス、コマンド1文字、コマンドパラメータの順に書くことで、処理内容を表す。アドレスはどの行を処理対象とするかを表す。すべての行を処理する場合はアドレスを省略できるので、コマンドの1文字から始まることになる。コマンドは <code class="prettyprint">s</code>, <code class="prettyprint">d</code>, <code class="prettyprint">p</code>などがある。</p>
@@ -92,7 +92,7 @@ $ sed -n -e &#39;30p&#39;      # pコマンド (これもアドレスがあり�
 </code></pre>
 
 <section>
-<h3 id="replace">`s`コマンド
+<h3 id="replace"><code class="prettyprint">s</code>コマンド
 <span class="article-date">2015/02/01</span></h3>
 
 <p><code class="prettyprint">s</code>コマンドは正規表現で置換処理をする。</p>
@@ -138,7 +138,7 @@ $ sed &#39;3,$s/abc/ABC/g&#39;
 
 </section>
 <section>
-<h3>`d`コマンド
+<h3><code class="prettyprint">d</code>コマンド
 <span class="article-date">2015/05/13</span></h3>
 
 <p><code class="prettyprint">d</code>コマンドは行を削除する。</p>
@@ -160,7 +160,7 @@ $ sed 1,5\!d
 
 </section>
 <section>
-<h3>`p`コマンド
+<h3><code class="prettyprint">p</code>コマンド
 <span class="article-date">2013/10/01</span></h3>
 
 <p>行を単に出力する。通常は <code class="prettyprint">-n</code> オプションと組み合わせる。<code class="prettyprint">sed</code>コマンドでは処理結果をデフォルトで出力するが、<code class="prettyprint">-n</code> オプションを付けるとデフォルトの出力がされなくなり、<code class="prettyprint">p</code>コマンドの出力のみになる。</p>
@@ -389,7 +389,7 @@ head main.go | sed &#39;s/\(.*\)/\L/&#39;
 
 </section>
 <section>
-<h3>正規表現の中で `{}` を使うには
+<h3>正規表現の中で <code class="prettyprint">{}</code> を使うには
 <span class="article-date">2015/12/19</span></h3>
 
 <p>正規表現で文字数を指定する <code class="prettyprint">{}</code> は上で説明したとおり <code class="prettyprint">\</code> でエスケープするか、オプション <code class="prettyprint">-r</code> を付けるかまたは <code class="prettyprint">-e</code> の代わりに <code class="prettyprint">-E</code> を使う必要がある。</p>
@@ -404,7 +404,7 @@ sed &quot;s/x\\{4\\}/XXXX/g&quot; # =&gt; NG
 
 </section>
 <section>
-<h3 id="group">正規表現の中の `()` で囲まれた部分を使って置換するには
+<h3 id="group">正規表現の中の <code class="prettyprint">()</code> で囲まれた部分を使って置換するには
 <span class="article-date">2015/02/01</span></h3>
 
 <p>置換後の文字列には、<code class="prettyprint"></code>, <code class="prettyprint"></code> などを指定することで、正規表現にマッチしたグループに置き換えられる。</p>
@@ -594,7 +594,7 @@ $ cat ファイル名 | sed -ne &#39;0~10p&#39;
 
 </section>
 <section>
-<h3 id="tailf">ログファイルなどの `tail -f` の出力をsedで処理しながら表示するには
+<h3 id="tailf">ログファイルなどの <code class="prettyprint">tail -f</code> の出力をsedで処理しながら表示するには
 <span class="article-date">2013/07/09</span></h3>
 
 <pre><code class="prettyprint">tail -f access_log | sed --unbuffered ...
