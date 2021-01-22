@@ -23,7 +23,7 @@
 <div id="content">
   <section>
 <h1>例外をスローする構文
-<span class="article-date">2021/01/15</span></h1>
+<span class="article-date">2021/01/18</span></h1>
 
 <p>Java、Scala、JavaScript、CoffeeScript、Go言語、PHP、Perl、Ruby、Pythonでの例外をスローする構文の書き方。</p>
 
@@ -104,17 +104,17 @@ raise ZeroDivisionError, &quot;message ...&quot;
 </section>
 <section>
 <h2>Python
-<span class="article-date">2014/03/05</span></h2>
+<span class="article-date">2021/01/18</span></h2>
 
-<pre><code class="prettyprint">raise &quot;message ...&quot;
-# または
-raise HogeException()
+<pre><code class="prettyprint">raise Exception(&quot;message ...&quot;)
 </code></pre>
 
 <p><code class="prettyprint">except</code>節で補足した例外を再スローするには、以下のようにシンプルに書ける。</p>
 
 <pre><code class="prettyprint">raise
 </code></pre>
+
+<p><a href="https://docs.python.org/3/tutorial/errors.html">8. Errors and Exceptions — Python 3.9.1 documentation</a></p>
 
 </section>
 </section>

@@ -23,7 +23,7 @@
 <div id="content">
   <section>
 <h1>例外をキャッチする構文
-<span class="article-date">2021/01/15</span></h1>
+<span class="article-date">2021/01/18</span></h1>
 
 <p>Java、Scala、JavaScript、CoffeeScript、PHP、C++、Perl、Ruby、Pythonでの例外をキャッチする構文。</p>
 
@@ -215,27 +215,31 @@ end
 </section>
 <section>
 <h2 id="python">Python
-<span class="article-date">2013/08/22</span></h2>
+<span class="article-date">2021/01/18</span></h2>
 
 <pre><code class="prettyprint">try:
   ...
 except:
   ...
+else:
+  ...
 finally:
   ...
 </code></pre>
 
-<p><code class="prettyprint">except</code>節で例外オブジェクトを利用したい場合は、以下のように書く。</p>
-
-<pre><code class="prettyprint">except ex:
-</code></pre>
-
-<p><code class="prettyprint">except</code>節で特定の例外クラスだけを捕捉したい場合は、以下のように書く。</p>
+<p><code class="prettyprint">except</code>節で特定の例外クラスだけを捕捉したい場合は、次のように書く。</p>
 
 <pre><code class="prettyprint">except HogeException:
+</code></pre>
 
-# または
-except HogeException, ex:
+<p><code class="prettyprint">except</code>節で複数の例外クラスだけを捕捉したい場合は、次のように書く。</p>
+
+<pre><code class="prettyprint">except (HogeException, PiyoException):
+</code></pre>
+
+<p><code class="prettyprint">except</code>節で例外インスタンスを捕捉したい場合は、次のように書く。</p>
+
+<pre><code class="prettyprint">except HogeException as ex:
 </code></pre>
 
 <p><code class="prettyprint">except</code>節の中で同じ例外を再スローするには単に</p>
@@ -244,6 +248,12 @@ except HogeException, ex:
 </code></pre>
 
 <p>とだけ書く。</p>
+
+<p><code class="prettyprint">else</code>節は<code class="prettyprint">try</code>節で例外がスローされずに完了した場合に実行される。例外がスローされた場合は<code class="prettyprint">except</code>節でキャッチされたかどうかに関わらず<code class="prettyprint">else</code>節は実行されない。</p>
+
+<p><code class="prettyprint">finally</code>節は例外がスローされてもされなくても最後に必ず実行される。<code class="prettyprint">finally</code>節の前に<code class="prettyprint">return</code>、<code class="prettyprint">break</code>、<code class="prettyprint">continue</code>で脱出しようとしたときにも脱出直前に実行される。</p>
+
+<p><a href="https://docs.python.org/3/tutorial/errors.html">8. Errors and Exceptions — Python 3.9.1 documentation</a></p>
 
 </section>
 </section>

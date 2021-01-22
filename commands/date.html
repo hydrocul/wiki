@@ -11,6 +11,7 @@
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="../common/js/page.js"></script>
 </head>
 <body class="res">
@@ -20,26 +21,30 @@
 </div>
 
 <div id="content">
-  <h1 id="date">date コマンド
-<span class="article-date">2016/03/19</span></h1>
+  <section>
+<h1>date コマンド
+<span class="article-date">2021/01/22</span></h1>
 
-<p>現在の時刻を取得したり、設定したりするコマンド。OSが刻んでいる日時がずれている場合は、
-root権限でこのコマンドを使って正しい日時を設定する。</p>
+<p>現在の時刻を取得したり、設定したりするコマンド。OSが刻んでいる日時がずれている場合は、root権限でこのコマンドを使って正しい日時を設定する。</p>
 
 <p>時刻の表示フォーマットを指定することもできる。</p>
 
 <p>「30日後は何日か？」などの簡単な日時の計算もできる。</p>
 
-<p>現在日時ではなく、処理にかかる時間を測定するには<a href="time.html"><code>time</code>コマンド</a>を使う。</p>
+<p>現在日時ではなく、処理にかかる時間を測定するには<a href="time.html"><code class="prettyprint">time</code>コマンド</a>を使う。</p>
 
-<h2 id="5c0ab52">基本的な使い方
-<span class="article-date">2016/03/19</span></h2>
+<section>
+<h2>基本的な使い方
+<span class="article-date">2021/01/22</span></h2>
 
-<pre><code># 現在の日時を表示
+<pre><code class="prettyprint"># 現在の日時を表示
 $ date
 
+# 現在の日時をUTCで表示
+$ date -u
+
 # フォーマットは + で始まる書式で指定
-$ date "+%Y%m%d-%H%M%S"
+$ date &quot;+%Y%m%d-%H%M%S&quot;
 
 # 24時間後の日時を表示
 $ date -d tomorrow
@@ -48,263 +53,167 @@ $ date -d tomorrow
 $ date --date tomorrow
 
 # 30日後の日付を表示
-date "+%Y/%m/%d" -d "30 days"
+date &quot;+%Y/%m/%d&quot; -d &quot;30 days&quot;
 </code></pre>
 
 <p>OSが刻んでいる現在日時を修正するにはroot権限で実行する。</p>
 
-<pre><code>$ sudo date -s "2013/09/04 12:17:00"
+<pre><code class="prettyprint">$ sudo date -s &quot;2013/09/04 12:17:00&quot;
 </code></pre>
 
-<h2 id="211a899">日時表示のフォーマット
+</section>
+<section>
+<h2>オプション
+<span class="article-date">2021/01/22</span></h2>
+
+<dl><dt><code class="prettyprint">-d</code> 日時, <code class="prettyprint">--date</code> 日時</dt>
+<dd>日時を指定</dd>
+
+<dt><code class="prettyprint">-u</code>, <code class="prettyprint">--utc</code>, <code class="prettyprint">--universal</code></dt>
+<dd>UTCで表示</dd>
+
+<dt><code class="prettyprint">-r</code> ファイルパス, <code class="prettyprint">--reference=</code>ファイルパス</dt>
+<dd>ファイルの更新日時を表示</dd>
+
+<dt><code class="prettyprint">--help</code></dt>
+<dd>ヘルプ表示</dd>
+
+<dt><code class="prettyprint">--version</code></dt>
+<dd>バージョン表示</dd></dl>
+
+</section>
+<section>
+<h2>日時表示のフォーマットの一覧
 <span class="article-date">2016/04/05</span></h2>
 
-<p><code>+</code> で始まる書式指定には以下が使える。</p>
+<p><code class="prettyprint">+</code> で始まる書式指定には以下が使える。</p>
 
-<p><code>%-d</code> などの <code>-</code> は 桁数が足りないときに <code>0</code> で詰めることはしない、という意味。
-<code>%_d</code> のように <code>-</code> の代わりに <code>_</code> にすると、スペースで詰めてくれる。</p>
+<p><code class="prettyprint">%-d</code> などの <code class="prettyprint">-</code> は 桁数が足りないときに <code class="prettyprint">0</code> で詰めることはしない、という意味。<br>
+<code class="prettyprint">%_d</code> のように <code class="prettyprint">-</code> の代わりに <code class="prettyprint">_</code> にすると、スペースで詰めてくれる。</p>
 
-<h3 id="7bde86b">年</h3>
+<section>
+<h3>年
+</h3>
 
-<table>
-  <tbody>
-    <tr>
-      <td><code>%Y</code></td>
-      <td>西暦の4桁の年</td>
-    </tr>
-    <tr>
-      <td><code>%y</code></td>
-      <td>西暦の下2桁の年 00 〜 99</td>
-    </tr>
-    <tr>
-      <td><code>%-y</code></td>
-      <td>西暦の下2桁の年 0 〜 99</td>
-    </tr>
-  </tbody>
-</table>
+<table><tr><td><code class="prettyprint">%Y</code> </td><td>西暦の4桁の年 </td></tr>
+<tr><td><code class="prettyprint">%y</code> </td><td>西暦の下2桁の年 00 〜 99 </td></tr>
+<tr><td><code class="prettyprint">%-y</code> </td><td>西暦の下2桁の年 0 〜 99 </td></tr></table>
 
-<h3 id="1938f64">月</h3>
+</section>
+<section>
+<h3>月
+</h3>
 
-<table>
-  <tbody>
-    <tr>
-      <td><code>%m</code></td>
-      <td>01 〜 12</td>
-    </tr>
-    <tr>
-      <td><code>%-m</code></td>
-      <td>1 〜 12</td>
-    </tr>
-    <tr>
-      <td><code>%b</code></td>
-      <td>Jan 〜 Dec</td>
-    </tr>
-    <tr>
-      <td><code>%h</code></td>
-      <td>Jan 〜 Dec。<code>%b</code> と同じ。</td>
-    </tr>
-    <tr>
-      <td><code>%B</code></td>
-      <td>January 〜 December</td>
-    </tr>
-  </tbody>
-</table>
+<table><tr><td><code class="prettyprint">%m</code> </td><td>01 〜 12 </td></tr>
+<tr><td><code class="prettyprint">%-m</code> </td><td>1 〜 12 </td></tr>
+<tr><td><code class="prettyprint">%b</code> </td><td>Jan 〜 Dec </td></tr>
+<tr><td><code class="prettyprint">%h</code> </td><td>Jan 〜 Dec。<code class="prettyprint">%b</code> と同じ。 </td></tr>
+<tr><td><code class="prettyprint">%B</code> </td><td>January 〜 December </td></tr></table>
 
-<h3 id="16c0862">週</h3>
+</section>
+<section>
+<h3>週
+</h3>
 
-<table>
-  <tbody>
-    <tr>
-      <td><code>%U</code></td>
-      <td>その年のなかで何番目の週か。日曜を週のはじめとみなして数える。00 〜 53</td>
-    </tr>
-  </tbody>
-</table>
+<table><tr><td><code class="prettyprint">%U</code> </td><td>その年のなかで何番目の週か。日曜を週のはじめとみなして数える。00 〜 53 </td></tr></table>
 
-<h3 id="604bdaa">曜日</h3>
+</section>
+<section>
+<h3>曜日
+</h3>
 
-<table>
-  <tbody>
-    <tr>
-      <td><code>%a</code></td>
-      <td>Sun, Mon, Tue, Wed, Thu, Fri, Sat</td>
-    </tr>
-    <tr>
-      <td><code>%A</code></td>
-      <td>Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday</td>
-    </tr>
-    <tr>
-      <td><code>%u</code></td>
-      <td>1 〜 7。1が月曜日、7が日曜日</td>
-    </tr>
-    <tr>
-      <td><code>%w</code></td>
-      <td>0 〜 6。0が日曜日、6が土曜日</td>
-    </tr>
-  </tbody>
-</table>
+<table><tr><td><code class="prettyprint">%a</code> </td><td>Sun, Mon, Tue, Wed, Thu, Fri, Sat </td></tr>
+<tr><td><code class="prettyprint">%A</code> </td><td>Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday </td></tr>
+<tr><td><code class="prettyprint">%u</code> </td><td>1 〜 7。1が月曜日、7が日曜日 </td></tr>
+<tr><td><code class="prettyprint">%w</code> </td><td>0 〜 6。0が日曜日、6が土曜日 </td></tr></table>
 
-<h3 id="a1b758e">日</h3>
+</section>
+<section>
+<h3>日
+</h3>
 
-<table>
-  <tbody>
-    <tr>
-      <td><code>%d</code></td>
-      <td>01 〜 31</td>
-    </tr>
-    <tr>
-      <td><code>%-d</code></td>
-      <td>1 〜 31</td>
-    </tr>
-    <tr>
-      <td><code>%e</code></td>
-      <td>1 〜 31。<code>%_d</code> と同じで、1桁の場合はスペースで埋める</td>
-    </tr>
-    <tr>
-      <td><code>%j</code></td>
-      <td>001 〜 366。1月1日が001、うるう年の12月31日が366</td>
-    </tr>
-    <tr>
-      <td><code>%-j</code></td>
-      <td>1 〜 366。1月1日が1、うるう年の12月31日が366</td>
-    </tr>
-  </tbody>
-</table>
+<table><tr><td><code class="prettyprint">%d</code> </td><td>01 〜 31 </td></tr>
+<tr><td><code class="prettyprint">%-d</code> </td><td>1 〜 31 </td></tr>
+<tr><td><code class="prettyprint">%e</code> </td><td>1 〜 31。<code class="prettyprint">%_d</code> と同じで、1桁の場合はスペースで埋める </td></tr>
+<tr><td><code class="prettyprint">%j</code> </td><td>001 〜 366。1月1日が001、うるう年の12月31日が366 </td></tr>
+<tr><td><code class="prettyprint">%-j</code> </td><td>1 〜 366。1月1日が1、うるう年の12月31日が366 </td></tr></table>
 
-<h3 id="a4feb1b">時</h3>
+</section>
+<section>
+<h3>時
+</h3>
 
-<table>
-  <tbody>
-    <tr>
-      <td><code>%H</code></td>
-      <td>00 〜 23</td>
-    </tr>
-    <tr>
-      <td><code>%-H</code></td>
-      <td>0 〜 23</td>
-    </tr>
-    <tr>
-      <td><code>%k</code></td>
-      <td>0 〜23。 <code>%_H</code> と同じで、1桁の場合はスペースで埋める</td>
-    </tr>
-    <tr>
-      <td><code>%I</code></td>
-      <td>01 〜 12</td>
-    </tr>
-    <tr>
-      <td><code>%-I</code></td>
-      <td>1 〜 12</td>
-    </tr>
-    <tr>
-      <td><code>%l</code></td>
-      <td>1 〜12。 <code>%_I</code> と同じで、1桁の場合はスペースで埋める</td>
-    </tr>
-  </tbody>
-</table>
+<table><tr><td><code class="prettyprint">%H</code> </td><td>00 〜 23 </td></tr>
+<tr><td><code class="prettyprint">%-H</code> </td><td>0 〜 23 </td></tr>
+<tr><td><code class="prettyprint">%k</code> </td><td>0 〜23。 <code class="prettyprint">%_H</code> と同じで、1桁の場合はスペースで埋める </td></tr>
+<tr><td><code class="prettyprint">%I</code> </td><td>01 〜 12 </td></tr>
+<tr><td><code class="prettyprint">%-I</code> </td><td>1 〜 12 </td></tr>
+<tr><td><code class="prettyprint">%l</code> </td><td>1 〜12。 <code class="prettyprint">%_I</code> と同じで、1桁の場合はスペースで埋める </td></tr></table>
 
-<h3 id="48af39f">分</h3>
+</section>
+<section>
+<h3>分
+</h3>
 
-<table>
-  <tbody>
-    <tr>
-      <td><code>%M</code></td>
-      <td>00 〜 59</td>
-    </tr>
-    <tr>
-      <td><code>%-M</code></td>
-      <td>0 〜 59</td>
-    </tr>
-  </tbody>
-</table>
+<table><tr><td><code class="prettyprint">%M</code> </td><td>00 〜 59 </td></tr>
+<tr><td><code class="prettyprint">%-M</code> </td><td>0 〜 59 </td></tr></table>
 
-<h3 id="a3e062c">秒</h3>
+</section>
+<section>
+<h3>秒
+</h3>
 
-<table>
-  <tbody>
-    <tr>
-      <td><code>%S</code></td>
-      <td>00 〜 59</td>
-    </tr>
-    <tr>
-      <td><code>%-S</code></td>
-      <td>0 〜 59</td>
-    </tr>
-    <tr>
-      <td><code>%s</code></td>
-      <td>UNIX時刻 (1970年1月1日0時UTCからのうるう秒を考慮しない秒数)</td>
-    </tr>
-    <tr>
-      <td><code>%N</code></td>
-      <td>ナノ秒。000000000 〜 999999999</td>
-    </tr>
-  </tbody>
-</table>
+<table><tr><td><code class="prettyprint">%S</code> </td><td>00 〜 59 </td></tr>
+<tr><td><code class="prettyprint">%-S</code> </td><td>0 〜 59 </td></tr>
+<tr><td><code class="prettyprint">%s</code> </td><td>UNIX時刻 (1970年1月1日0時UTCからのうるう秒を考慮しない秒数) </td></tr>
+<tr><td><code class="prettyprint">%N</code> </td><td>ナノ秒。000000000 〜 999999999 </td></tr></table>
 
-<h3 id="13a0b0e">その他</h3>
+</section>
+<section>
+<h3>その他
+</h3>
 
-<table>
-  <tbody>
-    <tr>
-      <td><code>%D</code></td>
-      <td><code>%m/%d/%y</code> と同じ。例 <code>03/20/16</code></td>
-    </tr>
-    <tr>
-      <td><code>%F</code></td>
-      <td><code>%Y-%m-%d</code> と同じ。例 <code>2016-03-20</code></td>
-    </tr>
-    <tr>
-      <td><code>%R</code></td>
-      <td><code>%H:%M</code> と同じ。例 <code>21:49</code></td>
-    </tr>
-    <tr>
-      <td><code>%T</code></td>
-      <td><code>%H:%M:%S</code> と同じ。例 <code>21:49:10</code></td>
-    </tr>
-    <tr>
-      <td><code>%%</code></td>
-      <td><code>%</code> という文字</td>
-    </tr>
-    <tr>
-      <td><code>%n</code></td>
-      <td>改行</td>
-    </tr>
-    <tr>
-      <td><code>%t</code></td>
-      <td>タブ</td>
-    </tr>
-  </tbody>
-</table>
+<table><tr><td><code class="prettyprint">%D</code> </td><td><code class="prettyprint">%m/%d/%y</code> と同じ。例 <code class="prettyprint">03/20/16</code> </td></tr>
+<tr><td><code class="prettyprint">%F</code> </td><td><code class="prettyprint">%Y-%m-%d</code> と同じ。例 <code class="prettyprint">2016-03-20</code> </td></tr>
+<tr><td><code class="prettyprint">%R</code> </td><td><code class="prettyprint">%H:%M</code> と同じ。例 <code class="prettyprint">21:49</code> </td></tr>
+<tr><td><code class="prettyprint">%T</code> </td><td><code class="prettyprint">%H:%M:%S</code> と同じ。例 <code class="prettyprint">21:49:10</code> </td></tr>
+<tr><td><code class="prettyprint">%%</code> </td><td><code class="prettyprint">%</code> という文字 </td></tr>
+<tr><td><code class="prettyprint">%n</code> </td><td>改行 </td></tr>
+<tr><td><code class="prettyprint">%t</code> </td><td>タブ </td></tr></table>
 
-<h2 id="bd823c6">日時の指定方法
+</section>
+</section>
+<section>
+<h2>日時の指定方法
 <span class="article-date">2015/05/08</span></h2>
 
-<p><code>-d</code> または <code>--date</code> オプションではさまざまなフォーマットで日時を指定することができ、簡単な日付の計算もできる。</p>
+<p><code class="prettyprint">-d</code> または <code class="prettyprint">--date</code> オプションではさまざまなフォーマットで日時を指定することができ、簡単な日付の計算もできる。</p>
 
-<pre><code># 1日後
-$ date -d '1 day'
+<pre><code class="prettyprint"># 1日後
+$ date -d &#39;1 day&#39;
 
 # 2日後
-$ date -d '2 days
+$ date -d &#39;2 days
 </code></pre>
 
-<p><code>ago</code> を付ければ過去の日時になる。</p>
+<p><code class="prettyprint">ago</code> を付ければ過去の日時になる。</p>
 
-<pre><code># 1日前
-$ date -d '1 day ago'
+<pre><code class="prettyprint"># 1日前
+$ date -d &#39;1 day ago&#39;
 </code></pre>
 
 <p>数字を負にすれば逆向きになる。</p>
 
-<pre><code># 1日前
-$ date -d '-1 day'
+<pre><code class="prettyprint"># 1日前
+$ date -d &#39;-1 day&#39;
 
 # 1日後
-$ date -d '-1 day ago'
+$ date -d &#39;-1 day ago&#39;
 </code></pre>
 
 <p>次のような表現もできる。</p>
 
-<pre><code># 1日前
+<pre><code class="prettyprint"># 1日前
 $ date -d yesterday
 
 # 1日後
@@ -319,252 +228,269 @@ $ date -d fortnight
 
 <p>単数形複数形を間違えても大丈夫。</p>
 
-<pre><code>$ date -d '1 days ago'
-$ date -d '2 day ago'
+<pre><code class="prettyprint">$ date -d &#39;1 days ago&#39;
+$ date -d &#39;2 day ago&#39;
 </code></pre>
 
-<p><code>1</code>は省略しても大丈夫。</p>
+<p><code class="prettyprint">1</code>は省略しても大丈夫。</p>
 
-<pre><code># 1日前
-$ date -d 'day ago'
+<pre><code class="prettyprint"># 1日前
+$ date -d &#39;day ago&#39;
 </code></pre>
 
 <p>日以外の単位もある。</p>
 
-<pre><code># 1ヶ月前
-$ date -d '1 month ago'
+<pre><code class="prettyprint"># 1ヶ月前
+$ date -d &#39;1 month ago&#39;
 
 # 1年前
-$ date -d '1 year ago'
+$ date -d &#39;1 year ago&#39;
 
 # 1時間前
-$ date -d '1 hour ago'
+$ date -d &#39;1 hour ago&#39;
 
 # 1分前
-$ date -d '1 minute ago'
+$ date -d &#39;1 minute ago&#39;
 
 # 1秒前
-$ date -d '1 second ago'
+$ date -d &#39;1 second ago&#39;
 </code></pre>
 
 <p>現在日時ではなく、特定の日付を指定することもできる。</p>
 
-<pre><code>$ date -d '2015/04/25'
+<pre><code class="prettyprint">$ date -d &#39;2015/04/25&#39;
 </code></pre>
 
 <p>これらを組み合わせることもできる。</p>
 
-<pre><code># 1年と10日前
-$ date -d '1 year ago 10 days ago'
+<pre><code class="prettyprint"># 1年と10日前
+$ date -d &#39;1 year ago 10 days ago&#39;
 
 # 1時間半後
-$ date -d '1 hour ago 30 minutes'
+$ date -d &#39;1 hour ago 30 minutes&#39;
 
 # 1日と12時間後
-$ date -d '1 day ago 12 hours'
+$ date -d &#39;1 day ago 12 hours&#39;
 
 # 48時間後
-$ date -d '48 hours'
+$ date -d &#39;48 hours&#39;
 
 # 特定の日付からの相対指定
-$ date -d '2015/04/25 1 month'
+$ date -d &#39;2015/04/25 1 month&#39;
 Mon May 25 00:00:00 JST 2015
 </code></pre>
 
 <p>月単位の計算は月によって日数が異なるので注意が必要。</p>
 
-<pre><code># 1月31日の1か月後は、2月31日つまり3月3日
-$ date -d '2015/01/31 1 month'
+<pre><code class="prettyprint"># 1月31日の1か月後は、2月31日つまり3月3日
+$ date -d &#39;2015/01/31 1 month&#39;
 Tue Mar  3 00:00:00 JST 2015
 
 # 3月31日の1か月前も3月3日
-$ date -d '2015/03/31 1 month ago'
+$ date -d &#39;2015/03/31 1 month ago&#39;
 Tue Mar  3 00:00:00 JST 2015
 </code></pre>
 
 <p>当月の1日を表示させたい場合。</p>
 
-<pre><code># 当月の1日
-$ date '+%Y/%m/01'
+<pre><code class="prettyprint"># 当月の1日
+$ date &#39;+%Y/%m/01&#39;
 # または
-$ date -d `date '+%Y/%m/01'`
+$ date -d `date &#39;+%Y/%m/01&#39;`
 </code></pre>
 
 <p>月末の日付をちゃんと計算するのはちょっと面倒。</p>
 
-<pre><code># 当月の末日
-$ date -d "`date '+%Y/%m/01' -d "\`date '+%Y/%m/01'\` 1 month"` 1 day ago"
+<pre><code class="prettyprint"># 当月の末日
+$ date -d &quot;`date &#39;+%Y/%m/01&#39; -d &quot;\`date &#39;+%Y/%m/01&#39;\` 1 month&quot;` 1 day ago&quot;
 
 # 特定の日付(2015/03/15)の月の末日
-$ date -d "`date '+%Y/%m/01' -d "\`date '+%Y/%m/01' -d 2015/03/15\` 1 month"` 1 day ago"
+$ date -d &quot;`date &#39;+%Y/%m/01&#39; -d &quot;\`date &#39;+%Y/%m/01&#39; -d 2015/03/15\` 1 month&quot;` 1 day ago&quot;
 </code></pre>
 
 <p>末日を得る上のコマンドの導出は以下のとおり。つまりいったん翌月の1日を計算し、その前日を当月の末日としている。</p>
 
-<pre><code># 特定の日付の月の1日をフォーマットを指定して表示
-$ date '+%Y/%m/01' -d 2015/03/15
+<pre><code class="prettyprint"># 特定の日付の月の1日をフォーマットを指定して表示
+$ date &#39;+%Y/%m/01&#39; -d 2015/03/15
 
 # 特定の日付の翌月の1日
-$ date -d "`date '+%Y/%m/01' -d 2015/03/15` 1 month"
+$ date -d &quot;`date &#39;+%Y/%m/01&#39; -d 2015/03/15` 1 month&quot;
 
 # 特定の日付の翌月の1日をフォーマットを指定して表示
-$ date '+%Y/%m/01' -d "`date '+%Y/%m/01' -d 2015/03/15` 1 month"
+$ date &#39;+%Y/%m/01&#39; -d &quot;`date &#39;+%Y/%m/01&#39; -d 2015/03/15` 1 month&quot;
 
 # 特定の日付の翌月の1日の前日 (つまり特定の日付の月末日)
-$ date -d "`date '+%Y/%m/01' -d "\`date '+%Y/%m/01' -d 2015/03/15\` 1 month"` 1 day ago"
+$ date -d &quot;`date &#39;+%Y/%m/01&#39; -d &quot;\`date &#39;+%Y/%m/01&#39; -d 2015/03/15\` 1 month&quot;` 1 day ago&quot;
 
 # 当月の末日
-$ date -d "`date '+%Y/%m/01' -d "\`date '+%Y/%m/01'\` 1 month"` 1 day ago"
+$ date -d &quot;`date &#39;+%Y/%m/01&#39; -d &quot;\`date &#39;+%Y/%m/01&#39;\` 1 month&quot;` 1 day ago&quot;
 </code></pre>
 
-<h2 id="fba75d4">オプション
-<span class="article-date">2016/03/19</span></h2>
+</section>
+<section>
+<h2>HOWTO
+</h2>
 
-<dl>
-  <dt><code>-d</code> &lt;日時指定文字列&gt;, <code>--date=</code>&lt;日時指定文字列&gt;</dt>
-  <dd>日時を指定する</dd>
-  <dt><code>-r</code> &lt;ファイルパス&gt;, <code>--reference=</code>&lt;ファイルパス&gt;</dt>
-  <dd>ファイルの更新日時を表示する</dd>
-  <dt><code>-u</code>, <code>--utc</code>, <code>--universal</code></dt>
-  <dd>タイムゾーンをUTCとして表示する</dd>
-</dl>
 
-<h2 id="c13191c">HOWTO</h2>
-
-<h3 id="2842f42">YYYYMMDD-hhmmss の書式で日時を出力するには
+<section>
+<h3>YYYYMMDD-hhmmss の書式で日時を出力するには
 <span class="article-date">2013/03/21</span></h3>
 
-<pre><code>$ date "+%Y%m%d-%H%M%S"
+<pre><code class="prettyprint">$ date &quot;+%Y%m%d-%H%M%S&quot;
 </code></pre>
 
-<h3 id="e714431">YYYY/MM/DD-hh:mm:ss の書式で日時を出力するには
+</section>
+<section>
+<h3>YYYY/MM/DD-hh:mm:ss の書式で日時を出力するには
 <span class="article-date">2014/04/21</span></h3>
 
-<pre><code>$ date "+%Y/%m/%d-%H:%M:%S"
+<pre><code class="prettyprint">$ date &quot;+%Y/%m/%d-%H:%M:%S&quot;
 </code></pre>
 
 <p>同じフォーマットをperlで表示するには</p>
 
-<pre><code>my ($sec, $min, $hour, $mday, $mon, $year) = localtime(time);
+<pre><code class="prettyprint">my ($sec, $min, $hour, $mday, $mon, $year) = localtime(time);
 $year += 1900;
 $mon += 1;
-print sprintf("%04d/%02d/%02d-%02d:%02d:%02d", $year, $mon, $mday, $hour, $min, $sec);
+print sprintf(&quot;%04d/%02d/%02d-%02d:%02d:%02d&quot;, $year, $mon, $mday, $hour, $min, $sec);
 </code></pre>
 
-<h3 id="799adf9">曜日を取得するには
+</section>
+<section>
+<h3>曜日を取得するには
 <span class="article-date">2013/09/11</span></h3>
 
-<pre><code>$ date "+%w"
+<pre><code class="prettyprint">$ date &quot;+%w&quot;
 </code></pre>
 
 <p>0-6の数字を出力する。0が日曜日。</p>
 
-<h3 id="480b7de">明日の日付を取得するには
+</section>
+<section>
+<h3>明日の日付を取得するには
 <span class="article-date">2013/06/22</span></h3>
 
-<pre><code>$ date --date "1 day" "+%Y-%m-%d"
+<pre><code class="prettyprint">$ date --date &quot;1 day&quot; &quot;+%Y-%m-%d&quot;
 </code></pre>
 
-<p><code>--date</code> オプションに渡す文字列はいろいろ書ける。</p>
+<p><code class="prettyprint">--date</code> オプションに渡す文字列はいろいろ書ける。</p>
 
 <p>例</p>
 
-<pre><code>$ date --date "2 days" "+%Y-%m-%d"
-$ date --date "1 day ago" "+%Y-%m-%d"
-$ date --date "1 days ago" "+%Y-%m-%d" # 単数形複数形が間違っていても大丈夫
-$ date --date "1 month" "+%Y-%m-%d"
+<pre><code class="prettyprint">$ date --date &quot;2 days&quot; &quot;+%Y-%m-%d&quot;
+$ date --date &quot;1 day ago&quot; &quot;+%Y-%m-%d&quot;
+$ date --date &quot;1 days ago&quot; &quot;+%Y-%m-%d&quot; # 単数形複数形が間違っていても大丈夫
+$ date --date &quot;1 month&quot; &quot;+%Y-%m-%d&quot;
 </code></pre>
 
-<h3 id="ab2e2b5">UNIX時間を取得するには
+</section>
+<section>
+<h3>UNIX時間を取得するには
 <span class="article-date">2013/10/21</span></h3>
 
-<pre><code>## 現在日時
+<pre><code class="prettyprint">## 現在日時
 $ date +%s
 
 ## 1日前
-$ date --date "1day ago" +%s
+$ date --date &quot;1day ago&quot; +%s
 </code></pre>
 
-<h3 id="4f4db13">UNIX時間から日時を取得するには
+</section>
+<section>
+<h3>UNIX時間から日時を取得するには
 <span class="article-date">2013/10/21</span></h3>
 
-<p><code>--date</code> オプションに渡す文字列として、数字の前に <code>@</code> を付けると、
+<p><code class="prettyprint">--date</code> オプションに渡す文字列として、数字の前に <code class="prettyprint">@</code> を付けると、<br>
 UNIX時間での指定になる。</p>
 
-<pre><code>$ date --date @1382282400
+<pre><code class="prettyprint">$ date --date @1382282400
 Mon Oct 21 00:20:00 JST 2013
 </code></pre>
 
+</section>
+<section>
 <h3 id="set">日時を設定するには
 <span class="article-date">2016/09/07</span></h3>
 
 <p>例</p>
 
-<pre><code>## 9月4日12時17分に設定
-$ sudo date -s "2013/09/04 12:17:00"
+<pre><code class="prettyprint">## 9月4日12時17分に設定
+$ sudo date -s &quot;2013/09/04 12:17:00&quot;
 </code></pre>
 
 <p>日付のフォーマットがよくわからないが、以下のフォーマットでもできた。</p>
 
-<pre><code>$ sudo date -s "2013-09-04T12:17:00"
+<pre><code class="prettyprint">$ sudo date -s &quot;2013-09-04T12:17:00&quot;
 </code></pre>
 
-<p>あらかじめ <code>sudo</code> なしで実行してみて、日時のフォーマットが合っているかを確認するとよい。</p>
+<p>あらかじめ <code class="prettyprint">sudo</code> なしで実行してみて、日時のフォーマットが合っているかを確認するとよい。</p>
 
-<h3 id="fa04a03">月末かどうかをシェルスクリプトで判定するには
+</section>
+<section>
+<h3>月末かどうかをシェルスクリプトで判定するには
 <span class="article-date">2015/11/20</span></h3>
 
-<p><code>date -d day</code> で翌日の日付を取得できるので、
-<code>'+%d'</code> というフォーマットで日だけにしてそれが1かどうかを見ればよい。</p>
+<p><code class="prettyprint">date -d day</code> で翌日の日付を取得できるので、<code class="prettyprint">&#39;+%d&#39;</code> というフォーマットで日だけにしてそれが1かどうかを見ればよい。</p>
 
-<pre><code>if [ `date -d day '+%d'` = '01' ]; then
+<pre><code class="prettyprint">if [ `date -d day &#39;+%d&#39;` = &#39;01&#39; ]; then
     echo きょうは月末日
 fi
 </code></pre>
 
-<h3 id="7a90ad6">ファイルのタイムスタンプ(更新日時)を取得するには
+</section>
+<section>
+<h3>ファイルのタイムスタンプ(更新日時)を取得するには
 <span class="article-date">2015/10/01</span></h3>
 
-<p><code>ls -l foo.txt</code> でもファイルの情報を見ることができるが、更新日時に限定すれば、なぜか<code>date</code>コマンドでも見ることができる。</p>
+<p><code class="prettyprint">ls -l foo.txt</code> でもファイルの情報を見ることができるが、更新日時に限定すれば、なぜか<code class="prettyprint">date</code>コマンドでも見ることができる。</p>
 
-<pre><code>$ date -r foo.txt
+<pre><code class="prettyprint">$ date -r foo.txt
 Tue Sep 29 14:15:04 JST 2015
 </code></pre>
 
 <p>もちろんフォーマットも指定できる。</p>
 
-<pre><code>$ date -r foo.txt "+%Y-%m-%d"
+<pre><code class="prettyprint">$ date -r foo.txt &quot;+%Y-%m-%d&quot;
 2015-09-29
 </code></pre>
 
-<h3 id="252420c">シェルスクリプトの中で日付でループするには
-<span class="article-date">2016/10/18</span></h3>
+</section>
+<section>
+<h3>シェルスクリプトの中で日付でループするには
+<span class="article-date">2021/01/22</span></h3>
 
 <p>以下のようなスクリプトで 2016-10-01 から 2016-12-31 までの日付が出力される</p>
 
-<pre><code>d="2016-10-01"
+<pre><code class="prettyprint">d=&quot;2016-10-01&quot;
 
-while [ "$d" != "2017-01-01" ]; do
+while [ &quot;$d&quot; != &quot;2017-01-01&quot; ]; do
     echo $d
-    d=$(date +%F -d "$d 1 day")
+    d=$(date +%F -d &quot;$d 1 day&quot;)
 done
 </code></pre>
 
 <p>bashなら以下のようにも書ける。</p>
 
-<pre><code>d="2016-10-01"
+<pre><code class="prettyprint">d=&quot;2016-10-01&quot;
 
-while [[ "$d" &lt; "2017-01-01" ]]; do
+while [[ &quot;$d&quot; &lt; &quot;2017-01-01&quot; ]]; do
     echo $d
-    d=$(date +%F -d "$d 1 day")
+    d=$(date +%F -d &quot;$d 1 day&quot;)
 done
 </code></pre>
+
+<p>以下の記事も参照。<br>
+<a href="https://suzuki-navi.hatenablog.com/entry/2020/06/17/152140">連続した数字や日付や時刻を出力するには(seqコマンド)</a></p>
+
+</section>
+</section>
+</section>
 
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+    このサイトは個人メモの集合です。
   </div>
   <div class="ad">
 <div class="adlabel">スポンサーリンク</div>
@@ -635,6 +561,7 @@ done
       <li><a href="../commands/sshfs.html">sshfs コマンド</a></li>
       <li><a href="../commands/tac.html">tac コマンド</a></li>
       <li><a href="../commands/tail.html">tail コマンド</a></li>
+      <li><a href="../commands/tailf.html">tailf コマンド</a></li>
       <li><a href="../commands/tar.html">tar コマンド</a></li>
       <li><a href="../commands/tee.html">tee コマンド</a></li>
       <li><a href="../commands/time.html">time コマンド</a></li>
