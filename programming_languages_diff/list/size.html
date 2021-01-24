@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)の要素数を取得するには (count / len / length / size / sizeof) | hydroculのメモ</title>
+<title>配列(リスト)の要素数を取得するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -11,234 +11,117 @@
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)の要素数を取得するには (count / len / length / size / sizeof)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>要素数を取得するには</span>
 </div>
 
 <div id="content">
-  <h1 id="size">配列(リスト)の要素数を取得するには (count / len / length / size / sizeof)
-<span class="article-date">2015/06/13</span></h1>
+  <section>
+<h1>配列(リスト)の要素数を取得するには
+<span class="article-date">2021/01/24</span></h1>
 
-<p>各プログラミング言語での、配列の要素数を取得する方法。</p>
+<p>Java、Scala、JavaScript、PHP、Perl、Go言語、Ruby、Pythonでの配列(リスト)の要素数を取得する方法。</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td><a href="#go">Go言語</a></td>
-      <td><code>len(arr)</code></td>
-    </tr>
-    <tr>
-      <td><a href="#java-arr">Javaの配列</a></td>
-      <td><code>arr.length</code></td>
-    </tr>
-    <tr>
-      <td><a href="#java-list">Javaの<code>List</code></a></td>
-      <td><code>lst.size()</code></td>
-    </tr>
-    <tr>
-      <td><a href="#scala">Scala</a></td>
-      <td><code>lst.size</code></td>
-    </tr>
-    <tr>
-      <td><a href="#php">PHP</a></td>
-      <td><code>count($arr)</code> or <code>sizeof($arr)</code></td>
-    </tr>
-    <tr>
-      <td><a href="#python">Python</a></td>
-      <td><code>len(lst)</code></td>
-    </tr>
-    <tr>
-      <td><a href="#ruby">Ruby</a></td>
-      <td><code>arr.length</code> or <code>arr.size</code></td>
-    </tr>
-    <tr>
-      <td><a href="#perl">Perl</a></td>
-      <td><code>scalar @arr</code></td>
-    </tr>
-    <tr>
-      <td><a href="#javascript">JavaScript</a></td>
-      <td><code>arr.length</code></td>
-    </tr>
-  </tbody>
-</table>
+<table><tr><td><a href="#java-arr">Javaの配列</a>    </td><td><code class="prettyprint">arr.length</code> </td></tr>
+<tr><td><a href="#java-list">Javaの<code class="prettyprint">List</code></a> </td><td><code class="prettyprint">lst.size()</code> </td></tr>
+<tr><td><a href="#scala">Scala</a>            </td><td><code class="prettyprint">lst.size</code> </td></tr>
+<tr><td><a href="#javascript">JavaScript</a>  </td><td><code class="prettyprint">arr.length</code> </td></tr>
+<tr><td><a href="#php">PHP</a>                </td><td><code class="prettyprint">count($arr)</code> <br> <code class="prettyprint">sizeof($arr)</code> </td></tr>
+<tr><td><a href="#perl">Perl</a>              </td><td><code class="prettyprint">scalar @arr</code> </td></tr>
+<tr><td><a href="#go">Go言語</a>              </td><td><code class="prettyprint">len(arr)</code> </td></tr>
+<tr><td><a href="#ruby">Ruby</a>              </td><td><code class="prettyprint">arr.length</code> <br> <code class="prettyprint">arr.size</code> </td></tr>
+<tr><td><a href="#python">Python</a>          </td><td><code class="prettyprint">len(lst)</code> </td></tr></table>
 
 <p>関連</p>
 
 <ul>
-  <li><a href="is-empty.html">配列(リスト)が空かどうかを判定するには</a></li>
-  <li><a href="../map/is-empty.html">連想配列(マップ)の要素数を取得するには</a></li>
+<li><a href="is-empty.html">配列(リスト)が空かどうかを判定するには</a></li>
+<li><a href="../map/is-empty.html">連想配列(マップ)の要素数を取得するには</a></li>
 </ul>
 
-<h2 id="go">Go言語 (golang)</h2>
+<section>
+<h2 id="java">Java
+</h2>
 
-<h3 id="2db401a">配列(Array)
-<span class="article-date">2015/02/22</span></h3>
 
-<pre><code>size := len(arr)
-</code></pre>
-
-<h3 id="0f4aee9">スライス(Slice)
-<span class="article-date">2015/02/22</span></h3>
-
-<pre><code>size := len(sl)
-</code></pre>
-
-<p><code>len</code>関数に<code>nil</code>を与えると<code>0</code>を返す。</p>
-
-<h2 id="java">Java</h2>
-
+<section>
 <h3 id="java-arr">配列
 <span class="article-date">2015/01/12</span></h3>
 
 <p>例</p>
 
-<pre><code>int size = arr.length;
+<pre><code class="prettyprint">int size = arr.length;
 </code></pre>
 
-<p>配列の <code>length</code> はメソッドではないので括弧がいらない。</p>
+<p>配列の <code class="prettyprint">length</code> はメソッドではないので括弧がいらない。</p>
 
-<h3 id="java-list"><code>java.util.List</code>
-<span class="article-date">2015/04/17</span></h3>
+</section>
+<section>
+<h3 id="java-list"><code class="prettyprint">java.util.List</code>
+<span class="article-date">2021/01/24</span></h3>
 
-<p>Signature:</p>
-
-<pre><code>int java.util.List&lt;E&gt;#size()
-</code></pre>
+<p><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#size()"><code class="prettyprint">int java.util.List&lt;E&gt;#size()</code></a></p>
 
 <p>例</p>
 
-<pre><code>int size = lst.size();
+<pre><code class="prettyprint">int size = lst.size();
 </code></pre>
 
-<p>配列の場合と違って <code>size</code> はメソッドであるので括弧が必要。</p>
+<p>配列の場合と違って <code class="prettyprint">size</code> はメソッドなので括弧が必要。</p>
 
-<p><code>java.util.List#size</code> | Java Platform SE 8 Javadoc<br />
-<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html#size--" target="_blank" class="external-link">http://docs.oracle.com/javase/8/docs/api/java/util/List.html#size–</a></p>
-
+</section>
+</section>
+<section>
 <h2 id="scala">Scala
-<span class="article-date">2016/12/25</span></h2>
+<span class="article-date">2021/01/24</span></h2>
 
-<p>Javaの配列(<code>Array</code>)であってもScalaのコレクション型であっても <code>length</code>, <code>size</code> というメソッドが使える。
-2つはまったく同じ。</p>
+<p>Javaの配列(<code class="prettyprint">Array</code>)であってもScalaのコレクション型であっても <code class="prettyprint">length</code>, <code class="prettyprint">size</code> というメソッドが使える。2つはまったく同じ。</p>
 
-<p>Signature:</p>
+<p><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#length:Int"><code class="prettyprint">def Seq[A]#length: Int</code></a><br>
+<a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#size:Int"><code class="prettyprint">def Seq[A]#size: Int</code></a><br>
+<a href="http://www.scala-lang.org/api/current/scala/Array.html#length:Int"><code class="prettyprint">def Array[A]#length: Int</code></a><br>
+<a href="http://www.scala-lang.org/api/current/scala/Array.html#size:Int"><code class="prettyprint">def Array[A]#size: Int</code></a></p>
 
-<ul>
-  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#length:Int" target="_blank" class="external-link method-signature"><code>def Seq[A]#length: Int</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#size:Int" target="_blank" class="external-link method-signature"><code>def Seq[A]#size: Int</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/scala/Array.html#length:Int" target="_blank" class="external-link method-signature"><code>def Array[A]#length: Int</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/scala/Array.html#size:Int" target="_blank" class="external-link method-signature"><code>def Array[A]#size: Int</code></a></li>
-</ul>
+<p>長さを直接必要とせず、比較をしたいだけであれば、<code class="prettyprint">lengthCompare</code> というメソッドも使える。長さが<code class="prettyprint">len</code>よりも短ければ負、<code class="prettyprint">len</code>ちょうどであれば<code class="prettyprint">0</code>、<code class="prettyprint">len</code>よりも長ければ正を返す。</p>
 
-<p>これらはメソッドだが括弧はいらない。</p>
+<p><code class="prettyprint">List</code>などでは長さを調べるのにすべての要素をたどる必要があるが、比較だけであればすべての要素をたどらなくても判定できるため、<code class="prettyprint">lengthCompare</code> はそのように実装されている。</p>
 
-<p>長さを直接必要とせず、比較をしたいだけであれば、<code>lengthCompare</code> というメソッドも使える。長さが<code>len</code>よりも短ければ負、<code>len</code>ちょうどであれば<code>0</code>、<code>len</code>よりも長ければ正を返す。</p>
+<p><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#lengthCompare(len:Int):Int"><code class="prettyprint">def Seq[A]#lengthCompare(len: Int): Int</code></a><br>
+<a href="http://www.scala-lang.org/api/current/scala/Array.html#lengthCompare(len:Int):Int"><code class="prettyprint">def Array[A]#lengthCompare(len: Int): Int</code></a></p>
 
-<p>長さを調べるのにすべての要素をたどる必要のある <code>List</code> などでは、比較だけであればすべての要素をたどらなくても <code>len</code> だけたどれば十分であるので、
-<code>lengthCompare</code> はそのように実装されている。</p>
+<p><code class="prettyprint">hasDefiniteSize</code> というメソッドは有限の長さがあるとわかっている場合に <code class="prettyprint">true</code> を返す。無限の長さの場合や有限だとは限らない場合は <code class="prettyprint">false</code> を返す。<code class="prettyprint">List</code> など大抵のコレクション型は <code class="prettyprint">true</code> になるが、 <code class="prettyprint">Stream</code> 型は <code class="prettyprint">false</code> になる。<code class="prettyprint">Stream</code> 型で本当に無限の長さの場合に <code class="prettyprint">size</code> メソッドを呼び出すと無限ループになってしまう。</p>
 
-<ul>
-  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#lengthCompare(len:Int):Int" target="_blank" class="external-link method-signature"><code>def Seq[A]#lengthCompare(len: Int): Int</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/scala/Array.html#lengthCompare(len:Int):Int" target="_blank" class="external-link method-signature"><code>def Array[A]#lengthCompare(len: Int): Int</code></a></li>
-</ul>
+<p><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#hasDefiniteSize:Boolean"><code class="prettyprint">def Seq[A]#hasDefiniteSize: Boolean</code></a></p>
 
-<p><code>hasDefiniteSize</code> というメソッドは有限の長さがあるとわかっている場合に <code>true</code> を返す。無限の長さの場合や有限だとは限らない場合は <code>false</code> を返す。
-<code>List</code> など大抵のコレクション型は <code>true</code> になるが、 <code>Stream</code> 型は <code>false</code> になる。
-<code>Stream</code> 型で本当に無限の長さの場合に <code>size</code> メソッドを呼び出すと無限ループになってしまう。</p>
+<p>例</p>
 
-<ul>
-  <li>
-    <p><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#hasDefiniteSize:Boolean" target="_blank" class="external-link method-signature"><code>def Seq[A]#hasDefiniteSize: Boolean</code></a></p>
+<pre><code class="prettyprint">def fib(a: Int, b: Int): Stream[Int] = a #:: fib(b, a + b);
 
-    <p>def fib(a: Int, b: Int): Stream[Int] = a #:: fib(b, a + b);</p>
+println(fib(1, 1).hasDefiniteSize);
+// =&gt; false
 
-    <p>println(fib(1, 1).hasDefiniteSize);
-  // =&gt; false</p>
-
-    <p>println(fib(1, 1).size);
-  // 終わらない</p>
-  </li>
-</ul>
-
-<h2 id="php">PHP
-<span class="article-date">2015/03/25</span></h2>
-
-<p><code>count</code>関数または<code>sizeof</code>関数を使う。この2つの関数はまったく同じ意味で、配列の要素の数を返す。</p>
-
-<pre><code>$arr = array(1, 2, array(3, 4));
-
-echo count($arr) . "\n"; // =&gt; 3
-echo sizeof($arr) . "\n"; // =&gt; 3
+println(fib(1, 1).size);
+// 終わらない
 </code></pre>
 
-<p>PHPでは普通の配列と連想配列は同じものなので、この2つは<a href="../map/size.html#php">連想配列</a>でも使える。</p>
-
-<p><code>count</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.count.php" target="_blank" class="external-link">http://php.net/manual/ja/function.count.php</a></p>
-
-<p><code>sizeof</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.sizeof.php" target="_blank" class="external-link">http://php.net/manual/ja/function.sizeof.php</a></p>
-
-<h2 id="python">Python
-<span class="article-date">2014/10/20</span></h2>
-
-<p>以下はPythonのシーケンスといわれるリスト、タプル、文字列で共通操作。</p>
-
-<pre><code>len(lst)
-</code></pre>
-
-<p><a href="../map/size.html#python">ディクショナリに対しても同じ関数</a>が使える。</p>
-
-<h2 id="ruby">Ruby / JRuby
-<span class="article-date">2014/12/31</span></h2>
-
-<p><code>Array#length</code> または <code>Array#size</code> を使う。</p>
-
-<pre><code>l = arr.length
-# または
-l = arr.size
-</code></pre>
-
-<p>2つのメソッドは全く同じ。<a href="../map/size.html#ruby">ハッシュのサイズ</a>、</p>
-
-<p><a href="../string/length.html#ruby">文字列の長さの取得</a>も同じ名前の2つのメソッドでできる。</p>
-
-<p><code>Array#length</code>, <code>Array#size</code> | Ruby 2.1 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/length.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/length.html</a></p>
-
-<h2 id="perl">Perl
-<span class="article-date">2013/07/31</span></h2>
-
-<p>スカラコンテキストで <code>@...</code> を使うと要素の数を取得できる。</p>
-
-<pre><code>my @arr = ('abc', 'def', 'ghi');
-print @arr;        # =&gt; abcdefghi
-print scalar @arr; # =&gt; 3
-print @arr + 0;    # =&gt; 3
-</code></pre>
-
-<p><code>$#...</code> で最後の要素のインデックスを取得できる。</p>
-
-<pre><code>print $#arr;    # =&gt; 2
-</code></pre>
-
-<p>-&gt; <a href="last.html#perl">最後の要素を取得するには</a></p>
-
+</section>
+<section>
 <h2 id="javascript">JavaScript
 <span class="article-date">2013/04/19</span></h2>
 
-<pre><code>arr.length
+<pre><code class="prettyprint">arr.length
 </code></pre>
 
 <p>カッコはいらない。</p>
 
 <p>厳密にはサイズではなくインデックスの最大値+1(でも負にはならない)を表すので、以下のようになる。</p>
 
-<pre><code>arr = [];
+<pre><code class="prettyprint">arr = [];
 console.log(arr.length); // =&gt; 0
 arr[100] = 1;
 console.log(arr.length); // =&gt; 101
@@ -249,11 +132,106 @@ arr[-2] = 1;
 console.log(arr.length); // =&gt; 0
 </code></pre>
 
+</section>
+<section>
+<h2 id="php">PHP
+<span class="article-date">2015/03/25</span></h2>
+
+<p><code class="prettyprint">count</code>関数または<code class="prettyprint">sizeof</code>関数を使う。この2つの関数はまったく同じ意味で、配列の要素の数を返す。</p>
+
+<pre><code class="prettyprint">$arr = array(1, 2, array(3, 4));
+
+echo count($arr) . &quot;\n&quot;; // =&gt; 3
+echo sizeof($arr) . &quot;\n&quot;; // =&gt; 3
+</code></pre>
+
+<p>PHPでは普通の配列と連想配列は同じものなので、この2つは<a href="../map/size.html#php">連想配列</a>でも使える。</p>
+
+<p><a href="http://php.net/manual/ja/function.count.php"><code class="prettyprint">count</code> 関数 | PHP Manual</a><br>
+<a href="http://php.net/manual/ja/function.sizeof.php"><code class="prettyprint">sizeof</code> 関数 | PHP Manual</a></p>
+
+</section>
+<section>
+<h2 id="perl">Perl
+<span class="article-date">2013/07/31</span></h2>
+
+<p>スカラコンテキストで <code class="prettyprint">@...</code> を使うと要素の数を取得できる。</p>
+
+<pre><code class="prettyprint">my @arr = (&#39;abc&#39;, &#39;def&#39;, &#39;ghi&#39;);
+print @arr;        # =&gt; abcdefghi
+print scalar @arr; # =&gt; 3
+print @arr + 0;    # =&gt; 3
+</code></pre>
+
+<p><code class="prettyprint">$#...</code> で最後の要素のインデックスを取得できる。</p>
+
+<pre><code class="prettyprint">print $#arr;    # =&gt; 2
+</code></pre>
+
+<p>-&gt; <a href="last.html#perl">最後の要素を取得するには</a></p>
+
+</section>
+<section>
+<h2 id="go">Go言語 (golang)
+</h2>
+
+
+<section>
+<h3>配列(Array)
+<span class="article-date">2015/02/22</span></h3>
+
+<pre><code class="prettyprint">size := len(arr)
+</code></pre>
+
+</section>
+<section>
+<h3>スライス(Slice)
+<span class="article-date">2015/02/22</span></h3>
+
+<pre><code class="prettyprint">size := len(sl)
+</code></pre>
+
+<p><code class="prettyprint">len</code>関数に<code class="prettyprint">nil</code>を与えると<code class="prettyprint">0</code>を返す。</p>
+
+</section>
+</section>
+<section>
+<h2 id="ruby">Ruby
+<span class="article-date">2014/12/31</span></h2>
+
+<p><code class="prettyprint">Array#length</code> または <code class="prettyprint">Array#size</code> を使う。</p>
+
+<pre><code class="prettyprint">l = arr.length
+# または
+l = arr.size
+</code></pre>
+
+<p>2つのメソッドは全く同じ。<a href="../map/size.html#ruby">ハッシュのサイズ</a>、</p>
+
+<p><a href="../string/length.html#ruby">文字列の長さの取得</a>も同じ名前の2つのメソッドでできる。</p>
+
+<p><a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/length.html"><code class="prettyprint">Array#length</code>, <code class="prettyprint">Array#size</code> | Ruby 2.1 リファレンスマニュアル</a></p>
+
+</section>
+<section>
+<h2 id="python">Python
+<span class="article-date">2014/10/20</span></h2>
+
+<p>以下はPythonのシーケンスといわれるリスト、タプル、文字列で共通操作。</p>
+
+<pre><code class="prettyprint">len(lst)
+</code></pre>
+
+<p><a href="../map/size.html#python">ディクショナリに対しても同じ関数</a>が使える。</p>
+
+</section>
+</section>
+
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+    このサイトは個人メモの集合です。
   </div>
   <div class="ad">
 <div class="adlabel">スポンサーリンク</div>
@@ -275,49 +253,57 @@ console.log(arr.length); // =&gt; 0
       <li><a href="../../programming_languages_diff/list/">配列(リスト)</a>
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/list/get.html">get</a></li>
-          <li><a href="../../programming_languages_diff/list/set.html">set</a></li>
-          <li>count / len / length / size / sizeof</li>
-          <li><a href="../../programming_languages_diff/list/is-empty.html">empty / isEmpty</a></li>
-          <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
-          <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
-          <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
-          <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
-          <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
-          <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
-          <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
-          <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
-          <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
-          <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
-          <li><a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
-          <li><a href="../../programming_languages_diff/list/foreach.html">for / foreach</a></li>
-          <li><a href="../../programming_languages_diff/list/fold-left.html">array_reduce / foldLeft / inject / reduce / reduceLeft</a></li>
-          <li><a href="../../programming_languages_diff/list/zip.html">zip</a></li>
-          <li><a href="../../programming_languages_diff/list/product.html">product</a></li>
-          <li><a href="../../programming_languages_diff/list/compare.html">==</a></li>
-          <li><a href="../../programming_languages_diff/list/fill.html">fill</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">range / seq / to / until</a></li>
-          <li><a href="../../programming_languages_diff/list/grouped.html">array_chunk / grouped</a></li>
-          <li><a href="../../programming_languages_diff/list/group-by.html">group_by / groupBy</a></li>
-          <li><a href="../../programming_languages_diff/list/shift.html">array_shift / shift</a></li>
-          <li><a href="../../programming_languages_diff/list/unshift.html">unshift</a></li>
-          <li><a href="../../programming_languages_diff/list/pop.html">array_pop / pop</a></li>
-          <li><a href="../../programming_languages_diff/list/push.html">push</a></li>
-          <li><a href="../../programming_languages_diff/list/remove.html">delete_at / pop / remove / unset</a></li>
-          <li><a href="../../programming_languages_diff/list/remove-by-value.html">delete / remove / <code>-</code></a></li>
-          <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
-          <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
-          <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
-          <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
-          <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
-          <li><a href="../../programming_languages_diff/list/multiply.html"><code>x</code> / <code>*</code></a></li>
-          <li><a href="../../programming_languages_diff/list/slice-replace.html">array_splice / splice</a></li>
-          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">ベクトル演算</a></li>
+          <li><a href="../../programming_languages_diff/list/get.html">要素を参照するには</a></li>
+          <li><a href="../../programming_languages_diff/list/set.html">要素に値を代入するには</a></li>
+          <li>要素数を取得するには</li>
+          <li><a href="../../programming_languages_diff/list/is-empty.html">空かどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外アクセスの挙動</a></li>
+          <li><a href="../../programming_languages_diff/list/head.html">先頭を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/last.html">最後を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/tail.html">先頭を除く残りを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">先頭のn個のみを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/drop.html">先頭のn個を除く残りを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">部分配列を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">特定の値の有無を判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/index-of.html">値からそのインデックスを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/index-where.html">条件にマッチする要素のインデックスを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/filter.html">条件を満たす要素を抽出するには</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">条件にマッチする要素か含まれるかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">すべてが条件にマッチするかどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/clone.html">配列(リスト)をコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (==)</a></li>
+          <li><a href="../../programming_languages_diff/list/concat.html">複数の配列(リスト)を連結するには (array_merge, +, concat)</a></li>
+          <li><a href="../../programming_languages_diff/list/convert.html">配列(リスト)のデータ型をを相互に変換するには (asList / asScala / asJava / to_a / toArray)</a></li>
+          <li><a href="../../programming_languages_diff/list/fill.html">同じ値で埋めた配列(リスト)を作成するには (fill)</a></li>
+          <li><a href="../../programming_languages_diff/list/filter-count.html">配列(リスト)から特定の条件にマッチする要素の数を数えるには</a></li>
+          <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列を連結した新しい配列を作るには (flatMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/flatten.html">配列(リスト)の配列を配列に平坦化するには (flatten)</a></li>
+          <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素の畳み込みをするには (array_reduce / foldLeft / inject / reduce / reduceLeft)</a></li>
+          <li><a href="../../programming_languages_diff/list/foreach.html">配列(リスト)の要素を1つずつ処理するには (for / foreach)</a></li>
+          <li><a href="../../programming_languages_diff/list/group-by.html">配列(リスト)の要素をグルーピングするには (group_by / groupBy)</a></li>
+          <li><a href="../../programming_languages_diff/list/grouped.html">配列(リスト)を一定の数ごとにグルーピングするには (grouped)</a></li>
+          <li><a href="../../programming_languages_diff/list/head-last.html">配列(リスト)の先頭または最後の要素を取得するには (head, last)</a></li>
+          <li><a href="../../programming_languages_diff/list/literal.html">配列(リスト)の書き方</a></li>
+          <li><a href="../../programming_languages_diff/list/map.html">配列(リスト)の要素1つずつに関数を適用して新しい配列(リスト)を作るには (array_map / map)</a></li>
+          <li><a href="../../programming_languages_diff/list/max-min.html">配列(リスト)の中の最大値・最小値を求めるには (max, min)</a></li>
+          <li><a href="../../programming_languages_diff/list/multiply.html">同じ配列(リスト)を繰り返して連結するには(乗算みたいな) (`x` / `*`)</a></li>
+          <li><a href="../../programming_languages_diff/list/pop.html">配列(リスト)の最後の要素を削除するには (array_pop / pop)</a></li>
+          <li><a href="../../programming_languages_diff/list/product.html">複数の配列(リスト)の要素同士を組み合わせて配列の配列を作るには (product)</a></li>
+          <li><a href="../../programming_languages_diff/list/push.html">配列(リスト)の最後に要素を追加するには (push)</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列(リスト)を作成するには (range / seq / to / until)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove-by-value.html">配列(リスト)から特定の値の要素をすべて削除するには (delete / remove / `-`)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove.html">配列(リスト)から特定の要素をインデックスで指定して削除するには (delete_at / pop / remove / unset)</a></li>
+          <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
+          <li><a href="../../programming_languages_diff/list/shift-unshift-pop-push.html">配列(リスト)の先頭または最後の要素を削除したり、先頭または最後に要素を追加するには (shift, unshift, pop, push)</a></li>
+          <li><a href="../../programming_languages_diff/list/shift.html">配列(リスト)の先頭の要素を削除するには (shift)</a></li>
+          <li><a href="../../programming_languages_diff/list/slice-replace.html">配列(リスト)の一部を別の配列で置き換えるには (array_splice / splice)</a></li>
+          <li><a href="../../programming_languages_diff/list/sort.html">配列(リスト)をソートするには (sort / sortBy / sorted / sortWith)</a></li>
+          <li><a href="../../programming_languages_diff/list/sum.html">数の配列(リスト)の合計を計算するには (sum)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列(リスト)から連想配列を生成するには (toMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-set.html">配列(リスト)から集合(セット)を生成するには (toSet)</a></li>
+          <li><a href="../../programming_languages_diff/list/unshift.html">配列(リスト)の先頭に要素を追加するには (unshift)</a></li>
+          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列(リスト)を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
+          <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の配列(リスト)を要素ごとにまとめて配列の配列を作るには (zip)</a></li>
         </ul>
       </li>
     </ul>

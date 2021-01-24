@@ -23,7 +23,7 @@
 <div id="content">
   <section>
 <h1>date コマンド
-<span class="article-date">2021/01/22</span></h1>
+<span class="article-date">2021/01/24</span></h1>
 
 <p>現在の時刻を取得したり、設定したりするコマンド。OSが刻んでいる日時がずれている場合は、root権限でこのコマンドを使って正しい日時を設定する。</p>
 
@@ -80,6 +80,37 @@ date &quot;+%Y/%m/%d&quot; -d &quot;30 days&quot;
 
 <dt><code class="prettyprint">--version</code></dt>
 <dd>バージョン表示</dd></dl>
+
+</section>
+<section>
+<h2>日時表示のフォーマットのサンプル
+<span class="article-date">2021/01/24</span></h2>
+
+<p>よくあるフォーマットのチートシート。</p>
+
+<table><thead>
+<tr>
+<th>フォーマット</th>
+<th>コマンド例</th>
+<th>出力サンプル</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>YYYY/MM/DD hh:mm:ss</td>
+<td><code class="prettyprint">date &quot;+%Y/%m/%d %H:%M:%S&quot;</code></td>
+<td>2017/09/07 07:16:51</td>
+</tr>
+<tr>
+<td>YYYY-MM-DDThh:mm:ss</td>
+<td><code class="prettyprint">date +%Y-%m-%dT%H:%M:%S</code></td>
+<td>2017-09-07T07:16:51</td>
+</tr>
+<tr>
+<td>YYYYMMDD-hhmmss</td>
+<td><code class="prettyprint">date +%Y%m%d-%H%M%S</code></td>
+<td>20170907-071651</td>
+</tr>
+</tbody></table>
 
 </section>
 <section>
@@ -332,14 +363,6 @@ $ date -d &quot;`date &#39;+%Y/%m/01&#39; -d &quot;\`date &#39;+%Y/%m/01&#39;\` 
 </h2>
 
 
-<section>
-<h3>YYYYMMDD-hhmmss の書式で日時を出力するには
-<span class="article-date">2013/03/21</span></h3>
-
-<pre><code class="prettyprint">$ date &quot;+%Y%m%d-%H%M%S&quot;
-</code></pre>
-
-</section>
 <section>
 <h3>YYYY/MM/DD-hh:mm:ss の書式で日時を出力するには
 <span class="article-date">2014/04/21</span></h3>
