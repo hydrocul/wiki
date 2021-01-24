@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)の要素を1つずつ処理するには (for / foreach) | hydroculのメモ</title>
+<title>配列(リスト)の要素を1つずつ処理するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -11,40 +11,43 @@
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)の要素を1つずつ処理するには (for / foreach)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>要素を1つずつ処理するには</span>
 </div>
 
 <div id="content">
-  <h1 id="foreach">配列(リスト)の要素を1つずつ処理するには (for / foreach)
-<span class="article-date">2015/03/23</span></h1>
+  <section>
+<h1>配列(リスト)の要素を1つずつ処理するには
+<span class="article-date">2021/01/24</span></h1>
 
 <p>各プログラミング言語での、配列(リスト)の要素を1つずつ順番に処理する方法。</p>
 
-<p><code>for</code>文などの繰り返しの構文が使える言語が多い。</p>
+<p><code class="prettyprint">for</code>文などの繰り返しの構文が使える言語が多い。</p>
 
-<p>配列やリストの要素に対してではなく、
-0から順番にカウンタを回して繰り返し処理をさせる方法は
-<a href="../control_flow/for.html"><code>for</code>文</a>を参照。</p>
+<p>配列やリストの要素に対してではなく、<br>
+0から順番にカウンタを回して繰り返し処理をさせる方法は<br>
+<a href="../control_flow/for.html"><code class="prettyprint">for</code>文</a>を参照。</p>
 
-<h2 id="93f5f96">Java
+<section>
+<h2>Java
 <span class="article-date">2014/03/15</span></h2>
 
-<p>配列を<a href="../control_flow/for.html#java"><code>for</code>文</a>でループする例</p>
+<p>配列を<a href="../control_flow/for.html#java"><code class="prettyprint">for</code>文</a>でループする例</p>
 
-<pre><code>for(int i = 0; i &lt; strArr.length; i++){
+<pre><code class="prettyprint">for(int i = 0; i &lt; strArr.length; i++){
   String str = arr[i];
   ...;
 }
 </code></pre>
 
-<p><code>java.lang.Iterator</code> を使った例</p>
+<p><code class="prettyprint">java.lang.Iterator</code> を使った例</p>
 
-<pre><code>for(Iterator&lt;String&gt; it = strList.iterator(); it.hasNext();){
+<pre><code class="prettyprint">for(Iterator&lt;String&gt; it = strList.iterator(); it.hasNext();){
   String str = it.next();
   ...;
 }
@@ -52,27 +55,25 @@
 
 <p>Java5からは、以下の拡張for文の利用が可能。(foreach構文)</p>
 
-<pre><code>for(String str: strArr){
+<pre><code class="prettyprint">for(String str: strArr){
   ...;
 }
 </code></pre>
 
-<p>拡張for文の場合 <code>strArr</code> は配列であるか、<code>java.lang.Iterable</code> を実装しているオブジェクトであることが必要。</p>
+<p>拡張for文の場合 <code class="prettyprint">strArr</code> は配列であるか、<code class="prettyprint">java.lang.Iterable</code> を実装しているオブジェクトであることが必要。</p>
 
+</section>
+<section>
 <h2 id="scala">Scala
 <span class="article-date">2015/01/13</span></h2>
 
-<p><code>List</code>や<a href="../map/foreach.html#scala"><code>Map</code></a>などたいていのコレクション型にある<code>foreach</code>メソッドを使えばよい。</p>
+<p><code class="prettyprint">List</code>や<a href="../map/foreach.html#scala"><code class="prettyprint">Map</code></a>などたいていのコレクション型にある<code class="prettyprint">foreach</code>メソッドを使えばよい。</p>
 
-<p>Signature:</p>
+<p><a href="https://www.scala-lang.org/api/current/scala/collection/Seq.html#foreach%5BU%5D(f:A=%3EU):Unit"><code class="prettyprint">def scala.collection.Seq[A]#foreach(f: A =&gt; Unit): Unit</code></a></p>
 
-<pre><code>// scala.collection.Seq[A]
-def foreach(f: A =&gt; Unit): Unit
-</code></pre>
+<p><code class="prettyprint">foreach</code>の引数には関数を渡すが、Scalaでは関数をいろいろな書き方ができるので、慣れないとわかりづらいかもしれない。以下はいろいろな書き方の例。</p>
 
-<p><code>foreach</code>の引数には関数を渡すが、Scalaでは関数をいろいろな書き方ができるので、慣れないとわかりづらいかもしれない。以下はいろいろな書き方の例。</p>
-
-<pre><code>val lst = "a" :: "b" :: "c" :: Nil;
+<pre><code class="prettyprint">val lst = &quot;a&quot; :: &quot;b&quot; :: &quot;c&quot; :: Nil;
 lst.foreach { (s: String) =&gt; println(s); }
 
 // {} でなくて () でもよい
@@ -91,57 +92,79 @@ lst.foreach(println(_));
 lst.foreach(println);
 </code></pre>
 
-<p>一番下は、Perlみたいに省略されまくっているが、Perlの <code>$_</code> のような暗黙の変数があるのではなく、高階関数の引数のように関数を書くべき場所に単にメソッド名だけを書ける機能である。</p>
+<p>一番下は、Perlみたいに省略されまくっているが、Perlの <code class="prettyprint">$_</code> のような暗黙の変数があるのではなく、高階関数の引数のように関数を書くべき場所に単にメソッド名だけを書ける機能である。</p>
 
-<p><code>foreach</code>メソッドの代わりに<code>for</code>式を使ってもよい。</p>
+<p><code class="prettyprint">foreach</code>メソッドの代わりに<code class="prettyprint">for</code>式を使ってもよい。</p>
 
-<pre><code>for (elem &lt;- list) {
+<pre><code class="prettyprint">for (elem &lt;- list) {
   ...;
 }
 </code></pre>
 
-<p><code>for</code>式はコンパイラ内部では<code>foreach</code>メソッドの呼び出しに変換されている。</p>
+<p><code class="prettyprint">for</code>式はコンパイラ内部では<code class="prettyprint">foreach</code>メソッドの呼び出しに変換されている。</p>
 
-<p>Scala for式の実体<br />
-<a href="http://www.ne.jp/asahi/hishidama/home/tech/scala/collection/for.html" target="_blank" class="external-link">http://www.ne.jp/asahi/hishidama/home/tech/scala/collection/for.html</a></p>
+<p><a href="http://www.ne.jp/asahi/hishidama/home/tech/scala/collection/for.html">Scala for式の実体</a></p>
 
+</section>
+<section>
+<h2>JavaScript
+<span class="article-date">2021/01/24</span></h2>
+
+<p>例</p>
+
+<pre><code class="prettyprint">for (const elem of arr) {
+    ...;
+}
+</code></pre>
+
+<p>または</p>
+
+<pre><code class="prettyprint">for (index in arr) {
+  const elem = arr[index];
+  ....;
+}
+</code></pre>
+
+<p><code class="prettyprint">of</code> の左にくるのは要素の値。<code class="prettyprint">in</code> の左にくるのは要素のインデックス。</p>
+
+</section>
+<section>
 <h2 id="php">PHP
 <span class="article-date">2015/01/13</span></h2>
 
 <p>配列をループする例</p>
 
-<pre><code>foreach ($arr as $elem) {
+<pre><code class="prettyprint">foreach ($arr as $elem) {
   ...
 }
 </code></pre>
 
 <p>インデックスと値の両方を変数に入れることもできる。</p>
 
-<pre><code>foreach ($arr as $index =&gt; $elem) {
+<pre><code class="prettyprint">foreach ($arr as $index =&gt; $elem) {
   ...
 }
 </code></pre>
 
 <p>この書き方は普通の配列でなくて<a href="../map/foreach.html#php">連想配列の場合</a>に特に便利。</p>
 
-<p>中括弧(<code>{}</code>)の代わりに以下のようなコロンを使った記法も可能。</p>
+<p>中括弧(<code class="prettyprint">{}</code>)の代わりに以下のようなコロンを使った記法も可能。</p>
 
-<pre><code>foreach ($arr as $elem):
+<pre><code class="prettyprint">foreach ($arr as $elem):
   ...
 endforeach;
 </code></pre>
 
 <p>または別の書き方としてC言語風に</p>
 
-<pre><code>for ($i = 0; $i &lt; $arr.length; $i++) {
+<pre><code class="prettyprint">for ($i = 0; $i &lt; $arr.length; $i++) {
   ...
 }
 </code></pre>
 
-<p>ループの中で要素の変数名に値を代入しても配列には影響しないが、
-<code>&amp;$elem</code> というふうに書くと、配列に変更を反映させることができる。</p>
+<p>ループの中で要素の変数名に値を代入しても配列には影響しないが、<code class="prettyprint">&amp;$elem</code> というふうに書くと、配列に変更を反映させることができる。</p>
 
-<pre><code>$arr = array(10, 20, 30);
+<pre><code class="prettyprint">$arr = array(10, 20, 30);
 foreach ($arr as $elem) {
     $elem = $elem * 10; # この書き方では配列自体には影響しない
 }
@@ -163,15 +186,16 @@ var_export($arr);
 #    )
 </code></pre>
 
-<p>Pythonのアンパック代入のように <code>as</code> の右に <code>list()</code> 形式を置くことはPHPではできない。と思ったが、PHP5.5からはできるようになるらしい。</p>
+<p>Pythonのアンパック代入のように <code class="prettyprint">as</code> の右に <code class="prettyprint">list()</code> 形式を置くことはPHPではできない。と思ったが、PHP5.5からはできるようになるらしい。</p>
 
-<p><code>foreach</code>文 | PHP Manual<br />
-<a href="http://php.net/manual/ja/control-structures.foreach.php" target="_blank" class="external-link">http://php.net/manual/ja/control-structures.foreach.php</a></p>
+<p><a href="http://php.net/manual/ja/control-structures.foreach.php"><code class="prettyprint">foreach</code>文 | PHP Manual</a></p>
 
-<h2 id="cf3cbde">Smarty
+</section>
+<section>
+<h2>Smarty
 <span class="article-date">2013/09/04</span></h2>
 
-<pre><code>{foreach $arr as $value}
+<pre><code class="prettyprint">{foreach $arr as $value}
   ...
 {foreachelse}
   &lt;!-- $arr に要素がひとつもなかった場合 --&gt;
@@ -179,10 +203,9 @@ var_export($arr);
 {/foreach}
 </code></pre>
 
-<p>ループの最初と最後にだけ特別な処理を入れたい場合、<code>foreach</code>の中で 
-<code>name=hoge</code> のように書くと <code>$smarty.foreach.hoge</code> を使って、処理を振り分けられる。</p>
+<p>ループの最初と最後にだけ特別な処理を入れたい場合、<code class="prettyprint">foreach</code>の中で <code class="prettyprint">name=hoge</code> のように書くと <code class="prettyprint">$smarty.foreach.hoge</code> を使って、処理を振り分けられる。</p>
 
-<pre><code>{foreach $arr as $value name=item}
+<pre><code class="prettyprint">{foreach $arr as $value name=item}
   {if $smarty.foreach.item.first}
     &lt;!-- 最初の要素の場合 --&gt;
     ...
@@ -195,21 +218,95 @@ var_export($arr);
 {/foreach}
 </code></pre>
 
+</section>
+<section>
+<h2 id="perl">Perl
+<span class="article-date">2015/01/22</span></h2>
+
+<pre><code class="prettyprint">my @arr = (&#39;abc&#39;, &#39;def&#39;, &#39;ghi&#39;);
+foreach my $elem (@arr) {
+  ...;
+}
+</code></pre>
+
+<p>変数名を省略した以下の書き方も可能。この場合、ループの中では要素を <code class="prettyprint">$_</code> で参照する。</p>
+
+<pre><code class="prettyprint">my @arr = (&#39;abc&#39;, &#39;def&#39;, &#39;ghi&#39;);
+foreach (@arr) {
+  ...;
+}
+</code></pre>
+
+<p>以下のように修飾子の書き方も可能。この書き方でもループの中では要素を <code class="prettyprint">$_</code> で参照する。</p>
+
+<pre><code class="prettyprint">... foreach (@arr);
+</code></pre>
+
+<p>配列のレファレンスに対して繰り返し処理をしたい場合は、<code class="prettyprint">@arr</code> の代わりに <code class="prettyprint">@$arr</code> のように書けばよい。</p>
+
+<p>Perlでは <code class="prettyprint">for</code> と <code class="prettyprint">foreach</code> はまったく同じなので、上記のどの例でも <code class="prettyprint">foreach</code> を <code class="prettyprint">for</code> にしても同じになる。</p>
+
+</section>
+<section>
+<h2>CoffeeScript
+<span class="article-date">2016/03/03</span></h2>
+
+<p>配列をループする例</p>
+
+<pre><code class="prettyprint">for elem in arr
+  ....
+</code></pre>
+
+<p>JavaScriptと違って <code class="prettyprint">in</code> の左にくるのは要素の値。</p>
+
+</section>
+<section>
+<h2>Ruby
+<span class="article-date">2014/12/31</span></h2>
+
+<pre><code class="prettyprint">for elem in arr do
+  ...
+end
+</code></pre>
+
+<p><code class="prettyprint">do</code> は省略してもよい。</p>
+
+<p><code class="prettyprint">elem</code> の部分には複数の値が入る場合に複数の変数が使える。例：</p>
+
+<pre><code class="prettyprint">for i, str in [[1, &#39;abc&#39;], [2, &#39;def&#39;], [3, &#39;ghi&#39;]]
+  ...
+end
+</code></pre>
+
+<p>配列の <code class="prettyprint">Array#each</code> メソッドも使える。<code class="prettyprint">break</code>でのループの中断は、上記の<code class="prettyprint">for</code>文以外にこの<code class="prettyprint">each</code>メソッドでも使える。</p>
+
+<pre><code class="prettyprint">[1, 2, 3].each do |i|
+  p i
+  break if i == 2
+end
+# =&gt; 1 2
+</code></pre>
+
+<p><a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/each.html"><code class="prettyprint">Array#each</code> | Ruby 2.1 リファレンスマニュアル</a></p>
+
+</section>
+<section>
 <h2 id="python">Python
 <span class="article-date">2014/08/01</span></h2>
 
-<p><code>for</code>文の例</p>
+<p><code class="prettyprint">for</code>文の例</p>
 
-<pre><code>for elem in lst:
+<pre><code class="prettyprint">for elem in lst:
     ...
     ...
 </code></pre>
 
-<p><code>lst</code> にはリスト、タプル、文字列といったシーケンスを使うことができる。文字列に使うと、その中の1文字ずつでループ処理する。シーケンス以外にもイテレータ型を使うこともできる。</p>
+<p><code class="prettyprint">lst</code> にはリスト、タプル、文字列といったシーケンスを使うことができる。文字列に使うと、その中の1文字ずつでループ処理する。<br>
+シーケンス以外にもイテレータ型を使うこともできる。</p>
 
-<p><code>lst</code> の要素がさらにリストやタプルなどになっていれば、<code>elem</code> には複数の変数を書くことができ、要素ごとに<a href="../tuple/multiple-assignment.html#python">アンパック代入</a>されてループが実行される。</p>
+<p><code class="prettyprint">lst</code> の要素がさらにリストやタプルなどになっていれば、<code class="prettyprint">elem</code> には複数の変数を書くことができ、要素ごとに<a href="../tuple/multiple-assignment.html#python">アンパック代入</a>されてループが実行される。</p>
 
-<pre><code>lst = [[3, "abc"], [4, "def"]]
+<pre><code class="prettyprint">lst = [[3, &quot;abc&quot;], [4, &quot;def&quot;]]
 for a, b in lst:
     print(a, b)
 # 出力結果
@@ -217,13 +314,11 @@ for a, b in lst:
 # 4 def
 </code></pre>
 
-<p><a href="../vars/scope.html#python">変数のスコープは関数</a>なので、<code>elem</code>に最後に代入された要素は
-<code>for</code>文から脱出後もそのまま保持される。</p>
+<p><a href="../vars/scope.html#python">変数のスコープは関数</a>なので、<code class="prettyprint">elem</code>に最後に代入された要素は<code class="prettyprint">for</code>文から脱出後もそのまま保持される。</p>
 
-<p><a href="../control_flow/while.html#python"><code>while</code>文</a>と同じく、
-<code>else</code>節を付けることができる。<code>else</code>節は条件を満たさなくなってループを脱出する際に実行される。要素が1つもない場合ではない。ループから<a href="../control_flow/break.html#python"><code>break</code></a>で脱出した場合は実行されない。</p>
+<p><a href="../control_flow/while.html#python"><code class="prettyprint">while</code>文</a>と同じく、<code class="prettyprint">else</code>節を付けることができる。<code class="prettyprint">else</code>節は条件を満たさなくなってループを脱出する際に実行される。要素が1つもない場合ではない。ループから<a href="../control_flow/break.html#python"><code class="prettyprint">break</code></a>で脱出した場合は実行されない。</p>
 
-<pre><code>for elem in lst:
+<pre><code class="prettyprint">for elem in lst:
     ...
     ...
 else:
@@ -231,74 +326,17 @@ else:
     ...
 </code></pre>
 
-<p><code>for</code>文 | Python 2.7 documentation<br />
-<a href="http://docs.python.jp/2/reference/compound_stmts.html#for" target="_blank" class="external-link">http://docs.python.jp/2/reference/compound_stmts.html#for</a></p>
+<p><a href="http://docs.python.jp/2/reference/compound_stmts.html#for"><code class="prettyprint">for</code>文 | Python 2.7 documentation</a><br>
+<a href="http://docs.python.jp/3/reference/compound_stmts.html#the-for-statement"><code class="prettyprint">for</code>文 | Python 3 documentation</a></p>
 
-<p><code>for</code>文 | Python 3 documentation<br />
-<a href="http://docs.python.jp/3/reference/compound_stmts.html#the-for-statement" target="_blank" class="external-link">http://docs.python.jp/3/reference/compound_stmts.html#the-for-statement</a></p>
-
-<h2 id="0d51732">Ruby / JRuby
-<span class="article-date">2014/12/31</span></h2>
-
-<pre><code>for elem in arr do
-  ...
-end
-</code></pre>
-
-<p><code>do</code> は省略してもよい。</p>
-
-<p><code>elem</code> の部分には複数の値が入る場合に複数の変数が使える。例：</p>
-
-<pre><code>for i, str in [[1, 'abc'], [2, 'def'], [3, 'ghi']]
-  ...
-end
-</code></pre>
-
-<p>配列の <code>Array#each</code> メソッドも使える。
-<code>break</code>でのループの中断は、上記の<code>for</code>文以外にこの<code>each</code>メソッドでも使える。</p>
-
-<pre><code>[1, 2, 3].each do |i|
-  p i
-  break if i == 2
-end
-# =&gt; 1 2
-</code></pre>
-
-<p><code>Array#each</code> | Ruby 2.1 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/each.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/each.html</a></p>
-
-<h2 id="perl">Perl
-<span class="article-date">2015/01/22</span></h2>
-
-<pre><code>my @arr = ('abc', 'def', 'ghi');
-foreach my $elem (@arr) {
-  ...;
-}
-</code></pre>
-
-<p>変数名を省略した以下の書き方も可能。この場合、ループの中では要素を <code>$_</code> で参照する。</p>
-
-<pre><code>my @arr = ('abc', 'def', 'ghi');
-foreach (@arr) {
-  ...;
-}
-</code></pre>
-
-<p>以下のように修飾子の書き方も可能。この書き方でもループの中では要素を <code>$_</code> で参照する。</p>
-
-<pre><code>... foreach (@arr);
-</code></pre>
-
-<p>配列のレファレンスに対して繰り返し処理をしたい場合は、<code>@arr</code> の代わりに <code>@$arr</code> のように書けばよい。</p>
-
-<p>Perlでは <code>for</code> と <code>foreach</code> はまったく同じなので、上記のどの例でも <code>foreach</code> を <code>for</code> にしても同じになる。</p>
-
-<h2 id="c201a07">sh (シェルスクリプト)
+</section>
+<section>
+<h2>sh (シェルスクリプト)
 <span class="article-date">2013/10/22</span></h2>
 
 <p>例1</p>
 
-<pre><code>for v in foo bar hoge
+<pre><code class="prettyprint">for v in foo bar hoge
 do
   echo $v
 done
@@ -306,7 +344,7 @@ done
 
 <p>例2 (スペース区切りの文字列に対して繰り返し処理)</p>
 
-<pre><code>list="foo bar hoge"
+<pre><code class="prettyprint">list=&quot;foo bar hoge&quot;
 for v in $list
 do
   echo $v
@@ -315,41 +353,33 @@ done
 
 <p>出力結果(どちらも同じ)</p>
 
-<pre><code>foo
+<pre><code class="prettyprint">foo
 bar
 hoge
 </code></pre>
 
-<h2 id="6eb1fc3">JavaScript
-<span class="article-date">2016/03/03</span></h2>
-
-<p>配列をループする例</p>
-
-<pre><code>for (index in arr) {
-  var elem = arr[index];
-  ....;
-}
-</code></pre>
-
-<p>CoffeeScriptと違って <code>in</code> の左にくるのは要素のインデックス。</p>
-
-<h2 id="a764629">CoffeeScript
-<span class="article-date">2016/03/03</span></h2>
-
-<p>配列をループする例</p>
-
-<pre><code>for elem in arr
-  ....
-</code></pre>
-
-<p>JavaScriptと違って <code>in</code> の左にくるのは要素の値。</p>
+</section>
+</section>
 
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+    このサイトは個人メモの集合です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
@@ -357,49 +387,57 @@ hoge
       <li><a href="../../programming_languages_diff/list/">配列(リスト)</a>
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/list/get.html">get</a></li>
-          <li><a href="../../programming_languages_diff/list/set.html">set</a></li>
-          <li><a href="../../programming_languages_diff/list/size.html">count / len / length / size / sizeof</a></li>
-          <li><a href="../../programming_languages_diff/list/is-empty.html">empty / isEmpty</a></li>
-          <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
-          <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
-          <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
-          <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
-          <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
-          <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
-          <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
-          <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
-          <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
-          <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
-          <li><a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
-          <li>for / foreach</li>
-          <li><a href="../../programming_languages_diff/list/fold-left.html">array_reduce / foldLeft / inject / reduce / reduceLeft</a></li>
-          <li><a href="../../programming_languages_diff/list/zip.html">zip</a></li>
-          <li><a href="../../programming_languages_diff/list/product.html">product</a></li>
-          <li><a href="../../programming_languages_diff/list/compare.html">==</a></li>
-          <li><a href="../../programming_languages_diff/list/fill.html">fill</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">range / seq / to / until</a></li>
-          <li><a href="../../programming_languages_diff/list/grouped.html">array_chunk / grouped</a></li>
-          <li><a href="../../programming_languages_diff/list/group-by.html">group_by / groupBy</a></li>
-          <li><a href="../../programming_languages_diff/list/shift.html">array_shift / shift</a></li>
-          <li><a href="../../programming_languages_diff/list/unshift.html">unshift</a></li>
-          <li><a href="../../programming_languages_diff/list/pop.html">array_pop / pop</a></li>
-          <li><a href="../../programming_languages_diff/list/push.html">push</a></li>
-          <li><a href="../../programming_languages_diff/list/remove.html">delete_at / pop / remove / unset</a></li>
-          <li><a href="../../programming_languages_diff/list/remove-by-value.html">delete / remove / <code>-</code></a></li>
-          <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
-          <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
-          <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
-          <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
-          <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
-          <li><a href="../../programming_languages_diff/list/multiply.html"><code>x</code> / <code>*</code></a></li>
-          <li><a href="../../programming_languages_diff/list/slice-replace.html">array_splice / splice</a></li>
-          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">ベクトル演算</a></li>
+          <li><a href="../../programming_languages_diff/list/get.html">要素を参照するには</a></li>
+          <li><a href="../../programming_languages_diff/list/set.html">要素に値を代入するには</a></li>
+          <li><a href="../../programming_languages_diff/list/size.html">要素数を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/is-empty.html">空かどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外アクセスの挙動</a></li>
+          <li><a href="../../programming_languages_diff/list/head.html">先頭を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/last.html">最後を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/tail.html">先頭を除く残りを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">先頭のn個のみを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/drop.html">先頭のn個を除く残りを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">部分配列を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">特定の値の有無を判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/index-of.html">値からそのインデックスを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/index-where.html">条件にマッチする要素のインデックスを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/filter.html">条件を満たす要素を抽出するには</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">条件にマッチする要素か含まれるかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">すべてが条件にマッチするかどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/clone.html">配列(リスト)をコピーするには (clone)</a></li>
+          <li><a href="../../programming_languages_diff/list/compare.html">2つの配列(リスト)を中身で比較するには (==)</a></li>
+          <li><a href="../../programming_languages_diff/list/concat.html">複数の配列(リスト)を連結するには (array_merge, +, concat)</a></li>
+          <li><a href="../../programming_languages_diff/list/convert.html">配列(リスト)のデータ型をを相互に変換するには (asList / asScala / asJava / to_a / toArray)</a></li>
+          <li><a href="../../programming_languages_diff/list/fill.html">同じ値で埋めた配列(リスト)を作成するには (fill)</a></li>
+          <li><a href="../../programming_languages_diff/list/filter-count.html">配列(リスト)から特定の条件にマッチする要素の数を数えるには</a></li>
+          <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列を連結した新しい配列を作るには (flatMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/flatten.html">配列(リスト)の配列を配列に平坦化するには (flatten)</a></li>
+          <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素の畳み込みをするには (array_reduce / foldLeft / inject / reduce / reduceLeft)</a></li>
+          <li>要素を1つずつ処理するには</li>
+          <li><a href="../../programming_languages_diff/list/group-by.html">配列(リスト)の要素をグルーピングするには (group_by / groupBy)</a></li>
+          <li><a href="../../programming_languages_diff/list/grouped.html">配列(リスト)を一定の数ごとにグルーピングするには (grouped)</a></li>
+          <li><a href="../../programming_languages_diff/list/head-last.html">配列(リスト)の先頭または最後の要素を取得するには (head, last)</a></li>
+          <li><a href="../../programming_languages_diff/list/literal.html">配列(リスト)の書き方</a></li>
+          <li><a href="../../programming_languages_diff/list/map.html">配列(リスト)の要素1つずつに関数を適用して新しい配列(リスト)を作るには (array_map / map)</a></li>
+          <li><a href="../../programming_languages_diff/list/max-min.html">配列(リスト)の中の最大値・最小値を求めるには (max, min)</a></li>
+          <li><a href="../../programming_languages_diff/list/multiply.html">同じ配列(リスト)を繰り返して連結するには(乗算みたいな) (`x` / `*`)</a></li>
+          <li><a href="../../programming_languages_diff/list/pop.html">配列(リスト)の最後の要素を削除するには (array_pop / pop)</a></li>
+          <li><a href="../../programming_languages_diff/list/product.html">複数の配列(リスト)の要素同士を組み合わせて配列の配列を作るには (product)</a></li>
+          <li><a href="../../programming_languages_diff/list/push.html">配列(リスト)の最後に要素を追加するには (push)</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列(リスト)を作成するには (range / seq / to / until)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove-by-value.html">配列(リスト)から特定の値の要素をすべて削除するには (delete / remove / `-`)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove.html">配列(リスト)から特定の要素をインデックスで指定して削除するには (delete_at / pop / remove / unset)</a></li>
+          <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
+          <li><a href="../../programming_languages_diff/list/shift-unshift-pop-push.html">配列(リスト)の先頭または最後の要素を削除したり、先頭または最後に要素を追加するには (shift, unshift, pop, push)</a></li>
+          <li><a href="../../programming_languages_diff/list/shift.html">配列(リスト)の先頭の要素を削除するには (shift)</a></li>
+          <li><a href="../../programming_languages_diff/list/slice-replace.html">配列(リスト)の一部を別の配列で置き換えるには (array_splice / splice)</a></li>
+          <li><a href="../../programming_languages_diff/list/sort.html">配列(リスト)をソートするには (sort / sortBy / sorted / sortWith)</a></li>
+          <li><a href="../../programming_languages_diff/list/sum.html">数の配列(リスト)の合計を計算するには (sum)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列(リスト)から連想配列を生成するには (toMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-set.html">配列(リスト)から集合(セット)を生成するには (toSet)</a></li>
+          <li><a href="../../programming_languages_diff/list/unshift.html">配列(リスト)の先頭に要素を追加するには (unshift)</a></li>
+          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列(リスト)を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
+          <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の配列(リスト)を要素ごとにまとめて配列の配列を作るには (zip)</a></li>
         </ul>
       </li>
     </ul>
