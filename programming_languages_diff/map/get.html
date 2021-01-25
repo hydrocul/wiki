@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>連想配列(マップ/ハッシュ/ディクショナリ)の要素の値を参照するには (get / getOrElse / fetch / `[]`) | hydroculのメモ</title>
+<title>連想配列(マップ/ハッシュ/ディクショナリ)の要素の値を参照するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -11,188 +11,223 @@
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a> &gt; <span>連想配列(マップ/ハッシュ/ディクショナリ)の要素の値を参照するには (get / getOrElse / fetch / `[]`)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a> &gt; <span>値を参照するには</span>
 </div>
 
 <div id="content">
-  <h1 id="get">連想配列(マップ/ハッシュ/ディクショナリ)の要素の値を参照するには (get / getOrElse / fetch / <code>[]</code>)
-<span class="article-date">2015/03/04</span></h1>
+  <section>
+<h1>連想配列(マップ/ハッシュ/ディクショナリ)の要素の値を参照するには
+<span class="article-date">2021/01/14</span></h1>
 
-<p>連想配列(マップ/ハッシュ/ディクショナリ)の要素の値を参照する方法。</p>
+<p>Java、Scala、JavaScript、PHP、Perl、Ruby、Pythonでの連想配列(マップ/ハッシュ/ディクショナリ)の要素の値を参照する方法。</p>
 
+<section>
 <h2 id="java">Java
 <span class="article-date">2015/03/23</span></h2>
 
 <p>Signature:</p>
 
-<pre><code>V java.util.Map&lt;K, V&gt;#get(Object key)
+<pre><code class="prettyprint">V java.util.Map&lt;K, V&gt;#get(Object key)
 
 // Java8以降
 V java.util.Map&lt;K, V&gt;#getOrDefault(Object key, V defaultValue)
 
-map.get("a");
+map.get(&quot;a&quot;);
 </code></pre>
 
-<p><code>get</code>メソッドでは要素が存在しない場合は<code>null</code>が返される。しかし、<code>null</code>が返されることは必ずしも要素が存在しない場合とは限らず、値として<code>null</code>が入っている場合もあるので注意。</p>
+<p><code class="prettyprint">get</code>メソッドでは要素が存在しない場合は<code class="prettyprint">null</code>が返される。しかし、<code class="prettyprint">null</code>が返されることは必ずしも要素が存在しない場合とは限らず、値として<code class="prettyprint">null</code>が入っている場合もあるので注意。</p>
 
+</section>
+<section>
 <h2 id="scala">Scala
 <span class="article-date">2015/03/23</span></h2>
 
 <p>Signature:</p>
 
 <ul>
-  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Map.html#apply(key:K):V" target="_blank" class="external-link method-signature"><code>def Map[A, B]#apply(key: A): B</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Map.html#get(key:K):Option[V]" target="_blank" class="external-link method-signature"><code>def Map[A, B]#get(key: A): Option[B]</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Map.html#getOrElse(key:K,default:=&gt;V):V" target="_blank" class="external-link method-signature"><code>def Map[A, B]#getOrElse(key: A, default: =&gt; B): B</code></a></li>
+<li><a href="http://www.scala-lang.org/api/current/scala/collection/Map.html#apply(key:K):V"><code class="prettyprint">def Map[A, B]#apply(key: A): B</code></a></li>
+<li><a href="http://www.scala-lang.org/api/current/scala/collection/Map.html#get(key:K):Option%5BV%5D"><code class="prettyprint">def Map[A, B]#get(key: A): Option[B]</code></a></li>
+<li><a href="http://www.scala-lang.org/api/current/scala/collection/Map.html#getOrElse(key:K,default:=%3EV):V"><code class="prettyprint">def Map[A, B]#getOrElse(key: A, default: =&gt; B): B</code></a></li>
 </ul>
 
 <p>例</p>
 
-<pre><code>// 要素が存在しない場合は NoSuchElementException がスローされる
-map("a")
+<pre><code class="prettyprint">// 要素が存在しない場合は NoSuchElementException がスローされる
+map(&quot;a&quot;)
 
 // Option で取得
 // 要素が存在しない場合は None が返される
-map.get("a")
+map.get(&quot;a&quot;)
 
 // 要素が存在しない場合のデフォルト値を指定
-map.getOrElse("a", 0);
+map.getOrElse(&quot;a&quot;, 0);
 </code></pre>
 
-<p><code>apply</code>という名前のメソッドはScalaではメソッド名を省略してレシーバーとなるオブジェクト自体があたかも関数であるかのように呼び出すことができる。上記例の1つ目がそれ。</p>
+<p><code class="prettyprint">apply</code>という名前のメソッドはScalaではメソッド名を省略してレシーバーとなるオブジェクト自体があたかも関数であるかのように呼び出すことができる。上記例の1つ目がそれ。</p>
 
-<p>3つ目の <code>getOrElse</code> では2つ目の引数がデフォルト値となる。要素が存在する場合には、2つ目の引数が評価されないので、計算に時間のかかるデフォルト値を設定してもよい。</p>
+<p>3つ目の <code class="prettyprint">getOrElse</code> では2つ目の引数がデフォルト値となる。要素が存在する場合には、2つ目の引数が評価されないので、計算に時間のかかるデフォルト値を設定してもよい。</p>
 
-<h2 id="6fa8328">PHP
-<span class="article-date">2014/12/22</span></h2>
-
-<p>配列の要素は <code>[]</code> でアクセスする。</p>
-
-<pre><code>$arr['a']
-</code></pre>
-
-<p>ただし、存在しない要素を取得しようとすると
-<code>PHP Notice:  Undefined index: a</code>
-というようなNoticeが発生する。</p>
-
-<pre><code>@$arr['a']
-</code></pre>
-
-<p>と書けば、Noticeは発生しない。</p>
-
-<h2 id="e58800b">Python
-<span class="article-date">2014/12/22</span></h2>
-
-<p>ディクショナリの要素は <code>[]</code> でアクセスする。</p>
-
-<pre><code>dic['a']
-</code></pre>
-
-<p>ただし、存在しない要素を取得しようとすると <code>KeyError</code> の例外が発生する。存在するかどうかが不確かな場合は事前に<a href="contains-key.html#python"><code>in</code>演算子</a>でチェックする必要がある。</p>
-
-<p><code>get</code>メソッでであれば存在しない要素であっても例外が発生しない。</p>
-
-<pre><code>dic = {'a': 1, 'b': 2}
-print(dic.get('c'))
-# =&gt; None
-</code></pre>
-
-<h2 id="ruby">Ruby / JRuby
-<span class="article-date">2015/03/23</span></h2>
-
-<p>ハッシュの要素は <code>[]</code> でアクセスする。</p>
-
-<pre><code>hash['a']
-</code></pre>
-
-<p>または</p>
-
-<pre><code>hash.fetch('a')
-</code></pre>
-
-<p>存在しない要素を取得しようとすると <code>[]</code> では <code>nil</code> が返され、
-<code>fetch</code> は <code>KeyError</code> の例外が発生する。</p>
-
-<p><code>fetch</code> は第2引数またはブロックでデフォルト値を設定することができる。要素が存在しない場合に、第2引数があれば第2引数を返し、ブロックがあれば、それを評価した結果を返す。</p>
-
-<pre><code>hash = {'a' =&gt; 1}
-
-p hash.fetch('a')       # =&gt; 1
-p hash.fetch('a', 2)    # =&gt; 1
-p hash.fetch('b', 2)    # =&gt; 2
-p hash.fetch('b') { 2 } # =&gt; 2
-</code></pre>
-
-<p>ハッシュ生成時にブロックを与えれば、<code>[]</code> で存在しない要素を参照しようとした場合に、例外を発生させたり、デフォルト値を返させたりすることができる。</p>
-
-<pre><code>hash = Hash.new { |hash, key| raise KeyError }
-
-hash['a'] = 'A';
-
-p hash['a']
-# =&gt; "A"
-p hash['b']
-# KeyError がスローされる
-</code></pre>
-
-<h2 id="perl">Perl</h2>
-
-<h3 id="d27e9a3">ハッシュ
-<span class="article-date">2015/01/08</span></h3>
-
-<p>以下のように <code>{}</code> でキーを指定し、先頭は <code>$</code> を使う。</p>
-
-<pre><code>my %hash = (a =&gt; 1, b =&gt; 2);
-
-$hash{a}   # =&gt; 1
-# または
-$hash{'a'} # =&gt; 1
-</code></pre>
-
-<p>存在しない要素を取得しようとすると <code>undef</code> になり、
-<code>use warnings;</code> が宣言されていれば、
-<code>undef</code> が代入された変数を実際に使おうとするときに
-<code>Use of uninitialized value</code> という警告が表示される。</p>
-
-<p><code>undef</code> という値の要素が存在することもあり得る。</p>
-
-<h3 id="bbfbf10">ハッシュへのレファレンス
-<span class="article-date">2015/01/08</span></h3>
-
-<p>ハッシュへのレファレンスから要素を取り出すには <code>-&gt;{}</code> を使う。</p>
-
-<pre><code>my $hash = {a =&gt; 1, b =&gt; 2};
-
-$hash-&gt;{a} # =&gt; 1
-</code></pre>
-
-<p>存在しない要素の場合の取り扱いはハッシュと同じ。</p>
-
-<h2 id="0c67a07">JavaScript
+</section>
+<section>
+<h2>JavaScript
 <span class="article-date">2014/01/22</span></h2>
 
 <p>例</p>
 
-<pre><code>map = {a: 1, b: 2}
+<pre><code class="prettyprint">map = {a: 1, b: 2}
 
 console.log(map.a);
 // =&gt; 1
 
-console.log(map['a']);
+console.log(map[&#39;a&#39;]);
 // =&gt; 1
 </code></pre>
+
+</section>
+<section>
+<h2>PHP
+<span class="article-date">2014/12/22</span></h2>
+
+<p>配列の要素は <code class="prettyprint">[]</code> でアクセスする。</p>
+
+<pre><code class="prettyprint">$arr[&#39;a&#39;]
+</code></pre>
+
+<p>ただし、存在しない要素を取得しようとすると <code class="prettyprint">PHP Notice:  Undefined index: a</code> というようなNoticeが発生する。</p>
+
+<pre><code class="prettyprint">@$arr[&#39;a&#39;]
+</code></pre>
+
+<p>と書けば、Noticeは発生しない。</p>
+
+</section>
+<section>
+<h2 id="perl">Perl
+</h2>
+
+
+<section>
+<h3>ハッシュ
+<span class="article-date">2021/01/25</span></h3>
+
+<p>以下のように <code class="prettyprint">{}</code> でキーを指定し、変数名の先頭は <code class="prettyprint">$</code> を使う。</p>
+
+<pre><code class="prettyprint">my %hash = (a =&gt; 1, b =&gt; 2);
+
+$hash{a}   # =&gt; 1
+# または
+$hash{&#39;a&#39;} # =&gt; 1
+$hash{&quot;a&quot;} # =&gt; 1
+</code></pre>
+
+<p>存在しない要素を取得しようとすると <code class="prettyprint">undef</code> になり、<code class="prettyprint">use warnings;</code> が宣言されていれば、<code class="prettyprint">undef</code> が代入された変数を実際に使おうとするときに <code class="prettyprint">Use of uninitialized value</code> という警告が表示される。</p>
+
+<p><code class="prettyprint">undef</code> という値の要素が存在することもあり得る。</p>
+
+</section>
+<section>
+<h3>ハッシュへのレファレンス
+<span class="article-date">2021/01/25</span></h3>
+
+<p>ハッシュへのレファレンスから要素を取り出すには <code class="prettyprint">-&gt;{}</code> を使う。</p>
+
+<pre><code class="prettyprint">my $hash = {a =&gt; 1, b =&gt; 2};
+
+$hash-&gt;{a} # =&gt; 1
+# または
+$hash-&gt;{&#39;a&#39;} # =&gt; 1
+$hash-&gt;{&quot;a&quot;} # =&gt; 1
+</code></pre>
+
+<p>存在しない要素の場合の取り扱いはハッシュと同じ。</p>
+
+</section>
+</section>
+<section>
+<h2 id="ruby">Ruby
+<span class="article-date">2015/03/23</span></h2>
+
+<p>ハッシュの要素は <code class="prettyprint">[]</code> でアクセスする。</p>
+
+<pre><code class="prettyprint">hash[&#39;a&#39;]
+</code></pre>
+
+<p>または</p>
+
+<pre><code class="prettyprint">hash.fetch(&#39;a&#39;)
+</code></pre>
+
+<p>存在しない要素を取得しようとすると <code class="prettyprint">[]</code> では <code class="prettyprint">nil</code> が返され、<code class="prettyprint">fetch</code> は <code class="prettyprint">KeyError</code> の例外が発生する。</p>
+
+<p><code class="prettyprint">fetch</code> は第2引数またはブロックでデフォルト値を設定することができる。要素が存在しない場合に、第2引数があれば第2引数を返し、ブロックがあれば、それを評価した結果を返す。</p>
+
+<pre><code class="prettyprint">hash = {&#39;a&#39; =&gt; 1}
+
+p hash.fetch(&#39;a&#39;)       # =&gt; 1
+p hash.fetch(&#39;a&#39;, 2)    # =&gt; 1
+p hash.fetch(&#39;b&#39;, 2)    # =&gt; 2
+p hash.fetch(&#39;b&#39;) { 2 } # =&gt; 2
+</code></pre>
+
+<p>ハッシュ生成時にブロックを与えれば、<code class="prettyprint">[]</code> で存在しない要素を参照しようとした場合に、例外を発生させたり、デフォルト値を返させたりすることができる。</p>
+
+<pre><code class="prettyprint">hash = Hash.new { |hash, key| raise KeyError }
+
+hash[&#39;a&#39;] = &#39;A&#39;;
+
+p hash[&#39;a&#39;]
+# =&gt; &quot;A&quot;
+p hash[&#39;b&#39;]
+# KeyError がスローされる
+</code></pre>
+
+</section>
+<section>
+<h2>Python
+<span class="article-date">2014/12/22</span></h2>
+
+<p>ディクショナリの要素は <code class="prettyprint">[]</code> でアクセスする。</p>
+
+<pre><code class="prettyprint">dic[&#39;a&#39;]
+</code></pre>
+
+<p>ただし、存在しない要素を取得しようとすると <code class="prettyprint">KeyError</code> の例外が発生する。存在するかどうかが不確かな場合は事前に<a href="contains-key.html#python"><code class="prettyprint">in</code>演算子</a>でチェックする必要がある。</p>
+
+<p><code class="prettyprint">get</code>メソッでであれば存在しない要素であっても例外が発生しない。</p>
+
+<pre><code class="prettyprint">dic = {&#39;a&#39;: 1, &#39;b&#39;: 2}
+print(dic.get(&#39;c&#39;))
+# =&gt; None
+</code></pre>
+
+</section>
+</section>
 
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+    このサイトは個人メモの集合です。
   </div>
+  <div class="ad">
+<div class="adlabel">スポンサーリンク</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- page-box -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4189452551543881"
+     data-ad-slot="1792139650"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
   <div id="side-menu-ls">
     <ul>
   <li><a href="../../programming_languages_diff/">プログラミング言語の比較</a>
@@ -200,19 +235,19 @@ console.log(map['a']);
       <li><a href="../../programming_languages_diff/map/">連想配列(マップ/ハッシュ/ディクショナリ)</a>
         <ul>
           <li><a href="../../programming_languages_diff/map/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/map/size.html">size / count / sizeof / len / length (要素数)</a></li>
-          <li><a href="../../programming_languages_diff/map/is-empty.html">isEmpty / empty / empty?</a></li>
-          <li>get / getOrElse / fetch / <code>[]</code> (参照)</li>
-          <li><a href="../../programming_languages_diff/map/put.html">put / <code>[]</code> / <code>+</code> (追加/更新)</a></li>
-          <li><a href="../../programming_languages_diff/map/put-all.html">putAll / <code>++</code> / array_merge / update / merge / merge!</a></li>
-          <li><a href="../../programming_languages_diff/map/filter.html">filter / select / partition / delete_if</a></li>
-          <li><a href="../../programming_languages_diff/map/remove.html">unset / del / delete / <code>-</code></a></li>
-          <li><a href="../../programming_languages_diff/map/contains-key.html">containsKey / contains / array_key_exists / isset / in / has_key? / key? / include? / member? / exists</a></li>
-          <li><a href="../../programming_languages_diff/map/entries.html">items / to_a</a></li>
-          <li><a href="../../programming_languages_diff/map/keys.html">keySet / keys</a></li>
-          <li><a href="../../programming_languages_diff/map/values.html">values</a></li>
-          <li><a href="../../programming_languages_diff/map/clone.html">clone / copy / dup</a></li>
-          <li><a href="../../programming_languages_diff/map/foreach.html">foreach / for / each_key / each_pair / each_value</a></li>
+          <li><a href="../../programming_languages_diff/map/size.html">要素数を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/map/is-empty.html">空かどうかを判定するには</a></li>
+          <li>値を参照するには</li>
+          <li><a href="../../programming_languages_diff/map/put.html">要素を追加・更新するには</a></li>
+          <li><a href="../../programming_languages_diff/map/put-all.html">要素をまとめて追加するには</a></li>
+          <li><a href="../../programming_languages_diff/map/filter.html">条件にマッチする要素のみを取り出すには</a></li>
+          <li><a href="../../programming_languages_diff/map/remove.html">要素をキーで指定して削除するには</a></li>
+          <li><a href="../../programming_languages_diff/map/contains-key.html">特定のキーの有無を判定するには</a></li>
+          <li><a href="../../programming_languages_diff/map/entries.html">キーと値のペアを配列や集合で取得するには</a></li>
+          <li><a href="../../programming_languages_diff/map/keys.html">キーを集合(セット)または配列(リスト)で取得するには</a></li>
+          <li><a href="../../programming_languages_diff/map/values.html">値を集合(セット)または配列(リスト)で取得するには</a></li>
+          <li><a href="../../programming_languages_diff/map/clone.html">コピーするには</a></li>
+          <li><a href="../../programming_languages_diff/map/foreach.html">要素を1つずつ処理するには</a></li>
         </ul>
       </li>
     </ul>
