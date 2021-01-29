@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>複数の配列(リスト)を連結するには (array_merge, +, concat) | hydroculのメモ</title>
+<title>複数の配列(リスト)を連結するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -11,69 +11,72 @@
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>複数の配列(リスト)を連結するには (array_merge, +, concat)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列を連結するには</span>
 </div>
 
 <div id="content">
-  <h1 id="concat">複数の配列(リスト)を連結するには (array_merge, +, concat)
-<span class="article-date">2015/01/24</span></h1>
+  <section>
+<h1>複数の配列(リスト)を連結するには
+<span class="article-date">2021/01/29</span></h1>
 
 <p>関連</p>
 
 <ul>
-  <li><a href="push.html">配列の最後に要素を追加するには</a></li>
-  <li><a href="unshift.html">配列の先頭に要素を追加するには</a></li>
+<li><a href="push.html">配列の最後に要素を追加するには</a></li>
+<li><a href="unshift.html">配列の先頭に要素を追加するには</a></li>
 </ul>
 
-<h2 id="3a3da91">Scala
-<span class="article-date">2016/08/10</span></h2>
+<section>
+<h2>Scala
+<span class="article-date">2021/01/29</span></h2>
 
-<p><code>Seq</code> の <code>++:</code> という演算子のように書けるメソッドを使う。または <code>List</code> であれば <code>:::</code> という演算子のように書けるメソッドも使える。</p>
+<p><code class="prettyprint">Seq</code> の <code class="prettyprint">++</code> や <code class="prettyprint">:++</code> や <code class="prettyprint">++:</code> というメソッドを使う。または <code class="prettyprint">List</code> であれば <code class="prettyprint">:::</code> というメソッドも使える。</p>
 
-<p>Signature:</p>
-
-<ul>
-  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#++:[B&gt;:A,That](that:Traversable[B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That" target="_blank" class="external-link method-signature"><code>def Seq[A]#++:(prefix: Seq[A]</code></a></li>
-  <li><a href="http://www.scala-lang.org/api/current/scala/collection/immutable/List.html#:::(prefix:List[A]):List[A]" target="_blank" class="external-link method-signature"><code>def List[A]#:::(prefix: List[A])</code></a></li>
-</ul>
+<p><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#++:%5BB%3E:A,That%5D(that:Traversable%5BB%5D)(implicitbf:scala.collection.generic.CanBuildFrom%5BRepr,B,That%5D):That"><code class="prettyprint">def Seq[A]#++[B &gt;: A](suffix: IterableOnce[B]): Seq[B]</code></a><br>
+<a href="https://www.scala-lang.org/api/current/scala/collection/Seq.html#:++%5BB%3E:A%5D(suffix:scala.collection.IterableOnce%5BB%5D):CC%5BB%5D"><code class="prettyprint">def Seq[A]#:++[B &gt;: A](suffix: IterableOnce[B]): Seq[B]</code></a><br>
+<a href="https://www.scala-lang.org/api/current/scala/collection/Seq.html#++:%5BB%3E:A%5D(prefix:scala.collection.IterableOnce%5BB%5D):CC%5BB%5D"><code class="prettyprint">def Seq[A]#++:[B &gt;: A](prefix: IterableOnce[B]): Seq[B]</code></a><br>
+<a href="https://www.scala-lang.org/api/current/scala/collection/immutable/List.html#:::%5BB%3E:A%5D(prefix:List%5BB%5D):List%5BB%5D"><code class="prettyprint">def List[A]#:::[B &gt;: A](prefix: List[B]): List[B]</code></a></p>
 
 <p>例</p>
 
-<pre><code>val lst1 = List(1, 2, 3);
+<pre><code class="prettyprint">val lst1 = List(1, 2, 3);
 val lst2 = List(4, 5, 6);
 val result = lst1 ::: lst2;
 print(result); // =&gt; List(1, 2, 3, 4, 5, 6)
 </code></pre>
 
+</section>
+<section>
 <h2 id="php">PHP
 <span class="article-date">2016/04/14</span></h2>
 
-<p>複数の配列を連結するには<code>array_merge</code>関数を使う。この関数は引数の配列を変更せずに連結した結果を返すのみである。</p>
+<p>複数の配列を連結するには<code class="prettyprint">array_merge</code>関数を使う。この関数は引数の配列を変更せずに連結した結果を返すのみである。</p>
 
-<pre><code>$a1 = array(1, 2, 3);
+<pre><code class="prettyprint">$a1 = array(1, 2, 3);
 $a2 = array(4, 5, 6);
 $result = array_merge($a1, $a2);
 
-var_export($a1); echo "\n";
+var_export($a1); echo &quot;\n&quot;;
 // =&gt;
 //    array (
 //      0 =&gt; 1,
 //      1 =&gt; 2,
 //      2 =&gt; 3,
 //    )
-var_export($a2); echo "\n";
+var_export($a2); echo &quot;\n&quot;;
 // =&gt;
 //    array (
 //      0 =&gt; 4,
 //      1 =&gt; 5,
 //      2 =&gt; 6,
 //    )
-var_export($result); echo "\n";
+var_export($result); echo &quot;\n&quot;;
 // =&gt;
 //    array (
 //      0 =&gt; 1,
@@ -85,44 +88,48 @@ var_export($result); echo "\n";
 //    )
 </code></pre>
 
-<p>配列のキーが数字以外の場合は、それぞれの配列のキーを変更せずに上書きでマージしていくので、要素が追加されるとは限らない。
+<p>配列のキーが数字以外の場合は、それぞれの配列のキーを変更せずに上書きでマージしていくので、要素が追加されるとは限らない。<br>
 -&gt; <a href="../map/put-all.html#php">連想配列をマージ</a></p>
 
-<p>3つ以上の配列を連結したい場合も、<code>array_merge</code> に渡す引数にそれらの配列を並べるだけでよい。</p>
+<p>3つ以上の配列を連結したい場合も、<code class="prettyprint">array_merge</code> に渡す引数にそれらの配列を並べるだけでよい。</p>
 
-<pre><code>$result = array_merge($a1, $a2, $a3);
+<pre><code class="prettyprint">$result = array_merge($a1, $a2, $a3);
 </code></pre>
 
-<p><code>array_merge</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.array-merge.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-merge.php</a></p>
+<p><a href="http://php.net/manual/ja/function.array-merge.php"><code class="prettyprint">array_merge</code> 関数 | PHP Manual</a></p>
 
-<h2 id="268e828">Ruby / JRuby
+</section>
+<section>
+<h2>Ruby
 <span class="article-date">2015/01/06</span></h2>
 
-<p>配列を<code>+</code>演算子でつなぐと連結できる。</p>
+<p>配列を<code class="prettyprint">+</code>演算子でつなぐと連結できる。</p>
 
-<pre><code>p ["abc", "def"] + ["123", "456"] # =&gt; ["abc", "def", "123", "456"]
+<pre><code class="prettyprint">p [&quot;abc&quot;, &quot;def&quot;] + [&quot;123&quot;, &quot;456&quot;] # =&gt; [&quot;abc&quot;, &quot;def&quot;, &quot;123&quot;, &quot;456&quot;]
 </code></pre>
 
-<p><code>Array#+</code> | Ruby 2.1 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=2b.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=2b.html</a></p>
+<p><a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=2b.html"><code class="prettyprint">Array#+</code> | Ruby 2.1 リファレンスマニュアル</a></p>
 
+</section>
+<section>
 <h2 id="javascript">JavaScript
 <span class="article-date">2015/10/18</span></h2>
 
-<p><code>Array.prototype.concat</code> は配列を連結した新しい配列を生成して返す。この関数は <code>this</code> も引数に渡した配列も変更しない。</p>
+<p><code class="prettyprint">Array.prototype.concat</code> は配列を連結した新しい配列を生成して返す。この関数は <code class="prettyprint">this</code> も引数に渡した配列も変更しない。</p>
 
-<pre><code>var newArr = arr1.concat(arr2, arr3);
+<pre><code class="prettyprint">var newArr = arr1.concat(arr2, arr3);
 </code></pre>
 
-<p>引数がない場合は結果として <code>arr1</code> と同じ内容の新しい配列を生成するだけなので、
-<a href="clone.html#javascript">配列のコピー</a>の目的でも使える。</p>
+<p>引数がない場合は結果として <code class="prettyprint">arr1</code> と同じ内容の新しい配列を生成するだけなので、<a href="clone.html#javascript">配列のコピー</a>の目的でも使える。</p>
+
+</section>
+</section>
 
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+    このサイトは個人メモの集合です。
   </div>
   <div class="ad">
 <div class="adlabel">スポンサーリンク</div>
@@ -144,49 +151,57 @@ var_export($result); echo "\n";
       <li><a href="../../programming_languages_diff/list/">配列(リスト)</a>
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/list/get.html">get</a></li>
-          <li><a href="../../programming_languages_diff/list/set.html">set</a></li>
-          <li><a href="../../programming_languages_diff/list/size.html">count / len / length / size / sizeof</a></li>
-          <li><a href="../../programming_languages_diff/list/is-empty.html">empty / isEmpty</a></li>
-          <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
-          <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
-          <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
-          <li><a href="../../programming_languages_diff/list/drop.html">drop</a></li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
-          <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
-          <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
-          <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
-          <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
-          <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
-          <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
-          <li><a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
-          <li><a href="../../programming_languages_diff/list/foreach.html">for / foreach</a></li>
-          <li><a href="../../programming_languages_diff/list/fold-left.html">array_reduce / foldLeft / inject / reduce / reduceLeft</a></li>
-          <li><a href="../../programming_languages_diff/list/zip.html">zip</a></li>
-          <li><a href="../../programming_languages_diff/list/product.html">product</a></li>
-          <li><a href="../../programming_languages_diff/list/compare.html">==</a></li>
-          <li><a href="../../programming_languages_diff/list/fill.html">fill</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">range / seq / to / until</a></li>
-          <li><a href="../../programming_languages_diff/list/grouped.html">array_chunk / grouped</a></li>
-          <li><a href="../../programming_languages_diff/list/group-by.html">group_by / groupBy</a></li>
-          <li><a href="../../programming_languages_diff/list/shift.html">array_shift / shift</a></li>
-          <li><a href="../../programming_languages_diff/list/unshift.html">unshift</a></li>
-          <li><a href="../../programming_languages_diff/list/pop.html">array_pop / pop</a></li>
-          <li><a href="../../programming_languages_diff/list/push.html">push</a></li>
-          <li><a href="../../programming_languages_diff/list/remove.html">delete_at / pop / remove / unset</a></li>
-          <li><a href="../../programming_languages_diff/list/remove-by-value.html">delete / remove / <code>-</code></a></li>
-          <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
-          <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
-          <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
-          <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
-          <li>array_merge, <code>+</code>, concat</li>
-          <li><a href="../../programming_languages_diff/list/multiply.html"><code>x</code> / <code>*</code></a></li>
-          <li><a href="../../programming_languages_diff/list/slice-replace.html">array_splice / splice</a></li>
-          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">ベクトル演算</a></li>
+          <li><a href="../../programming_languages_diff/list/get.html">要素を参照するには</a></li>
+          <li><a href="../../programming_languages_diff/list/set.html">要素に値を代入するには</a></li>
+          <li><a href="../../programming_languages_diff/list/size.html">要素数を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/is-empty.html">空かどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外アクセスの挙動</a></li>
+          <li><a href="../../programming_languages_diff/list/head.html">先頭を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/last.html">最後を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/tail.html">先頭を除く残りを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">先頭のn個のみを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/drop.html">先頭のn個を除く残りを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">部分配列を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">特定の値の有無を判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/index-of.html">値からそのインデックスを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/index-where.html">条件にマッチする要素のインデックスを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/filter.html">条件を満たす要素を抽出するには</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">条件にマッチする要素か含まれるかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">すべてが条件にマッチするかどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/clone.html">配列をコピーするには</a></li>
+          <li><a href="../../programming_languages_diff/list/compare.html">2つの配列を中身で比較するには</a></li>
+          <li>配列を連結するには</li>
+          <li><a href="../../programming_languages_diff/list/convert.html">配列(リスト)のデータ型をを相互に変換するには (asList / asScala / asJava / to_a / toArray)</a></li>
+          <li><a href="../../programming_languages_diff/list/fill.html">同じ値で埋めた配列(リスト)を作成するには (fill)</a></li>
+          <li><a href="../../programming_languages_diff/list/filter-count.html">配列(リスト)から特定の条件にマッチする要素の数を数えるには</a></li>
+          <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列を連結した新しい配列を作るには (flatMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/flatten.html">配列(リスト)の配列を配列に平坦化するには (flatten)</a></li>
+          <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素の畳み込みをするには (array_reduce / foldLeft / inject / reduce / reduceLeft)</a></li>
+          <li><a href="../../programming_languages_diff/list/foreach.html">要素を1つずつ処理するには</a></li>
+          <li><a href="../../programming_languages_diff/list/group-by.html">配列(リスト)の要素をグルーピングするには (group_by / groupBy)</a></li>
+          <li><a href="../../programming_languages_diff/list/grouped.html">配列(リスト)を一定の数ごとにグルーピングするには (grouped)</a></li>
+          <li><a href="../../programming_languages_diff/list/head-last.html">配列(リスト)の先頭または最後の要素を取得するには (head, last)</a></li>
+          <li><a href="../../programming_languages_diff/list/literal.html">配列(リスト)の書き方</a></li>
+          <li><a href="../../programming_languages_diff/list/map.html">配列(リスト)の要素1つずつに関数を適用して新しい配列(リスト)を作るには (array_map / map)</a></li>
+          <li><a href="../../programming_languages_diff/list/max-min.html">配列(リスト)の中の最大値・最小値を求めるには (max, min)</a></li>
+          <li><a href="../../programming_languages_diff/list/multiply.html">同じ配列(リスト)を繰り返して連結するには(乗算みたいな) (`x` / `*`)</a></li>
+          <li><a href="../../programming_languages_diff/list/pop.html">配列(リスト)の最後の要素を削除するには (array_pop / pop)</a></li>
+          <li><a href="../../programming_languages_diff/list/product.html">複数の配列(リスト)の要素同士を組み合わせて配列の配列を作るには (product)</a></li>
+          <li><a href="../../programming_languages_diff/list/push.html">配列(リスト)の最後に要素を追加するには (push)</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列(リスト)を作成するには (range / seq / to / until)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove-by-value.html">配列(リスト)から特定の値の要素をすべて削除するには (delete / remove / `-`)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove.html">配列(リスト)から特定の要素をインデックスで指定して削除するには (delete_at / pop / remove / unset)</a></li>
+          <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
+          <li><a href="../../programming_languages_diff/list/shift-unshift-pop-push.html">配列(リスト)の先頭または最後の要素を削除したり、先頭または最後に要素を追加するには (shift, unshift, pop, push)</a></li>
+          <li><a href="../../programming_languages_diff/list/shift.html">配列(リスト)の先頭の要素を削除するには (shift)</a></li>
+          <li><a href="../../programming_languages_diff/list/slice-replace.html">配列(リスト)の一部を別の配列で置き換えるには (array_splice / splice)</a></li>
+          <li><a href="../../programming_languages_diff/list/sort.html">配列(リスト)をソートするには (sort / sortBy / sorted / sortWith)</a></li>
+          <li><a href="../../programming_languages_diff/list/sum.html">数の配列(リスト)の合計を計算するには (sum)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列(リスト)から連想配列を生成するには (toMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-set.html">配列(リスト)から集合(セット)を生成するには (toSet)</a></li>
+          <li><a href="../../programming_languages_diff/list/unshift.html">配列(リスト)の先頭に要素を追加するには (unshift)</a></li>
+          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列(リスト)を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
+          <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の配列(リスト)を要素ごとにまとめて配列の配列を作るには (zip)</a></li>
         </ul>
       </li>
     </ul>
