@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>配列(リスト)の先頭のn個以外の残りを配列で取得するには (drop) | hydroculのメモ</title>
+<title>配列(リスト)から先頭のn個を除く残りを配列で取得するには | hydroculのメモ</title>
 <meta name="google-site-verification" content="uOXuLX4TAlCnMv26zOR30sGJVaZeWwaQLijOrxZiDyI" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" />
@@ -11,48 +11,33 @@
 <script src="https://rawgithub.com/adobe-webplatform/Snap.svg/master/dist/snap.svg-min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="../../common/js/page.js"></script>
 </head>
 <body class="res">
 
 <div id="breadcrumb">
-  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>配列(リスト)の先頭のn個以外の残りを配列で取得するには (drop)</span>
+  <a href="../../">hydroculのメモ</a> &gt; <a href="../../programming_languages_diff/">プログラミング言語の比較</a> &gt; <a href="../../programming_languages_diff/list/">配列(リスト)</a> &gt; <span>先頭のn個を除く残りを取得するには</span>
 </div>
 
 <div id="content">
-  <h1 id="drop">配列(リスト)の先頭のn個以外の残りを配列で取得するには (drop)
-<span class="article-date">2015/03/31</span></h1>
+  <section>
+<h1>配列(リスト)から先頭のn個を除く残りを配列で取得するには
+<span class="article-date">2021/03/04</span></h1>
 
-<h2 id="cf5f354">Go言語 (golang)
-<span class="article-date">2016/11/28</span></h2>
+<p>Scala、PHP、Go言語、Ruby、Pythonでの配列(リスト)から先頭のn個を除く残りを配列で取得する方法。</p>
 
-<p>配列もスライスも <code>[n:]</code> というスライス表記で先頭のn個を除く部分をスライスで取得することができる。元が配列であってもスライスになる。</p>
+<section>
+<h2>Scala
+<span class="article-date">2021/03/04</span></h2>
 
-<pre><code>    n := 2
-
-    arr := [...]int{10, 20, 30, 40, 50} // (配列)
-    fmt.Printf("%#v\n", arr[n:])
-    // =&gt; []int{30, 40, 50}                (スライス)
-
-    sl := []int{10, 20, 30, 40, 50}     // (スライス)
-    fmt.Printf("%#v\n", sl[n:])
-    // =&gt; []int{30, 40, 50}                (スライス)
-</code></pre>
-
-<h2 id="0af1795">Scala
-<span class="article-date">2015/01/15</span></h2>
-
-<p>Signature:</p>
-
-<ul>
-  <li><a href="http://www.scala-lang.org/api/current/scala/collection/Seq.html#drop(n:Int):Repr" target="_blank" class="external-link method-signature"><code>def Seq[A]#drop(n: Int): Seq[A]</code></a></li>
-</ul>
+<p><a href="https://www.scala-lang.org/api/current/scala/collection/Seq.html#drop(n:Int):C"><code class="prettyprint">def Seq[A]#drop(n: Int): Seq[A]</code></a></p>
 
 <p>結果を新しいリストで返し、自身は変更しない。</p>
 
 <p>例</p>
 
-<pre><code>val lst = List(10, 20, 30, 40, 50);
+<pre><code class="prettyprint">val lst = List(10, 20, 30, 40, 50);
 
 val result = lst.drop(2);
 
@@ -60,23 +45,14 @@ println(result);
 // =&gt; List(30, 40, 50)
 </code></pre>
 
-<h2 id="0db1aef">Python
-<span class="article-date">2015/01/15</span></h2>
-
-<p><a href="sub-list.html#python">スライス表記</a>でできる。</p>
-
-<pre><code>lst = [10, 20, 30, 40, 50]
-
-print(lst[2:])
-# =&gt; [30, 40, 50]
-</code></pre>
-
-<h2 id="a0dd5f3">PHP
+</section>
+<section>
+<h2>PHP
 <span class="article-date">2016/11/28</span></h2>
 
-<p><code>array_slice($arr, $n)</code> のようにする。</p>
+<p><code class="prettyprint">array_slice($arr, $n)</code> のようにする。</p>
 
-<pre><code>$arr = array(10, 20, 30, 40, 50);
+<pre><code class="prettyprint">$arr = array(10, 20, 30, 40, 50);
 
 $n = 2;
 
@@ -89,23 +65,41 @@ var_export(array_slice($arr, $n));
 // )
 </code></pre>
 
-<p><code>array_slice</code> は結果を新しい配列で返し、引数の配列を変更しない。</p>
+<p><code class="prettyprint">array_slice</code> は結果を新しい配列で返し、引数の配列を変更しない。</p>
 
-<p><code>array_slice</code> 関数 | PHP Manual<br />
-<a href="http://php.net/manual/ja/function.array-slice.php" target="_blank" class="external-link">http://php.net/manual/ja/function.array-slice.php</a></p>
+<p><a href="http://php.net/manual/ja/function.array-slice.php"><code class="prettyprint">array_slice</code> 関数 | PHP Manual</a></p>
 
-<h2 id="9d09781">Ruby / JRuby
+</section>
+<section>
+<h2>Go言語 (golang)
+<span class="article-date">2016/11/28</span></h2>
+
+<p>配列もスライスも <code class="prettyprint">[n:]</code> というスライス表記で先頭のn個を除く部分をスライスで取得することができる。元が配列であってもスライスになる。</p>
+
+<pre><code class="prettyprint">n := 2
+
+arr := [...]int{10, 20, 30, 40, 50} // (配列)
+fmt.Printf(&quot;%#v\n&quot;, arr[n:])
+// =&gt; []int{30, 40, 50}                (スライス)
+
+sl := []int{10, 20, 30, 40, 50}     // (スライス)
+fmt.Printf(&quot;%#v\n&quot;, sl[n:])
+// =&gt; []int{30, 40, 50}                (スライス)
+</code></pre>
+
+</section>
+<section>
+<h2>Ruby
 <span class="article-date">2015/01/05</span></h2>
 
-<p><code>Enumerable#drop</code> メソッドを使う。これは非破壊的なメソッド。
-<code>Array</code>は<code>Enumerable</code>をインクルードしているので、配列でも<code>Enumerable</code>のメソッドを使える。</p>
+<p><code class="prettyprint">Enumerable#drop</code> メソッドを使う。これは非破壊的なメソッド。<code class="prettyprint">Array</code>は<code class="prettyprint">Enumerable</code>をインクルードしているので、配列でも<code class="prettyprint">Enumerable</code>のメソッドを使える。</p>
 
-<pre><code>arr.drop(n)
+<pre><code class="prettyprint">arr.drop(n)
 </code></pre>
 
 <p>または<a href="sub-list.html#ruby">スライス</a>を使う。</p>
 
-<pre><code>arr.slice(n, arr.size - n)
+<pre><code class="prettyprint">arr.slice(n, arr.size - n)
 # または
 arr[n, arr.size - n]
 # または
@@ -116,74 +110,69 @@ arr[n .. arr.size]
 
 <p>上の2つの書き方は、2つ目の引数が配列の後ろの境界を超えてもエラーを出さないようなので、以下でも同じ。</p>
 
-<pre><code>arr.slice(n, arr.size)
+<pre><code class="prettyprint">arr.slice(n, arr.size)
 # または
 arr[n, arr.size]
 </code></pre>
 
-<p><code>Enumerable#drop</code> | Ruby 2.1 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/drop.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/drop.html</a></p>
+<p><a href="http://docs.ruby-lang.org/ja/2.1.0/method/Enumerable/i/drop.html"><code class="prettyprint">Enumerable#drop</code> | Ruby 2.1 リファレンスマニュアル</a></p>
 
-<p><code>Array#[]</code> | Ruby 2.1 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=5b=5d.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=5b=5d.html</a></p>
+<p><a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/=5b=5d.html"><code class="prettyprint">Array#[]</code> | Ruby 2.1 リファレンスマニュアル</a></p>
 
-<p><code>Array#slice</code> | Ruby 2.1 リファレンスマニュアル<br />
-<a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/slice.html" target="_blank" class="external-link">http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/slice.html</a></p>
+<p><a href="http://docs.ruby-lang.org/ja/2.1.0/method/Array/i/slice.html"><code class="prettyprint">Array#slice</code> | Ruby 2.1 リファレンスマニュアル</a></p>
 
-<h2 id="0cbdcd4">sh (シェルスクリプト)
+</section>
+<section>
+<h2>Python
+<span class="article-date">2015/01/15</span></h2>
+
+<p><a href="sub-list.html#python">スライス表記</a>でできる。</p>
+
+<pre><code class="prettyprint">lst = [10, 20, 30, 40, 50]
+
+print(lst[2:])
+# =&gt; [30, 40, 50]
+</code></pre>
+
+</section>
+<section>
+<h2>sh (シェルスクリプト)
 <span class="article-date">2015/01/29</span></h2>
 
-<p>配列ではないが、テキストファイルに関しては、
-<a href="../../commands/tail.html"><code>tail</code>コマンド</a>を使うと、最初のn行を削除する処理をできる。</p>
+<p>配列ではないが、テキストファイルに関しては、<a href="../../commands/tail.html"><code class="prettyprint">tail</code>コマンド</a>を使うと、最初のn行を削除する処理をできる。</p>
 
-<p><code>-n</code> オプションの後に <code>+</code> と数字をつけると、その行番号から後ろだけを出力してくれる。従って先頭の2行を削除するには3行目から出力すればよいので、
-<code>-n+3</code> と指定する。</p>
+<p><code class="prettyprint">-n</code> オプションの後に <code class="prettyprint">+</code> と数字をつけると、その行番号から後ろだけを出力してくれる。従って先頭の2行を削除するには3行目から出力すればよいので、 <code class="prettyprint">-n+3</code> と指定する。</p>
 
-<pre><code># 最初の2行を除く後続の行を出力
+<pre><code class="prettyprint"># 最初の2行を除く後続の行を出力
 tail -n+3 foo.txt
 </code></pre>
 
-<p><a href="../../commands/sed.html"><code>sed</code>コマンド</a> でもできる。</p>
+<p><a href="../../commands/sed.html"><code class="prettyprint">sed</code>コマンド</a> でもできる。</p>
 
-<pre><code># 2行目から最後まで抽出
-sed -n '2,$p' foo.txt
+<pre><code class="prettyprint"># 2行目から最後まで抽出
+sed -n &#39;2,$p&#39; foo.txt
 # または
 sed -n 2,\$p foo.txt
 </code></pre>
 
-<h2 id="8fc4053">関連
-<span class="article-date">2016/12/04</span></h2>
+</section>
+<section>
+<h2>関連
+</h2>
 
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-      <td>1個</td>
-      <td>n個</td>
-    </tr>
-    <tr>
-      <td>最初の○○以外の要素を取得するには</td>
-      <td><a href="tail.html">tail</a></td>
-      <td>drop</td>
-    </tr>
-    <tr>
-      <td>最初の○○の要素を取得するには</td>
-      <td><a href="head.html">head</a></td>
-      <td><a href="take.html">take</a></td>
-    </tr>
-    <tr>
-      <td>最後の○○の要素を取得するには</td>
-      <td><a href="last.html">last</a></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<table><tr><td></td><td>1個               </td><td>n個               </td></tr>
+<tr><td>最初の○○以外の要素を取得するには </td><td><a href="tail.html">tail</a> </td><td>drop              </td></tr>
+<tr><td>最初の○○の要素を取得するには     </td><td><a href="head.html">head</a> </td><td><a href="take.html">take</a> </td></tr>
+<tr><td>最後の○○の要素を取得するには     </td><td><a href="last.html">last</a> </td><td></td></tr></table>
+
+</section>
+</section>
 
 </div>
 
 <div id="side-menu">
   <div id="side-menu-attention">
-    このサイトは筆者(hydrocul)の個人メモの集合です。すべてのページは永遠に未完成です。
+    このサイトは個人メモの集合です。
   </div>
   <div class="ad">
 <div class="adlabel">スポンサーリンク</div>
@@ -205,49 +194,57 @@ sed -n 2,\$p foo.txt
       <li><a href="../../programming_languages_diff/list/">配列(リスト)</a>
         <ul>
           <li><a href="../../programming_languages_diff/list/overview.html">概要</a></li>
-          <li><a href="../../programming_languages_diff/list/get.html">get</a></li>
-          <li><a href="../../programming_languages_diff/list/set.html">set</a></li>
-          <li><a href="../../programming_languages_diff/list/size.html">count / len / length / size / sizeof</a></li>
-          <li><a href="../../programming_languages_diff/list/is-empty.html">empty / isEmpty</a></li>
-          <li><a href="../../programming_languages_diff/list/head.html">first / head / headOption</a></li>
-          <li><a href="../../programming_languages_diff/list/last.html">last / lastOption</a></li>
-          <li><a href="../../programming_languages_diff/list/tail.html">tail</a></li>
-          <li><a href="../../programming_languages_diff/list/take.html">take / first</a></li>
-          <li>drop</li>
-          <li><a href="../../programming_languages_diff/list/sub-list.html">subList / slice / array_slice (部分配列)</a></li>
-          <li><a href="../../programming_languages_diff/list/contains.html">contains</a></li>
-          <li><a href="../../programming_languages_diff/list/index-of.html">array_search / find_index / index / indexOf / lastIndexOf / rindex</a></li>
-          <li><a href="../../programming_languages_diff/list/index-where.html">find_index / index / indexWhere, rindex</a></li>
-          <li><a href="../../programming_languages_diff/list/filter.html">array_filter / delete_if / filter / grep / keep_if / partition / reject / select</a></li>
-          <li><a href="../../programming_languages_diff/list/any.html">any / any? / exists / find</a></li>
-          <li><a href="../../programming_languages_diff/list/all.html">all / all?</a></li>
-          <li><a href="../../programming_languages_diff/list/map.html">array_map / map</a></li>
-          <li><a href="../../programming_languages_diff/list/flat-map.html">flatMap</a></li>
-          <li><a href="../../programming_languages_diff/list/flatten.html">flatten</a></li>
-          <li><a href="../../programming_languages_diff/list/foreach.html">for / foreach</a></li>
-          <li><a href="../../programming_languages_diff/list/fold-left.html">array_reduce / foldLeft / inject / reduce / reduceLeft</a></li>
-          <li><a href="../../programming_languages_diff/list/zip.html">zip</a></li>
-          <li><a href="../../programming_languages_diff/list/product.html">product</a></li>
-          <li><a href="../../programming_languages_diff/list/compare.html">==</a></li>
-          <li><a href="../../programming_languages_diff/list/fill.html">fill</a></li>
-          <li><a href="../../programming_languages_diff/list/range.html">range / seq / to / until</a></li>
-          <li><a href="../../programming_languages_diff/list/grouped.html">array_chunk / grouped</a></li>
-          <li><a href="../../programming_languages_diff/list/group-by.html">group_by / groupBy</a></li>
-          <li><a href="../../programming_languages_diff/list/shift.html">array_shift / shift</a></li>
-          <li><a href="../../programming_languages_diff/list/unshift.html">unshift</a></li>
-          <li><a href="../../programming_languages_diff/list/pop.html">array_pop / pop</a></li>
-          <li><a href="../../programming_languages_diff/list/push.html">push</a></li>
-          <li><a href="../../programming_languages_diff/list/remove.html">delete_at / pop / remove / unset</a></li>
-          <li><a href="../../programming_languages_diff/list/remove-by-value.html">delete / remove / <code>-</code></a></li>
-          <li><a href="../../programming_languages_diff/list/clone.html">clone</a></li>
-          <li><a href="../../programming_languages_diff/list/reverse.html">reverse</a></li>
-          <li><a href="../../programming_languages_diff/list/sort.html">sort / sortBy / sorted / sortWith</a></li>
-          <li><a href="../../programming_languages_diff/list/max-min.html">max, min</a></li>
-          <li><a href="../../programming_languages_diff/list/sum.html">sum</a></li>
-          <li><a href="../../programming_languages_diff/list/concat.html">array_merge, <code>+</code>, concat</a></li>
-          <li><a href="../../programming_languages_diff/list/multiply.html"><code>x</code> / <code>*</code></a></li>
-          <li><a href="../../programming_languages_diff/list/slice-replace.html">array_splice / splice</a></li>
-          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">ベクトル演算</a></li>
+          <li><a href="../../programming_languages_diff/list/get.html">要素を参照するには</a></li>
+          <li><a href="../../programming_languages_diff/list/set.html">要素に値を代入するには</a></li>
+          <li><a href="../../programming_languages_diff/list/size.html">要素数を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/is-empty.html">空かどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/index-out-of-bounds-exception.html">範囲外アクセスの挙動</a></li>
+          <li><a href="../../programming_languages_diff/list/head.html">先頭を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/last.html">最後を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/tail.html">先頭を除く残りを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/take.html">先頭のn個のみを取得するには</a></li>
+          <li>先頭のn個を除く残りを取得するには</li>
+          <li><a href="../../programming_languages_diff/list/sub-list.html">部分配列を取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/contains.html">特定の値の有無を判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/index-of.html">値からそのインデックスを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/index-where.html">条件にマッチする要素のインデックスを取得するには</a></li>
+          <li><a href="../../programming_languages_diff/list/filter.html">条件を満たす要素を抽出するには</a></li>
+          <li><a href="../../programming_languages_diff/list/any.html">条件にマッチする要素か含まれるかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/all.html">すべてが条件にマッチするかどうかを判定するには</a></li>
+          <li><a href="../../programming_languages_diff/list/clone.html">配列をコピーするには</a></li>
+          <li><a href="../../programming_languages_diff/list/compare.html">2つの配列を中身で比較するには</a></li>
+          <li><a href="../../programming_languages_diff/list/concat.html">配列を連結するには</a></li>
+          <li><a href="../../programming_languages_diff/list/convert.html">配列(リスト)のデータ型をを相互に変換するには (asList / asScala / asJava / to_a / toArray)</a></li>
+          <li><a href="../../programming_languages_diff/list/fill.html">同じ値で埋めた配列(リスト)を作成するには (fill)</a></li>
+          <li><a href="../../programming_languages_diff/list/filter-count.html">配列(リスト)から特定の条件にマッチする要素の数を数えるには</a></li>
+          <li><a href="../../programming_languages_diff/list/flat-map.html">配列(リスト)の要素1つずつに関数を適用して結果の配列を連結した新しい配列を作るには (flatMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/flatten.html">配列(リスト)の配列を配列に平坦化するには (flatten)</a></li>
+          <li><a href="../../programming_languages_diff/list/fold-left.html">配列(リスト)の先頭から要素の畳み込みをするには (array_reduce / foldLeft / inject / reduce / reduceLeft)</a></li>
+          <li><a href="../../programming_languages_diff/list/foreach.html">要素を1つずつ処理するには</a></li>
+          <li><a href="../../programming_languages_diff/list/group-by.html">配列(リスト)の要素をグルーピングするには (group_by / groupBy)</a></li>
+          <li><a href="../../programming_languages_diff/list/grouped.html">配列(リスト)を一定の数ごとにグルーピングするには (grouped)</a></li>
+          <li><a href="../../programming_languages_diff/list/head-last.html">配列(リスト)の先頭または最後の要素を取得するには (head, last)</a></li>
+          <li><a href="../../programming_languages_diff/list/literal.html">配列(リスト)の書き方</a></li>
+          <li><a href="../../programming_languages_diff/list/map.html">配列(リスト)の要素1つずつに関数を適用して新しい配列(リスト)を作るには (array_map / map)</a></li>
+          <li><a href="../../programming_languages_diff/list/max-min.html">配列(リスト)の中の最大値・最小値を求めるには (max, min)</a></li>
+          <li><a href="../../programming_languages_diff/list/multiply.html">同じ配列(リスト)を繰り返して連結するには(乗算みたいな) (`x` / `*`)</a></li>
+          <li><a href="../../programming_languages_diff/list/pop.html">配列(リスト)の最後の要素を削除するには (array_pop / pop)</a></li>
+          <li><a href="../../programming_languages_diff/list/product.html">複数の配列(リスト)の要素同士を組み合わせて配列の配列を作るには (product)</a></li>
+          <li><a href="../../programming_languages_diff/list/push.html">配列(リスト)の最後に要素を追加するには (push)</a></li>
+          <li><a href="../../programming_languages_diff/list/range.html">連続した数値の配列(リスト)を作成するには (range / seq / to / until)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove-by-value.html">配列(リスト)から特定の値の要素をすべて削除するには (delete / remove / `-`)</a></li>
+          <li><a href="../../programming_languages_diff/list/remove.html">配列(リスト)から特定の要素をインデックスで指定して削除するには (delete_at / pop / remove / unset)</a></li>
+          <li><a href="../../programming_languages_diff/list/reverse.html">配列(リスト)を逆順に並び替えるには (reverse)</a></li>
+          <li><a href="../../programming_languages_diff/list/shift-unshift-pop-push.html">配列(リスト)の先頭または最後の要素を削除したり、先頭または最後に要素を追加するには (shift, unshift, pop, push)</a></li>
+          <li><a href="../../programming_languages_diff/list/shift.html">配列(リスト)の先頭の要素を削除するには (shift)</a></li>
+          <li><a href="../../programming_languages_diff/list/slice-replace.html">配列(リスト)の一部を別の配列で置き換えるには (array_splice / splice)</a></li>
+          <li><a href="../../programming_languages_diff/list/sort.html">配列(リスト)をソートするには (sort / sortBy / sorted / sortWith)</a></li>
+          <li><a href="../../programming_languages_diff/list/sum.html">数の配列(リスト)の合計を計算するには (sum)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-map.html">値のペアの配列(リスト)から連想配列を生成するには (toMap)</a></li>
+          <li><a href="../../programming_languages_diff/list/to-set.html">配列(リスト)から集合(セット)を生成するには (toSet)</a></li>
+          <li><a href="../../programming_languages_diff/list/unshift.html">配列(リスト)の先頭に要素を追加するには (unshift)</a></li>
+          <li><a href="../../programming_languages_diff/list/vector-add-subtract-multiply-divide.html">数値の配列(リスト)を要素ごとに加算/減算/乗算/除算するには(ベクトル演算)</a></li>
+          <li><a href="../../programming_languages_diff/list/zip.html">同じ要素数の配列(リスト)を要素ごとにまとめて配列の配列を作るには (zip)</a></li>
         </ul>
       </li>
     </ul>
